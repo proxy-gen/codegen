@@ -114,7 +114,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_SlidingDrawer::android_widget_SlidingDrawer(const android_widget_SlidingDrawer& cc)
 {
 	LOGV("android_widget_SlidingDrawer::android_widget_SlidingDrawer(const android_widget_SlidingDrawer& cc) enter");
@@ -138,9 +137,9 @@ android_widget_SlidingDrawer::android_widget_SlidingDrawer(const android_widget_
 
 	LOGV("android_widget_SlidingDrawer::android_widget_SlidingDrawer(const android_widget_SlidingDrawer& cc) exit");
 }
-android_widget_SlidingDrawer::android_widget_SlidingDrawer(void * proxy)
+android_widget_SlidingDrawer::android_widget_SlidingDrawer(Proxy proxy)
 {
-	LOGV("android_widget_SlidingDrawer::android_widget_SlidingDrawer(void * proxy) enter");
+	LOGV("android_widget_SlidingDrawer::android_widget_SlidingDrawer(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -150,55 +149,34 @@ android_widget_SlidingDrawer::android_widget_SlidingDrawer(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_SlidingDrawer::android_widget_SlidingDrawer(void * proxy) exit");
+	LOGV("android_widget_SlidingDrawer::android_widget_SlidingDrawer(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_SlidingDrawer::android_widget_SlidingDrawer()
-// {
-// 	LOGV("android_widget_SlidingDrawer::android_widget_SlidingDrawer() enter");	
+Proxy android_widget_SlidingDrawer::proxy() const
+{	
+	LOGV("android_widget_SlidingDrawer::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/SlidingDrawer";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_SlidingDrawer cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_SlidingDrawer jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_SlidingDrawer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_SlidingDrawer::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_SlidingDrawer cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_SlidingDrawer jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_SlidingDrawer::android_widget_SlidingDrawer() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_SlidingDrawer::android_widget_SlidingDrawer(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
+	return proxy;
+}
+android_widget_SlidingDrawer::android_widget_SlidingDrawer(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2)
 {
-	LOGV("android_widget_SlidingDrawer::android_widget_SlidingDrawer(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) enter");	
+	LOGV("android_widget_SlidingDrawer::android_widget_SlidingDrawer(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
@@ -293,11 +271,11 @@ android_widget_SlidingDrawer::android_widget_SlidingDrawer(AndroidCXX::android_c
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_SlidingDrawer::android_widget_SlidingDrawer(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) exit");	
+	LOGV("android_widget_SlidingDrawer::android_widget_SlidingDrawer(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) exit");	
 }
-android_widget_SlidingDrawer::android_widget_SlidingDrawer(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+android_widget_SlidingDrawer::android_widget_SlidingDrawer(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_SlidingDrawer::android_widget_SlidingDrawer(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_SlidingDrawer::android_widget_SlidingDrawer(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -371,7 +349,7 @@ android_widget_SlidingDrawer::android_widget_SlidingDrawer(AndroidCXX::android_c
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_SlidingDrawer::android_widget_SlidingDrawer(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_SlidingDrawer::android_widget_SlidingDrawer(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
 // Default Instance Destructor
 android_widget_SlidingDrawer::~android_widget_SlidingDrawer()
@@ -384,7 +362,7 @@ android_widget_SlidingDrawer::~android_widget_SlidingDrawer()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_SlidingDrawer::~android_widget_SlidingDrawer() exit");
 }
 // Functions
@@ -401,8 +379,6 @@ void android_widget_SlidingDrawer::lock()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SlidingDrawer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -411,8 +387,6 @@ void android_widget_SlidingDrawer::lock()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_SlidingDrawer::lock() exit");
 
 }
@@ -429,8 +403,6 @@ void android_widget_SlidingDrawer::close()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SlidingDrawer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -439,8 +411,6 @@ void android_widget_SlidingDrawer::close()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_SlidingDrawer::close() exit");
 
 }
@@ -456,8 +426,6 @@ AndroidCXX::android_view_View android_widget_SlidingDrawer::getContent()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SlidingDrawer cxx address %d", cxxAddress);
@@ -486,8 +454,6 @@ AndroidCXX::android_view_View android_widget_SlidingDrawer::getContent()
 	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
 	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_view_View android_widget_SlidingDrawer::getContent() exit");
 
 	return result;
@@ -505,8 +471,6 @@ void android_widget_SlidingDrawer::open()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SlidingDrawer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -515,8 +479,6 @@ void android_widget_SlidingDrawer::open()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_SlidingDrawer::open() exit");
 
 }
@@ -532,8 +494,6 @@ AndroidCXX::android_view_View android_widget_SlidingDrawer::getHandle()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SlidingDrawer cxx address %d", cxxAddress);
@@ -562,8 +522,6 @@ AndroidCXX::android_view_View android_widget_SlidingDrawer::getHandle()
 	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
 	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_view_View android_widget_SlidingDrawer::getHandle() exit");
 
 	return result;
@@ -581,8 +539,6 @@ void android_widget_SlidingDrawer::unlock()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SlidingDrawer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -591,14 +547,12 @@ void android_widget_SlidingDrawer::unlock()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_SlidingDrawer::unlock() exit");
 
 }
-bool android_widget_SlidingDrawer::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_SlidingDrawer::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_SlidingDrawer::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_SlidingDrawer::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onTouchEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -609,8 +563,6 @@ bool android_widget_SlidingDrawer::onTouchEvent(AndroidCXX::android_view_MotionE
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SlidingDrawer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -659,15 +611,13 @@ bool android_widget_SlidingDrawer::onTouchEvent(AndroidCXX::android_view_MotionE
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_SlidingDrawer::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	LOGV("bool android_widget_SlidingDrawer::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-bool android_widget_SlidingDrawer::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_SlidingDrawer::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_SlidingDrawer::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_SlidingDrawer::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onInterceptTouchEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -678,8 +628,6 @@ bool android_widget_SlidingDrawer::onInterceptTouchEvent(AndroidCXX::android_vie
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SlidingDrawer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -728,15 +676,13 @@ bool android_widget_SlidingDrawer::onInterceptTouchEvent(AndroidCXX::android_vie
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_SlidingDrawer::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	LOGV("bool android_widget_SlidingDrawer::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-void android_widget_SlidingDrawer::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_SlidingDrawer::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_SlidingDrawer::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_SlidingDrawer::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -746,8 +692,6 @@ void android_widget_SlidingDrawer::onInitializeAccessibilityEvent(AndroidCXX::an
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SlidingDrawer cxx address %d", cxxAddress);
@@ -778,14 +722,12 @@ void android_widget_SlidingDrawer::onInitializeAccessibilityEvent(AndroidCXX::an
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SlidingDrawer::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_SlidingDrawer::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_SlidingDrawer::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0)
+void android_widget_SlidingDrawer::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0)
 {
-	LOGV("void android_widget_SlidingDrawer::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) enter");
+	LOGV("void android_widget_SlidingDrawer::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityNodeInfo";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
@@ -795,8 +737,6 @@ void android_widget_SlidingDrawer::onInitializeAccessibilityNodeInfo(AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SlidingDrawer cxx address %d", cxxAddress);
@@ -827,9 +767,7 @@ void android_widget_SlidingDrawer::onInitializeAccessibilityNodeInfo(AndroidCXX:
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SlidingDrawer::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) exit");
+	LOGV("void android_widget_SlidingDrawer::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) exit");
 
 }
 void android_widget_SlidingDrawer::toggle()
@@ -845,8 +783,6 @@ void android_widget_SlidingDrawer::toggle()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SlidingDrawer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -855,8 +791,6 @@ void android_widget_SlidingDrawer::toggle()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_SlidingDrawer::toggle() exit");
 
 }
@@ -873,8 +807,6 @@ void android_widget_SlidingDrawer::animateToggle()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SlidingDrawer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -883,8 +815,6 @@ void android_widget_SlidingDrawer::animateToggle()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_SlidingDrawer::animateToggle() exit");
 
 }
@@ -901,8 +831,6 @@ void android_widget_SlidingDrawer::animateClose()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SlidingDrawer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -911,8 +839,6 @@ void android_widget_SlidingDrawer::animateClose()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_SlidingDrawer::animateClose() exit");
 
 }
@@ -929,8 +855,6 @@ void android_widget_SlidingDrawer::animateOpen()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SlidingDrawer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -939,14 +863,12 @@ void android_widget_SlidingDrawer::animateOpen()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_SlidingDrawer::animateOpen() exit");
 
 }
-void android_widget_SlidingDrawer::setOnDrawerOpenListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerOpenListener& arg0)
+void android_widget_SlidingDrawer::setOnDrawerOpenListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerOpenListener const& arg0)
 {
-	LOGV("void android_widget_SlidingDrawer::setOnDrawerOpenListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerOpenListener& arg0) enter");
+	LOGV("void android_widget_SlidingDrawer::setOnDrawerOpenListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerOpenListener const& arg0) enter");
 
 	const char *methodName = "setOnDrawerOpenListener";
 	const char *methodSignature = "(Landroid/widget/SlidingDrawer$OnDrawerOpenListener;)V";
@@ -956,8 +878,6 @@ void android_widget_SlidingDrawer::setOnDrawerOpenListener(AndroidCXX::android_w
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SlidingDrawer cxx address %d", cxxAddress);
@@ -988,14 +908,12 @@ void android_widget_SlidingDrawer::setOnDrawerOpenListener(AndroidCXX::android_w
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SlidingDrawer::setOnDrawerOpenListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerOpenListener& arg0) exit");
+	LOGV("void android_widget_SlidingDrawer::setOnDrawerOpenListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerOpenListener const& arg0) exit");
 
 }
-void android_widget_SlidingDrawer::setOnDrawerCloseListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerCloseListener& arg0)
+void android_widget_SlidingDrawer::setOnDrawerCloseListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerCloseListener const& arg0)
 {
-	LOGV("void android_widget_SlidingDrawer::setOnDrawerCloseListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerCloseListener& arg0) enter");
+	LOGV("void android_widget_SlidingDrawer::setOnDrawerCloseListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerCloseListener const& arg0) enter");
 
 	const char *methodName = "setOnDrawerCloseListener";
 	const char *methodSignature = "(Landroid/widget/SlidingDrawer$OnDrawerCloseListener;)V";
@@ -1005,8 +923,6 @@ void android_widget_SlidingDrawer::setOnDrawerCloseListener(AndroidCXX::android_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SlidingDrawer cxx address %d", cxxAddress);
@@ -1037,14 +953,12 @@ void android_widget_SlidingDrawer::setOnDrawerCloseListener(AndroidCXX::android_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SlidingDrawer::setOnDrawerCloseListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerCloseListener& arg0) exit");
+	LOGV("void android_widget_SlidingDrawer::setOnDrawerCloseListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerCloseListener const& arg0) exit");
 
 }
-void android_widget_SlidingDrawer::setOnDrawerScrollListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerScrollListener& arg0)
+void android_widget_SlidingDrawer::setOnDrawerScrollListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerScrollListener const& arg0)
 {
-	LOGV("void android_widget_SlidingDrawer::setOnDrawerScrollListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerScrollListener& arg0) enter");
+	LOGV("void android_widget_SlidingDrawer::setOnDrawerScrollListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerScrollListener const& arg0) enter");
 
 	const char *methodName = "setOnDrawerScrollListener";
 	const char *methodSignature = "(Landroid/widget/SlidingDrawer$OnDrawerScrollListener;)V";
@@ -1054,8 +968,6 @@ void android_widget_SlidingDrawer::setOnDrawerScrollListener(AndroidCXX::android
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SlidingDrawer cxx address %d", cxxAddress);
@@ -1086,9 +998,7 @@ void android_widget_SlidingDrawer::setOnDrawerScrollListener(AndroidCXX::android
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SlidingDrawer::setOnDrawerScrollListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerScrollListener& arg0) exit");
+	LOGV("void android_widget_SlidingDrawer::setOnDrawerScrollListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerScrollListener const& arg0) exit");
 
 }
 bool android_widget_SlidingDrawer::isOpened()
@@ -1103,8 +1013,6 @@ bool android_widget_SlidingDrawer::isOpened()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SlidingDrawer cxx address %d", cxxAddress);
@@ -1133,8 +1041,6 @@ bool android_widget_SlidingDrawer::isOpened()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_SlidingDrawer::isOpened() exit");
 
 	return result;
@@ -1152,8 +1058,6 @@ bool android_widget_SlidingDrawer::isMoving()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SlidingDrawer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1181,8 +1085,6 @@ bool android_widget_SlidingDrawer::isMoving()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_SlidingDrawer::isMoving() exit");
 
 	return result;

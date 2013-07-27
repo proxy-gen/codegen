@@ -51,16 +51,13 @@ class android_media_MediaPlayer_OnCompletionListener
 public:
 
 	android_media_MediaPlayer_OnCompletionListener(const android_media_MediaPlayer_OnCompletionListener& cc);
-	android_media_MediaPlayer_OnCompletionListener(void * proxy);
+	android_media_MediaPlayer_OnCompletionListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_media_MediaPlayer_OnCompletionListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_OnCompletionListener();
 	// Functions
-	 void onCompletion(AndroidCXX::android_media_MediaPlayer& arg0);
+	 void onCompletion(AndroidCXX::android_media_MediaPlayer const& arg0);
 };	
 
 } // namespace

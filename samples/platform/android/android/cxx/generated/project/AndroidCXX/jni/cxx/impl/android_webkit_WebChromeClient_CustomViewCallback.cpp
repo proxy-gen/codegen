@@ -39,7 +39,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_webkit_WebChromeClient_CustomViewCallback::android_webkit_WebChromeClient_CustomViewCallback(const android_webkit_WebChromeClient_CustomViewCallback& cc)
 {
 	LOGV("android_webkit_WebChromeClient_CustomViewCallback::android_webkit_WebChromeClient_CustomViewCallback(const android_webkit_WebChromeClient_CustomViewCallback& cc) enter");
@@ -63,9 +62,9 @@ android_webkit_WebChromeClient_CustomViewCallback::android_webkit_WebChromeClien
 
 	LOGV("android_webkit_WebChromeClient_CustomViewCallback::android_webkit_WebChromeClient_CustomViewCallback(const android_webkit_WebChromeClient_CustomViewCallback& cc) exit");
 }
-android_webkit_WebChromeClient_CustomViewCallback::android_webkit_WebChromeClient_CustomViewCallback(void * proxy)
+android_webkit_WebChromeClient_CustomViewCallback::android_webkit_WebChromeClient_CustomViewCallback(Proxy proxy)
 {
-	LOGV("android_webkit_WebChromeClient_CustomViewCallback::android_webkit_WebChromeClient_CustomViewCallback(void * proxy) enter");
+	LOGV("android_webkit_WebChromeClient_CustomViewCallback::android_webkit_WebChromeClient_CustomViewCallback(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -75,52 +74,31 @@ android_webkit_WebChromeClient_CustomViewCallback::android_webkit_WebChromeClien
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_webkit_WebChromeClient_CustomViewCallback::android_webkit_WebChromeClient_CustomViewCallback(void * proxy) exit");
+	LOGV("android_webkit_WebChromeClient_CustomViewCallback::android_webkit_WebChromeClient_CustomViewCallback(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_webkit_WebChromeClient_CustomViewCallback::android_webkit_WebChromeClient_CustomViewCallback()
-// {
-// 	LOGV("android_webkit_WebChromeClient_CustomViewCallback::android_webkit_WebChromeClient_CustomViewCallback() enter");	
+Proxy android_webkit_WebChromeClient_CustomViewCallback::proxy() const
+{	
+	LOGV("android_webkit_WebChromeClient_CustomViewCallback::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/webkit/WebChromeClient$CustomViewCallback";
+	long cxxAddress = (long) this;
+	LOGV("android_webkit_WebChromeClient_CustomViewCallback cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_webkit_WebChromeClient_CustomViewCallback jni address %d", proxiedComponent);
 
-// 	LOGV("android_webkit_WebChromeClient_CustomViewCallback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_webkit_WebChromeClient_CustomViewCallback::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_webkit_WebChromeClient_CustomViewCallback cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_webkit_WebChromeClient_CustomViewCallback jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_webkit_WebChromeClient_CustomViewCallback::android_webkit_WebChromeClient_CustomViewCallback() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_webkit_WebChromeClient_CustomViewCallback::~android_webkit_WebChromeClient_CustomViewCallback()
 {
@@ -132,7 +110,7 @@ android_webkit_WebChromeClient_CustomViewCallback::~android_webkit_WebChromeClie
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_webkit_WebChromeClient_CustomViewCallback::~android_webkit_WebChromeClient_CustomViewCallback() exit");
 }
 // Functions
@@ -149,8 +127,6 @@ void android_webkit_WebChromeClient_CustomViewCallback::onCustomViewHidden()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient_CustomViewCallback cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -159,8 +135,6 @@ void android_webkit_WebChromeClient_CustomViewCallback::onCustomViewHidden()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_webkit_WebChromeClient_CustomViewCallback::onCustomViewHidden() exit");
 
 }

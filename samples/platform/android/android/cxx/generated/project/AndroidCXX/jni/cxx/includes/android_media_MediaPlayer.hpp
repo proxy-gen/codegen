@@ -206,11 +206,10 @@ class android_media_MediaPlayer
 public:
 
 	android_media_MediaPlayer(const android_media_MediaPlayer& cc);
-	android_media_MediaPlayer(void * proxy);
+	android_media_MediaPlayer(Proxy proxy);
 	// Public Constructors
 	android_media_MediaPlayer();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_media_MediaPlayer();
 	// Functions
@@ -218,52 +217,52 @@ public:
 	 void stop();
 	 void reset();
 	 void release();
-	static AndroidCXX::android_media_MediaPlayer create(AndroidCXX::android_content_Context& arg0,int& arg1);
-	static AndroidCXX::android_media_MediaPlayer create(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_net_Uri& arg1,AndroidCXX::android_view_SurfaceHolder& arg2);
-	static AndroidCXX::android_media_MediaPlayer create(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_net_Uri& arg1);
+	static AndroidCXX::android_media_MediaPlayer create(AndroidCXX::android_content_Context const& arg0,int const& arg1);
+	static AndroidCXX::android_media_MediaPlayer create(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::android_view_SurfaceHolder const& arg2);
+	static AndroidCXX::android_media_MediaPlayer create(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1);
 	 int getDuration();
 	 void prepare();
 	 void pause();
 	 int getCurrentPosition();
-	 void seekTo(int& arg0);
+	 void seekTo(int const& arg0);
 	 bool isPlaying();
-	 void setOnPreparedListener(AndroidCXX::android_media_MediaPlayer_OnPreparedListener& arg0);
-	 void setOnCompletionListener(AndroidCXX::android_media_MediaPlayer_OnCompletionListener& arg0);
-	 void setOnErrorListener(AndroidCXX::android_media_MediaPlayer_OnErrorListener& arg0);
-	 void setOnInfoListener(AndroidCXX::android_media_MediaPlayer_OnInfoListener& arg0);
-	 void setDisplay(AndroidCXX::android_view_SurfaceHolder& arg0);
-	 void setSurface(AndroidCXX::android_view_Surface& arg0);
-	 void setVideoScalingMode(int& arg0);
-	 void setDataSource(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_net_Uri& arg1);
-	 void setDataSource(AndroidCXX::java_io_FileDescriptor& arg0);
-	 void setDataSource(AndroidCXX::java_lang_String& arg0);
-	 void setDataSource(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_net_Uri& arg1,AndroidCXX::java_util_Map& arg2);
-	 void setDataSource(AndroidCXX::java_io_FileDescriptor& arg0,long& arg1,long& arg2);
+	 void setOnPreparedListener(AndroidCXX::android_media_MediaPlayer_OnPreparedListener const& arg0);
+	 void setOnCompletionListener(AndroidCXX::android_media_MediaPlayer_OnCompletionListener const& arg0);
+	 void setOnErrorListener(AndroidCXX::android_media_MediaPlayer_OnErrorListener const& arg0);
+	 void setOnInfoListener(AndroidCXX::android_media_MediaPlayer_OnInfoListener const& arg0);
+	 void setDisplay(AndroidCXX::android_view_SurfaceHolder const& arg0);
+	 void setSurface(AndroidCXX::android_view_Surface const& arg0);
+	 void setVideoScalingMode(int const& arg0);
+	 void setDataSource(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1);
+	 void setDataSource(AndroidCXX::java_io_FileDescriptor const& arg0);
+	 void setDataSource(AndroidCXX::java_lang_String const& arg0);
+	 void setDataSource(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::java_util_Map const& arg2);
+	 void setDataSource(AndroidCXX::java_io_FileDescriptor const& arg0,long const& arg1,long const& arg2);
 	 void prepareAsync();
-	 void setWakeMode(AndroidCXX::android_content_Context& arg0,int& arg1);
-	 void setScreenOnWhilePlaying(bool& arg0);
+	 void setWakeMode(AndroidCXX::android_content_Context const& arg0,int const& arg1);
+	 void setScreenOnWhilePlaying(bool const& arg0);
 	 int getVideoWidth();
 	 int getVideoHeight();
-	 void setNextMediaPlayer(AndroidCXX::android_media_MediaPlayer& arg0);
-	 void setAudioStreamType(int& arg0);
-	 void setLooping(bool& arg0);
+	 void setNextMediaPlayer(AndroidCXX::android_media_MediaPlayer const& arg0);
+	 void setAudioStreamType(int const& arg0);
+	 void setLooping(bool const& arg0);
 	 bool isLooping();
-	 void setVolume(float& arg0,float& arg1);
-	 void setAudioSessionId(int& arg0);
+	 void setVolume(float const& arg0,float const& arg1);
+	 void setAudioSessionId(int const& arg0);
 	 int getAudioSessionId();
-	 void attachAuxEffect(int& arg0);
-	 void setAuxEffectSendLevel(float& arg0);
+	 void attachAuxEffect(int const& arg0);
+	 void setAuxEffectSendLevel(float const& arg0);
 	 std::vector<AndroidCXX::android_media_MediaPlayer_TrackInfo > getTrackInfo();
-	 void addTimedTextSource(AndroidCXX::java_io_FileDescriptor& arg0,AndroidCXX::java_lang_String& arg1);
-	 void addTimedTextSource(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_net_Uri& arg1,AndroidCXX::java_lang_String& arg2);
-	 void addTimedTextSource(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
-	 void addTimedTextSource(AndroidCXX::java_io_FileDescriptor& arg0,long& arg1,long& arg2,AndroidCXX::java_lang_String& arg3);
-	 void selectTrack(int& arg0);
-	 void deselectTrack(int& arg0);
-	 void setOnBufferingUpdateListener(AndroidCXX::android_media_MediaPlayer_OnBufferingUpdateListener& arg0);
-	 void setOnSeekCompleteListener(AndroidCXX::android_media_MediaPlayer_OnSeekCompleteListener& arg0);
-	 void setOnVideoSizeChangedListener(AndroidCXX::android_media_MediaPlayer_OnVideoSizeChangedListener& arg0);
-	 void setOnTimedTextListener(AndroidCXX::android_media_MediaPlayer_OnTimedTextListener& arg0);
+	 void addTimedTextSource(AndroidCXX::java_io_FileDescriptor const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 void addTimedTextSource(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::java_lang_String const& arg2);
+	 void addTimedTextSource(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 void addTimedTextSource(AndroidCXX::java_io_FileDescriptor const& arg0,long const& arg1,long const& arg2,AndroidCXX::java_lang_String const& arg3);
+	 void selectTrack(int const& arg0);
+	 void deselectTrack(int const& arg0);
+	 void setOnBufferingUpdateListener(AndroidCXX::android_media_MediaPlayer_OnBufferingUpdateListener const& arg0);
+	 void setOnSeekCompleteListener(AndroidCXX::android_media_MediaPlayer_OnSeekCompleteListener const& arg0);
+	 void setOnVideoSizeChangedListener(AndroidCXX::android_media_MediaPlayer_OnVideoSizeChangedListener const& arg0);
+	 void setOnTimedTextListener(AndroidCXX::android_media_MediaPlayer_OnTimedTextListener const& arg0);
 };	
 
 } // namespace

@@ -30,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace COM_FACEBOOK_TESTSESSION_MODE {
+namespace com_facebook_TestSession_Mode {
 
 enum com_facebook_TestSession_Mode
 {

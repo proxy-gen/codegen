@@ -46,7 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_View_OnLongClickListener::android_view_View_OnLongClickListener(const android_view_View_OnLongClickListener& cc)
 {
 	LOGV("android_view_View_OnLongClickListener::android_view_View_OnLongClickListener(const android_view_View_OnLongClickListener& cc) enter");
@@ -70,9 +69,9 @@ android_view_View_OnLongClickListener::android_view_View_OnLongClickListener(con
 
 	LOGV("android_view_View_OnLongClickListener::android_view_View_OnLongClickListener(const android_view_View_OnLongClickListener& cc) exit");
 }
-android_view_View_OnLongClickListener::android_view_View_OnLongClickListener(void * proxy)
+android_view_View_OnLongClickListener::android_view_View_OnLongClickListener(Proxy proxy)
 {
-	LOGV("android_view_View_OnLongClickListener::android_view_View_OnLongClickListener(void * proxy) enter");
+	LOGV("android_view_View_OnLongClickListener::android_view_View_OnLongClickListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -82,52 +81,31 @@ android_view_View_OnLongClickListener::android_view_View_OnLongClickListener(voi
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_View_OnLongClickListener::android_view_View_OnLongClickListener(void * proxy) exit");
+	LOGV("android_view_View_OnLongClickListener::android_view_View_OnLongClickListener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_view_View_OnLongClickListener::android_view_View_OnLongClickListener()
-// {
-// 	LOGV("android_view_View_OnLongClickListener::android_view_View_OnLongClickListener() enter");	
+Proxy android_view_View_OnLongClickListener::proxy() const
+{	
+	LOGV("android_view_View_OnLongClickListener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/view/View$OnLongClickListener";
+	long cxxAddress = (long) this;
+	LOGV("android_view_View_OnLongClickListener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_View_OnLongClickListener jni address %d", proxiedComponent);
 
-// 	LOGV("android_view_View_OnLongClickListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_view_View_OnLongClickListener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_view_View_OnLongClickListener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_view_View_OnLongClickListener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_view_View_OnLongClickListener::android_view_View_OnLongClickListener() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_view_View_OnLongClickListener::~android_view_View_OnLongClickListener()
 {
@@ -139,13 +117,13 @@ android_view_View_OnLongClickListener::~android_view_View_OnLongClickListener()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_View_OnLongClickListener::~android_view_View_OnLongClickListener() exit");
 }
 // Functions
-bool android_view_View_OnLongClickListener::onLongClick(AndroidCXX::android_view_View& arg0)
+bool android_view_View_OnLongClickListener::onLongClick(AndroidCXX::android_view_View const& arg0)
 {
-	LOGV("bool android_view_View_OnLongClickListener::onLongClick(AndroidCXX::android_view_View& arg0) enter");
+	LOGV("bool android_view_View_OnLongClickListener::onLongClick(AndroidCXX::android_view_View const& arg0) enter");
 
 	const char *methodName = "onLongClick";
 	const char *methodSignature = "(Landroid/view/View;)Z";
@@ -155,8 +133,6 @@ bool android_view_View_OnLongClickListener::onLongClick(AndroidCXX::android_view
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_View_OnLongClickListener cxx address %d", cxxAddress);
@@ -206,9 +182,7 @@ bool android_view_View_OnLongClickListener::onLongClick(AndroidCXX::android_view
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_View_OnLongClickListener::onLongClick(AndroidCXX::android_view_View& arg0) exit");
+	LOGV("bool android_view_View_OnLongClickListener::onLongClick(AndroidCXX::android_view_View const& arg0) exit");
 
 	return result;
 }

@@ -60,7 +60,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_RemoteViewsService::android_widget_RemoteViewsService(const android_widget_RemoteViewsService& cc)
 {
 	LOGV("android_widget_RemoteViewsService::android_widget_RemoteViewsService(const android_widget_RemoteViewsService& cc) enter");
@@ -84,9 +83,9 @@ android_widget_RemoteViewsService::android_widget_RemoteViewsService(const andro
 
 	LOGV("android_widget_RemoteViewsService::android_widget_RemoteViewsService(const android_widget_RemoteViewsService& cc) exit");
 }
-android_widget_RemoteViewsService::android_widget_RemoteViewsService(void * proxy)
+android_widget_RemoteViewsService::android_widget_RemoteViewsService(Proxy proxy)
 {
-	LOGV("android_widget_RemoteViewsService::android_widget_RemoteViewsService(void * proxy) enter");
+	LOGV("android_widget_RemoteViewsService::android_widget_RemoteViewsService(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -96,17 +95,31 @@ android_widget_RemoteViewsService::android_widget_RemoteViewsService(void * prox
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_RemoteViewsService::android_widget_RemoteViewsService(void * proxy) exit");
+	LOGV("android_widget_RemoteViewsService::android_widget_RemoteViewsService(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy android_widget_RemoteViewsService::proxy() const
+{	
+	LOGV("android_widget_RemoteViewsService::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_widget_RemoteViewsService cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_RemoteViewsService jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_widget_RemoteViewsService::proxy() exit");	
+
+	return proxy;
+}
 android_widget_RemoteViewsService::android_widget_RemoteViewsService()
 {
 	LOGV("android_widget_RemoteViewsService::android_widget_RemoteViewsService() enter");	
@@ -154,13 +167,13 @@ android_widget_RemoteViewsService::~android_widget_RemoteViewsService()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_RemoteViewsService::~android_widget_RemoteViewsService() exit");
 }
 // Functions
-AndroidCXX::android_os_IBinder android_widget_RemoteViewsService::onBind(AndroidCXX::android_content_Intent& arg0)
+AndroidCXX::android_os_IBinder android_widget_RemoteViewsService::onBind(AndroidCXX::android_content_Intent const& arg0)
 {
-	LOGV("AndroidCXX::android_os_IBinder android_widget_RemoteViewsService::onBind(AndroidCXX::android_content_Intent& arg0) enter");
+	LOGV("AndroidCXX::android_os_IBinder android_widget_RemoteViewsService::onBind(AndroidCXX::android_content_Intent const& arg0) enter");
 
 	const char *methodName = "onBind";
 	const char *methodSignature = "(Landroid/content/Intent;)Landroid/os/IBinder;";
@@ -170,8 +183,6 @@ AndroidCXX::android_os_IBinder android_widget_RemoteViewsService::onBind(Android
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViewsService cxx address %d", cxxAddress);
@@ -221,15 +232,13 @@ AndroidCXX::android_os_IBinder android_widget_RemoteViewsService::onBind(Android
 	AndroidCXX::android_os_IBinder result((AndroidCXX::android_os_IBinder) *((AndroidCXX::android_os_IBinder *) cxx_value));
 	delete ((AndroidCXX::android_os_IBinder *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_os_IBinder android_widget_RemoteViewsService::onBind(AndroidCXX::android_content_Intent& arg0) exit");
+	LOGV("AndroidCXX::android_os_IBinder android_widget_RemoteViewsService::onBind(AndroidCXX::android_content_Intent const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory android_widget_RemoteViewsService::onGetViewFactory(AndroidCXX::android_content_Intent& arg0)
+AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory android_widget_RemoteViewsService::onGetViewFactory(AndroidCXX::android_content_Intent const& arg0)
 {
-	LOGV("AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory android_widget_RemoteViewsService::onGetViewFactory(AndroidCXX::android_content_Intent& arg0) enter");
+	LOGV("AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory android_widget_RemoteViewsService::onGetViewFactory(AndroidCXX::android_content_Intent const& arg0) enter");
 
 	const char *methodName = "onGetViewFactory";
 	const char *methodSignature = "(Landroid/content/Intent;)Landroid/widget/RemoteViewsService$RemoteViewsFactory;";
@@ -239,8 +248,6 @@ AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory android_widget_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViewsService cxx address %d", cxxAddress);
@@ -290,9 +297,7 @@ AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory android_widget_
 	AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory result((AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory) *((AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory *) cxx_value));
 	delete ((AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory android_widget_RemoteViewsService::onGetViewFactory(AndroidCXX::android_content_Intent& arg0) exit");
+	LOGV("AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory android_widget_RemoteViewsService::onGetViewFactory(AndroidCXX::android_content_Intent const& arg0) exit");
 
 	return result;
 }

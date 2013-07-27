@@ -112,7 +112,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_content_SharedPreferences::android_content_SharedPreferences(const android_content_SharedPreferences& cc)
 {
 	LOGV("android_content_SharedPreferences::android_content_SharedPreferences(const android_content_SharedPreferences& cc) enter");
@@ -136,9 +135,9 @@ android_content_SharedPreferences::android_content_SharedPreferences(const andro
 
 	LOGV("android_content_SharedPreferences::android_content_SharedPreferences(const android_content_SharedPreferences& cc) exit");
 }
-android_content_SharedPreferences::android_content_SharedPreferences(void * proxy)
+android_content_SharedPreferences::android_content_SharedPreferences(Proxy proxy)
 {
-	LOGV("android_content_SharedPreferences::android_content_SharedPreferences(void * proxy) enter");
+	LOGV("android_content_SharedPreferences::android_content_SharedPreferences(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -148,52 +147,31 @@ android_content_SharedPreferences::android_content_SharedPreferences(void * prox
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_content_SharedPreferences::android_content_SharedPreferences(void * proxy) exit");
+	LOGV("android_content_SharedPreferences::android_content_SharedPreferences(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_content_SharedPreferences::android_content_SharedPreferences()
-// {
-// 	LOGV("android_content_SharedPreferences::android_content_SharedPreferences() enter");	
+Proxy android_content_SharedPreferences::proxy() const
+{	
+	LOGV("android_content_SharedPreferences::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/content/SharedPreferences";
+	long cxxAddress = (long) this;
+	LOGV("android_content_SharedPreferences cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_content_SharedPreferences jni address %d", proxiedComponent);
 
-// 	LOGV("android_content_SharedPreferences className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_content_SharedPreferences::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_content_SharedPreferences cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_content_SharedPreferences jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_content_SharedPreferences::android_content_SharedPreferences() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_content_SharedPreferences::~android_content_SharedPreferences()
 {
@@ -205,13 +183,13 @@ android_content_SharedPreferences::~android_content_SharedPreferences()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_content_SharedPreferences::~android_content_SharedPreferences() exit");
 }
 // Functions
-bool android_content_SharedPreferences::getBoolean(AndroidCXX::java_lang_String& arg0,bool& arg1)
+bool android_content_SharedPreferences::getBoolean(AndroidCXX::java_lang_String const& arg0,bool const& arg1)
 {
-	LOGV("bool android_content_SharedPreferences::getBoolean(AndroidCXX::java_lang_String& arg0,bool& arg1) enter");
+	LOGV("bool android_content_SharedPreferences::getBoolean(AndroidCXX::java_lang_String const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "getBoolean";
 	const char *methodSignature = "(Ljava/lang/String;Z)Z";
@@ -221,8 +199,6 @@ bool android_content_SharedPreferences::getBoolean(AndroidCXX::java_lang_String&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SharedPreferences cxx address %d", cxxAddress);
@@ -293,15 +269,13 @@ bool android_content_SharedPreferences::getBoolean(AndroidCXX::java_lang_String&
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_content_SharedPreferences::getBoolean(AndroidCXX::java_lang_String& arg0,bool& arg1) exit");
+	LOGV("bool android_content_SharedPreferences::getBoolean(AndroidCXX::java_lang_String const& arg0,bool const& arg1) exit");
 
 	return result;
 }
-int android_content_SharedPreferences::getInt(AndroidCXX::java_lang_String& arg0,int& arg1)
+int android_content_SharedPreferences::getInt(AndroidCXX::java_lang_String const& arg0,int const& arg1)
 {
-	LOGV("int android_content_SharedPreferences::getInt(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
+	LOGV("int android_content_SharedPreferences::getInt(AndroidCXX::java_lang_String const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getInt";
 	const char *methodSignature = "(Ljava/lang/String;I)I";
@@ -311,8 +285,6 @@ int android_content_SharedPreferences::getInt(AndroidCXX::java_lang_String& arg0
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SharedPreferences cxx address %d", cxxAddress);
@@ -383,15 +355,13 @@ int android_content_SharedPreferences::getInt(AndroidCXX::java_lang_String& arg0
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_content_SharedPreferences::getInt(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
+	LOGV("int android_content_SharedPreferences::getInt(AndroidCXX::java_lang_String const& arg0,int const& arg1) exit");
 
 	return result;
 }
-long android_content_SharedPreferences::getLong(AndroidCXX::java_lang_String& arg0,long& arg1)
+long android_content_SharedPreferences::getLong(AndroidCXX::java_lang_String const& arg0,long const& arg1)
 {
-	LOGV("long android_content_SharedPreferences::getLong(AndroidCXX::java_lang_String& arg0,long& arg1) enter");
+	LOGV("long android_content_SharedPreferences::getLong(AndroidCXX::java_lang_String const& arg0,long const& arg1) enter");
 
 	const char *methodName = "getLong";
 	const char *methodSignature = "(Ljava/lang/String;J)J";
@@ -401,8 +371,6 @@ long android_content_SharedPreferences::getLong(AndroidCXX::java_lang_String& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SharedPreferences cxx address %d", cxxAddress);
@@ -473,15 +441,13 @@ long android_content_SharedPreferences::getLong(AndroidCXX::java_lang_String& ar
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long android_content_SharedPreferences::getLong(AndroidCXX::java_lang_String& arg0,long& arg1) exit");
+	LOGV("long android_content_SharedPreferences::getLong(AndroidCXX::java_lang_String const& arg0,long const& arg1) exit");
 
 	return result;
 }
-float android_content_SharedPreferences::getFloat(AndroidCXX::java_lang_String& arg0,float& arg1)
+float android_content_SharedPreferences::getFloat(AndroidCXX::java_lang_String const& arg0,float const& arg1)
 {
-	LOGV("float android_content_SharedPreferences::getFloat(AndroidCXX::java_lang_String& arg0,float& arg1) enter");
+	LOGV("float android_content_SharedPreferences::getFloat(AndroidCXX::java_lang_String const& arg0,float const& arg1) enter");
 
 	const char *methodName = "getFloat";
 	const char *methodSignature = "(Ljava/lang/String;F)F";
@@ -491,8 +457,6 @@ float android_content_SharedPreferences::getFloat(AndroidCXX::java_lang_String& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SharedPreferences cxx address %d", cxxAddress);
@@ -563,15 +527,13 @@ float android_content_SharedPreferences::getFloat(AndroidCXX::java_lang_String& 
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("float android_content_SharedPreferences::getFloat(AndroidCXX::java_lang_String& arg0,float& arg1) exit");
+	LOGV("float android_content_SharedPreferences::getFloat(AndroidCXX::java_lang_String const& arg0,float const& arg1) exit");
 
 	return result;
 }
-bool android_content_SharedPreferences::contains(AndroidCXX::java_lang_String& arg0)
+bool android_content_SharedPreferences::contains(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("bool android_content_SharedPreferences::contains(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("bool android_content_SharedPreferences::contains(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "contains";
 	const char *methodSignature = "(Ljava/lang/String;)Z";
@@ -581,8 +543,6 @@ bool android_content_SharedPreferences::contains(AndroidCXX::java_lang_String& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SharedPreferences cxx address %d", cxxAddress);
@@ -632,15 +592,13 @@ bool android_content_SharedPreferences::contains(AndroidCXX::java_lang_String& a
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_content_SharedPreferences::contains(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("bool android_content_SharedPreferences::contains(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_SharedPreferences::getString(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
+AndroidCXX::java_lang_String android_content_SharedPreferences::getString(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_SharedPreferences::getString(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_SharedPreferences::getString(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "getString";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;";
@@ -650,8 +608,6 @@ AndroidCXX::java_lang_String android_content_SharedPreferences::getString(Androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SharedPreferences cxx address %d", cxxAddress);
@@ -722,9 +678,7 @@ AndroidCXX::java_lang_String android_content_SharedPreferences::getString(Androi
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_content_SharedPreferences::getString(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_SharedPreferences::getString(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
@@ -740,8 +694,6 @@ AndroidCXX::java_util_Map android_content_SharedPreferences::getAll()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SharedPreferences cxx address %d", cxxAddress);
@@ -803,15 +755,13 @@ AndroidCXX::java_util_Map android_content_SharedPreferences::getAll()
 	AndroidCXX::java_util_Map result((AndroidCXX::java_util_Map) *((AndroidCXX::java_util_Map *) cxx_value));
 	delete ((AndroidCXX::java_util_Map *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_util_Map android_content_SharedPreferences::getAll() exit");
 
 	return result;
 }
-AndroidCXX::java_util_Set android_content_SharedPreferences::getStringSet(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_Set& arg1)
+AndroidCXX::java_util_Set android_content_SharedPreferences::getStringSet(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Set const& arg1)
 {
-	LOGV("AndroidCXX::java_util_Set android_content_SharedPreferences::getStringSet(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_Set& arg1) enter");
+	LOGV("AndroidCXX::java_util_Set android_content_SharedPreferences::getStringSet(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Set const& arg1) enter");
 
 	const char *methodName = "getStringSet";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/util/Set;)Ljava/util/Set;";
@@ -821,8 +771,6 @@ AndroidCXX::java_util_Set android_content_SharedPreferences::getStringSet(Androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SharedPreferences cxx address %d", cxxAddress);
@@ -929,9 +877,7 @@ AndroidCXX::java_util_Set android_content_SharedPreferences::getStringSet(Androi
 	AndroidCXX::java_util_Set result((AndroidCXX::java_util_Set) *((AndroidCXX::java_util_Set *) cxx_value));
 	delete ((AndroidCXX::java_util_Set *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_Set android_content_SharedPreferences::getStringSet(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_Set& arg1) exit");
+	LOGV("AndroidCXX::java_util_Set android_content_SharedPreferences::getStringSet(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Set const& arg1) exit");
 
 	return result;
 }
@@ -947,8 +893,6 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SharedPreferences cxx address %d", cxxAddress);
@@ -977,15 +921,13 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 	AndroidCXX::android_content_SharedPreferences_Editor result((AndroidCXX::android_content_SharedPreferences_Editor) *((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value));
 	delete ((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences::edit() exit");
 
 	return result;
 }
-void android_content_SharedPreferences::registerOnSharedPreferenceChangeListener(AndroidCXX::android_content_SharedPreferences_OnSharedPreferenceChangeListener& arg0)
+void android_content_SharedPreferences::registerOnSharedPreferenceChangeListener(AndroidCXX::android_content_SharedPreferences_OnSharedPreferenceChangeListener const& arg0)
 {
-	LOGV("void android_content_SharedPreferences::registerOnSharedPreferenceChangeListener(AndroidCXX::android_content_SharedPreferences_OnSharedPreferenceChangeListener& arg0) enter");
+	LOGV("void android_content_SharedPreferences::registerOnSharedPreferenceChangeListener(AndroidCXX::android_content_SharedPreferences_OnSharedPreferenceChangeListener const& arg0) enter");
 
 	const char *methodName = "registerOnSharedPreferenceChangeListener";
 	const char *methodSignature = "(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V";
@@ -996,8 +938,6 @@ void android_content_SharedPreferences::registerOnSharedPreferenceChangeListener
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_SharedPreferences cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1027,14 +967,12 @@ void android_content_SharedPreferences::registerOnSharedPreferenceChangeListener
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_SharedPreferences::registerOnSharedPreferenceChangeListener(AndroidCXX::android_content_SharedPreferences_OnSharedPreferenceChangeListener& arg0) exit");
+	LOGV("void android_content_SharedPreferences::registerOnSharedPreferenceChangeListener(AndroidCXX::android_content_SharedPreferences_OnSharedPreferenceChangeListener const& arg0) exit");
 
 }
-void android_content_SharedPreferences::unregisterOnSharedPreferenceChangeListener(AndroidCXX::android_content_SharedPreferences_OnSharedPreferenceChangeListener& arg0)
+void android_content_SharedPreferences::unregisterOnSharedPreferenceChangeListener(AndroidCXX::android_content_SharedPreferences_OnSharedPreferenceChangeListener const& arg0)
 {
-	LOGV("void android_content_SharedPreferences::unregisterOnSharedPreferenceChangeListener(AndroidCXX::android_content_SharedPreferences_OnSharedPreferenceChangeListener& arg0) enter");
+	LOGV("void android_content_SharedPreferences::unregisterOnSharedPreferenceChangeListener(AndroidCXX::android_content_SharedPreferences_OnSharedPreferenceChangeListener const& arg0) enter");
 
 	const char *methodName = "unregisterOnSharedPreferenceChangeListener";
 	const char *methodSignature = "(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V";
@@ -1045,8 +983,6 @@ void android_content_SharedPreferences::unregisterOnSharedPreferenceChangeListen
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_SharedPreferences cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1076,8 +1012,6 @@ void android_content_SharedPreferences::unregisterOnSharedPreferenceChangeListen
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_SharedPreferences::unregisterOnSharedPreferenceChangeListener(AndroidCXX::android_content_SharedPreferences_OnSharedPreferenceChangeListener& arg0) exit");
+	LOGV("void android_content_SharedPreferences::unregisterOnSharedPreferenceChangeListener(AndroidCXX::android_content_SharedPreferences_OnSharedPreferenceChangeListener const& arg0) exit");
 
 }

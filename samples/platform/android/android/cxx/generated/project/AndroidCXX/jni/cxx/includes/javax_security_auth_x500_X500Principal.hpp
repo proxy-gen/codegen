@@ -92,25 +92,22 @@ class javax_security_auth_x500_X500Principal
 public:
 
 	javax_security_auth_x500_X500Principal(const javax_security_auth_x500_X500Principal& cc);
-	javax_security_auth_x500_X500Principal(void * proxy);
+	javax_security_auth_x500_X500Principal(Proxy proxy);
 	// Public Constructors
-	javax_security_auth_x500_X500Principal(AndroidCXX::java_io_InputStream& arg0);
-	javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String& arg0);
-	javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_Map& arg1);
-	javax_security_auth_x500_X500Principal(std::vector<byte>& arg0);
-	// TODO: remove
-	// 
-	// javax_security_auth_x500_X500Principal();
-	// 
+	javax_security_auth_x500_X500Principal(AndroidCXX::java_io_InputStream const& arg0);
+	javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String const& arg0);
+	javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Map const& arg1);
+	javax_security_auth_x500_X500Principal(std::vector<byte> const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~javax_security_auth_x500_X500Principal();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 AndroidCXX::java_lang_String getName(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_Map& arg1);
+	 AndroidCXX::java_lang_String getName(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Map const& arg1);
 	 AndroidCXX::java_lang_String getName();
-	 AndroidCXX::java_lang_String getName(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_lang_String getName(AndroidCXX::java_lang_String const& arg0);
 	 std::vector<byte> getEncoded();
 };	
 

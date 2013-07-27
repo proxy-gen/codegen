@@ -30,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace COM_FACEBOOK_ACCESSTOKENSOURCE {
+namespace com_facebook_AccessTokenSource {
 
 enum com_facebook_AccessTokenSource
 {

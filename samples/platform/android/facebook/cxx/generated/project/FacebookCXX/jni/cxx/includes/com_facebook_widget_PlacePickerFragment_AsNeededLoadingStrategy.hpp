@@ -57,16 +57,13 @@ class com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy
 public:
 
 	com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy(const com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy& cc);
-	com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy(void * proxy);
+	com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy();
 	// Functions
-	 void attach(FacebookCXX::com_facebook_widget_GraphObjectAdapter& arg0);
+	 void attach(FacebookCXX::com_facebook_widget_GraphObjectAdapter const& arg0);
 };	
 
 } // namespace

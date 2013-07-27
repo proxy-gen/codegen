@@ -77,24 +77,21 @@ class android_widget_Adapter
 public:
 
 	android_widget_Adapter(const android_widget_Adapter& cc);
-	android_widget_Adapter(void * proxy);
+	android_widget_Adapter(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_Adapter();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Adapter();
 	// Functions
 	 bool isEmpty();
-	 AndroidCXX::android_view_View getView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2);
-	 AndroidCXX::java_lang_Object getItem(int& arg0);
-	 long getItemId(int& arg0);
+	 AndroidCXX::android_view_View getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
+	 AndroidCXX::java_lang_Object getItem(int const& arg0);
+	 long getItemId(int const& arg0);
 	 int getCount();
-	 void registerDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0);
-	 void unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0);
+	 void registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0);
+	 void unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0);
 	 bool hasStableIds();
-	 int getItemViewType(int& arg0);
+	 int getItemViewType(int const& arg0);
 	 int getViewTypeCount();
 };	
 

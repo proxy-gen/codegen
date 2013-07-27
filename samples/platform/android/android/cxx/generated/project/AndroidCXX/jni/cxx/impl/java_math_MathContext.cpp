@@ -60,7 +60,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace JAVA_MATH_ROUNDINGMODE;
+// using namespace java_math_RoundingMode;
 // 
 // 
 // 
@@ -74,7 +74,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_math_MathContext::java_math_MathContext(const java_math_MathContext& cc)
 {
 	LOGV("java_math_MathContext::java_math_MathContext(const java_math_MathContext& cc) enter");
@@ -98,9 +97,9 @@ java_math_MathContext::java_math_MathContext(const java_math_MathContext& cc)
 
 	LOGV("java_math_MathContext::java_math_MathContext(const java_math_MathContext& cc) exit");
 }
-java_math_MathContext::java_math_MathContext(void * proxy)
+java_math_MathContext::java_math_MathContext(Proxy proxy)
 {
-	LOGV("java_math_MathContext::java_math_MathContext(void * proxy) enter");
+	LOGV("java_math_MathContext::java_math_MathContext(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -110,55 +109,34 @@ java_math_MathContext::java_math_MathContext(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_math_MathContext::java_math_MathContext(void * proxy) exit");
+	LOGV("java_math_MathContext::java_math_MathContext(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_math_MathContext::java_math_MathContext()
-// {
-// 	LOGV("java_math_MathContext::java_math_MathContext() enter");	
+Proxy java_math_MathContext::proxy() const
+{	
+	LOGV("java_math_MathContext::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/math/MathContext";
+	long cxxAddress = (long) this;
+	LOGV("java_math_MathContext cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_math_MathContext jni address %d", proxiedComponent);
 
-// 	LOGV("java_math_MathContext className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_math_MathContext::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_math_MathContext cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_math_MathContext jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_math_MathContext::java_math_MathContext() exit");	
-// }
-// 
-// 
-// Public Constructors
-java_math_MathContext::java_math_MathContext(int& arg0)
+	return proxy;
+}
+java_math_MathContext::java_math_MathContext(int const& arg0)
 {
-	LOGV("java_math_MathContext::java_math_MathContext(int& arg0) enter");	
+	LOGV("java_math_MathContext::java_math_MathContext(int const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(I)V";
@@ -211,11 +189,11 @@ java_math_MathContext::java_math_MathContext(int& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_math_MathContext::java_math_MathContext(int& arg0) exit");	
+	LOGV("java_math_MathContext::java_math_MathContext(int const& arg0) exit");	
 }
-java_math_MathContext::java_math_MathContext(int& arg0,JAVA_MATH_ROUNDINGMODE::java_math_RoundingMode& arg1)
+java_math_MathContext::java_math_MathContext(int const& arg0,java_math_RoundingMode::java_math_RoundingMode const& arg1)
 {
-	LOGV("java_math_MathContext::java_math_MathContext(int& arg0,JAVA_MATH_ROUNDINGMODE::java_math_RoundingMode& arg1) enter");	
+	LOGV("java_math_MathContext::java_math_MathContext(int const& arg0,java_math_RoundingMode::java_math_RoundingMode const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(ILjava/math/RoundingMode;)V";
@@ -289,11 +267,11 @@ java_math_MathContext::java_math_MathContext(int& arg0,JAVA_MATH_ROUNDINGMODE::j
 
 	jni->popLocalFrame();
 
-	LOGV("java_math_MathContext::java_math_MathContext(int& arg0,JAVA_MATH_ROUNDINGMODE::java_math_RoundingMode& arg1) exit");	
+	LOGV("java_math_MathContext::java_math_MathContext(int const& arg0,java_math_RoundingMode::java_math_RoundingMode const& arg1) exit");	
 }
-java_math_MathContext::java_math_MathContext(AndroidCXX::java_lang_String& arg0)
+java_math_MathContext::java_math_MathContext(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("java_math_MathContext::java_math_MathContext(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("java_math_MathContext::java_math_MathContext(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -346,7 +324,7 @@ java_math_MathContext::java_math_MathContext(AndroidCXX::java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_math_MathContext::java_math_MathContext(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("java_math_MathContext::java_math_MathContext(AndroidCXX::java_lang_String const& arg0) exit");	
 }
 // Default Instance Destructor
 java_math_MathContext::~java_math_MathContext()
@@ -359,13 +337,13 @@ java_math_MathContext::~java_math_MathContext()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_math_MathContext::~java_math_MathContext() exit");
 }
 // Functions
-bool java_math_MathContext::equals(AndroidCXX::java_lang_Object& arg0)
+bool java_math_MathContext::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_math_MathContext::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_math_MathContext::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -375,8 +353,6 @@ bool java_math_MathContext::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_MathContext cxx address %d", cxxAddress);
@@ -426,9 +402,7 @@ bool java_math_MathContext::equals(AndroidCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_math_MathContext::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_math_MathContext::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -444,8 +418,6 @@ AndroidCXX::java_lang_String java_math_MathContext::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_MathContext cxx address %d", cxxAddress);
@@ -474,8 +446,6 @@ AndroidCXX::java_lang_String java_math_MathContext::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_math_MathContext::toString() exit");
 
 	return result;
@@ -493,8 +463,6 @@ int java_math_MathContext::hashCode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_math_MathContext cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -522,8 +490,6 @@ int java_math_MathContext::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_math_MathContext::hashCode() exit");
 
 	return result;
@@ -541,8 +507,6 @@ int java_math_MathContext::getPrecision()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_math_MathContext cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -570,15 +534,13 @@ int java_math_MathContext::getPrecision()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_math_MathContext::getPrecision() exit");
 
 	return result;
 }
-JAVA_MATH_ROUNDINGMODE::java_math_RoundingMode java_math_MathContext::getRoundingMode()
+java_math_RoundingMode::java_math_RoundingMode java_math_MathContext::getRoundingMode()
 {
-	LOGV("JAVA_MATH_ROUNDINGMODE::java_math_RoundingMode java_math_MathContext::getRoundingMode() enter");
+	LOGV("java_math_RoundingMode::java_math_RoundingMode java_math_MathContext::getRoundingMode() enter");
 
 	const char *methodName = "getRoundingMode";
 	const char *methodSignature = "()Ljava/math/RoundingMode;";
@@ -588,8 +550,6 @@ JAVA_MATH_ROUNDINGMODE::java_math_RoundingMode java_math_MathContext::getRoundin
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_MathContext cxx address %d", cxxAddress);
@@ -615,12 +575,10 @@ JAVA_MATH_ROUNDINGMODE::java_math_RoundingMode java_math_MathContext::getRoundin
 		convert_java_math_RoundingMode(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 
-	JAVA_MATH_ROUNDINGMODE::java_math_RoundingMode result = (JAVA_MATH_ROUNDINGMODE::java_math_RoundingMode) (cxx_value);
+	java_math_RoundingMode::java_math_RoundingMode result = (java_math_RoundingMode::java_math_RoundingMode) (cxx_value);
 	//
 		
-	jni->popLocalFrame();
-
-	LOGV("JAVA_MATH_ROUNDINGMODE::java_math_RoundingMode java_math_MathContext::getRoundingMode() exit");
+	LOGV("java_math_RoundingMode::java_math_RoundingMode java_math_MathContext::getRoundingMode() exit");
 
 	return result;
 }

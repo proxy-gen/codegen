@@ -56,16 +56,13 @@ class android_widget_ShareActionProvider_OnShareTargetSelectedListener
 public:
 
 	android_widget_ShareActionProvider_OnShareTargetSelectedListener(const android_widget_ShareActionProvider_OnShareTargetSelectedListener& cc);
-	android_widget_ShareActionProvider_OnShareTargetSelectedListener(void * proxy);
+	android_widget_ShareActionProvider_OnShareTargetSelectedListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_ShareActionProvider_OnShareTargetSelectedListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ShareActionProvider_OnShareTargetSelectedListener();
 	// Functions
-	 bool onShareTargetSelected(AndroidCXX::android_widget_ShareActionProvider& arg0,AndroidCXX::android_content_Intent& arg1);
+	 bool onShareTargetSelected(AndroidCXX::android_widget_ShareActionProvider const& arg0,AndroidCXX::android_content_Intent const& arg1);
 };	
 
 } // namespace

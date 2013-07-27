@@ -102,22 +102,19 @@ class java_net_InetAddress
 public:
 
 	java_net_InetAddress(const java_net_InetAddress& cc);
-	java_net_InetAddress(void * proxy);
+	java_net_InetAddress(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_net_InetAddress();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_InetAddress();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 std::vector<byte> getAddress();
 	 AndroidCXX::java_lang_String getHostName();
 	 AndroidCXX::java_lang_String getHostAddress();
-	static AndroidCXX::java_net_InetAddress getByName(AndroidCXX::java_lang_String& arg0);
+	static AndroidCXX::java_net_InetAddress getByName(AndroidCXX::java_lang_String const& arg0);
 	 bool isMulticastAddress();
 	 bool isAnyLocalAddress();
 	 bool isLoopbackAddress();
@@ -128,12 +125,12 @@ public:
 	 bool isMCLinkLocal();
 	 bool isMCSiteLocal();
 	 bool isMCOrgLocal();
-	 bool isReachable(AndroidCXX::java_net_NetworkInterface& arg0,int& arg1,int& arg2);
-	 bool isReachable(int& arg0);
+	 bool isReachable(AndroidCXX::java_net_NetworkInterface const& arg0,int const& arg1,int const& arg2);
+	 bool isReachable(int const& arg0);
 	 AndroidCXX::java_lang_String getCanonicalHostName();
-	static AndroidCXX::java_net_InetAddress getByAddress(std::vector<byte>& arg0);
-	static AndroidCXX::java_net_InetAddress getByAddress(AndroidCXX::java_lang_String& arg0,std::vector<byte>& arg1);
-	static std::vector<AndroidCXX::java_net_InetAddress > getAllByName(AndroidCXX::java_lang_String& arg0);
+	static AndroidCXX::java_net_InetAddress getByAddress(std::vector<byte> const& arg0);
+	static AndroidCXX::java_net_InetAddress getByAddress(AndroidCXX::java_lang_String const& arg0,std::vector<byte> const& arg1);
+	static std::vector<AndroidCXX::java_net_InetAddress > getAllByName(AndroidCXX::java_lang_String const& arg0);
 	static AndroidCXX::java_net_InetAddress getLocalHost();
 };	
 

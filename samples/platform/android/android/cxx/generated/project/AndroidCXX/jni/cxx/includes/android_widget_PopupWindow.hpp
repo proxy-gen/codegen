@@ -143,64 +143,63 @@ class android_widget_PopupWindow
 public:
 
 	android_widget_PopupWindow(const android_widget_PopupWindow& cc);
-	android_widget_PopupWindow(void * proxy);
+	android_widget_PopupWindow(Proxy proxy);
 	// Public Constructors
-	android_widget_PopupWindow(AndroidCXX::android_view_View& arg0,int& arg1,int& arg2,bool& arg3);
-	android_widget_PopupWindow(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_PopupWindow(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_PopupWindow(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2,int& arg3);
+	android_widget_PopupWindow(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2,bool const& arg3);
+	android_widget_PopupWindow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_PopupWindow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_PopupWindow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,int const& arg3);
 	android_widget_PopupWindow();
-	android_widget_PopupWindow(AndroidCXX::android_view_View& arg0);
-	android_widget_PopupWindow(int& arg0,int& arg1);
-	android_widget_PopupWindow(AndroidCXX::android_view_View& arg0,int& arg1,int& arg2);
-	android_widget_PopupWindow(AndroidCXX::android_content_Context& arg0);
-	// TODO: remove
-	// 
+	android_widget_PopupWindow(AndroidCXX::android_view_View const& arg0);
+	android_widget_PopupWindow(int const& arg0,int const& arg1);
+	android_widget_PopupWindow(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2);
+	android_widget_PopupWindow(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_PopupWindow();
 	// Functions
-	 void update(int& arg0,int& arg1,int& arg2,int& arg3);
+	 void update(int const& arg0,int const& arg1,int const& arg2,int const& arg3);
 	 void update();
-	 void update(AndroidCXX::android_view_View& arg0,int& arg1,int& arg2,int& arg3,int& arg4);
-	 void update(AndroidCXX::android_view_View& arg0,int& arg1,int& arg2);
-	 void update(int& arg0,int& arg1,int& arg2,int& arg3,bool& arg4);
-	 void update(int& arg0,int& arg1);
+	 void update(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4);
+	 void update(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2);
+	 void update(int const& arg0,int const& arg1,int const& arg2,int const& arg3,bool const& arg4);
+	 void update(int const& arg0,int const& arg1);
 	 bool isFocusable();
-	 void setContentView(AndroidCXX::android_view_View& arg0);
-	 void setFocusable(bool& arg0);
+	 void setContentView(AndroidCXX::android_view_View const& arg0);
+	 void setFocusable(bool const& arg0);
 	 int getWidth();
 	 int getHeight();
-	 void setBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0);
+	 void setBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
 	 AndroidCXX::android_graphics_drawable_Drawable getBackground();
-	 void setSoftInputMode(int& arg0);
+	 void setSoftInputMode(int const& arg0);
 	 bool isShowing();
 	 void dismiss();
-	 void setOnDismissListener(AndroidCXX::android_widget_PopupWindow_OnDismissListener& arg0);
-	 void setHeight(int& arg0);
-	 void setWidth(int& arg0);
+	 void setOnDismissListener(AndroidCXX::android_widget_PopupWindow_OnDismissListener const& arg0);
+	 void setHeight(int const& arg0);
+	 void setWidth(int const& arg0);
 	 int getSoftInputMode();
-	 void setAnimationStyle(int& arg0);
+	 void setAnimationStyle(int const& arg0);
 	 int getAnimationStyle();
-	 void setInputMethodMode(int& arg0);
+	 void setInputMethodMode(int const& arg0);
 	 int getInputMethodMode();
 	 void setIgnoreCheekPress();
 	 AndroidCXX::android_view_View getContentView();
-	 void setTouchInterceptor(AndroidCXX::android_view_View_OnTouchListener& arg0);
+	 void setTouchInterceptor(AndroidCXX::android_view_View_OnTouchListener const& arg0);
 	 bool isTouchable();
-	 void setTouchable(bool& arg0);
+	 void setTouchable(bool const& arg0);
 	 bool isOutsideTouchable();
-	 void setOutsideTouchable(bool& arg0);
+	 void setOutsideTouchable(bool const& arg0);
 	 bool isClippingEnabled();
-	 void setClippingEnabled(bool& arg0);
+	 void setClippingEnabled(bool const& arg0);
 	 bool isSplitTouchEnabled();
-	 void setSplitTouchEnabled(bool& arg0);
-	 void setWindowLayoutMode(int& arg0,int& arg1);
-	 void showAtLocation(AndroidCXX::android_view_View& arg0,int& arg1,int& arg2,int& arg3);
-	 void showAsDropDown(AndroidCXX::android_view_View& arg0);
-	 void showAsDropDown(AndroidCXX::android_view_View& arg0,int& arg1,int& arg2);
+	 void setSplitTouchEnabled(bool const& arg0);
+	 void setWindowLayoutMode(int const& arg0,int const& arg1);
+	 void showAtLocation(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2,int const& arg3);
+	 void showAsDropDown(AndroidCXX::android_view_View const& arg0);
+	 void showAsDropDown(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2);
 	 bool isAboveAnchor();
-	 int getMaxAvailableHeight(AndroidCXX::android_view_View& arg0,int& arg1);
-	 int getMaxAvailableHeight(AndroidCXX::android_view_View& arg0);
+	 int getMaxAvailableHeight(AndroidCXX::android_view_View const& arg0,int const& arg1);
+	 int getMaxAvailableHeight(AndroidCXX::android_view_View const& arg0);
 };	
 
 } // namespace

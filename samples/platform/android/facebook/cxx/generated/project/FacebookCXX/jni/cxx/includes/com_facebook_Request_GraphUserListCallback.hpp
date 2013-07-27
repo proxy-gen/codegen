@@ -61,16 +61,13 @@ class com_facebook_Request_GraphUserListCallback
 public:
 
 	com_facebook_Request_GraphUserListCallback(const com_facebook_Request_GraphUserListCallback& cc);
-	com_facebook_Request_GraphUserListCallback(void * proxy);
+	com_facebook_Request_GraphUserListCallback(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_Request_GraphUserListCallback();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Request_GraphUserListCallback();
 	// Functions
-	 void onCompleted(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Response& arg1);
+	 void onCompleted(AndroidCXX::java_util_List const& arg0,FacebookCXX::com_facebook_Response const& arg1);
 };	
 
 } // namespace

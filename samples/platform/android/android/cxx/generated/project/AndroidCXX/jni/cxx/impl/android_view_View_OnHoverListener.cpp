@@ -50,7 +50,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_View_OnHoverListener::android_view_View_OnHoverListener(const android_view_View_OnHoverListener& cc)
 {
 	LOGV("android_view_View_OnHoverListener::android_view_View_OnHoverListener(const android_view_View_OnHoverListener& cc) enter");
@@ -74,9 +73,9 @@ android_view_View_OnHoverListener::android_view_View_OnHoverListener(const andro
 
 	LOGV("android_view_View_OnHoverListener::android_view_View_OnHoverListener(const android_view_View_OnHoverListener& cc) exit");
 }
-android_view_View_OnHoverListener::android_view_View_OnHoverListener(void * proxy)
+android_view_View_OnHoverListener::android_view_View_OnHoverListener(Proxy proxy)
 {
-	LOGV("android_view_View_OnHoverListener::android_view_View_OnHoverListener(void * proxy) enter");
+	LOGV("android_view_View_OnHoverListener::android_view_View_OnHoverListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -86,52 +85,31 @@ android_view_View_OnHoverListener::android_view_View_OnHoverListener(void * prox
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_View_OnHoverListener::android_view_View_OnHoverListener(void * proxy) exit");
+	LOGV("android_view_View_OnHoverListener::android_view_View_OnHoverListener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_view_View_OnHoverListener::android_view_View_OnHoverListener()
-// {
-// 	LOGV("android_view_View_OnHoverListener::android_view_View_OnHoverListener() enter");	
+Proxy android_view_View_OnHoverListener::proxy() const
+{	
+	LOGV("android_view_View_OnHoverListener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/view/View$OnHoverListener";
+	long cxxAddress = (long) this;
+	LOGV("android_view_View_OnHoverListener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_View_OnHoverListener jni address %d", proxiedComponent);
 
-// 	LOGV("android_view_View_OnHoverListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_view_View_OnHoverListener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_view_View_OnHoverListener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_view_View_OnHoverListener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_view_View_OnHoverListener::android_view_View_OnHoverListener() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_view_View_OnHoverListener::~android_view_View_OnHoverListener()
 {
@@ -143,13 +121,13 @@ android_view_View_OnHoverListener::~android_view_View_OnHoverListener()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_View_OnHoverListener::~android_view_View_OnHoverListener() exit");
 }
 // Functions
-bool android_view_View_OnHoverListener::onHover(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_MotionEvent& arg1)
+bool android_view_View_OnHoverListener::onHover(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_MotionEvent const& arg1)
 {
-	LOGV("bool android_view_View_OnHoverListener::onHover(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_MotionEvent& arg1) enter");
+	LOGV("bool android_view_View_OnHoverListener::onHover(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_MotionEvent const& arg1) enter");
 
 	const char *methodName = "onHover";
 	const char *methodSignature = "(Landroid/view/View;Landroid/view/MotionEvent;)Z";
@@ -159,8 +137,6 @@ bool android_view_View_OnHoverListener::onHover(AndroidCXX::android_view_View& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_View_OnHoverListener cxx address %d", cxxAddress);
@@ -231,9 +207,7 @@ bool android_view_View_OnHoverListener::onHover(AndroidCXX::android_view_View& a
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_View_OnHoverListener::onHover(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_MotionEvent& arg1) exit");
+	LOGV("bool android_view_View_OnHoverListener::onHover(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_MotionEvent const& arg1) exit");
 
 	return result;
 }

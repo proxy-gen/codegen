@@ -82,7 +82,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_lang_StackTraceElement::java_lang_StackTraceElement(const java_lang_StackTraceElement& cc)
 {
 	LOGV("java_lang_StackTraceElement::java_lang_StackTraceElement(const java_lang_StackTraceElement& cc) enter");
@@ -106,9 +105,9 @@ java_lang_StackTraceElement::java_lang_StackTraceElement(const java_lang_StackTr
 
 	LOGV("java_lang_StackTraceElement::java_lang_StackTraceElement(const java_lang_StackTraceElement& cc) exit");
 }
-java_lang_StackTraceElement::java_lang_StackTraceElement(void * proxy)
+java_lang_StackTraceElement::java_lang_StackTraceElement(Proxy proxy)
 {
-	LOGV("java_lang_StackTraceElement::java_lang_StackTraceElement(void * proxy) enter");
+	LOGV("java_lang_StackTraceElement::java_lang_StackTraceElement(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -118,55 +117,34 @@ java_lang_StackTraceElement::java_lang_StackTraceElement(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_lang_StackTraceElement::java_lang_StackTraceElement(void * proxy) exit");
+	LOGV("java_lang_StackTraceElement::java_lang_StackTraceElement(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_lang_StackTraceElement::java_lang_StackTraceElement()
-// {
-// 	LOGV("java_lang_StackTraceElement::java_lang_StackTraceElement() enter");	
+Proxy java_lang_StackTraceElement::proxy() const
+{	
+	LOGV("java_lang_StackTraceElement::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/lang/StackTraceElement";
+	long cxxAddress = (long) this;
+	LOGV("java_lang_StackTraceElement cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_StackTraceElement jni address %d", proxiedComponent);
 
-// 	LOGV("java_lang_StackTraceElement className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_lang_StackTraceElement::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_lang_StackTraceElement cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_lang_StackTraceElement jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_lang_StackTraceElement::java_lang_StackTraceElement() exit");	
-// }
-// 
-// 
-// Public Constructors
-java_lang_StackTraceElement::java_lang_StackTraceElement(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,int& arg3)
+	return proxy;
+}
+java_lang_StackTraceElement::java_lang_StackTraceElement(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,int const& arg3)
 {
-	LOGV("java_lang_StackTraceElement::java_lang_StackTraceElement(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,int& arg3) enter");	
+	LOGV("java_lang_StackTraceElement::java_lang_StackTraceElement(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,int const& arg3) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V";
@@ -282,7 +260,7 @@ java_lang_StackTraceElement::java_lang_StackTraceElement(AndroidCXX::java_lang_S
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StackTraceElement::java_lang_StackTraceElement(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,int& arg3) exit");	
+	LOGV("java_lang_StackTraceElement::java_lang_StackTraceElement(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,int const& arg3) exit");	
 }
 // Default Instance Destructor
 java_lang_StackTraceElement::~java_lang_StackTraceElement()
@@ -295,13 +273,13 @@ java_lang_StackTraceElement::~java_lang_StackTraceElement()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_lang_StackTraceElement::~java_lang_StackTraceElement() exit");
 }
 // Functions
-bool java_lang_StackTraceElement::equals(AndroidCXX::java_lang_Object& arg0)
+bool java_lang_StackTraceElement::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_lang_StackTraceElement::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_lang_StackTraceElement::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -311,8 +289,6 @@ bool java_lang_StackTraceElement::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StackTraceElement cxx address %d", cxxAddress);
@@ -362,9 +338,7 @@ bool java_lang_StackTraceElement::equals(AndroidCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_lang_StackTraceElement::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_lang_StackTraceElement::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -380,8 +354,6 @@ AndroidCXX::java_lang_String java_lang_StackTraceElement::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StackTraceElement cxx address %d", cxxAddress);
@@ -410,8 +382,6 @@ AndroidCXX::java_lang_String java_lang_StackTraceElement::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_lang_StackTraceElement::toString() exit");
 
 	return result;
@@ -429,8 +399,6 @@ int java_lang_StackTraceElement::hashCode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StackTraceElement cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -458,8 +426,6 @@ int java_lang_StackTraceElement::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_lang_StackTraceElement::hashCode() exit");
 
 	return result;
@@ -477,8 +443,6 @@ AndroidCXX::java_lang_String java_lang_StackTraceElement::getFileName()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StackTraceElement cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -506,8 +470,6 @@ AndroidCXX::java_lang_String java_lang_StackTraceElement::getFileName()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_lang_StackTraceElement::getFileName() exit");
 
 	return result;
@@ -524,8 +486,6 @@ int java_lang_StackTraceElement::getLineNumber()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StackTraceElement cxx address %d", cxxAddress);
@@ -554,8 +514,6 @@ int java_lang_StackTraceElement::getLineNumber()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_lang_StackTraceElement::getLineNumber() exit");
 
 	return result;
@@ -573,8 +531,6 @@ AndroidCXX::java_lang_String java_lang_StackTraceElement::getClassName()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StackTraceElement cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -602,8 +558,6 @@ AndroidCXX::java_lang_String java_lang_StackTraceElement::getClassName()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_lang_StackTraceElement::getClassName() exit");
 
 	return result;
@@ -621,8 +575,6 @@ AndroidCXX::java_lang_String java_lang_StackTraceElement::getMethodName()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StackTraceElement cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -650,8 +602,6 @@ AndroidCXX::java_lang_String java_lang_StackTraceElement::getMethodName()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_lang_StackTraceElement::getMethodName() exit");
 
 	return result;
@@ -668,8 +618,6 @@ bool java_lang_StackTraceElement::isNativeMethod()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StackTraceElement cxx address %d", cxxAddress);
@@ -698,8 +646,6 @@ bool java_lang_StackTraceElement::isNativeMethod()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_lang_StackTraceElement::isNativeMethod() exit");
 
 	return result;

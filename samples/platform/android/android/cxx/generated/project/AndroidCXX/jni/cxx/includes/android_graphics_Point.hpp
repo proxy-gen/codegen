@@ -77,27 +77,25 @@ class android_graphics_Point
 {
 public:
 
-	android_graphics_Point(const android_graphics_Point& cc);
-	android_graphics_Point(void * proxy);
+	android_graphics_Point(Proxy proxy);
 	// Public Constructors
 	android_graphics_Point();
-	android_graphics_Point(int& arg0,int& arg1);
-	android_graphics_Point(AndroidCXX::android_graphics_Point& arg0);
-	// TODO: remove
-	// 
+	android_graphics_Point(int const& arg0,int const& arg1);
+	android_graphics_Point(AndroidCXX::android_graphics_Point const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Point();
 	// Functions
-	 bool equals(int& arg0,int& arg1);
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(int const& arg0,int const& arg1);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 void offset(int& arg0,int& arg1);
-	 void set(int& arg0,int& arg1);
+	 void offset(int const& arg0,int const& arg1);
+	 void set(int const& arg0,int const& arg1);
 	 void negate();
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
-	 void readFromParcel(AndroidCXX::android_os_Parcel& arg0);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	 void readFromParcel(AndroidCXX::android_os_Parcel const& arg0);
 };	
 
 } // namespace

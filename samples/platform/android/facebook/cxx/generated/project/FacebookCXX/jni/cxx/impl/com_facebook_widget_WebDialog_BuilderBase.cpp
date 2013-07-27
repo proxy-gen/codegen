@@ -61,7 +61,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_widget_WebDialog_BuilderBase::com_facebook_widget_WebDialog_BuilderBase(const com_facebook_widget_WebDialog_BuilderBase& cc)
 {
 	LOGV("com_facebook_widget_WebDialog_BuilderBase::com_facebook_widget_WebDialog_BuilderBase(const com_facebook_widget_WebDialog_BuilderBase& cc) enter");
@@ -85,9 +84,9 @@ com_facebook_widget_WebDialog_BuilderBase::com_facebook_widget_WebDialog_Builder
 
 	LOGV("com_facebook_widget_WebDialog_BuilderBase::com_facebook_widget_WebDialog_BuilderBase(const com_facebook_widget_WebDialog_BuilderBase& cc) exit");
 }
-com_facebook_widget_WebDialog_BuilderBase::com_facebook_widget_WebDialog_BuilderBase(void * proxy)
+com_facebook_widget_WebDialog_BuilderBase::com_facebook_widget_WebDialog_BuilderBase(Proxy proxy)
 {
-	LOGV("com_facebook_widget_WebDialog_BuilderBase::com_facebook_widget_WebDialog_BuilderBase(void * proxy) enter");
+	LOGV("com_facebook_widget_WebDialog_BuilderBase::com_facebook_widget_WebDialog_BuilderBase(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -97,52 +96,31 @@ com_facebook_widget_WebDialog_BuilderBase::com_facebook_widget_WebDialog_Builder
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_widget_WebDialog_BuilderBase::com_facebook_widget_WebDialog_BuilderBase(void * proxy) exit");
+	LOGV("com_facebook_widget_WebDialog_BuilderBase::com_facebook_widget_WebDialog_BuilderBase(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// com_facebook_widget_WebDialog_BuilderBase::com_facebook_widget_WebDialog_BuilderBase()
-// {
-// 	LOGV("com_facebook_widget_WebDialog_BuilderBase::com_facebook_widget_WebDialog_BuilderBase() enter");	
+Proxy com_facebook_widget_WebDialog_BuilderBase::proxy() const
+{	
+	LOGV("com_facebook_widget_WebDialog_BuilderBase::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "com/facebook/widget/WebDialog$BuilderBase";
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_widget_WebDialog_BuilderBase cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_widget_WebDialog_BuilderBase jni address %d", proxiedComponent);
 
-// 	LOGV("com_facebook_widget_WebDialog_BuilderBase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("com_facebook_widget_WebDialog_BuilderBase::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("com_facebook_widget_WebDialog_BuilderBase cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("com_facebook_widget_WebDialog_BuilderBase jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("com_facebook_widget_WebDialog_BuilderBase::com_facebook_widget_WebDialog_BuilderBase() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 com_facebook_widget_WebDialog_BuilderBase::~com_facebook_widget_WebDialog_BuilderBase()
 {
@@ -154,13 +132,13 @@ com_facebook_widget_WebDialog_BuilderBase::~com_facebook_widget_WebDialog_Builde
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_widget_WebDialog_BuilderBase::~com_facebook_widget_WebDialog_BuilderBase() exit");
 }
 // Functions
-FacebookCXX::com_facebook_widget_WebDialog_BuilderBase com_facebook_widget_WebDialog_BuilderBase::setTheme(int& arg0)
+FacebookCXX::com_facebook_widget_WebDialog_BuilderBase com_facebook_widget_WebDialog_BuilderBase::setTheme(int const& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_BuilderBase com_facebook_widget_WebDialog_BuilderBase::setTheme(int& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_BuilderBase com_facebook_widget_WebDialog_BuilderBase::setTheme(int const& arg0) enter");
 
 	const char *methodName = "setTheme";
 	const char *methodSignature = "(I)Lcom/facebook/widget/WebDialog$BuilderBase;";
@@ -170,8 +148,6 @@ FacebookCXX::com_facebook_widget_WebDialog_BuilderBase com_facebook_widget_WebDi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_WebDialog_BuilderBase cxx address %d", cxxAddress);
@@ -239,9 +215,7 @@ FacebookCXX::com_facebook_widget_WebDialog_BuilderBase com_facebook_widget_WebDi
 	FacebookCXX::com_facebook_widget_WebDialog_BuilderBase result((FacebookCXX::com_facebook_widget_WebDialog_BuilderBase) *((FacebookCXX::com_facebook_widget_WebDialog_BuilderBase *) cxx_value));
 	delete ((FacebookCXX::com_facebook_widget_WebDialog_BuilderBase *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_BuilderBase com_facebook_widget_WebDialog_BuilderBase::setTheme(int& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_BuilderBase com_facebook_widget_WebDialog_BuilderBase::setTheme(int const& arg0) exit");
 
 	return result;
 }
@@ -257,8 +231,6 @@ FacebookCXX::com_facebook_widget_WebDialog com_facebook_widget_WebDialog_Builder
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_WebDialog_BuilderBase cxx address %d", cxxAddress);
@@ -287,15 +259,13 @@ FacebookCXX::com_facebook_widget_WebDialog com_facebook_widget_WebDialog_Builder
 	FacebookCXX::com_facebook_widget_WebDialog result((FacebookCXX::com_facebook_widget_WebDialog) *((FacebookCXX::com_facebook_widget_WebDialog *) cxx_value));
 	delete ((FacebookCXX::com_facebook_widget_WebDialog *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("FacebookCXX::com_facebook_widget_WebDialog com_facebook_widget_WebDialog_BuilderBase::build() exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_widget_WebDialog_BuilderBase com_facebook_widget_WebDialog_BuilderBase::setOnCompleteListener(FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener& arg0)
+FacebookCXX::com_facebook_widget_WebDialog_BuilderBase com_facebook_widget_WebDialog_BuilderBase::setOnCompleteListener(FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener const& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_BuilderBase com_facebook_widget_WebDialog_BuilderBase::setOnCompleteListener(FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_BuilderBase com_facebook_widget_WebDialog_BuilderBase::setOnCompleteListener(FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener const& arg0) enter");
 
 	const char *methodName = "setOnCompleteListener";
 	const char *methodSignature = "(Lcom/facebook/widget/WebDialog$OnCompleteListener;)Lcom/facebook/widget/WebDialog$BuilderBase;";
@@ -305,8 +275,6 @@ FacebookCXX::com_facebook_widget_WebDialog_BuilderBase com_facebook_widget_WebDi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_WebDialog_BuilderBase cxx address %d", cxxAddress);
@@ -374,9 +342,7 @@ FacebookCXX::com_facebook_widget_WebDialog_BuilderBase com_facebook_widget_WebDi
 	FacebookCXX::com_facebook_widget_WebDialog_BuilderBase result((FacebookCXX::com_facebook_widget_WebDialog_BuilderBase) *((FacebookCXX::com_facebook_widget_WebDialog_BuilderBase *) cxx_value));
 	delete ((FacebookCXX::com_facebook_widget_WebDialog_BuilderBase *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_BuilderBase com_facebook_widget_WebDialog_BuilderBase::setOnCompleteListener(FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_BuilderBase com_facebook_widget_WebDialog_BuilderBase::setOnCompleteListener(FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener const& arg0) exit");
 
 	return result;
 }

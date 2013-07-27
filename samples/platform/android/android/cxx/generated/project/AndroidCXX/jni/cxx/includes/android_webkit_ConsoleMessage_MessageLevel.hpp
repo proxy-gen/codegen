@@ -30,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace ANDROID_WEBKIT_CONSOLEMESSAGE_MESSAGELEVEL {
+namespace android_webkit_ConsoleMessage_MessageLevel {
 
 enum android_webkit_ConsoleMessage_MessageLevel
 {

@@ -52,7 +52,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_graphics_Shader::android_graphics_Shader(const android_graphics_Shader& cc)
 {
 	LOGV("android_graphics_Shader::android_graphics_Shader(const android_graphics_Shader& cc) enter");
@@ -76,9 +75,9 @@ android_graphics_Shader::android_graphics_Shader(const android_graphics_Shader& 
 
 	LOGV("android_graphics_Shader::android_graphics_Shader(const android_graphics_Shader& cc) exit");
 }
-android_graphics_Shader::android_graphics_Shader(void * proxy)
+android_graphics_Shader::android_graphics_Shader(Proxy proxy)
 {
-	LOGV("android_graphics_Shader::android_graphics_Shader(void * proxy) enter");
+	LOGV("android_graphics_Shader::android_graphics_Shader(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -88,17 +87,31 @@ android_graphics_Shader::android_graphics_Shader(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_graphics_Shader::android_graphics_Shader(void * proxy) exit");
+	LOGV("android_graphics_Shader::android_graphics_Shader(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy android_graphics_Shader::proxy() const
+{	
+	LOGV("android_graphics_Shader::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_graphics_Shader cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_graphics_Shader jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_graphics_Shader::proxy() exit");	
+
+	return proxy;
+}
 android_graphics_Shader::android_graphics_Shader()
 {
 	LOGV("android_graphics_Shader::android_graphics_Shader() enter");	
@@ -146,13 +159,13 @@ android_graphics_Shader::~android_graphics_Shader()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_graphics_Shader::~android_graphics_Shader() exit");
 }
 // Functions
-bool android_graphics_Shader::getLocalMatrix(AndroidCXX::android_graphics_Matrix& arg0)
+bool android_graphics_Shader::getLocalMatrix(AndroidCXX::android_graphics_Matrix const& arg0)
 {
-	LOGV("bool android_graphics_Shader::getLocalMatrix(AndroidCXX::android_graphics_Matrix& arg0) enter");
+	LOGV("bool android_graphics_Shader::getLocalMatrix(AndroidCXX::android_graphics_Matrix const& arg0) enter");
 
 	const char *methodName = "getLocalMatrix";
 	const char *methodSignature = "(Landroid/graphics/Matrix;)Z";
@@ -162,8 +175,6 @@ bool android_graphics_Shader::getLocalMatrix(AndroidCXX::android_graphics_Matrix
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Shader cxx address %d", cxxAddress);
@@ -213,15 +224,13 @@ bool android_graphics_Shader::getLocalMatrix(AndroidCXX::android_graphics_Matrix
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_graphics_Shader::getLocalMatrix(AndroidCXX::android_graphics_Matrix& arg0) exit");
+	LOGV("bool android_graphics_Shader::getLocalMatrix(AndroidCXX::android_graphics_Matrix const& arg0) exit");
 
 	return result;
 }
-void android_graphics_Shader::setLocalMatrix(AndroidCXX::android_graphics_Matrix& arg0)
+void android_graphics_Shader::setLocalMatrix(AndroidCXX::android_graphics_Matrix const& arg0)
 {
-	LOGV("void android_graphics_Shader::setLocalMatrix(AndroidCXX::android_graphics_Matrix& arg0) enter");
+	LOGV("void android_graphics_Shader::setLocalMatrix(AndroidCXX::android_graphics_Matrix const& arg0) enter");
 
 	const char *methodName = "setLocalMatrix";
 	const char *methodSignature = "(Landroid/graphics/Matrix;)V";
@@ -231,8 +240,6 @@ void android_graphics_Shader::setLocalMatrix(AndroidCXX::android_graphics_Matrix
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Shader cxx address %d", cxxAddress);
@@ -263,8 +270,6 @@ void android_graphics_Shader::setLocalMatrix(AndroidCXX::android_graphics_Matrix
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Shader::setLocalMatrix(AndroidCXX::android_graphics_Matrix& arg0) exit");
+	LOGV("void android_graphics_Shader::setLocalMatrix(AndroidCXX::android_graphics_Matrix const& arg0) exit");
 
 }

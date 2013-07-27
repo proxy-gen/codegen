@@ -51,12 +51,9 @@ class java_nio_channels_FileChannel_MapMode
 public:
 
 	java_nio_channels_FileChannel_MapMode(const java_nio_channels_FileChannel_MapMode& cc);
-	java_nio_channels_FileChannel_MapMode(void * proxy);
+	java_nio_channels_FileChannel_MapMode(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_nio_channels_FileChannel_MapMode();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_FileChannel_MapMode();
 	// Functions

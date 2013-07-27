@@ -91,14 +91,11 @@ class java_security_ProtectionDomain
 public:
 
 	java_security_ProtectionDomain(const java_security_ProtectionDomain& cc);
-	java_security_ProtectionDomain(void * proxy);
+	java_security_ProtectionDomain(Proxy proxy);
 	// Public Constructors
-	java_security_ProtectionDomain(JDKCXX::java_security_CodeSource& arg0,JDKCXX::java_security_PermissionCollection& arg1);
-	java_security_ProtectionDomain(JDKCXX::java_security_CodeSource& arg0,JDKCXX::java_security_PermissionCollection& arg1,JDKCXX::java_lang_ClassLoader& arg2,std::vector<JDKCXX::java_security_Principal >& arg3);
-	// TODO: remove
-	// 
-	// java_security_ProtectionDomain();
-	// 
+	java_security_ProtectionDomain(JDKCXX::java_security_CodeSource const& arg0,JDKCXX::java_security_PermissionCollection const& arg1);
+	java_security_ProtectionDomain(JDKCXX::java_security_CodeSource const& arg0,JDKCXX::java_security_PermissionCollection const& arg1,JDKCXX::java_lang_ClassLoader const& arg2,std::vector<JDKCXX::java_security_Principal > const& arg3);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_security_ProtectionDomain();
 	// Functions
@@ -107,7 +104,7 @@ public:
 	 JDKCXX::java_security_CodeSource getCodeSource();
 	 std::vector<JDKCXX::java_security_Principal > getPrincipals();
 	 JDKCXX::java_security_PermissionCollection getPermissions();
-	 bool implies(JDKCXX::java_security_Permission& arg0);
+	 bool implies(JDKCXX::java_security_Permission const& arg0);
 };	
 
 } // namespace

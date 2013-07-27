@@ -75,7 +75,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_Adapter::android_widget_Adapter(const android_widget_Adapter& cc)
 {
 	LOGV("android_widget_Adapter::android_widget_Adapter(const android_widget_Adapter& cc) enter");
@@ -99,9 +98,9 @@ android_widget_Adapter::android_widget_Adapter(const android_widget_Adapter& cc)
 
 	LOGV("android_widget_Adapter::android_widget_Adapter(const android_widget_Adapter& cc) exit");
 }
-android_widget_Adapter::android_widget_Adapter(void * proxy)
+android_widget_Adapter::android_widget_Adapter(Proxy proxy)
 {
-	LOGV("android_widget_Adapter::android_widget_Adapter(void * proxy) enter");
+	LOGV("android_widget_Adapter::android_widget_Adapter(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -111,52 +110,31 @@ android_widget_Adapter::android_widget_Adapter(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_Adapter::android_widget_Adapter(void * proxy) exit");
+	LOGV("android_widget_Adapter::android_widget_Adapter(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_Adapter::android_widget_Adapter()
-// {
-// 	LOGV("android_widget_Adapter::android_widget_Adapter() enter");	
+Proxy android_widget_Adapter::proxy() const
+{	
+	LOGV("android_widget_Adapter::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/Adapter";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_Adapter cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_Adapter jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_Adapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_Adapter::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_Adapter cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_Adapter jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_Adapter::android_widget_Adapter() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_widget_Adapter::~android_widget_Adapter()
 {
@@ -168,7 +146,7 @@ android_widget_Adapter::~android_widget_Adapter()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_Adapter::~android_widget_Adapter() exit");
 }
 // Functions
@@ -184,8 +162,6 @@ bool android_widget_Adapter::isEmpty()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Adapter cxx address %d", cxxAddress);
@@ -214,15 +190,13 @@ bool android_widget_Adapter::isEmpty()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_Adapter::isEmpty() exit");
 
 	return result;
 }
-AndroidCXX::android_view_View android_widget_Adapter::getView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2)
+AndroidCXX::android_view_View android_widget_Adapter::getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2)
 {
-	LOGV("AndroidCXX::android_view_View android_widget_Adapter::getView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2) enter");
+	LOGV("AndroidCXX::android_view_View android_widget_Adapter::getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) enter");
 
 	const char *methodName = "getView";
 	const char *methodSignature = "(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;";
@@ -232,8 +206,6 @@ AndroidCXX::android_view_View android_widget_Adapter::getView(int& arg0,AndroidC
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Adapter cxx address %d", cxxAddress);
@@ -325,15 +297,13 @@ AndroidCXX::android_view_View android_widget_Adapter::getView(int& arg0,AndroidC
 	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
 	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_View android_widget_Adapter::getView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2) exit");
+	LOGV("AndroidCXX::android_view_View android_widget_Adapter::getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_Object android_widget_Adapter::getItem(int& arg0)
+AndroidCXX::java_lang_Object android_widget_Adapter::getItem(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Object android_widget_Adapter::getItem(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Object android_widget_Adapter::getItem(int const& arg0) enter");
 
 	const char *methodName = "getItem";
 	const char *methodSignature = "(I)Ljava/lang/Object;";
@@ -343,8 +313,6 @@ AndroidCXX::java_lang_Object android_widget_Adapter::getItem(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Adapter cxx address %d", cxxAddress);
@@ -394,15 +362,13 @@ AndroidCXX::java_lang_Object android_widget_Adapter::getItem(int& arg0)
 	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
 	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_Object android_widget_Adapter::getItem(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_Object android_widget_Adapter::getItem(int const& arg0) exit");
 
 	return result;
 }
-long android_widget_Adapter::getItemId(int& arg0)
+long android_widget_Adapter::getItemId(int const& arg0)
 {
-	LOGV("long android_widget_Adapter::getItemId(int& arg0) enter");
+	LOGV("long android_widget_Adapter::getItemId(int const& arg0) enter");
 
 	const char *methodName = "getItemId";
 	const char *methodSignature = "(I)J";
@@ -412,8 +378,6 @@ long android_widget_Adapter::getItemId(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Adapter cxx address %d", cxxAddress);
@@ -463,9 +427,7 @@ long android_widget_Adapter::getItemId(int& arg0)
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long android_widget_Adapter::getItemId(int& arg0) exit");
+	LOGV("long android_widget_Adapter::getItemId(int const& arg0) exit");
 
 	return result;
 }
@@ -481,8 +443,6 @@ int android_widget_Adapter::getCount()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Adapter cxx address %d", cxxAddress);
@@ -511,15 +471,13 @@ int android_widget_Adapter::getCount()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_Adapter::getCount() exit");
 
 	return result;
 }
-void android_widget_Adapter::registerDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0)
+void android_widget_Adapter::registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0)
 {
-	LOGV("void android_widget_Adapter::registerDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0) enter");
+	LOGV("void android_widget_Adapter::registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) enter");
 
 	const char *methodName = "registerDataSetObserver";
 	const char *methodSignature = "(Landroid/database/DataSetObserver;)V";
@@ -530,8 +488,6 @@ void android_widget_Adapter::registerDataSetObserver(AndroidCXX::android_databas
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Adapter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -561,14 +517,12 @@ void android_widget_Adapter::registerDataSetObserver(AndroidCXX::android_databas
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Adapter::registerDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0) exit");
+	LOGV("void android_widget_Adapter::registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) exit");
 
 }
-void android_widget_Adapter::unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0)
+void android_widget_Adapter::unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0)
 {
-	LOGV("void android_widget_Adapter::unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0) enter");
+	LOGV("void android_widget_Adapter::unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) enter");
 
 	const char *methodName = "unregisterDataSetObserver";
 	const char *methodSignature = "(Landroid/database/DataSetObserver;)V";
@@ -579,8 +533,6 @@ void android_widget_Adapter::unregisterDataSetObserver(AndroidCXX::android_datab
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Adapter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -610,9 +562,7 @@ void android_widget_Adapter::unregisterDataSetObserver(AndroidCXX::android_datab
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Adapter::unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0) exit");
+	LOGV("void android_widget_Adapter::unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) exit");
 
 }
 bool android_widget_Adapter::hasStableIds()
@@ -627,8 +577,6 @@ bool android_widget_Adapter::hasStableIds()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Adapter cxx address %d", cxxAddress);
@@ -657,15 +605,13 @@ bool android_widget_Adapter::hasStableIds()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_Adapter::hasStableIds() exit");
 
 	return result;
 }
-int android_widget_Adapter::getItemViewType(int& arg0)
+int android_widget_Adapter::getItemViewType(int const& arg0)
 {
-	LOGV("int android_widget_Adapter::getItemViewType(int& arg0) enter");
+	LOGV("int android_widget_Adapter::getItemViewType(int const& arg0) enter");
 
 	const char *methodName = "getItemViewType";
 	const char *methodSignature = "(I)I";
@@ -675,8 +621,6 @@ int android_widget_Adapter::getItemViewType(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Adapter cxx address %d", cxxAddress);
@@ -726,9 +670,7 @@ int android_widget_Adapter::getItemViewType(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_widget_Adapter::getItemViewType(int& arg0) exit");
+	LOGV("int android_widget_Adapter::getItemViewType(int const& arg0) exit");
 
 	return result;
 }
@@ -744,8 +686,6 @@ int android_widget_Adapter::getViewTypeCount()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Adapter cxx address %d", cxxAddress);
@@ -774,8 +714,6 @@ int android_widget_Adapter::getViewTypeCount()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_Adapter::getViewTypeCount() exit");
 
 	return result;

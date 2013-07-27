@@ -50,7 +50,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_ShareActionProvider_OnShareTargetSelectedListener::android_widget_ShareActionProvider_OnShareTargetSelectedListener(const android_widget_ShareActionProvider_OnShareTargetSelectedListener& cc)
 {
 	LOGV("android_widget_ShareActionProvider_OnShareTargetSelectedListener::android_widget_ShareActionProvider_OnShareTargetSelectedListener(const android_widget_ShareActionProvider_OnShareTargetSelectedListener& cc) enter");
@@ -74,9 +73,9 @@ android_widget_ShareActionProvider_OnShareTargetSelectedListener::android_widget
 
 	LOGV("android_widget_ShareActionProvider_OnShareTargetSelectedListener::android_widget_ShareActionProvider_OnShareTargetSelectedListener(const android_widget_ShareActionProvider_OnShareTargetSelectedListener& cc) exit");
 }
-android_widget_ShareActionProvider_OnShareTargetSelectedListener::android_widget_ShareActionProvider_OnShareTargetSelectedListener(void * proxy)
+android_widget_ShareActionProvider_OnShareTargetSelectedListener::android_widget_ShareActionProvider_OnShareTargetSelectedListener(Proxy proxy)
 {
-	LOGV("android_widget_ShareActionProvider_OnShareTargetSelectedListener::android_widget_ShareActionProvider_OnShareTargetSelectedListener(void * proxy) enter");
+	LOGV("android_widget_ShareActionProvider_OnShareTargetSelectedListener::android_widget_ShareActionProvider_OnShareTargetSelectedListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -86,52 +85,31 @@ android_widget_ShareActionProvider_OnShareTargetSelectedListener::android_widget
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_ShareActionProvider_OnShareTargetSelectedListener::android_widget_ShareActionProvider_OnShareTargetSelectedListener(void * proxy) exit");
+	LOGV("android_widget_ShareActionProvider_OnShareTargetSelectedListener::android_widget_ShareActionProvider_OnShareTargetSelectedListener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_ShareActionProvider_OnShareTargetSelectedListener::android_widget_ShareActionProvider_OnShareTargetSelectedListener()
-// {
-// 	LOGV("android_widget_ShareActionProvider_OnShareTargetSelectedListener::android_widget_ShareActionProvider_OnShareTargetSelectedListener() enter");	
+Proxy android_widget_ShareActionProvider_OnShareTargetSelectedListener::proxy() const
+{	
+	LOGV("android_widget_ShareActionProvider_OnShareTargetSelectedListener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/ShareActionProvider$OnShareTargetSelectedListener";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_ShareActionProvider_OnShareTargetSelectedListener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_ShareActionProvider_OnShareTargetSelectedListener jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_ShareActionProvider_OnShareTargetSelectedListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_ShareActionProvider_OnShareTargetSelectedListener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_ShareActionProvider_OnShareTargetSelectedListener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_ShareActionProvider_OnShareTargetSelectedListener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_ShareActionProvider_OnShareTargetSelectedListener::android_widget_ShareActionProvider_OnShareTargetSelectedListener() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_widget_ShareActionProvider_OnShareTargetSelectedListener::~android_widget_ShareActionProvider_OnShareTargetSelectedListener()
 {
@@ -143,13 +121,13 @@ android_widget_ShareActionProvider_OnShareTargetSelectedListener::~android_widge
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_ShareActionProvider_OnShareTargetSelectedListener::~android_widget_ShareActionProvider_OnShareTargetSelectedListener() exit");
 }
 // Functions
-bool android_widget_ShareActionProvider_OnShareTargetSelectedListener::onShareTargetSelected(AndroidCXX::android_widget_ShareActionProvider& arg0,AndroidCXX::android_content_Intent& arg1)
+bool android_widget_ShareActionProvider_OnShareTargetSelectedListener::onShareTargetSelected(AndroidCXX::android_widget_ShareActionProvider const& arg0,AndroidCXX::android_content_Intent const& arg1)
 {
-	LOGV("bool android_widget_ShareActionProvider_OnShareTargetSelectedListener::onShareTargetSelected(AndroidCXX::android_widget_ShareActionProvider& arg0,AndroidCXX::android_content_Intent& arg1) enter");
+	LOGV("bool android_widget_ShareActionProvider_OnShareTargetSelectedListener::onShareTargetSelected(AndroidCXX::android_widget_ShareActionProvider const& arg0,AndroidCXX::android_content_Intent const& arg1) enter");
 
 	const char *methodName = "onShareTargetSelected";
 	const char *methodSignature = "(Landroid/widget/ShareActionProvider;Landroid/content/Intent;)Z";
@@ -159,8 +137,6 @@ bool android_widget_ShareActionProvider_OnShareTargetSelectedListener::onShareTa
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ShareActionProvider_OnShareTargetSelectedListener cxx address %d", cxxAddress);
@@ -231,9 +207,7 @@ bool android_widget_ShareActionProvider_OnShareTargetSelectedListener::onShareTa
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_ShareActionProvider_OnShareTargetSelectedListener::onShareTargetSelected(AndroidCXX::android_widget_ShareActionProvider& arg0,AndroidCXX::android_content_Intent& arg1) exit");
+	LOGV("bool android_widget_ShareActionProvider_OnShareTargetSelectedListener::onShareTargetSelected(AndroidCXX::android_widget_ShareActionProvider const& arg0,AndroidCXX::android_content_Intent const& arg1) exit");
 
 	return result;
 }

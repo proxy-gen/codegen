@@ -105,28 +105,24 @@ class android_os_ParcelFileDescriptor
 {
 public:
 
-	android_os_ParcelFileDescriptor(const android_os_ParcelFileDescriptor& cc);
-	android_os_ParcelFileDescriptor(void * proxy);
+	android_os_ParcelFileDescriptor(Proxy proxy);
 	// Public Constructors
-	android_os_ParcelFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor& arg0);
-	// TODO: remove
-	// 
-	// android_os_ParcelFileDescriptor();
-	// 
+	android_os_ParcelFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_os_ParcelFileDescriptor();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
 	 void close();
-	static AndroidCXX::android_os_ParcelFileDescriptor open(AndroidCXX::java_io_File& arg0,int& arg1);
-	static AndroidCXX::android_os_ParcelFileDescriptor dup(AndroidCXX::java_io_FileDescriptor& arg0);
+	static AndroidCXX::android_os_ParcelFileDescriptor open(AndroidCXX::java_io_File const& arg0,int const& arg1);
+	static AndroidCXX::android_os_ParcelFileDescriptor dup(AndroidCXX::java_io_FileDescriptor const& arg0);
 	 AndroidCXX::android_os_ParcelFileDescriptor dup();
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
-	static AndroidCXX::android_os_ParcelFileDescriptor fromFd(int& arg0);
-	static AndroidCXX::android_os_ParcelFileDescriptor adoptFd(int& arg0);
-	static AndroidCXX::android_os_ParcelFileDescriptor fromSocket(AndroidCXX::java_net_Socket& arg0);
-	static AndroidCXX::android_os_ParcelFileDescriptor fromDatagramSocket(AndroidCXX::java_net_DatagramSocket& arg0);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	static AndroidCXX::android_os_ParcelFileDescriptor fromFd(int const& arg0);
+	static AndroidCXX::android_os_ParcelFileDescriptor adoptFd(int const& arg0);
+	static AndroidCXX::android_os_ParcelFileDescriptor fromSocket(AndroidCXX::java_net_Socket const& arg0);
+	static AndroidCXX::android_os_ParcelFileDescriptor fromDatagramSocket(AndroidCXX::java_net_DatagramSocket const& arg0);
 	static std::vector<AndroidCXX::android_os_ParcelFileDescriptor > createPipe();
 	 AndroidCXX::java_io_FileDescriptor getFileDescriptor();
 	 long getStatSize();

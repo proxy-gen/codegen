@@ -58,16 +58,13 @@ class android_support_v4_content_Loader_OnLoadCompleteListener
 public:
 
 	android_support_v4_content_Loader_OnLoadCompleteListener(const android_support_v4_content_Loader_OnLoadCompleteListener& cc);
-	android_support_v4_content_Loader_OnLoadCompleteListener(void * proxy);
+	android_support_v4_content_Loader_OnLoadCompleteListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_support_v4_content_Loader_OnLoadCompleteListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_support_v4_content_Loader_OnLoadCompleteListener();
 	// Functions
-	 void onLoadComplete(AndroidCXX::android_support_v4_content_Loader& arg0,AndroidCXX::java_lang_Object& arg1);
+	 void onLoadComplete(AndroidCXX::android_support_v4_content_Loader const& arg0,AndroidCXX::java_lang_Object const& arg1);
 };	
 
 } // namespace

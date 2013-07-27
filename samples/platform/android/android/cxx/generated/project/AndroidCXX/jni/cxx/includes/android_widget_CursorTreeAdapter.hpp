@@ -125,40 +125,37 @@ class android_widget_CursorTreeAdapter
 public:
 
 	android_widget_CursorTreeAdapter(const android_widget_CursorTreeAdapter& cc);
-	android_widget_CursorTreeAdapter(void * proxy);
+	android_widget_CursorTreeAdapter(Proxy proxy);
 	// Public Constructors
-	android_widget_CursorTreeAdapter(AndroidCXX::android_database_Cursor& arg0,AndroidCXX::android_content_Context& arg1);
-	android_widget_CursorTreeAdapter(AndroidCXX::android_database_Cursor& arg0,AndroidCXX::android_content_Context& arg1,bool& arg2);
-	// TODO: remove
-	// 
-	// android_widget_CursorTreeAdapter();
-	// 
+	android_widget_CursorTreeAdapter(AndroidCXX::android_database_Cursor const& arg0,AndroidCXX::android_content_Context const& arg1);
+	android_widget_CursorTreeAdapter(AndroidCXX::android_database_Cursor const& arg0,AndroidCXX::android_content_Context const& arg1,bool const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_CursorTreeAdapter();
 	// Functions
 	 AndroidCXX::android_widget_Filter getFilter();
-	 long getGroupId(int& arg0);
-	 AndroidCXX::android_database_Cursor getChild(int& arg0,int& arg1);
+	 long getGroupId(int const& arg0);
+	 AndroidCXX::android_database_Cursor getChild(int const& arg0,int const& arg1);
 	 bool hasStableIds();
 	 int getGroupCount();
-	 int getChildrenCount(int& arg0);
-	 AndroidCXX::android_database_Cursor getGroup(int& arg0);
-	 long getChildId(int& arg0,int& arg1);
-	 AndroidCXX::android_view_View getGroupView(int& arg0,bool& arg1,AndroidCXX::android_view_View& arg2,AndroidCXX::android_view_ViewGroup& arg3);
-	 AndroidCXX::android_view_View getChildView(int& arg0,int& arg1,bool& arg2,AndroidCXX::android_view_View& arg3,AndroidCXX::android_view_ViewGroup& arg4);
-	 bool isChildSelectable(int& arg0,int& arg1);
-	 void onGroupCollapsed(int& arg0);
-	 AndroidCXX::java_lang_String convertToString(AndroidCXX::android_database_Cursor& arg0);
+	 int getChildrenCount(int const& arg0);
+	 AndroidCXX::android_database_Cursor getGroup(int const& arg0);
+	 long getChildId(int const& arg0,int const& arg1);
+	 AndroidCXX::android_view_View getGroupView(int const& arg0,bool const& arg1,AndroidCXX::android_view_View const& arg2,AndroidCXX::android_view_ViewGroup const& arg3);
+	 AndroidCXX::android_view_View getChildView(int const& arg0,int const& arg1,bool const& arg2,AndroidCXX::android_view_View const& arg3,AndroidCXX::android_view_ViewGroup const& arg4);
+	 bool isChildSelectable(int const& arg0,int const& arg1);
+	 void onGroupCollapsed(int const& arg0);
+	 AndroidCXX::java_lang_String convertToString(AndroidCXX::android_database_Cursor const& arg0);
 	 void notifyDataSetChanged();
-	 void notifyDataSetChanged(bool& arg0);
+	 void notifyDataSetChanged(bool const& arg0);
 	 void notifyDataSetInvalidated();
 	 AndroidCXX::android_database_Cursor getCursor();
-	 void changeCursor(AndroidCXX::android_database_Cursor& arg0);
-	 AndroidCXX::android_database_Cursor runQueryOnBackgroundThread(AndroidCXX::java_lang_CharSequence& arg0);
+	 void changeCursor(AndroidCXX::android_database_Cursor const& arg0);
+	 AndroidCXX::android_database_Cursor runQueryOnBackgroundThread(AndroidCXX::java_lang_CharSequence const& arg0);
 	 AndroidCXX::android_widget_FilterQueryProvider getFilterQueryProvider();
-	 void setFilterQueryProvider(AndroidCXX::android_widget_FilterQueryProvider& arg0);
-	 void setGroupCursor(AndroidCXX::android_database_Cursor& arg0);
-	 void setChildrenCursor(int& arg0,AndroidCXX::android_database_Cursor& arg1);
+	 void setFilterQueryProvider(AndroidCXX::android_widget_FilterQueryProvider const& arg0);
+	 void setGroupCursor(AndroidCXX::android_database_Cursor const& arg0);
+	 void setChildrenCursor(int const& arg0,AndroidCXX::android_database_Cursor const& arg1);
 };	
 
 } // namespace

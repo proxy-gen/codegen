@@ -47,7 +47,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_GridLayout_Spec::android_widget_GridLayout_Spec(const android_widget_GridLayout_Spec& cc)
 {
 	LOGV("android_widget_GridLayout_Spec::android_widget_GridLayout_Spec(const android_widget_GridLayout_Spec& cc) enter");
@@ -71,9 +70,9 @@ android_widget_GridLayout_Spec::android_widget_GridLayout_Spec(const android_wid
 
 	LOGV("android_widget_GridLayout_Spec::android_widget_GridLayout_Spec(const android_widget_GridLayout_Spec& cc) exit");
 }
-android_widget_GridLayout_Spec::android_widget_GridLayout_Spec(void * proxy)
+android_widget_GridLayout_Spec::android_widget_GridLayout_Spec(Proxy proxy)
 {
-	LOGV("android_widget_GridLayout_Spec::android_widget_GridLayout_Spec(void * proxy) enter");
+	LOGV("android_widget_GridLayout_Spec::android_widget_GridLayout_Spec(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -83,52 +82,31 @@ android_widget_GridLayout_Spec::android_widget_GridLayout_Spec(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_GridLayout_Spec::android_widget_GridLayout_Spec(void * proxy) exit");
+	LOGV("android_widget_GridLayout_Spec::android_widget_GridLayout_Spec(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_GridLayout_Spec::android_widget_GridLayout_Spec()
-// {
-// 	LOGV("android_widget_GridLayout_Spec::android_widget_GridLayout_Spec() enter");	
+Proxy android_widget_GridLayout_Spec::proxy() const
+{	
+	LOGV("android_widget_GridLayout_Spec::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/GridLayout$Spec";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_GridLayout_Spec cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_GridLayout_Spec jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_GridLayout_Spec className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_GridLayout_Spec::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_GridLayout_Spec cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_GridLayout_Spec jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_GridLayout_Spec::android_widget_GridLayout_Spec() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_widget_GridLayout_Spec::~android_widget_GridLayout_Spec()
 {
@@ -140,13 +118,13 @@ android_widget_GridLayout_Spec::~android_widget_GridLayout_Spec()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_GridLayout_Spec::~android_widget_GridLayout_Spec() exit");
 }
 // Functions
-bool android_widget_GridLayout_Spec::equals(AndroidCXX::java_lang_Object& arg0)
+bool android_widget_GridLayout_Spec::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool android_widget_GridLayout_Spec::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool android_widget_GridLayout_Spec::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -156,8 +134,6 @@ bool android_widget_GridLayout_Spec::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridLayout_Spec cxx address %d", cxxAddress);
@@ -207,9 +183,7 @@ bool android_widget_GridLayout_Spec::equals(AndroidCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_GridLayout_Spec::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool android_widget_GridLayout_Spec::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -225,8 +199,6 @@ int android_widget_GridLayout_Spec::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridLayout_Spec cxx address %d", cxxAddress);
@@ -255,8 +227,6 @@ int android_widget_GridLayout_Spec::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_GridLayout_Spec::hashCode() exit");
 
 	return result;

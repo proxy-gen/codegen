@@ -87,7 +87,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_net_http_SslError::android_net_http_SslError(const android_net_http_SslError& cc)
 {
 	LOGV("android_net_http_SslError::android_net_http_SslError(const android_net_http_SslError& cc) enter");
@@ -111,9 +110,9 @@ android_net_http_SslError::android_net_http_SslError(const android_net_http_SslE
 
 	LOGV("android_net_http_SslError::android_net_http_SslError(const android_net_http_SslError& cc) exit");
 }
-android_net_http_SslError::android_net_http_SslError(void * proxy)
+android_net_http_SslError::android_net_http_SslError(Proxy proxy)
 {
-	LOGV("android_net_http_SslError::android_net_http_SslError(void * proxy) enter");
+	LOGV("android_net_http_SslError::android_net_http_SslError(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -123,55 +122,34 @@ android_net_http_SslError::android_net_http_SslError(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_net_http_SslError::android_net_http_SslError(void * proxy) exit");
+	LOGV("android_net_http_SslError::android_net_http_SslError(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_net_http_SslError::android_net_http_SslError()
-// {
-// 	LOGV("android_net_http_SslError::android_net_http_SslError() enter");	
+Proxy android_net_http_SslError::proxy() const
+{	
+	LOGV("android_net_http_SslError::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/net/http/SslError";
+	long cxxAddress = (long) this;
+	LOGV("android_net_http_SslError cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_net_http_SslError jni address %d", proxiedComponent);
 
-// 	LOGV("android_net_http_SslError className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_net_http_SslError::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_net_http_SslError cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_net_http_SslError jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_net_http_SslError::android_net_http_SslError() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_net_http_SslError::android_net_http_SslError(int& arg0,AndroidCXX::android_net_http_SslCertificate& arg1)
+	return proxy;
+}
+android_net_http_SslError::android_net_http_SslError(int const& arg0,AndroidCXX::android_net_http_SslCertificate const& arg1)
 {
-	LOGV("android_net_http_SslError::android_net_http_SslError(int& arg0,AndroidCXX::android_net_http_SslCertificate& arg1) enter");	
+	LOGV("android_net_http_SslError::android_net_http_SslError(int const& arg0,AndroidCXX::android_net_http_SslCertificate const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(ILandroid/net/http/SslCertificate;)V";
@@ -245,11 +223,11 @@ android_net_http_SslError::android_net_http_SslError(int& arg0,AndroidCXX::andro
 
 	jni->popLocalFrame();
 
-	LOGV("android_net_http_SslError::android_net_http_SslError(int& arg0,AndroidCXX::android_net_http_SslCertificate& arg1) exit");	
+	LOGV("android_net_http_SslError::android_net_http_SslError(int const& arg0,AndroidCXX::android_net_http_SslCertificate const& arg1) exit");	
 }
-android_net_http_SslError::android_net_http_SslError(int& arg0,AndroidCXX::java_security_cert_X509Certificate& arg1)
+android_net_http_SslError::android_net_http_SslError(int const& arg0,AndroidCXX::java_security_cert_X509Certificate const& arg1)
 {
-	LOGV("android_net_http_SslError::android_net_http_SslError(int& arg0,AndroidCXX::java_security_cert_X509Certificate& arg1) enter");	
+	LOGV("android_net_http_SslError::android_net_http_SslError(int const& arg0,AndroidCXX::java_security_cert_X509Certificate const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(ILjava/security/cert/X509Certificate;)V";
@@ -323,11 +301,11 @@ android_net_http_SslError::android_net_http_SslError(int& arg0,AndroidCXX::java_
 
 	jni->popLocalFrame();
 
-	LOGV("android_net_http_SslError::android_net_http_SslError(int& arg0,AndroidCXX::java_security_cert_X509Certificate& arg1) exit");	
+	LOGV("android_net_http_SslError::android_net_http_SslError(int const& arg0,AndroidCXX::java_security_cert_X509Certificate const& arg1) exit");	
 }
-android_net_http_SslError::android_net_http_SslError(int& arg0,AndroidCXX::android_net_http_SslCertificate& arg1,AndroidCXX::java_lang_String& arg2)
+android_net_http_SslError::android_net_http_SslError(int const& arg0,AndroidCXX::android_net_http_SslCertificate const& arg1,AndroidCXX::java_lang_String const& arg2)
 {
-	LOGV("android_net_http_SslError::android_net_http_SslError(int& arg0,AndroidCXX::android_net_http_SslCertificate& arg1,AndroidCXX::java_lang_String& arg2) enter");	
+	LOGV("android_net_http_SslError::android_net_http_SslError(int const& arg0,AndroidCXX::android_net_http_SslCertificate const& arg1,AndroidCXX::java_lang_String const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(ILandroid/net/http/SslCertificate;Ljava/lang/String;)V";
@@ -422,11 +400,11 @@ android_net_http_SslError::android_net_http_SslError(int& arg0,AndroidCXX::andro
 
 	jni->popLocalFrame();
 
-	LOGV("android_net_http_SslError::android_net_http_SslError(int& arg0,AndroidCXX::android_net_http_SslCertificate& arg1,AndroidCXX::java_lang_String& arg2) exit");	
+	LOGV("android_net_http_SslError::android_net_http_SslError(int const& arg0,AndroidCXX::android_net_http_SslCertificate const& arg1,AndroidCXX::java_lang_String const& arg2) exit");	
 }
-android_net_http_SslError::android_net_http_SslError(int& arg0,AndroidCXX::java_security_cert_X509Certificate& arg1,AndroidCXX::java_lang_String& arg2)
+android_net_http_SslError::android_net_http_SslError(int const& arg0,AndroidCXX::java_security_cert_X509Certificate const& arg1,AndroidCXX::java_lang_String const& arg2)
 {
-	LOGV("android_net_http_SslError::android_net_http_SslError(int& arg0,AndroidCXX::java_security_cert_X509Certificate& arg1,AndroidCXX::java_lang_String& arg2) enter");	
+	LOGV("android_net_http_SslError::android_net_http_SslError(int const& arg0,AndroidCXX::java_security_cert_X509Certificate const& arg1,AndroidCXX::java_lang_String const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(ILjava/security/cert/X509Certificate;Ljava/lang/String;)V";
@@ -521,7 +499,7 @@ android_net_http_SslError::android_net_http_SslError(int& arg0,AndroidCXX::java_
 
 	jni->popLocalFrame();
 
-	LOGV("android_net_http_SslError::android_net_http_SslError(int& arg0,AndroidCXX::java_security_cert_X509Certificate& arg1,AndroidCXX::java_lang_String& arg2) exit");	
+	LOGV("android_net_http_SslError::android_net_http_SslError(int const& arg0,AndroidCXX::java_security_cert_X509Certificate const& arg1,AndroidCXX::java_lang_String const& arg2) exit");	
 }
 // Default Instance Destructor
 android_net_http_SslError::~android_net_http_SslError()
@@ -534,7 +512,7 @@ android_net_http_SslError::~android_net_http_SslError()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_net_http_SslError::~android_net_http_SslError() exit");
 }
 // Functions
@@ -550,8 +528,6 @@ AndroidCXX::java_lang_String android_net_http_SslError::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_net_http_SslError cxx address %d", cxxAddress);
@@ -580,8 +556,6 @@ AndroidCXX::java_lang_String android_net_http_SslError::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_net_http_SslError::toString() exit");
 
 	return result;
@@ -598,8 +572,6 @@ AndroidCXX::android_net_http_SslCertificate android_net_http_SslError::getCertif
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_net_http_SslError cxx address %d", cxxAddress);
@@ -628,8 +600,6 @@ AndroidCXX::android_net_http_SslCertificate android_net_http_SslError::getCertif
 	AndroidCXX::android_net_http_SslCertificate result((AndroidCXX::android_net_http_SslCertificate) *((AndroidCXX::android_net_http_SslCertificate *) cxx_value));
 	delete ((AndroidCXX::android_net_http_SslCertificate *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_net_http_SslCertificate android_net_http_SslError::getCertificate() exit");
 
 	return result;
@@ -646,8 +616,6 @@ AndroidCXX::java_lang_String android_net_http_SslError::getUrl()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_net_http_SslError cxx address %d", cxxAddress);
@@ -676,15 +644,13 @@ AndroidCXX::java_lang_String android_net_http_SslError::getUrl()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_net_http_SslError::getUrl() exit");
 
 	return result;
 }
-bool android_net_http_SslError::addError(int& arg0)
+bool android_net_http_SslError::addError(int const& arg0)
 {
-	LOGV("bool android_net_http_SslError::addError(int& arg0) enter");
+	LOGV("bool android_net_http_SslError::addError(int const& arg0) enter");
 
 	const char *methodName = "addError";
 	const char *methodSignature = "(I)Z";
@@ -695,8 +661,6 @@ bool android_net_http_SslError::addError(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_net_http_SslError cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -745,15 +709,13 @@ bool android_net_http_SslError::addError(int& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_net_http_SslError::addError(int& arg0) exit");
+	LOGV("bool android_net_http_SslError::addError(int const& arg0) exit");
 
 	return result;
 }
-bool android_net_http_SslError::hasError(int& arg0)
+bool android_net_http_SslError::hasError(int const& arg0)
 {
-	LOGV("bool android_net_http_SslError::hasError(int& arg0) enter");
+	LOGV("bool android_net_http_SslError::hasError(int const& arg0) enter");
 
 	const char *methodName = "hasError";
 	const char *methodSignature = "(I)Z";
@@ -764,8 +726,6 @@ bool android_net_http_SslError::hasError(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_net_http_SslError cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -814,9 +774,7 @@ bool android_net_http_SslError::hasError(int& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_net_http_SslError::hasError(int& arg0) exit");
+	LOGV("bool android_net_http_SslError::hasError(int const& arg0) exit");
 
 	return result;
 }
@@ -832,8 +790,6 @@ int android_net_http_SslError::getPrimaryError()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_net_http_SslError cxx address %d", cxxAddress);
@@ -862,8 +818,6 @@ int android_net_http_SslError::getPrimaryError()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_net_http_SslError::getPrimaryError() exit");
 
 	return result;

@@ -90,7 +90,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_nio_Buffer::java_nio_Buffer(const java_nio_Buffer& cc)
 {
 	LOGV("java_nio_Buffer::java_nio_Buffer(const java_nio_Buffer& cc) enter");
@@ -114,9 +113,9 @@ java_nio_Buffer::java_nio_Buffer(const java_nio_Buffer& cc)
 
 	LOGV("java_nio_Buffer::java_nio_Buffer(const java_nio_Buffer& cc) exit");
 }
-java_nio_Buffer::java_nio_Buffer(void * proxy)
+java_nio_Buffer::java_nio_Buffer(Proxy proxy)
 {
-	LOGV("java_nio_Buffer::java_nio_Buffer(void * proxy) enter");
+	LOGV("java_nio_Buffer::java_nio_Buffer(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -126,52 +125,31 @@ java_nio_Buffer::java_nio_Buffer(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_nio_Buffer::java_nio_Buffer(void * proxy) exit");
+	LOGV("java_nio_Buffer::java_nio_Buffer(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_nio_Buffer::java_nio_Buffer()
-// {
-// 	LOGV("java_nio_Buffer::java_nio_Buffer() enter");	
+Proxy java_nio_Buffer::proxy() const
+{	
+	LOGV("java_nio_Buffer::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/nio/Buffer";
+	long cxxAddress = (long) this;
+	LOGV("java_nio_Buffer cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_Buffer jni address %d", proxiedComponent);
 
-// 	LOGV("java_nio_Buffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_nio_Buffer::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_nio_Buffer cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_nio_Buffer jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_nio_Buffer::java_nio_Buffer() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_nio_Buffer::~java_nio_Buffer()
 {
@@ -183,7 +161,7 @@ java_nio_Buffer::~java_nio_Buffer()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_nio_Buffer::~java_nio_Buffer() exit");
 }
 // Functions
@@ -199,8 +177,6 @@ int java_nio_Buffer::limit()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_Buffer cxx address %d", cxxAddress);
@@ -229,15 +205,13 @@ int java_nio_Buffer::limit()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_nio_Buffer::limit() exit");
 
 	return result;
 }
-AndroidCXX::java_nio_Buffer java_nio_Buffer::limit(int& arg0)
+AndroidCXX::java_nio_Buffer java_nio_Buffer::limit(int const& arg0)
 {
-	LOGV("AndroidCXX::java_nio_Buffer java_nio_Buffer::limit(int& arg0) enter");
+	LOGV("AndroidCXX::java_nio_Buffer java_nio_Buffer::limit(int const& arg0) enter");
 
 	const char *methodName = "limit";
 	const char *methodSignature = "(I)Ljava/nio/Buffer;";
@@ -247,8 +221,6 @@ AndroidCXX::java_nio_Buffer java_nio_Buffer::limit(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_Buffer cxx address %d", cxxAddress);
@@ -298,9 +270,7 @@ AndroidCXX::java_nio_Buffer java_nio_Buffer::limit(int& arg0)
 	AndroidCXX::java_nio_Buffer result((AndroidCXX::java_nio_Buffer) *((AndroidCXX::java_nio_Buffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_Buffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_Buffer java_nio_Buffer::limit(int& arg0) exit");
+	LOGV("AndroidCXX::java_nio_Buffer java_nio_Buffer::limit(int const& arg0) exit");
 
 	return result;
 }
@@ -316,8 +286,6 @@ AndroidCXX::java_nio_Buffer java_nio_Buffer::clear()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_Buffer cxx address %d", cxxAddress);
@@ -346,8 +314,6 @@ AndroidCXX::java_nio_Buffer java_nio_Buffer::clear()
 	AndroidCXX::java_nio_Buffer result((AndroidCXX::java_nio_Buffer) *((AndroidCXX::java_nio_Buffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_Buffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_nio_Buffer java_nio_Buffer::clear() exit");
 
 	return result;
@@ -364,8 +330,6 @@ int java_nio_Buffer::remaining()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_Buffer cxx address %d", cxxAddress);
@@ -394,8 +358,6 @@ int java_nio_Buffer::remaining()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_nio_Buffer::remaining() exit");
 
 	return result;
@@ -413,8 +375,6 @@ bool java_nio_Buffer::isDirect()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_Buffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -442,8 +402,6 @@ bool java_nio_Buffer::isDirect()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_nio_Buffer::isDirect() exit");
 
 	return result;
@@ -461,8 +419,6 @@ bool java_nio_Buffer::hasArray()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_Buffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -490,8 +446,6 @@ bool java_nio_Buffer::hasArray()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_nio_Buffer::hasArray() exit");
 
 	return result;
@@ -508,8 +462,6 @@ AndroidCXX::java_lang_Object java_nio_Buffer::array()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_Buffer cxx address %d", cxxAddress);
@@ -538,15 +490,13 @@ AndroidCXX::java_lang_Object java_nio_Buffer::array()
 	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
 	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_Object java_nio_Buffer::array() exit");
 
 	return result;
 }
-AndroidCXX::java_nio_Buffer java_nio_Buffer::position(int& arg0)
+AndroidCXX::java_nio_Buffer java_nio_Buffer::position(int const& arg0)
 {
-	LOGV("AndroidCXX::java_nio_Buffer java_nio_Buffer::position(int& arg0) enter");
+	LOGV("AndroidCXX::java_nio_Buffer java_nio_Buffer::position(int const& arg0) enter");
 
 	const char *methodName = "position";
 	const char *methodSignature = "(I)Ljava/nio/Buffer;";
@@ -556,8 +506,6 @@ AndroidCXX::java_nio_Buffer java_nio_Buffer::position(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_Buffer cxx address %d", cxxAddress);
@@ -607,9 +555,7 @@ AndroidCXX::java_nio_Buffer java_nio_Buffer::position(int& arg0)
 	AndroidCXX::java_nio_Buffer result((AndroidCXX::java_nio_Buffer) *((AndroidCXX::java_nio_Buffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_Buffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_Buffer java_nio_Buffer::position(int& arg0) exit");
+	LOGV("AndroidCXX::java_nio_Buffer java_nio_Buffer::position(int const& arg0) exit");
 
 	return result;
 }
@@ -625,8 +571,6 @@ int java_nio_Buffer::position()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_Buffer cxx address %d", cxxAddress);
@@ -655,8 +599,6 @@ int java_nio_Buffer::position()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_nio_Buffer::position() exit");
 
 	return result;
@@ -674,8 +616,6 @@ int java_nio_Buffer::arrayOffset()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_Buffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -703,8 +643,6 @@ int java_nio_Buffer::arrayOffset()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_nio_Buffer::arrayOffset() exit");
 
 	return result;
@@ -722,8 +660,6 @@ int java_nio_Buffer::capacity()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_Buffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -751,8 +687,6 @@ int java_nio_Buffer::capacity()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_nio_Buffer::capacity() exit");
 
 	return result;
@@ -770,8 +704,6 @@ AndroidCXX::java_nio_Buffer java_nio_Buffer::mark()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_Buffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -799,8 +731,6 @@ AndroidCXX::java_nio_Buffer java_nio_Buffer::mark()
 	AndroidCXX::java_nio_Buffer result((AndroidCXX::java_nio_Buffer) *((AndroidCXX::java_nio_Buffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_Buffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_nio_Buffer java_nio_Buffer::mark() exit");
 
 	return result;
@@ -818,8 +748,6 @@ AndroidCXX::java_nio_Buffer java_nio_Buffer::reset()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_Buffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -847,8 +775,6 @@ AndroidCXX::java_nio_Buffer java_nio_Buffer::reset()
 	AndroidCXX::java_nio_Buffer result((AndroidCXX::java_nio_Buffer) *((AndroidCXX::java_nio_Buffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_Buffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_nio_Buffer java_nio_Buffer::reset() exit");
 
 	return result;
@@ -866,8 +792,6 @@ AndroidCXX::java_nio_Buffer java_nio_Buffer::flip()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_Buffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -895,8 +819,6 @@ AndroidCXX::java_nio_Buffer java_nio_Buffer::flip()
 	AndroidCXX::java_nio_Buffer result((AndroidCXX::java_nio_Buffer) *((AndroidCXX::java_nio_Buffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_Buffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_nio_Buffer java_nio_Buffer::flip() exit");
 
 	return result;
@@ -914,8 +836,6 @@ AndroidCXX::java_nio_Buffer java_nio_Buffer::rewind()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_Buffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -943,8 +863,6 @@ AndroidCXX::java_nio_Buffer java_nio_Buffer::rewind()
 	AndroidCXX::java_nio_Buffer result((AndroidCXX::java_nio_Buffer) *((AndroidCXX::java_nio_Buffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_Buffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_nio_Buffer java_nio_Buffer::rewind() exit");
 
 	return result;
@@ -962,8 +880,6 @@ bool java_nio_Buffer::hasRemaining()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_Buffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -991,8 +907,6 @@ bool java_nio_Buffer::hasRemaining()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_nio_Buffer::hasRemaining() exit");
 
 	return result;
@@ -1010,8 +924,6 @@ bool java_nio_Buffer::isReadOnly()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_Buffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1039,8 +951,6 @@ bool java_nio_Buffer::isReadOnly()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_nio_Buffer::isReadOnly() exit");
 
 	return result;

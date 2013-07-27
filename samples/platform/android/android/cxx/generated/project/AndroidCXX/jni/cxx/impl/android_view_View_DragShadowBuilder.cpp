@@ -66,7 +66,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder(const android_view_View_DragShadowBuilder& cc)
 {
 	LOGV("android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder(const android_view_View_DragShadowBuilder& cc) enter");
@@ -90,9 +89,9 @@ android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder(const a
 
 	LOGV("android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder(const android_view_View_DragShadowBuilder& cc) exit");
 }
-android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder(void * proxy)
+android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder(Proxy proxy)
 {
-	LOGV("android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder(void * proxy) enter");
+	LOGV("android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -102,20 +101,34 @@ android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder(void * 
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder(void * proxy) exit");
+	LOGV("android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
-android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder(AndroidCXX::android_view_View& arg0)
+Proxy android_view_View_DragShadowBuilder::proxy() const
+{	
+	LOGV("android_view_View_DragShadowBuilder::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_view_View_DragShadowBuilder cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_View_DragShadowBuilder jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_view_View_DragShadowBuilder::proxy() exit");	
+
+	return proxy;
+}
+android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder(AndroidCXX::android_view_View const& arg0)
 {
-	LOGV("android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder(AndroidCXX::android_view_View& arg0) enter");	
+	LOGV("android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder(AndroidCXX::android_view_View const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/view/View;)V";
@@ -168,7 +181,7 @@ android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder(Android
 
 	jni->popLocalFrame();
 
-	LOGV("android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder(AndroidCXX::android_view_View& arg0) exit");	
+	LOGV("android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder(AndroidCXX::android_view_View const& arg0) exit");	
 }
 android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder()
 {
@@ -217,7 +230,7 @@ android_view_View_DragShadowBuilder::~android_view_View_DragShadowBuilder()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_View_DragShadowBuilder::~android_view_View_DragShadowBuilder() exit");
 }
 // Functions
@@ -233,8 +246,6 @@ AndroidCXX::android_view_View android_view_View_DragShadowBuilder::getView()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_View_DragShadowBuilder cxx address %d", cxxAddress);
@@ -263,15 +274,13 @@ AndroidCXX::android_view_View android_view_View_DragShadowBuilder::getView()
 	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
 	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_view_View android_view_View_DragShadowBuilder::getView() exit");
 
 	return result;
 }
-void android_view_View_DragShadowBuilder::onProvideShadowMetrics(AndroidCXX::android_graphics_Point& arg0,AndroidCXX::android_graphics_Point& arg1)
+void android_view_View_DragShadowBuilder::onProvideShadowMetrics(AndroidCXX::android_graphics_Point const& arg0,AndroidCXX::android_graphics_Point const& arg1)
 {
-	LOGV("void android_view_View_DragShadowBuilder::onProvideShadowMetrics(AndroidCXX::android_graphics_Point& arg0,AndroidCXX::android_graphics_Point& arg1) enter");
+	LOGV("void android_view_View_DragShadowBuilder::onProvideShadowMetrics(AndroidCXX::android_graphics_Point const& arg0,AndroidCXX::android_graphics_Point const& arg1) enter");
 
 	const char *methodName = "onProvideShadowMetrics";
 	const char *methodSignature = "(Landroid/graphics/Point;Landroid/graphics/Point;)V";
@@ -281,8 +290,6 @@ void android_view_View_DragShadowBuilder::onProvideShadowMetrics(AndroidCXX::and
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_View_DragShadowBuilder cxx address %d", cxxAddress);
@@ -334,14 +341,12 @@ void android_view_View_DragShadowBuilder::onProvideShadowMetrics(AndroidCXX::and
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_View_DragShadowBuilder::onProvideShadowMetrics(AndroidCXX::android_graphics_Point& arg0,AndroidCXX::android_graphics_Point& arg1) exit");
+	LOGV("void android_view_View_DragShadowBuilder::onProvideShadowMetrics(AndroidCXX::android_graphics_Point const& arg0,AndroidCXX::android_graphics_Point const& arg1) exit");
 
 }
-void android_view_View_DragShadowBuilder::onDrawShadow(AndroidCXX::android_graphics_Canvas& arg0)
+void android_view_View_DragShadowBuilder::onDrawShadow(AndroidCXX::android_graphics_Canvas const& arg0)
 {
-	LOGV("void android_view_View_DragShadowBuilder::onDrawShadow(AndroidCXX::android_graphics_Canvas& arg0) enter");
+	LOGV("void android_view_View_DragShadowBuilder::onDrawShadow(AndroidCXX::android_graphics_Canvas const& arg0) enter");
 
 	const char *methodName = "onDrawShadow";
 	const char *methodSignature = "(Landroid/graphics/Canvas;)V";
@@ -351,8 +356,6 @@ void android_view_View_DragShadowBuilder::onDrawShadow(AndroidCXX::android_graph
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_View_DragShadowBuilder cxx address %d", cxxAddress);
@@ -383,8 +386,6 @@ void android_view_View_DragShadowBuilder::onDrawShadow(AndroidCXX::android_graph
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_View_DragShadowBuilder::onDrawShadow(AndroidCXX::android_graphics_Canvas& arg0) exit");
+	LOGV("void android_view_View_DragShadowBuilder::onDrawShadow(AndroidCXX::android_graphics_Canvas const& arg0) exit");
 
 }

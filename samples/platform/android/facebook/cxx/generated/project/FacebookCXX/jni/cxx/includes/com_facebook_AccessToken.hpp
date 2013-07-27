@@ -89,12 +89,9 @@ class com_facebook_AccessToken
 public:
 
 	com_facebook_AccessToken(const com_facebook_AccessToken& cc);
-	com_facebook_AccessToken(void * proxy);
+	com_facebook_AccessToken(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_AccessToken();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AccessToken();
 	// Functions
@@ -102,10 +99,10 @@ public:
 	 AndroidCXX::java_util_List getPermissions();
 	 AndroidCXX::java_lang_String getToken();
 	 AndroidCXX::java_util_Date getExpires();
-	 COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource getSource();
+	 com_facebook_AccessTokenSource::com_facebook_AccessTokenSource getSource();
 	 AndroidCXX::java_util_Date getLastRefresh();
-	static FacebookCXX::com_facebook_AccessToken createFromExistingAccessToken(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_Date& arg1,AndroidCXX::java_util_Date& arg2,COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource& arg3,AndroidCXX::java_util_List& arg4);
-	static FacebookCXX::com_facebook_AccessToken createFromNativeLinkingIntent(AndroidCXX::android_content_Intent& arg0);
+	static FacebookCXX::com_facebook_AccessToken createFromExistingAccessToken(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Date const& arg1,AndroidCXX::java_util_Date const& arg2,com_facebook_AccessTokenSource::com_facebook_AccessTokenSource const& arg3,AndroidCXX::java_util_List const& arg4);
+	static FacebookCXX::com_facebook_AccessToken createFromNativeLinkingIntent(AndroidCXX::android_content_Intent const& arg0);
 };	
 
 } // namespace

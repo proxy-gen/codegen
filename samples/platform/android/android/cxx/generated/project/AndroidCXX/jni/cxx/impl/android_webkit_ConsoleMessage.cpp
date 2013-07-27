@@ -58,7 +58,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_WEBKIT_CONSOLEMESSAGE_MESSAGELEVEL;
+// using namespace android_webkit_ConsoleMessage_MessageLevel;
 // 
 // 
 // 
@@ -75,7 +75,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_webkit_ConsoleMessage::android_webkit_ConsoleMessage(const android_webkit_ConsoleMessage& cc)
 {
 	LOGV("android_webkit_ConsoleMessage::android_webkit_ConsoleMessage(const android_webkit_ConsoleMessage& cc) enter");
@@ -99,9 +98,9 @@ android_webkit_ConsoleMessage::android_webkit_ConsoleMessage(const android_webki
 
 	LOGV("android_webkit_ConsoleMessage::android_webkit_ConsoleMessage(const android_webkit_ConsoleMessage& cc) exit");
 }
-android_webkit_ConsoleMessage::android_webkit_ConsoleMessage(void * proxy)
+android_webkit_ConsoleMessage::android_webkit_ConsoleMessage(Proxy proxy)
 {
-	LOGV("android_webkit_ConsoleMessage::android_webkit_ConsoleMessage(void * proxy) enter");
+	LOGV("android_webkit_ConsoleMessage::android_webkit_ConsoleMessage(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -111,55 +110,34 @@ android_webkit_ConsoleMessage::android_webkit_ConsoleMessage(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_webkit_ConsoleMessage::android_webkit_ConsoleMessage(void * proxy) exit");
+	LOGV("android_webkit_ConsoleMessage::android_webkit_ConsoleMessage(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_webkit_ConsoleMessage::android_webkit_ConsoleMessage()
-// {
-// 	LOGV("android_webkit_ConsoleMessage::android_webkit_ConsoleMessage() enter");	
+Proxy android_webkit_ConsoleMessage::proxy() const
+{	
+	LOGV("android_webkit_ConsoleMessage::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/webkit/ConsoleMessage";
+	long cxxAddress = (long) this;
+	LOGV("android_webkit_ConsoleMessage cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_webkit_ConsoleMessage jni address %d", proxiedComponent);
 
-// 	LOGV("android_webkit_ConsoleMessage className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_webkit_ConsoleMessage::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_webkit_ConsoleMessage cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_webkit_ConsoleMessage jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_webkit_ConsoleMessage::android_webkit_ConsoleMessage() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_webkit_ConsoleMessage::android_webkit_ConsoleMessage(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2,ANDROID_WEBKIT_CONSOLEMESSAGE_MESSAGELEVEL::android_webkit_ConsoleMessage_MessageLevel& arg3)
+	return proxy;
+}
+android_webkit_ConsoleMessage::android_webkit_ConsoleMessage(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2,android_webkit_ConsoleMessage_MessageLevel::android_webkit_ConsoleMessage_MessageLevel const& arg3)
 {
-	LOGV("android_webkit_ConsoleMessage::android_webkit_ConsoleMessage(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2,ANDROID_WEBKIT_CONSOLEMESSAGE_MESSAGELEVEL::android_webkit_ConsoleMessage_MessageLevel& arg3) enter");	
+	LOGV("android_webkit_ConsoleMessage::android_webkit_ConsoleMessage(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2,android_webkit_ConsoleMessage_MessageLevel::android_webkit_ConsoleMessage_MessageLevel const& arg3) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;ILandroid/webkit/ConsoleMessage$MessageLevel;)V";
@@ -275,7 +253,7 @@ android_webkit_ConsoleMessage::android_webkit_ConsoleMessage(AndroidCXX::java_la
 
 	jni->popLocalFrame();
 
-	LOGV("android_webkit_ConsoleMessage::android_webkit_ConsoleMessage(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2,ANDROID_WEBKIT_CONSOLEMESSAGE_MESSAGELEVEL::android_webkit_ConsoleMessage_MessageLevel& arg3) exit");	
+	LOGV("android_webkit_ConsoleMessage::android_webkit_ConsoleMessage(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2,android_webkit_ConsoleMessage_MessageLevel::android_webkit_ConsoleMessage_MessageLevel const& arg3) exit");	
 }
 // Default Instance Destructor
 android_webkit_ConsoleMessage::~android_webkit_ConsoleMessage()
@@ -288,7 +266,7 @@ android_webkit_ConsoleMessage::~android_webkit_ConsoleMessage()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_webkit_ConsoleMessage::~android_webkit_ConsoleMessage() exit");
 }
 // Functions
@@ -304,8 +282,6 @@ int android_webkit_ConsoleMessage::lineNumber()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_ConsoleMessage cxx address %d", cxxAddress);
@@ -334,8 +310,6 @@ int android_webkit_ConsoleMessage::lineNumber()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_webkit_ConsoleMessage::lineNumber() exit");
 
 	return result;
@@ -353,8 +327,6 @@ AndroidCXX::java_lang_String android_webkit_ConsoleMessage::message()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_ConsoleMessage cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -382,8 +354,6 @@ AndroidCXX::java_lang_String android_webkit_ConsoleMessage::message()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_webkit_ConsoleMessage::message() exit");
 
 	return result;
@@ -401,8 +371,6 @@ AndroidCXX::java_lang_String android_webkit_ConsoleMessage::sourceId()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_ConsoleMessage cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -430,15 +398,13 @@ AndroidCXX::java_lang_String android_webkit_ConsoleMessage::sourceId()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_webkit_ConsoleMessage::sourceId() exit");
 
 	return result;
 }
-ANDROID_WEBKIT_CONSOLEMESSAGE_MESSAGELEVEL::android_webkit_ConsoleMessage_MessageLevel android_webkit_ConsoleMessage::messageLevel()
+android_webkit_ConsoleMessage_MessageLevel::android_webkit_ConsoleMessage_MessageLevel android_webkit_ConsoleMessage::messageLevel()
 {
-	LOGV("ANDROID_WEBKIT_CONSOLEMESSAGE_MESSAGELEVEL::android_webkit_ConsoleMessage_MessageLevel android_webkit_ConsoleMessage::messageLevel() enter");
+	LOGV("android_webkit_ConsoleMessage_MessageLevel::android_webkit_ConsoleMessage_MessageLevel android_webkit_ConsoleMessage::messageLevel() enter");
 
 	const char *methodName = "messageLevel";
 	const char *methodSignature = "()Landroid/webkit/ConsoleMessage$MessageLevel;";
@@ -448,8 +414,6 @@ ANDROID_WEBKIT_CONSOLEMESSAGE_MESSAGELEVEL::android_webkit_ConsoleMessage_Messag
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_ConsoleMessage cxx address %d", cxxAddress);
@@ -475,12 +439,10 @@ ANDROID_WEBKIT_CONSOLEMESSAGE_MESSAGELEVEL::android_webkit_ConsoleMessage_Messag
 		convert_android_webkit_ConsoleMessage_MessageLevel(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 
-	ANDROID_WEBKIT_CONSOLEMESSAGE_MESSAGELEVEL::android_webkit_ConsoleMessage_MessageLevel result = (ANDROID_WEBKIT_CONSOLEMESSAGE_MESSAGELEVEL::android_webkit_ConsoleMessage_MessageLevel) (cxx_value);
+	android_webkit_ConsoleMessage_MessageLevel::android_webkit_ConsoleMessage_MessageLevel result = (android_webkit_ConsoleMessage_MessageLevel::android_webkit_ConsoleMessage_MessageLevel) (cxx_value);
 	//
 		
-	jni->popLocalFrame();
-
-	LOGV("ANDROID_WEBKIT_CONSOLEMESSAGE_MESSAGELEVEL::android_webkit_ConsoleMessage_MessageLevel android_webkit_ConsoleMessage::messageLevel() exit");
+	LOGV("android_webkit_ConsoleMessage_MessageLevel::android_webkit_ConsoleMessage_MessageLevel android_webkit_ConsoleMessage::messageLevel() exit");
 
 	return result;
 }

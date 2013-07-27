@@ -30,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace ANDROID_WEBKIT_WEBSETTINGS_LAYOUTALGORITHM {
+namespace android_webkit_WebSettings_LayoutAlgorithm {
 
 enum android_webkit_WebSettings_LayoutAlgorithm
 {

@@ -59,33 +59,9 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
-android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProperties(const android_view_MotionEvent_PointerProperties& cc)
+android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProperties(Proxy proxy)
 {
-	LOGV("android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProperties(const android_view_MotionEvent_PointerProperties& cc) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	long ccaddress = (long) &cc;
-	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
-	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
-	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
-	long address = (long) this;
-	LOGV("registerProxyComponent address %ld", address);
-	jobject proxiedComponent = ctx->findProxyComponent(address);
-	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
-	if (proxiedComponent == 0)
-	{
-		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = proxiedCCComponent;
-		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
-		ctx->registerProxyComponent(address, proxiedComponent);
-	}
-
-	LOGV("android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProperties(const android_view_MotionEvent_PointerProperties& cc) exit");
-}
-android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProperties(void * proxy)
-{
-	LOGV("android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProperties(void * proxy) enter");
+	LOGV("android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProperties(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -95,17 +71,31 @@ android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProp
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProperties(void * proxy) exit");
+	LOGV("android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProperties(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy android_view_MotionEvent_PointerProperties::proxy() const
+{	
+	LOGV("android_view_MotionEvent_PointerProperties::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_view_MotionEvent_PointerProperties cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_MotionEvent_PointerProperties jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_view_MotionEvent_PointerProperties::proxy() exit");	
+
+	return proxy;
+}
 android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProperties()
 {
 	LOGV("android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProperties() enter");	
@@ -142,9 +132,9 @@ android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProp
 
 	LOGV("android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProperties() exit");	
 }
-android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProperties(AndroidCXX::android_view_MotionEvent_PointerProperties& arg0)
+android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProperties(AndroidCXX::android_view_MotionEvent_PointerProperties const& arg0)
 {
-	LOGV("android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProperties(AndroidCXX::android_view_MotionEvent_PointerProperties& arg0) enter");	
+	LOGV("android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProperties(AndroidCXX::android_view_MotionEvent_PointerProperties const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/view/MotionEvent$PointerProperties;)V";
@@ -197,7 +187,7 @@ android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProp
 
 	jni->popLocalFrame();
 
-	LOGV("android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProperties(AndroidCXX::android_view_MotionEvent_PointerProperties& arg0) exit");	
+	LOGV("android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProperties(AndroidCXX::android_view_MotionEvent_PointerProperties const& arg0) exit");	
 }
 // Default Instance Destructor
 android_view_MotionEvent_PointerProperties::~android_view_MotionEvent_PointerProperties()
@@ -210,13 +200,13 @@ android_view_MotionEvent_PointerProperties::~android_view_MotionEvent_PointerPro
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_MotionEvent_PointerProperties::~android_view_MotionEvent_PointerProperties() exit");
 }
 // Functions
-bool android_view_MotionEvent_PointerProperties::equals(AndroidCXX::java_lang_Object& arg0)
+bool android_view_MotionEvent_PointerProperties::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool android_view_MotionEvent_PointerProperties::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool android_view_MotionEvent_PointerProperties::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -226,8 +216,6 @@ bool android_view_MotionEvent_PointerProperties::equals(AndroidCXX::java_lang_Ob
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_MotionEvent_PointerProperties cxx address %d", cxxAddress);
@@ -277,9 +265,7 @@ bool android_view_MotionEvent_PointerProperties::equals(AndroidCXX::java_lang_Ob
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_MotionEvent_PointerProperties::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool android_view_MotionEvent_PointerProperties::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -295,8 +281,6 @@ int android_view_MotionEvent_PointerProperties::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_MotionEvent_PointerProperties cxx address %d", cxxAddress);
@@ -325,8 +309,6 @@ int android_view_MotionEvent_PointerProperties::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_MotionEvent_PointerProperties::hashCode() exit");
 
 	return result;
@@ -344,8 +326,6 @@ void android_view_MotionEvent_PointerProperties::clear()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_MotionEvent_PointerProperties cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -354,14 +334,12 @@ void android_view_MotionEvent_PointerProperties::clear()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_view_MotionEvent_PointerProperties::clear() exit");
 
 }
-void android_view_MotionEvent_PointerProperties::copyFrom(AndroidCXX::android_view_MotionEvent_PointerProperties& arg0)
+void android_view_MotionEvent_PointerProperties::copyFrom(AndroidCXX::android_view_MotionEvent_PointerProperties const& arg0)
 {
-	LOGV("void android_view_MotionEvent_PointerProperties::copyFrom(AndroidCXX::android_view_MotionEvent_PointerProperties& arg0) enter");
+	LOGV("void android_view_MotionEvent_PointerProperties::copyFrom(AndroidCXX::android_view_MotionEvent_PointerProperties const& arg0) enter");
 
 	const char *methodName = "copyFrom";
 	const char *methodSignature = "(Landroid/view/MotionEvent$PointerProperties;)V";
@@ -371,8 +349,6 @@ void android_view_MotionEvent_PointerProperties::copyFrom(AndroidCXX::android_vi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_MotionEvent_PointerProperties cxx address %d", cxxAddress);
@@ -403,8 +379,6 @@ void android_view_MotionEvent_PointerProperties::copyFrom(AndroidCXX::android_vi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_MotionEvent_PointerProperties::copyFrom(AndroidCXX::android_view_MotionEvent_PointerProperties& arg0) exit");
+	LOGV("void android_view_MotionEvent_PointerProperties::copyFrom(AndroidCXX::android_view_MotionEvent_PointerProperties const& arg0) exit");
 
 }

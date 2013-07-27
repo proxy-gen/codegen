@@ -109,7 +109,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_text_Editable::android_text_Editable(const android_text_Editable& cc)
 {
 	LOGV("android_text_Editable::android_text_Editable(const android_text_Editable& cc) enter");
@@ -133,9 +132,9 @@ android_text_Editable::android_text_Editable(const android_text_Editable& cc)
 
 	LOGV("android_text_Editable::android_text_Editable(const android_text_Editable& cc) exit");
 }
-android_text_Editable::android_text_Editable(void * proxy)
+android_text_Editable::android_text_Editable(Proxy proxy)
 {
-	LOGV("android_text_Editable::android_text_Editable(void * proxy) enter");
+	LOGV("android_text_Editable::android_text_Editable(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -145,52 +144,31 @@ android_text_Editable::android_text_Editable(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_text_Editable::android_text_Editable(void * proxy) exit");
+	LOGV("android_text_Editable::android_text_Editable(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_text_Editable::android_text_Editable()
-// {
-// 	LOGV("android_text_Editable::android_text_Editable() enter");	
+Proxy android_text_Editable::proxy() const
+{	
+	LOGV("android_text_Editable::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/text/Editable";
+	long cxxAddress = (long) this;
+	LOGV("android_text_Editable cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_text_Editable jni address %d", proxiedComponent);
 
-// 	LOGV("android_text_Editable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_text_Editable::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_text_Editable cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_text_Editable jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_text_Editable::android_text_Editable() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_text_Editable::~android_text_Editable()
 {
@@ -202,13 +180,13 @@ android_text_Editable::~android_text_Editable()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_text_Editable::~android_text_Editable() exit");
 }
 // Functions
-AndroidCXX::android_text_Editable android_text_Editable::append(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2)
+AndroidCXX::android_text_Editable android_text_Editable::append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("AndroidCXX::android_text_Editable android_text_Editable::append(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2) enter");
+	LOGV("AndroidCXX::android_text_Editable android_text_Editable::append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/CharSequence;II)Landroid/text/Editable;";
@@ -218,8 +196,6 @@ AndroidCXX::android_text_Editable android_text_Editable::append(AndroidCXX::java
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Editable cxx address %d", cxxAddress);
@@ -311,15 +287,13 @@ AndroidCXX::android_text_Editable android_text_Editable::append(AndroidCXX::java
 	AndroidCXX::android_text_Editable result((AndroidCXX::android_text_Editable) *((AndroidCXX::android_text_Editable *) cxx_value));
 	delete ((AndroidCXX::android_text_Editable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_text_Editable android_text_Editable::append(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2) exit");
+	LOGV("AndroidCXX::android_text_Editable android_text_Editable::append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::android_text_Editable android_text_Editable::append(AndroidCXX::java_lang_CharSequence& arg0)
+AndroidCXX::android_text_Editable android_text_Editable::append(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("AndroidCXX::android_text_Editable android_text_Editable::append(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("AndroidCXX::android_text_Editable android_text_Editable::append(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Landroid/text/Editable;";
@@ -329,8 +303,6 @@ AndroidCXX::android_text_Editable android_text_Editable::append(AndroidCXX::java
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Editable cxx address %d", cxxAddress);
@@ -380,15 +352,13 @@ AndroidCXX::android_text_Editable android_text_Editable::append(AndroidCXX::java
 	AndroidCXX::android_text_Editable result((AndroidCXX::android_text_Editable) *((AndroidCXX::android_text_Editable *) cxx_value));
 	delete ((AndroidCXX::android_text_Editable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_text_Editable android_text_Editable::append(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("AndroidCXX::android_text_Editable android_text_Editable::append(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_text_Editable android_text_Editable::append(char& arg0)
+AndroidCXX::android_text_Editable android_text_Editable::append(char const& arg0)
 {
-	LOGV("AndroidCXX::android_text_Editable android_text_Editable::append(char& arg0) enter");
+	LOGV("AndroidCXX::android_text_Editable android_text_Editable::append(char const& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(C)Landroid/text/Editable;";
@@ -398,8 +368,6 @@ AndroidCXX::android_text_Editable android_text_Editable::append(char& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Editable cxx address %d", cxxAddress);
@@ -449,9 +417,7 @@ AndroidCXX::android_text_Editable android_text_Editable::append(char& arg0)
 	AndroidCXX::android_text_Editable result((AndroidCXX::android_text_Editable) *((AndroidCXX::android_text_Editable *) cxx_value));
 	delete ((AndroidCXX::android_text_Editable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_text_Editable android_text_Editable::append(char& arg0) exit");
+	LOGV("AndroidCXX::android_text_Editable android_text_Editable::append(char const& arg0) exit");
 
 	return result;
 }
@@ -468,8 +434,6 @@ void android_text_Editable::clear()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Editable cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -478,14 +442,12 @@ void android_text_Editable::clear()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_text_Editable::clear() exit");
 
 }
-AndroidCXX::android_text_Editable android_text_Editable::replace(int& arg0,int& arg1,AndroidCXX::java_lang_CharSequence& arg2,int& arg3,int& arg4)
+AndroidCXX::android_text_Editable android_text_Editable::replace(int const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2,int const& arg3,int const& arg4)
 {
-	LOGV("AndroidCXX::android_text_Editable android_text_Editable::replace(int& arg0,int& arg1,AndroidCXX::java_lang_CharSequence& arg2,int& arg3,int& arg4) enter");
+	LOGV("AndroidCXX::android_text_Editable android_text_Editable::replace(int const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2,int const& arg3,int const& arg4) enter");
 
 	const char *methodName = "replace";
 	const char *methodSignature = "(IILjava/lang/CharSequence;II)Landroid/text/Editable;";
@@ -495,8 +457,6 @@ AndroidCXX::android_text_Editable android_text_Editable::replace(int& arg0,int& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Editable cxx address %d", cxxAddress);
@@ -630,15 +590,13 @@ AndroidCXX::android_text_Editable android_text_Editable::replace(int& arg0,int& 
 	AndroidCXX::android_text_Editable result((AndroidCXX::android_text_Editable) *((AndroidCXX::android_text_Editable *) cxx_value));
 	delete ((AndroidCXX::android_text_Editable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_text_Editable android_text_Editable::replace(int& arg0,int& arg1,AndroidCXX::java_lang_CharSequence& arg2,int& arg3,int& arg4) exit");
+	LOGV("AndroidCXX::android_text_Editable android_text_Editable::replace(int const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2,int const& arg3,int const& arg4) exit");
 
 	return result;
 }
-AndroidCXX::android_text_Editable android_text_Editable::replace(int& arg0,int& arg1,AndroidCXX::java_lang_CharSequence& arg2)
+AndroidCXX::android_text_Editable android_text_Editable::replace(int const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2)
 {
-	LOGV("AndroidCXX::android_text_Editable android_text_Editable::replace(int& arg0,int& arg1,AndroidCXX::java_lang_CharSequence& arg2) enter");
+	LOGV("AndroidCXX::android_text_Editable android_text_Editable::replace(int const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2) enter");
 
 	const char *methodName = "replace";
 	const char *methodSignature = "(IILjava/lang/CharSequence;)Landroid/text/Editable;";
@@ -648,8 +606,6 @@ AndroidCXX::android_text_Editable android_text_Editable::replace(int& arg0,int& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Editable cxx address %d", cxxAddress);
@@ -741,15 +697,13 @@ AndroidCXX::android_text_Editable android_text_Editable::replace(int& arg0,int& 
 	AndroidCXX::android_text_Editable result((AndroidCXX::android_text_Editable) *((AndroidCXX::android_text_Editable *) cxx_value));
 	delete ((AndroidCXX::android_text_Editable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_text_Editable android_text_Editable::replace(int& arg0,int& arg1,AndroidCXX::java_lang_CharSequence& arg2) exit");
+	LOGV("AndroidCXX::android_text_Editable android_text_Editable::replace(int const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::android_text_Editable android_text_Editable::_delete(int& arg0,int& arg1)
+AndroidCXX::android_text_Editable android_text_Editable::_delete(int const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_text_Editable android_text_Editable::_delete(int& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_text_Editable android_text_Editable::_delete(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "delete";
 	const char *methodSignature = "(II)Landroid/text/Editable;";
@@ -759,8 +713,6 @@ AndroidCXX::android_text_Editable android_text_Editable::_delete(int& arg0,int& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Editable cxx address %d", cxxAddress);
@@ -831,15 +783,13 @@ AndroidCXX::android_text_Editable android_text_Editable::_delete(int& arg0,int& 
 	AndroidCXX::android_text_Editable result((AndroidCXX::android_text_Editable) *((AndroidCXX::android_text_Editable *) cxx_value));
 	delete ((AndroidCXX::android_text_Editable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_text_Editable android_text_Editable::_delete(int& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_text_Editable android_text_Editable::_delete(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_text_Editable android_text_Editable::insert(int& arg0,AndroidCXX::java_lang_CharSequence& arg1)
+AndroidCXX::android_text_Editable android_text_Editable::insert(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1)
 {
-	LOGV("AndroidCXX::android_text_Editable android_text_Editable::insert(int& arg0,AndroidCXX::java_lang_CharSequence& arg1) enter");
+	LOGV("AndroidCXX::android_text_Editable android_text_Editable::insert(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(ILjava/lang/CharSequence;)Landroid/text/Editable;";
@@ -849,8 +799,6 @@ AndroidCXX::android_text_Editable android_text_Editable::insert(int& arg0,Androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Editable cxx address %d", cxxAddress);
@@ -921,15 +869,13 @@ AndroidCXX::android_text_Editable android_text_Editable::insert(int& arg0,Androi
 	AndroidCXX::android_text_Editable result((AndroidCXX::android_text_Editable) *((AndroidCXX::android_text_Editable *) cxx_value));
 	delete ((AndroidCXX::android_text_Editable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_text_Editable android_text_Editable::insert(int& arg0,AndroidCXX::java_lang_CharSequence& arg1) exit");
+	LOGV("AndroidCXX::android_text_Editable android_text_Editable::insert(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_text_Editable android_text_Editable::insert(int& arg0,AndroidCXX::java_lang_CharSequence& arg1,int& arg2,int& arg3)
+AndroidCXX::android_text_Editable android_text_Editable::insert(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("AndroidCXX::android_text_Editable android_text_Editable::insert(int& arg0,AndroidCXX::java_lang_CharSequence& arg1,int& arg2,int& arg3) enter");
+	LOGV("AndroidCXX::android_text_Editable android_text_Editable::insert(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,int const& arg2,int const& arg3) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(ILjava/lang/CharSequence;II)Landroid/text/Editable;";
@@ -939,8 +885,6 @@ AndroidCXX::android_text_Editable android_text_Editable::insert(int& arg0,Androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Editable cxx address %d", cxxAddress);
@@ -1053,9 +997,7 @@ AndroidCXX::android_text_Editable android_text_Editable::insert(int& arg0,Androi
 	AndroidCXX::android_text_Editable result((AndroidCXX::android_text_Editable) *((AndroidCXX::android_text_Editable *) cxx_value));
 	delete ((AndroidCXX::android_text_Editable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_text_Editable android_text_Editable::insert(int& arg0,AndroidCXX::java_lang_CharSequence& arg1,int& arg2,int& arg3) exit");
+	LOGV("AndroidCXX::android_text_Editable android_text_Editable::insert(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,int const& arg2,int const& arg3) exit");
 
 	return result;
 }
@@ -1072,8 +1014,6 @@ void android_text_Editable::clearSpans()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Editable cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1082,14 +1022,12 @@ void android_text_Editable::clearSpans()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_text_Editable::clearSpans() exit");
 
 }
-void android_text_Editable::setFilters(std::vector<AndroidCXX::android_text_InputFilter >& arg0)
+void android_text_Editable::setFilters(std::vector<AndroidCXX::android_text_InputFilter > const& arg0)
 {
-	LOGV("void android_text_Editable::setFilters(std::vector<AndroidCXX::android_text_InputFilter >& arg0) enter");
+	LOGV("void android_text_Editable::setFilters(std::vector<AndroidCXX::android_text_InputFilter > const& arg0) enter");
 
 	const char *methodName = "setFilters";
 	const char *methodSignature = "([Landroid/text/InputFilter;)V";
@@ -1099,8 +1037,6 @@ void android_text_Editable::setFilters(std::vector<AndroidCXX::android_text_Inpu
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Editable cxx address %d", cxxAddress);
@@ -1149,9 +1085,7 @@ void android_text_Editable::setFilters(std::vector<AndroidCXX::android_text_Inpu
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_text_Editable::setFilters(std::vector<AndroidCXX::android_text_InputFilter >& arg0) exit");
+	LOGV("void android_text_Editable::setFilters(std::vector<AndroidCXX::android_text_InputFilter > const& arg0) exit");
 
 }
 std::vector<AndroidCXX::android_text_InputFilter > android_text_Editable::getFilters()
@@ -1166,8 +1100,6 @@ std::vector<AndroidCXX::android_text_InputFilter > android_text_Editable::getFil
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Editable cxx address %d", cxxAddress);
@@ -1214,8 +1146,6 @@ std::vector<AndroidCXX::android_text_InputFilter > android_text_Editable::getFil
 	std::vector<AndroidCXX::android_text_InputFilter > result = (std::vector<AndroidCXX::android_text_InputFilter >) *((std::vector<AndroidCXX::android_text_InputFilter > *) cxx_value);
 	delete ((std::vector<AndroidCXX::android_text_InputFilter > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<AndroidCXX::android_text_InputFilter > android_text_Editable::getFilters() exit");
 
 	return result;

@@ -184,64 +184,61 @@ class java_net_URLConnection
 public:
 
 	java_net_URLConnection(const java_net_URLConnection& cc);
-	java_net_URLConnection(void * proxy);
+	java_net_URLConnection(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_net_URLConnection();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_URLConnection();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
 	 AndroidCXX::java_net_URL getURL();
-	 AndroidCXX::java_lang_Object getContent(std::vector<AndroidCXX::java_lang_Class >& arg0);
+	 AndroidCXX::java_lang_Object getContent(std::vector<AndroidCXX::java_lang_Class > const& arg0);
 	 AndroidCXX::java_lang_Object getContent();
 	 AndroidCXX::java_io_InputStream getInputStream();
 	 AndroidCXX::java_security_Permission getPermission();
 	 void connect();
-	 void setRequestProperty(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
+	 void setRequestProperty(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
 	 long getDate();
 	 AndroidCXX::java_lang_String getContentType();
 	 int getContentLength();
-	 AndroidCXX::java_lang_String getHeaderField(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::java_lang_String getHeaderField(int& arg0);
-	 AndroidCXX::java_lang_String getHeaderFieldKey(int& arg0);
+	 AndroidCXX::java_lang_String getHeaderField(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::java_lang_String getHeaderField(int const& arg0);
+	 AndroidCXX::java_lang_String getHeaderFieldKey(int const& arg0);
 	 long getLastModified();
 	static AndroidCXX::java_net_FileNameMap getFileNameMap();
-	 void addRequestProperty(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
-	 AndroidCXX::java_lang_String getRequestProperty(AndroidCXX::java_lang_String& arg0);
+	 void addRequestProperty(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 AndroidCXX::java_lang_String getRequestProperty(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_util_Map getRequestProperties();
-	static AndroidCXX::java_lang_String guessContentTypeFromStream(AndroidCXX::java_io_InputStream& arg0);
-	static AndroidCXX::java_lang_String guessContentTypeFromName(AndroidCXX::java_lang_String& arg0);
-	static void setFileNameMap(AndroidCXX::java_net_FileNameMap& arg0);
-	 void setConnectTimeout(int& arg0);
+	static AndroidCXX::java_lang_String guessContentTypeFromStream(AndroidCXX::java_io_InputStream const& arg0);
+	static AndroidCXX::java_lang_String guessContentTypeFromName(AndroidCXX::java_lang_String const& arg0);
+	static void setFileNameMap(AndroidCXX::java_net_FileNameMap const& arg0);
+	 void setConnectTimeout(int const& arg0);
 	 int getConnectTimeout();
-	 void setReadTimeout(int& arg0);
+	 void setReadTimeout(int const& arg0);
 	 int getReadTimeout();
 	 AndroidCXX::java_lang_String getContentEncoding();
 	 long getExpiration();
 	 AndroidCXX::java_util_Map getHeaderFields();
-	 int getHeaderFieldInt(AndroidCXX::java_lang_String& arg0,int& arg1);
-	 long getHeaderFieldDate(AndroidCXX::java_lang_String& arg0,long& arg1);
+	 int getHeaderFieldInt(AndroidCXX::java_lang_String const& arg0,int const& arg1);
+	 long getHeaderFieldDate(AndroidCXX::java_lang_String const& arg0,long const& arg1);
 	 AndroidCXX::java_io_OutputStream getOutputStream();
-	 void setDoInput(bool& arg0);
+	 void setDoInput(bool const& arg0);
 	 bool getDoInput();
-	 void setDoOutput(bool& arg0);
+	 void setDoOutput(bool const& arg0);
 	 bool getDoOutput();
-	 void setAllowUserInteraction(bool& arg0);
+	 void setAllowUserInteraction(bool const& arg0);
 	 bool getAllowUserInteraction();
-	static void setDefaultAllowUserInteraction(bool& arg0);
+	static void setDefaultAllowUserInteraction(bool const& arg0);
 	static bool getDefaultAllowUserInteraction();
-	 void setUseCaches(bool& arg0);
+	 void setUseCaches(bool const& arg0);
 	 bool getUseCaches();
-	 void setIfModifiedSince(long& arg0);
+	 void setIfModifiedSince(long const& arg0);
 	 long getIfModifiedSince();
 	 bool getDefaultUseCaches();
-	 void setDefaultUseCaches(bool& arg0);
-	static void setDefaultRequestProperty(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
-	static AndroidCXX::java_lang_String getDefaultRequestProperty(AndroidCXX::java_lang_String& arg0);
-	static void setContentHandlerFactory(AndroidCXX::java_net_ContentHandlerFactory& arg0);
+	 void setDefaultUseCaches(bool const& arg0);
+	static void setDefaultRequestProperty(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
+	static AndroidCXX::java_lang_String getDefaultRequestProperty(AndroidCXX::java_lang_String const& arg0);
+	static void setContentHandlerFactory(AndroidCXX::java_net_ContentHandlerFactory const& arg0);
 };	
 
 } // namespace

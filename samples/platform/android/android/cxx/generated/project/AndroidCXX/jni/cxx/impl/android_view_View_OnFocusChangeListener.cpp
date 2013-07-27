@@ -46,7 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_View_OnFocusChangeListener::android_view_View_OnFocusChangeListener(const android_view_View_OnFocusChangeListener& cc)
 {
 	LOGV("android_view_View_OnFocusChangeListener::android_view_View_OnFocusChangeListener(const android_view_View_OnFocusChangeListener& cc) enter");
@@ -70,9 +69,9 @@ android_view_View_OnFocusChangeListener::android_view_View_OnFocusChangeListener
 
 	LOGV("android_view_View_OnFocusChangeListener::android_view_View_OnFocusChangeListener(const android_view_View_OnFocusChangeListener& cc) exit");
 }
-android_view_View_OnFocusChangeListener::android_view_View_OnFocusChangeListener(void * proxy)
+android_view_View_OnFocusChangeListener::android_view_View_OnFocusChangeListener(Proxy proxy)
 {
-	LOGV("android_view_View_OnFocusChangeListener::android_view_View_OnFocusChangeListener(void * proxy) enter");
+	LOGV("android_view_View_OnFocusChangeListener::android_view_View_OnFocusChangeListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -82,52 +81,31 @@ android_view_View_OnFocusChangeListener::android_view_View_OnFocusChangeListener
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_View_OnFocusChangeListener::android_view_View_OnFocusChangeListener(void * proxy) exit");
+	LOGV("android_view_View_OnFocusChangeListener::android_view_View_OnFocusChangeListener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_view_View_OnFocusChangeListener::android_view_View_OnFocusChangeListener()
-// {
-// 	LOGV("android_view_View_OnFocusChangeListener::android_view_View_OnFocusChangeListener() enter");	
+Proxy android_view_View_OnFocusChangeListener::proxy() const
+{	
+	LOGV("android_view_View_OnFocusChangeListener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/view/View$OnFocusChangeListener";
+	long cxxAddress = (long) this;
+	LOGV("android_view_View_OnFocusChangeListener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_View_OnFocusChangeListener jni address %d", proxiedComponent);
 
-// 	LOGV("android_view_View_OnFocusChangeListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_view_View_OnFocusChangeListener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_view_View_OnFocusChangeListener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_view_View_OnFocusChangeListener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_view_View_OnFocusChangeListener::android_view_View_OnFocusChangeListener() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_view_View_OnFocusChangeListener::~android_view_View_OnFocusChangeListener()
 {
@@ -139,13 +117,13 @@ android_view_View_OnFocusChangeListener::~android_view_View_OnFocusChangeListene
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_View_OnFocusChangeListener::~android_view_View_OnFocusChangeListener() exit");
 }
 // Functions
-void android_view_View_OnFocusChangeListener::onFocusChange(AndroidCXX::android_view_View& arg0,bool& arg1)
+void android_view_View_OnFocusChangeListener::onFocusChange(AndroidCXX::android_view_View const& arg0,bool const& arg1)
 {
-	LOGV("void android_view_View_OnFocusChangeListener::onFocusChange(AndroidCXX::android_view_View& arg0,bool& arg1) enter");
+	LOGV("void android_view_View_OnFocusChangeListener::onFocusChange(AndroidCXX::android_view_View const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "onFocusChange";
 	const char *methodSignature = "(Landroid/view/View;Z)V";
@@ -155,8 +133,6 @@ void android_view_View_OnFocusChangeListener::onFocusChange(AndroidCXX::android_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_View_OnFocusChangeListener cxx address %d", cxxAddress);
@@ -208,8 +184,6 @@ void android_view_View_OnFocusChangeListener::onFocusChange(AndroidCXX::android_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_View_OnFocusChangeListener::onFocusChange(AndroidCXX::android_view_View& arg0,bool& arg1) exit");
+	LOGV("void android_view_View_OnFocusChangeListener::onFocusChange(AndroidCXX::android_view_View const& arg0,bool const& arg1) exit");
 
 }

@@ -72,24 +72,23 @@ class android_view_animation_Transformation
 public:
 
 	android_view_animation_Transformation(const android_view_animation_Transformation& cc);
-	android_view_animation_Transformation(void * proxy);
+	android_view_animation_Transformation(Proxy proxy);
 	// Public Constructors
 	android_view_animation_Transformation();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_animation_Transformation();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
 	 void clear();
-	 void set(AndroidCXX::android_view_animation_Transformation& arg0);
-	 void compose(AndroidCXX::android_view_animation_Transformation& arg0);
+	 void set(AndroidCXX::android_view_animation_Transformation const& arg0);
+	 void compose(AndroidCXX::android_view_animation_Transformation const& arg0);
 	 AndroidCXX::android_graphics_Matrix getMatrix();
 	 float getAlpha();
-	 void setAlpha(float& arg0);
+	 void setAlpha(float const& arg0);
 	 AndroidCXX::java_lang_String toShortString();
 	 int getTransformationType();
-	 void setTransformationType(int& arg0);
+	 void setTransformationType(int const& arg0);
 };	
 
 } // namespace

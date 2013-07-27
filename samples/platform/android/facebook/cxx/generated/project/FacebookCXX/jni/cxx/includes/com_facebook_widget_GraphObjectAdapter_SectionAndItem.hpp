@@ -60,17 +60,14 @@ class com_facebook_widget_GraphObjectAdapter_SectionAndItem
 public:
 
 	com_facebook_widget_GraphObjectAdapter_SectionAndItem(const com_facebook_widget_GraphObjectAdapter_SectionAndItem& cc);
-	com_facebook_widget_GraphObjectAdapter_SectionAndItem(void * proxy);
+	com_facebook_widget_GraphObjectAdapter_SectionAndItem(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_GraphObjectAdapter_SectionAndItem(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_model_GraphObject& arg1);
-	// TODO: remove
-	// 
-	// com_facebook_widget_GraphObjectAdapter_SectionAndItem();
-	// 
+	com_facebook_widget_GraphObjectAdapter_SectionAndItem(AndroidCXX::java_lang_String const& arg0,FacebookCXX::com_facebook_model_GraphObject const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectAdapter_SectionAndItem();
 	// Functions
-	 COM_FACEBOOK_WIDGET_GRAPHOBJECTADAPTER_SECTIONANDITEM_TYPE::com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type getType();
+	 com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type::com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type getType();
 };	
 
 } // namespace

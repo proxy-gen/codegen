@@ -46,7 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_RadioGroup_OnCheckedChangeListener::android_widget_RadioGroup_OnCheckedChangeListener(const android_widget_RadioGroup_OnCheckedChangeListener& cc)
 {
 	LOGV("android_widget_RadioGroup_OnCheckedChangeListener::android_widget_RadioGroup_OnCheckedChangeListener(const android_widget_RadioGroup_OnCheckedChangeListener& cc) enter");
@@ -70,9 +69,9 @@ android_widget_RadioGroup_OnCheckedChangeListener::android_widget_RadioGroup_OnC
 
 	LOGV("android_widget_RadioGroup_OnCheckedChangeListener::android_widget_RadioGroup_OnCheckedChangeListener(const android_widget_RadioGroup_OnCheckedChangeListener& cc) exit");
 }
-android_widget_RadioGroup_OnCheckedChangeListener::android_widget_RadioGroup_OnCheckedChangeListener(void * proxy)
+android_widget_RadioGroup_OnCheckedChangeListener::android_widget_RadioGroup_OnCheckedChangeListener(Proxy proxy)
 {
-	LOGV("android_widget_RadioGroup_OnCheckedChangeListener::android_widget_RadioGroup_OnCheckedChangeListener(void * proxy) enter");
+	LOGV("android_widget_RadioGroup_OnCheckedChangeListener::android_widget_RadioGroup_OnCheckedChangeListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -82,52 +81,31 @@ android_widget_RadioGroup_OnCheckedChangeListener::android_widget_RadioGroup_OnC
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_RadioGroup_OnCheckedChangeListener::android_widget_RadioGroup_OnCheckedChangeListener(void * proxy) exit");
+	LOGV("android_widget_RadioGroup_OnCheckedChangeListener::android_widget_RadioGroup_OnCheckedChangeListener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_RadioGroup_OnCheckedChangeListener::android_widget_RadioGroup_OnCheckedChangeListener()
-// {
-// 	LOGV("android_widget_RadioGroup_OnCheckedChangeListener::android_widget_RadioGroup_OnCheckedChangeListener() enter");	
+Proxy android_widget_RadioGroup_OnCheckedChangeListener::proxy() const
+{	
+	LOGV("android_widget_RadioGroup_OnCheckedChangeListener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/RadioGroup$OnCheckedChangeListener";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_RadioGroup_OnCheckedChangeListener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_RadioGroup_OnCheckedChangeListener jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_RadioGroup_OnCheckedChangeListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_RadioGroup_OnCheckedChangeListener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_RadioGroup_OnCheckedChangeListener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_RadioGroup_OnCheckedChangeListener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_RadioGroup_OnCheckedChangeListener::android_widget_RadioGroup_OnCheckedChangeListener() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_widget_RadioGroup_OnCheckedChangeListener::~android_widget_RadioGroup_OnCheckedChangeListener()
 {
@@ -139,13 +117,13 @@ android_widget_RadioGroup_OnCheckedChangeListener::~android_widget_RadioGroup_On
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_RadioGroup_OnCheckedChangeListener::~android_widget_RadioGroup_OnCheckedChangeListener() exit");
 }
 // Functions
-void android_widget_RadioGroup_OnCheckedChangeListener::onCheckedChanged(AndroidCXX::android_widget_RadioGroup& arg0,int& arg1)
+void android_widget_RadioGroup_OnCheckedChangeListener::onCheckedChanged(AndroidCXX::android_widget_RadioGroup const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_RadioGroup_OnCheckedChangeListener::onCheckedChanged(AndroidCXX::android_widget_RadioGroup& arg0,int& arg1) enter");
+	LOGV("void android_widget_RadioGroup_OnCheckedChangeListener::onCheckedChanged(AndroidCXX::android_widget_RadioGroup const& arg0,int const& arg1) enter");
 
 	const char *methodName = "onCheckedChanged";
 	const char *methodSignature = "(Landroid/widget/RadioGroup;I)V";
@@ -155,8 +133,6 @@ void android_widget_RadioGroup_OnCheckedChangeListener::onCheckedChanged(Android
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RadioGroup_OnCheckedChangeListener cxx address %d", cxxAddress);
@@ -208,8 +184,6 @@ void android_widget_RadioGroup_OnCheckedChangeListener::onCheckedChanged(Android
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RadioGroup_OnCheckedChangeListener::onCheckedChanged(AndroidCXX::android_widget_RadioGroup& arg0,int& arg1) exit");
+	LOGV("void android_widget_RadioGroup_OnCheckedChangeListener::onCheckedChanged(AndroidCXX::android_widget_RadioGroup const& arg0,int const& arg1) exit");
 
 }

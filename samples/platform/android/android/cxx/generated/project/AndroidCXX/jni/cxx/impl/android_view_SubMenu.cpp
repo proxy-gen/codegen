@@ -98,7 +98,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_SubMenu::android_view_SubMenu(const android_view_SubMenu& cc)
 {
 	LOGV("android_view_SubMenu::android_view_SubMenu(const android_view_SubMenu& cc) enter");
@@ -122,9 +121,9 @@ android_view_SubMenu::android_view_SubMenu(const android_view_SubMenu& cc)
 
 	LOGV("android_view_SubMenu::android_view_SubMenu(const android_view_SubMenu& cc) exit");
 }
-android_view_SubMenu::android_view_SubMenu(void * proxy)
+android_view_SubMenu::android_view_SubMenu(Proxy proxy)
 {
-	LOGV("android_view_SubMenu::android_view_SubMenu(void * proxy) enter");
+	LOGV("android_view_SubMenu::android_view_SubMenu(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -134,52 +133,31 @@ android_view_SubMenu::android_view_SubMenu(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_SubMenu::android_view_SubMenu(void * proxy) exit");
+	LOGV("android_view_SubMenu::android_view_SubMenu(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_view_SubMenu::android_view_SubMenu()
-// {
-// 	LOGV("android_view_SubMenu::android_view_SubMenu() enter");	
+Proxy android_view_SubMenu::proxy() const
+{	
+	LOGV("android_view_SubMenu::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/view/SubMenu";
+	long cxxAddress = (long) this;
+	LOGV("android_view_SubMenu cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_SubMenu jni address %d", proxiedComponent);
 
-// 	LOGV("android_view_SubMenu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_view_SubMenu::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_view_SubMenu cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_view_SubMenu jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_view_SubMenu::android_view_SubMenu() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_view_SubMenu::~android_view_SubMenu()
 {
@@ -191,7 +169,7 @@ android_view_SubMenu::~android_view_SubMenu()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_SubMenu::~android_view_SubMenu() exit");
 }
 // Functions
@@ -207,8 +185,6 @@ AndroidCXX::android_view_MenuItem android_view_SubMenu::getItem()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_SubMenu cxx address %d", cxxAddress);
@@ -237,15 +213,13 @@ AndroidCXX::android_view_MenuItem android_view_SubMenu::getItem()
 	AndroidCXX::android_view_MenuItem result((AndroidCXX::android_view_MenuItem) *((AndroidCXX::android_view_MenuItem *) cxx_value));
 	delete ((AndroidCXX::android_view_MenuItem *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_view_MenuItem android_view_SubMenu::getItem() exit");
 
 	return result;
 }
-AndroidCXX::android_view_SubMenu android_view_SubMenu::setIcon(AndroidCXX::android_graphics_drawable_Drawable& arg0)
+AndroidCXX::android_view_SubMenu android_view_SubMenu::setIcon(AndroidCXX::android_graphics_drawable_Drawable const& arg0)
 {
-	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setIcon(AndroidCXX::android_graphics_drawable_Drawable& arg0) enter");
+	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setIcon(AndroidCXX::android_graphics_drawable_Drawable const& arg0) enter");
 
 	const char *methodName = "setIcon";
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;";
@@ -255,8 +229,6 @@ AndroidCXX::android_view_SubMenu android_view_SubMenu::setIcon(AndroidCXX::andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_SubMenu cxx address %d", cxxAddress);
@@ -306,15 +278,13 @@ AndroidCXX::android_view_SubMenu android_view_SubMenu::setIcon(AndroidCXX::andro
 	AndroidCXX::android_view_SubMenu result((AndroidCXX::android_view_SubMenu) *((AndroidCXX::android_view_SubMenu *) cxx_value));
 	delete ((AndroidCXX::android_view_SubMenu *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setIcon(AndroidCXX::android_graphics_drawable_Drawable& arg0) exit");
+	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setIcon(AndroidCXX::android_graphics_drawable_Drawable const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_view_SubMenu android_view_SubMenu::setIcon(int& arg0)
+AndroidCXX::android_view_SubMenu android_view_SubMenu::setIcon(int const& arg0)
 {
-	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setIcon(int& arg0) enter");
+	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setIcon(int const& arg0) enter");
 
 	const char *methodName = "setIcon";
 	const char *methodSignature = "(I)Landroid/view/SubMenu;";
@@ -325,8 +295,6 @@ AndroidCXX::android_view_SubMenu android_view_SubMenu::setIcon(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_SubMenu cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -375,15 +343,13 @@ AndroidCXX::android_view_SubMenu android_view_SubMenu::setIcon(int& arg0)
 	AndroidCXX::android_view_SubMenu result((AndroidCXX::android_view_SubMenu) *((AndroidCXX::android_view_SubMenu *) cxx_value));
 	delete ((AndroidCXX::android_view_SubMenu *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setIcon(int& arg0) exit");
+	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setIcon(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderTitle(int& arg0)
+AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderTitle(int const& arg0)
 {
-	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderTitle(int& arg0) enter");
+	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderTitle(int const& arg0) enter");
 
 	const char *methodName = "setHeaderTitle";
 	const char *methodSignature = "(I)Landroid/view/SubMenu;";
@@ -394,8 +360,6 @@ AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderTitle(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_SubMenu cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -444,15 +408,13 @@ AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderTitle(int& arg0)
 	AndroidCXX::android_view_SubMenu result((AndroidCXX::android_view_SubMenu) *((AndroidCXX::android_view_SubMenu *) cxx_value));
 	delete ((AndroidCXX::android_view_SubMenu *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderTitle(int& arg0) exit");
+	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderTitle(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderTitle(AndroidCXX::java_lang_CharSequence& arg0)
+AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderTitle(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderTitle(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderTitle(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setHeaderTitle";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Landroid/view/SubMenu;";
@@ -462,8 +424,6 @@ AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderTitle(AndroidCXX
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_SubMenu cxx address %d", cxxAddress);
@@ -513,15 +473,13 @@ AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderTitle(AndroidCXX
 	AndroidCXX::android_view_SubMenu result((AndroidCXX::android_view_SubMenu) *((AndroidCXX::android_view_SubMenu *) cxx_value));
 	delete ((AndroidCXX::android_view_SubMenu *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderTitle(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderTitle(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderIcon(AndroidCXX::android_graphics_drawable_Drawable& arg0)
+AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderIcon(AndroidCXX::android_graphics_drawable_Drawable const& arg0)
 {
-	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderIcon(AndroidCXX::android_graphics_drawable_Drawable& arg0) enter");
+	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderIcon(AndroidCXX::android_graphics_drawable_Drawable const& arg0) enter");
 
 	const char *methodName = "setHeaderIcon";
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;";
@@ -531,8 +489,6 @@ AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderIcon(AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_SubMenu cxx address %d", cxxAddress);
@@ -582,15 +538,13 @@ AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderIcon(AndroidCXX:
 	AndroidCXX::android_view_SubMenu result((AndroidCXX::android_view_SubMenu) *((AndroidCXX::android_view_SubMenu *) cxx_value));
 	delete ((AndroidCXX::android_view_SubMenu *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderIcon(AndroidCXX::android_graphics_drawable_Drawable& arg0) exit");
+	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderIcon(AndroidCXX::android_graphics_drawable_Drawable const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderIcon(int& arg0)
+AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderIcon(int const& arg0)
 {
-	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderIcon(int& arg0) enter");
+	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderIcon(int const& arg0) enter");
 
 	const char *methodName = "setHeaderIcon";
 	const char *methodSignature = "(I)Landroid/view/SubMenu;";
@@ -600,8 +554,6 @@ AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderIcon(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_SubMenu cxx address %d", cxxAddress);
@@ -651,15 +603,13 @@ AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderIcon(int& arg0)
 	AndroidCXX::android_view_SubMenu result((AndroidCXX::android_view_SubMenu) *((AndroidCXX::android_view_SubMenu *) cxx_value));
 	delete ((AndroidCXX::android_view_SubMenu *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderIcon(int& arg0) exit");
+	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderIcon(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderView(AndroidCXX::android_view_View& arg0)
+AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderView(AndroidCXX::android_view_View const& arg0)
 {
-	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderView(AndroidCXX::android_view_View& arg0) enter");
+	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderView(AndroidCXX::android_view_View const& arg0) enter");
 
 	const char *methodName = "setHeaderView";
 	const char *methodSignature = "(Landroid/view/View;)Landroid/view/SubMenu;";
@@ -669,8 +619,6 @@ AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderView(AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_SubMenu cxx address %d", cxxAddress);
@@ -720,9 +668,7 @@ AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderView(AndroidCXX:
 	AndroidCXX::android_view_SubMenu result((AndroidCXX::android_view_SubMenu) *((AndroidCXX::android_view_SubMenu *) cxx_value));
 	delete ((AndroidCXX::android_view_SubMenu *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderView(AndroidCXX::android_view_View& arg0) exit");
+	LOGV("AndroidCXX::android_view_SubMenu android_view_SubMenu::setHeaderView(AndroidCXX::android_view_View const& arg0) exit");
 
 	return result;
 }
@@ -739,8 +685,6 @@ void android_view_SubMenu::clearHeader()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_SubMenu cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -749,8 +693,6 @@ void android_view_SubMenu::clearHeader()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_view_SubMenu::clearHeader() exit");
 
 }

@@ -107,26 +107,23 @@ class java_nio_charset_CharsetDecoder
 public:
 
 	java_nio_charset_CharsetDecoder(const java_nio_charset_CharsetDecoder& cc);
-	java_nio_charset_CharsetDecoder(void * proxy);
+	java_nio_charset_CharsetDecoder(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_nio_charset_CharsetDecoder();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_charset_CharsetDecoder();
 	// Functions
 	 JDKCXX::java_nio_charset_Charset charset();
-	 JDKCXX::java_nio_charset_CoderResult decode(JDKCXX::java_nio_ByteBuffer& arg0,JDKCXX::java_nio_CharBuffer& arg1,bool& arg2);
-	 JDKCXX::java_nio_CharBuffer decode(JDKCXX::java_nio_ByteBuffer& arg0);
-	 JDKCXX::java_nio_charset_CoderResult flush(JDKCXX::java_nio_CharBuffer& arg0);
+	 JDKCXX::java_nio_charset_CoderResult decode(JDKCXX::java_nio_ByteBuffer const& arg0,JDKCXX::java_nio_CharBuffer const& arg1,bool const& arg2);
+	 JDKCXX::java_nio_CharBuffer decode(JDKCXX::java_nio_ByteBuffer const& arg0);
+	 JDKCXX::java_nio_charset_CoderResult flush(JDKCXX::java_nio_CharBuffer const& arg0);
 	 JDKCXX::java_nio_charset_CharsetDecoder reset();
-	 JDKCXX::java_nio_charset_CharsetDecoder onMalformedInput(JDKCXX::java_nio_charset_CodingErrorAction& arg0);
-	 JDKCXX::java_nio_charset_CharsetDecoder onUnmappableCharacter(JDKCXX::java_nio_charset_CodingErrorAction& arg0);
+	 JDKCXX::java_nio_charset_CharsetDecoder onMalformedInput(JDKCXX::java_nio_charset_CodingErrorAction const& arg0);
+	 JDKCXX::java_nio_charset_CharsetDecoder onUnmappableCharacter(JDKCXX::java_nio_charset_CodingErrorAction const& arg0);
 	 JDKCXX::java_lang_String replacement();
 	 JDKCXX::java_nio_charset_CodingErrorAction malformedInputAction();
 	 JDKCXX::java_nio_charset_CodingErrorAction unmappableCharacterAction();
-	 JDKCXX::java_nio_charset_CharsetDecoder replaceWith(JDKCXX::java_lang_String& arg0);
+	 JDKCXX::java_nio_charset_CharsetDecoder replaceWith(JDKCXX::java_lang_String const& arg0);
 	 float maxCharsPerByte();
 	 float averageCharsPerByte();
 	 bool isAutoDetecting();

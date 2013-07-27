@@ -92,41 +92,38 @@ class java_lang_Float
 public:
 
 	java_lang_Float(const java_lang_Float& cc);
-	java_lang_Float(void * proxy);
+	java_lang_Float(Proxy proxy);
 	// Public Constructors
-	java_lang_Float(float& arg0);
-	java_lang_Float(AndroidCXX::java_lang_String& arg0);
-	java_lang_Float(double& arg0);
-	// TODO: remove
-	// 
-	// java_lang_Float();
-	// 
+	java_lang_Float(float const& arg0);
+	java_lang_Float(AndroidCXX::java_lang_String const& arg0);
+	java_lang_Float(double const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Float();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
-	static AndroidCXX::java_lang_String toString(float& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
+	static AndroidCXX::java_lang_String toString(float const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	static int floatToRawIntBits(float& arg0);
-	static int floatToIntBits(float& arg0);
-	static float intBitsToFloat(int& arg0);
-	 int compareTo(AndroidCXX::java_lang_Float& arg0);
+	static int floatToRawIntBits(float const& arg0);
+	static int floatToIntBits(float const& arg0);
+	static float intBitsToFloat(int const& arg0);
+	 int compareTo(AndroidCXX::java_lang_Float const& arg0);
 	 byte byteValue();
 	 short shortValue();
 	 int intValue();
 	 long longValue();
 	 float floatValue();
 	 double doubleValue();
-	static AndroidCXX::java_lang_Float valueOf(AndroidCXX::java_lang_String& arg0);
-	static AndroidCXX::java_lang_Float valueOf(float& arg0);
-	static AndroidCXX::java_lang_String toHexString(float& arg0);
-	static int compare(float& arg0,float& arg1);
-	static bool isNaN(float& arg0);
+	static AndroidCXX::java_lang_Float valueOf(AndroidCXX::java_lang_String const& arg0);
+	static AndroidCXX::java_lang_Float valueOf(float const& arg0);
+	static AndroidCXX::java_lang_String toHexString(float const& arg0);
+	static int compare(float const& arg0,float const& arg1);
+	static bool isNaN(float const& arg0);
 	 bool isNaN();
-	static float parseFloat(AndroidCXX::java_lang_String& arg0);
+	static float parseFloat(AndroidCXX::java_lang_String const& arg0);
 	 bool isInfinite();
-	static bool isInfinite(float& arg0);
+	static bool isInfinite(float const& arg0);
 };	
 
 } // namespace

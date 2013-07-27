@@ -46,7 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter(const android_view_LayoutInflater_Filter& cc)
 {
 	LOGV("android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter(const android_view_LayoutInflater_Filter& cc) enter");
@@ -70,9 +69,9 @@ android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter(const and
 
 	LOGV("android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter(const android_view_LayoutInflater_Filter& cc) exit");
 }
-android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter(void * proxy)
+android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter(Proxy proxy)
 {
-	LOGV("android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter(void * proxy) enter");
+	LOGV("android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -82,52 +81,31 @@ android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter(void * pr
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter(void * proxy) exit");
+	LOGV("android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter()
-// {
-// 	LOGV("android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter() enter");	
+Proxy android_view_LayoutInflater_Filter::proxy() const
+{	
+	LOGV("android_view_LayoutInflater_Filter::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/view/LayoutInflater$Filter";
+	long cxxAddress = (long) this;
+	LOGV("android_view_LayoutInflater_Filter cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_LayoutInflater_Filter jni address %d", proxiedComponent);
 
-// 	LOGV("android_view_LayoutInflater_Filter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_view_LayoutInflater_Filter::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_view_LayoutInflater_Filter cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_view_LayoutInflater_Filter jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_view_LayoutInflater_Filter::~android_view_LayoutInflater_Filter()
 {
@@ -139,13 +117,13 @@ android_view_LayoutInflater_Filter::~android_view_LayoutInflater_Filter()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_LayoutInflater_Filter::~android_view_LayoutInflater_Filter() exit");
 }
 // Functions
-bool android_view_LayoutInflater_Filter::onLoadClass(AndroidCXX::java_lang_Class& arg0)
+bool android_view_LayoutInflater_Filter::onLoadClass(AndroidCXX::java_lang_Class const& arg0)
 {
-	LOGV("bool android_view_LayoutInflater_Filter::onLoadClass(AndroidCXX::java_lang_Class& arg0) enter");
+	LOGV("bool android_view_LayoutInflater_Filter::onLoadClass(AndroidCXX::java_lang_Class const& arg0) enter");
 
 	const char *methodName = "onLoadClass";
 	const char *methodSignature = "(Ljava/lang/Class;)Z";
@@ -155,8 +133,6 @@ bool android_view_LayoutInflater_Filter::onLoadClass(AndroidCXX::java_lang_Class
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_LayoutInflater_Filter cxx address %d", cxxAddress);
@@ -206,9 +182,7 @@ bool android_view_LayoutInflater_Filter::onLoadClass(AndroidCXX::java_lang_Class
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_LayoutInflater_Filter::onLoadClass(AndroidCXX::java_lang_Class& arg0) exit");
+	LOGV("bool android_view_LayoutInflater_Filter::onLoadClass(AndroidCXX::java_lang_Class const& arg0) exit");
 
 	return result;
 }

@@ -57,7 +57,6 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_lang_annotation_Annotation::java_lang_annotation_Annotation(const java_lang_annotation_Annotation& cc)
 {
 	LOGV("java_lang_annotation_Annotation::java_lang_annotation_Annotation(const java_lang_annotation_Annotation& cc) enter");
@@ -81,9 +80,9 @@ java_lang_annotation_Annotation::java_lang_annotation_Annotation(const java_lang
 
 	LOGV("java_lang_annotation_Annotation::java_lang_annotation_Annotation(const java_lang_annotation_Annotation& cc) exit");
 }
-java_lang_annotation_Annotation::java_lang_annotation_Annotation(void * proxy)
+java_lang_annotation_Annotation::java_lang_annotation_Annotation(Proxy proxy)
 {
-	LOGV("java_lang_annotation_Annotation::java_lang_annotation_Annotation(void * proxy) enter");
+	LOGV("java_lang_annotation_Annotation::java_lang_annotation_Annotation(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -93,52 +92,31 @@ java_lang_annotation_Annotation::java_lang_annotation_Annotation(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_lang_annotation_Annotation::java_lang_annotation_Annotation(void * proxy) exit");
+	LOGV("java_lang_annotation_Annotation::java_lang_annotation_Annotation(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_lang_annotation_Annotation::java_lang_annotation_Annotation()
-// {
-// 	LOGV("java_lang_annotation_Annotation::java_lang_annotation_Annotation() enter");	
+Proxy java_lang_annotation_Annotation::proxy() const
+{	
+	LOGV("java_lang_annotation_Annotation::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/lang/annotation/Annotation";
+	long cxxAddress = (long) this;
+	LOGV("java_lang_annotation_Annotation cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_annotation_Annotation jni address %d", proxiedComponent);
 
-// 	LOGV("java_lang_annotation_Annotation className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_lang_annotation_Annotation::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_lang_annotation_Annotation cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_lang_annotation_Annotation jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_lang_annotation_Annotation::java_lang_annotation_Annotation() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_lang_annotation_Annotation::~java_lang_annotation_Annotation()
 {
@@ -150,13 +128,13 @@ java_lang_annotation_Annotation::~java_lang_annotation_Annotation()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_lang_annotation_Annotation::~java_lang_annotation_Annotation() exit");
 }
 // Functions
-bool java_lang_annotation_Annotation::equals(JDKCXX::java_lang_Object& arg0)
+bool java_lang_annotation_Annotation::equals(JDKCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_lang_annotation_Annotation::equals(JDKCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_lang_annotation_Annotation::equals(JDKCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -166,8 +144,6 @@ bool java_lang_annotation_Annotation::equals(JDKCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_annotation_Annotation cxx address %d", cxxAddress);
@@ -217,9 +193,7 @@ bool java_lang_annotation_Annotation::equals(JDKCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_lang_annotation_Annotation::equals(JDKCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_lang_annotation_Annotation::equals(JDKCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -235,8 +209,6 @@ JDKCXX::java_lang_String java_lang_annotation_Annotation::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_annotation_Annotation cxx address %d", cxxAddress);
@@ -265,8 +237,6 @@ JDKCXX::java_lang_String java_lang_annotation_Annotation::toString()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_lang_annotation_Annotation::toString() exit");
 
 	return result;
@@ -283,8 +253,6 @@ int java_lang_annotation_Annotation::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_annotation_Annotation cxx address %d", cxxAddress);
@@ -313,8 +281,6 @@ int java_lang_annotation_Annotation::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_lang_annotation_Annotation::hashCode() exit");
 
 	return result;
@@ -331,8 +297,6 @@ JDKCXX::java_lang_Class java_lang_annotation_Annotation::annotationType()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_annotation_Annotation cxx address %d", cxxAddress);
@@ -379,8 +343,6 @@ JDKCXX::java_lang_Class java_lang_annotation_Annotation::annotationType()
 	JDKCXX::java_lang_Class result((JDKCXX::java_lang_Class) *((JDKCXX::java_lang_Class *) cxx_value));
 	delete ((JDKCXX::java_lang_Class *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_Class java_lang_annotation_Annotation::annotationType() exit");
 
 	return result;

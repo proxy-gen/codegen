@@ -51,16 +51,13 @@ class com_facebook_AuthorizationClient_OnCompletedListener
 public:
 
 	com_facebook_AuthorizationClient_OnCompletedListener(const com_facebook_AuthorizationClient_OnCompletedListener& cc);
-	com_facebook_AuthorizationClient_OnCompletedListener(void * proxy);
+	com_facebook_AuthorizationClient_OnCompletedListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_AuthorizationClient_OnCompletedListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_OnCompletedListener();
 	// Functions
-	 void onCompleted(FacebookCXX::com_facebook_AuthorizationClient_Result& arg0);
+	 void onCompleted(FacebookCXX::com_facebook_AuthorizationClient_Result const& arg0);
 };	
 
 } // namespace

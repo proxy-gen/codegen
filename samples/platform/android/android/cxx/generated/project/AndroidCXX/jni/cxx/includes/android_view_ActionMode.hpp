@@ -93,11 +93,10 @@ class android_view_ActionMode
 public:
 
 	android_view_ActionMode(const android_view_ActionMode& cc);
-	android_view_ActionMode(void * proxy);
+	android_view_ActionMode(Proxy proxy);
 	// Public Constructors
 	android_view_ActionMode();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ActionMode();
 	// Functions
@@ -105,16 +104,16 @@ public:
 	 AndroidCXX::java_lang_Object getTag();
 	 void invalidate();
 	 AndroidCXX::android_view_MenuInflater getMenuInflater();
-	 void setTag(AndroidCXX::java_lang_Object& arg0);
-	 void setTitle(int& arg0);
-	 void setTitle(AndroidCXX::java_lang_CharSequence& arg0);
+	 void setTag(AndroidCXX::java_lang_Object const& arg0);
+	 void setTitle(int const& arg0);
+	 void setTitle(AndroidCXX::java_lang_CharSequence const& arg0);
 	 AndroidCXX::java_lang_CharSequence getTitle();
-	 void setSubtitle(int& arg0);
-	 void setSubtitle(AndroidCXX::java_lang_CharSequence& arg0);
-	 void setTitleOptionalHint(bool& arg0);
+	 void setSubtitle(int const& arg0);
+	 void setSubtitle(AndroidCXX::java_lang_CharSequence const& arg0);
+	 void setTitleOptionalHint(bool const& arg0);
 	 bool getTitleOptionalHint();
 	 bool isTitleOptional();
-	 void setCustomView(AndroidCXX::android_view_View& arg0);
+	 void setCustomView(AndroidCXX::android_view_View const& arg0);
 	 AndroidCXX::android_view_Menu getMenu();
 	 AndroidCXX::java_lang_CharSequence getSubtitle();
 	 AndroidCXX::android_view_View getCustomView();

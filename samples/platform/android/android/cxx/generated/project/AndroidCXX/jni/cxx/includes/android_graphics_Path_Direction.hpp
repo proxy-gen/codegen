@@ -30,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace ANDROID_GRAPHICS_PATH_DIRECTION {
+namespace android_graphics_Path_Direction {
 
 enum android_graphics_Path_Direction
 {

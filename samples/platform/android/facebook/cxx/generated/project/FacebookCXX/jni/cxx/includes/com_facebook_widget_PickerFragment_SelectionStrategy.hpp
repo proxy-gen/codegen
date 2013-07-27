@@ -45,12 +45,9 @@ class com_facebook_widget_PickerFragment_SelectionStrategy
 public:
 
 	com_facebook_widget_PickerFragment_SelectionStrategy(const com_facebook_widget_PickerFragment_SelectionStrategy& cc);
-	com_facebook_widget_PickerFragment_SelectionStrategy(void * proxy);
+	com_facebook_widget_PickerFragment_SelectionStrategy(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_widget_PickerFragment_SelectionStrategy();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_SelectionStrategy();
 	// Functions

@@ -55,18 +55,15 @@ class android_widget_SeekBar_OnSeekBarChangeListener
 public:
 
 	android_widget_SeekBar_OnSeekBarChangeListener(const android_widget_SeekBar_OnSeekBarChangeListener& cc);
-	android_widget_SeekBar_OnSeekBarChangeListener(void * proxy);
+	android_widget_SeekBar_OnSeekBarChangeListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_SeekBar_OnSeekBarChangeListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SeekBar_OnSeekBarChangeListener();
 	// Functions
-	 void onProgressChanged(AndroidCXX::android_widget_SeekBar& arg0,int& arg1,bool& arg2);
-	 void onStartTrackingTouch(AndroidCXX::android_widget_SeekBar& arg0);
-	 void onStopTrackingTouch(AndroidCXX::android_widget_SeekBar& arg0);
+	 void onProgressChanged(AndroidCXX::android_widget_SeekBar const& arg0,int const& arg1,bool const& arg2);
+	 void onStartTrackingTouch(AndroidCXX::android_widget_SeekBar const& arg0);
+	 void onStopTrackingTouch(AndroidCXX::android_widget_SeekBar const& arg0);
 };	
 
 } // namespace

@@ -51,13 +51,10 @@ class android_widget_AdapterView_AdapterContextMenuInfo
 public:
 
 	android_widget_AdapterView_AdapterContextMenuInfo(const android_widget_AdapterView_AdapterContextMenuInfo& cc);
-	android_widget_AdapterView_AdapterContextMenuInfo(void * proxy);
+	android_widget_AdapterView_AdapterContextMenuInfo(Proxy proxy);
 	// Public Constructors
-	android_widget_AdapterView_AdapterContextMenuInfo(AndroidCXX::android_view_View& arg0,int& arg1,long& arg2);
-	// TODO: remove
-	// 
-	// android_widget_AdapterView_AdapterContextMenuInfo();
-	// 
+	android_widget_AdapterView_AdapterContextMenuInfo(AndroidCXX::android_view_View const& arg0,int const& arg1,long const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AdapterView_AdapterContextMenuInfo();
 	// Functions

@@ -30,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace COM_FACEBOOK_SESSIONLOGINBEHAVIOR {
+namespace com_facebook_SessionLoginBehavior {
 
 enum com_facebook_SessionLoginBehavior
 {

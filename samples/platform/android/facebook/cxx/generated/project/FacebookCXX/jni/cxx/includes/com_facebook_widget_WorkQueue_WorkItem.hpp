@@ -48,12 +48,9 @@ class com_facebook_widget_WorkQueue_WorkItem
 public:
 
 	com_facebook_widget_WorkQueue_WorkItem(const com_facebook_widget_WorkQueue_WorkItem& cc);
-	com_facebook_widget_WorkQueue_WorkItem(void * proxy);
+	com_facebook_widget_WorkQueue_WorkItem(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_widget_WorkQueue_WorkItem();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_WorkQueue_WorkItem();
 	// Functions

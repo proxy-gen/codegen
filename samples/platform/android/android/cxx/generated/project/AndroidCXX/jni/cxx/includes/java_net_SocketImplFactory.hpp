@@ -51,12 +51,9 @@ class java_net_SocketImplFactory
 public:
 
 	java_net_SocketImplFactory(const java_net_SocketImplFactory& cc);
-	java_net_SocketImplFactory(void * proxy);
+	java_net_SocketImplFactory(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_net_SocketImplFactory();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_SocketImplFactory();
 	// Functions

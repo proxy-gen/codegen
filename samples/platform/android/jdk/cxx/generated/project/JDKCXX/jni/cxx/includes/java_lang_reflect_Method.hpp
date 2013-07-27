@@ -135,17 +135,14 @@ class java_lang_reflect_Method
 public:
 
 	java_lang_reflect_Method(const java_lang_reflect_Method& cc);
-	java_lang_reflect_Method(void * proxy);
+	java_lang_reflect_Method(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_lang_reflect_Method();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_reflect_Method();
 	// Functions
-	 JDKCXX::java_lang_Object invoke(JDKCXX::java_lang_Object& arg0,std::vector<JDKCXX::java_lang_Object >& arg1);
-	 bool equals(JDKCXX::java_lang_Object& arg0);
+	 JDKCXX::java_lang_Object invoke(JDKCXX::java_lang_Object const& arg0,std::vector<JDKCXX::java_lang_Object > const& arg1);
+	 bool equals(JDKCXX::java_lang_Object const& arg0);
 	 JDKCXX::java_lang_String toString();
 	 int hashCode();
 	 int getModifiers();
@@ -153,7 +150,7 @@ public:
 	 bool isSynthetic();
 	 std::vector<JDKCXX::java_lang_reflect_TypeVariable > getTypeParameters();
 	 JDKCXX::java_lang_Class getDeclaringClass();
-	 JDKCXX::java_lang_annotation_Annotation getAnnotation(JDKCXX::java_lang_Class& arg0);
+	 JDKCXX::java_lang_annotation_Annotation getAnnotation(JDKCXX::java_lang_Class const& arg0);
 	 std::vector<JDKCXX::java_lang_annotation_Annotation > getDeclaredAnnotations();
 	 JDKCXX::java_lang_Class getReturnType();
 	 std::vector<JDKCXX::java_lang_Class > getParameterTypes();

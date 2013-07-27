@@ -56,16 +56,13 @@ class android_widget_SimpleCursorAdapter_ViewBinder
 public:
 
 	android_widget_SimpleCursorAdapter_ViewBinder(const android_widget_SimpleCursorAdapter_ViewBinder& cc);
-	android_widget_SimpleCursorAdapter_ViewBinder(void * proxy);
+	android_widget_SimpleCursorAdapter_ViewBinder(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_SimpleCursorAdapter_ViewBinder();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SimpleCursorAdapter_ViewBinder();
 	// Functions
-	 bool setViewValue(AndroidCXX::android_view_View& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2);
+	 bool setViewValue(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_database_Cursor const& arg1,int const& arg2);
 };	
 
 } // namespace

@@ -59,13 +59,10 @@ class com_facebook_FacebookServiceException
 public:
 
 	com_facebook_FacebookServiceException(const com_facebook_FacebookServiceException& cc);
-	com_facebook_FacebookServiceException(void * proxy);
+	com_facebook_FacebookServiceException(Proxy proxy);
 	// Public Constructors
-	com_facebook_FacebookServiceException(FacebookCXX::com_facebook_FacebookRequestError& arg0,AndroidCXX::java_lang_String& arg1);
-	// TODO: remove
-	// 
-	// com_facebook_FacebookServiceException();
-	// 
+	com_facebook_FacebookServiceException(FacebookCXX::com_facebook_FacebookRequestError const& arg0,AndroidCXX::java_lang_String const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_FacebookServiceException();
 	// Functions

@@ -47,12 +47,9 @@ class android_content_DialogInterface
 public:
 
 	android_content_DialogInterface(const android_content_DialogInterface& cc);
-	android_content_DialogInterface(void * proxy);
+	android_content_DialogInterface(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_content_DialogInterface();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_DialogInterface();
 	// Functions

@@ -17,9 +17,10 @@ LOCAL_LDLIBS := -llog
 LOCAL_C_INCLUDES := $(CXX_INCLUDES)
 LOCAL_EXPORT_C_INCLUDES :=$(CXX_INCLUDES)
 LOCAL_CFLAGS    := -DANDROID_PLATFORM
+LOCAL_CPPFLAGS 	:= -fexceptions -frtti
 LOCAL_EXPORT_LDLIBS := -llog
 LOCAL_WHOLE_STATIC_LIBRARIES += ZyngaCXX_static
 include $(BUILD_STATIC_LIBRARY)
 
-$(call import-module, runtime/ZyngaCXX/jni)
+$(call import-module, generator/platform/android/runtime/ZyngaCXX/jni)
 

@@ -62,17 +62,14 @@ class android_view_TouchDelegate
 public:
 
 	android_view_TouchDelegate(const android_view_TouchDelegate& cc);
-	android_view_TouchDelegate(void * proxy);
+	android_view_TouchDelegate(Proxy proxy);
 	// Public Constructors
-	android_view_TouchDelegate(AndroidCXX::android_graphics_Rect& arg0,AndroidCXX::android_view_View& arg1);
-	// TODO: remove
-	// 
-	// android_view_TouchDelegate();
-	// 
+	android_view_TouchDelegate(AndroidCXX::android_graphics_Rect const& arg0,AndroidCXX::android_view_View const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_TouchDelegate();
 	// Functions
-	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0);
+	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0);
 };	
 
 } // namespace

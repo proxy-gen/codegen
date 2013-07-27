@@ -59,16 +59,13 @@ class com_facebook_widget_PickerFragment_5
 public:
 
 	com_facebook_widget_PickerFragment_5(const com_facebook_widget_PickerFragment_5& cc);
-	com_facebook_widget_PickerFragment_5(void * proxy);
+	com_facebook_widget_PickerFragment_5(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_widget_PickerFragment_5();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_5();
 	// Functions
-	 void call(FacebookCXX::com_facebook_Session& arg0,COM_FACEBOOK_SESSIONSTATE::com_facebook_SessionState& arg1,AndroidCXX::java_lang_Exception& arg2);
+	 void call(FacebookCXX::com_facebook_Session const& arg0,com_facebook_SessionState::com_facebook_SessionState const& arg1,AndroidCXX::java_lang_Exception const& arg2);
 };	
 
 } // namespace

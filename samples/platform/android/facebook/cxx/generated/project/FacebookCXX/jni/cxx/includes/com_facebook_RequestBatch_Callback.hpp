@@ -51,16 +51,13 @@ class com_facebook_RequestBatch_Callback
 public:
 
 	com_facebook_RequestBatch_Callback(const com_facebook_RequestBatch_Callback& cc);
-	com_facebook_RequestBatch_Callback(void * proxy);
+	com_facebook_RequestBatch_Callback(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_RequestBatch_Callback();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_RequestBatch_Callback();
 	// Functions
-	 void onBatchCompleted(FacebookCXX::com_facebook_RequestBatch& arg0);
+	 void onBatchCompleted(FacebookCXX::com_facebook_RequestBatch const& arg0);
 };	
 
 } // namespace

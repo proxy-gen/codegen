@@ -17,6 +17,8 @@ android_indexer_cxx=$android_indexer/cxx
 
 $android_dir/setup.py -s $sdk_dir -n $ndk_dir
 
+echo ...
+
 # Bump up the max stack size to 64MB (max) 
 ulimit -s 65532 #kB
 
@@ -25,11 +27,11 @@ export CXX_JVM_CLASSPATH=$android_generator_runtime_dir/bin:$sdk_dir/platforms/a
 # Generate Config
 #LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $my_dir/config/config.py --platform android --generate-config --namespace AndroidCXX --output-dir $my_dir/generated --package AndroidCXX --file AndroidCXX --wrapper-file AndroidWrapperCXX --log info
 # Generate Code
-#LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $my_dir/generated/config/AndroidCXX/config.py --platform android --generate-code --namespace AndroidCXX --output-dir $my_dir/generated --package AndroidCXX --file AndroidCXX --wrapper-file AndroidWrapperCXX --log info
+LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $my_dir/generated/config/AndroidCXX/config.py --platform android --generate-code --namespace AndroidCXX --output-dir $my_dir/generated --package AndroidCXX --file AndroidCXX --wrapper-file AndroidWrapperCXX --log info
 # Generate Projects
-#LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $my_dir/generated/config/AndroidCXX/config.py --platform android --generate-projects --namespace AndroidCXX --output-dir $my_dir/generated --package AndroidCXX --file AndroidCXX --wrapper-file AndroidWrapperCXX --log info
+LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $my_dir/generated/config/AndroidCXX/config.py --platform android --generate-projects --namespace AndroidCXX --output-dir $my_dir/generated --package AndroidCXX --file AndroidCXX --wrapper-file AndroidWrapperCXX --log info
 
-echo "Generated CXX Bindings"
+echo "android cxx bindings generation complete"
 
 
 

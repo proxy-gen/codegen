@@ -57,7 +57,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_LegacyHelper::com_facebook_LegacyHelper(const com_facebook_LegacyHelper& cc)
 {
 	LOGV("com_facebook_LegacyHelper::com_facebook_LegacyHelper(const com_facebook_LegacyHelper& cc) enter");
@@ -81,9 +80,9 @@ com_facebook_LegacyHelper::com_facebook_LegacyHelper(const com_facebook_LegacyHe
 
 	LOGV("com_facebook_LegacyHelper::com_facebook_LegacyHelper(const com_facebook_LegacyHelper& cc) exit");
 }
-com_facebook_LegacyHelper::com_facebook_LegacyHelper(void * proxy)
+com_facebook_LegacyHelper::com_facebook_LegacyHelper(Proxy proxy)
 {
-	LOGV("com_facebook_LegacyHelper::com_facebook_LegacyHelper(void * proxy) enter");
+	LOGV("com_facebook_LegacyHelper::com_facebook_LegacyHelper(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -93,17 +92,31 @@ com_facebook_LegacyHelper::com_facebook_LegacyHelper(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_LegacyHelper::com_facebook_LegacyHelper(void * proxy) exit");
+	LOGV("com_facebook_LegacyHelper::com_facebook_LegacyHelper(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy com_facebook_LegacyHelper::proxy() const
+{	
+	LOGV("com_facebook_LegacyHelper::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_LegacyHelper cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_LegacyHelper jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("com_facebook_LegacyHelper::proxy() exit");	
+
+	return proxy;
+}
 com_facebook_LegacyHelper::com_facebook_LegacyHelper()
 {
 	LOGV("com_facebook_LegacyHelper::com_facebook_LegacyHelper() enter");	
@@ -151,13 +164,13 @@ com_facebook_LegacyHelper::~com_facebook_LegacyHelper()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_LegacyHelper::~com_facebook_LegacyHelper() exit");
 }
 // Functions
-void com_facebook_LegacyHelper::extendTokenCompleted(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_os_Bundle& arg1)
+void com_facebook_LegacyHelper::extendTokenCompleted(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_os_Bundle const& arg1)
 {
-	LOGV("void com_facebook_LegacyHelper::extendTokenCompleted(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_os_Bundle& arg1) enter");
+	LOGV("void com_facebook_LegacyHelper::extendTokenCompleted(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_os_Bundle const& arg1) enter");
 
 	const char *methodName = "extendTokenCompleted";
 	const char *methodSignature = "(Lcom/facebook/Session;Landroid/os/Bundle;)V";
@@ -167,8 +180,6 @@ void com_facebook_LegacyHelper::extendTokenCompleted(FacebookCXX::com_facebook_S
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_LegacyHelper cxx address %d", cxxAddress);
@@ -218,10 +229,8 @@ void com_facebook_LegacyHelper::extendTokenCompleted(FacebookCXX::com_facebook_S
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_LegacyHelper::extendTokenCompleted(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_os_Bundle& arg1) exit");
+	LOGV("void com_facebook_LegacyHelper::extendTokenCompleted(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_os_Bundle const& arg1) exit");
 
 }

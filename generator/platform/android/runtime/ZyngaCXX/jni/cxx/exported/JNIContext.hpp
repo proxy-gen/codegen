@@ -57,7 +57,8 @@ public:
 	jobject globalToLocalRef(jobject globalRef);
 	void deleteLocalRef(jobject localRef);
 	void deleteGlobalRef(jobject globalRef);
-	jobject newLocalRef(jobject globalRef);
+	jobject newLocalRef(jobject localRef);
+	jobject newGlobalRef(jobject globalRef);
 
 	jboolean isBooleanObject(jobject obj);
 	jboolean isByteObject(jobject obj);

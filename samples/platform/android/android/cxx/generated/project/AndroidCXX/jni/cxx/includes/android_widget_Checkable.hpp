@@ -48,16 +48,13 @@ class android_widget_Checkable
 public:
 
 	android_widget_Checkable(const android_widget_Checkable& cc);
-	android_widget_Checkable(void * proxy);
+	android_widget_Checkable(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_Checkable();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Checkable();
 	// Functions
-	 void setChecked(bool& arg0);
+	 void setChecked(bool const& arg0);
 	 bool isChecked();
 	 void toggle();
 };	

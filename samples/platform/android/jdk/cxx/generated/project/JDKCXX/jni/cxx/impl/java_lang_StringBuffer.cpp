@@ -295,7 +295,6 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_lang_StringBuffer::java_lang_StringBuffer(const java_lang_StringBuffer& cc)
 {
 	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(const java_lang_StringBuffer& cc) enter");
@@ -319,9 +318,9 @@ java_lang_StringBuffer::java_lang_StringBuffer(const java_lang_StringBuffer& cc)
 
 	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(const java_lang_StringBuffer& cc) exit");
 }
-java_lang_StringBuffer::java_lang_StringBuffer(void * proxy)
+java_lang_StringBuffer::java_lang_StringBuffer(Proxy proxy)
 {
-	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(void * proxy) enter");
+	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -331,17 +330,31 @@ java_lang_StringBuffer::java_lang_StringBuffer(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(void * proxy) exit");
+	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy java_lang_StringBuffer::proxy() const
+{	
+	LOGV("java_lang_StringBuffer::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_StringBuffer jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("java_lang_StringBuffer::proxy() exit");	
+
+	return proxy;
+}
 java_lang_StringBuffer::java_lang_StringBuffer()
 {
 	LOGV("java_lang_StringBuffer::java_lang_StringBuffer() enter");	
@@ -378,9 +391,9 @@ java_lang_StringBuffer::java_lang_StringBuffer()
 
 	LOGV("java_lang_StringBuffer::java_lang_StringBuffer() exit");	
 }
-java_lang_StringBuffer::java_lang_StringBuffer(int& arg0)
+java_lang_StringBuffer::java_lang_StringBuffer(int const& arg0)
 {
-	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(int& arg0) enter");	
+	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(int const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(I)V";
@@ -433,11 +446,11 @@ java_lang_StringBuffer::java_lang_StringBuffer(int& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(int& arg0) exit");	
+	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(int const& arg0) exit");	
 }
-java_lang_StringBuffer::java_lang_StringBuffer(JDKCXX::java_lang_String& arg0)
+java_lang_StringBuffer::java_lang_StringBuffer(JDKCXX::java_lang_String const& arg0)
 {
-	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(JDKCXX::java_lang_String& arg0) enter");	
+	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(JDKCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -490,11 +503,11 @@ java_lang_StringBuffer::java_lang_StringBuffer(JDKCXX::java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(JDKCXX::java_lang_String& arg0) exit");	
+	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(JDKCXX::java_lang_String const& arg0) exit");	
 }
-java_lang_StringBuffer::java_lang_StringBuffer(JDKCXX::java_lang_CharSequence& arg0)
+java_lang_StringBuffer::java_lang_StringBuffer(JDKCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(JDKCXX::java_lang_CharSequence& arg0) enter");	
+	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(JDKCXX::java_lang_CharSequence const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -547,7 +560,7 @@ java_lang_StringBuffer::java_lang_StringBuffer(JDKCXX::java_lang_CharSequence& a
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(JDKCXX::java_lang_CharSequence& arg0) exit");	
+	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(JDKCXX::java_lang_CharSequence const& arg0) exit");	
 }
 // Default Instance Destructor
 java_lang_StringBuffer::~java_lang_StringBuffer()
@@ -560,7 +573,7 @@ java_lang_StringBuffer::~java_lang_StringBuffer()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_lang_StringBuffer::~java_lang_StringBuffer() exit");
 }
 // Functions
@@ -576,8 +589,6 @@ JDKCXX::java_lang_String java_lang_StringBuffer::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -606,15 +617,13 @@ JDKCXX::java_lang_String java_lang_StringBuffer::toString()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_lang_StringBuffer::toString() exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>& arg0,int& arg1,int& arg2)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char> const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>& arg0,int& arg1,int& arg2) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char> const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "([CII)Ljava/lang/StringBuffer;";
@@ -624,8 +633,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -735,15 +742,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>&
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>& arg0,int& arg1,int& arg2) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char> const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_Object& arg0)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_Object const& arg0)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_Object& arg0) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/StringBuffer;";
@@ -753,8 +758,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -804,15 +807,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_Object& arg0) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_String& arg0)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_String const& arg0)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_String& arg0) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/StringBuffer;";
@@ -822,8 +823,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -873,15 +872,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_String& arg0) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_StringBuffer& arg0)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_StringBuffer const& arg0)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_StringBuffer& arg0) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_StringBuffer const& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;";
@@ -891,8 +888,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -942,15 +937,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_StringBuffer& arg0) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_StringBuffer const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_CharSequence& arg0)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Ljava/lang/StringBuffer;";
@@ -960,8 +953,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -1011,15 +1002,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_CharSequence const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/CharSequence;II)Ljava/lang/StringBuffer;";
@@ -1029,8 +1018,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -1122,15 +1109,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(JDKCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>& arg0)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char> const& arg0)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>& arg0) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char> const& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "([C)Ljava/lang/StringBuffer;";
@@ -1140,8 +1125,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -1209,15 +1192,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>&
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>& arg0) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char> const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(bool& arg0)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(bool const& arg0)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(bool& arg0) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(bool const& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Z)Ljava/lang/StringBuffer;";
@@ -1227,8 +1208,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -1278,15 +1257,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(bool& arg0)
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(bool& arg0) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(bool const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(char& arg0)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(char const& arg0)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(char& arg0) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(char const& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(C)Ljava/lang/StringBuffer;";
@@ -1296,8 +1273,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(char& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -1347,15 +1322,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(char& arg0)
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(char& arg0) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(char const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(int& arg0)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(int const& arg0)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(int& arg0) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(int const& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(I)Ljava/lang/StringBuffer;";
@@ -1365,8 +1338,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -1416,15 +1387,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(int& arg0)
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(int& arg0) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(int const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(long& arg0)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(long const& arg0)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(long& arg0) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(long const& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(J)Ljava/lang/StringBuffer;";
@@ -1434,8 +1403,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -1485,15 +1452,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(long& arg0)
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(long& arg0) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(long const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(float& arg0)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(float const& arg0)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(float& arg0) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(float const& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(F)Ljava/lang/StringBuffer;";
@@ -1503,8 +1468,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -1554,15 +1517,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(float& arg0)
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(float& arg0) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(float const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(double& arg0)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(double const& arg0)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(double& arg0) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(double const& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(D)Ljava/lang/StringBuffer;";
@@ -1572,8 +1533,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(double& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -1623,15 +1582,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(double& arg0)
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(double& arg0) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::append(double const& arg0) exit");
 
 	return result;
 }
-int java_lang_StringBuffer::indexOf(JDKCXX::java_lang_String& arg0,int& arg1)
+int java_lang_StringBuffer::indexOf(JDKCXX::java_lang_String const& arg0,int const& arg1)
 {
-	LOGV("int java_lang_StringBuffer::indexOf(JDKCXX::java_lang_String& arg0,int& arg1) enter");
+	LOGV("int java_lang_StringBuffer::indexOf(JDKCXX::java_lang_String const& arg0,int const& arg1) enter");
 
 	const char *methodName = "indexOf";
 	const char *methodSignature = "(Ljava/lang/String;I)I";
@@ -1641,8 +1598,6 @@ int java_lang_StringBuffer::indexOf(JDKCXX::java_lang_String& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -1713,15 +1668,13 @@ int java_lang_StringBuffer::indexOf(JDKCXX::java_lang_String& arg0,int& arg1)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_lang_StringBuffer::indexOf(JDKCXX::java_lang_String& arg0,int& arg1) exit");
+	LOGV("int java_lang_StringBuffer::indexOf(JDKCXX::java_lang_String const& arg0,int const& arg1) exit");
 
 	return result;
 }
-int java_lang_StringBuffer::indexOf(JDKCXX::java_lang_String& arg0)
+int java_lang_StringBuffer::indexOf(JDKCXX::java_lang_String const& arg0)
 {
-	LOGV("int java_lang_StringBuffer::indexOf(JDKCXX::java_lang_String& arg0) enter");
+	LOGV("int java_lang_StringBuffer::indexOf(JDKCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "indexOf";
 	const char *methodSignature = "(Ljava/lang/String;)I";
@@ -1731,8 +1684,6 @@ int java_lang_StringBuffer::indexOf(JDKCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -1782,9 +1733,7 @@ int java_lang_StringBuffer::indexOf(JDKCXX::java_lang_String& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_lang_StringBuffer::indexOf(JDKCXX::java_lang_String& arg0) exit");
+	LOGV("int java_lang_StringBuffer::indexOf(JDKCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
@@ -1800,8 +1749,6 @@ int java_lang_StringBuffer::length()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -1830,15 +1777,13 @@ int java_lang_StringBuffer::length()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_lang_StringBuffer::length() exit");
 
 	return result;
 }
-char java_lang_StringBuffer::charAt(int& arg0)
+char java_lang_StringBuffer::charAt(int const& arg0)
 {
-	LOGV("char java_lang_StringBuffer::charAt(int& arg0) enter");
+	LOGV("char java_lang_StringBuffer::charAt(int const& arg0) enter");
 
 	const char *methodName = "charAt";
 	const char *methodSignature = "(I)C";
@@ -1848,8 +1793,6 @@ char java_lang_StringBuffer::charAt(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -1899,15 +1842,13 @@ char java_lang_StringBuffer::charAt(int& arg0)
 	char result = (char) *((char *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("char java_lang_StringBuffer::charAt(int& arg0) exit");
+	LOGV("char java_lang_StringBuffer::charAt(int const& arg0) exit");
 
 	return result;
 }
-int java_lang_StringBuffer::codePointAt(int& arg0)
+int java_lang_StringBuffer::codePointAt(int const& arg0)
 {
-	LOGV("int java_lang_StringBuffer::codePointAt(int& arg0) enter");
+	LOGV("int java_lang_StringBuffer::codePointAt(int const& arg0) enter");
 
 	const char *methodName = "codePointAt";
 	const char *methodSignature = "(I)I";
@@ -1918,8 +1859,6 @@ int java_lang_StringBuffer::codePointAt(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1968,15 +1907,13 @@ int java_lang_StringBuffer::codePointAt(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_lang_StringBuffer::codePointAt(int& arg0) exit");
+	LOGV("int java_lang_StringBuffer::codePointAt(int const& arg0) exit");
 
 	return result;
 }
-int java_lang_StringBuffer::codePointBefore(int& arg0)
+int java_lang_StringBuffer::codePointBefore(int const& arg0)
 {
-	LOGV("int java_lang_StringBuffer::codePointBefore(int& arg0) enter");
+	LOGV("int java_lang_StringBuffer::codePointBefore(int const& arg0) enter");
 
 	const char *methodName = "codePointBefore";
 	const char *methodSignature = "(I)I";
@@ -1987,8 +1924,6 @@ int java_lang_StringBuffer::codePointBefore(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2037,15 +1972,13 @@ int java_lang_StringBuffer::codePointBefore(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_lang_StringBuffer::codePointBefore(int& arg0) exit");
+	LOGV("int java_lang_StringBuffer::codePointBefore(int const& arg0) exit");
 
 	return result;
 }
-int java_lang_StringBuffer::codePointCount(int& arg0,int& arg1)
+int java_lang_StringBuffer::codePointCount(int const& arg0,int const& arg1)
 {
-	LOGV("int java_lang_StringBuffer::codePointCount(int& arg0,int& arg1) enter");
+	LOGV("int java_lang_StringBuffer::codePointCount(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "codePointCount";
 	const char *methodSignature = "(II)I";
@@ -2056,8 +1989,6 @@ int java_lang_StringBuffer::codePointCount(int& arg0,int& arg1)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2127,15 +2058,13 @@ int java_lang_StringBuffer::codePointCount(int& arg0,int& arg1)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_lang_StringBuffer::codePointCount(int& arg0,int& arg1) exit");
+	LOGV("int java_lang_StringBuffer::codePointCount(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-int java_lang_StringBuffer::offsetByCodePoints(int& arg0,int& arg1)
+int java_lang_StringBuffer::offsetByCodePoints(int const& arg0,int const& arg1)
 {
-	LOGV("int java_lang_StringBuffer::offsetByCodePoints(int& arg0,int& arg1) enter");
+	LOGV("int java_lang_StringBuffer::offsetByCodePoints(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "offsetByCodePoints";
 	const char *methodSignature = "(II)I";
@@ -2146,8 +2075,6 @@ int java_lang_StringBuffer::offsetByCodePoints(int& arg0,int& arg1)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2217,15 +2144,13 @@ int java_lang_StringBuffer::offsetByCodePoints(int& arg0,int& arg1)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_lang_StringBuffer::offsetByCodePoints(int& arg0,int& arg1) exit");
+	LOGV("int java_lang_StringBuffer::offsetByCodePoints(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-void java_lang_StringBuffer::getChars(int& arg0,int& arg1,std::vector<char>& arg2,int& arg3)
+void java_lang_StringBuffer::getChars(int const& arg0,int const& arg1,std::vector<char> const& arg2,int const& arg3)
 {
-	LOGV("void java_lang_StringBuffer::getChars(int& arg0,int& arg1,std::vector<char>& arg2,int& arg3) enter");
+	LOGV("void java_lang_StringBuffer::getChars(int const& arg0,int const& arg1,std::vector<char> const& arg2,int const& arg3) enter");
 
 	const char *methodName = "getChars";
 	const char *methodSignature = "(II[CI)V";
@@ -2235,8 +2160,6 @@ void java_lang_StringBuffer::getChars(int& arg0,int& arg1,std::vector<char>& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -2348,14 +2271,12 @@ void java_lang_StringBuffer::getChars(int& arg0,int& arg1,std::vector<char>& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_StringBuffer::getChars(int& arg0,int& arg1,std::vector<char>& arg2,int& arg3) exit");
+	LOGV("void java_lang_StringBuffer::getChars(int const& arg0,int const& arg1,std::vector<char> const& arg2,int const& arg3) exit");
 
 }
-int java_lang_StringBuffer::lastIndexOf(JDKCXX::java_lang_String& arg0)
+int java_lang_StringBuffer::lastIndexOf(JDKCXX::java_lang_String const& arg0)
 {
-	LOGV("int java_lang_StringBuffer::lastIndexOf(JDKCXX::java_lang_String& arg0) enter");
+	LOGV("int java_lang_StringBuffer::lastIndexOf(JDKCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "lastIndexOf";
 	const char *methodSignature = "(Ljava/lang/String;)I";
@@ -2365,8 +2286,6 @@ int java_lang_StringBuffer::lastIndexOf(JDKCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -2416,15 +2335,13 @@ int java_lang_StringBuffer::lastIndexOf(JDKCXX::java_lang_String& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_lang_StringBuffer::lastIndexOf(JDKCXX::java_lang_String& arg0) exit");
+	LOGV("int java_lang_StringBuffer::lastIndexOf(JDKCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-int java_lang_StringBuffer::lastIndexOf(JDKCXX::java_lang_String& arg0,int& arg1)
+int java_lang_StringBuffer::lastIndexOf(JDKCXX::java_lang_String const& arg0,int const& arg1)
 {
-	LOGV("int java_lang_StringBuffer::lastIndexOf(JDKCXX::java_lang_String& arg0,int& arg1) enter");
+	LOGV("int java_lang_StringBuffer::lastIndexOf(JDKCXX::java_lang_String const& arg0,int const& arg1) enter");
 
 	const char *methodName = "lastIndexOf";
 	const char *methodSignature = "(Ljava/lang/String;I)I";
@@ -2434,8 +2351,6 @@ int java_lang_StringBuffer::lastIndexOf(JDKCXX::java_lang_String& arg0,int& arg1
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -2506,15 +2421,13 @@ int java_lang_StringBuffer::lastIndexOf(JDKCXX::java_lang_String& arg0,int& arg1
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_lang_StringBuffer::lastIndexOf(JDKCXX::java_lang_String& arg0,int& arg1) exit");
+	LOGV("int java_lang_StringBuffer::lastIndexOf(JDKCXX::java_lang_String const& arg0,int const& arg1) exit");
 
 	return result;
 }
-JDKCXX::java_lang_String java_lang_StringBuffer::substring(int& arg0)
+JDKCXX::java_lang_String java_lang_StringBuffer::substring(int const& arg0)
 {
-	LOGV("JDKCXX::java_lang_String java_lang_StringBuffer::substring(int& arg0) enter");
+	LOGV("JDKCXX::java_lang_String java_lang_StringBuffer::substring(int const& arg0) enter");
 
 	const char *methodName = "substring";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -2524,8 +2437,6 @@ JDKCXX::java_lang_String java_lang_StringBuffer::substring(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -2575,15 +2486,13 @@ JDKCXX::java_lang_String java_lang_StringBuffer::substring(int& arg0)
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_String java_lang_StringBuffer::substring(int& arg0) exit");
+	LOGV("JDKCXX::java_lang_String java_lang_StringBuffer::substring(int const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_lang_String java_lang_StringBuffer::substring(int& arg0,int& arg1)
+JDKCXX::java_lang_String java_lang_StringBuffer::substring(int const& arg0,int const& arg1)
 {
-	LOGV("JDKCXX::java_lang_String java_lang_StringBuffer::substring(int& arg0,int& arg1) enter");
+	LOGV("JDKCXX::java_lang_String java_lang_StringBuffer::substring(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "substring";
 	const char *methodSignature = "(II)Ljava/lang/String;";
@@ -2593,8 +2502,6 @@ JDKCXX::java_lang_String java_lang_StringBuffer::substring(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -2665,15 +2572,13 @@ JDKCXX::java_lang_String java_lang_StringBuffer::substring(int& arg0,int& arg1)
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_String java_lang_StringBuffer::substring(int& arg0,int& arg1) exit");
+	LOGV("JDKCXX::java_lang_String java_lang_StringBuffer::substring(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-JDKCXX::java_lang_CharSequence java_lang_StringBuffer::subSequence(int& arg0,int& arg1)
+JDKCXX::java_lang_CharSequence java_lang_StringBuffer::subSequence(int const& arg0,int const& arg1)
 {
-	LOGV("JDKCXX::java_lang_CharSequence java_lang_StringBuffer::subSequence(int& arg0,int& arg1) enter");
+	LOGV("JDKCXX::java_lang_CharSequence java_lang_StringBuffer::subSequence(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "subSequence";
 	const char *methodSignature = "(II)Ljava/lang/CharSequence;";
@@ -2683,8 +2588,6 @@ JDKCXX::java_lang_CharSequence java_lang_StringBuffer::subSequence(int& arg0,int
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -2755,15 +2658,13 @@ JDKCXX::java_lang_CharSequence java_lang_StringBuffer::subSequence(int& arg0,int
 	JDKCXX::java_lang_CharSequence result((JDKCXX::java_lang_CharSequence) *((JDKCXX::java_lang_CharSequence *) cxx_value));
 	delete ((JDKCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_CharSequence java_lang_StringBuffer::subSequence(int& arg0,int& arg1) exit");
+	LOGV("JDKCXX::java_lang_CharSequence java_lang_StringBuffer::subSequence(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::replace(int& arg0,int& arg1,JDKCXX::java_lang_String& arg2)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::replace(int const& arg0,int const& arg1,JDKCXX::java_lang_String const& arg2)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::replace(int& arg0,int& arg1,JDKCXX::java_lang_String& arg2) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::replace(int const& arg0,int const& arg1,JDKCXX::java_lang_String const& arg2) enter");
 
 	const char *methodName = "replace";
 	const char *methodSignature = "(IILjava/lang/String;)Ljava/lang/StringBuffer;";
@@ -2773,8 +2674,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::replace(int& arg0,int& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -2866,9 +2765,7 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::replace(int& arg0,int& ar
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::replace(int& arg0,int& arg1,JDKCXX::java_lang_String& arg2) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::replace(int const& arg0,int const& arg1,JDKCXX::java_lang_String const& arg2) exit");
 
 	return result;
 }
@@ -2884,8 +2781,6 @@ int java_lang_StringBuffer::capacity()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -2914,15 +2809,13 @@ int java_lang_StringBuffer::capacity()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_lang_StringBuffer::capacity() exit");
 
 	return result;
 }
-void java_lang_StringBuffer::ensureCapacity(int& arg0)
+void java_lang_StringBuffer::ensureCapacity(int const& arg0)
 {
-	LOGV("void java_lang_StringBuffer::ensureCapacity(int& arg0) enter");
+	LOGV("void java_lang_StringBuffer::ensureCapacity(int const& arg0) enter");
 
 	const char *methodName = "ensureCapacity";
 	const char *methodSignature = "(I)V";
@@ -2932,8 +2825,6 @@ void java_lang_StringBuffer::ensureCapacity(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -2964,9 +2855,7 @@ void java_lang_StringBuffer::ensureCapacity(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_StringBuffer::ensureCapacity(int& arg0) exit");
+	LOGV("void java_lang_StringBuffer::ensureCapacity(int const& arg0) exit");
 
 }
 void java_lang_StringBuffer::trimToSize()
@@ -2982,8 +2871,6 @@ void java_lang_StringBuffer::trimToSize()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2992,14 +2879,12 @@ void java_lang_StringBuffer::trimToSize()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_lang_StringBuffer::trimToSize() exit");
 
 }
-void java_lang_StringBuffer::setLength(int& arg0)
+void java_lang_StringBuffer::setLength(int const& arg0)
 {
-	LOGV("void java_lang_StringBuffer::setLength(int& arg0) enter");
+	LOGV("void java_lang_StringBuffer::setLength(int const& arg0) enter");
 
 	const char *methodName = "setLength";
 	const char *methodSignature = "(I)V";
@@ -3009,8 +2894,6 @@ void java_lang_StringBuffer::setLength(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -3041,14 +2924,12 @@ void java_lang_StringBuffer::setLength(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_StringBuffer::setLength(int& arg0) exit");
+	LOGV("void java_lang_StringBuffer::setLength(int const& arg0) exit");
 
 }
-void java_lang_StringBuffer::setCharAt(int& arg0,char& arg1)
+void java_lang_StringBuffer::setCharAt(int const& arg0,char const& arg1)
 {
-	LOGV("void java_lang_StringBuffer::setCharAt(int& arg0,char& arg1) enter");
+	LOGV("void java_lang_StringBuffer::setCharAt(int const& arg0,char const& arg1) enter");
 
 	const char *methodName = "setCharAt";
 	const char *methodSignature = "(IC)V";
@@ -3058,8 +2939,6 @@ void java_lang_StringBuffer::setCharAt(int& arg0,char& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -3111,14 +2990,12 @@ void java_lang_StringBuffer::setCharAt(int& arg0,char& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_StringBuffer::setCharAt(int& arg0,char& arg1) exit");
+	LOGV("void java_lang_StringBuffer::setCharAt(int const& arg0,char const& arg1) exit");
 
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::appendCodePoint(int& arg0)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::appendCodePoint(int const& arg0)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::appendCodePoint(int& arg0) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::appendCodePoint(int const& arg0) enter");
 
 	const char *methodName = "appendCodePoint";
 	const char *methodSignature = "(I)Ljava/lang/StringBuffer;";
@@ -3128,8 +3005,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::appendCodePoint(int& arg0
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -3179,15 +3054,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::appendCodePoint(int& arg0
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::appendCodePoint(int& arg0) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::appendCodePoint(int const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::_delete(int& arg0,int& arg1)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::_delete(int const& arg0,int const& arg1)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::_delete(int& arg0,int& arg1) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::_delete(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "delete";
 	const char *methodSignature = "(II)Ljava/lang/StringBuffer;";
@@ -3197,8 +3070,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::_delete(int& arg0,int& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -3269,15 +3140,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::_delete(int& arg0,int& ar
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::_delete(int& arg0,int& arg1) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::_delete(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::deleteCharAt(int& arg0)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::deleteCharAt(int const& arg0)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::deleteCharAt(int& arg0) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::deleteCharAt(int const& arg0) enter");
 
 	const char *methodName = "deleteCharAt";
 	const char *methodSignature = "(I)Ljava/lang/StringBuffer;";
@@ -3287,8 +3156,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::deleteCharAt(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -3338,15 +3205,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::deleteCharAt(int& arg0)
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::deleteCharAt(int& arg0) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::deleteCharAt(int const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,long& arg1)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,long const& arg1)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,long& arg1) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,long const& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(IJ)Ljava/lang/StringBuffer;";
@@ -3356,8 +3221,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,long& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -3428,15 +3291,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,long& ar
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,long& arg1) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,long const& arg1) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,int& arg1)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,int const& arg1)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,int& arg1) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(II)Ljava/lang/StringBuffer;";
@@ -3446,8 +3307,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,int& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -3518,15 +3377,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,int& arg
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,int& arg1) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,char& arg1)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,char const& arg1)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,char& arg1) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,char const& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(IC)Ljava/lang/StringBuffer;";
@@ -3536,8 +3393,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,char& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -3608,15 +3463,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,char& ar
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,char& arg1) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,char const& arg1) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,bool& arg1)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,bool const& arg1)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,bool& arg1) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(IZ)Ljava/lang/StringBuffer;";
@@ -3626,8 +3479,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,bool& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -3698,15 +3549,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,bool& ar
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,bool& arg1) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,bool const& arg1) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,JDKCXX::java_lang_CharSequence& arg1,int& arg2,int& arg3)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,JDKCXX::java_lang_CharSequence const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,JDKCXX::java_lang_CharSequence& arg1,int& arg2,int& arg3) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,JDKCXX::java_lang_CharSequence const& arg1,int const& arg2,int const& arg3) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(ILjava/lang/CharSequence;II)Ljava/lang/StringBuffer;";
@@ -3717,8 +3566,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,JDKCXX::
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3830,15 +3677,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,JDKCXX::
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,JDKCXX::java_lang_CharSequence& arg1,int& arg2,int& arg3) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,JDKCXX::java_lang_CharSequence const& arg1,int const& arg2,int const& arg3) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,JDKCXX::java_lang_CharSequence& arg1)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,JDKCXX::java_lang_CharSequence const& arg1)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,JDKCXX::java_lang_CharSequence& arg1) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,JDKCXX::java_lang_CharSequence const& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(ILjava/lang/CharSequence;)Ljava/lang/StringBuffer;";
@@ -3849,8 +3694,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,JDKCXX::
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3920,15 +3763,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,JDKCXX::
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,JDKCXX::java_lang_CharSequence& arg1) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,JDKCXX::java_lang_CharSequence const& arg1) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vector<char>& arg1)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,std::vector<char> const& arg1)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vector<char>& arg1) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,std::vector<char> const& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(I[C)Ljava/lang/StringBuffer;";
@@ -3938,8 +3779,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vec
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -4028,15 +3867,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vec
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vector<char>& arg1) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,std::vector<char> const& arg1) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vector<char>& arg1,int& arg2,int& arg3)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,std::vector<char> const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vector<char>& arg1,int& arg2,int& arg3) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,std::vector<char> const& arg1,int const& arg2,int const& arg3) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(I[CII)Ljava/lang/StringBuffer;";
@@ -4046,8 +3883,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vec
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -4178,15 +4013,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vec
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vector<char>& arg1,int& arg2,int& arg3) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,std::vector<char> const& arg1,int const& arg2,int const& arg3) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,double& arg1)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,double const& arg1)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,double& arg1) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,double const& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(ID)Ljava/lang/StringBuffer;";
@@ -4196,8 +4029,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,double& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -4268,15 +4099,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,double& 
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,double& arg1) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,double const& arg1) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,float& arg1)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,float const& arg1)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,float& arg1) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,float const& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(IF)Ljava/lang/StringBuffer;";
@@ -4286,8 +4115,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,float& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -4358,15 +4185,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,float& a
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,float& arg1) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,float const& arg1) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,JDKCXX::java_lang_String& arg1)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,JDKCXX::java_lang_String const& arg1)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,JDKCXX::java_lang_String& arg1) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,JDKCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(ILjava/lang/String;)Ljava/lang/StringBuffer;";
@@ -4376,8 +4201,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,JDKCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -4448,15 +4271,13 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,JDKCXX::
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,JDKCXX::java_lang_String& arg1) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,JDKCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,JDKCXX::java_lang_Object& arg1)
+JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,JDKCXX::java_lang_Object const& arg1)
 {
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,JDKCXX::java_lang_Object& arg1) enter");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,JDKCXX::java_lang_Object const& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(ILjava/lang/Object;)Ljava/lang/StringBuffer;";
@@ -4466,8 +4287,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,JDKCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -4538,9 +4357,7 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,JDKCXX::
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,JDKCXX::java_lang_Object& arg1) exit");
+	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int const& arg0,JDKCXX::java_lang_Object const& arg1) exit");
 
 	return result;
 }
@@ -4556,8 +4373,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::reverse()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_StringBuffer cxx address %d", cxxAddress);
@@ -4586,8 +4401,6 @@ JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::reverse()
 	JDKCXX::java_lang_StringBuffer result((JDKCXX::java_lang_StringBuffer) *((JDKCXX::java_lang_StringBuffer *) cxx_value));
 	delete ((JDKCXX::java_lang_StringBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_StringBuffer java_lang_StringBuffer::reverse() exit");
 
 	return result;

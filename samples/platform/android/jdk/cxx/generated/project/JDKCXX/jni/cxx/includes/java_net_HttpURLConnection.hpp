@@ -82,26 +82,23 @@ class java_net_HttpURLConnection
 public:
 
 	java_net_HttpURLConnection(const java_net_HttpURLConnection& cc);
-	java_net_HttpURLConnection(void * proxy);
+	java_net_HttpURLConnection(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_net_HttpURLConnection();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_HttpURLConnection();
 	// Functions
 	 JDKCXX::java_security_Permission getPermission();
-	 void setRequestMethod(JDKCXX::java_lang_String& arg0);
+	 void setRequestMethod(JDKCXX::java_lang_String const& arg0);
 	 int getResponseCode();
-	 JDKCXX::java_lang_String getHeaderField(int& arg0);
-	 JDKCXX::java_lang_String getHeaderFieldKey(int& arg0);
-	 long getHeaderFieldDate(JDKCXX::java_lang_String& arg0,long& arg1);
-	 void setFixedLengthStreamingMode(int& arg0);
-	 void setChunkedStreamingMode(int& arg0);
-	static void setFollowRedirects(bool& arg0);
+	 JDKCXX::java_lang_String getHeaderField(int const& arg0);
+	 JDKCXX::java_lang_String getHeaderFieldKey(int const& arg0);
+	 long getHeaderFieldDate(JDKCXX::java_lang_String const& arg0,long const& arg1);
+	 void setFixedLengthStreamingMode(int const& arg0);
+	 void setChunkedStreamingMode(int const& arg0);
+	static void setFollowRedirects(bool const& arg0);
 	static bool getFollowRedirects();
-	 void setInstanceFollowRedirects(bool& arg0);
+	 void setInstanceFollowRedirects(bool const& arg0);
 	 bool getInstanceFollowRedirects();
 	 JDKCXX::java_lang_String getRequestMethod();
 	 JDKCXX::java_lang_String getResponseMessage();

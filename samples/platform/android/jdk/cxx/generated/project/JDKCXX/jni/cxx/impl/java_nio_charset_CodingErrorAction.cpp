@@ -46,7 +46,6 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(const java_nio_charset_CodingErrorAction& cc)
 {
 	LOGV("java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(const java_nio_charset_CodingErrorAction& cc) enter");
@@ -70,9 +69,9 @@ java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(const jav
 
 	LOGV("java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(const java_nio_charset_CodingErrorAction& cc) exit");
 }
-java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(void * proxy)
+java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(Proxy proxy)
 {
-	LOGV("java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(void * proxy) enter");
+	LOGV("java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -82,52 +81,31 @@ java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(void * pr
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(void * proxy) exit");
+	LOGV("java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction()
-// {
-// 	LOGV("java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction() enter");	
+Proxy java_nio_charset_CodingErrorAction::proxy() const
+{	
+	LOGV("java_nio_charset_CodingErrorAction::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/nio/charset/CodingErrorAction";
+	long cxxAddress = (long) this;
+	LOGV("java_nio_charset_CodingErrorAction cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_charset_CodingErrorAction jni address %d", proxiedComponent);
 
-// 	LOGV("java_nio_charset_CodingErrorAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_nio_charset_CodingErrorAction::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_nio_charset_CodingErrorAction cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_nio_charset_CodingErrorAction jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_nio_charset_CodingErrorAction::~java_nio_charset_CodingErrorAction()
 {
@@ -139,7 +117,7 @@ java_nio_charset_CodingErrorAction::~java_nio_charset_CodingErrorAction()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_nio_charset_CodingErrorAction::~java_nio_charset_CodingErrorAction() exit");
 }
 // Functions
@@ -155,8 +133,6 @@ JDKCXX::java_lang_String java_nio_charset_CodingErrorAction::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CodingErrorAction cxx address %d", cxxAddress);
@@ -185,8 +161,6 @@ JDKCXX::java_lang_String java_nio_charset_CodingErrorAction::toString()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_nio_charset_CodingErrorAction::toString() exit");
 
 	return result;

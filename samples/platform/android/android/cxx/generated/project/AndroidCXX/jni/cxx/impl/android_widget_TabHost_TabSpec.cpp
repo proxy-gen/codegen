@@ -100,7 +100,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_TabHost_TabSpec::android_widget_TabHost_TabSpec(const android_widget_TabHost_TabSpec& cc)
 {
 	LOGV("android_widget_TabHost_TabSpec::android_widget_TabHost_TabSpec(const android_widget_TabHost_TabSpec& cc) enter");
@@ -124,9 +123,9 @@ android_widget_TabHost_TabSpec::android_widget_TabHost_TabSpec(const android_wid
 
 	LOGV("android_widget_TabHost_TabSpec::android_widget_TabHost_TabSpec(const android_widget_TabHost_TabSpec& cc) exit");
 }
-android_widget_TabHost_TabSpec::android_widget_TabHost_TabSpec(void * proxy)
+android_widget_TabHost_TabSpec::android_widget_TabHost_TabSpec(Proxy proxy)
 {
-	LOGV("android_widget_TabHost_TabSpec::android_widget_TabHost_TabSpec(void * proxy) enter");
+	LOGV("android_widget_TabHost_TabSpec::android_widget_TabHost_TabSpec(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -136,52 +135,31 @@ android_widget_TabHost_TabSpec::android_widget_TabHost_TabSpec(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_TabHost_TabSpec::android_widget_TabHost_TabSpec(void * proxy) exit");
+	LOGV("android_widget_TabHost_TabSpec::android_widget_TabHost_TabSpec(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_TabHost_TabSpec::android_widget_TabHost_TabSpec()
-// {
-// 	LOGV("android_widget_TabHost_TabSpec::android_widget_TabHost_TabSpec() enter");	
+Proxy android_widget_TabHost_TabSpec::proxy() const
+{	
+	LOGV("android_widget_TabHost_TabSpec::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/TabHost$TabSpec";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_TabHost_TabSpec cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_TabHost_TabSpec jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_TabHost_TabSpec className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_TabHost_TabSpec::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_TabHost_TabSpec cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_TabHost_TabSpec jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_TabHost_TabSpec::android_widget_TabHost_TabSpec() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_widget_TabHost_TabSpec::~android_widget_TabHost_TabSpec()
 {
@@ -193,7 +171,7 @@ android_widget_TabHost_TabSpec::~android_widget_TabHost_TabSpec()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_TabHost_TabSpec::~android_widget_TabHost_TabSpec() exit");
 }
 // Functions
@@ -209,8 +187,6 @@ AndroidCXX::java_lang_String android_widget_TabHost_TabSpec::getTag()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TabHost_TabSpec cxx address %d", cxxAddress);
@@ -239,15 +215,13 @@ AndroidCXX::java_lang_String android_widget_TabHost_TabSpec::getTag()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_widget_TabHost_TabSpec::getTag() exit");
 
 	return result;
 }
-AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIndicator(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_graphics_drawable_Drawable& arg1)
+AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIndicator(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1)
 {
-	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIndicator(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_graphics_drawable_Drawable& arg1) enter");
+	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIndicator(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1) enter");
 
 	const char *methodName = "setIndicator";
 	const char *methodSignature = "(Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;)Landroid/widget/TabHost$TabSpec;";
@@ -257,8 +231,6 @@ AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIn
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TabHost_TabSpec cxx address %d", cxxAddress);
@@ -329,15 +301,13 @@ AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIn
 	AndroidCXX::android_widget_TabHost_TabSpec result((AndroidCXX::android_widget_TabHost_TabSpec) *((AndroidCXX::android_widget_TabHost_TabSpec *) cxx_value));
 	delete ((AndroidCXX::android_widget_TabHost_TabSpec *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIndicator(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_graphics_drawable_Drawable& arg1) exit");
+	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIndicator(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIndicator(AndroidCXX::android_view_View& arg0)
+AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIndicator(AndroidCXX::android_view_View const& arg0)
 {
-	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIndicator(AndroidCXX::android_view_View& arg0) enter");
+	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIndicator(AndroidCXX::android_view_View const& arg0) enter");
 
 	const char *methodName = "setIndicator";
 	const char *methodSignature = "(Landroid/view/View;)Landroid/widget/TabHost$TabSpec;";
@@ -347,8 +317,6 @@ AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIn
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TabHost_TabSpec cxx address %d", cxxAddress);
@@ -398,15 +366,13 @@ AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIn
 	AndroidCXX::android_widget_TabHost_TabSpec result((AndroidCXX::android_widget_TabHost_TabSpec) *((AndroidCXX::android_widget_TabHost_TabSpec *) cxx_value));
 	delete ((AndroidCXX::android_widget_TabHost_TabSpec *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIndicator(AndroidCXX::android_view_View& arg0) exit");
+	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIndicator(AndroidCXX::android_view_View const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIndicator(AndroidCXX::java_lang_CharSequence& arg0)
+AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIndicator(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIndicator(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIndicator(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setIndicator";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Landroid/widget/TabHost$TabSpec;";
@@ -416,8 +382,6 @@ AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIn
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TabHost_TabSpec cxx address %d", cxxAddress);
@@ -467,15 +431,13 @@ AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIn
 	AndroidCXX::android_widget_TabHost_TabSpec result((AndroidCXX::android_widget_TabHost_TabSpec) *((AndroidCXX::android_widget_TabHost_TabSpec *) cxx_value));
 	delete ((AndroidCXX::android_widget_TabHost_TabSpec *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIndicator(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setIndicator(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setContent(int& arg0)
+AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setContent(int const& arg0)
 {
-	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setContent(int& arg0) enter");
+	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setContent(int const& arg0) enter");
 
 	const char *methodName = "setContent";
 	const char *methodSignature = "(I)Landroid/widget/TabHost$TabSpec;";
@@ -485,8 +447,6 @@ AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setCo
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TabHost_TabSpec cxx address %d", cxxAddress);
@@ -536,15 +496,13 @@ AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setCo
 	AndroidCXX::android_widget_TabHost_TabSpec result((AndroidCXX::android_widget_TabHost_TabSpec) *((AndroidCXX::android_widget_TabHost_TabSpec *) cxx_value));
 	delete ((AndroidCXX::android_widget_TabHost_TabSpec *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setContent(int& arg0) exit");
+	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setContent(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setContent(AndroidCXX::android_widget_TabHost_TabContentFactory& arg0)
+AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setContent(AndroidCXX::android_widget_TabHost_TabContentFactory const& arg0)
 {
-	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setContent(AndroidCXX::android_widget_TabHost_TabContentFactory& arg0) enter");
+	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setContent(AndroidCXX::android_widget_TabHost_TabContentFactory const& arg0) enter");
 
 	const char *methodName = "setContent";
 	const char *methodSignature = "(Landroid/widget/TabHost$TabContentFactory;)Landroid/widget/TabHost$TabSpec;";
@@ -554,8 +512,6 @@ AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setCo
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TabHost_TabSpec cxx address %d", cxxAddress);
@@ -605,15 +561,13 @@ AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setCo
 	AndroidCXX::android_widget_TabHost_TabSpec result((AndroidCXX::android_widget_TabHost_TabSpec) *((AndroidCXX::android_widget_TabHost_TabSpec *) cxx_value));
 	delete ((AndroidCXX::android_widget_TabHost_TabSpec *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setContent(AndroidCXX::android_widget_TabHost_TabContentFactory& arg0) exit");
+	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setContent(AndroidCXX::android_widget_TabHost_TabContentFactory const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setContent(AndroidCXX::android_content_Intent& arg0)
+AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setContent(AndroidCXX::android_content_Intent const& arg0)
 {
-	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setContent(AndroidCXX::android_content_Intent& arg0) enter");
+	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setContent(AndroidCXX::android_content_Intent const& arg0) enter");
 
 	const char *methodName = "setContent";
 	const char *methodSignature = "(Landroid/content/Intent;)Landroid/widget/TabHost$TabSpec;";
@@ -623,8 +577,6 @@ AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setCo
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TabHost_TabSpec cxx address %d", cxxAddress);
@@ -674,9 +626,7 @@ AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setCo
 	AndroidCXX::android_widget_TabHost_TabSpec result((AndroidCXX::android_widget_TabHost_TabSpec) *((AndroidCXX::android_widget_TabHost_TabSpec *) cxx_value));
 	delete ((AndroidCXX::android_widget_TabHost_TabSpec *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setContent(AndroidCXX::android_content_Intent& arg0) exit");
+	LOGV("AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost_TabSpec::setContent(AndroidCXX::android_content_Intent const& arg0) exit");
 
 	return result;
 }

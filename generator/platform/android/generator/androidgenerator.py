@@ -1102,7 +1102,14 @@ class ConfigModule(object):
 			classinfo['filename'] = class_file_name
 			classinfo['namespace'] = config_data['namespace']
 			if '_enum' in class_config['tags']:
-				classinfo['namespace'] = class_name.upper()
+				classinfo['namespace'] = class_name
+			classinfo['no_copy_constructor'] = True
+			if 'constructors' in class_config:
+				for constructor in class_config['constructors']:
+					if len(constructor['params']) == 1:
+						if constructor['params'][0]['type'] == class_config['name']:
+							classinfo['no_copy_constructor'] = False
+							break
 		assert "classinfo" in targetdata, "classinfo not attached to " + str(class_config)
 		logging.debug("_attach_derived_target_class_info exit")	
 
@@ -1254,7 +1261,7 @@ class ConfigModule(object):
 					typeinfo['filename'] = file_name
 					is_enum = True if '_enum' in clazz['tags'] else False
 					if is_enum:
-						typeinfo['namespace'] = type_name.upper()
+						typeinfo['namespace'] = type_name
 					typeinfo['isenum'] = is_enum
 					is_callback = True if '_callback' in clazz['tags'] else False
 					typeinfo['iscallback'] = is_callback

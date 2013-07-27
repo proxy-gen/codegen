@@ -111,35 +111,32 @@ class java_nio_ShortBuffer
 public:
 
 	java_nio_ShortBuffer(const java_nio_ShortBuffer& cc);
-	java_nio_ShortBuffer(void * proxy);
+	java_nio_ShortBuffer(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_nio_ShortBuffer();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_ShortBuffer();
 	// Functions
 	 short get();
-	 AndroidCXX::java_nio_ShortBuffer get(std::vector<short>& arg0);
-	 AndroidCXX::java_nio_ShortBuffer get(std::vector<short>& arg0,int& arg1,int& arg2);
-	 short get(int& arg0);
-	 AndroidCXX::java_nio_ShortBuffer put(AndroidCXX::java_nio_ShortBuffer& arg0);
-	 AndroidCXX::java_nio_ShortBuffer put(short& arg0);
-	 AndroidCXX::java_nio_ShortBuffer put(int& arg0,short& arg1);
-	 AndroidCXX::java_nio_ShortBuffer put(std::vector<short>& arg0,int& arg1,int& arg2);
-	 AndroidCXX::java_nio_ShortBuffer put(std::vector<short>& arg0);
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_nio_ShortBuffer get(std::vector<short> const& arg0);
+	 AndroidCXX::java_nio_ShortBuffer get(std::vector<short> const& arg0,int const& arg1,int const& arg2);
+	 short get(int const& arg0);
+	 AndroidCXX::java_nio_ShortBuffer put(AndroidCXX::java_nio_ShortBuffer const& arg0);
+	 AndroidCXX::java_nio_ShortBuffer put(short const& arg0);
+	 AndroidCXX::java_nio_ShortBuffer put(int const& arg0,short const& arg1);
+	 AndroidCXX::java_nio_ShortBuffer put(std::vector<short> const& arg0,int const& arg1,int const& arg2);
+	 AndroidCXX::java_nio_ShortBuffer put(std::vector<short> const& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 int compareTo(AndroidCXX::java_nio_ShortBuffer& arg0);
+	 int compareTo(AndroidCXX::java_nio_ShortBuffer const& arg0);
 	 bool isDirect();
 	 bool hasArray();
 	 std::vector<short> array();
 	 int arrayOffset();
-	static AndroidCXX::java_nio_ShortBuffer wrap(std::vector<short>& arg0,int& arg1,int& arg2);
-	static AndroidCXX::java_nio_ShortBuffer wrap(std::vector<short>& arg0);
-	static AndroidCXX::java_nio_ShortBuffer allocate(int& arg0);
+	static AndroidCXX::java_nio_ShortBuffer wrap(std::vector<short> const& arg0,int const& arg1,int const& arg2);
+	static AndroidCXX::java_nio_ShortBuffer wrap(std::vector<short> const& arg0);
+	static AndroidCXX::java_nio_ShortBuffer allocate(int const& arg0);
 	 AndroidCXX::java_nio_ShortBuffer duplicate();
 	 AndroidCXX::java_nio_ShortBuffer slice();
 	 AndroidCXX::java_nio_ShortBuffer asReadOnlyBuffer();

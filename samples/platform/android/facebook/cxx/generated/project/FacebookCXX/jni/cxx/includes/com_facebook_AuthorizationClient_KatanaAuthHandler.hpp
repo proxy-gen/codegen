@@ -45,12 +45,9 @@ class com_facebook_AuthorizationClient_KatanaAuthHandler
 public:
 
 	com_facebook_AuthorizationClient_KatanaAuthHandler(const com_facebook_AuthorizationClient_KatanaAuthHandler& cc);
-	com_facebook_AuthorizationClient_KatanaAuthHandler(void * proxy);
+	com_facebook_AuthorizationClient_KatanaAuthHandler(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_AuthorizationClient_KatanaAuthHandler();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_KatanaAuthHandler();
 	// Functions

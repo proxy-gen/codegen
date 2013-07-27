@@ -45,12 +45,9 @@ class android_text_Layout_Directions
 public:
 
 	android_text_Layout_Directions(const android_text_Layout_Directions& cc);
-	android_text_Layout_Directions(void * proxy);
+	android_text_Layout_Directions(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_text_Layout_Directions();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_text_Layout_Directions();
 	// Functions

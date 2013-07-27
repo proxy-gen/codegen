@@ -54,18 +54,15 @@ class android_widget_SectionIndexer
 public:
 
 	android_widget_SectionIndexer(const android_widget_SectionIndexer& cc);
-	android_widget_SectionIndexer(void * proxy);
+	android_widget_SectionIndexer(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_SectionIndexer();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SectionIndexer();
 	// Functions
 	 std::vector<AndroidCXX::java_lang_Object > getSections();
-	 int getPositionForSection(int& arg0);
-	 int getSectionForPosition(int& arg0);
+	 int getPositionForSection(int const& arg0);
+	 int getSectionForPosition(int const& arg0);
 };	
 
 } // namespace

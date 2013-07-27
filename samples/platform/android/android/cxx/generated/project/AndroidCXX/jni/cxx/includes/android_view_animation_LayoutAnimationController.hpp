@@ -94,31 +94,28 @@ class android_view_animation_LayoutAnimationController
 public:
 
 	android_view_animation_LayoutAnimationController(const android_view_animation_LayoutAnimationController& cc);
-	android_view_animation_LayoutAnimationController(void * proxy);
+	android_view_animation_LayoutAnimationController(Proxy proxy);
 	// Public Constructors
-	android_view_animation_LayoutAnimationController(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_view_animation_LayoutAnimationController(AndroidCXX::android_view_animation_Animation& arg0);
-	android_view_animation_LayoutAnimationController(AndroidCXX::android_view_animation_Animation& arg0,float& arg1);
-	// TODO: remove
-	// 
-	// android_view_animation_LayoutAnimationController();
-	// 
+	android_view_animation_LayoutAnimationController(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_view_animation_LayoutAnimationController(AndroidCXX::android_view_animation_Animation const& arg0);
+	android_view_animation_LayoutAnimationController(AndroidCXX::android_view_animation_Animation const& arg0,float const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_animation_LayoutAnimationController();
 	// Functions
 	 void start();
-	 void setInterpolator(AndroidCXX::android_view_animation_Interpolator& arg0);
-	 void setInterpolator(AndroidCXX::android_content_Context& arg0,int& arg1);
+	 void setInterpolator(AndroidCXX::android_view_animation_Interpolator const& arg0);
+	 void setInterpolator(AndroidCXX::android_content_Context const& arg0,int const& arg1);
 	 AndroidCXX::android_view_animation_Animation getAnimation();
 	 AndroidCXX::android_view_animation_Interpolator getInterpolator();
-	 void setAnimation(AndroidCXX::android_view_animation_Animation& arg0);
-	 void setAnimation(AndroidCXX::android_content_Context& arg0,int& arg1);
+	 void setAnimation(AndroidCXX::android_view_animation_Animation const& arg0);
+	 void setAnimation(AndroidCXX::android_content_Context const& arg0,int const& arg1);
 	 int getOrder();
-	 void setOrder(int& arg0);
+	 void setOrder(int const& arg0);
 	 float getDelay();
-	 void setDelay(float& arg0);
+	 void setDelay(float const& arg0);
 	 bool willOverlap();
-	 AndroidCXX::android_view_animation_Animation getAnimationForView(AndroidCXX::android_view_View& arg0);
+	 AndroidCXX::android_view_animation_Animation getAnimationForView(AndroidCXX::android_view_View const& arg0);
 	 bool isDone();
 };	
 

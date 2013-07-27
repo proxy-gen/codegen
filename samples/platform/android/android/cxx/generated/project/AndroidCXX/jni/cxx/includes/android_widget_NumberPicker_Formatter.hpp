@@ -51,16 +51,13 @@ class android_widget_NumberPicker_Formatter
 public:
 
 	android_widget_NumberPicker_Formatter(const android_widget_NumberPicker_Formatter& cc);
-	android_widget_NumberPicker_Formatter(void * proxy);
+	android_widget_NumberPicker_Formatter(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_NumberPicker_Formatter();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_NumberPicker_Formatter();
 	// Functions
-	 AndroidCXX::java_lang_String format(int& arg0);
+	 AndroidCXX::java_lang_String format(int const& arg0);
 };	
 
 } // namespace

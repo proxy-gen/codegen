@@ -107,26 +107,23 @@ class java_nio_charset_CharsetDecoder
 public:
 
 	java_nio_charset_CharsetDecoder(const java_nio_charset_CharsetDecoder& cc);
-	java_nio_charset_CharsetDecoder(void * proxy);
+	java_nio_charset_CharsetDecoder(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_nio_charset_CharsetDecoder();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_charset_CharsetDecoder();
 	// Functions
 	 AndroidCXX::java_nio_charset_Charset charset();
-	 AndroidCXX::java_nio_charset_CoderResult decode(AndroidCXX::java_nio_ByteBuffer& arg0,AndroidCXX::java_nio_CharBuffer& arg1,bool& arg2);
-	 AndroidCXX::java_nio_CharBuffer decode(AndroidCXX::java_nio_ByteBuffer& arg0);
-	 AndroidCXX::java_nio_charset_CoderResult flush(AndroidCXX::java_nio_CharBuffer& arg0);
+	 AndroidCXX::java_nio_charset_CoderResult decode(AndroidCXX::java_nio_ByteBuffer const& arg0,AndroidCXX::java_nio_CharBuffer const& arg1,bool const& arg2);
+	 AndroidCXX::java_nio_CharBuffer decode(AndroidCXX::java_nio_ByteBuffer const& arg0);
+	 AndroidCXX::java_nio_charset_CoderResult flush(AndroidCXX::java_nio_CharBuffer const& arg0);
 	 AndroidCXX::java_nio_charset_CharsetDecoder reset();
-	 AndroidCXX::java_nio_charset_CharsetDecoder onMalformedInput(AndroidCXX::java_nio_charset_CodingErrorAction& arg0);
-	 AndroidCXX::java_nio_charset_CharsetDecoder onUnmappableCharacter(AndroidCXX::java_nio_charset_CodingErrorAction& arg0);
+	 AndroidCXX::java_nio_charset_CharsetDecoder onMalformedInput(AndroidCXX::java_nio_charset_CodingErrorAction const& arg0);
+	 AndroidCXX::java_nio_charset_CharsetDecoder onUnmappableCharacter(AndroidCXX::java_nio_charset_CodingErrorAction const& arg0);
 	 AndroidCXX::java_lang_String replacement();
 	 AndroidCXX::java_nio_charset_CodingErrorAction malformedInputAction();
 	 AndroidCXX::java_nio_charset_CodingErrorAction unmappableCharacterAction();
-	 AndroidCXX::java_nio_charset_CharsetDecoder replaceWith(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_nio_charset_CharsetDecoder replaceWith(AndroidCXX::java_lang_String const& arg0);
 	 float maxCharsPerByte();
 	 float averageCharsPerByte();
 	 bool isAutoDetecting();

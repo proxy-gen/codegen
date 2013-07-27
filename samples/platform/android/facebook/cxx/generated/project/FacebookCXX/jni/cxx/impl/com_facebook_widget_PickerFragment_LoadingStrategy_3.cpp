@@ -51,7 +51,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_widget_PickerFragment_LoadingStrategy_3::com_facebook_widget_PickerFragment_LoadingStrategy_3(const com_facebook_widget_PickerFragment_LoadingStrategy_3& cc)
 {
 	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_3::com_facebook_widget_PickerFragment_LoadingStrategy_3(const com_facebook_widget_PickerFragment_LoadingStrategy_3& cc) enter");
@@ -75,9 +74,9 @@ com_facebook_widget_PickerFragment_LoadingStrategy_3::com_facebook_widget_Picker
 
 	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_3::com_facebook_widget_PickerFragment_LoadingStrategy_3(const com_facebook_widget_PickerFragment_LoadingStrategy_3& cc) exit");
 }
-com_facebook_widget_PickerFragment_LoadingStrategy_3::com_facebook_widget_PickerFragment_LoadingStrategy_3(void * proxy)
+com_facebook_widget_PickerFragment_LoadingStrategy_3::com_facebook_widget_PickerFragment_LoadingStrategy_3(Proxy proxy)
 {
-	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_3::com_facebook_widget_PickerFragment_LoadingStrategy_3(void * proxy) enter");
+	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_3::com_facebook_widget_PickerFragment_LoadingStrategy_3(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -87,52 +86,31 @@ com_facebook_widget_PickerFragment_LoadingStrategy_3::com_facebook_widget_Picker
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_3::com_facebook_widget_PickerFragment_LoadingStrategy_3(void * proxy) exit");
+	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_3::com_facebook_widget_PickerFragment_LoadingStrategy_3(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// com_facebook_widget_PickerFragment_LoadingStrategy_3::com_facebook_widget_PickerFragment_LoadingStrategy_3()
-// {
-// 	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_3::com_facebook_widget_PickerFragment_LoadingStrategy_3() enter");	
+Proxy com_facebook_widget_PickerFragment_LoadingStrategy_3::proxy() const
+{	
+	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_3::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "com/facebook/widget/PickerFragment$LoadingStrategy$3";
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_3 cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_3 jni address %d", proxiedComponent);
 
-// 	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_3 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_3::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_3 cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_3 jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_3::com_facebook_widget_PickerFragment_LoadingStrategy_3() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 com_facebook_widget_PickerFragment_LoadingStrategy_3::~com_facebook_widget_PickerFragment_LoadingStrategy_3()
 {
@@ -144,13 +122,13 @@ com_facebook_widget_PickerFragment_LoadingStrategy_3::~com_facebook_widget_Picke
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_3::~com_facebook_widget_PickerFragment_LoadingStrategy_3() exit");
 }
 // Functions
-void com_facebook_widget_PickerFragment_LoadingStrategy_3::onError(FacebookCXX::com_facebook_widget_GraphObjectAdapter& arg0,FacebookCXX::com_facebook_FacebookException& arg1)
+void com_facebook_widget_PickerFragment_LoadingStrategy_3::onError(FacebookCXX::com_facebook_widget_GraphObjectAdapter const& arg0,FacebookCXX::com_facebook_FacebookException const& arg1)
 {
-	LOGV("void com_facebook_widget_PickerFragment_LoadingStrategy_3::onError(FacebookCXX::com_facebook_widget_GraphObjectAdapter& arg0,FacebookCXX::com_facebook_FacebookException& arg1) enter");
+	LOGV("void com_facebook_widget_PickerFragment_LoadingStrategy_3::onError(FacebookCXX::com_facebook_widget_GraphObjectAdapter const& arg0,FacebookCXX::com_facebook_FacebookException const& arg1) enter");
 
 	const char *methodName = "onError";
 	const char *methodSignature = "(Lcom/facebook/widget/GraphObjectAdapter;Lcom/facebook/FacebookException;)V";
@@ -160,8 +138,6 @@ void com_facebook_widget_PickerFragment_LoadingStrategy_3::onError(FacebookCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_3 cxx address %d", cxxAddress);
@@ -231,8 +207,6 @@ void com_facebook_widget_PickerFragment_LoadingStrategy_3::onError(FacebookCXX::
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PickerFragment_LoadingStrategy_3::onError(FacebookCXX::com_facebook_widget_GraphObjectAdapter& arg0,FacebookCXX::com_facebook_FacebookException& arg1) exit");
+	LOGV("void com_facebook_widget_PickerFragment_LoadingStrategy_3::onError(FacebookCXX::com_facebook_widget_GraphObjectAdapter const& arg0,FacebookCXX::com_facebook_FacebookException const& arg1) exit");
 
 }

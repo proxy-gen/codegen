@@ -127,35 +127,32 @@ class android_view_ViewParent
 public:
 
 	android_view_ViewParent(const android_view_ViewParent& cc);
-	android_view_ViewParent(void * proxy);
+	android_view_ViewParent(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_view_ViewParent();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewParent();
 	// Functions
 	 AndroidCXX::android_view_ViewParent getParent();
-	 void requestChildFocus(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_View& arg1);
-	 void focusableViewAvailable(AndroidCXX::android_view_View& arg0);
-	 bool showContextMenuForChild(AndroidCXX::android_view_View& arg0);
-	 AndroidCXX::android_view_ActionMode startActionModeForChild(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_ActionMode_Callback& arg1);
-	 AndroidCXX::android_view_View focusSearch(AndroidCXX::android_view_View& arg0,int& arg1);
-	 bool requestChildRectangleOnScreen(AndroidCXX::android_view_View& arg0,AndroidCXX::android_graphics_Rect& arg1,bool& arg2);
-	 bool requestSendAccessibilityEvent(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_accessibility_AccessibilityEvent& arg1);
-	 void clearChildFocus(AndroidCXX::android_view_View& arg0);
-	 void recomputeViewAttributes(AndroidCXX::android_view_View& arg0);
-	 void bringChildToFront(AndroidCXX::android_view_View& arg0);
-	 void requestDisallowInterceptTouchEvent(bool& arg0);
-	 void invalidateChild(AndroidCXX::android_view_View& arg0,AndroidCXX::android_graphics_Rect& arg1);
-	 AndroidCXX::android_view_ViewParent invalidateChildInParent(std::vector<int>& arg0,AndroidCXX::android_graphics_Rect& arg1);
-	 bool getChildVisibleRect(AndroidCXX::android_view_View& arg0,AndroidCXX::android_graphics_Rect& arg1,AndroidCXX::android_graphics_Point& arg2);
-	 void requestTransparentRegion(AndroidCXX::android_view_View& arg0);
-	 void childDrawableStateChanged(AndroidCXX::android_view_View& arg0);
+	 void requestChildFocus(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1);
+	 void focusableViewAvailable(AndroidCXX::android_view_View const& arg0);
+	 bool showContextMenuForChild(AndroidCXX::android_view_View const& arg0);
+	 AndroidCXX::android_view_ActionMode startActionModeForChild(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ActionMode_Callback const& arg1);
+	 AndroidCXX::android_view_View focusSearch(AndroidCXX::android_view_View const& arg0,int const& arg1);
+	 bool requestChildRectangleOnScreen(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,bool const& arg2);
+	 bool requestSendAccessibilityEvent(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg1);
+	 void clearChildFocus(AndroidCXX::android_view_View const& arg0);
+	 void recomputeViewAttributes(AndroidCXX::android_view_View const& arg0);
+	 void bringChildToFront(AndroidCXX::android_view_View const& arg0);
+	 void requestDisallowInterceptTouchEvent(bool const& arg0);
+	 void invalidateChild(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1);
+	 AndroidCXX::android_view_ViewParent invalidateChildInParent(std::vector<int> const& arg0,AndroidCXX::android_graphics_Rect const& arg1);
+	 bool getChildVisibleRect(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,AndroidCXX::android_graphics_Point const& arg2);
+	 void requestTransparentRegion(AndroidCXX::android_view_View const& arg0);
+	 void childDrawableStateChanged(AndroidCXX::android_view_View const& arg0);
 	 void requestLayout();
 	 bool isLayoutRequested();
-	 void createContextMenu(AndroidCXX::android_view_ContextMenu& arg0);
+	 void createContextMenu(AndroidCXX::android_view_ContextMenu const& arg0);
 	 void requestFitSystemWindows();
 	 AndroidCXX::android_view_ViewParent getParentForAccessibility();
 };	

@@ -56,16 +56,13 @@ class android_widget_TabHost_TabContentFactory
 public:
 
 	android_widget_TabHost_TabContentFactory(const android_widget_TabHost_TabContentFactory& cc);
-	android_widget_TabHost_TabContentFactory(void * proxy);
+	android_widget_TabHost_TabContentFactory(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_TabHost_TabContentFactory();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TabHost_TabContentFactory();
 	// Functions
-	 AndroidCXX::android_view_View createTabContent(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::android_view_View createTabContent(AndroidCXX::java_lang_String const& arg0);
 };	
 
 } // namespace

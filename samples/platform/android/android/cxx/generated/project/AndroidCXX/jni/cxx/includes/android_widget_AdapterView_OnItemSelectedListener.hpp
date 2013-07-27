@@ -66,17 +66,14 @@ class android_widget_AdapterView_OnItemSelectedListener
 public:
 
 	android_widget_AdapterView_OnItemSelectedListener(const android_widget_AdapterView_OnItemSelectedListener& cc);
-	android_widget_AdapterView_OnItemSelectedListener(void * proxy);
+	android_widget_AdapterView_OnItemSelectedListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_AdapterView_OnItemSelectedListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AdapterView_OnItemSelectedListener();
 	// Functions
-	 void onItemSelected(AndroidCXX::android_widget_AdapterView& arg0,AndroidCXX::android_view_View& arg1,int& arg2,long& arg3);
-	 void onNothingSelected(AndroidCXX::android_widget_AdapterView& arg0);
+	 void onItemSelected(AndroidCXX::android_widget_AdapterView const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2,long const& arg3);
+	 void onNothingSelected(AndroidCXX::android_widget_AdapterView const& arg0);
 };	
 
 } // namespace

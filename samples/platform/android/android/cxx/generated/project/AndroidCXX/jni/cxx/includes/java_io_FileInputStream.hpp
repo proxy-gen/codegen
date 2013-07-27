@@ -79,23 +79,20 @@ class java_io_FileInputStream
 public:
 
 	java_io_FileInputStream(const java_io_FileInputStream& cc);
-	java_io_FileInputStream(void * proxy);
+	java_io_FileInputStream(Proxy proxy);
 	// Public Constructors
-	java_io_FileInputStream(AndroidCXX::java_lang_String& arg0);
-	java_io_FileInputStream(AndroidCXX::java_io_File& arg0);
-	java_io_FileInputStream(AndroidCXX::java_io_FileDescriptor& arg0);
-	// TODO: remove
-	// 
-	// java_io_FileInputStream();
-	// 
+	java_io_FileInputStream(AndroidCXX::java_lang_String const& arg0);
+	java_io_FileInputStream(AndroidCXX::java_io_File const& arg0);
+	java_io_FileInputStream(AndroidCXX::java_io_FileDescriptor const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_io_FileInputStream();
 	// Functions
 	 void close();
-	 int read(std::vector<byte>& arg0);
-	 int read(std::vector<byte>& arg0,int& arg1,int& arg2);
+	 int read(std::vector<byte> const& arg0);
+	 int read(std::vector<byte> const& arg0,int const& arg1,int const& arg2);
 	 int read();
-	 long skip(long& arg0);
+	 long skip(long const& arg0);
 	 int available();
 	 AndroidCXX::java_io_FileDescriptor getFD();
 	 AndroidCXX::java_nio_channels_FileChannel getChannel();

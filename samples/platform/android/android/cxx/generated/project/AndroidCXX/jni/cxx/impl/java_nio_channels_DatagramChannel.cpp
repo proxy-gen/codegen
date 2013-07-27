@@ -99,7 +99,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_nio_channels_DatagramChannel::java_nio_channels_DatagramChannel(const java_nio_channels_DatagramChannel& cc)
 {
 	LOGV("java_nio_channels_DatagramChannel::java_nio_channels_DatagramChannel(const java_nio_channels_DatagramChannel& cc) enter");
@@ -123,9 +122,9 @@ java_nio_channels_DatagramChannel::java_nio_channels_DatagramChannel(const java_
 
 	LOGV("java_nio_channels_DatagramChannel::java_nio_channels_DatagramChannel(const java_nio_channels_DatagramChannel& cc) exit");
 }
-java_nio_channels_DatagramChannel::java_nio_channels_DatagramChannel(void * proxy)
+java_nio_channels_DatagramChannel::java_nio_channels_DatagramChannel(Proxy proxy)
 {
-	LOGV("java_nio_channels_DatagramChannel::java_nio_channels_DatagramChannel(void * proxy) enter");
+	LOGV("java_nio_channels_DatagramChannel::java_nio_channels_DatagramChannel(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -135,52 +134,31 @@ java_nio_channels_DatagramChannel::java_nio_channels_DatagramChannel(void * prox
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_nio_channels_DatagramChannel::java_nio_channels_DatagramChannel(void * proxy) exit");
+	LOGV("java_nio_channels_DatagramChannel::java_nio_channels_DatagramChannel(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_nio_channels_DatagramChannel::java_nio_channels_DatagramChannel()
-// {
-// 	LOGV("java_nio_channels_DatagramChannel::java_nio_channels_DatagramChannel() enter");	
+Proxy java_nio_channels_DatagramChannel::proxy() const
+{	
+	LOGV("java_nio_channels_DatagramChannel::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/nio/channels/DatagramChannel";
+	long cxxAddress = (long) this;
+	LOGV("java_nio_channels_DatagramChannel cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_channels_DatagramChannel jni address %d", proxiedComponent);
 
-// 	LOGV("java_nio_channels_DatagramChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_nio_channels_DatagramChannel::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_nio_channels_DatagramChannel cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_nio_channels_DatagramChannel jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_nio_channels_DatagramChannel::java_nio_channels_DatagramChannel() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_nio_channels_DatagramChannel::~java_nio_channels_DatagramChannel()
 {
@@ -192,13 +170,13 @@ java_nio_channels_DatagramChannel::~java_nio_channels_DatagramChannel()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_nio_channels_DatagramChannel::~java_nio_channels_DatagramChannel() exit");
 }
 // Functions
-long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0)
+long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0)
 {
-	LOGV("long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0) enter");
+	LOGV("long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0) enter");
 
 	const char *methodName = "write";
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;)J";
@@ -208,8 +186,6 @@ long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_B
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_DatagramChannel cxx address %d", cxxAddress);
@@ -277,15 +253,13 @@ long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_B
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0) exit");
+	LOGV("long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0) exit");
 
 	return result;
 }
-int java_nio_channels_DatagramChannel::write(AndroidCXX::java_nio_ByteBuffer& arg0)
+int java_nio_channels_DatagramChannel::write(AndroidCXX::java_nio_ByteBuffer const& arg0)
 {
-	LOGV("int java_nio_channels_DatagramChannel::write(AndroidCXX::java_nio_ByteBuffer& arg0) enter");
+	LOGV("int java_nio_channels_DatagramChannel::write(AndroidCXX::java_nio_ByteBuffer const& arg0) enter");
 
 	const char *methodName = "write";
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;)I";
@@ -295,8 +269,6 @@ int java_nio_channels_DatagramChannel::write(AndroidCXX::java_nio_ByteBuffer& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_DatagramChannel cxx address %d", cxxAddress);
@@ -346,15 +318,13 @@ int java_nio_channels_DatagramChannel::write(AndroidCXX::java_nio_ByteBuffer& ar
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_nio_channels_DatagramChannel::write(AndroidCXX::java_nio_ByteBuffer& arg0) exit");
+	LOGV("int java_nio_channels_DatagramChannel::write(AndroidCXX::java_nio_ByteBuffer const& arg0) exit");
 
 	return result;
 }
-long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2)
+long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) enter");
+	LOGV("long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "write";
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;II)J";
@@ -364,8 +334,6 @@ long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_B
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_DatagramChannel cxx address %d", cxxAddress);
@@ -475,15 +443,13 @@ long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_B
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) exit");
+	LOGV("long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-int java_nio_channels_DatagramChannel::send(AndroidCXX::java_nio_ByteBuffer& arg0,AndroidCXX::java_net_SocketAddress& arg1)
+int java_nio_channels_DatagramChannel::send(AndroidCXX::java_nio_ByteBuffer const& arg0,AndroidCXX::java_net_SocketAddress const& arg1)
 {
-	LOGV("int java_nio_channels_DatagramChannel::send(AndroidCXX::java_nio_ByteBuffer& arg0,AndroidCXX::java_net_SocketAddress& arg1) enter");
+	LOGV("int java_nio_channels_DatagramChannel::send(AndroidCXX::java_nio_ByteBuffer const& arg0,AndroidCXX::java_net_SocketAddress const& arg1) enter");
 
 	const char *methodName = "send";
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;Ljava/net/SocketAddress;)I";
@@ -493,8 +459,6 @@ int java_nio_channels_DatagramChannel::send(AndroidCXX::java_nio_ByteBuffer& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_DatagramChannel cxx address %d", cxxAddress);
@@ -565,15 +529,13 @@ int java_nio_channels_DatagramChannel::send(AndroidCXX::java_nio_ByteBuffer& arg
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_nio_channels_DatagramChannel::send(AndroidCXX::java_nio_ByteBuffer& arg0,AndroidCXX::java_net_SocketAddress& arg1) exit");
+	LOGV("int java_nio_channels_DatagramChannel::send(AndroidCXX::java_nio_ByteBuffer const& arg0,AndroidCXX::java_net_SocketAddress const& arg1) exit");
 
 	return result;
 }
-long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2)
+long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) enter");
+	LOGV("long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "read";
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;II)J";
@@ -583,8 +545,6 @@ long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_By
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_DatagramChannel cxx address %d", cxxAddress);
@@ -694,15 +654,13 @@ long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_By
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) exit");
+	LOGV("long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-int java_nio_channels_DatagramChannel::read(AndroidCXX::java_nio_ByteBuffer& arg0)
+int java_nio_channels_DatagramChannel::read(AndroidCXX::java_nio_ByteBuffer const& arg0)
 {
-	LOGV("int java_nio_channels_DatagramChannel::read(AndroidCXX::java_nio_ByteBuffer& arg0) enter");
+	LOGV("int java_nio_channels_DatagramChannel::read(AndroidCXX::java_nio_ByteBuffer const& arg0) enter");
 
 	const char *methodName = "read";
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;)I";
@@ -712,8 +670,6 @@ int java_nio_channels_DatagramChannel::read(AndroidCXX::java_nio_ByteBuffer& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_DatagramChannel cxx address %d", cxxAddress);
@@ -763,15 +719,13 @@ int java_nio_channels_DatagramChannel::read(AndroidCXX::java_nio_ByteBuffer& arg
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_nio_channels_DatagramChannel::read(AndroidCXX::java_nio_ByteBuffer& arg0) exit");
+	LOGV("int java_nio_channels_DatagramChannel::read(AndroidCXX::java_nio_ByteBuffer const& arg0) exit");
 
 	return result;
 }
-long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0)
+long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0)
 {
-	LOGV("long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0) enter");
+	LOGV("long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0) enter");
 
 	const char *methodName = "read";
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;)J";
@@ -781,8 +735,6 @@ long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_By
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_DatagramChannel cxx address %d", cxxAddress);
@@ -850,9 +802,7 @@ long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_By
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0) exit");
+	LOGV("long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0) exit");
 
 	return result;
 }
@@ -869,15 +819,13 @@ AndroidCXX::java_nio_channels_DatagramChannel java_nio_channels_DatagramChannel:
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_nio_channels_DatagramChannel cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_nio_channels_DatagramChannel jni address %d", javaObject);
 
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -898,15 +846,13 @@ AndroidCXX::java_nio_channels_DatagramChannel java_nio_channels_DatagramChannel:
 	AndroidCXX::java_nio_channels_DatagramChannel result((AndroidCXX::java_nio_channels_DatagramChannel) *((AndroidCXX::java_nio_channels_DatagramChannel *) cxx_value));
 	delete ((AndroidCXX::java_nio_channels_DatagramChannel *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_nio_channels_DatagramChannel java_nio_channels_DatagramChannel::open() exit");
 
 	return result;
 }
-AndroidCXX::java_nio_channels_DatagramChannel java_nio_channels_DatagramChannel::connect(AndroidCXX::java_net_SocketAddress& arg0)
+AndroidCXX::java_nio_channels_DatagramChannel java_nio_channels_DatagramChannel::connect(AndroidCXX::java_net_SocketAddress const& arg0)
 {
-	LOGV("AndroidCXX::java_nio_channels_DatagramChannel java_nio_channels_DatagramChannel::connect(AndroidCXX::java_net_SocketAddress& arg0) enter");
+	LOGV("AndroidCXX::java_nio_channels_DatagramChannel java_nio_channels_DatagramChannel::connect(AndroidCXX::java_net_SocketAddress const& arg0) enter");
 
 	const char *methodName = "connect";
 	const char *methodSignature = "(Ljava/net/SocketAddress;)Ljava/nio/channels/DatagramChannel;";
@@ -916,8 +862,6 @@ AndroidCXX::java_nio_channels_DatagramChannel java_nio_channels_DatagramChannel:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_DatagramChannel cxx address %d", cxxAddress);
@@ -967,9 +911,7 @@ AndroidCXX::java_nio_channels_DatagramChannel java_nio_channels_DatagramChannel:
 	AndroidCXX::java_nio_channels_DatagramChannel result((AndroidCXX::java_nio_channels_DatagramChannel) *((AndroidCXX::java_nio_channels_DatagramChannel *) cxx_value));
 	delete ((AndroidCXX::java_nio_channels_DatagramChannel *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_channels_DatagramChannel java_nio_channels_DatagramChannel::connect(AndroidCXX::java_net_SocketAddress& arg0) exit");
+	LOGV("AndroidCXX::java_nio_channels_DatagramChannel java_nio_channels_DatagramChannel::connect(AndroidCXX::java_net_SocketAddress const& arg0) exit");
 
 	return result;
 }
@@ -985,8 +927,6 @@ AndroidCXX::java_nio_channels_DatagramChannel java_nio_channels_DatagramChannel:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_DatagramChannel cxx address %d", cxxAddress);
@@ -1015,8 +955,6 @@ AndroidCXX::java_nio_channels_DatagramChannel java_nio_channels_DatagramChannel:
 	AndroidCXX::java_nio_channels_DatagramChannel result((AndroidCXX::java_nio_channels_DatagramChannel) *((AndroidCXX::java_nio_channels_DatagramChannel *) cxx_value));
 	delete ((AndroidCXX::java_nio_channels_DatagramChannel *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_nio_channels_DatagramChannel java_nio_channels_DatagramChannel::disconnect() exit");
 
 	return result;
@@ -1033,8 +971,6 @@ AndroidCXX::java_net_DatagramSocket java_nio_channels_DatagramChannel::socket()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_DatagramChannel cxx address %d", cxxAddress);
@@ -1063,8 +999,6 @@ AndroidCXX::java_net_DatagramSocket java_nio_channels_DatagramChannel::socket()
 	AndroidCXX::java_net_DatagramSocket result((AndroidCXX::java_net_DatagramSocket) *((AndroidCXX::java_net_DatagramSocket *) cxx_value));
 	delete ((AndroidCXX::java_net_DatagramSocket *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_net_DatagramSocket java_nio_channels_DatagramChannel::socket() exit");
 
 	return result;
@@ -1081,8 +1015,6 @@ bool java_nio_channels_DatagramChannel::isConnected()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_DatagramChannel cxx address %d", cxxAddress);
@@ -1111,15 +1043,13 @@ bool java_nio_channels_DatagramChannel::isConnected()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_nio_channels_DatagramChannel::isConnected() exit");
 
 	return result;
 }
-AndroidCXX::java_net_SocketAddress java_nio_channels_DatagramChannel::receive(AndroidCXX::java_nio_ByteBuffer& arg0)
+AndroidCXX::java_net_SocketAddress java_nio_channels_DatagramChannel::receive(AndroidCXX::java_nio_ByteBuffer const& arg0)
 {
-	LOGV("AndroidCXX::java_net_SocketAddress java_nio_channels_DatagramChannel::receive(AndroidCXX::java_nio_ByteBuffer& arg0) enter");
+	LOGV("AndroidCXX::java_net_SocketAddress java_nio_channels_DatagramChannel::receive(AndroidCXX::java_nio_ByteBuffer const& arg0) enter");
 
 	const char *methodName = "receive";
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;)Ljava/net/SocketAddress;";
@@ -1129,8 +1059,6 @@ AndroidCXX::java_net_SocketAddress java_nio_channels_DatagramChannel::receive(An
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_DatagramChannel cxx address %d", cxxAddress);
@@ -1180,9 +1108,7 @@ AndroidCXX::java_net_SocketAddress java_nio_channels_DatagramChannel::receive(An
 	AndroidCXX::java_net_SocketAddress result((AndroidCXX::java_net_SocketAddress) *((AndroidCXX::java_net_SocketAddress *) cxx_value));
 	delete ((AndroidCXX::java_net_SocketAddress *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_net_SocketAddress java_nio_channels_DatagramChannel::receive(AndroidCXX::java_nio_ByteBuffer& arg0) exit");
+	LOGV("AndroidCXX::java_net_SocketAddress java_nio_channels_DatagramChannel::receive(AndroidCXX::java_nio_ByteBuffer const& arg0) exit");
 
 	return result;
 }
@@ -1198,8 +1124,6 @@ int java_nio_channels_DatagramChannel::validOps()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_DatagramChannel cxx address %d", cxxAddress);
@@ -1228,8 +1152,6 @@ int java_nio_channels_DatagramChannel::validOps()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_nio_channels_DatagramChannel::validOps() exit");
 
 	return result;

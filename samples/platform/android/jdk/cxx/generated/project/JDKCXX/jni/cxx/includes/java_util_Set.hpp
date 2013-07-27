@@ -97,30 +97,27 @@ class java_util_Set
 public:
 
 	java_util_Set(const java_util_Set& cc);
-	java_util_Set(void * proxy);
+	java_util_Set(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_util_Set();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Set();
 	// Functions
-	 bool add(JDKCXX::java_lang_Object& arg0);
-	 bool equals(JDKCXX::java_lang_Object& arg0);
+	 bool add(JDKCXX::java_lang_Object const& arg0);
+	 bool equals(JDKCXX::java_lang_Object const& arg0);
 	 int hashCode();
 	 void clear();
 	 bool isEmpty();
-	 bool contains(JDKCXX::java_lang_Object& arg0);
-	 bool addAll(JDKCXX::java_util_Collection& arg0);
+	 bool contains(JDKCXX::java_lang_Object const& arg0);
+	 bool addAll(JDKCXX::java_util_Collection const& arg0);
 	 int size();
-	 std::vector<JDKCXX::java_lang_Object > toArray(std::vector<JDKCXX::java_lang_Object >& arg0);
+	 std::vector<JDKCXX::java_lang_Object > toArray(std::vector<JDKCXX::java_lang_Object > const& arg0);
 	 std::vector<JDKCXX::java_lang_Object > toArray();
 	 JDKCXX::java_util_Iterator iterator();
-	 bool remove(JDKCXX::java_lang_Object& arg0);
-	 bool removeAll(JDKCXX::java_util_Collection& arg0);
-	 bool containsAll(JDKCXX::java_util_Collection& arg0);
-	 bool retainAll(JDKCXX::java_util_Collection& arg0);
+	 bool remove(JDKCXX::java_lang_Object const& arg0);
+	 bool removeAll(JDKCXX::java_util_Collection const& arg0);
+	 bool containsAll(JDKCXX::java_util_Collection const& arg0);
+	 bool retainAll(JDKCXX::java_util_Collection const& arg0);
 };	
 
 } // namespace

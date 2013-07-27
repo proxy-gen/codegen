@@ -117,7 +117,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_nio_channels_FileChannel::java_nio_channels_FileChannel(const java_nio_channels_FileChannel& cc)
 {
 	LOGV("java_nio_channels_FileChannel::java_nio_channels_FileChannel(const java_nio_channels_FileChannel& cc) enter");
@@ -141,9 +140,9 @@ java_nio_channels_FileChannel::java_nio_channels_FileChannel(const java_nio_chan
 
 	LOGV("java_nio_channels_FileChannel::java_nio_channels_FileChannel(const java_nio_channels_FileChannel& cc) exit");
 }
-java_nio_channels_FileChannel::java_nio_channels_FileChannel(void * proxy)
+java_nio_channels_FileChannel::java_nio_channels_FileChannel(Proxy proxy)
 {
-	LOGV("java_nio_channels_FileChannel::java_nio_channels_FileChannel(void * proxy) enter");
+	LOGV("java_nio_channels_FileChannel::java_nio_channels_FileChannel(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -153,52 +152,31 @@ java_nio_channels_FileChannel::java_nio_channels_FileChannel(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_nio_channels_FileChannel::java_nio_channels_FileChannel(void * proxy) exit");
+	LOGV("java_nio_channels_FileChannel::java_nio_channels_FileChannel(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_nio_channels_FileChannel::java_nio_channels_FileChannel()
-// {
-// 	LOGV("java_nio_channels_FileChannel::java_nio_channels_FileChannel() enter");	
+Proxy java_nio_channels_FileChannel::proxy() const
+{	
+	LOGV("java_nio_channels_FileChannel::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/nio/channels/FileChannel";
+	long cxxAddress = (long) this;
+	LOGV("java_nio_channels_FileChannel cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_channels_FileChannel jni address %d", proxiedComponent);
 
-// 	LOGV("java_nio_channels_FileChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_nio_channels_FileChannel::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_nio_channels_FileChannel cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_nio_channels_FileChannel jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_nio_channels_FileChannel::java_nio_channels_FileChannel() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_nio_channels_FileChannel::~java_nio_channels_FileChannel()
 {
@@ -210,7 +188,7 @@ java_nio_channels_FileChannel::~java_nio_channels_FileChannel()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_nio_channels_FileChannel::~java_nio_channels_FileChannel() exit");
 }
 // Functions
@@ -226,8 +204,6 @@ AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::lock()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileChannel cxx address %d", cxxAddress);
@@ -256,15 +232,13 @@ AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::lock()
 	AndroidCXX::java_nio_channels_FileLock result((AndroidCXX::java_nio_channels_FileLock) *((AndroidCXX::java_nio_channels_FileLock *) cxx_value));
 	delete ((AndroidCXX::java_nio_channels_FileLock *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::lock() exit");
 
 	return result;
 }
-AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::lock(long& arg0,long& arg1,bool& arg2)
+AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::lock(long const& arg0,long const& arg1,bool const& arg2)
 {
-	LOGV("AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::lock(long& arg0,long& arg1,bool& arg2) enter");
+	LOGV("AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::lock(long const& arg0,long const& arg1,bool const& arg2) enter");
 
 	const char *methodName = "lock";
 	const char *methodSignature = "(JJZ)Ljava/nio/channels/FileLock;";
@@ -274,8 +248,6 @@ AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::lock(long&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileChannel cxx address %d", cxxAddress);
@@ -367,9 +339,7 @@ AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::lock(long&
 	AndroidCXX::java_nio_channels_FileLock result((AndroidCXX::java_nio_channels_FileLock) *((AndroidCXX::java_nio_channels_FileLock *) cxx_value));
 	delete ((AndroidCXX::java_nio_channels_FileLock *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::lock(long& arg0,long& arg1,bool& arg2) exit");
+	LOGV("AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::lock(long const& arg0,long const& arg1,bool const& arg2) exit");
 
 	return result;
 }
@@ -385,8 +355,6 @@ long java_nio_channels_FileChannel::size()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileChannel cxx address %d", cxxAddress);
@@ -415,8 +383,6 @@ long java_nio_channels_FileChannel::size()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long java_nio_channels_FileChannel::size() exit");
 
 	return result;
@@ -434,8 +400,6 @@ long java_nio_channels_FileChannel::position()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileChannel cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -463,15 +427,13 @@ long java_nio_channels_FileChannel::position()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long java_nio_channels_FileChannel::position() exit");
 
 	return result;
 }
-AndroidCXX::java_nio_channels_FileChannel java_nio_channels_FileChannel::position(long& arg0)
+AndroidCXX::java_nio_channels_FileChannel java_nio_channels_FileChannel::position(long const& arg0)
 {
-	LOGV("AndroidCXX::java_nio_channels_FileChannel java_nio_channels_FileChannel::position(long& arg0) enter");
+	LOGV("AndroidCXX::java_nio_channels_FileChannel java_nio_channels_FileChannel::position(long const& arg0) enter");
 
 	const char *methodName = "position";
 	const char *methodSignature = "(J)Ljava/nio/channels/FileChannel;";
@@ -481,8 +443,6 @@ AndroidCXX::java_nio_channels_FileChannel java_nio_channels_FileChannel::positio
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileChannel cxx address %d", cxxAddress);
@@ -532,15 +492,13 @@ AndroidCXX::java_nio_channels_FileChannel java_nio_channels_FileChannel::positio
 	AndroidCXX::java_nio_channels_FileChannel result((AndroidCXX::java_nio_channels_FileChannel) *((AndroidCXX::java_nio_channels_FileChannel *) cxx_value));
 	delete ((AndroidCXX::java_nio_channels_FileChannel *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_channels_FileChannel java_nio_channels_FileChannel::position(long& arg0) exit");
+	LOGV("AndroidCXX::java_nio_channels_FileChannel java_nio_channels_FileChannel::position(long const& arg0) exit");
 
 	return result;
 }
-int java_nio_channels_FileChannel::write(AndroidCXX::java_nio_ByteBuffer& arg0)
+int java_nio_channels_FileChannel::write(AndroidCXX::java_nio_ByteBuffer const& arg0)
 {
-	LOGV("int java_nio_channels_FileChannel::write(AndroidCXX::java_nio_ByteBuffer& arg0) enter");
+	LOGV("int java_nio_channels_FileChannel::write(AndroidCXX::java_nio_ByteBuffer const& arg0) enter");
 
 	const char *methodName = "write";
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;)I";
@@ -550,8 +508,6 @@ int java_nio_channels_FileChannel::write(AndroidCXX::java_nio_ByteBuffer& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileChannel cxx address %d", cxxAddress);
@@ -601,15 +557,13 @@ int java_nio_channels_FileChannel::write(AndroidCXX::java_nio_ByteBuffer& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_nio_channels_FileChannel::write(AndroidCXX::java_nio_ByteBuffer& arg0) exit");
+	LOGV("int java_nio_channels_FileChannel::write(AndroidCXX::java_nio_ByteBuffer const& arg0) exit");
 
 	return result;
 }
-long java_nio_channels_FileChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2)
+long java_nio_channels_FileChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("long java_nio_channels_FileChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) enter");
+	LOGV("long java_nio_channels_FileChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "write";
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;II)J";
@@ -619,8 +573,6 @@ long java_nio_channels_FileChannel::write(std::vector<AndroidCXX::java_nio_ByteB
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileChannel cxx address %d", cxxAddress);
@@ -730,15 +682,13 @@ long java_nio_channels_FileChannel::write(std::vector<AndroidCXX::java_nio_ByteB
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long java_nio_channels_FileChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) exit");
+	LOGV("long java_nio_channels_FileChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-long java_nio_channels_FileChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0)
+long java_nio_channels_FileChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0)
 {
-	LOGV("long java_nio_channels_FileChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0) enter");
+	LOGV("long java_nio_channels_FileChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0) enter");
 
 	const char *methodName = "write";
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;)J";
@@ -748,8 +698,6 @@ long java_nio_channels_FileChannel::write(std::vector<AndroidCXX::java_nio_ByteB
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileChannel cxx address %d", cxxAddress);
@@ -817,15 +765,13 @@ long java_nio_channels_FileChannel::write(std::vector<AndroidCXX::java_nio_ByteB
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long java_nio_channels_FileChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0) exit");
+	LOGV("long java_nio_channels_FileChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0) exit");
 
 	return result;
 }
-int java_nio_channels_FileChannel::write(AndroidCXX::java_nio_ByteBuffer& arg0,long& arg1)
+int java_nio_channels_FileChannel::write(AndroidCXX::java_nio_ByteBuffer const& arg0,long const& arg1)
 {
-	LOGV("int java_nio_channels_FileChannel::write(AndroidCXX::java_nio_ByteBuffer& arg0,long& arg1) enter");
+	LOGV("int java_nio_channels_FileChannel::write(AndroidCXX::java_nio_ByteBuffer const& arg0,long const& arg1) enter");
 
 	const char *methodName = "write";
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;J)I";
@@ -835,8 +781,6 @@ int java_nio_channels_FileChannel::write(AndroidCXX::java_nio_ByteBuffer& arg0,l
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileChannel cxx address %d", cxxAddress);
@@ -907,15 +851,13 @@ int java_nio_channels_FileChannel::write(AndroidCXX::java_nio_ByteBuffer& arg0,l
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_nio_channels_FileChannel::write(AndroidCXX::java_nio_ByteBuffer& arg0,long& arg1) exit");
+	LOGV("int java_nio_channels_FileChannel::write(AndroidCXX::java_nio_ByteBuffer const& arg0,long const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_nio_channels_FileChannel java_nio_channels_FileChannel::truncate(long& arg0)
+AndroidCXX::java_nio_channels_FileChannel java_nio_channels_FileChannel::truncate(long const& arg0)
 {
-	LOGV("AndroidCXX::java_nio_channels_FileChannel java_nio_channels_FileChannel::truncate(long& arg0) enter");
+	LOGV("AndroidCXX::java_nio_channels_FileChannel java_nio_channels_FileChannel::truncate(long const& arg0) enter");
 
 	const char *methodName = "truncate";
 	const char *methodSignature = "(J)Ljava/nio/channels/FileChannel;";
@@ -925,8 +867,6 @@ AndroidCXX::java_nio_channels_FileChannel java_nio_channels_FileChannel::truncat
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileChannel cxx address %d", cxxAddress);
@@ -976,15 +916,13 @@ AndroidCXX::java_nio_channels_FileChannel java_nio_channels_FileChannel::truncat
 	AndroidCXX::java_nio_channels_FileChannel result((AndroidCXX::java_nio_channels_FileChannel) *((AndroidCXX::java_nio_channels_FileChannel *) cxx_value));
 	delete ((AndroidCXX::java_nio_channels_FileChannel *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_channels_FileChannel java_nio_channels_FileChannel::truncate(long& arg0) exit");
+	LOGV("AndroidCXX::java_nio_channels_FileChannel java_nio_channels_FileChannel::truncate(long const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_nio_MappedByteBuffer java_nio_channels_FileChannel::map(AndroidCXX::java_nio_channels_FileChannel_MapMode& arg0,long& arg1,long& arg2)
+AndroidCXX::java_nio_MappedByteBuffer java_nio_channels_FileChannel::map(AndroidCXX::java_nio_channels_FileChannel_MapMode const& arg0,long const& arg1,long const& arg2)
 {
-	LOGV("AndroidCXX::java_nio_MappedByteBuffer java_nio_channels_FileChannel::map(AndroidCXX::java_nio_channels_FileChannel_MapMode& arg0,long& arg1,long& arg2) enter");
+	LOGV("AndroidCXX::java_nio_MappedByteBuffer java_nio_channels_FileChannel::map(AndroidCXX::java_nio_channels_FileChannel_MapMode const& arg0,long const& arg1,long const& arg2) enter");
 
 	const char *methodName = "map";
 	const char *methodSignature = "(Ljava/nio/channels/FileChannel$MapMode;JJ)Ljava/nio/MappedByteBuffer;";
@@ -994,8 +932,6 @@ AndroidCXX::java_nio_MappedByteBuffer java_nio_channels_FileChannel::map(Android
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileChannel cxx address %d", cxxAddress);
@@ -1087,15 +1023,13 @@ AndroidCXX::java_nio_MappedByteBuffer java_nio_channels_FileChannel::map(Android
 	AndroidCXX::java_nio_MappedByteBuffer result((AndroidCXX::java_nio_MappedByteBuffer) *((AndroidCXX::java_nio_MappedByteBuffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_MappedByteBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_MappedByteBuffer java_nio_channels_FileChannel::map(AndroidCXX::java_nio_channels_FileChannel_MapMode& arg0,long& arg1,long& arg2) exit");
+	LOGV("AndroidCXX::java_nio_MappedByteBuffer java_nio_channels_FileChannel::map(AndroidCXX::java_nio_channels_FileChannel_MapMode const& arg0,long const& arg1,long const& arg2) exit");
 
 	return result;
 }
-int java_nio_channels_FileChannel::read(AndroidCXX::java_nio_ByteBuffer& arg0)
+int java_nio_channels_FileChannel::read(AndroidCXX::java_nio_ByteBuffer const& arg0)
 {
-	LOGV("int java_nio_channels_FileChannel::read(AndroidCXX::java_nio_ByteBuffer& arg0) enter");
+	LOGV("int java_nio_channels_FileChannel::read(AndroidCXX::java_nio_ByteBuffer const& arg0) enter");
 
 	const char *methodName = "read";
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;)I";
@@ -1105,8 +1039,6 @@ int java_nio_channels_FileChannel::read(AndroidCXX::java_nio_ByteBuffer& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileChannel cxx address %d", cxxAddress);
@@ -1156,15 +1088,13 @@ int java_nio_channels_FileChannel::read(AndroidCXX::java_nio_ByteBuffer& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_nio_channels_FileChannel::read(AndroidCXX::java_nio_ByteBuffer& arg0) exit");
+	LOGV("int java_nio_channels_FileChannel::read(AndroidCXX::java_nio_ByteBuffer const& arg0) exit");
 
 	return result;
 }
-long java_nio_channels_FileChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2)
+long java_nio_channels_FileChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("long java_nio_channels_FileChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) enter");
+	LOGV("long java_nio_channels_FileChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "read";
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;II)J";
@@ -1174,8 +1104,6 @@ long java_nio_channels_FileChannel::read(std::vector<AndroidCXX::java_nio_ByteBu
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileChannel cxx address %d", cxxAddress);
@@ -1285,15 +1213,13 @@ long java_nio_channels_FileChannel::read(std::vector<AndroidCXX::java_nio_ByteBu
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long java_nio_channels_FileChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) exit");
+	LOGV("long java_nio_channels_FileChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-int java_nio_channels_FileChannel::read(AndroidCXX::java_nio_ByteBuffer& arg0,long& arg1)
+int java_nio_channels_FileChannel::read(AndroidCXX::java_nio_ByteBuffer const& arg0,long const& arg1)
 {
-	LOGV("int java_nio_channels_FileChannel::read(AndroidCXX::java_nio_ByteBuffer& arg0,long& arg1) enter");
+	LOGV("int java_nio_channels_FileChannel::read(AndroidCXX::java_nio_ByteBuffer const& arg0,long const& arg1) enter");
 
 	const char *methodName = "read";
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;J)I";
@@ -1303,8 +1229,6 @@ int java_nio_channels_FileChannel::read(AndroidCXX::java_nio_ByteBuffer& arg0,lo
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileChannel cxx address %d", cxxAddress);
@@ -1375,15 +1299,13 @@ int java_nio_channels_FileChannel::read(AndroidCXX::java_nio_ByteBuffer& arg0,lo
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_nio_channels_FileChannel::read(AndroidCXX::java_nio_ByteBuffer& arg0,long& arg1) exit");
+	LOGV("int java_nio_channels_FileChannel::read(AndroidCXX::java_nio_ByteBuffer const& arg0,long const& arg1) exit");
 
 	return result;
 }
-long java_nio_channels_FileChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0)
+long java_nio_channels_FileChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0)
 {
-	LOGV("long java_nio_channels_FileChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0) enter");
+	LOGV("long java_nio_channels_FileChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0) enter");
 
 	const char *methodName = "read";
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;)J";
@@ -1393,8 +1315,6 @@ long java_nio_channels_FileChannel::read(std::vector<AndroidCXX::java_nio_ByteBu
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileChannel cxx address %d", cxxAddress);
@@ -1462,9 +1382,7 @@ long java_nio_channels_FileChannel::read(std::vector<AndroidCXX::java_nio_ByteBu
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long java_nio_channels_FileChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0) exit");
+	LOGV("long java_nio_channels_FileChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0) exit");
 
 	return result;
 }
@@ -1480,8 +1398,6 @@ AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::tryLock()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileChannel cxx address %d", cxxAddress);
@@ -1510,15 +1426,13 @@ AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::tryLock()
 	AndroidCXX::java_nio_channels_FileLock result((AndroidCXX::java_nio_channels_FileLock) *((AndroidCXX::java_nio_channels_FileLock *) cxx_value));
 	delete ((AndroidCXX::java_nio_channels_FileLock *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::tryLock() exit");
 
 	return result;
 }
-AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::tryLock(long& arg0,long& arg1,bool& arg2)
+AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::tryLock(long const& arg0,long const& arg1,bool const& arg2)
 {
-	LOGV("AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::tryLock(long& arg0,long& arg1,bool& arg2) enter");
+	LOGV("AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::tryLock(long const& arg0,long const& arg1,bool const& arg2) enter");
 
 	const char *methodName = "tryLock";
 	const char *methodSignature = "(JJZ)Ljava/nio/channels/FileLock;";
@@ -1528,8 +1442,6 @@ AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::tryLock(lo
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileChannel cxx address %d", cxxAddress);
@@ -1621,15 +1533,13 @@ AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::tryLock(lo
 	AndroidCXX::java_nio_channels_FileLock result((AndroidCXX::java_nio_channels_FileLock) *((AndroidCXX::java_nio_channels_FileLock *) cxx_value));
 	delete ((AndroidCXX::java_nio_channels_FileLock *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::tryLock(long& arg0,long& arg1,bool& arg2) exit");
+	LOGV("AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::tryLock(long const& arg0,long const& arg1,bool const& arg2) exit");
 
 	return result;
 }
-void java_nio_channels_FileChannel::force(bool& arg0)
+void java_nio_channels_FileChannel::force(bool const& arg0)
 {
-	LOGV("void java_nio_channels_FileChannel::force(bool& arg0) enter");
+	LOGV("void java_nio_channels_FileChannel::force(bool const& arg0) enter");
 
 	const char *methodName = "force";
 	const char *methodSignature = "(Z)V";
@@ -1639,8 +1549,6 @@ void java_nio_channels_FileChannel::force(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileChannel cxx address %d", cxxAddress);
@@ -1671,14 +1579,12 @@ void java_nio_channels_FileChannel::force(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_nio_channels_FileChannel::force(bool& arg0) exit");
+	LOGV("void java_nio_channels_FileChannel::force(bool const& arg0) exit");
 
 }
-long java_nio_channels_FileChannel::transferTo(long& arg0,long& arg1,AndroidCXX::java_nio_channels_WritableByteChannel& arg2)
+long java_nio_channels_FileChannel::transferTo(long const& arg0,long const& arg1,AndroidCXX::java_nio_channels_WritableByteChannel const& arg2)
 {
-	LOGV("long java_nio_channels_FileChannel::transferTo(long& arg0,long& arg1,AndroidCXX::java_nio_channels_WritableByteChannel& arg2) enter");
+	LOGV("long java_nio_channels_FileChannel::transferTo(long const& arg0,long const& arg1,AndroidCXX::java_nio_channels_WritableByteChannel const& arg2) enter");
 
 	const char *methodName = "transferTo";
 	const char *methodSignature = "(JJLjava/nio/channels/WritableByteChannel;)J";
@@ -1688,8 +1594,6 @@ long java_nio_channels_FileChannel::transferTo(long& arg0,long& arg1,AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileChannel cxx address %d", cxxAddress);
@@ -1781,15 +1685,13 @@ long java_nio_channels_FileChannel::transferTo(long& arg0,long& arg1,AndroidCXX:
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long java_nio_channels_FileChannel::transferTo(long& arg0,long& arg1,AndroidCXX::java_nio_channels_WritableByteChannel& arg2) exit");
+	LOGV("long java_nio_channels_FileChannel::transferTo(long const& arg0,long const& arg1,AndroidCXX::java_nio_channels_WritableByteChannel const& arg2) exit");
 
 	return result;
 }
-long java_nio_channels_FileChannel::transferFrom(AndroidCXX::java_nio_channels_ReadableByteChannel& arg0,long& arg1,long& arg2)
+long java_nio_channels_FileChannel::transferFrom(AndroidCXX::java_nio_channels_ReadableByteChannel const& arg0,long const& arg1,long const& arg2)
 {
-	LOGV("long java_nio_channels_FileChannel::transferFrom(AndroidCXX::java_nio_channels_ReadableByteChannel& arg0,long& arg1,long& arg2) enter");
+	LOGV("long java_nio_channels_FileChannel::transferFrom(AndroidCXX::java_nio_channels_ReadableByteChannel const& arg0,long const& arg1,long const& arg2) enter");
 
 	const char *methodName = "transferFrom";
 	const char *methodSignature = "(Ljava/nio/channels/ReadableByteChannel;JJ)J";
@@ -1799,8 +1701,6 @@ long java_nio_channels_FileChannel::transferFrom(AndroidCXX::java_nio_channels_R
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileChannel cxx address %d", cxxAddress);
@@ -1892,9 +1792,7 @@ long java_nio_channels_FileChannel::transferFrom(AndroidCXX::java_nio_channels_R
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long java_nio_channels_FileChannel::transferFrom(AndroidCXX::java_nio_channels_ReadableByteChannel& arg0,long& arg1,long& arg2) exit");
+	LOGV("long java_nio_channels_FileChannel::transferFrom(AndroidCXX::java_nio_channels_ReadableByteChannel const& arg0,long const& arg1,long const& arg2) exit");
 
 	return result;
 }

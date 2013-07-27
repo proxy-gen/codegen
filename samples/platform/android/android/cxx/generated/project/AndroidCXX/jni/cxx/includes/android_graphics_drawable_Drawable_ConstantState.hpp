@@ -60,17 +60,16 @@ class android_graphics_drawable_Drawable_ConstantState
 public:
 
 	android_graphics_drawable_Drawable_ConstantState(const android_graphics_drawable_Drawable_ConstantState& cc);
-	android_graphics_drawable_Drawable_ConstantState(void * proxy);
+	android_graphics_drawable_Drawable_ConstantState(Proxy proxy);
 	// Public Constructors
 	android_graphics_drawable_Drawable_ConstantState();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_drawable_Drawable_ConstantState();
 	// Functions
 	 int getChangingConfigurations();
 	 AndroidCXX::android_graphics_drawable_Drawable newDrawable();
-	 AndroidCXX::android_graphics_drawable_Drawable newDrawable(AndroidCXX::android_content_res_Resources& arg0);
+	 AndroidCXX::android_graphics_drawable_Drawable newDrawable(AndroidCXX::android_content_res_Resources const& arg0);
 };	
 
 } // namespace

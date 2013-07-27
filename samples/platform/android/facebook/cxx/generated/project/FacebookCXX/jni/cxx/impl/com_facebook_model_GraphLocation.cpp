@@ -98,7 +98,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_model_GraphLocation::com_facebook_model_GraphLocation(const com_facebook_model_GraphLocation& cc)
 {
 	LOGV("com_facebook_model_GraphLocation::com_facebook_model_GraphLocation(const com_facebook_model_GraphLocation& cc) enter");
@@ -122,9 +121,9 @@ com_facebook_model_GraphLocation::com_facebook_model_GraphLocation(const com_fac
 
 	LOGV("com_facebook_model_GraphLocation::com_facebook_model_GraphLocation(const com_facebook_model_GraphLocation& cc) exit");
 }
-com_facebook_model_GraphLocation::com_facebook_model_GraphLocation(void * proxy)
+com_facebook_model_GraphLocation::com_facebook_model_GraphLocation(Proxy proxy)
 {
-	LOGV("com_facebook_model_GraphLocation::com_facebook_model_GraphLocation(void * proxy) enter");
+	LOGV("com_facebook_model_GraphLocation::com_facebook_model_GraphLocation(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -134,52 +133,31 @@ com_facebook_model_GraphLocation::com_facebook_model_GraphLocation(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_model_GraphLocation::com_facebook_model_GraphLocation(void * proxy) exit");
+	LOGV("com_facebook_model_GraphLocation::com_facebook_model_GraphLocation(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// com_facebook_model_GraphLocation::com_facebook_model_GraphLocation()
-// {
-// 	LOGV("com_facebook_model_GraphLocation::com_facebook_model_GraphLocation() enter");	
+Proxy com_facebook_model_GraphLocation::proxy() const
+{	
+	LOGV("com_facebook_model_GraphLocation::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "com/facebook/model/GraphLocation";
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_model_GraphLocation cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_model_GraphLocation jni address %d", proxiedComponent);
 
-// 	LOGV("com_facebook_model_GraphLocation className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("com_facebook_model_GraphLocation::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("com_facebook_model_GraphLocation cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("com_facebook_model_GraphLocation jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("com_facebook_model_GraphLocation::com_facebook_model_GraphLocation() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 com_facebook_model_GraphLocation::~com_facebook_model_GraphLocation()
 {
@@ -191,7 +169,7 @@ com_facebook_model_GraphLocation::~com_facebook_model_GraphLocation()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_model_GraphLocation::~com_facebook_model_GraphLocation() exit");
 }
 // Functions
@@ -207,8 +185,6 @@ AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getState()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_model_GraphLocation cxx address %d", cxxAddress);
@@ -237,15 +213,13 @@ AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getState()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getState() exit");
 
 	return result;
 }
-void com_facebook_model_GraphLocation::setState(AndroidCXX::java_lang_String& arg0)
+void com_facebook_model_GraphLocation::setState(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void com_facebook_model_GraphLocation::setState(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_GraphLocation::setState(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setState";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -255,8 +229,6 @@ void com_facebook_model_GraphLocation::setState(AndroidCXX::java_lang_String& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_model_GraphLocation cxx address %d", cxxAddress);
@@ -287,9 +259,7 @@ void com_facebook_model_GraphLocation::setState(AndroidCXX::java_lang_String& ar
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_model_GraphLocation::setState(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_GraphLocation::setState(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getCountry()
@@ -304,8 +274,6 @@ AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getCountry()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_model_GraphLocation cxx address %d", cxxAddress);
@@ -334,8 +302,6 @@ AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getCountry()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getCountry() exit");
 
 	return result;
@@ -353,8 +319,6 @@ double com_facebook_model_GraphLocation::getLatitude()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_model_GraphLocation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -382,8 +346,6 @@ double com_facebook_model_GraphLocation::getLatitude()
 	double result = (double) *((double *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("double com_facebook_model_GraphLocation::getLatitude() exit");
 
 	return result;
@@ -401,8 +363,6 @@ double com_facebook_model_GraphLocation::getLongitude()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_model_GraphLocation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -430,15 +390,13 @@ double com_facebook_model_GraphLocation::getLongitude()
 	double result = (double) *((double *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("double com_facebook_model_GraphLocation::getLongitude() exit");
 
 	return result;
 }
-void com_facebook_model_GraphLocation::setLatitude(double& arg0)
+void com_facebook_model_GraphLocation::setLatitude(double const& arg0)
 {
-	LOGV("void com_facebook_model_GraphLocation::setLatitude(double& arg0) enter");
+	LOGV("void com_facebook_model_GraphLocation::setLatitude(double const& arg0) enter");
 
 	const char *methodName = "setLatitude";
 	const char *methodSignature = "(D)V";
@@ -449,8 +407,6 @@ void com_facebook_model_GraphLocation::setLatitude(double& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_model_GraphLocation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -480,14 +436,12 @@ void com_facebook_model_GraphLocation::setLatitude(double& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_model_GraphLocation::setLatitude(double& arg0) exit");
+	LOGV("void com_facebook_model_GraphLocation::setLatitude(double const& arg0) exit");
 
 }
-void com_facebook_model_GraphLocation::setLongitude(double& arg0)
+void com_facebook_model_GraphLocation::setLongitude(double const& arg0)
 {
-	LOGV("void com_facebook_model_GraphLocation::setLongitude(double& arg0) enter");
+	LOGV("void com_facebook_model_GraphLocation::setLongitude(double const& arg0) enter");
 
 	const char *methodName = "setLongitude";
 	const char *methodSignature = "(D)V";
@@ -498,8 +452,6 @@ void com_facebook_model_GraphLocation::setLongitude(double& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_model_GraphLocation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -529,9 +481,7 @@ void com_facebook_model_GraphLocation::setLongitude(double& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_model_GraphLocation::setLongitude(double& arg0) exit");
+	LOGV("void com_facebook_model_GraphLocation::setLongitude(double const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getStreet()
@@ -547,8 +497,6 @@ AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getStreet()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_model_GraphLocation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -576,15 +524,13 @@ AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getStreet()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getStreet() exit");
 
 	return result;
 }
-void com_facebook_model_GraphLocation::setStreet(AndroidCXX::java_lang_String& arg0)
+void com_facebook_model_GraphLocation::setStreet(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void com_facebook_model_GraphLocation::setStreet(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_GraphLocation::setStreet(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setStreet";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -594,8 +540,6 @@ void com_facebook_model_GraphLocation::setStreet(AndroidCXX::java_lang_String& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_model_GraphLocation cxx address %d", cxxAddress);
@@ -626,9 +570,7 @@ void com_facebook_model_GraphLocation::setStreet(AndroidCXX::java_lang_String& a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_model_GraphLocation::setStreet(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_GraphLocation::setStreet(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getCity()
@@ -644,8 +586,6 @@ AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getCity()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_model_GraphLocation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -673,15 +613,13 @@ AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getCity()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getCity() exit");
 
 	return result;
 }
-void com_facebook_model_GraphLocation::setCity(AndroidCXX::java_lang_String& arg0)
+void com_facebook_model_GraphLocation::setCity(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void com_facebook_model_GraphLocation::setCity(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_GraphLocation::setCity(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setCity";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -692,8 +630,6 @@ void com_facebook_model_GraphLocation::setCity(AndroidCXX::java_lang_String& arg
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_model_GraphLocation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -723,14 +659,12 @@ void com_facebook_model_GraphLocation::setCity(AndroidCXX::java_lang_String& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_model_GraphLocation::setCity(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_GraphLocation::setCity(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-void com_facebook_model_GraphLocation::setCountry(AndroidCXX::java_lang_String& arg0)
+void com_facebook_model_GraphLocation::setCountry(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void com_facebook_model_GraphLocation::setCountry(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_GraphLocation::setCountry(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setCountry";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -741,8 +675,6 @@ void com_facebook_model_GraphLocation::setCountry(AndroidCXX::java_lang_String& 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_model_GraphLocation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -772,9 +704,7 @@ void com_facebook_model_GraphLocation::setCountry(AndroidCXX::java_lang_String& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_model_GraphLocation::setCountry(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_GraphLocation::setCountry(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getZip()
@@ -790,8 +720,6 @@ AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getZip()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_model_GraphLocation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -819,15 +747,13 @@ AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getZip()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getZip() exit");
 
 	return result;
 }
-void com_facebook_model_GraphLocation::setZip(AndroidCXX::java_lang_String& arg0)
+void com_facebook_model_GraphLocation::setZip(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void com_facebook_model_GraphLocation::setZip(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_GraphLocation::setZip(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setZip";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -837,8 +763,6 @@ void com_facebook_model_GraphLocation::setZip(AndroidCXX::java_lang_String& arg0
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_model_GraphLocation cxx address %d", cxxAddress);
@@ -869,8 +793,6 @@ void com_facebook_model_GraphLocation::setZip(AndroidCXX::java_lang_String& arg0
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_model_GraphLocation::setZip(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_GraphLocation::setZip(AndroidCXX::java_lang_String const& arg0) exit");
 
 }

@@ -381,7 +381,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_WIDGET_TEXTVIEW_BUFFERTYPE;
+// using namespace android_widget_TextView_BufferType;
 // 
 // 
 // 
@@ -644,7 +644,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_TEXT_TEXTUTILS_TRUNCATEAT;
+// using namespace android_text_TextUtils_TruncateAt;
 // 
 // 
 // 
@@ -691,7 +691,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_TextView::android_widget_TextView(const android_widget_TextView& cc)
 {
 	LOGV("android_widget_TextView::android_widget_TextView(const android_widget_TextView& cc) enter");
@@ -715,9 +714,9 @@ android_widget_TextView::android_widget_TextView(const android_widget_TextView& 
 
 	LOGV("android_widget_TextView::android_widget_TextView(const android_widget_TextView& cc) exit");
 }
-android_widget_TextView::android_widget_TextView(void * proxy)
+android_widget_TextView::android_widget_TextView(Proxy proxy)
 {
-	LOGV("android_widget_TextView::android_widget_TextView(void * proxy) enter");
+	LOGV("android_widget_TextView::android_widget_TextView(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -727,55 +726,34 @@ android_widget_TextView::android_widget_TextView(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_TextView::android_widget_TextView(void * proxy) exit");
+	LOGV("android_widget_TextView::android_widget_TextView(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_TextView::android_widget_TextView()
-// {
-// 	LOGV("android_widget_TextView::android_widget_TextView() enter");	
+Proxy android_widget_TextView::proxy() const
+{	
+	LOGV("android_widget_TextView::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/TextView";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_TextView cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_TextView jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_TextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_TextView::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_TextView jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_TextView::android_widget_TextView() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_TextView::android_widget_TextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+	return proxy;
+}
+android_widget_TextView::android_widget_TextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_TextView::android_widget_TextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_TextView::android_widget_TextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -849,11 +827,11 @@ android_widget_TextView::android_widget_TextView(AndroidCXX::android_content_Con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_TextView::android_widget_TextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_TextView::android_widget_TextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_widget_TextView::android_widget_TextView(AndroidCXX::android_content_Context& arg0)
+android_widget_TextView::android_widget_TextView(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_TextView::android_widget_TextView(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_TextView::android_widget_TextView(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -906,11 +884,11 @@ android_widget_TextView::android_widget_TextView(AndroidCXX::android_content_Con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_TextView::android_widget_TextView(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_TextView::android_widget_TextView(AndroidCXX::android_content_Context const& arg0) exit");	
 }
-android_widget_TextView::android_widget_TextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
+android_widget_TextView::android_widget_TextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2)
 {
-	LOGV("android_widget_TextView::android_widget_TextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) enter");	
+	LOGV("android_widget_TextView::android_widget_TextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
@@ -1005,7 +983,7 @@ android_widget_TextView::android_widget_TextView(AndroidCXX::android_content_Con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_TextView::android_widget_TextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) exit");	
+	LOGV("android_widget_TextView::android_widget_TextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) exit");	
 }
 // Default Instance Destructor
 android_widget_TextView::~android_widget_TextView()
@@ -1018,13 +996,13 @@ android_widget_TextView::~android_widget_TextView()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_TextView::~android_widget_TextView() exit");
 }
 // Functions
-void android_widget_TextView::append(AndroidCXX::java_lang_CharSequence& arg0)
+void android_widget_TextView::append(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_widget_TextView::append(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_widget_TextView::append(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -1034,8 +1012,6 @@ void android_widget_TextView::append(AndroidCXX::java_lang_CharSequence& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -1066,14 +1042,12 @@ void android_widget_TextView::append(AndroidCXX::java_lang_CharSequence& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::append(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_widget_TextView::append(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }
-void android_widget_TextView::append(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2)
+void android_widget_TextView::append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("void android_widget_TextView::append(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2) enter");
+	LOGV("void android_widget_TextView::append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/CharSequence;II)V";
@@ -1083,8 +1057,6 @@ void android_widget_TextView::append(AndroidCXX::java_lang_CharSequence& arg0,in
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -1157,9 +1129,7 @@ void android_widget_TextView::append(AndroidCXX::java_lang_CharSequence& arg0,in
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::append(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2) exit");
+	LOGV("void android_widget_TextView::append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) exit");
 
 }
 int android_widget_TextView::length()
@@ -1174,8 +1144,6 @@ int android_widget_TextView::length()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -1204,15 +1172,13 @@ int android_widget_TextView::length()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::length() exit");
 
 	return result;
 }
-void android_widget_TextView::debug(int& arg0)
+void android_widget_TextView::debug(int const& arg0)
 {
-	LOGV("void android_widget_TextView::debug(int& arg0) enter");
+	LOGV("void android_widget_TextView::debug(int const& arg0) enter");
 
 	const char *methodName = "debug";
 	const char *methodSignature = "(I)V";
@@ -1222,8 +1188,6 @@ void android_widget_TextView::debug(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -1254,14 +1218,12 @@ void android_widget_TextView::debug(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::debug(int& arg0) exit");
+	LOGV("void android_widget_TextView::debug(int const& arg0) exit");
 
 }
-void android_widget_TextView::setError(AndroidCXX::java_lang_CharSequence& arg0)
+void android_widget_TextView::setError(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_widget_TextView::setError(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_widget_TextView::setError(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setError";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -1271,8 +1233,6 @@ void android_widget_TextView::setError(AndroidCXX::java_lang_CharSequence& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -1303,14 +1263,12 @@ void android_widget_TextView::setError(AndroidCXX::java_lang_CharSequence& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setError(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_widget_TextView::setError(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }
-void android_widget_TextView::setError(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_graphics_drawable_Drawable& arg1)
+void android_widget_TextView::setError(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1)
 {
-	LOGV("void android_widget_TextView::setError(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_graphics_drawable_Drawable& arg1) enter");
+	LOGV("void android_widget_TextView::setError(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1) enter");
 
 	const char *methodName = "setError";
 	const char *methodSignature = "(Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;)V";
@@ -1320,8 +1278,6 @@ void android_widget_TextView::setError(AndroidCXX::java_lang_CharSequence& arg0,
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -1373,14 +1329,12 @@ void android_widget_TextView::setError(AndroidCXX::java_lang_CharSequence& arg0,
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setError(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_graphics_drawable_Drawable& arg1) exit");
+	LOGV("void android_widget_TextView::setError(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1) exit");
 
 }
-void android_widget_TextView::setText(AndroidCXX::java_lang_CharSequence& arg0,ANDROID_WIDGET_TEXTVIEW_BUFFERTYPE::android_widget_TextView_BufferType& arg1)
+void android_widget_TextView::setText(AndroidCXX::java_lang_CharSequence const& arg0,android_widget_TextView_BufferType::android_widget_TextView_BufferType const& arg1)
 {
-	LOGV("void android_widget_TextView::setText(AndroidCXX::java_lang_CharSequence& arg0,ANDROID_WIDGET_TEXTVIEW_BUFFERTYPE::android_widget_TextView_BufferType& arg1) enter");
+	LOGV("void android_widget_TextView::setText(AndroidCXX::java_lang_CharSequence const& arg0,android_widget_TextView_BufferType::android_widget_TextView_BufferType const& arg1) enter");
 
 	const char *methodName = "setText";
 	const char *methodSignature = "(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V";
@@ -1390,8 +1344,6 @@ void android_widget_TextView::setText(AndroidCXX::java_lang_CharSequence& arg0,A
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -1443,14 +1395,12 @@ void android_widget_TextView::setText(AndroidCXX::java_lang_CharSequence& arg0,A
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setText(AndroidCXX::java_lang_CharSequence& arg0,ANDROID_WIDGET_TEXTVIEW_BUFFERTYPE::android_widget_TextView_BufferType& arg1) exit");
+	LOGV("void android_widget_TextView::setText(AndroidCXX::java_lang_CharSequence const& arg0,android_widget_TextView_BufferType::android_widget_TextView_BufferType const& arg1) exit");
 
 }
-void android_widget_TextView::setText(AndroidCXX::java_lang_CharSequence& arg0)
+void android_widget_TextView::setText(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_widget_TextView::setText(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_widget_TextView::setText(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setText";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -1460,8 +1410,6 @@ void android_widget_TextView::setText(AndroidCXX::java_lang_CharSequence& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -1492,14 +1440,12 @@ void android_widget_TextView::setText(AndroidCXX::java_lang_CharSequence& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setText(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_widget_TextView::setText(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }
-void android_widget_TextView::setText(std::vector<char>& arg0,int& arg1,int& arg2)
+void android_widget_TextView::setText(std::vector<char> const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("void android_widget_TextView::setText(std::vector<char>& arg0,int& arg1,int& arg2) enter");
+	LOGV("void android_widget_TextView::setText(std::vector<char> const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "setText";
 	const char *methodSignature = "([CII)V";
@@ -1509,8 +1455,6 @@ void android_widget_TextView::setText(std::vector<char>& arg0,int& arg1,int& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -1601,14 +1545,12 @@ void android_widget_TextView::setText(std::vector<char>& arg0,int& arg1,int& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setText(std::vector<char>& arg0,int& arg1,int& arg2) exit");
+	LOGV("void android_widget_TextView::setText(std::vector<char> const& arg0,int const& arg1,int const& arg2) exit");
 
 }
-void android_widget_TextView::setText(int& arg0)
+void android_widget_TextView::setText(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setText(int& arg0) enter");
+	LOGV("void android_widget_TextView::setText(int const& arg0) enter");
 
 	const char *methodName = "setText";
 	const char *methodSignature = "(I)V";
@@ -1618,8 +1560,6 @@ void android_widget_TextView::setText(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -1650,14 +1590,12 @@ void android_widget_TextView::setText(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setText(int& arg0) exit");
+	LOGV("void android_widget_TextView::setText(int const& arg0) exit");
 
 }
-void android_widget_TextView::setText(int& arg0,ANDROID_WIDGET_TEXTVIEW_BUFFERTYPE::android_widget_TextView_BufferType& arg1)
+void android_widget_TextView::setText(int const& arg0,android_widget_TextView_BufferType::android_widget_TextView_BufferType const& arg1)
 {
-	LOGV("void android_widget_TextView::setText(int& arg0,ANDROID_WIDGET_TEXTVIEW_BUFFERTYPE::android_widget_TextView_BufferType& arg1) enter");
+	LOGV("void android_widget_TextView::setText(int const& arg0,android_widget_TextView_BufferType::android_widget_TextView_BufferType const& arg1) enter");
 
 	const char *methodName = "setText";
 	const char *methodSignature = "(ILandroid/widget/TextView$BufferType;)V";
@@ -1667,8 +1605,6 @@ void android_widget_TextView::setText(int& arg0,ANDROID_WIDGET_TEXTVIEW_BUFFERTY
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -1720,9 +1656,7 @@ void android_widget_TextView::setText(int& arg0,ANDROID_WIDGET_TEXTVIEW_BUFFERTY
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setText(int& arg0,ANDROID_WIDGET_TEXTVIEW_BUFFERTYPE::android_widget_TextView_BufferType& arg1) exit");
+	LOGV("void android_widget_TextView::setText(int const& arg0,android_widget_TextView_BufferType::android_widget_TextView_BufferType const& arg1) exit");
 
 }
 AndroidCXX::java_lang_CharSequence android_widget_TextView::getText()
@@ -1737,8 +1671,6 @@ AndroidCXX::java_lang_CharSequence android_widget_TextView::getText()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -1767,8 +1699,6 @@ AndroidCXX::java_lang_CharSequence android_widget_TextView::getText()
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_widget_TextView::getText() exit");
 
 	return result;
@@ -1785,8 +1715,6 @@ AndroidCXX::android_os_Parcelable android_widget_TextView::onSaveInstanceState()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -1815,8 +1743,6 @@ AndroidCXX::android_os_Parcelable android_widget_TextView::onSaveInstanceState()
 	AndroidCXX::android_os_Parcelable result((AndroidCXX::android_os_Parcelable) *((AndroidCXX::android_os_Parcelable *) cxx_value));
 	delete ((AndroidCXX::android_os_Parcelable *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_os_Parcelable android_widget_TextView::onSaveInstanceState() exit");
 
 	return result;
@@ -1833,8 +1759,6 @@ AndroidCXX::android_text_Layout android_widget_TextView::getLayout()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -1863,15 +1787,13 @@ AndroidCXX::android_text_Layout android_widget_TextView::getLayout()
 	AndroidCXX::android_text_Layout result((AndroidCXX::android_text_Layout) *((AndroidCXX::android_text_Layout *) cxx_value));
 	delete ((AndroidCXX::android_text_Layout *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_text_Layout android_widget_TextView::getLayout() exit");
 
 	return result;
 }
-bool android_widget_TextView::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1)
+bool android_widget_TextView::onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1)
 {
-	LOGV("bool android_widget_TextView::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) enter");
+	LOGV("bool android_widget_TextView::onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) enter");
 
 	const char *methodName = "onKeyDown";
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
@@ -1881,8 +1803,6 @@ bool android_widget_TextView::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEv
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -1953,15 +1873,13 @@ bool android_widget_TextView::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEv
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_TextView::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) exit");
+	LOGV("bool android_widget_TextView::onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) exit");
 
 	return result;
 }
-void android_widget_TextView::onRestoreInstanceState(AndroidCXX::android_os_Parcelable& arg0)
+void android_widget_TextView::onRestoreInstanceState(AndroidCXX::android_os_Parcelable const& arg0)
 {
-	LOGV("void android_widget_TextView::onRestoreInstanceState(AndroidCXX::android_os_Parcelable& arg0) enter");
+	LOGV("void android_widget_TextView::onRestoreInstanceState(AndroidCXX::android_os_Parcelable const& arg0) enter");
 
 	const char *methodName = "onRestoreInstanceState";
 	const char *methodSignature = "(Landroid/os/Parcelable;)V";
@@ -1971,8 +1889,6 @@ void android_widget_TextView::onRestoreInstanceState(AndroidCXX::android_os_Parc
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -2003,14 +1919,12 @@ void android_widget_TextView::onRestoreInstanceState(AndroidCXX::android_os_Parc
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::onRestoreInstanceState(AndroidCXX::android_os_Parcelable& arg0) exit");
+	LOGV("void android_widget_TextView::onRestoreInstanceState(AndroidCXX::android_os_Parcelable const& arg0) exit");
 
 }
-bool android_widget_TextView::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1)
+bool android_widget_TextView::onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1)
 {
-	LOGV("bool android_widget_TextView::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) enter");
+	LOGV("bool android_widget_TextView::onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) enter");
 
 	const char *methodName = "onKeyUp";
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
@@ -2020,8 +1934,6 @@ bool android_widget_TextView::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEven
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -2092,15 +2004,13 @@ bool android_widget_TextView::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEven
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_TextView::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) exit");
+	LOGV("bool android_widget_TextView::onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) exit");
 
 	return result;
 }
-bool android_widget_TextView::onKeyMultiple(int& arg0,int& arg1,AndroidCXX::android_view_KeyEvent& arg2)
+bool android_widget_TextView::onKeyMultiple(int const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2)
 {
-	LOGV("bool android_widget_TextView::onKeyMultiple(int& arg0,int& arg1,AndroidCXX::android_view_KeyEvent& arg2) enter");
+	LOGV("bool android_widget_TextView::onKeyMultiple(int const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) enter");
 
 	const char *methodName = "onKeyMultiple";
 	const char *methodSignature = "(IILandroid/view/KeyEvent;)Z";
@@ -2110,8 +2020,6 @@ bool android_widget_TextView::onKeyMultiple(int& arg0,int& arg1,AndroidCXX::andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -2203,15 +2111,13 @@ bool android_widget_TextView::onKeyMultiple(int& arg0,int& arg1,AndroidCXX::andr
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_TextView::onKeyMultiple(int& arg0,int& arg1,AndroidCXX::android_view_KeyEvent& arg2) exit");
+	LOGV("bool android_widget_TextView::onKeyMultiple(int const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) exit");
 
 	return result;
 }
-bool android_widget_TextView::onKeyShortcut(int& arg0,AndroidCXX::android_view_KeyEvent& arg1)
+bool android_widget_TextView::onKeyShortcut(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1)
 {
-	LOGV("bool android_widget_TextView::onKeyShortcut(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) enter");
+	LOGV("bool android_widget_TextView::onKeyShortcut(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) enter");
 
 	const char *methodName = "onKeyShortcut";
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
@@ -2221,8 +2127,6 @@ bool android_widget_TextView::onKeyShortcut(int& arg0,AndroidCXX::android_view_K
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -2293,15 +2197,13 @@ bool android_widget_TextView::onKeyShortcut(int& arg0,AndroidCXX::android_view_K
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_TextView::onKeyShortcut(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) exit");
+	LOGV("bool android_widget_TextView::onKeyShortcut(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) exit");
 
 	return result;
 }
-bool android_widget_TextView::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_TextView::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_TextView::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_TextView::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onTouchEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -2312,8 +2214,6 @@ bool android_widget_TextView::onTouchEvent(AndroidCXX::android_view_MotionEvent&
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2362,15 +2262,13 @@ bool android_widget_TextView::onTouchEvent(AndroidCXX::android_view_MotionEvent&
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_TextView::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	LOGV("bool android_widget_TextView::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-bool android_widget_TextView::onTrackballEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_TextView::onTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_TextView::onTrackballEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_TextView::onTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onTrackballEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -2381,8 +2279,6 @@ bool android_widget_TextView::onTrackballEvent(AndroidCXX::android_view_MotionEv
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2431,15 +2327,13 @@ bool android_widget_TextView::onTrackballEvent(AndroidCXX::android_view_MotionEv
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_TextView::onTrackballEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	LOGV("bool android_widget_TextView::onTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-bool android_widget_TextView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_TextView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_TextView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_TextView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onGenericMotionEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -2450,8 +2344,6 @@ bool android_widget_TextView::onGenericMotionEvent(AndroidCXX::android_view_Moti
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2500,15 +2392,13 @@ bool android_widget_TextView::onGenericMotionEvent(AndroidCXX::android_view_Moti
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_TextView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	LOGV("bool android_widget_TextView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-void android_widget_TextView::onWindowFocusChanged(bool& arg0)
+void android_widget_TextView::onWindowFocusChanged(bool const& arg0)
 {
-	LOGV("void android_widget_TextView::onWindowFocusChanged(bool& arg0) enter");
+	LOGV("void android_widget_TextView::onWindowFocusChanged(bool const& arg0) enter");
 
 	const char *methodName = "onWindowFocusChanged";
 	const char *methodSignature = "(Z)V";
@@ -2518,8 +2408,6 @@ void android_widget_TextView::onWindowFocusChanged(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -2550,14 +2438,12 @@ void android_widget_TextView::onWindowFocusChanged(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::onWindowFocusChanged(bool& arg0) exit");
+	LOGV("void android_widget_TextView::onWindowFocusChanged(bool const& arg0) exit");
 
 }
-void android_widget_TextView::findViewsWithText(AndroidCXX::java_util_ArrayList& arg0,AndroidCXX::java_lang_CharSequence& arg1,int& arg2)
+void android_widget_TextView::findViewsWithText(AndroidCXX::java_util_ArrayList const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,int const& arg2)
 {
-	LOGV("void android_widget_TextView::findViewsWithText(AndroidCXX::java_util_ArrayList& arg0,AndroidCXX::java_lang_CharSequence& arg1,int& arg2) enter");
+	LOGV("void android_widget_TextView::findViewsWithText(AndroidCXX::java_util_ArrayList const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,int const& arg2) enter");
 
 	const char *methodName = "findViewsWithText";
 	const char *methodSignature = "(Ljava/util/ArrayList;Ljava/lang/CharSequence;I)V";
@@ -2567,8 +2453,6 @@ void android_widget_TextView::findViewsWithText(AndroidCXX::java_util_ArrayList&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -2659,9 +2543,7 @@ void android_widget_TextView::findViewsWithText(AndroidCXX::java_util_ArrayList&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::findViewsWithText(AndroidCXX::java_util_ArrayList& arg0,AndroidCXX::java_lang_CharSequence& arg1,int& arg2) exit");
+	LOGV("void android_widget_TextView::findViewsWithText(AndroidCXX::java_util_ArrayList const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,int const& arg2) exit");
 
 }
 void android_widget_TextView::jumpDrawablesToCurrentState()
@@ -2677,8 +2559,6 @@ void android_widget_TextView::jumpDrawablesToCurrentState()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2687,8 +2567,6 @@ void android_widget_TextView::jumpDrawablesToCurrentState()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_TextView::jumpDrawablesToCurrentState() exit");
 
 }
@@ -2704,8 +2582,6 @@ bool android_widget_TextView::performLongClick()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -2734,15 +2610,13 @@ bool android_widget_TextView::performLongClick()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_TextView::performLongClick() exit");
 
 	return result;
 }
-void android_widget_TextView::sendAccessibilityEvent(int& arg0)
+void android_widget_TextView::sendAccessibilityEvent(int const& arg0)
 {
-	LOGV("void android_widget_TextView::sendAccessibilityEvent(int& arg0) enter");
+	LOGV("void android_widget_TextView::sendAccessibilityEvent(int const& arg0) enter");
 
 	const char *methodName = "sendAccessibilityEvent";
 	const char *methodSignature = "(I)V";
@@ -2752,8 +2626,6 @@ void android_widget_TextView::sendAccessibilityEvent(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -2784,14 +2656,12 @@ void android_widget_TextView::sendAccessibilityEvent(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::sendAccessibilityEvent(int& arg0) exit");
+	LOGV("void android_widget_TextView::sendAccessibilityEvent(int const& arg0) exit");
 
 }
-void android_widget_TextView::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_TextView::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_TextView::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_TextView::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onPopulateAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -2802,8 +2672,6 @@ void android_widget_TextView::onPopulateAccessibilityEvent(AndroidCXX::android_v
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2833,14 +2701,12 @@ void android_widget_TextView::onPopulateAccessibilityEvent(AndroidCXX::android_v
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_TextView::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_TextView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_TextView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_TextView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_TextView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -2851,8 +2717,6 @@ void android_widget_TextView::onInitializeAccessibilityEvent(AndroidCXX::android
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2882,14 +2746,12 @@ void android_widget_TextView::onInitializeAccessibilityEvent(AndroidCXX::android
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_TextView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_TextView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0)
+void android_widget_TextView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0)
 {
-	LOGV("void android_widget_TextView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) enter");
+	LOGV("void android_widget_TextView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityNodeInfo";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
@@ -2899,8 +2761,6 @@ void android_widget_TextView::onInitializeAccessibilityNodeInfo(AndroidCXX::andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -2931,14 +2791,12 @@ void android_widget_TextView::onInitializeAccessibilityNodeInfo(AndroidCXX::andr
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) exit");
+	LOGV("void android_widget_TextView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) exit");
 
 }
-void android_widget_TextView::setEnabled(bool& arg0)
+void android_widget_TextView::setEnabled(bool const& arg0)
 {
-	LOGV("void android_widget_TextView::setEnabled(bool& arg0) enter");
+	LOGV("void android_widget_TextView::setEnabled(bool const& arg0) enter");
 
 	const char *methodName = "setEnabled";
 	const char *methodSignature = "(Z)V";
@@ -2948,8 +2806,6 @@ void android_widget_TextView::setEnabled(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -2980,9 +2836,7 @@ void android_widget_TextView::setEnabled(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setEnabled(bool& arg0) exit");
+	LOGV("void android_widget_TextView::setEnabled(bool const& arg0) exit");
 
 }
 void android_widget_TextView::onStartTemporaryDetach()
@@ -2998,8 +2852,6 @@ void android_widget_TextView::onStartTemporaryDetach()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3008,8 +2860,6 @@ void android_widget_TextView::onStartTemporaryDetach()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_TextView::onStartTemporaryDetach() exit");
 
 }
@@ -3026,8 +2876,6 @@ void android_widget_TextView::onFinishTemporaryDetach()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3036,14 +2884,12 @@ void android_widget_TextView::onFinishTemporaryDetach()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_TextView::onFinishTemporaryDetach() exit");
 
 }
-bool android_widget_TextView::onKeyPreIme(int& arg0,AndroidCXX::android_view_KeyEvent& arg1)
+bool android_widget_TextView::onKeyPreIme(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1)
 {
-	LOGV("bool android_widget_TextView::onKeyPreIme(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) enter");
+	LOGV("bool android_widget_TextView::onKeyPreIme(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) enter");
 
 	const char *methodName = "onKeyPreIme";
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
@@ -3053,8 +2899,6 @@ bool android_widget_TextView::onKeyPreIme(int& arg0,AndroidCXX::android_view_Key
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -3125,9 +2969,7 @@ bool android_widget_TextView::onKeyPreIme(int& arg0,AndroidCXX::android_view_Key
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_TextView::onKeyPreIme(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) exit");
+	LOGV("bool android_widget_TextView::onKeyPreIme(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) exit");
 
 	return result;
 }
@@ -3143,8 +2985,6 @@ bool android_widget_TextView::onCheckIsTextEditor()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -3173,15 +3013,13 @@ bool android_widget_TextView::onCheckIsTextEditor()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_TextView::onCheckIsTextEditor() exit");
 
 	return result;
 }
-AndroidCXX::android_view_inputmethod_InputConnection android_widget_TextView::onCreateInputConnection(AndroidCXX::android_view_inputmethod_EditorInfo& arg0)
+AndroidCXX::android_view_inputmethod_InputConnection android_widget_TextView::onCreateInputConnection(AndroidCXX::android_view_inputmethod_EditorInfo const& arg0)
 {
-	LOGV("AndroidCXX::android_view_inputmethod_InputConnection android_widget_TextView::onCreateInputConnection(AndroidCXX::android_view_inputmethod_EditorInfo& arg0) enter");
+	LOGV("AndroidCXX::android_view_inputmethod_InputConnection android_widget_TextView::onCreateInputConnection(AndroidCXX::android_view_inputmethod_EditorInfo const& arg0) enter");
 
 	const char *methodName = "onCreateInputConnection";
 	const char *methodSignature = "(Landroid/view/inputmethod/EditorInfo;)Landroid/view/inputmethod/InputConnection;";
@@ -3191,8 +3029,6 @@ AndroidCXX::android_view_inputmethod_InputConnection android_widget_TextView::on
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -3242,9 +3078,7 @@ AndroidCXX::android_view_inputmethod_InputConnection android_widget_TextView::on
 	AndroidCXX::android_view_inputmethod_InputConnection result((AndroidCXX::android_view_inputmethod_InputConnection) *((AndroidCXX::android_view_inputmethod_InputConnection *) cxx_value));
 	delete ((AndroidCXX::android_view_inputmethod_InputConnection *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_inputmethod_InputConnection android_widget_TextView::onCreateInputConnection(AndroidCXX::android_view_inputmethod_EditorInfo& arg0) exit");
+	LOGV("AndroidCXX::android_view_inputmethod_InputConnection android_widget_TextView::onCreateInputConnection(AndroidCXX::android_view_inputmethod_EditorInfo const& arg0) exit");
 
 	return result;
 }
@@ -3261,8 +3095,6 @@ void android_widget_TextView::cancelLongPress()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3271,8 +3103,6 @@ void android_widget_TextView::cancelLongPress()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_TextView::cancelLongPress() exit");
 
 }
@@ -3288,8 +3118,6 @@ bool android_widget_TextView::hasOverlappingRendering()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -3318,15 +3146,13 @@ bool android_widget_TextView::hasOverlappingRendering()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_TextView::hasOverlappingRendering() exit");
 
 	return result;
 }
-void android_widget_TextView::getFocusedRect(AndroidCXX::android_graphics_Rect& arg0)
+void android_widget_TextView::getFocusedRect(AndroidCXX::android_graphics_Rect const& arg0)
 {
-	LOGV("void android_widget_TextView::getFocusedRect(AndroidCXX::android_graphics_Rect& arg0) enter");
+	LOGV("void android_widget_TextView::getFocusedRect(AndroidCXX::android_graphics_Rect const& arg0) enter");
 
 	const char *methodName = "getFocusedRect";
 	const char *methodSignature = "(Landroid/graphics/Rect;)V";
@@ -3336,8 +3162,6 @@ void android_widget_TextView::getFocusedRect(AndroidCXX::android_graphics_Rect& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -3368,9 +3192,7 @@ void android_widget_TextView::getFocusedRect(AndroidCXX::android_graphics_Rect& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::getFocusedRect(AndroidCXX::android_graphics_Rect& arg0) exit");
+	LOGV("void android_widget_TextView::getFocusedRect(AndroidCXX::android_graphics_Rect const& arg0) exit");
 
 }
 void android_widget_TextView::computeScroll()
@@ -3386,8 +3208,6 @@ void android_widget_TextView::computeScroll()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3396,14 +3216,12 @@ void android_widget_TextView::computeScroll()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_TextView::computeScroll() exit");
 
 }
-void android_widget_TextView::onScreenStateChanged(int& arg0)
+void android_widget_TextView::onScreenStateChanged(int const& arg0)
 {
-	LOGV("void android_widget_TextView::onScreenStateChanged(int& arg0) enter");
+	LOGV("void android_widget_TextView::onScreenStateChanged(int const& arg0) enter");
 
 	const char *methodName = "onScreenStateChanged";
 	const char *methodSignature = "(I)V";
@@ -3414,8 +3232,6 @@ void android_widget_TextView::onScreenStateChanged(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3445,14 +3261,12 @@ void android_widget_TextView::onScreenStateChanged(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::onScreenStateChanged(int& arg0) exit");
+	LOGV("void android_widget_TextView::onScreenStateChanged(int const& arg0) exit");
 
 }
-void android_widget_TextView::onRtlPropertiesChanged(int& arg0)
+void android_widget_TextView::onRtlPropertiesChanged(int const& arg0)
 {
-	LOGV("void android_widget_TextView::onRtlPropertiesChanged(int& arg0) enter");
+	LOGV("void android_widget_TextView::onRtlPropertiesChanged(int const& arg0) enter");
 
 	const char *methodName = "onRtlPropertiesChanged";
 	const char *methodSignature = "(I)V";
@@ -3463,8 +3277,6 @@ void android_widget_TextView::onRtlPropertiesChanged(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3494,14 +3306,12 @@ void android_widget_TextView::onRtlPropertiesChanged(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::onRtlPropertiesChanged(int& arg0) exit");
+	LOGV("void android_widget_TextView::onRtlPropertiesChanged(int const& arg0) exit");
 
 }
-void android_widget_TextView::invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0)
+void android_widget_TextView::invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0)
 {
-	LOGV("void android_widget_TextView::invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0) enter");
+	LOGV("void android_widget_TextView::invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) enter");
 
 	const char *methodName = "invalidateDrawable";
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
@@ -3511,8 +3321,6 @@ void android_widget_TextView::invalidateDrawable(AndroidCXX::android_graphics_dr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -3543,14 +3351,12 @@ void android_widget_TextView::invalidateDrawable(AndroidCXX::android_graphics_dr
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0) exit");
+	LOGV("void android_widget_TextView::invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) exit");
 
 }
-void android_widget_TextView::setPadding(int& arg0,int& arg1,int& arg2,int& arg3)
+void android_widget_TextView::setPadding(int const& arg0,int const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("void android_widget_TextView::setPadding(int& arg0,int& arg1,int& arg2,int& arg3) enter");
+	LOGV("void android_widget_TextView::setPadding(int const& arg0,int const& arg1,int const& arg2,int const& arg3) enter");
 
 	const char *methodName = "setPadding";
 	const char *methodSignature = "(IIII)V";
@@ -3561,8 +3367,6 @@ void android_widget_TextView::setPadding(int& arg0,int& arg1,int& arg2,int& arg3
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3655,14 +3459,12 @@ void android_widget_TextView::setPadding(int& arg0,int& arg1,int& arg2,int& arg3
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setPadding(int& arg0,int& arg1,int& arg2,int& arg3) exit");
+	LOGV("void android_widget_TextView::setPadding(int const& arg0,int const& arg1,int const& arg2,int const& arg3) exit");
 
 }
-void android_widget_TextView::setPaddingRelative(int& arg0,int& arg1,int& arg2,int& arg3)
+void android_widget_TextView::setPaddingRelative(int const& arg0,int const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("void android_widget_TextView::setPaddingRelative(int& arg0,int& arg1,int& arg2,int& arg3) enter");
+	LOGV("void android_widget_TextView::setPaddingRelative(int const& arg0,int const& arg1,int const& arg2,int const& arg3) enter");
 
 	const char *methodName = "setPaddingRelative";
 	const char *methodSignature = "(IIII)V";
@@ -3673,8 +3475,6 @@ void android_widget_TextView::setPaddingRelative(int& arg0,int& arg1,int& arg2,i
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3767,14 +3567,12 @@ void android_widget_TextView::setPaddingRelative(int& arg0,int& arg1,int& arg2,i
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setPaddingRelative(int& arg0,int& arg1,int& arg2,int& arg3) exit");
+	LOGV("void android_widget_TextView::setPaddingRelative(int const& arg0,int const& arg1,int const& arg2,int const& arg3) exit");
 
 }
-void android_widget_TextView::setSelected(bool& arg0)
+void android_widget_TextView::setSelected(bool const& arg0)
 {
-	LOGV("void android_widget_TextView::setSelected(bool& arg0) enter");
+	LOGV("void android_widget_TextView::setSelected(bool const& arg0) enter");
 
 	const char *methodName = "setSelected";
 	const char *methodSignature = "(Z)V";
@@ -3784,8 +3582,6 @@ void android_widget_TextView::setSelected(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -3816,9 +3612,7 @@ void android_widget_TextView::setSelected(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setSelected(bool& arg0) exit");
+	LOGV("void android_widget_TextView::setSelected(bool const& arg0) exit");
 
 }
 int android_widget_TextView::getBaseline()
@@ -3833,8 +3627,6 @@ int android_widget_TextView::getBaseline()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -3863,15 +3655,13 @@ int android_widget_TextView::getBaseline()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getBaseline() exit");
 
 	return result;
 }
-bool android_widget_TextView::onDragEvent(AndroidCXX::android_view_DragEvent& arg0)
+bool android_widget_TextView::onDragEvent(AndroidCXX::android_view_DragEvent const& arg0)
 {
-	LOGV("bool android_widget_TextView::onDragEvent(AndroidCXX::android_view_DragEvent& arg0) enter");
+	LOGV("bool android_widget_TextView::onDragEvent(AndroidCXX::android_view_DragEvent const& arg0) enter");
 
 	const char *methodName = "onDragEvent";
 	const char *methodSignature = "(Landroid/view/DragEvent;)Z";
@@ -3881,8 +3671,6 @@ bool android_widget_TextView::onDragEvent(AndroidCXX::android_view_DragEvent& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -3932,9 +3720,7 @@ bool android_widget_TextView::onDragEvent(AndroidCXX::android_view_DragEvent& ar
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_TextView::onDragEvent(AndroidCXX::android_view_DragEvent& arg0) exit");
+	LOGV("bool android_widget_TextView::onDragEvent(AndroidCXX::android_view_DragEvent const& arg0) exit");
 
 	return result;
 }
@@ -3950,8 +3736,6 @@ AndroidCXX::android_graphics_Typeface android_widget_TextView::getTypeface()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -3980,15 +3764,13 @@ AndroidCXX::android_graphics_Typeface android_widget_TextView::getTypeface()
 	AndroidCXX::android_graphics_Typeface result((AndroidCXX::android_graphics_Typeface) *((AndroidCXX::android_graphics_Typeface *) cxx_value));
 	delete ((AndroidCXX::android_graphics_Typeface *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_graphics_Typeface android_widget_TextView::getTypeface() exit");
 
 	return result;
 }
-void android_widget_TextView::setTypeface(AndroidCXX::android_graphics_Typeface& arg0,int& arg1)
+void android_widget_TextView::setTypeface(AndroidCXX::android_graphics_Typeface const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_TextView::setTypeface(AndroidCXX::android_graphics_Typeface& arg0,int& arg1) enter");
+	LOGV("void android_widget_TextView::setTypeface(AndroidCXX::android_graphics_Typeface const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setTypeface";
 	const char *methodSignature = "(Landroid/graphics/Typeface;I)V";
@@ -3998,8 +3780,6 @@ void android_widget_TextView::setTypeface(AndroidCXX::android_graphics_Typeface&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -4051,14 +3831,12 @@ void android_widget_TextView::setTypeface(AndroidCXX::android_graphics_Typeface&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setTypeface(AndroidCXX::android_graphics_Typeface& arg0,int& arg1) exit");
+	LOGV("void android_widget_TextView::setTypeface(AndroidCXX::android_graphics_Typeface const& arg0,int const& arg1) exit");
 
 }
-void android_widget_TextView::setTypeface(AndroidCXX::android_graphics_Typeface& arg0)
+void android_widget_TextView::setTypeface(AndroidCXX::android_graphics_Typeface const& arg0)
 {
-	LOGV("void android_widget_TextView::setTypeface(AndroidCXX::android_graphics_Typeface& arg0) enter");
+	LOGV("void android_widget_TextView::setTypeface(AndroidCXX::android_graphics_Typeface const& arg0) enter");
 
 	const char *methodName = "setTypeface";
 	const char *methodSignature = "(Landroid/graphics/Typeface;)V";
@@ -4068,8 +3846,6 @@ void android_widget_TextView::setTypeface(AndroidCXX::android_graphics_Typeface&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -4100,14 +3876,12 @@ void android_widget_TextView::setTypeface(AndroidCXX::android_graphics_Typeface&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setTypeface(AndroidCXX::android_graphics_Typeface& arg0) exit");
+	LOGV("void android_widget_TextView::setTypeface(AndroidCXX::android_graphics_Typeface const& arg0) exit");
 
 }
-void android_widget_TextView::setShadowLayer(float& arg0,float& arg1,float& arg2,int& arg3)
+void android_widget_TextView::setShadowLayer(float const& arg0,float const& arg1,float const& arg2,int const& arg3)
 {
-	LOGV("void android_widget_TextView::setShadowLayer(float& arg0,float& arg1,float& arg2,int& arg3) enter");
+	LOGV("void android_widget_TextView::setShadowLayer(float const& arg0,float const& arg1,float const& arg2,int const& arg3) enter");
 
 	const char *methodName = "setShadowLayer";
 	const char *methodSignature = "(FFFI)V";
@@ -4117,8 +3891,6 @@ void android_widget_TextView::setShadowLayer(float& arg0,float& arg1,float& arg2
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -4212,9 +3984,7 @@ void android_widget_TextView::setShadowLayer(float& arg0,float& arg1,float& arg2
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setShadowLayer(float& arg0,float& arg1,float& arg2,int& arg3) exit");
+	LOGV("void android_widget_TextView::setShadowLayer(float const& arg0,float const& arg1,float const& arg2,int const& arg3) exit");
 
 }
 AndroidCXX::java_util_Locale android_widget_TextView::getTextLocale()
@@ -4229,8 +3999,6 @@ AndroidCXX::java_util_Locale android_widget_TextView::getTextLocale()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -4259,15 +4027,13 @@ AndroidCXX::java_util_Locale android_widget_TextView::getTextLocale()
 	AndroidCXX::java_util_Locale result((AndroidCXX::java_util_Locale) *((AndroidCXX::java_util_Locale *) cxx_value));
 	delete ((AndroidCXX::java_util_Locale *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_util_Locale android_widget_TextView::getTextLocale() exit");
 
 	return result;
 }
-void android_widget_TextView::setTextLocale(AndroidCXX::java_util_Locale& arg0)
+void android_widget_TextView::setTextLocale(AndroidCXX::java_util_Locale const& arg0)
 {
-	LOGV("void android_widget_TextView::setTextLocale(AndroidCXX::java_util_Locale& arg0) enter");
+	LOGV("void android_widget_TextView::setTextLocale(AndroidCXX::java_util_Locale const& arg0) enter");
 
 	const char *methodName = "setTextLocale";
 	const char *methodSignature = "(Ljava/util/Locale;)V";
@@ -4277,8 +4043,6 @@ void android_widget_TextView::setTextLocale(AndroidCXX::java_util_Locale& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -4309,9 +4073,7 @@ void android_widget_TextView::setTextLocale(AndroidCXX::java_util_Locale& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setTextLocale(AndroidCXX::java_util_Locale& arg0) exit");
+	LOGV("void android_widget_TextView::setTextLocale(AndroidCXX::java_util_Locale const& arg0) exit");
 
 }
 float android_widget_TextView::getTextSize()
@@ -4326,8 +4088,6 @@ float android_widget_TextView::getTextSize()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -4356,15 +4116,13 @@ float android_widget_TextView::getTextSize()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float android_widget_TextView::getTextSize() exit");
 
 	return result;
 }
-void android_widget_TextView::setTextSize(int& arg0,float& arg1)
+void android_widget_TextView::setTextSize(int const& arg0,float const& arg1)
 {
-	LOGV("void android_widget_TextView::setTextSize(int& arg0,float& arg1) enter");
+	LOGV("void android_widget_TextView::setTextSize(int const& arg0,float const& arg1) enter");
 
 	const char *methodName = "setTextSize";
 	const char *methodSignature = "(IF)V";
@@ -4374,8 +4132,6 @@ void android_widget_TextView::setTextSize(int& arg0,float& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -4427,14 +4183,12 @@ void android_widget_TextView::setTextSize(int& arg0,float& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setTextSize(int& arg0,float& arg1) exit");
+	LOGV("void android_widget_TextView::setTextSize(int const& arg0,float const& arg1) exit");
 
 }
-void android_widget_TextView::setTextSize(float& arg0)
+void android_widget_TextView::setTextSize(float const& arg0)
 {
-	LOGV("void android_widget_TextView::setTextSize(float& arg0) enter");
+	LOGV("void android_widget_TextView::setTextSize(float const& arg0) enter");
 
 	const char *methodName = "setTextSize";
 	const char *methodSignature = "(F)V";
@@ -4444,8 +4198,6 @@ void android_widget_TextView::setTextSize(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -4476,9 +4228,7 @@ void android_widget_TextView::setTextSize(float& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setTextSize(float& arg0) exit");
+	LOGV("void android_widget_TextView::setTextSize(float const& arg0) exit");
 
 }
 float android_widget_TextView::getTextScaleX()
@@ -4493,8 +4243,6 @@ float android_widget_TextView::getTextScaleX()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -4523,15 +4271,13 @@ float android_widget_TextView::getTextScaleX()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float android_widget_TextView::getTextScaleX() exit");
 
 	return result;
 }
-void android_widget_TextView::setTextScaleX(float& arg0)
+void android_widget_TextView::setTextScaleX(float const& arg0)
 {
-	LOGV("void android_widget_TextView::setTextScaleX(float& arg0) enter");
+	LOGV("void android_widget_TextView::setTextScaleX(float const& arg0) enter");
 
 	const char *methodName = "setTextScaleX";
 	const char *methodSignature = "(F)V";
@@ -4541,8 +4287,6 @@ void android_widget_TextView::setTextScaleX(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -4573,9 +4317,7 @@ void android_widget_TextView::setTextScaleX(float& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setTextScaleX(float& arg0) exit");
+	LOGV("void android_widget_TextView::setTextScaleX(float const& arg0) exit");
 
 }
 void android_widget_TextView::beginBatchEdit()
@@ -4591,8 +4333,6 @@ void android_widget_TextView::beginBatchEdit()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -4601,8 +4341,6 @@ void android_widget_TextView::beginBatchEdit()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_TextView::beginBatchEdit() exit");
 
 }
@@ -4619,8 +4357,6 @@ void android_widget_TextView::endBatchEdit()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -4629,8 +4365,6 @@ void android_widget_TextView::endBatchEdit()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_TextView::endBatchEdit() exit");
 
 }
@@ -4646,8 +4380,6 @@ bool android_widget_TextView::onPreDraw()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -4676,15 +4408,13 @@ bool android_widget_TextView::onPreDraw()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_TextView::onPreDraw() exit");
 
 	return result;
 }
-void android_widget_TextView::setGravity(int& arg0)
+void android_widget_TextView::setGravity(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setGravity(int& arg0) enter");
+	LOGV("void android_widget_TextView::setGravity(int const& arg0) enter");
 
 	const char *methodName = "setGravity";
 	const char *methodSignature = "(I)V";
@@ -4694,8 +4424,6 @@ void android_widget_TextView::setGravity(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -4726,14 +4454,12 @@ void android_widget_TextView::setGravity(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setGravity(int& arg0) exit");
+	LOGV("void android_widget_TextView::setGravity(int const& arg0) exit");
 
 }
-void android_widget_TextView::setFilters(std::vector<AndroidCXX::android_text_InputFilter >& arg0)
+void android_widget_TextView::setFilters(std::vector<AndroidCXX::android_text_InputFilter > const& arg0)
 {
-	LOGV("void android_widget_TextView::setFilters(std::vector<AndroidCXX::android_text_InputFilter >& arg0) enter");
+	LOGV("void android_widget_TextView::setFilters(std::vector<AndroidCXX::android_text_InputFilter > const& arg0) enter");
 
 	const char *methodName = "setFilters";
 	const char *methodSignature = "([Landroid/text/InputFilter;)V";
@@ -4743,8 +4469,6 @@ void android_widget_TextView::setFilters(std::vector<AndroidCXX::android_text_In
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -4793,9 +4517,7 @@ void android_widget_TextView::setFilters(std::vector<AndroidCXX::android_text_In
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setFilters(std::vector<AndroidCXX::android_text_InputFilter >& arg0) exit");
+	LOGV("void android_widget_TextView::setFilters(std::vector<AndroidCXX::android_text_InputFilter > const& arg0) exit");
 
 }
 std::vector<AndroidCXX::android_text_InputFilter > android_widget_TextView::getFilters()
@@ -4810,8 +4532,6 @@ std::vector<AndroidCXX::android_text_InputFilter > android_widget_TextView::getF
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -4858,8 +4578,6 @@ std::vector<AndroidCXX::android_text_InputFilter > android_widget_TextView::getF
 	std::vector<AndroidCXX::android_text_InputFilter > result = (std::vector<AndroidCXX::android_text_InputFilter >) *((std::vector<AndroidCXX::android_text_InputFilter > *) cxx_value);
 	delete ((std::vector<AndroidCXX::android_text_InputFilter > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<AndroidCXX::android_text_InputFilter > android_widget_TextView::getFilters() exit");
 
 	return result;
@@ -4876,8 +4594,6 @@ AndroidCXX::android_text_Editable android_widget_TextView::getEditableText()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -4906,8 +4622,6 @@ AndroidCXX::android_text_Editable android_widget_TextView::getEditableText()
 	AndroidCXX::android_text_Editable result((AndroidCXX::android_text_Editable) *((AndroidCXX::android_text_Editable *) cxx_value));
 	delete ((AndroidCXX::android_text_Editable *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_text_Editable android_widget_TextView::getEditableText() exit");
 
 	return result;
@@ -4924,8 +4638,6 @@ int android_widget_TextView::getLineHeight()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -4954,8 +4666,6 @@ int android_widget_TextView::getLineHeight()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getLineHeight() exit");
 
 	return result;
@@ -4972,8 +4682,6 @@ AndroidCXX::android_text_method_KeyListener android_widget_TextView::getKeyListe
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -5002,15 +4710,13 @@ AndroidCXX::android_text_method_KeyListener android_widget_TextView::getKeyListe
 	AndroidCXX::android_text_method_KeyListener result((AndroidCXX::android_text_method_KeyListener) *((AndroidCXX::android_text_method_KeyListener *) cxx_value));
 	delete ((AndroidCXX::android_text_method_KeyListener *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_text_method_KeyListener android_widget_TextView::getKeyListener() exit");
 
 	return result;
 }
-void android_widget_TextView::setKeyListener(AndroidCXX::android_text_method_KeyListener& arg0)
+void android_widget_TextView::setKeyListener(AndroidCXX::android_text_method_KeyListener const& arg0)
 {
-	LOGV("void android_widget_TextView::setKeyListener(AndroidCXX::android_text_method_KeyListener& arg0) enter");
+	LOGV("void android_widget_TextView::setKeyListener(AndroidCXX::android_text_method_KeyListener const& arg0) enter");
 
 	const char *methodName = "setKeyListener";
 	const char *methodSignature = "(Landroid/text/method/KeyListener;)V";
@@ -5020,8 +4726,6 @@ void android_widget_TextView::setKeyListener(AndroidCXX::android_text_method_Key
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -5052,9 +4756,7 @@ void android_widget_TextView::setKeyListener(AndroidCXX::android_text_method_Key
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setKeyListener(AndroidCXX::android_text_method_KeyListener& arg0) exit");
+	LOGV("void android_widget_TextView::setKeyListener(AndroidCXX::android_text_method_KeyListener const& arg0) exit");
 
 }
 AndroidCXX::android_text_method_MovementMethod android_widget_TextView::getMovementMethod()
@@ -5069,8 +4771,6 @@ AndroidCXX::android_text_method_MovementMethod android_widget_TextView::getMovem
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -5099,15 +4799,13 @@ AndroidCXX::android_text_method_MovementMethod android_widget_TextView::getMovem
 	AndroidCXX::android_text_method_MovementMethod result((AndroidCXX::android_text_method_MovementMethod) *((AndroidCXX::android_text_method_MovementMethod *) cxx_value));
 	delete ((AndroidCXX::android_text_method_MovementMethod *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_text_method_MovementMethod android_widget_TextView::getMovementMethod() exit");
 
 	return result;
 }
-void android_widget_TextView::setMovementMethod(AndroidCXX::android_text_method_MovementMethod& arg0)
+void android_widget_TextView::setMovementMethod(AndroidCXX::android_text_method_MovementMethod const& arg0)
 {
-	LOGV("void android_widget_TextView::setMovementMethod(AndroidCXX::android_text_method_MovementMethod& arg0) enter");
+	LOGV("void android_widget_TextView::setMovementMethod(AndroidCXX::android_text_method_MovementMethod const& arg0) enter");
 
 	const char *methodName = "setMovementMethod";
 	const char *methodSignature = "(Landroid/text/method/MovementMethod;)V";
@@ -5117,8 +4815,6 @@ void android_widget_TextView::setMovementMethod(AndroidCXX::android_text_method_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -5149,9 +4845,7 @@ void android_widget_TextView::setMovementMethod(AndroidCXX::android_text_method_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setMovementMethod(AndroidCXX::android_text_method_MovementMethod& arg0) exit");
+	LOGV("void android_widget_TextView::setMovementMethod(AndroidCXX::android_text_method_MovementMethod const& arg0) exit");
 
 }
 AndroidCXX::android_text_method_TransformationMethod android_widget_TextView::getTransformationMethod()
@@ -5166,8 +4860,6 @@ AndroidCXX::android_text_method_TransformationMethod android_widget_TextView::ge
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -5196,15 +4888,13 @@ AndroidCXX::android_text_method_TransformationMethod android_widget_TextView::ge
 	AndroidCXX::android_text_method_TransformationMethod result((AndroidCXX::android_text_method_TransformationMethod) *((AndroidCXX::android_text_method_TransformationMethod *) cxx_value));
 	delete ((AndroidCXX::android_text_method_TransformationMethod *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_text_method_TransformationMethod android_widget_TextView::getTransformationMethod() exit");
 
 	return result;
 }
-void android_widget_TextView::setTransformationMethod(AndroidCXX::android_text_method_TransformationMethod& arg0)
+void android_widget_TextView::setTransformationMethod(AndroidCXX::android_text_method_TransformationMethod const& arg0)
 {
-	LOGV("void android_widget_TextView::setTransformationMethod(AndroidCXX::android_text_method_TransformationMethod& arg0) enter");
+	LOGV("void android_widget_TextView::setTransformationMethod(AndroidCXX::android_text_method_TransformationMethod const& arg0) enter");
 
 	const char *methodName = "setTransformationMethod";
 	const char *methodSignature = "(Landroid/text/method/TransformationMethod;)V";
@@ -5214,8 +4904,6 @@ void android_widget_TextView::setTransformationMethod(AndroidCXX::android_text_m
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -5246,9 +4934,7 @@ void android_widget_TextView::setTransformationMethod(AndroidCXX::android_text_m
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setTransformationMethod(AndroidCXX::android_text_method_TransformationMethod& arg0) exit");
+	LOGV("void android_widget_TextView::setTransformationMethod(AndroidCXX::android_text_method_TransformationMethod const& arg0) exit");
 
 }
 int android_widget_TextView::getCompoundPaddingTop()
@@ -5263,8 +4949,6 @@ int android_widget_TextView::getCompoundPaddingTop()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -5293,8 +4977,6 @@ int android_widget_TextView::getCompoundPaddingTop()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getCompoundPaddingTop() exit");
 
 	return result;
@@ -5312,8 +4994,6 @@ int android_widget_TextView::getCompoundPaddingBottom()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5341,8 +5021,6 @@ int android_widget_TextView::getCompoundPaddingBottom()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getCompoundPaddingBottom() exit");
 
 	return result;
@@ -5360,8 +5038,6 @@ int android_widget_TextView::getCompoundPaddingLeft()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5389,8 +5065,6 @@ int android_widget_TextView::getCompoundPaddingLeft()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getCompoundPaddingLeft() exit");
 
 	return result;
@@ -5408,8 +5082,6 @@ int android_widget_TextView::getCompoundPaddingRight()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5437,8 +5109,6 @@ int android_widget_TextView::getCompoundPaddingRight()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getCompoundPaddingRight() exit");
 
 	return result;
@@ -5456,8 +5126,6 @@ int android_widget_TextView::getCompoundPaddingStart()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5485,8 +5153,6 @@ int android_widget_TextView::getCompoundPaddingStart()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getCompoundPaddingStart() exit");
 
 	return result;
@@ -5504,8 +5170,6 @@ int android_widget_TextView::getCompoundPaddingEnd()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5533,8 +5197,6 @@ int android_widget_TextView::getCompoundPaddingEnd()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getCompoundPaddingEnd() exit");
 
 	return result;
@@ -5552,8 +5214,6 @@ int android_widget_TextView::getExtendedPaddingTop()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5581,8 +5241,6 @@ int android_widget_TextView::getExtendedPaddingTop()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getExtendedPaddingTop() exit");
 
 	return result;
@@ -5600,8 +5258,6 @@ int android_widget_TextView::getExtendedPaddingBottom()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5629,8 +5285,6 @@ int android_widget_TextView::getExtendedPaddingBottom()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getExtendedPaddingBottom() exit");
 
 	return result;
@@ -5648,8 +5302,6 @@ int android_widget_TextView::getTotalPaddingLeft()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5677,8 +5329,6 @@ int android_widget_TextView::getTotalPaddingLeft()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getTotalPaddingLeft() exit");
 
 	return result;
@@ -5696,8 +5346,6 @@ int android_widget_TextView::getTotalPaddingRight()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5725,8 +5373,6 @@ int android_widget_TextView::getTotalPaddingRight()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getTotalPaddingRight() exit");
 
 	return result;
@@ -5744,8 +5390,6 @@ int android_widget_TextView::getTotalPaddingStart()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5773,8 +5417,6 @@ int android_widget_TextView::getTotalPaddingStart()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getTotalPaddingStart() exit");
 
 	return result;
@@ -5792,8 +5434,6 @@ int android_widget_TextView::getTotalPaddingEnd()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5821,8 +5461,6 @@ int android_widget_TextView::getTotalPaddingEnd()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getTotalPaddingEnd() exit");
 
 	return result;
@@ -5840,8 +5478,6 @@ int android_widget_TextView::getTotalPaddingTop()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5869,8 +5505,6 @@ int android_widget_TextView::getTotalPaddingTop()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getTotalPaddingTop() exit");
 
 	return result;
@@ -5888,8 +5522,6 @@ int android_widget_TextView::getTotalPaddingBottom()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5917,15 +5549,13 @@ int android_widget_TextView::getTotalPaddingBottom()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getTotalPaddingBottom() exit");
 
 	return result;
 }
-void android_widget_TextView::setCompoundDrawables(AndroidCXX::android_graphics_drawable_Drawable& arg0,AndroidCXX::android_graphics_drawable_Drawable& arg1,AndroidCXX::android_graphics_drawable_Drawable& arg2,AndroidCXX::android_graphics_drawable_Drawable& arg3)
+void android_widget_TextView::setCompoundDrawables(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1,AndroidCXX::android_graphics_drawable_Drawable const& arg2,AndroidCXX::android_graphics_drawable_Drawable const& arg3)
 {
-	LOGV("void android_widget_TextView::setCompoundDrawables(AndroidCXX::android_graphics_drawable_Drawable& arg0,AndroidCXX::android_graphics_drawable_Drawable& arg1,AndroidCXX::android_graphics_drawable_Drawable& arg2,AndroidCXX::android_graphics_drawable_Drawable& arg3) enter");
+	LOGV("void android_widget_TextView::setCompoundDrawables(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1,AndroidCXX::android_graphics_drawable_Drawable const& arg2,AndroidCXX::android_graphics_drawable_Drawable const& arg3) enter");
 
 	const char *methodName = "setCompoundDrawables";
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V";
@@ -5936,8 +5566,6 @@ void android_widget_TextView::setCompoundDrawables(AndroidCXX::android_graphics_
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -6030,14 +5658,12 @@ void android_widget_TextView::setCompoundDrawables(AndroidCXX::android_graphics_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setCompoundDrawables(AndroidCXX::android_graphics_drawable_Drawable& arg0,AndroidCXX::android_graphics_drawable_Drawable& arg1,AndroidCXX::android_graphics_drawable_Drawable& arg2,AndroidCXX::android_graphics_drawable_Drawable& arg3) exit");
+	LOGV("void android_widget_TextView::setCompoundDrawables(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1,AndroidCXX::android_graphics_drawable_Drawable const& arg2,AndroidCXX::android_graphics_drawable_Drawable const& arg3) exit");
 
 }
-void android_widget_TextView::setCompoundDrawablesWithIntrinsicBounds(int& arg0,int& arg1,int& arg2,int& arg3)
+void android_widget_TextView::setCompoundDrawablesWithIntrinsicBounds(int const& arg0,int const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("void android_widget_TextView::setCompoundDrawablesWithIntrinsicBounds(int& arg0,int& arg1,int& arg2,int& arg3) enter");
+	LOGV("void android_widget_TextView::setCompoundDrawablesWithIntrinsicBounds(int const& arg0,int const& arg1,int const& arg2,int const& arg3) enter");
 
 	const char *methodName = "setCompoundDrawablesWithIntrinsicBounds";
 	const char *methodSignature = "(IIII)V";
@@ -6047,8 +5673,6 @@ void android_widget_TextView::setCompoundDrawablesWithIntrinsicBounds(int& arg0,
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -6142,14 +5766,12 @@ void android_widget_TextView::setCompoundDrawablesWithIntrinsicBounds(int& arg0,
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setCompoundDrawablesWithIntrinsicBounds(int& arg0,int& arg1,int& arg2,int& arg3) exit");
+	LOGV("void android_widget_TextView::setCompoundDrawablesWithIntrinsicBounds(int const& arg0,int const& arg1,int const& arg2,int const& arg3) exit");
 
 }
-void android_widget_TextView::setCompoundDrawablesWithIntrinsicBounds(AndroidCXX::android_graphics_drawable_Drawable& arg0,AndroidCXX::android_graphics_drawable_Drawable& arg1,AndroidCXX::android_graphics_drawable_Drawable& arg2,AndroidCXX::android_graphics_drawable_Drawable& arg3)
+void android_widget_TextView::setCompoundDrawablesWithIntrinsicBounds(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1,AndroidCXX::android_graphics_drawable_Drawable const& arg2,AndroidCXX::android_graphics_drawable_Drawable const& arg3)
 {
-	LOGV("void android_widget_TextView::setCompoundDrawablesWithIntrinsicBounds(AndroidCXX::android_graphics_drawable_Drawable& arg0,AndroidCXX::android_graphics_drawable_Drawable& arg1,AndroidCXX::android_graphics_drawable_Drawable& arg2,AndroidCXX::android_graphics_drawable_Drawable& arg3) enter");
+	LOGV("void android_widget_TextView::setCompoundDrawablesWithIntrinsicBounds(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1,AndroidCXX::android_graphics_drawable_Drawable const& arg2,AndroidCXX::android_graphics_drawable_Drawable const& arg3) enter");
 
 	const char *methodName = "setCompoundDrawablesWithIntrinsicBounds";
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V";
@@ -6159,8 +5781,6 @@ void android_widget_TextView::setCompoundDrawablesWithIntrinsicBounds(AndroidCXX
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -6254,14 +5874,12 @@ void android_widget_TextView::setCompoundDrawablesWithIntrinsicBounds(AndroidCXX
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setCompoundDrawablesWithIntrinsicBounds(AndroidCXX::android_graphics_drawable_Drawable& arg0,AndroidCXX::android_graphics_drawable_Drawable& arg1,AndroidCXX::android_graphics_drawable_Drawable& arg2,AndroidCXX::android_graphics_drawable_Drawable& arg3) exit");
+	LOGV("void android_widget_TextView::setCompoundDrawablesWithIntrinsicBounds(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1,AndroidCXX::android_graphics_drawable_Drawable const& arg2,AndroidCXX::android_graphics_drawable_Drawable const& arg3) exit");
 
 }
-void android_widget_TextView::setCompoundDrawablesRelative(AndroidCXX::android_graphics_drawable_Drawable& arg0,AndroidCXX::android_graphics_drawable_Drawable& arg1,AndroidCXX::android_graphics_drawable_Drawable& arg2,AndroidCXX::android_graphics_drawable_Drawable& arg3)
+void android_widget_TextView::setCompoundDrawablesRelative(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1,AndroidCXX::android_graphics_drawable_Drawable const& arg2,AndroidCXX::android_graphics_drawable_Drawable const& arg3)
 {
-	LOGV("void android_widget_TextView::setCompoundDrawablesRelative(AndroidCXX::android_graphics_drawable_Drawable& arg0,AndroidCXX::android_graphics_drawable_Drawable& arg1,AndroidCXX::android_graphics_drawable_Drawable& arg2,AndroidCXX::android_graphics_drawable_Drawable& arg3) enter");
+	LOGV("void android_widget_TextView::setCompoundDrawablesRelative(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1,AndroidCXX::android_graphics_drawable_Drawable const& arg2,AndroidCXX::android_graphics_drawable_Drawable const& arg3) enter");
 
 	const char *methodName = "setCompoundDrawablesRelative";
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V";
@@ -6272,8 +5890,6 @@ void android_widget_TextView::setCompoundDrawablesRelative(AndroidCXX::android_g
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -6366,14 +5982,12 @@ void android_widget_TextView::setCompoundDrawablesRelative(AndroidCXX::android_g
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setCompoundDrawablesRelative(AndroidCXX::android_graphics_drawable_Drawable& arg0,AndroidCXX::android_graphics_drawable_Drawable& arg1,AndroidCXX::android_graphics_drawable_Drawable& arg2,AndroidCXX::android_graphics_drawable_Drawable& arg3) exit");
+	LOGV("void android_widget_TextView::setCompoundDrawablesRelative(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1,AndroidCXX::android_graphics_drawable_Drawable const& arg2,AndroidCXX::android_graphics_drawable_Drawable const& arg3) exit");
 
 }
-void android_widget_TextView::setCompoundDrawablesRelativeWithIntrinsicBounds(int& arg0,int& arg1,int& arg2,int& arg3)
+void android_widget_TextView::setCompoundDrawablesRelativeWithIntrinsicBounds(int const& arg0,int const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("void android_widget_TextView::setCompoundDrawablesRelativeWithIntrinsicBounds(int& arg0,int& arg1,int& arg2,int& arg3) enter");
+	LOGV("void android_widget_TextView::setCompoundDrawablesRelativeWithIntrinsicBounds(int const& arg0,int const& arg1,int const& arg2,int const& arg3) enter");
 
 	const char *methodName = "setCompoundDrawablesRelativeWithIntrinsicBounds";
 	const char *methodSignature = "(IIII)V";
@@ -6383,8 +5997,6 @@ void android_widget_TextView::setCompoundDrawablesRelativeWithIntrinsicBounds(in
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -6478,14 +6090,12 @@ void android_widget_TextView::setCompoundDrawablesRelativeWithIntrinsicBounds(in
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setCompoundDrawablesRelativeWithIntrinsicBounds(int& arg0,int& arg1,int& arg2,int& arg3) exit");
+	LOGV("void android_widget_TextView::setCompoundDrawablesRelativeWithIntrinsicBounds(int const& arg0,int const& arg1,int const& arg2,int const& arg3) exit");
 
 }
-void android_widget_TextView::setCompoundDrawablesRelativeWithIntrinsicBounds(AndroidCXX::android_graphics_drawable_Drawable& arg0,AndroidCXX::android_graphics_drawable_Drawable& arg1,AndroidCXX::android_graphics_drawable_Drawable& arg2,AndroidCXX::android_graphics_drawable_Drawable& arg3)
+void android_widget_TextView::setCompoundDrawablesRelativeWithIntrinsicBounds(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1,AndroidCXX::android_graphics_drawable_Drawable const& arg2,AndroidCXX::android_graphics_drawable_Drawable const& arg3)
 {
-	LOGV("void android_widget_TextView::setCompoundDrawablesRelativeWithIntrinsicBounds(AndroidCXX::android_graphics_drawable_Drawable& arg0,AndroidCXX::android_graphics_drawable_Drawable& arg1,AndroidCXX::android_graphics_drawable_Drawable& arg2,AndroidCXX::android_graphics_drawable_Drawable& arg3) enter");
+	LOGV("void android_widget_TextView::setCompoundDrawablesRelativeWithIntrinsicBounds(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1,AndroidCXX::android_graphics_drawable_Drawable const& arg2,AndroidCXX::android_graphics_drawable_Drawable const& arg3) enter");
 
 	const char *methodName = "setCompoundDrawablesRelativeWithIntrinsicBounds";
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V";
@@ -6495,8 +6105,6 @@ void android_widget_TextView::setCompoundDrawablesRelativeWithIntrinsicBounds(An
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -6590,9 +6198,7 @@ void android_widget_TextView::setCompoundDrawablesRelativeWithIntrinsicBounds(An
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setCompoundDrawablesRelativeWithIntrinsicBounds(AndroidCXX::android_graphics_drawable_Drawable& arg0,AndroidCXX::android_graphics_drawable_Drawable& arg1,AndroidCXX::android_graphics_drawable_Drawable& arg2,AndroidCXX::android_graphics_drawable_Drawable& arg3) exit");
+	LOGV("void android_widget_TextView::setCompoundDrawablesRelativeWithIntrinsicBounds(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1,AndroidCXX::android_graphics_drawable_Drawable const& arg2,AndroidCXX::android_graphics_drawable_Drawable const& arg3) exit");
 
 }
 std::vector<AndroidCXX::android_graphics_drawable_Drawable > android_widget_TextView::getCompoundDrawables()
@@ -6607,8 +6213,6 @@ std::vector<AndroidCXX::android_graphics_drawable_Drawable > android_widget_Text
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -6655,8 +6259,6 @@ std::vector<AndroidCXX::android_graphics_drawable_Drawable > android_widget_Text
 	std::vector<AndroidCXX::android_graphics_drawable_Drawable > result = (std::vector<AndroidCXX::android_graphics_drawable_Drawable >) *((std::vector<AndroidCXX::android_graphics_drawable_Drawable > *) cxx_value);
 	delete ((std::vector<AndroidCXX::android_graphics_drawable_Drawable > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<AndroidCXX::android_graphics_drawable_Drawable > android_widget_TextView::getCompoundDrawables() exit");
 
 	return result;
@@ -6674,8 +6276,6 @@ std::vector<AndroidCXX::android_graphics_drawable_Drawable > android_widget_Text
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -6721,15 +6321,13 @@ std::vector<AndroidCXX::android_graphics_drawable_Drawable > android_widget_Text
 	std::vector<AndroidCXX::android_graphics_drawable_Drawable > result = (std::vector<AndroidCXX::android_graphics_drawable_Drawable >) *((std::vector<AndroidCXX::android_graphics_drawable_Drawable > *) cxx_value);
 	delete ((std::vector<AndroidCXX::android_graphics_drawable_Drawable > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<AndroidCXX::android_graphics_drawable_Drawable > android_widget_TextView::getCompoundDrawablesRelative() exit");
 
 	return result;
 }
-void android_widget_TextView::setCompoundDrawablePadding(int& arg0)
+void android_widget_TextView::setCompoundDrawablePadding(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setCompoundDrawablePadding(int& arg0) enter");
+	LOGV("void android_widget_TextView::setCompoundDrawablePadding(int const& arg0) enter");
 
 	const char *methodName = "setCompoundDrawablePadding";
 	const char *methodSignature = "(I)V";
@@ -6739,8 +6337,6 @@ void android_widget_TextView::setCompoundDrawablePadding(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -6771,9 +6367,7 @@ void android_widget_TextView::setCompoundDrawablePadding(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setCompoundDrawablePadding(int& arg0) exit");
+	LOGV("void android_widget_TextView::setCompoundDrawablePadding(int const& arg0) exit");
 
 }
 int android_widget_TextView::getCompoundDrawablePadding()
@@ -6788,8 +6382,6 @@ int android_widget_TextView::getCompoundDrawablePadding()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -6818,8 +6410,6 @@ int android_widget_TextView::getCompoundDrawablePadding()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getCompoundDrawablePadding() exit");
 
 	return result;
@@ -6837,8 +6427,6 @@ int android_widget_TextView::getAutoLinkMask()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -6866,15 +6454,13 @@ int android_widget_TextView::getAutoLinkMask()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getAutoLinkMask() exit");
 
 	return result;
 }
-void android_widget_TextView::setTextAppearance(AndroidCXX::android_content_Context& arg0,int& arg1)
+void android_widget_TextView::setTextAppearance(AndroidCXX::android_content_Context const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_TextView::setTextAppearance(AndroidCXX::android_content_Context& arg0,int& arg1) enter");
+	LOGV("void android_widget_TextView::setTextAppearance(AndroidCXX::android_content_Context const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setTextAppearance";
 	const char *methodSignature = "(Landroid/content/Context;I)V";
@@ -6884,8 +6470,6 @@ void android_widget_TextView::setTextAppearance(AndroidCXX::android_content_Cont
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -6937,14 +6521,12 @@ void android_widget_TextView::setTextAppearance(AndroidCXX::android_content_Cont
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setTextAppearance(AndroidCXX::android_content_Context& arg0,int& arg1) exit");
+	LOGV("void android_widget_TextView::setTextAppearance(AndroidCXX::android_content_Context const& arg0,int const& arg1) exit");
 
 }
-void android_widget_TextView::setTextColor(AndroidCXX::android_content_res_ColorStateList& arg0)
+void android_widget_TextView::setTextColor(AndroidCXX::android_content_res_ColorStateList const& arg0)
 {
-	LOGV("void android_widget_TextView::setTextColor(AndroidCXX::android_content_res_ColorStateList& arg0) enter");
+	LOGV("void android_widget_TextView::setTextColor(AndroidCXX::android_content_res_ColorStateList const& arg0) enter");
 
 	const char *methodName = "setTextColor";
 	const char *methodSignature = "(Landroid/content/res/ColorStateList;)V";
@@ -6954,8 +6536,6 @@ void android_widget_TextView::setTextColor(AndroidCXX::android_content_res_Color
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -6986,14 +6566,12 @@ void android_widget_TextView::setTextColor(AndroidCXX::android_content_res_Color
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setTextColor(AndroidCXX::android_content_res_ColorStateList& arg0) exit");
+	LOGV("void android_widget_TextView::setTextColor(AndroidCXX::android_content_res_ColorStateList const& arg0) exit");
 
 }
-void android_widget_TextView::setTextColor(int& arg0)
+void android_widget_TextView::setTextColor(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setTextColor(int& arg0) enter");
+	LOGV("void android_widget_TextView::setTextColor(int const& arg0) enter");
 
 	const char *methodName = "setTextColor";
 	const char *methodSignature = "(I)V";
@@ -7003,8 +6581,6 @@ void android_widget_TextView::setTextColor(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -7035,14 +6611,12 @@ void android_widget_TextView::setTextColor(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setTextColor(int& arg0) exit");
+	LOGV("void android_widget_TextView::setTextColor(int const& arg0) exit");
 
 }
-AndroidCXX::android_content_res_ColorStateList android_widget_TextView::getTextColors(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_content_res_TypedArray& arg1)
+AndroidCXX::android_content_res_ColorStateList android_widget_TextView::getTextColors(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_content_res_TypedArray const& arg1)
 {
-	LOGV("AndroidCXX::android_content_res_ColorStateList android_widget_TextView::getTextColors(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_content_res_TypedArray& arg1) enter");
+	LOGV("AndroidCXX::android_content_res_ColorStateList android_widget_TextView::getTextColors(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_content_res_TypedArray const& arg1) enter");
 
 	const char *methodName = "getTextColors";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/content/res/TypedArray;)Landroid/content/res/ColorStateList;";
@@ -7052,8 +6626,6 @@ AndroidCXX::android_content_res_ColorStateList android_widget_TextView::getTextC
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -7103,7 +6675,7 @@ AndroidCXX::android_content_res_ColorStateList android_widget_TextView::getTextC
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -7124,9 +6696,7 @@ AndroidCXX::android_content_res_ColorStateList android_widget_TextView::getTextC
 	AndroidCXX::android_content_res_ColorStateList result((AndroidCXX::android_content_res_ColorStateList) *((AndroidCXX::android_content_res_ColorStateList *) cxx_value));
 	delete ((AndroidCXX::android_content_res_ColorStateList *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_res_ColorStateList android_widget_TextView::getTextColors(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_content_res_TypedArray& arg1) exit");
+	LOGV("AndroidCXX::android_content_res_ColorStateList android_widget_TextView::getTextColors(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_content_res_TypedArray const& arg1) exit");
 
 	return result;
 }
@@ -7142,8 +6712,6 @@ AndroidCXX::android_content_res_ColorStateList android_widget_TextView::getTextC
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -7172,8 +6740,6 @@ AndroidCXX::android_content_res_ColorStateList android_widget_TextView::getTextC
 	AndroidCXX::android_content_res_ColorStateList result((AndroidCXX::android_content_res_ColorStateList) *((AndroidCXX::android_content_res_ColorStateList *) cxx_value));
 	delete ((AndroidCXX::android_content_res_ColorStateList *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_content_res_ColorStateList android_widget_TextView::getTextColors() exit");
 
 	return result;
@@ -7190,8 +6756,6 @@ int android_widget_TextView::getCurrentTextColor()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -7220,15 +6784,13 @@ int android_widget_TextView::getCurrentTextColor()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getCurrentTextColor() exit");
 
 	return result;
 }
-void android_widget_TextView::setHighlightColor(int& arg0)
+void android_widget_TextView::setHighlightColor(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setHighlightColor(int& arg0) enter");
+	LOGV("void android_widget_TextView::setHighlightColor(int const& arg0) enter");
 
 	const char *methodName = "setHighlightColor";
 	const char *methodSignature = "(I)V";
@@ -7238,8 +6800,6 @@ void android_widget_TextView::setHighlightColor(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -7270,9 +6830,7 @@ void android_widget_TextView::setHighlightColor(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setHighlightColor(int& arg0) exit");
+	LOGV("void android_widget_TextView::setHighlightColor(int const& arg0) exit");
 
 }
 int android_widget_TextView::getHighlightColor()
@@ -7287,8 +6845,6 @@ int android_widget_TextView::getHighlightColor()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -7317,8 +6873,6 @@ int android_widget_TextView::getHighlightColor()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getHighlightColor() exit");
 
 	return result;
@@ -7336,8 +6890,6 @@ float android_widget_TextView::getShadowRadius()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -7365,8 +6917,6 @@ float android_widget_TextView::getShadowRadius()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float android_widget_TextView::getShadowRadius() exit");
 
 	return result;
@@ -7384,8 +6934,6 @@ float android_widget_TextView::getShadowDx()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -7413,8 +6961,6 @@ float android_widget_TextView::getShadowDx()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float android_widget_TextView::getShadowDx() exit");
 
 	return result;
@@ -7432,8 +6978,6 @@ float android_widget_TextView::getShadowDy()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -7461,8 +7005,6 @@ float android_widget_TextView::getShadowDy()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float android_widget_TextView::getShadowDy() exit");
 
 	return result;
@@ -7479,8 +7021,6 @@ int android_widget_TextView::getShadowColor()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -7509,8 +7049,6 @@ int android_widget_TextView::getShadowColor()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getShadowColor() exit");
 
 	return result;
@@ -7527,8 +7065,6 @@ AndroidCXX::android_text_TextPaint android_widget_TextView::getPaint()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -7557,15 +7093,13 @@ AndroidCXX::android_text_TextPaint android_widget_TextView::getPaint()
 	AndroidCXX::android_text_TextPaint result((AndroidCXX::android_text_TextPaint) *((AndroidCXX::android_text_TextPaint *) cxx_value));
 	delete ((AndroidCXX::android_text_TextPaint *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_text_TextPaint android_widget_TextView::getPaint() exit");
 
 	return result;
 }
-void android_widget_TextView::setAutoLinkMask(int& arg0)
+void android_widget_TextView::setAutoLinkMask(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setAutoLinkMask(int& arg0) enter");
+	LOGV("void android_widget_TextView::setAutoLinkMask(int const& arg0) enter");
 
 	const char *methodName = "setAutoLinkMask";
 	const char *methodSignature = "(I)V";
@@ -7575,8 +7109,6 @@ void android_widget_TextView::setAutoLinkMask(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -7607,14 +7139,12 @@ void android_widget_TextView::setAutoLinkMask(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setAutoLinkMask(int& arg0) exit");
+	LOGV("void android_widget_TextView::setAutoLinkMask(int const& arg0) exit");
 
 }
-void android_widget_TextView::setLinksClickable(bool& arg0)
+void android_widget_TextView::setLinksClickable(bool const& arg0)
 {
-	LOGV("void android_widget_TextView::setLinksClickable(bool& arg0) enter");
+	LOGV("void android_widget_TextView::setLinksClickable(bool const& arg0) enter");
 
 	const char *methodName = "setLinksClickable";
 	const char *methodSignature = "(Z)V";
@@ -7624,8 +7154,6 @@ void android_widget_TextView::setLinksClickable(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -7656,9 +7184,7 @@ void android_widget_TextView::setLinksClickable(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setLinksClickable(bool& arg0) exit");
+	LOGV("void android_widget_TextView::setLinksClickable(bool const& arg0) exit");
 
 }
 bool android_widget_TextView::getLinksClickable()
@@ -7673,8 +7199,6 @@ bool android_widget_TextView::getLinksClickable()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -7703,8 +7227,6 @@ bool android_widget_TextView::getLinksClickable()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_TextView::getLinksClickable() exit");
 
 	return result;
@@ -7721,8 +7243,6 @@ std::vector<AndroidCXX::android_text_style_URLSpan > android_widget_TextView::ge
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -7769,15 +7289,13 @@ std::vector<AndroidCXX::android_text_style_URLSpan > android_widget_TextView::ge
 	std::vector<AndroidCXX::android_text_style_URLSpan > result = (std::vector<AndroidCXX::android_text_style_URLSpan >) *((std::vector<AndroidCXX::android_text_style_URLSpan > *) cxx_value);
 	delete ((std::vector<AndroidCXX::android_text_style_URLSpan > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<AndroidCXX::android_text_style_URLSpan > android_widget_TextView::getUrls() exit");
 
 	return result;
 }
-void android_widget_TextView::setHintTextColor(AndroidCXX::android_content_res_ColorStateList& arg0)
+void android_widget_TextView::setHintTextColor(AndroidCXX::android_content_res_ColorStateList const& arg0)
 {
-	LOGV("void android_widget_TextView::setHintTextColor(AndroidCXX::android_content_res_ColorStateList& arg0) enter");
+	LOGV("void android_widget_TextView::setHintTextColor(AndroidCXX::android_content_res_ColorStateList const& arg0) enter");
 
 	const char *methodName = "setHintTextColor";
 	const char *methodSignature = "(Landroid/content/res/ColorStateList;)V";
@@ -7787,8 +7305,6 @@ void android_widget_TextView::setHintTextColor(AndroidCXX::android_content_res_C
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -7819,14 +7335,12 @@ void android_widget_TextView::setHintTextColor(AndroidCXX::android_content_res_C
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setHintTextColor(AndroidCXX::android_content_res_ColorStateList& arg0) exit");
+	LOGV("void android_widget_TextView::setHintTextColor(AndroidCXX::android_content_res_ColorStateList const& arg0) exit");
 
 }
-void android_widget_TextView::setHintTextColor(int& arg0)
+void android_widget_TextView::setHintTextColor(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setHintTextColor(int& arg0) enter");
+	LOGV("void android_widget_TextView::setHintTextColor(int const& arg0) enter");
 
 	const char *methodName = "setHintTextColor";
 	const char *methodSignature = "(I)V";
@@ -7836,8 +7350,6 @@ void android_widget_TextView::setHintTextColor(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -7868,9 +7380,7 @@ void android_widget_TextView::setHintTextColor(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setHintTextColor(int& arg0) exit");
+	LOGV("void android_widget_TextView::setHintTextColor(int const& arg0) exit");
 
 }
 AndroidCXX::android_content_res_ColorStateList android_widget_TextView::getHintTextColors()
@@ -7885,8 +7395,6 @@ AndroidCXX::android_content_res_ColorStateList android_widget_TextView::getHintT
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -7915,8 +7423,6 @@ AndroidCXX::android_content_res_ColorStateList android_widget_TextView::getHintT
 	AndroidCXX::android_content_res_ColorStateList result((AndroidCXX::android_content_res_ColorStateList) *((AndroidCXX::android_content_res_ColorStateList *) cxx_value));
 	delete ((AndroidCXX::android_content_res_ColorStateList *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_content_res_ColorStateList android_widget_TextView::getHintTextColors() exit");
 
 	return result;
@@ -7934,8 +7440,6 @@ int android_widget_TextView::getCurrentHintTextColor()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -7963,15 +7467,13 @@ int android_widget_TextView::getCurrentHintTextColor()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getCurrentHintTextColor() exit");
 
 	return result;
 }
-void android_widget_TextView::setLinkTextColor(int& arg0)
+void android_widget_TextView::setLinkTextColor(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setLinkTextColor(int& arg0) enter");
+	LOGV("void android_widget_TextView::setLinkTextColor(int const& arg0) enter");
 
 	const char *methodName = "setLinkTextColor";
 	const char *methodSignature = "(I)V";
@@ -7981,8 +7483,6 @@ void android_widget_TextView::setLinkTextColor(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -8013,14 +7513,12 @@ void android_widget_TextView::setLinkTextColor(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setLinkTextColor(int& arg0) exit");
+	LOGV("void android_widget_TextView::setLinkTextColor(int const& arg0) exit");
 
 }
-void android_widget_TextView::setLinkTextColor(AndroidCXX::android_content_res_ColorStateList& arg0)
+void android_widget_TextView::setLinkTextColor(AndroidCXX::android_content_res_ColorStateList const& arg0)
 {
-	LOGV("void android_widget_TextView::setLinkTextColor(AndroidCXX::android_content_res_ColorStateList& arg0) enter");
+	LOGV("void android_widget_TextView::setLinkTextColor(AndroidCXX::android_content_res_ColorStateList const& arg0) enter");
 
 	const char *methodName = "setLinkTextColor";
 	const char *methodSignature = "(Landroid/content/res/ColorStateList;)V";
@@ -8030,8 +7528,6 @@ void android_widget_TextView::setLinkTextColor(AndroidCXX::android_content_res_C
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -8062,9 +7558,7 @@ void android_widget_TextView::setLinkTextColor(AndroidCXX::android_content_res_C
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setLinkTextColor(AndroidCXX::android_content_res_ColorStateList& arg0) exit");
+	LOGV("void android_widget_TextView::setLinkTextColor(AndroidCXX::android_content_res_ColorStateList const& arg0) exit");
 
 }
 AndroidCXX::android_content_res_ColorStateList android_widget_TextView::getLinkTextColors()
@@ -8079,8 +7573,6 @@ AndroidCXX::android_content_res_ColorStateList android_widget_TextView::getLinkT
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -8109,8 +7601,6 @@ AndroidCXX::android_content_res_ColorStateList android_widget_TextView::getLinkT
 	AndroidCXX::android_content_res_ColorStateList result((AndroidCXX::android_content_res_ColorStateList) *((AndroidCXX::android_content_res_ColorStateList *) cxx_value));
 	delete ((AndroidCXX::android_content_res_ColorStateList *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_content_res_ColorStateList android_widget_TextView::getLinkTextColors() exit");
 
 	return result;
@@ -8128,8 +7618,6 @@ int android_widget_TextView::getGravity()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -8157,8 +7645,6 @@ int android_widget_TextView::getGravity()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getGravity() exit");
 
 	return result;
@@ -8176,8 +7662,6 @@ int android_widget_TextView::getPaintFlags()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -8205,15 +7689,13 @@ int android_widget_TextView::getPaintFlags()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getPaintFlags() exit");
 
 	return result;
 }
-void android_widget_TextView::setPaintFlags(int& arg0)
+void android_widget_TextView::setPaintFlags(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setPaintFlags(int& arg0) enter");
+	LOGV("void android_widget_TextView::setPaintFlags(int const& arg0) enter");
 
 	const char *methodName = "setPaintFlags";
 	const char *methodSignature = "(I)V";
@@ -8223,8 +7705,6 @@ void android_widget_TextView::setPaintFlags(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -8255,14 +7735,12 @@ void android_widget_TextView::setPaintFlags(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setPaintFlags(int& arg0) exit");
+	LOGV("void android_widget_TextView::setPaintFlags(int const& arg0) exit");
 
 }
-void android_widget_TextView::setHorizontallyScrolling(bool& arg0)
+void android_widget_TextView::setHorizontallyScrolling(bool const& arg0)
 {
-	LOGV("void android_widget_TextView::setHorizontallyScrolling(bool& arg0) enter");
+	LOGV("void android_widget_TextView::setHorizontallyScrolling(bool const& arg0) enter");
 
 	const char *methodName = "setHorizontallyScrolling";
 	const char *methodSignature = "(Z)V";
@@ -8272,8 +7750,6 @@ void android_widget_TextView::setHorizontallyScrolling(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -8304,14 +7780,12 @@ void android_widget_TextView::setHorizontallyScrolling(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setHorizontallyScrolling(bool& arg0) exit");
+	LOGV("void android_widget_TextView::setHorizontallyScrolling(bool const& arg0) exit");
 
 }
-void android_widget_TextView::setMinLines(int& arg0)
+void android_widget_TextView::setMinLines(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setMinLines(int& arg0) enter");
+	LOGV("void android_widget_TextView::setMinLines(int const& arg0) enter");
 
 	const char *methodName = "setMinLines";
 	const char *methodSignature = "(I)V";
@@ -8321,8 +7795,6 @@ void android_widget_TextView::setMinLines(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -8353,9 +7825,7 @@ void android_widget_TextView::setMinLines(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setMinLines(int& arg0) exit");
+	LOGV("void android_widget_TextView::setMinLines(int const& arg0) exit");
 
 }
 int android_widget_TextView::getMinLines()
@@ -8371,8 +7841,6 @@ int android_widget_TextView::getMinLines()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -8400,15 +7868,13 @@ int android_widget_TextView::getMinLines()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getMinLines() exit");
 
 	return result;
 }
-void android_widget_TextView::setMinHeight(int& arg0)
+void android_widget_TextView::setMinHeight(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setMinHeight(int& arg0) enter");
+	LOGV("void android_widget_TextView::setMinHeight(int const& arg0) enter");
 
 	const char *methodName = "setMinHeight";
 	const char *methodSignature = "(I)V";
@@ -8418,8 +7884,6 @@ void android_widget_TextView::setMinHeight(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -8450,9 +7914,7 @@ void android_widget_TextView::setMinHeight(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setMinHeight(int& arg0) exit");
+	LOGV("void android_widget_TextView::setMinHeight(int const& arg0) exit");
 
 }
 int android_widget_TextView::getMinHeight()
@@ -8468,8 +7930,6 @@ int android_widget_TextView::getMinHeight()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -8497,15 +7957,13 @@ int android_widget_TextView::getMinHeight()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getMinHeight() exit");
 
 	return result;
 }
-void android_widget_TextView::setMaxLines(int& arg0)
+void android_widget_TextView::setMaxLines(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setMaxLines(int& arg0) enter");
+	LOGV("void android_widget_TextView::setMaxLines(int const& arg0) enter");
 
 	const char *methodName = "setMaxLines";
 	const char *methodSignature = "(I)V";
@@ -8515,8 +7973,6 @@ void android_widget_TextView::setMaxLines(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -8547,9 +8003,7 @@ void android_widget_TextView::setMaxLines(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setMaxLines(int& arg0) exit");
+	LOGV("void android_widget_TextView::setMaxLines(int const& arg0) exit");
 
 }
 int android_widget_TextView::getMaxLines()
@@ -8565,8 +8019,6 @@ int android_widget_TextView::getMaxLines()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -8594,15 +8046,13 @@ int android_widget_TextView::getMaxLines()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getMaxLines() exit");
 
 	return result;
 }
-void android_widget_TextView::setMaxHeight(int& arg0)
+void android_widget_TextView::setMaxHeight(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setMaxHeight(int& arg0) enter");
+	LOGV("void android_widget_TextView::setMaxHeight(int const& arg0) enter");
 
 	const char *methodName = "setMaxHeight";
 	const char *methodSignature = "(I)V";
@@ -8612,8 +8062,6 @@ void android_widget_TextView::setMaxHeight(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -8644,9 +8092,7 @@ void android_widget_TextView::setMaxHeight(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setMaxHeight(int& arg0) exit");
+	LOGV("void android_widget_TextView::setMaxHeight(int const& arg0) exit");
 
 }
 int android_widget_TextView::getMaxHeight()
@@ -8662,8 +8108,6 @@ int android_widget_TextView::getMaxHeight()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -8691,15 +8135,13 @@ int android_widget_TextView::getMaxHeight()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getMaxHeight() exit");
 
 	return result;
 }
-void android_widget_TextView::setLines(int& arg0)
+void android_widget_TextView::setLines(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setLines(int& arg0) enter");
+	LOGV("void android_widget_TextView::setLines(int const& arg0) enter");
 
 	const char *methodName = "setLines";
 	const char *methodSignature = "(I)V";
@@ -8710,8 +8152,6 @@ void android_widget_TextView::setLines(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -8741,14 +8181,12 @@ void android_widget_TextView::setLines(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setLines(int& arg0) exit");
+	LOGV("void android_widget_TextView::setLines(int const& arg0) exit");
 
 }
-void android_widget_TextView::setHeight(int& arg0)
+void android_widget_TextView::setHeight(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setHeight(int& arg0) enter");
+	LOGV("void android_widget_TextView::setHeight(int const& arg0) enter");
 
 	const char *methodName = "setHeight";
 	const char *methodSignature = "(I)V";
@@ -8759,8 +8197,6 @@ void android_widget_TextView::setHeight(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -8790,14 +8226,12 @@ void android_widget_TextView::setHeight(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setHeight(int& arg0) exit");
+	LOGV("void android_widget_TextView::setHeight(int const& arg0) exit");
 
 }
-void android_widget_TextView::setMinEms(int& arg0)
+void android_widget_TextView::setMinEms(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setMinEms(int& arg0) enter");
+	LOGV("void android_widget_TextView::setMinEms(int const& arg0) enter");
 
 	const char *methodName = "setMinEms";
 	const char *methodSignature = "(I)V";
@@ -8808,8 +8242,6 @@ void android_widget_TextView::setMinEms(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -8839,9 +8271,7 @@ void android_widget_TextView::setMinEms(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setMinEms(int& arg0) exit");
+	LOGV("void android_widget_TextView::setMinEms(int const& arg0) exit");
 
 }
 int android_widget_TextView::getMinEms()
@@ -8857,8 +8287,6 @@ int android_widget_TextView::getMinEms()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -8886,15 +8314,13 @@ int android_widget_TextView::getMinEms()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getMinEms() exit");
 
 	return result;
 }
-void android_widget_TextView::setMinWidth(int& arg0)
+void android_widget_TextView::setMinWidth(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setMinWidth(int& arg0) enter");
+	LOGV("void android_widget_TextView::setMinWidth(int const& arg0) enter");
 
 	const char *methodName = "setMinWidth";
 	const char *methodSignature = "(I)V";
@@ -8904,8 +8330,6 @@ void android_widget_TextView::setMinWidth(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -8936,9 +8360,7 @@ void android_widget_TextView::setMinWidth(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setMinWidth(int& arg0) exit");
+	LOGV("void android_widget_TextView::setMinWidth(int const& arg0) exit");
 
 }
 int android_widget_TextView::getMinWidth()
@@ -8954,8 +8376,6 @@ int android_widget_TextView::getMinWidth()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -8983,15 +8403,13 @@ int android_widget_TextView::getMinWidth()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getMinWidth() exit");
 
 	return result;
 }
-void android_widget_TextView::setMaxEms(int& arg0)
+void android_widget_TextView::setMaxEms(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setMaxEms(int& arg0) enter");
+	LOGV("void android_widget_TextView::setMaxEms(int const& arg0) enter");
 
 	const char *methodName = "setMaxEms";
 	const char *methodSignature = "(I)V";
@@ -9001,8 +8419,6 @@ void android_widget_TextView::setMaxEms(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -9033,9 +8449,7 @@ void android_widget_TextView::setMaxEms(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setMaxEms(int& arg0) exit");
+	LOGV("void android_widget_TextView::setMaxEms(int const& arg0) exit");
 
 }
 int android_widget_TextView::getMaxEms()
@@ -9051,8 +8465,6 @@ int android_widget_TextView::getMaxEms()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -9080,15 +8492,13 @@ int android_widget_TextView::getMaxEms()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getMaxEms() exit");
 
 	return result;
 }
-void android_widget_TextView::setMaxWidth(int& arg0)
+void android_widget_TextView::setMaxWidth(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setMaxWidth(int& arg0) enter");
+	LOGV("void android_widget_TextView::setMaxWidth(int const& arg0) enter");
 
 	const char *methodName = "setMaxWidth";
 	const char *methodSignature = "(I)V";
@@ -9098,8 +8508,6 @@ void android_widget_TextView::setMaxWidth(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -9130,9 +8538,7 @@ void android_widget_TextView::setMaxWidth(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setMaxWidth(int& arg0) exit");
+	LOGV("void android_widget_TextView::setMaxWidth(int const& arg0) exit");
 
 }
 int android_widget_TextView::getMaxWidth()
@@ -9148,8 +8554,6 @@ int android_widget_TextView::getMaxWidth()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -9177,15 +8581,13 @@ int android_widget_TextView::getMaxWidth()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getMaxWidth() exit");
 
 	return result;
 }
-void android_widget_TextView::setEms(int& arg0)
+void android_widget_TextView::setEms(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setEms(int& arg0) enter");
+	LOGV("void android_widget_TextView::setEms(int const& arg0) enter");
 
 	const char *methodName = "setEms";
 	const char *methodSignature = "(I)V";
@@ -9196,8 +8598,6 @@ void android_widget_TextView::setEms(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -9227,14 +8627,12 @@ void android_widget_TextView::setEms(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setEms(int& arg0) exit");
+	LOGV("void android_widget_TextView::setEms(int const& arg0) exit");
 
 }
-void android_widget_TextView::setWidth(int& arg0)
+void android_widget_TextView::setWidth(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setWidth(int& arg0) enter");
+	LOGV("void android_widget_TextView::setWidth(int const& arg0) enter");
 
 	const char *methodName = "setWidth";
 	const char *methodSignature = "(I)V";
@@ -9245,8 +8643,6 @@ void android_widget_TextView::setWidth(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -9276,14 +8672,12 @@ void android_widget_TextView::setWidth(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setWidth(int& arg0) exit");
+	LOGV("void android_widget_TextView::setWidth(int const& arg0) exit");
 
 }
-void android_widget_TextView::setLineSpacing(float& arg0,float& arg1)
+void android_widget_TextView::setLineSpacing(float const& arg0,float const& arg1)
 {
-	LOGV("void android_widget_TextView::setLineSpacing(float& arg0,float& arg1) enter");
+	LOGV("void android_widget_TextView::setLineSpacing(float const& arg0,float const& arg1) enter");
 
 	const char *methodName = "setLineSpacing";
 	const char *methodSignature = "(FF)V";
@@ -9293,8 +8687,6 @@ void android_widget_TextView::setLineSpacing(float& arg0,float& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -9346,9 +8738,7 @@ void android_widget_TextView::setLineSpacing(float& arg0,float& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setLineSpacing(float& arg0,float& arg1) exit");
+	LOGV("void android_widget_TextView::setLineSpacing(float const& arg0,float const& arg1) exit");
 
 }
 float android_widget_TextView::getLineSpacingMultiplier()
@@ -9363,8 +8753,6 @@ float android_widget_TextView::getLineSpacingMultiplier()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -9393,8 +8781,6 @@ float android_widget_TextView::getLineSpacingMultiplier()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float android_widget_TextView::getLineSpacingMultiplier() exit");
 
 	return result;
@@ -9412,8 +8798,6 @@ float android_widget_TextView::getLineSpacingExtra()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -9441,15 +8825,13 @@ float android_widget_TextView::getLineSpacingExtra()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float android_widget_TextView::getLineSpacingExtra() exit");
 
 	return result;
 }
-void android_widget_TextView::setFreezesText(bool& arg0)
+void android_widget_TextView::setFreezesText(bool const& arg0)
 {
-	LOGV("void android_widget_TextView::setFreezesText(bool& arg0) enter");
+	LOGV("void android_widget_TextView::setFreezesText(bool const& arg0) enter");
 
 	const char *methodName = "setFreezesText";
 	const char *methodSignature = "(Z)V";
@@ -9459,8 +8841,6 @@ void android_widget_TextView::setFreezesText(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -9491,9 +8871,7 @@ void android_widget_TextView::setFreezesText(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setFreezesText(bool& arg0) exit");
+	LOGV("void android_widget_TextView::setFreezesText(bool const& arg0) exit");
 
 }
 bool android_widget_TextView::getFreezesText()
@@ -9508,8 +8886,6 @@ bool android_widget_TextView::getFreezesText()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -9538,15 +8914,13 @@ bool android_widget_TextView::getFreezesText()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_TextView::getFreezesText() exit");
 
 	return result;
 }
-void android_widget_TextView::setEditableFactory(AndroidCXX::android_text_Editable_Factory& arg0)
+void android_widget_TextView::setEditableFactory(AndroidCXX::android_text_Editable_Factory const& arg0)
 {
-	LOGV("void android_widget_TextView::setEditableFactory(AndroidCXX::android_text_Editable_Factory& arg0) enter");
+	LOGV("void android_widget_TextView::setEditableFactory(AndroidCXX::android_text_Editable_Factory const& arg0) enter");
 
 	const char *methodName = "setEditableFactory";
 	const char *methodSignature = "(Landroid/text/Editable$Factory;)V";
@@ -9556,8 +8930,6 @@ void android_widget_TextView::setEditableFactory(AndroidCXX::android_text_Editab
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -9588,14 +8960,12 @@ void android_widget_TextView::setEditableFactory(AndroidCXX::android_text_Editab
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setEditableFactory(AndroidCXX::android_text_Editable_Factory& arg0) exit");
+	LOGV("void android_widget_TextView::setEditableFactory(AndroidCXX::android_text_Editable_Factory const& arg0) exit");
 
 }
-void android_widget_TextView::setSpannableFactory(AndroidCXX::android_text_Spannable_Factory& arg0)
+void android_widget_TextView::setSpannableFactory(AndroidCXX::android_text_Spannable_Factory const& arg0)
 {
-	LOGV("void android_widget_TextView::setSpannableFactory(AndroidCXX::android_text_Spannable_Factory& arg0) enter");
+	LOGV("void android_widget_TextView::setSpannableFactory(AndroidCXX::android_text_Spannable_Factory const& arg0) enter");
 
 	const char *methodName = "setSpannableFactory";
 	const char *methodSignature = "(Landroid/text/Spannable$Factory;)V";
@@ -9605,8 +8975,6 @@ void android_widget_TextView::setSpannableFactory(AndroidCXX::android_text_Spann
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -9637,14 +9005,12 @@ void android_widget_TextView::setSpannableFactory(AndroidCXX::android_text_Spann
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setSpannableFactory(AndroidCXX::android_text_Spannable_Factory& arg0) exit");
+	LOGV("void android_widget_TextView::setSpannableFactory(AndroidCXX::android_text_Spannable_Factory const& arg0) exit");
 
 }
-void android_widget_TextView::setTextKeepState(AndroidCXX::java_lang_CharSequence& arg0,ANDROID_WIDGET_TEXTVIEW_BUFFERTYPE::android_widget_TextView_BufferType& arg1)
+void android_widget_TextView::setTextKeepState(AndroidCXX::java_lang_CharSequence const& arg0,android_widget_TextView_BufferType::android_widget_TextView_BufferType const& arg1)
 {
-	LOGV("void android_widget_TextView::setTextKeepState(AndroidCXX::java_lang_CharSequence& arg0,ANDROID_WIDGET_TEXTVIEW_BUFFERTYPE::android_widget_TextView_BufferType& arg1) enter");
+	LOGV("void android_widget_TextView::setTextKeepState(AndroidCXX::java_lang_CharSequence const& arg0,android_widget_TextView_BufferType::android_widget_TextView_BufferType const& arg1) enter");
 
 	const char *methodName = "setTextKeepState";
 	const char *methodSignature = "(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V";
@@ -9654,8 +9020,6 @@ void android_widget_TextView::setTextKeepState(AndroidCXX::java_lang_CharSequenc
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -9707,14 +9071,12 @@ void android_widget_TextView::setTextKeepState(AndroidCXX::java_lang_CharSequenc
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setTextKeepState(AndroidCXX::java_lang_CharSequence& arg0,ANDROID_WIDGET_TEXTVIEW_BUFFERTYPE::android_widget_TextView_BufferType& arg1) exit");
+	LOGV("void android_widget_TextView::setTextKeepState(AndroidCXX::java_lang_CharSequence const& arg0,android_widget_TextView_BufferType::android_widget_TextView_BufferType const& arg1) exit");
 
 }
-void android_widget_TextView::setTextKeepState(AndroidCXX::java_lang_CharSequence& arg0)
+void android_widget_TextView::setTextKeepState(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_widget_TextView::setTextKeepState(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_widget_TextView::setTextKeepState(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setTextKeepState";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -9725,8 +9087,6 @@ void android_widget_TextView::setTextKeepState(AndroidCXX::java_lang_CharSequenc
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -9756,14 +9116,12 @@ void android_widget_TextView::setTextKeepState(AndroidCXX::java_lang_CharSequenc
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setTextKeepState(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_widget_TextView::setTextKeepState(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }
-void android_widget_TextView::setHint(AndroidCXX::java_lang_CharSequence& arg0)
+void android_widget_TextView::setHint(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_widget_TextView::setHint(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_widget_TextView::setHint(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setHint";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -9774,8 +9132,6 @@ void android_widget_TextView::setHint(AndroidCXX::java_lang_CharSequence& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -9805,14 +9161,12 @@ void android_widget_TextView::setHint(AndroidCXX::java_lang_CharSequence& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setHint(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_widget_TextView::setHint(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }
-void android_widget_TextView::setHint(int& arg0)
+void android_widget_TextView::setHint(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setHint(int& arg0) enter");
+	LOGV("void android_widget_TextView::setHint(int const& arg0) enter");
 
 	const char *methodName = "setHint";
 	const char *methodSignature = "(I)V";
@@ -9822,8 +9176,6 @@ void android_widget_TextView::setHint(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -9854,9 +9206,7 @@ void android_widget_TextView::setHint(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setHint(int& arg0) exit");
+	LOGV("void android_widget_TextView::setHint(int const& arg0) exit");
 
 }
 AndroidCXX::java_lang_CharSequence android_widget_TextView::getHint()
@@ -9871,8 +9221,6 @@ AndroidCXX::java_lang_CharSequence android_widget_TextView::getHint()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -9901,15 +9249,13 @@ AndroidCXX::java_lang_CharSequence android_widget_TextView::getHint()
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_widget_TextView::getHint() exit");
 
 	return result;
 }
-void android_widget_TextView::setInputType(int& arg0)
+void android_widget_TextView::setInputType(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setInputType(int& arg0) enter");
+	LOGV("void android_widget_TextView::setInputType(int const& arg0) enter");
 
 	const char *methodName = "setInputType";
 	const char *methodSignature = "(I)V";
@@ -9920,8 +9266,6 @@ void android_widget_TextView::setInputType(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -9951,14 +9295,12 @@ void android_widget_TextView::setInputType(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setInputType(int& arg0) exit");
+	LOGV("void android_widget_TextView::setInputType(int const& arg0) exit");
 
 }
-void android_widget_TextView::setRawInputType(int& arg0)
+void android_widget_TextView::setRawInputType(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setRawInputType(int& arg0) enter");
+	LOGV("void android_widget_TextView::setRawInputType(int const& arg0) enter");
 
 	const char *methodName = "setRawInputType";
 	const char *methodSignature = "(I)V";
@@ -9969,8 +9311,6 @@ void android_widget_TextView::setRawInputType(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -10000,9 +9340,7 @@ void android_widget_TextView::setRawInputType(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setRawInputType(int& arg0) exit");
+	LOGV("void android_widget_TextView::setRawInputType(int const& arg0) exit");
 
 }
 int android_widget_TextView::getInputType()
@@ -10018,8 +9356,6 @@ int android_widget_TextView::getInputType()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -10047,15 +9383,13 @@ int android_widget_TextView::getInputType()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getInputType() exit");
 
 	return result;
 }
-void android_widget_TextView::setImeOptions(int& arg0)
+void android_widget_TextView::setImeOptions(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setImeOptions(int& arg0) enter");
+	LOGV("void android_widget_TextView::setImeOptions(int const& arg0) enter");
 
 	const char *methodName = "setImeOptions";
 	const char *methodSignature = "(I)V";
@@ -10065,8 +9399,6 @@ void android_widget_TextView::setImeOptions(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -10097,9 +9429,7 @@ void android_widget_TextView::setImeOptions(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setImeOptions(int& arg0) exit");
+	LOGV("void android_widget_TextView::setImeOptions(int const& arg0) exit");
 
 }
 int android_widget_TextView::getImeOptions()
@@ -10114,8 +9444,6 @@ int android_widget_TextView::getImeOptions()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -10144,15 +9472,13 @@ int android_widget_TextView::getImeOptions()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getImeOptions() exit");
 
 	return result;
 }
-void android_widget_TextView::setImeActionLabel(AndroidCXX::java_lang_CharSequence& arg0,int& arg1)
+void android_widget_TextView::setImeActionLabel(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_TextView::setImeActionLabel(AndroidCXX::java_lang_CharSequence& arg0,int& arg1) enter");
+	LOGV("void android_widget_TextView::setImeActionLabel(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setImeActionLabel";
 	const char *methodSignature = "(Ljava/lang/CharSequence;I)V";
@@ -10162,8 +9488,6 @@ void android_widget_TextView::setImeActionLabel(AndroidCXX::java_lang_CharSequen
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -10215,9 +9539,7 @@ void android_widget_TextView::setImeActionLabel(AndroidCXX::java_lang_CharSequen
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setImeActionLabel(AndroidCXX::java_lang_CharSequence& arg0,int& arg1) exit");
+	LOGV("void android_widget_TextView::setImeActionLabel(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1) exit");
 
 }
 AndroidCXX::java_lang_CharSequence android_widget_TextView::getImeActionLabel()
@@ -10232,8 +9554,6 @@ AndroidCXX::java_lang_CharSequence android_widget_TextView::getImeActionLabel()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -10262,8 +9582,6 @@ AndroidCXX::java_lang_CharSequence android_widget_TextView::getImeActionLabel()
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_widget_TextView::getImeActionLabel() exit");
 
 	return result;
@@ -10280,8 +9598,6 @@ int android_widget_TextView::getImeActionId()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -10310,15 +9626,13 @@ int android_widget_TextView::getImeActionId()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getImeActionId() exit");
 
 	return result;
 }
-void android_widget_TextView::setOnEditorActionListener(AndroidCXX::android_widget_TextView_OnEditorActionListener& arg0)
+void android_widget_TextView::setOnEditorActionListener(AndroidCXX::android_widget_TextView_OnEditorActionListener const& arg0)
 {
-	LOGV("void android_widget_TextView::setOnEditorActionListener(AndroidCXX::android_widget_TextView_OnEditorActionListener& arg0) enter");
+	LOGV("void android_widget_TextView::setOnEditorActionListener(AndroidCXX::android_widget_TextView_OnEditorActionListener const& arg0) enter");
 
 	const char *methodName = "setOnEditorActionListener";
 	const char *methodSignature = "(Landroid/widget/TextView$OnEditorActionListener;)V";
@@ -10328,8 +9642,6 @@ void android_widget_TextView::setOnEditorActionListener(AndroidCXX::android_widg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -10360,14 +9672,12 @@ void android_widget_TextView::setOnEditorActionListener(AndroidCXX::android_widg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setOnEditorActionListener(AndroidCXX::android_widget_TextView_OnEditorActionListener& arg0) exit");
+	LOGV("void android_widget_TextView::setOnEditorActionListener(AndroidCXX::android_widget_TextView_OnEditorActionListener const& arg0) exit");
 
 }
-void android_widget_TextView::onEditorAction(int& arg0)
+void android_widget_TextView::onEditorAction(int const& arg0)
 {
-	LOGV("void android_widget_TextView::onEditorAction(int& arg0) enter");
+	LOGV("void android_widget_TextView::onEditorAction(int const& arg0) enter");
 
 	const char *methodName = "onEditorAction";
 	const char *methodSignature = "(I)V";
@@ -10377,8 +9687,6 @@ void android_widget_TextView::onEditorAction(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -10409,14 +9717,12 @@ void android_widget_TextView::onEditorAction(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::onEditorAction(int& arg0) exit");
+	LOGV("void android_widget_TextView::onEditorAction(int const& arg0) exit");
 
 }
-void android_widget_TextView::setPrivateImeOptions(AndroidCXX::java_lang_String& arg0)
+void android_widget_TextView::setPrivateImeOptions(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_widget_TextView::setPrivateImeOptions(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_widget_TextView::setPrivateImeOptions(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setPrivateImeOptions";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -10426,8 +9732,6 @@ void android_widget_TextView::setPrivateImeOptions(AndroidCXX::java_lang_String&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -10458,9 +9762,7 @@ void android_widget_TextView::setPrivateImeOptions(AndroidCXX::java_lang_String&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setPrivateImeOptions(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_widget_TextView::setPrivateImeOptions(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String android_widget_TextView::getPrivateImeOptions()
@@ -10475,8 +9777,6 @@ AndroidCXX::java_lang_String android_widget_TextView::getPrivateImeOptions()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -10505,15 +9805,13 @@ AndroidCXX::java_lang_String android_widget_TextView::getPrivateImeOptions()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_widget_TextView::getPrivateImeOptions() exit");
 
 	return result;
 }
-void android_widget_TextView::setInputExtras(int& arg0)
+void android_widget_TextView::setInputExtras(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setInputExtras(int& arg0) enter");
+	LOGV("void android_widget_TextView::setInputExtras(int const& arg0) enter");
 
 	const char *methodName = "setInputExtras";
 	const char *methodSignature = "(I)V";
@@ -10523,8 +9821,6 @@ void android_widget_TextView::setInputExtras(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -10555,14 +9851,12 @@ void android_widget_TextView::setInputExtras(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setInputExtras(int& arg0) exit");
+	LOGV("void android_widget_TextView::setInputExtras(int const& arg0) exit");
 
 }
-AndroidCXX::android_os_Bundle android_widget_TextView::getInputExtras(bool& arg0)
+AndroidCXX::android_os_Bundle android_widget_TextView::getInputExtras(bool const& arg0)
 {
-	LOGV("AndroidCXX::android_os_Bundle android_widget_TextView::getInputExtras(bool& arg0) enter");
+	LOGV("AndroidCXX::android_os_Bundle android_widget_TextView::getInputExtras(bool const& arg0) enter");
 
 	const char *methodName = "getInputExtras";
 	const char *methodSignature = "(Z)Landroid/os/Bundle;";
@@ -10572,8 +9866,6 @@ AndroidCXX::android_os_Bundle android_widget_TextView::getInputExtras(bool& arg0
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -10623,9 +9915,7 @@ AndroidCXX::android_os_Bundle android_widget_TextView::getInputExtras(bool& arg0
 	AndroidCXX::android_os_Bundle result((AndroidCXX::android_os_Bundle) *((AndroidCXX::android_os_Bundle *) cxx_value));
 	delete ((AndroidCXX::android_os_Bundle *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_os_Bundle android_widget_TextView::getInputExtras(bool& arg0) exit");
+	LOGV("AndroidCXX::android_os_Bundle android_widget_TextView::getInputExtras(bool const& arg0) exit");
 
 	return result;
 }
@@ -10641,8 +9931,6 @@ AndroidCXX::java_lang_CharSequence android_widget_TextView::getError()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -10671,8 +9959,6 @@ AndroidCXX::java_lang_CharSequence android_widget_TextView::getError()
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_widget_TextView::getError() exit");
 
 	return result;
@@ -10689,8 +9975,6 @@ bool android_widget_TextView::isTextSelectable()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -10719,15 +10003,13 @@ bool android_widget_TextView::isTextSelectable()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_TextView::isTextSelectable() exit");
 
 	return result;
 }
-void android_widget_TextView::setTextIsSelectable(bool& arg0)
+void android_widget_TextView::setTextIsSelectable(bool const& arg0)
 {
-	LOGV("void android_widget_TextView::setTextIsSelectable(bool& arg0) enter");
+	LOGV("void android_widget_TextView::setTextIsSelectable(bool const& arg0) enter");
 
 	const char *methodName = "setTextIsSelectable";
 	const char *methodSignature = "(Z)V";
@@ -10737,8 +10019,6 @@ void android_widget_TextView::setTextIsSelectable(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -10769,9 +10049,7 @@ void android_widget_TextView::setTextIsSelectable(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setTextIsSelectable(bool& arg0) exit");
+	LOGV("void android_widget_TextView::setTextIsSelectable(bool const& arg0) exit");
 
 }
 int android_widget_TextView::getLineCount()
@@ -10786,8 +10064,6 @@ int android_widget_TextView::getLineCount()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -10816,15 +10092,13 @@ int android_widget_TextView::getLineCount()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getLineCount() exit");
 
 	return result;
 }
-int android_widget_TextView::getLineBounds(int& arg0,AndroidCXX::android_graphics_Rect& arg1)
+int android_widget_TextView::getLineBounds(int const& arg0,AndroidCXX::android_graphics_Rect const& arg1)
 {
-	LOGV("int android_widget_TextView::getLineBounds(int& arg0,AndroidCXX::android_graphics_Rect& arg1) enter");
+	LOGV("int android_widget_TextView::getLineBounds(int const& arg0,AndroidCXX::android_graphics_Rect const& arg1) enter");
 
 	const char *methodName = "getLineBounds";
 	const char *methodSignature = "(ILandroid/graphics/Rect;)I";
@@ -10834,8 +10108,6 @@ int android_widget_TextView::getLineBounds(int& arg0,AndroidCXX::android_graphic
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -10906,15 +10178,13 @@ int android_widget_TextView::getLineBounds(int& arg0,AndroidCXX::android_graphic
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_widget_TextView::getLineBounds(int& arg0,AndroidCXX::android_graphics_Rect& arg1) exit");
+	LOGV("int android_widget_TextView::getLineBounds(int const& arg0,AndroidCXX::android_graphics_Rect const& arg1) exit");
 
 	return result;
 }
-bool android_widget_TextView::extractText(AndroidCXX::android_view_inputmethod_ExtractedTextRequest& arg0,AndroidCXX::android_view_inputmethod_ExtractedText& arg1)
+bool android_widget_TextView::extractText(AndroidCXX::android_view_inputmethod_ExtractedTextRequest const& arg0,AndroidCXX::android_view_inputmethod_ExtractedText const& arg1)
 {
-	LOGV("bool android_widget_TextView::extractText(AndroidCXX::android_view_inputmethod_ExtractedTextRequest& arg0,AndroidCXX::android_view_inputmethod_ExtractedText& arg1) enter");
+	LOGV("bool android_widget_TextView::extractText(AndroidCXX::android_view_inputmethod_ExtractedTextRequest const& arg0,AndroidCXX::android_view_inputmethod_ExtractedText const& arg1) enter");
 
 	const char *methodName = "extractText";
 	const char *methodSignature = "(Landroid/view/inputmethod/ExtractedTextRequest;Landroid/view/inputmethod/ExtractedText;)Z";
@@ -10924,8 +10194,6 @@ bool android_widget_TextView::extractText(AndroidCXX::android_view_inputmethod_E
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -10996,15 +10264,13 @@ bool android_widget_TextView::extractText(AndroidCXX::android_view_inputmethod_E
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_TextView::extractText(AndroidCXX::android_view_inputmethod_ExtractedTextRequest& arg0,AndroidCXX::android_view_inputmethod_ExtractedText& arg1) exit");
+	LOGV("bool android_widget_TextView::extractText(AndroidCXX::android_view_inputmethod_ExtractedTextRequest const& arg0,AndroidCXX::android_view_inputmethod_ExtractedText const& arg1) exit");
 
 	return result;
 }
-void android_widget_TextView::setExtractedText(AndroidCXX::android_view_inputmethod_ExtractedText& arg0)
+void android_widget_TextView::setExtractedText(AndroidCXX::android_view_inputmethod_ExtractedText const& arg0)
 {
-	LOGV("void android_widget_TextView::setExtractedText(AndroidCXX::android_view_inputmethod_ExtractedText& arg0) enter");
+	LOGV("void android_widget_TextView::setExtractedText(AndroidCXX::android_view_inputmethod_ExtractedText const& arg0) enter");
 
 	const char *methodName = "setExtractedText";
 	const char *methodSignature = "(Landroid/view/inputmethod/ExtractedText;)V";
@@ -11014,8 +10280,6 @@ void android_widget_TextView::setExtractedText(AndroidCXX::android_view_inputmet
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -11046,14 +10310,12 @@ void android_widget_TextView::setExtractedText(AndroidCXX::android_view_inputmet
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setExtractedText(AndroidCXX::android_view_inputmethod_ExtractedText& arg0) exit");
+	LOGV("void android_widget_TextView::setExtractedText(AndroidCXX::android_view_inputmethod_ExtractedText const& arg0) exit");
 
 }
-void android_widget_TextView::onCommitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo& arg0)
+void android_widget_TextView::onCommitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo const& arg0)
 {
-	LOGV("void android_widget_TextView::onCommitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo& arg0) enter");
+	LOGV("void android_widget_TextView::onCommitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo const& arg0) enter");
 
 	const char *methodName = "onCommitCompletion";
 	const char *methodSignature = "(Landroid/view/inputmethod/CompletionInfo;)V";
@@ -11063,8 +10325,6 @@ void android_widget_TextView::onCommitCompletion(AndroidCXX::android_view_inputm
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -11095,14 +10355,12 @@ void android_widget_TextView::onCommitCompletion(AndroidCXX::android_view_inputm
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::onCommitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo& arg0) exit");
+	LOGV("void android_widget_TextView::onCommitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo const& arg0) exit");
 
 }
-void android_widget_TextView::onCommitCorrection(AndroidCXX::android_view_inputmethod_CorrectionInfo& arg0)
+void android_widget_TextView::onCommitCorrection(AndroidCXX::android_view_inputmethod_CorrectionInfo const& arg0)
 {
-	LOGV("void android_widget_TextView::onCommitCorrection(AndroidCXX::android_view_inputmethod_CorrectionInfo& arg0) enter");
+	LOGV("void android_widget_TextView::onCommitCorrection(AndroidCXX::android_view_inputmethod_CorrectionInfo const& arg0) enter");
 
 	const char *methodName = "onCommitCorrection";
 	const char *methodSignature = "(Landroid/view/inputmethod/CorrectionInfo;)V";
@@ -11112,8 +10370,6 @@ void android_widget_TextView::onCommitCorrection(AndroidCXX::android_view_inputm
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -11144,9 +10400,7 @@ void android_widget_TextView::onCommitCorrection(AndroidCXX::android_view_inputm
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::onCommitCorrection(AndroidCXX::android_view_inputmethod_CorrectionInfo& arg0) exit");
+	LOGV("void android_widget_TextView::onCommitCorrection(AndroidCXX::android_view_inputmethod_CorrectionInfo const& arg0) exit");
 
 }
 void android_widget_TextView::onBeginBatchEdit()
@@ -11162,8 +10416,6 @@ void android_widget_TextView::onBeginBatchEdit()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -11172,8 +10424,6 @@ void android_widget_TextView::onBeginBatchEdit()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_TextView::onBeginBatchEdit() exit");
 
 }
@@ -11190,8 +10440,6 @@ void android_widget_TextView::onEndBatchEdit()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -11200,14 +10448,12 @@ void android_widget_TextView::onEndBatchEdit()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_TextView::onEndBatchEdit() exit");
 
 }
-bool android_widget_TextView::onPrivateIMECommand(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1)
+bool android_widget_TextView::onPrivateIMECommand(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1)
 {
-	LOGV("bool android_widget_TextView::onPrivateIMECommand(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1) enter");
+	LOGV("bool android_widget_TextView::onPrivateIMECommand(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1) enter");
 
 	const char *methodName = "onPrivateIMECommand";
 	const char *methodSignature = "(Ljava/lang/String;Landroid/os/Bundle;)Z";
@@ -11217,8 +10463,6 @@ bool android_widget_TextView::onPrivateIMECommand(AndroidCXX::java_lang_String& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -11289,15 +10533,13 @@ bool android_widget_TextView::onPrivateIMECommand(AndroidCXX::java_lang_String& 
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_TextView::onPrivateIMECommand(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1) exit");
+	LOGV("bool android_widget_TextView::onPrivateIMECommand(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1) exit");
 
 	return result;
 }
-void android_widget_TextView::setIncludeFontPadding(bool& arg0)
+void android_widget_TextView::setIncludeFontPadding(bool const& arg0)
 {
-	LOGV("void android_widget_TextView::setIncludeFontPadding(bool& arg0) enter");
+	LOGV("void android_widget_TextView::setIncludeFontPadding(bool const& arg0) enter");
 
 	const char *methodName = "setIncludeFontPadding";
 	const char *methodSignature = "(Z)V";
@@ -11307,8 +10549,6 @@ void android_widget_TextView::setIncludeFontPadding(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -11339,9 +10579,7 @@ void android_widget_TextView::setIncludeFontPadding(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setIncludeFontPadding(bool& arg0) exit");
+	LOGV("void android_widget_TextView::setIncludeFontPadding(bool const& arg0) exit");
 
 }
 bool android_widget_TextView::getIncludeFontPadding()
@@ -11356,8 +10594,6 @@ bool android_widget_TextView::getIncludeFontPadding()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -11386,15 +10622,13 @@ bool android_widget_TextView::getIncludeFontPadding()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_TextView::getIncludeFontPadding() exit");
 
 	return result;
 }
-bool android_widget_TextView::bringPointIntoView(int& arg0)
+bool android_widget_TextView::bringPointIntoView(int const& arg0)
 {
-	LOGV("bool android_widget_TextView::bringPointIntoView(int& arg0) enter");
+	LOGV("bool android_widget_TextView::bringPointIntoView(int const& arg0) enter");
 
 	const char *methodName = "bringPointIntoView";
 	const char *methodSignature = "(I)Z";
@@ -11404,8 +10638,6 @@ bool android_widget_TextView::bringPointIntoView(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -11455,9 +10687,7 @@ bool android_widget_TextView::bringPointIntoView(int& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_TextView::bringPointIntoView(int& arg0) exit");
+	LOGV("bool android_widget_TextView::bringPointIntoView(int const& arg0) exit");
 
 	return result;
 }
@@ -11473,8 +10703,6 @@ bool android_widget_TextView::moveCursorToVisibleOffset()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -11503,8 +10731,6 @@ bool android_widget_TextView::moveCursorToVisibleOffset()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_TextView::moveCursorToVisibleOffset() exit");
 
 	return result;
@@ -11522,8 +10748,6 @@ int android_widget_TextView::getSelectionStart()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -11551,8 +10775,6 @@ int android_widget_TextView::getSelectionStart()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getSelectionStart() exit");
 
 	return result;
@@ -11570,8 +10792,6 @@ int android_widget_TextView::getSelectionEnd()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -11599,8 +10819,6 @@ int android_widget_TextView::getSelectionEnd()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getSelectionEnd() exit");
 
 	return result;
@@ -11617,8 +10835,6 @@ bool android_widget_TextView::hasSelection()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -11647,8 +10863,6 @@ bool android_widget_TextView::hasSelection()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_TextView::hasSelection() exit");
 
 	return result;
@@ -11666,8 +10880,6 @@ void android_widget_TextView::setSingleLine()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -11676,14 +10888,12 @@ void android_widget_TextView::setSingleLine()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_TextView::setSingleLine() exit");
 
 }
-void android_widget_TextView::setSingleLine(bool& arg0)
+void android_widget_TextView::setSingleLine(bool const& arg0)
 {
-	LOGV("void android_widget_TextView::setSingleLine(bool& arg0) enter");
+	LOGV("void android_widget_TextView::setSingleLine(bool const& arg0) enter");
 
 	const char *methodName = "setSingleLine";
 	const char *methodSignature = "(Z)V";
@@ -11694,8 +10904,6 @@ void android_widget_TextView::setSingleLine(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -11725,14 +10933,12 @@ void android_widget_TextView::setSingleLine(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setSingleLine(bool& arg0) exit");
+	LOGV("void android_widget_TextView::setSingleLine(bool const& arg0) exit");
 
 }
-void android_widget_TextView::setAllCaps(bool& arg0)
+void android_widget_TextView::setAllCaps(bool const& arg0)
 {
-	LOGV("void android_widget_TextView::setAllCaps(bool& arg0) enter");
+	LOGV("void android_widget_TextView::setAllCaps(bool const& arg0) enter");
 
 	const char *methodName = "setAllCaps";
 	const char *methodSignature = "(Z)V";
@@ -11743,8 +10949,6 @@ void android_widget_TextView::setAllCaps(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -11774,14 +10978,12 @@ void android_widget_TextView::setAllCaps(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setAllCaps(bool& arg0) exit");
+	LOGV("void android_widget_TextView::setAllCaps(bool const& arg0) exit");
 
 }
-void android_widget_TextView::setEllipsize(ANDROID_TEXT_TEXTUTILS_TRUNCATEAT::android_text_TextUtils_TruncateAt& arg0)
+void android_widget_TextView::setEllipsize(android_text_TextUtils_TruncateAt::android_text_TextUtils_TruncateAt const& arg0)
 {
-	LOGV("void android_widget_TextView::setEllipsize(ANDROID_TEXT_TEXTUTILS_TRUNCATEAT::android_text_TextUtils_TruncateAt& arg0) enter");
+	LOGV("void android_widget_TextView::setEllipsize(android_text_TextUtils_TruncateAt::android_text_TextUtils_TruncateAt const& arg0) enter");
 
 	const char *methodName = "setEllipsize";
 	const char *methodSignature = "(Landroid/text/TextUtils$TruncateAt;)V";
@@ -11791,8 +10993,6 @@ void android_widget_TextView::setEllipsize(ANDROID_TEXT_TEXTUTILS_TRUNCATEAT::an
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -11823,14 +11023,12 @@ void android_widget_TextView::setEllipsize(ANDROID_TEXT_TEXTUTILS_TRUNCATEAT::an
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setEllipsize(ANDROID_TEXT_TEXTUTILS_TRUNCATEAT::android_text_TextUtils_TruncateAt& arg0) exit");
+	LOGV("void android_widget_TextView::setEllipsize(android_text_TextUtils_TruncateAt::android_text_TextUtils_TruncateAt const& arg0) exit");
 
 }
-void android_widget_TextView::setMarqueeRepeatLimit(int& arg0)
+void android_widget_TextView::setMarqueeRepeatLimit(int const& arg0)
 {
-	LOGV("void android_widget_TextView::setMarqueeRepeatLimit(int& arg0) enter");
+	LOGV("void android_widget_TextView::setMarqueeRepeatLimit(int const& arg0) enter");
 
 	const char *methodName = "setMarqueeRepeatLimit";
 	const char *methodSignature = "(I)V";
@@ -11840,8 +11038,6 @@ void android_widget_TextView::setMarqueeRepeatLimit(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -11872,9 +11068,7 @@ void android_widget_TextView::setMarqueeRepeatLimit(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setMarqueeRepeatLimit(int& arg0) exit");
+	LOGV("void android_widget_TextView::setMarqueeRepeatLimit(int const& arg0) exit");
 
 }
 int android_widget_TextView::getMarqueeRepeatLimit()
@@ -11889,8 +11083,6 @@ int android_widget_TextView::getMarqueeRepeatLimit()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -11919,15 +11111,13 @@ int android_widget_TextView::getMarqueeRepeatLimit()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_TextView::getMarqueeRepeatLimit() exit");
 
 	return result;
 }
-ANDROID_TEXT_TEXTUTILS_TRUNCATEAT::android_text_TextUtils_TruncateAt android_widget_TextView::getEllipsize()
+android_text_TextUtils_TruncateAt::android_text_TextUtils_TruncateAt android_widget_TextView::getEllipsize()
 {
-	LOGV("ANDROID_TEXT_TEXTUTILS_TRUNCATEAT::android_text_TextUtils_TruncateAt android_widget_TextView::getEllipsize() enter");
+	LOGV("android_text_TextUtils_TruncateAt::android_text_TextUtils_TruncateAt android_widget_TextView::getEllipsize() enter");
 
 	const char *methodName = "getEllipsize";
 	const char *methodSignature = "()Landroid/text/TextUtils$TruncateAt;";
@@ -11937,8 +11127,6 @@ ANDROID_TEXT_TEXTUTILS_TRUNCATEAT::android_text_TextUtils_TruncateAt android_wid
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -11964,18 +11152,16 @@ ANDROID_TEXT_TEXTUTILS_TRUNCATEAT::android_text_TextUtils_TruncateAt android_wid
 		convert_android_text_TextUtils_TruncateAt(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 
-	ANDROID_TEXT_TEXTUTILS_TRUNCATEAT::android_text_TextUtils_TruncateAt result = (ANDROID_TEXT_TEXTUTILS_TRUNCATEAT::android_text_TextUtils_TruncateAt) (cxx_value);
+	android_text_TextUtils_TruncateAt::android_text_TextUtils_TruncateAt result = (android_text_TextUtils_TruncateAt::android_text_TextUtils_TruncateAt) (cxx_value);
 	//
 		
-	jni->popLocalFrame();
-
-	LOGV("ANDROID_TEXT_TEXTUTILS_TRUNCATEAT::android_text_TextUtils_TruncateAt android_widget_TextView::getEllipsize() exit");
+	LOGV("android_text_TextUtils_TruncateAt::android_text_TextUtils_TruncateAt android_widget_TextView::getEllipsize() exit");
 
 	return result;
 }
-void android_widget_TextView::setSelectAllOnFocus(bool& arg0)
+void android_widget_TextView::setSelectAllOnFocus(bool const& arg0)
 {
-	LOGV("void android_widget_TextView::setSelectAllOnFocus(bool& arg0) enter");
+	LOGV("void android_widget_TextView::setSelectAllOnFocus(bool const& arg0) enter");
 
 	const char *methodName = "setSelectAllOnFocus";
 	const char *methodSignature = "(Z)V";
@@ -11986,8 +11172,6 @@ void android_widget_TextView::setSelectAllOnFocus(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -12017,14 +11201,12 @@ void android_widget_TextView::setSelectAllOnFocus(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setSelectAllOnFocus(bool& arg0) exit");
+	LOGV("void android_widget_TextView::setSelectAllOnFocus(bool const& arg0) exit");
 
 }
-void android_widget_TextView::setCursorVisible(bool& arg0)
+void android_widget_TextView::setCursorVisible(bool const& arg0)
 {
-	LOGV("void android_widget_TextView::setCursorVisible(bool& arg0) enter");
+	LOGV("void android_widget_TextView::setCursorVisible(bool const& arg0) enter");
 
 	const char *methodName = "setCursorVisible";
 	const char *methodSignature = "(Z)V";
@@ -12035,8 +11217,6 @@ void android_widget_TextView::setCursorVisible(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -12066,9 +11246,7 @@ void android_widget_TextView::setCursorVisible(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setCursorVisible(bool& arg0) exit");
+	LOGV("void android_widget_TextView::setCursorVisible(bool const& arg0) exit");
 
 }
 bool android_widget_TextView::isCursorVisible()
@@ -12083,8 +11261,6 @@ bool android_widget_TextView::isCursorVisible()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -12113,15 +11289,13 @@ bool android_widget_TextView::isCursorVisible()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_TextView::isCursorVisible() exit");
 
 	return result;
 }
-void android_widget_TextView::addTextChangedListener(AndroidCXX::android_text_TextWatcher& arg0)
+void android_widget_TextView::addTextChangedListener(AndroidCXX::android_text_TextWatcher const& arg0)
 {
-	LOGV("void android_widget_TextView::addTextChangedListener(AndroidCXX::android_text_TextWatcher& arg0) enter");
+	LOGV("void android_widget_TextView::addTextChangedListener(AndroidCXX::android_text_TextWatcher const& arg0) enter");
 
 	const char *methodName = "addTextChangedListener";
 	const char *methodSignature = "(Landroid/text/TextWatcher;)V";
@@ -12132,8 +11306,6 @@ void android_widget_TextView::addTextChangedListener(AndroidCXX::android_text_Te
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -12163,14 +11335,12 @@ void android_widget_TextView::addTextChangedListener(AndroidCXX::android_text_Te
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::addTextChangedListener(AndroidCXX::android_text_TextWatcher& arg0) exit");
+	LOGV("void android_widget_TextView::addTextChangedListener(AndroidCXX::android_text_TextWatcher const& arg0) exit");
 
 }
-void android_widget_TextView::removeTextChangedListener(AndroidCXX::android_text_TextWatcher& arg0)
+void android_widget_TextView::removeTextChangedListener(AndroidCXX::android_text_TextWatcher const& arg0)
 {
-	LOGV("void android_widget_TextView::removeTextChangedListener(AndroidCXX::android_text_TextWatcher& arg0) enter");
+	LOGV("void android_widget_TextView::removeTextChangedListener(AndroidCXX::android_text_TextWatcher const& arg0) enter");
 
 	const char *methodName = "removeTextChangedListener";
 	const char *methodSignature = "(Landroid/text/TextWatcher;)V";
@@ -12181,8 +11351,6 @@ void android_widget_TextView::removeTextChangedListener(AndroidCXX::android_text
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -12212,9 +11380,7 @@ void android_widget_TextView::removeTextChangedListener(AndroidCXX::android_text
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::removeTextChangedListener(AndroidCXX::android_text_TextWatcher& arg0) exit");
+	LOGV("void android_widget_TextView::removeTextChangedListener(AndroidCXX::android_text_TextWatcher const& arg0) exit");
 
 }
 void android_widget_TextView::clearComposingText()
@@ -12230,8 +11396,6 @@ void android_widget_TextView::clearComposingText()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -12240,8 +11404,6 @@ void android_widget_TextView::clearComposingText()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_TextView::clearComposingText() exit");
 
 }
@@ -12258,8 +11420,6 @@ bool android_widget_TextView::didTouchFocusSelect()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -12287,15 +11447,13 @@ bool android_widget_TextView::didTouchFocusSelect()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_TextView::didTouchFocusSelect() exit");
 
 	return result;
 }
-void android_widget_TextView::setScroller(AndroidCXX::android_widget_Scroller& arg0)
+void android_widget_TextView::setScroller(AndroidCXX::android_widget_Scroller const& arg0)
 {
-	LOGV("void android_widget_TextView::setScroller(AndroidCXX::android_widget_Scroller& arg0) enter");
+	LOGV("void android_widget_TextView::setScroller(AndroidCXX::android_widget_Scroller const& arg0) enter");
 
 	const char *methodName = "setScroller";
 	const char *methodSignature = "(Landroid/widget/Scroller;)V";
@@ -12305,8 +11463,6 @@ void android_widget_TextView::setScroller(AndroidCXX::android_widget_Scroller& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -12337,14 +11493,12 @@ void android_widget_TextView::setScroller(AndroidCXX::android_widget_Scroller& a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setScroller(AndroidCXX::android_widget_Scroller& arg0) exit");
+	LOGV("void android_widget_TextView::setScroller(AndroidCXX::android_widget_Scroller const& arg0) exit");
 
 }
-int android_widget_TextView::getTextColor(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_content_res_TypedArray& arg1,int& arg2)
+int android_widget_TextView::getTextColor(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_content_res_TypedArray const& arg1,int const& arg2)
 {
-	LOGV("int android_widget_TextView::getTextColor(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_content_res_TypedArray& arg1,int& arg2) enter");
+	LOGV("int android_widget_TextView::getTextColor(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_content_res_TypedArray const& arg1,int const& arg2) enter");
 
 	const char *methodName = "getTextColor";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/content/res/TypedArray;I)I";
@@ -12354,8 +11508,6 @@ int android_widget_TextView::getTextColor(AndroidCXX::android_content_Context& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -12426,7 +11578,7 @@ int android_widget_TextView::getTextColor(AndroidCXX::android_content_Context& a
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jint jni_result = (jint) jni->invokeStaticIntMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
 	{
@@ -12447,9 +11599,7 @@ int android_widget_TextView::getTextColor(AndroidCXX::android_content_Context& a
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_widget_TextView::getTextColor(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_content_res_TypedArray& arg1,int& arg2) exit");
+	LOGV("int android_widget_TextView::getTextColor(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_content_res_TypedArray const& arg1,int const& arg2) exit");
 
 	return result;
 }
@@ -12465,8 +11615,6 @@ bool android_widget_TextView::isInputMethodTarget()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -12495,15 +11643,13 @@ bool android_widget_TextView::isInputMethodTarget()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_TextView::isInputMethodTarget() exit");
 
 	return result;
 }
-bool android_widget_TextView::onTextContextMenuItem(int& arg0)
+bool android_widget_TextView::onTextContextMenuItem(int const& arg0)
 {
-	LOGV("bool android_widget_TextView::onTextContextMenuItem(int& arg0) enter");
+	LOGV("bool android_widget_TextView::onTextContextMenuItem(int const& arg0) enter");
 
 	const char *methodName = "onTextContextMenuItem";
 	const char *methodSignature = "(I)Z";
@@ -12513,8 +11659,6 @@ bool android_widget_TextView::onTextContextMenuItem(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -12564,9 +11708,7 @@ bool android_widget_TextView::onTextContextMenuItem(int& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_TextView::onTextContextMenuItem(int& arg0) exit");
+	LOGV("bool android_widget_TextView::onTextContextMenuItem(int const& arg0) exit");
 
 	return result;
 }
@@ -12582,8 +11724,6 @@ bool android_widget_TextView::isSuggestionsEnabled()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -12612,15 +11752,13 @@ bool android_widget_TextView::isSuggestionsEnabled()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_TextView::isSuggestionsEnabled() exit");
 
 	return result;
 }
-void android_widget_TextView::setCustomSelectionActionModeCallback(AndroidCXX::android_view_ActionMode_Callback& arg0)
+void android_widget_TextView::setCustomSelectionActionModeCallback(AndroidCXX::android_view_ActionMode_Callback const& arg0)
 {
-	LOGV("void android_widget_TextView::setCustomSelectionActionModeCallback(AndroidCXX::android_view_ActionMode_Callback& arg0) enter");
+	LOGV("void android_widget_TextView::setCustomSelectionActionModeCallback(AndroidCXX::android_view_ActionMode_Callback const& arg0) enter");
 
 	const char *methodName = "setCustomSelectionActionModeCallback";
 	const char *methodSignature = "(Landroid/view/ActionMode$Callback;)V";
@@ -12630,8 +11768,6 @@ void android_widget_TextView::setCustomSelectionActionModeCallback(AndroidCXX::a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -12662,9 +11798,7 @@ void android_widget_TextView::setCustomSelectionActionModeCallback(AndroidCXX::a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView::setCustomSelectionActionModeCallback(AndroidCXX::android_view_ActionMode_Callback& arg0) exit");
+	LOGV("void android_widget_TextView::setCustomSelectionActionModeCallback(AndroidCXX::android_view_ActionMode_Callback const& arg0) exit");
 
 }
 AndroidCXX::android_view_ActionMode_Callback android_widget_TextView::getCustomSelectionActionModeCallback()
@@ -12679,8 +11813,6 @@ AndroidCXX::android_view_ActionMode_Callback android_widget_TextView::getCustomS
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -12709,15 +11841,13 @@ AndroidCXX::android_view_ActionMode_Callback android_widget_TextView::getCustomS
 	AndroidCXX::android_view_ActionMode_Callback result((AndroidCXX::android_view_ActionMode_Callback) *((AndroidCXX::android_view_ActionMode_Callback *) cxx_value));
 	delete ((AndroidCXX::android_view_ActionMode_Callback *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_view_ActionMode_Callback android_widget_TextView::getCustomSelectionActionModeCallback() exit");
 
 	return result;
 }
-int android_widget_TextView::getOffsetForPosition(float& arg0,float& arg1)
+int android_widget_TextView::getOffsetForPosition(float const& arg0,float const& arg1)
 {
-	LOGV("int android_widget_TextView::getOffsetForPosition(float& arg0,float& arg1) enter");
+	LOGV("int android_widget_TextView::getOffsetForPosition(float const& arg0,float const& arg1) enter");
 
 	const char *methodName = "getOffsetForPosition";
 	const char *methodSignature = "(FF)I";
@@ -12727,8 +11857,6 @@ int android_widget_TextView::getOffsetForPosition(float& arg0,float& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView cxx address %d", cxxAddress);
@@ -12799,9 +11927,7 @@ int android_widget_TextView::getOffsetForPosition(float& arg0,float& arg1)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_widget_TextView::getOffsetForPosition(float& arg0,float& arg1) exit");
+	LOGV("int android_widget_TextView::getOffsetForPosition(float const& arg0,float const& arg1) exit");
 
 	return result;
 }

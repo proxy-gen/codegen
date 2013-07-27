@@ -47,7 +47,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_support_v4_app_Fragment_SavedState::android_support_v4_app_Fragment_SavedState(const android_support_v4_app_Fragment_SavedState& cc)
 {
 	LOGV("android_support_v4_app_Fragment_SavedState::android_support_v4_app_Fragment_SavedState(const android_support_v4_app_Fragment_SavedState& cc) enter");
@@ -71,9 +70,9 @@ android_support_v4_app_Fragment_SavedState::android_support_v4_app_Fragment_Save
 
 	LOGV("android_support_v4_app_Fragment_SavedState::android_support_v4_app_Fragment_SavedState(const android_support_v4_app_Fragment_SavedState& cc) exit");
 }
-android_support_v4_app_Fragment_SavedState::android_support_v4_app_Fragment_SavedState(void * proxy)
+android_support_v4_app_Fragment_SavedState::android_support_v4_app_Fragment_SavedState(Proxy proxy)
 {
-	LOGV("android_support_v4_app_Fragment_SavedState::android_support_v4_app_Fragment_SavedState(void * proxy) enter");
+	LOGV("android_support_v4_app_Fragment_SavedState::android_support_v4_app_Fragment_SavedState(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -83,52 +82,31 @@ android_support_v4_app_Fragment_SavedState::android_support_v4_app_Fragment_Save
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_support_v4_app_Fragment_SavedState::android_support_v4_app_Fragment_SavedState(void * proxy) exit");
+	LOGV("android_support_v4_app_Fragment_SavedState::android_support_v4_app_Fragment_SavedState(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_support_v4_app_Fragment_SavedState::android_support_v4_app_Fragment_SavedState()
-// {
-// 	LOGV("android_support_v4_app_Fragment_SavedState::android_support_v4_app_Fragment_SavedState() enter");	
+Proxy android_support_v4_app_Fragment_SavedState::proxy() const
+{	
+	LOGV("android_support_v4_app_Fragment_SavedState::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/support/v4/app/Fragment$SavedState";
+	long cxxAddress = (long) this;
+	LOGV("android_support_v4_app_Fragment_SavedState cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_support_v4_app_Fragment_SavedState jni address %d", proxiedComponent);
 
-// 	LOGV("android_support_v4_app_Fragment_SavedState className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_support_v4_app_Fragment_SavedState::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_support_v4_app_Fragment_SavedState cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_support_v4_app_Fragment_SavedState jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_support_v4_app_Fragment_SavedState::android_support_v4_app_Fragment_SavedState() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_support_v4_app_Fragment_SavedState::~android_support_v4_app_Fragment_SavedState()
 {
@@ -140,7 +118,7 @@ android_support_v4_app_Fragment_SavedState::~android_support_v4_app_Fragment_Sav
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_support_v4_app_Fragment_SavedState::~android_support_v4_app_Fragment_SavedState() exit");
 }
 // Functions
@@ -156,8 +134,6 @@ int android_support_v4_app_Fragment_SavedState::describeContents()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_support_v4_app_Fragment_SavedState cxx address %d", cxxAddress);
@@ -186,15 +162,13 @@ int android_support_v4_app_Fragment_SavedState::describeContents()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_support_v4_app_Fragment_SavedState::describeContents() exit");
 
 	return result;
 }
-void android_support_v4_app_Fragment_SavedState::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_support_v4_app_Fragment_SavedState::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_support_v4_app_Fragment_SavedState::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_support_v4_app_Fragment_SavedState::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -204,8 +178,6 @@ void android_support_v4_app_Fragment_SavedState::writeToParcel(AndroidCXX::andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_support_v4_app_Fragment_SavedState cxx address %d", cxxAddress);
@@ -257,8 +229,6 @@ void android_support_v4_app_Fragment_SavedState::writeToParcel(AndroidCXX::andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_support_v4_app_Fragment_SavedState::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_support_v4_app_Fragment_SavedState::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }

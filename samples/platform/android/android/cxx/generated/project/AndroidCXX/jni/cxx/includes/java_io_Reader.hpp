@@ -62,23 +62,20 @@ class java_io_Reader
 public:
 
 	java_io_Reader(const java_io_Reader& cc);
-	java_io_Reader(void * proxy);
+	java_io_Reader(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_io_Reader();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_io_Reader();
 	// Functions
 	 void close();
-	 void mark(int& arg0);
+	 void mark(int const& arg0);
 	 void reset();
-	 int read(std::vector<char>& arg0,int& arg1,int& arg2);
+	 int read(std::vector<char> const& arg0,int const& arg1,int const& arg2);
 	 int read();
-	 int read(std::vector<char>& arg0);
-	 int read(AndroidCXX::java_nio_CharBuffer& arg0);
-	 long skip(long& arg0);
+	 int read(std::vector<char> const& arg0);
+	 int read(AndroidCXX::java_nio_CharBuffer const& arg0);
+	 long skip(long const& arg0);
 	 bool markSupported();
 	 bool ready();
 };	

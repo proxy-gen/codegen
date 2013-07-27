@@ -57,18 +57,15 @@ class com_facebook_Session_TokenRefreshRequest
 public:
 
 	com_facebook_Session_TokenRefreshRequest(const com_facebook_Session_TokenRefreshRequest& cc);
-	com_facebook_Session_TokenRefreshRequest(void * proxy);
+	com_facebook_Session_TokenRefreshRequest(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_Session_TokenRefreshRequest();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_TokenRefreshRequest();
 	// Functions
 	 void bind();
-	 void onServiceConnected(AndroidCXX::android_content_ComponentName& arg0,AndroidCXX::android_os_IBinder& arg1);
-	 void onServiceDisconnected(AndroidCXX::android_content_ComponentName& arg0);
+	 void onServiceConnected(AndroidCXX::android_content_ComponentName const& arg0,AndroidCXX::android_os_IBinder const& arg1);
+	 void onServiceDisconnected(AndroidCXX::android_content_ComponentName const& arg0);
 };	
 
 } // namespace

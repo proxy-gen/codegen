@@ -74,33 +74,9 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
-android_graphics_Point::android_graphics_Point(const android_graphics_Point& cc)
+android_graphics_Point::android_graphics_Point(Proxy proxy)
 {
-	LOGV("android_graphics_Point::android_graphics_Point(const android_graphics_Point& cc) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	long ccaddress = (long) &cc;
-	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
-	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
-	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
-	long address = (long) this;
-	LOGV("registerProxyComponent address %ld", address);
-	jobject proxiedComponent = ctx->findProxyComponent(address);
-	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
-	if (proxiedComponent == 0)
-	{
-		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = proxiedCCComponent;
-		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
-		ctx->registerProxyComponent(address, proxiedComponent);
-	}
-
-	LOGV("android_graphics_Point::android_graphics_Point(const android_graphics_Point& cc) exit");
-}
-android_graphics_Point::android_graphics_Point(void * proxy)
-{
-	LOGV("android_graphics_Point::android_graphics_Point(void * proxy) enter");
+	LOGV("android_graphics_Point::android_graphics_Point(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -110,17 +86,31 @@ android_graphics_Point::android_graphics_Point(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_graphics_Point::android_graphics_Point(void * proxy) exit");
+	LOGV("android_graphics_Point::android_graphics_Point(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy android_graphics_Point::proxy() const
+{	
+	LOGV("android_graphics_Point::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_graphics_Point cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_graphics_Point jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_graphics_Point::proxy() exit");	
+
+	return proxy;
+}
 android_graphics_Point::android_graphics_Point()
 {
 	LOGV("android_graphics_Point::android_graphics_Point() enter");	
@@ -157,9 +147,9 @@ android_graphics_Point::android_graphics_Point()
 
 	LOGV("android_graphics_Point::android_graphics_Point() exit");	
 }
-android_graphics_Point::android_graphics_Point(int& arg0,int& arg1)
+android_graphics_Point::android_graphics_Point(int const& arg0,int const& arg1)
 {
-	LOGV("android_graphics_Point::android_graphics_Point(int& arg0,int& arg1) enter");	
+	LOGV("android_graphics_Point::android_graphics_Point(int const& arg0,int const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(II)V";
@@ -233,11 +223,11 @@ android_graphics_Point::android_graphics_Point(int& arg0,int& arg1)
 
 	jni->popLocalFrame();
 
-	LOGV("android_graphics_Point::android_graphics_Point(int& arg0,int& arg1) exit");	
+	LOGV("android_graphics_Point::android_graphics_Point(int const& arg0,int const& arg1) exit");	
 }
-android_graphics_Point::android_graphics_Point(AndroidCXX::android_graphics_Point& arg0)
+android_graphics_Point::android_graphics_Point(AndroidCXX::android_graphics_Point const& arg0)
 {
-	LOGV("android_graphics_Point::android_graphics_Point(AndroidCXX::android_graphics_Point& arg0) enter");	
+	LOGV("android_graphics_Point::android_graphics_Point(AndroidCXX::android_graphics_Point const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/graphics/Point;)V";
@@ -290,7 +280,7 @@ android_graphics_Point::android_graphics_Point(AndroidCXX::android_graphics_Poin
 
 	jni->popLocalFrame();
 
-	LOGV("android_graphics_Point::android_graphics_Point(AndroidCXX::android_graphics_Point& arg0) exit");	
+	LOGV("android_graphics_Point::android_graphics_Point(AndroidCXX::android_graphics_Point const& arg0) exit");	
 }
 // Default Instance Destructor
 android_graphics_Point::~android_graphics_Point()
@@ -303,13 +293,13 @@ android_graphics_Point::~android_graphics_Point()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_graphics_Point::~android_graphics_Point() exit");
 }
 // Functions
-bool android_graphics_Point::equals(int& arg0,int& arg1)
+bool android_graphics_Point::equals(int const& arg0,int const& arg1)
 {
-	LOGV("bool android_graphics_Point::equals(int& arg0,int& arg1) enter");
+	LOGV("bool android_graphics_Point::equals(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(II)Z";
@@ -319,8 +309,6 @@ bool android_graphics_Point::equals(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Point cxx address %d", cxxAddress);
@@ -391,15 +379,13 @@ bool android_graphics_Point::equals(int& arg0,int& arg1)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_graphics_Point::equals(int& arg0,int& arg1) exit");
+	LOGV("bool android_graphics_Point::equals(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-bool android_graphics_Point::equals(AndroidCXX::java_lang_Object& arg0)
+bool android_graphics_Point::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool android_graphics_Point::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool android_graphics_Point::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -409,8 +395,6 @@ bool android_graphics_Point::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Point cxx address %d", cxxAddress);
@@ -460,9 +444,7 @@ bool android_graphics_Point::equals(AndroidCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_graphics_Point::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool android_graphics_Point::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -478,8 +460,6 @@ AndroidCXX::java_lang_String android_graphics_Point::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Point cxx address %d", cxxAddress);
@@ -508,8 +488,6 @@ AndroidCXX::java_lang_String android_graphics_Point::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_graphics_Point::toString() exit");
 
 	return result;
@@ -527,8 +505,6 @@ int android_graphics_Point::hashCode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Point cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -556,15 +532,13 @@ int android_graphics_Point::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_graphics_Point::hashCode() exit");
 
 	return result;
 }
-void android_graphics_Point::offset(int& arg0,int& arg1)
+void android_graphics_Point::offset(int const& arg0,int const& arg1)
 {
-	LOGV("void android_graphics_Point::offset(int& arg0,int& arg1) enter");
+	LOGV("void android_graphics_Point::offset(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "offset";
 	const char *methodSignature = "(II)V";
@@ -575,8 +549,6 @@ void android_graphics_Point::offset(int& arg0,int& arg1)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Point cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -627,14 +599,12 @@ void android_graphics_Point::offset(int& arg0,int& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Point::offset(int& arg0,int& arg1) exit");
+	LOGV("void android_graphics_Point::offset(int const& arg0,int const& arg1) exit");
 
 }
-void android_graphics_Point::set(int& arg0,int& arg1)
+void android_graphics_Point::set(int const& arg0,int const& arg1)
 {
-	LOGV("void android_graphics_Point::set(int& arg0,int& arg1) enter");
+	LOGV("void android_graphics_Point::set(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "set";
 	const char *methodSignature = "(II)V";
@@ -645,8 +615,6 @@ void android_graphics_Point::set(int& arg0,int& arg1)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Point cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -697,9 +665,7 @@ void android_graphics_Point::set(int& arg0,int& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Point::set(int& arg0,int& arg1) exit");
+	LOGV("void android_graphics_Point::set(int const& arg0,int const& arg1) exit");
 
 }
 void android_graphics_Point::negate()
@@ -715,8 +681,6 @@ void android_graphics_Point::negate()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Point cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -725,8 +689,6 @@ void android_graphics_Point::negate()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_graphics_Point::negate() exit");
 
 }
@@ -743,8 +705,6 @@ int android_graphics_Point::describeContents()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Point cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -772,15 +732,13 @@ int android_graphics_Point::describeContents()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_graphics_Point::describeContents() exit");
 
 	return result;
 }
-void android_graphics_Point::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_graphics_Point::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_graphics_Point::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_graphics_Point::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -790,8 +748,6 @@ void android_graphics_Point::writeToParcel(AndroidCXX::android_os_Parcel& arg0,i
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Point cxx address %d", cxxAddress);
@@ -843,14 +799,12 @@ void android_graphics_Point::writeToParcel(AndroidCXX::android_os_Parcel& arg0,i
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Point::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_graphics_Point::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }
-void android_graphics_Point::readFromParcel(AndroidCXX::android_os_Parcel& arg0)
+void android_graphics_Point::readFromParcel(AndroidCXX::android_os_Parcel const& arg0)
 {
-	LOGV("void android_graphics_Point::readFromParcel(AndroidCXX::android_os_Parcel& arg0) enter");
+	LOGV("void android_graphics_Point::readFromParcel(AndroidCXX::android_os_Parcel const& arg0) enter");
 
 	const char *methodName = "readFromParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;)V";
@@ -860,8 +814,6 @@ void android_graphics_Point::readFromParcel(AndroidCXX::android_os_Parcel& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Point cxx address %d", cxxAddress);
@@ -892,8 +844,6 @@ void android_graphics_Point::readFromParcel(AndroidCXX::android_os_Parcel& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Point::readFromParcel(AndroidCXX::android_os_Parcel& arg0) exit");
+	LOGV("void android_graphics_Point::readFromParcel(AndroidCXX::android_os_Parcel const& arg0) exit");
 
 }

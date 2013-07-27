@@ -54,7 +54,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_AuthorizationClient_StartActivityDelegate::com_facebook_AuthorizationClient_StartActivityDelegate(const com_facebook_AuthorizationClient_StartActivityDelegate& cc)
 {
 	LOGV("com_facebook_AuthorizationClient_StartActivityDelegate::com_facebook_AuthorizationClient_StartActivityDelegate(const com_facebook_AuthorizationClient_StartActivityDelegate& cc) enter");
@@ -78,9 +77,9 @@ com_facebook_AuthorizationClient_StartActivityDelegate::com_facebook_Authorizati
 
 	LOGV("com_facebook_AuthorizationClient_StartActivityDelegate::com_facebook_AuthorizationClient_StartActivityDelegate(const com_facebook_AuthorizationClient_StartActivityDelegate& cc) exit");
 }
-com_facebook_AuthorizationClient_StartActivityDelegate::com_facebook_AuthorizationClient_StartActivityDelegate(void * proxy)
+com_facebook_AuthorizationClient_StartActivityDelegate::com_facebook_AuthorizationClient_StartActivityDelegate(Proxy proxy)
 {
-	LOGV("com_facebook_AuthorizationClient_StartActivityDelegate::com_facebook_AuthorizationClient_StartActivityDelegate(void * proxy) enter");
+	LOGV("com_facebook_AuthorizationClient_StartActivityDelegate::com_facebook_AuthorizationClient_StartActivityDelegate(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -90,52 +89,31 @@ com_facebook_AuthorizationClient_StartActivityDelegate::com_facebook_Authorizati
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_AuthorizationClient_StartActivityDelegate::com_facebook_AuthorizationClient_StartActivityDelegate(void * proxy) exit");
+	LOGV("com_facebook_AuthorizationClient_StartActivityDelegate::com_facebook_AuthorizationClient_StartActivityDelegate(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// com_facebook_AuthorizationClient_StartActivityDelegate::com_facebook_AuthorizationClient_StartActivityDelegate()
-// {
-// 	LOGV("com_facebook_AuthorizationClient_StartActivityDelegate::com_facebook_AuthorizationClient_StartActivityDelegate() enter");	
+Proxy com_facebook_AuthorizationClient_StartActivityDelegate::proxy() const
+{	
+	LOGV("com_facebook_AuthorizationClient_StartActivityDelegate::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "com/facebook/AuthorizationClient$StartActivityDelegate";
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_AuthorizationClient_StartActivityDelegate cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_AuthorizationClient_StartActivityDelegate jni address %d", proxiedComponent);
 
-// 	LOGV("com_facebook_AuthorizationClient_StartActivityDelegate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("com_facebook_AuthorizationClient_StartActivityDelegate::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("com_facebook_AuthorizationClient_StartActivityDelegate cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("com_facebook_AuthorizationClient_StartActivityDelegate jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("com_facebook_AuthorizationClient_StartActivityDelegate::com_facebook_AuthorizationClient_StartActivityDelegate() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 com_facebook_AuthorizationClient_StartActivityDelegate::~com_facebook_AuthorizationClient_StartActivityDelegate()
 {
@@ -147,13 +125,13 @@ com_facebook_AuthorizationClient_StartActivityDelegate::~com_facebook_Authorizat
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_AuthorizationClient_StartActivityDelegate::~com_facebook_AuthorizationClient_StartActivityDelegate() exit");
 }
 // Functions
-void com_facebook_AuthorizationClient_StartActivityDelegate::startActivityForResult(AndroidCXX::android_content_Intent& arg0,int& arg1)
+void com_facebook_AuthorizationClient_StartActivityDelegate::startActivityForResult(AndroidCXX::android_content_Intent const& arg0,int const& arg1)
 {
-	LOGV("void com_facebook_AuthorizationClient_StartActivityDelegate::startActivityForResult(AndroidCXX::android_content_Intent& arg0,int& arg1) enter");
+	LOGV("void com_facebook_AuthorizationClient_StartActivityDelegate::startActivityForResult(AndroidCXX::android_content_Intent const& arg0,int const& arg1) enter");
 
 	const char *methodName = "startActivityForResult";
 	const char *methodSignature = "(Landroid/content/Intent;I)V";
@@ -163,8 +141,6 @@ void com_facebook_AuthorizationClient_StartActivityDelegate::startActivityForRes
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_AuthorizationClient_StartActivityDelegate cxx address %d", cxxAddress);
@@ -216,9 +192,7 @@ void com_facebook_AuthorizationClient_StartActivityDelegate::startActivityForRes
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_AuthorizationClient_StartActivityDelegate::startActivityForResult(AndroidCXX::android_content_Intent& arg0,int& arg1) exit");
+	LOGV("void com_facebook_AuthorizationClient_StartActivityDelegate::startActivityForResult(AndroidCXX::android_content_Intent const& arg0,int const& arg1) exit");
 
 }
 AndroidCXX::android_app_Activity com_facebook_AuthorizationClient_StartActivityDelegate::getActivityContext()
@@ -233,8 +207,6 @@ AndroidCXX::android_app_Activity com_facebook_AuthorizationClient_StartActivityD
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_AuthorizationClient_StartActivityDelegate cxx address %d", cxxAddress);
@@ -263,8 +235,6 @@ AndroidCXX::android_app_Activity com_facebook_AuthorizationClient_StartActivityD
 	AndroidCXX::android_app_Activity result((AndroidCXX::android_app_Activity) *((AndroidCXX::android_app_Activity *) cxx_value));
 	delete ((AndroidCXX::android_app_Activity *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_app_Activity com_facebook_AuthorizationClient_StartActivityDelegate::getActivityContext() exit");
 
 	return result;

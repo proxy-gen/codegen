@@ -51,16 +51,13 @@ class com_facebook_AuthorizationClient_5
 public:
 
 	com_facebook_AuthorizationClient_5(const com_facebook_AuthorizationClient_5& cc);
-	com_facebook_AuthorizationClient_5(void * proxy);
+	com_facebook_AuthorizationClient_5(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_AuthorizationClient_5();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_5();
 	// Functions
-	 void onBatchCompleted(FacebookCXX::com_facebook_RequestBatch& arg0);
+	 void onBatchCompleted(FacebookCXX::com_facebook_RequestBatch const& arg0);
 };	
 
 } // namespace

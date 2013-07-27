@@ -49,7 +49,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_util_Random::java_util_Random(const java_util_Random& cc)
 {
 	LOGV("java_util_Random::java_util_Random(const java_util_Random& cc) enter");
@@ -73,9 +72,9 @@ java_util_Random::java_util_Random(const java_util_Random& cc)
 
 	LOGV("java_util_Random::java_util_Random(const java_util_Random& cc) exit");
 }
-java_util_Random::java_util_Random(void * proxy)
+java_util_Random::java_util_Random(Proxy proxy)
 {
-	LOGV("java_util_Random::java_util_Random(void * proxy) enter");
+	LOGV("java_util_Random::java_util_Random(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -85,17 +84,31 @@ java_util_Random::java_util_Random(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_util_Random::java_util_Random(void * proxy) exit");
+	LOGV("java_util_Random::java_util_Random(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy java_util_Random::proxy() const
+{	
+	LOGV("java_util_Random::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("java_util_Random cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_util_Random jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("java_util_Random::proxy() exit");	
+
+	return proxy;
+}
 java_util_Random::java_util_Random()
 {
 	LOGV("java_util_Random::java_util_Random() enter");	
@@ -132,9 +145,9 @@ java_util_Random::java_util_Random()
 
 	LOGV("java_util_Random::java_util_Random() exit");	
 }
-java_util_Random::java_util_Random(long& arg0)
+java_util_Random::java_util_Random(long const& arg0)
 {
-	LOGV("java_util_Random::java_util_Random(long& arg0) enter");	
+	LOGV("java_util_Random::java_util_Random(long const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(J)V";
@@ -187,7 +200,7 @@ java_util_Random::java_util_Random(long& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Random::java_util_Random(long& arg0) exit");	
+	LOGV("java_util_Random::java_util_Random(long const& arg0) exit");	
 }
 // Default Instance Destructor
 java_util_Random::~java_util_Random()
@@ -200,7 +213,7 @@ java_util_Random::~java_util_Random()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_util_Random::~java_util_Random() exit");
 }
 // Functions
@@ -216,8 +229,6 @@ int java_util_Random::nextInt()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Random cxx address %d", cxxAddress);
@@ -246,15 +257,13 @@ int java_util_Random::nextInt()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_util_Random::nextInt() exit");
 
 	return result;
 }
-int java_util_Random::nextInt(int& arg0)
+int java_util_Random::nextInt(int const& arg0)
 {
-	LOGV("int java_util_Random::nextInt(int& arg0) enter");
+	LOGV("int java_util_Random::nextInt(int const& arg0) enter");
 
 	const char *methodName = "nextInt";
 	const char *methodSignature = "(I)I";
@@ -264,8 +273,6 @@ int java_util_Random::nextInt(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Random cxx address %d", cxxAddress);
@@ -315,9 +322,7 @@ int java_util_Random::nextInt(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_util_Random::nextInt(int& arg0) exit");
+	LOGV("int java_util_Random::nextInt(int const& arg0) exit");
 
 	return result;
 }
@@ -333,8 +338,6 @@ double java_util_Random::nextDouble()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Random cxx address %d", cxxAddress);
@@ -363,8 +366,6 @@ double java_util_Random::nextDouble()
 	double result = (double) *((double *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("double java_util_Random::nextDouble() exit");
 
 	return result;
@@ -381,8 +382,6 @@ long java_util_Random::nextLong()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Random cxx address %d", cxxAddress);
@@ -411,15 +410,13 @@ long java_util_Random::nextLong()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long java_util_Random::nextLong() exit");
 
 	return result;
 }
-void java_util_Random::nextBytes(std::vector<byte>& arg0)
+void java_util_Random::nextBytes(std::vector<byte> const& arg0)
 {
-	LOGV("void java_util_Random::nextBytes(std::vector<byte>& arg0) enter");
+	LOGV("void java_util_Random::nextBytes(std::vector<byte> const& arg0) enter");
 
 	const char *methodName = "nextBytes";
 	const char *methodSignature = "([B)V";
@@ -429,8 +426,6 @@ void java_util_Random::nextBytes(std::vector<byte>& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Random cxx address %d", cxxAddress);
@@ -479,14 +474,12 @@ void java_util_Random::nextBytes(std::vector<byte>& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_util_Random::nextBytes(std::vector<byte>& arg0) exit");
+	LOGV("void java_util_Random::nextBytes(std::vector<byte> const& arg0) exit");
 
 }
-void java_util_Random::setSeed(long& arg0)
+void java_util_Random::setSeed(long const& arg0)
 {
-	LOGV("void java_util_Random::setSeed(long& arg0) enter");
+	LOGV("void java_util_Random::setSeed(long const& arg0) enter");
 
 	const char *methodName = "setSeed";
 	const char *methodSignature = "(J)V";
@@ -496,8 +489,6 @@ void java_util_Random::setSeed(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Random cxx address %d", cxxAddress);
@@ -528,9 +519,7 @@ void java_util_Random::setSeed(long& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_util_Random::setSeed(long& arg0) exit");
+	LOGV("void java_util_Random::setSeed(long const& arg0) exit");
 
 }
 bool java_util_Random::nextBoolean()
@@ -545,8 +534,6 @@ bool java_util_Random::nextBoolean()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Random cxx address %d", cxxAddress);
@@ -575,8 +562,6 @@ bool java_util_Random::nextBoolean()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_util_Random::nextBoolean() exit");
 
 	return result;
@@ -593,8 +578,6 @@ float java_util_Random::nextFloat()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Random cxx address %d", cxxAddress);
@@ -623,8 +606,6 @@ float java_util_Random::nextFloat()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float java_util_Random::nextFloat() exit");
 
 	return result;
@@ -641,8 +622,6 @@ double java_util_Random::nextGaussian()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Random cxx address %d", cxxAddress);
@@ -671,8 +650,6 @@ double java_util_Random::nextGaussian()
 	double result = (double) *((double *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("double java_util_Random::nextGaussian() exit");
 
 	return result;

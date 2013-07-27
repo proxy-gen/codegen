@@ -61,18 +61,15 @@ class com_facebook_android_Facebook_ServiceListener
 public:
 
 	com_facebook_android_Facebook_ServiceListener(const com_facebook_android_Facebook_ServiceListener& cc);
-	com_facebook_android_Facebook_ServiceListener(void * proxy);
+	com_facebook_android_Facebook_ServiceListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_android_Facebook_ServiceListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook_ServiceListener();
 	// Functions
-	 void onComplete(AndroidCXX::android_os_Bundle& arg0);
-	 void onFacebookError(FacebookCXX::com_facebook_android_FacebookError& arg0);
-	 void onError(AndroidCXX::java_lang_Error& arg0);
+	 void onComplete(AndroidCXX::android_os_Bundle const& arg0);
+	 void onFacebookError(FacebookCXX::com_facebook_android_FacebookError const& arg0);
+	 void onError(AndroidCXX::java_lang_Error const& arg0);
 };	
 
 } // namespace

@@ -114,27 +114,24 @@ class android_app_TaskStackBuilder
 public:
 
 	android_app_TaskStackBuilder(const android_app_TaskStackBuilder& cc);
-	android_app_TaskStackBuilder(void * proxy);
+	android_app_TaskStackBuilder(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_app_TaskStackBuilder();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_TaskStackBuilder();
 	// Functions
-	static AndroidCXX::android_app_TaskStackBuilder create(AndroidCXX::android_content_Context& arg0);
+	static AndroidCXX::android_app_TaskStackBuilder create(AndroidCXX::android_content_Context const& arg0);
 	 void startActivities();
-	 void startActivities(AndroidCXX::android_os_Bundle& arg0);
-	 AndroidCXX::android_app_TaskStackBuilder addNextIntent(AndroidCXX::android_content_Intent& arg0);
-	 AndroidCXX::android_app_TaskStackBuilder addNextIntentWithParentStack(AndroidCXX::android_content_Intent& arg0);
-	 AndroidCXX::android_app_TaskStackBuilder addParentStack(AndroidCXX::android_app_Activity& arg0);
-	 AndroidCXX::android_app_TaskStackBuilder addParentStack(AndroidCXX::java_lang_Class& arg0);
-	 AndroidCXX::android_app_TaskStackBuilder addParentStack(AndroidCXX::android_content_ComponentName& arg0);
+	 void startActivities(AndroidCXX::android_os_Bundle const& arg0);
+	 AndroidCXX::android_app_TaskStackBuilder addNextIntent(AndroidCXX::android_content_Intent const& arg0);
+	 AndroidCXX::android_app_TaskStackBuilder addNextIntentWithParentStack(AndroidCXX::android_content_Intent const& arg0);
+	 AndroidCXX::android_app_TaskStackBuilder addParentStack(AndroidCXX::android_app_Activity const& arg0);
+	 AndroidCXX::android_app_TaskStackBuilder addParentStack(AndroidCXX::java_lang_Class const& arg0);
+	 AndroidCXX::android_app_TaskStackBuilder addParentStack(AndroidCXX::android_content_ComponentName const& arg0);
 	 int getIntentCount();
-	 AndroidCXX::android_content_Intent editIntentAt(int& arg0);
-	 AndroidCXX::android_app_PendingIntent getPendingIntent(int& arg0,int& arg1);
-	 AndroidCXX::android_app_PendingIntent getPendingIntent(int& arg0,int& arg1,AndroidCXX::android_os_Bundle& arg2);
+	 AndroidCXX::android_content_Intent editIntentAt(int const& arg0);
+	 AndroidCXX::android_app_PendingIntent getPendingIntent(int const& arg0,int const& arg1);
+	 AndroidCXX::android_app_PendingIntent getPendingIntent(int const& arg0,int const& arg1,AndroidCXX::android_os_Bundle const& arg2);
 	 std::vector<AndroidCXX::android_content_Intent > getIntents();
 };	
 

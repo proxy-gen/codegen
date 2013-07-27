@@ -158,7 +158,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(const android_widget_CursorTreeAdapter& cc)
 {
 	LOGV("android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(const android_widget_CursorTreeAdapter& cc) enter");
@@ -182,9 +181,9 @@ android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(const android
 
 	LOGV("android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(const android_widget_CursorTreeAdapter& cc) exit");
 }
-android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(void * proxy)
+android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(Proxy proxy)
 {
-	LOGV("android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(void * proxy) enter");
+	LOGV("android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -194,55 +193,34 @@ android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(void * proxy) exit");
+	LOGV("android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter()
-// {
-// 	LOGV("android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter() enter");	
+Proxy android_widget_CursorTreeAdapter::proxy() const
+{	
+	LOGV("android_widget_CursorTreeAdapter::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/CursorTreeAdapter";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_CursorTreeAdapter jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_CursorTreeAdapter::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_CursorTreeAdapter jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(AndroidCXX::android_database_Cursor& arg0,AndroidCXX::android_content_Context& arg1)
+	return proxy;
+}
+android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(AndroidCXX::android_database_Cursor const& arg0,AndroidCXX::android_content_Context const& arg1)
 {
-	LOGV("android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(AndroidCXX::android_database_Cursor& arg0,AndroidCXX::android_content_Context& arg1) enter");	
+	LOGV("android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(AndroidCXX::android_database_Cursor const& arg0,AndroidCXX::android_content_Context const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/database/Cursor;Landroid/content/Context;)V";
@@ -316,11 +294,11 @@ android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(AndroidCXX::a
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(AndroidCXX::android_database_Cursor& arg0,AndroidCXX::android_content_Context& arg1) exit");	
+	LOGV("android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(AndroidCXX::android_database_Cursor const& arg0,AndroidCXX::android_content_Context const& arg1) exit");	
 }
-android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(AndroidCXX::android_database_Cursor& arg0,AndroidCXX::android_content_Context& arg1,bool& arg2)
+android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(AndroidCXX::android_database_Cursor const& arg0,AndroidCXX::android_content_Context const& arg1,bool const& arg2)
 {
-	LOGV("android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(AndroidCXX::android_database_Cursor& arg0,AndroidCXX::android_content_Context& arg1,bool& arg2) enter");	
+	LOGV("android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(AndroidCXX::android_database_Cursor const& arg0,AndroidCXX::android_content_Context const& arg1,bool const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/database/Cursor;Landroid/content/Context;Z)V";
@@ -415,7 +393,7 @@ android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(AndroidCXX::a
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(AndroidCXX::android_database_Cursor& arg0,AndroidCXX::android_content_Context& arg1,bool& arg2) exit");	
+	LOGV("android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(AndroidCXX::android_database_Cursor const& arg0,AndroidCXX::android_content_Context const& arg1,bool const& arg2) exit");	
 }
 // Default Instance Destructor
 android_widget_CursorTreeAdapter::~android_widget_CursorTreeAdapter()
@@ -428,7 +406,7 @@ android_widget_CursorTreeAdapter::~android_widget_CursorTreeAdapter()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_CursorTreeAdapter::~android_widget_CursorTreeAdapter() exit");
 }
 // Functions
@@ -444,8 +422,6 @@ AndroidCXX::android_widget_Filter android_widget_CursorTreeAdapter::getFilter()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
@@ -474,15 +450,13 @@ AndroidCXX::android_widget_Filter android_widget_CursorTreeAdapter::getFilter()
 	AndroidCXX::android_widget_Filter result((AndroidCXX::android_widget_Filter) *((AndroidCXX::android_widget_Filter *) cxx_value));
 	delete ((AndroidCXX::android_widget_Filter *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_widget_Filter android_widget_CursorTreeAdapter::getFilter() exit");
 
 	return result;
 }
-long android_widget_CursorTreeAdapter::getGroupId(int& arg0)
+long android_widget_CursorTreeAdapter::getGroupId(int const& arg0)
 {
-	LOGV("long android_widget_CursorTreeAdapter::getGroupId(int& arg0) enter");
+	LOGV("long android_widget_CursorTreeAdapter::getGroupId(int const& arg0) enter");
 
 	const char *methodName = "getGroupId";
 	const char *methodSignature = "(I)J";
@@ -492,8 +466,6 @@ long android_widget_CursorTreeAdapter::getGroupId(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
@@ -543,15 +515,13 @@ long android_widget_CursorTreeAdapter::getGroupId(int& arg0)
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long android_widget_CursorTreeAdapter::getGroupId(int& arg0) exit");
+	LOGV("long android_widget_CursorTreeAdapter::getGroupId(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::getChild(int& arg0,int& arg1)
+AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::getChild(int const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::getChild(int& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::getChild(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getChild";
 	const char *methodSignature = "(II)Landroid/database/Cursor;";
@@ -561,8 +531,6 @@ AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::getChild(i
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
@@ -633,9 +601,7 @@ AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::getChild(i
 	AndroidCXX::android_database_Cursor result((AndroidCXX::android_database_Cursor) *((AndroidCXX::android_database_Cursor *) cxx_value));
 	delete ((AndroidCXX::android_database_Cursor *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::getChild(int& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::getChild(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
@@ -651,8 +617,6 @@ bool android_widget_CursorTreeAdapter::hasStableIds()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
@@ -681,8 +645,6 @@ bool android_widget_CursorTreeAdapter::hasStableIds()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_CursorTreeAdapter::hasStableIds() exit");
 
 	return result;
@@ -699,8 +661,6 @@ int android_widget_CursorTreeAdapter::getGroupCount()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
@@ -729,15 +689,13 @@ int android_widget_CursorTreeAdapter::getGroupCount()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_CursorTreeAdapter::getGroupCount() exit");
 
 	return result;
 }
-int android_widget_CursorTreeAdapter::getChildrenCount(int& arg0)
+int android_widget_CursorTreeAdapter::getChildrenCount(int const& arg0)
 {
-	LOGV("int android_widget_CursorTreeAdapter::getChildrenCount(int& arg0) enter");
+	LOGV("int android_widget_CursorTreeAdapter::getChildrenCount(int const& arg0) enter");
 
 	const char *methodName = "getChildrenCount";
 	const char *methodSignature = "(I)I";
@@ -747,8 +705,6 @@ int android_widget_CursorTreeAdapter::getChildrenCount(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
@@ -798,15 +754,13 @@ int android_widget_CursorTreeAdapter::getChildrenCount(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_widget_CursorTreeAdapter::getChildrenCount(int& arg0) exit");
+	LOGV("int android_widget_CursorTreeAdapter::getChildrenCount(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::getGroup(int& arg0)
+AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::getGroup(int const& arg0)
 {
-	LOGV("AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::getGroup(int& arg0) enter");
+	LOGV("AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::getGroup(int const& arg0) enter");
 
 	const char *methodName = "getGroup";
 	const char *methodSignature = "(I)Landroid/database/Cursor;";
@@ -816,8 +770,6 @@ AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::getGroup(i
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
@@ -867,15 +819,13 @@ AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::getGroup(i
 	AndroidCXX::android_database_Cursor result((AndroidCXX::android_database_Cursor) *((AndroidCXX::android_database_Cursor *) cxx_value));
 	delete ((AndroidCXX::android_database_Cursor *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::getGroup(int& arg0) exit");
+	LOGV("AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::getGroup(int const& arg0) exit");
 
 	return result;
 }
-long android_widget_CursorTreeAdapter::getChildId(int& arg0,int& arg1)
+long android_widget_CursorTreeAdapter::getChildId(int const& arg0,int const& arg1)
 {
-	LOGV("long android_widget_CursorTreeAdapter::getChildId(int& arg0,int& arg1) enter");
+	LOGV("long android_widget_CursorTreeAdapter::getChildId(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getChildId";
 	const char *methodSignature = "(II)J";
@@ -885,8 +835,6 @@ long android_widget_CursorTreeAdapter::getChildId(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
@@ -957,15 +905,13 @@ long android_widget_CursorTreeAdapter::getChildId(int& arg0,int& arg1)
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long android_widget_CursorTreeAdapter::getChildId(int& arg0,int& arg1) exit");
+	LOGV("long android_widget_CursorTreeAdapter::getChildId(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_view_View android_widget_CursorTreeAdapter::getGroupView(int& arg0,bool& arg1,AndroidCXX::android_view_View& arg2,AndroidCXX::android_view_ViewGroup& arg3)
+AndroidCXX::android_view_View android_widget_CursorTreeAdapter::getGroupView(int const& arg0,bool const& arg1,AndroidCXX::android_view_View const& arg2,AndroidCXX::android_view_ViewGroup const& arg3)
 {
-	LOGV("AndroidCXX::android_view_View android_widget_CursorTreeAdapter::getGroupView(int& arg0,bool& arg1,AndroidCXX::android_view_View& arg2,AndroidCXX::android_view_ViewGroup& arg3) enter");
+	LOGV("AndroidCXX::android_view_View android_widget_CursorTreeAdapter::getGroupView(int const& arg0,bool const& arg1,AndroidCXX::android_view_View const& arg2,AndroidCXX::android_view_ViewGroup const& arg3) enter");
 
 	const char *methodName = "getGroupView";
 	const char *methodSignature = "(IZLandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;";
@@ -975,8 +921,6 @@ AndroidCXX::android_view_View android_widget_CursorTreeAdapter::getGroupView(int
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
@@ -1089,15 +1033,13 @@ AndroidCXX::android_view_View android_widget_CursorTreeAdapter::getGroupView(int
 	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
 	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_View android_widget_CursorTreeAdapter::getGroupView(int& arg0,bool& arg1,AndroidCXX::android_view_View& arg2,AndroidCXX::android_view_ViewGroup& arg3) exit");
+	LOGV("AndroidCXX::android_view_View android_widget_CursorTreeAdapter::getGroupView(int const& arg0,bool const& arg1,AndroidCXX::android_view_View const& arg2,AndroidCXX::android_view_ViewGroup const& arg3) exit");
 
 	return result;
 }
-AndroidCXX::android_view_View android_widget_CursorTreeAdapter::getChildView(int& arg0,int& arg1,bool& arg2,AndroidCXX::android_view_View& arg3,AndroidCXX::android_view_ViewGroup& arg4)
+AndroidCXX::android_view_View android_widget_CursorTreeAdapter::getChildView(int const& arg0,int const& arg1,bool const& arg2,AndroidCXX::android_view_View const& arg3,AndroidCXX::android_view_ViewGroup const& arg4)
 {
-	LOGV("AndroidCXX::android_view_View android_widget_CursorTreeAdapter::getChildView(int& arg0,int& arg1,bool& arg2,AndroidCXX::android_view_View& arg3,AndroidCXX::android_view_ViewGroup& arg4) enter");
+	LOGV("AndroidCXX::android_view_View android_widget_CursorTreeAdapter::getChildView(int const& arg0,int const& arg1,bool const& arg2,AndroidCXX::android_view_View const& arg3,AndroidCXX::android_view_ViewGroup const& arg4) enter");
 
 	const char *methodName = "getChildView";
 	const char *methodSignature = "(IIZLandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;";
@@ -1107,8 +1049,6 @@ AndroidCXX::android_view_View android_widget_CursorTreeAdapter::getChildView(int
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
@@ -1242,15 +1182,13 @@ AndroidCXX::android_view_View android_widget_CursorTreeAdapter::getChildView(int
 	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
 	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_View android_widget_CursorTreeAdapter::getChildView(int& arg0,int& arg1,bool& arg2,AndroidCXX::android_view_View& arg3,AndroidCXX::android_view_ViewGroup& arg4) exit");
+	LOGV("AndroidCXX::android_view_View android_widget_CursorTreeAdapter::getChildView(int const& arg0,int const& arg1,bool const& arg2,AndroidCXX::android_view_View const& arg3,AndroidCXX::android_view_ViewGroup const& arg4) exit");
 
 	return result;
 }
-bool android_widget_CursorTreeAdapter::isChildSelectable(int& arg0,int& arg1)
+bool android_widget_CursorTreeAdapter::isChildSelectable(int const& arg0,int const& arg1)
 {
-	LOGV("bool android_widget_CursorTreeAdapter::isChildSelectable(int& arg0,int& arg1) enter");
+	LOGV("bool android_widget_CursorTreeAdapter::isChildSelectable(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "isChildSelectable";
 	const char *methodSignature = "(II)Z";
@@ -1260,8 +1198,6 @@ bool android_widget_CursorTreeAdapter::isChildSelectable(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
@@ -1332,15 +1268,13 @@ bool android_widget_CursorTreeAdapter::isChildSelectable(int& arg0,int& arg1)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_CursorTreeAdapter::isChildSelectable(int& arg0,int& arg1) exit");
+	LOGV("bool android_widget_CursorTreeAdapter::isChildSelectable(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-void android_widget_CursorTreeAdapter::onGroupCollapsed(int& arg0)
+void android_widget_CursorTreeAdapter::onGroupCollapsed(int const& arg0)
 {
-	LOGV("void android_widget_CursorTreeAdapter::onGroupCollapsed(int& arg0) enter");
+	LOGV("void android_widget_CursorTreeAdapter::onGroupCollapsed(int const& arg0) enter");
 
 	const char *methodName = "onGroupCollapsed";
 	const char *methodSignature = "(I)V";
@@ -1350,8 +1284,6 @@ void android_widget_CursorTreeAdapter::onGroupCollapsed(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
@@ -1382,14 +1314,12 @@ void android_widget_CursorTreeAdapter::onGroupCollapsed(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CursorTreeAdapter::onGroupCollapsed(int& arg0) exit");
+	LOGV("void android_widget_CursorTreeAdapter::onGroupCollapsed(int const& arg0) exit");
 
 }
-AndroidCXX::java_lang_String android_widget_CursorTreeAdapter::convertToString(AndroidCXX::android_database_Cursor& arg0)
+AndroidCXX::java_lang_String android_widget_CursorTreeAdapter::convertToString(AndroidCXX::android_database_Cursor const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_widget_CursorTreeAdapter::convertToString(AndroidCXX::android_database_Cursor& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_widget_CursorTreeAdapter::convertToString(AndroidCXX::android_database_Cursor const& arg0) enter");
 
 	const char *methodName = "convertToString";
 	const char *methodSignature = "(Landroid/database/Cursor;)Ljava/lang/String;";
@@ -1399,8 +1329,6 @@ AndroidCXX::java_lang_String android_widget_CursorTreeAdapter::convertToString(A
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
@@ -1450,9 +1378,7 @@ AndroidCXX::java_lang_String android_widget_CursorTreeAdapter::convertToString(A
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_widget_CursorTreeAdapter::convertToString(AndroidCXX::android_database_Cursor& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String android_widget_CursorTreeAdapter::convertToString(AndroidCXX::android_database_Cursor const& arg0) exit");
 
 	return result;
 }
@@ -1469,8 +1395,6 @@ void android_widget_CursorTreeAdapter::notifyDataSetChanged()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1479,14 +1403,12 @@ void android_widget_CursorTreeAdapter::notifyDataSetChanged()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_CursorTreeAdapter::notifyDataSetChanged() exit");
 
 }
-void android_widget_CursorTreeAdapter::notifyDataSetChanged(bool& arg0)
+void android_widget_CursorTreeAdapter::notifyDataSetChanged(bool const& arg0)
 {
-	LOGV("void android_widget_CursorTreeAdapter::notifyDataSetChanged(bool& arg0) enter");
+	LOGV("void android_widget_CursorTreeAdapter::notifyDataSetChanged(bool const& arg0) enter");
 
 	const char *methodName = "notifyDataSetChanged";
 	const char *methodSignature = "(Z)V";
@@ -1496,8 +1418,6 @@ void android_widget_CursorTreeAdapter::notifyDataSetChanged(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
@@ -1528,9 +1448,7 @@ void android_widget_CursorTreeAdapter::notifyDataSetChanged(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CursorTreeAdapter::notifyDataSetChanged(bool& arg0) exit");
+	LOGV("void android_widget_CursorTreeAdapter::notifyDataSetChanged(bool const& arg0) exit");
 
 }
 void android_widget_CursorTreeAdapter::notifyDataSetInvalidated()
@@ -1546,8 +1464,6 @@ void android_widget_CursorTreeAdapter::notifyDataSetInvalidated()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1556,8 +1472,6 @@ void android_widget_CursorTreeAdapter::notifyDataSetInvalidated()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_CursorTreeAdapter::notifyDataSetInvalidated() exit");
 
 }
@@ -1573,8 +1487,6 @@ AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::getCursor(
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
@@ -1603,15 +1515,13 @@ AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::getCursor(
 	AndroidCXX::android_database_Cursor result((AndroidCXX::android_database_Cursor) *((AndroidCXX::android_database_Cursor *) cxx_value));
 	delete ((AndroidCXX::android_database_Cursor *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::getCursor() exit");
 
 	return result;
 }
-void android_widget_CursorTreeAdapter::changeCursor(AndroidCXX::android_database_Cursor& arg0)
+void android_widget_CursorTreeAdapter::changeCursor(AndroidCXX::android_database_Cursor const& arg0)
 {
-	LOGV("void android_widget_CursorTreeAdapter::changeCursor(AndroidCXX::android_database_Cursor& arg0) enter");
+	LOGV("void android_widget_CursorTreeAdapter::changeCursor(AndroidCXX::android_database_Cursor const& arg0) enter");
 
 	const char *methodName = "changeCursor";
 	const char *methodSignature = "(Landroid/database/Cursor;)V";
@@ -1621,8 +1531,6 @@ void android_widget_CursorTreeAdapter::changeCursor(AndroidCXX::android_database
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
@@ -1653,14 +1561,12 @@ void android_widget_CursorTreeAdapter::changeCursor(AndroidCXX::android_database
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CursorTreeAdapter::changeCursor(AndroidCXX::android_database_Cursor& arg0) exit");
+	LOGV("void android_widget_CursorTreeAdapter::changeCursor(AndroidCXX::android_database_Cursor const& arg0) exit");
 
 }
-AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::runQueryOnBackgroundThread(AndroidCXX::java_lang_CharSequence& arg0)
+AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::runQueryOnBackgroundThread(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::runQueryOnBackgroundThread(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::runQueryOnBackgroundThread(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "runQueryOnBackgroundThread";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Landroid/database/Cursor;";
@@ -1670,8 +1576,6 @@ AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::runQueryOn
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
@@ -1721,9 +1625,7 @@ AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::runQueryOn
 	AndroidCXX::android_database_Cursor result((AndroidCXX::android_database_Cursor) *((AndroidCXX::android_database_Cursor *) cxx_value));
 	delete ((AndroidCXX::android_database_Cursor *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::runQueryOnBackgroundThread(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::runQueryOnBackgroundThread(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 	return result;
 }
@@ -1739,8 +1641,6 @@ AndroidCXX::android_widget_FilterQueryProvider android_widget_CursorTreeAdapter:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
@@ -1769,15 +1669,13 @@ AndroidCXX::android_widget_FilterQueryProvider android_widget_CursorTreeAdapter:
 	AndroidCXX::android_widget_FilterQueryProvider result((AndroidCXX::android_widget_FilterQueryProvider) *((AndroidCXX::android_widget_FilterQueryProvider *) cxx_value));
 	delete ((AndroidCXX::android_widget_FilterQueryProvider *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_widget_FilterQueryProvider android_widget_CursorTreeAdapter::getFilterQueryProvider() exit");
 
 	return result;
 }
-void android_widget_CursorTreeAdapter::setFilterQueryProvider(AndroidCXX::android_widget_FilterQueryProvider& arg0)
+void android_widget_CursorTreeAdapter::setFilterQueryProvider(AndroidCXX::android_widget_FilterQueryProvider const& arg0)
 {
-	LOGV("void android_widget_CursorTreeAdapter::setFilterQueryProvider(AndroidCXX::android_widget_FilterQueryProvider& arg0) enter");
+	LOGV("void android_widget_CursorTreeAdapter::setFilterQueryProvider(AndroidCXX::android_widget_FilterQueryProvider const& arg0) enter");
 
 	const char *methodName = "setFilterQueryProvider";
 	const char *methodSignature = "(Landroid/widget/FilterQueryProvider;)V";
@@ -1787,8 +1685,6 @@ void android_widget_CursorTreeAdapter::setFilterQueryProvider(AndroidCXX::androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
@@ -1819,14 +1715,12 @@ void android_widget_CursorTreeAdapter::setFilterQueryProvider(AndroidCXX::androi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CursorTreeAdapter::setFilterQueryProvider(AndroidCXX::android_widget_FilterQueryProvider& arg0) exit");
+	LOGV("void android_widget_CursorTreeAdapter::setFilterQueryProvider(AndroidCXX::android_widget_FilterQueryProvider const& arg0) exit");
 
 }
-void android_widget_CursorTreeAdapter::setGroupCursor(AndroidCXX::android_database_Cursor& arg0)
+void android_widget_CursorTreeAdapter::setGroupCursor(AndroidCXX::android_database_Cursor const& arg0)
 {
-	LOGV("void android_widget_CursorTreeAdapter::setGroupCursor(AndroidCXX::android_database_Cursor& arg0) enter");
+	LOGV("void android_widget_CursorTreeAdapter::setGroupCursor(AndroidCXX::android_database_Cursor const& arg0) enter");
 
 	const char *methodName = "setGroupCursor";
 	const char *methodSignature = "(Landroid/database/Cursor;)V";
@@ -1836,8 +1730,6 @@ void android_widget_CursorTreeAdapter::setGroupCursor(AndroidCXX::android_databa
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
@@ -1868,14 +1760,12 @@ void android_widget_CursorTreeAdapter::setGroupCursor(AndroidCXX::android_databa
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CursorTreeAdapter::setGroupCursor(AndroidCXX::android_database_Cursor& arg0) exit");
+	LOGV("void android_widget_CursorTreeAdapter::setGroupCursor(AndroidCXX::android_database_Cursor const& arg0) exit");
 
 }
-void android_widget_CursorTreeAdapter::setChildrenCursor(int& arg0,AndroidCXX::android_database_Cursor& arg1)
+void android_widget_CursorTreeAdapter::setChildrenCursor(int const& arg0,AndroidCXX::android_database_Cursor const& arg1)
 {
-	LOGV("void android_widget_CursorTreeAdapter::setChildrenCursor(int& arg0,AndroidCXX::android_database_Cursor& arg1) enter");
+	LOGV("void android_widget_CursorTreeAdapter::setChildrenCursor(int const& arg0,AndroidCXX::android_database_Cursor const& arg1) enter");
 
 	const char *methodName = "setChildrenCursor";
 	const char *methodSignature = "(ILandroid/database/Cursor;)V";
@@ -1885,8 +1775,6 @@ void android_widget_CursorTreeAdapter::setChildrenCursor(int& arg0,AndroidCXX::a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CursorTreeAdapter cxx address %d", cxxAddress);
@@ -1938,8 +1826,6 @@ void android_widget_CursorTreeAdapter::setChildrenCursor(int& arg0,AndroidCXX::a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CursorTreeAdapter::setChildrenCursor(int& arg0,AndroidCXX::android_database_Cursor& arg1) exit");
+	LOGV("void android_widget_CursorTreeAdapter::setChildrenCursor(int const& arg0,AndroidCXX::android_database_Cursor const& arg1) exit");
 
 }

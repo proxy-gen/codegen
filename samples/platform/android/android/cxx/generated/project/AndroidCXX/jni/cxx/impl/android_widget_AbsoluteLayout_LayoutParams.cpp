@@ -65,7 +65,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(const android_widget_AbsoluteLayout_LayoutParams& cc)
 {
 	LOGV("android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(const android_widget_AbsoluteLayout_LayoutParams& cc) enter");
@@ -89,9 +88,9 @@ android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_Layout
 
 	LOGV("android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(const android_widget_AbsoluteLayout_LayoutParams& cc) exit");
 }
-android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(void * proxy)
+android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(Proxy proxy)
 {
-	LOGV("android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(void * proxy) enter");
+	LOGV("android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -101,55 +100,34 @@ android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_Layout
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(void * proxy) exit");
+	LOGV("android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams()
-// {
-// 	LOGV("android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams() enter");	
+Proxy android_widget_AbsoluteLayout_LayoutParams::proxy() const
+{	
+	LOGV("android_widget_AbsoluteLayout_LayoutParams::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/AbsoluteLayout$LayoutParams";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_AbsoluteLayout_LayoutParams cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_AbsoluteLayout_LayoutParams jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_AbsoluteLayout_LayoutParams className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_AbsoluteLayout_LayoutParams::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_AbsoluteLayout_LayoutParams cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_AbsoluteLayout_LayoutParams jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(int& arg0,int& arg1,int& arg2,int& arg3)
+	return proxy;
+}
+android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(int const& arg0,int const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(int& arg0,int& arg1,int& arg2,int& arg3) enter");	
+	LOGV("android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(int const& arg0,int const& arg1,int const& arg2,int const& arg3) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(IIII)V";
@@ -265,11 +243,11 @@ android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_Layout
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(int& arg0,int& arg1,int& arg2,int& arg3) exit");	
+	LOGV("android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(int const& arg0,int const& arg1,int const& arg2,int const& arg3) exit");	
 }
-android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -343,11 +321,11 @@ android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_Layout
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0)
+android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0)
 {
-	LOGV("android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0) enter");	
+	LOGV("android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/view/ViewGroup$LayoutParams;)V";
@@ -400,7 +378,7 @@ android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_Layout
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0) exit");	
+	LOGV("android_widget_AbsoluteLayout_LayoutParams::android_widget_AbsoluteLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0) exit");	
 }
 // Default Instance Destructor
 android_widget_AbsoluteLayout_LayoutParams::~android_widget_AbsoluteLayout_LayoutParams()
@@ -413,13 +391,13 @@ android_widget_AbsoluteLayout_LayoutParams::~android_widget_AbsoluteLayout_Layou
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_AbsoluteLayout_LayoutParams::~android_widget_AbsoluteLayout_LayoutParams() exit");
 }
 // Functions
-AndroidCXX::java_lang_String android_widget_AbsoluteLayout_LayoutParams::debug(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_lang_String android_widget_AbsoluteLayout_LayoutParams::debug(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_widget_AbsoluteLayout_LayoutParams::debug(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_widget_AbsoluteLayout_LayoutParams::debug(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "debug";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
@@ -429,8 +407,6 @@ AndroidCXX::java_lang_String android_widget_AbsoluteLayout_LayoutParams::debug(A
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AbsoluteLayout_LayoutParams cxx address %d", cxxAddress);
@@ -480,9 +456,7 @@ AndroidCXX::java_lang_String android_widget_AbsoluteLayout_LayoutParams::debug(A
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_widget_AbsoluteLayout_LayoutParams::debug(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String android_widget_AbsoluteLayout_LayoutParams::debug(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }

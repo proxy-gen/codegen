@@ -52,16 +52,13 @@ class android_content_ComponentCallbacks
 public:
 
 	android_content_ComponentCallbacks(const android_content_ComponentCallbacks& cc);
-	android_content_ComponentCallbacks(void * proxy);
+	android_content_ComponentCallbacks(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_content_ComponentCallbacks();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ComponentCallbacks();
 	// Functions
-	 void onConfigurationChanged(AndroidCXX::android_content_res_Configuration& arg0);
+	 void onConfigurationChanged(AndroidCXX::android_content_res_Configuration const& arg0);
 	 void onLowMemory();
 };	
 

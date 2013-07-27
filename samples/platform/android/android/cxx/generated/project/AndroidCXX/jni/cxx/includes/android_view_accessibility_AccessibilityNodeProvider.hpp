@@ -71,17 +71,16 @@ class android_view_accessibility_AccessibilityNodeProvider
 public:
 
 	android_view_accessibility_AccessibilityNodeProvider(const android_view_accessibility_AccessibilityNodeProvider& cc);
-	android_view_accessibility_AccessibilityNodeProvider(void * proxy);
+	android_view_accessibility_AccessibilityNodeProvider(Proxy proxy);
 	// Public Constructors
 	android_view_accessibility_AccessibilityNodeProvider();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_accessibility_AccessibilityNodeProvider();
 	// Functions
-	 AndroidCXX::android_view_accessibility_AccessibilityNodeInfo createAccessibilityNodeInfo(int& arg0);
-	 bool performAction(int& arg0,int& arg1,AndroidCXX::android_os_Bundle& arg2);
-	 AndroidCXX::java_util_List findAccessibilityNodeInfosByText(AndroidCXX::java_lang_String& arg0,int& arg1);
+	 AndroidCXX::android_view_accessibility_AccessibilityNodeInfo createAccessibilityNodeInfo(int const& arg0);
+	 bool performAction(int const& arg0,int const& arg1,AndroidCXX::android_os_Bundle const& arg2);
+	 AndroidCXX::java_util_List findAccessibilityNodeInfosByText(AndroidCXX::java_lang_String const& arg0,int const& arg1);
 };	
 
 } // namespace

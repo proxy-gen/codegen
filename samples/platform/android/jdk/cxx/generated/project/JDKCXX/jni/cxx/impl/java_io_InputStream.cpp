@@ -48,7 +48,6 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_io_InputStream::java_io_InputStream(const java_io_InputStream& cc)
 {
 	LOGV("java_io_InputStream::java_io_InputStream(const java_io_InputStream& cc) enter");
@@ -72,9 +71,9 @@ java_io_InputStream::java_io_InputStream(const java_io_InputStream& cc)
 
 	LOGV("java_io_InputStream::java_io_InputStream(const java_io_InputStream& cc) exit");
 }
-java_io_InputStream::java_io_InputStream(void * proxy)
+java_io_InputStream::java_io_InputStream(Proxy proxy)
 {
-	LOGV("java_io_InputStream::java_io_InputStream(void * proxy) enter");
+	LOGV("java_io_InputStream::java_io_InputStream(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -84,17 +83,31 @@ java_io_InputStream::java_io_InputStream(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_io_InputStream::java_io_InputStream(void * proxy) exit");
+	LOGV("java_io_InputStream::java_io_InputStream(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy java_io_InputStream::proxy() const
+{	
+	LOGV("java_io_InputStream::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("java_io_InputStream cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_io_InputStream jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("java_io_InputStream::proxy() exit");	
+
+	return proxy;
+}
 java_io_InputStream::java_io_InputStream()
 {
 	LOGV("java_io_InputStream::java_io_InputStream() enter");	
@@ -142,7 +155,7 @@ java_io_InputStream::~java_io_InputStream()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_io_InputStream::~java_io_InputStream() exit");
 }
 // Functions
@@ -159,8 +172,6 @@ void java_io_InputStream::close()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_io_InputStream cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -169,14 +180,12 @@ void java_io_InputStream::close()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_io_InputStream::close() exit");
 
 }
-void java_io_InputStream::mark(int& arg0)
+void java_io_InputStream::mark(int const& arg0)
 {
-	LOGV("void java_io_InputStream::mark(int& arg0) enter");
+	LOGV("void java_io_InputStream::mark(int const& arg0) enter");
 
 	const char *methodName = "mark";
 	const char *methodSignature = "(I)V";
@@ -186,8 +195,6 @@ void java_io_InputStream::mark(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_InputStream cxx address %d", cxxAddress);
@@ -218,9 +225,7 @@ void java_io_InputStream::mark(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_InputStream::mark(int& arg0) exit");
+	LOGV("void java_io_InputStream::mark(int const& arg0) exit");
 
 }
 void java_io_InputStream::reset()
@@ -236,8 +241,6 @@ void java_io_InputStream::reset()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_io_InputStream cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -246,14 +249,12 @@ void java_io_InputStream::reset()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_io_InputStream::reset() exit");
 
 }
-int java_io_InputStream::read(std::vector<byte>& arg0,int& arg1,int& arg2)
+int java_io_InputStream::read(std::vector<byte> const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("int java_io_InputStream::read(std::vector<byte>& arg0,int& arg1,int& arg2) enter");
+	LOGV("int java_io_InputStream::read(std::vector<byte> const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "read";
 	const char *methodSignature = "([BII)I";
@@ -263,8 +264,6 @@ int java_io_InputStream::read(std::vector<byte>& arg0,int& arg1,int& arg2)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_InputStream cxx address %d", cxxAddress);
@@ -374,15 +373,13 @@ int java_io_InputStream::read(std::vector<byte>& arg0,int& arg1,int& arg2)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_io_InputStream::read(std::vector<byte>& arg0,int& arg1,int& arg2) exit");
+	LOGV("int java_io_InputStream::read(std::vector<byte> const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-int java_io_InputStream::read(std::vector<byte>& arg0)
+int java_io_InputStream::read(std::vector<byte> const& arg0)
 {
-	LOGV("int java_io_InputStream::read(std::vector<byte>& arg0) enter");
+	LOGV("int java_io_InputStream::read(std::vector<byte> const& arg0) enter");
 
 	const char *methodName = "read";
 	const char *methodSignature = "([B)I";
@@ -392,8 +389,6 @@ int java_io_InputStream::read(std::vector<byte>& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_InputStream cxx address %d", cxxAddress);
@@ -461,9 +456,7 @@ int java_io_InputStream::read(std::vector<byte>& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_io_InputStream::read(std::vector<byte>& arg0) exit");
+	LOGV("int java_io_InputStream::read(std::vector<byte> const& arg0) exit");
 
 	return result;
 }
@@ -479,8 +472,6 @@ int java_io_InputStream::read()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_InputStream cxx address %d", cxxAddress);
@@ -509,15 +500,13 @@ int java_io_InputStream::read()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_io_InputStream::read() exit");
 
 	return result;
 }
-long java_io_InputStream::skip(long& arg0)
+long java_io_InputStream::skip(long const& arg0)
 {
-	LOGV("long java_io_InputStream::skip(long& arg0) enter");
+	LOGV("long java_io_InputStream::skip(long const& arg0) enter");
 
 	const char *methodName = "skip";
 	const char *methodSignature = "(J)J";
@@ -527,8 +516,6 @@ long java_io_InputStream::skip(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_InputStream cxx address %d", cxxAddress);
@@ -578,9 +565,7 @@ long java_io_InputStream::skip(long& arg0)
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long java_io_InputStream::skip(long& arg0) exit");
+	LOGV("long java_io_InputStream::skip(long const& arg0) exit");
 
 	return result;
 }
@@ -596,8 +581,6 @@ int java_io_InputStream::available()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_InputStream cxx address %d", cxxAddress);
@@ -626,8 +609,6 @@ int java_io_InputStream::available()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_io_InputStream::available() exit");
 
 	return result;
@@ -644,8 +625,6 @@ bool java_io_InputStream::markSupported()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_InputStream cxx address %d", cxxAddress);
@@ -674,8 +653,6 @@ bool java_io_InputStream::markSupported()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_io_InputStream::markSupported() exit");
 
 	return result;

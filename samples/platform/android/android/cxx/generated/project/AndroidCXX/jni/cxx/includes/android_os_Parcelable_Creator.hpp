@@ -59,17 +59,14 @@ class android_os_Parcelable_Creator
 public:
 
 	android_os_Parcelable_Creator(const android_os_Parcelable_Creator& cc);
-	android_os_Parcelable_Creator(void * proxy);
+	android_os_Parcelable_Creator(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_os_Parcelable_Creator();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_os_Parcelable_Creator();
 	// Functions
-	 std::vector<AndroidCXX::java_lang_Object > newArray(int& arg0);
-	 AndroidCXX::java_lang_Object createFromParcel(AndroidCXX::android_os_Parcel& arg0);
+	 std::vector<AndroidCXX::java_lang_Object > newArray(int const& arg0);
+	 AndroidCXX::java_lang_Object createFromParcel(AndroidCXX::android_os_Parcel const& arg0);
 };	
 
 } // namespace

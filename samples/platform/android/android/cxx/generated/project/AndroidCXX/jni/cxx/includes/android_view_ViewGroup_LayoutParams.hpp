@@ -62,20 +62,16 @@ class android_view_ViewGroup_LayoutParams
 {
 public:
 
-	android_view_ViewGroup_LayoutParams(const android_view_ViewGroup_LayoutParams& cc);
-	android_view_ViewGroup_LayoutParams(void * proxy);
+	android_view_ViewGroup_LayoutParams(Proxy proxy);
 	// Public Constructors
-	android_view_ViewGroup_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_view_ViewGroup_LayoutParams(int& arg0,int& arg1);
-	android_view_ViewGroup_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0);
-	// TODO: remove
-	// 
-	// android_view_ViewGroup_LayoutParams();
-	// 
+	android_view_ViewGroup_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_view_ViewGroup_LayoutParams(int const& arg0,int const& arg1);
+	android_view_ViewGroup_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewGroup_LayoutParams();
 	// Functions
-	 void resolveLayoutDirection(int& arg0);
+	 void resolveLayoutDirection(int const& arg0);
 };	
 
 } // namespace

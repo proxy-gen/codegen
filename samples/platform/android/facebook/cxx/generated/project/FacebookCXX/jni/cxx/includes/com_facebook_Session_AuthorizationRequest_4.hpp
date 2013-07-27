@@ -55,16 +55,13 @@ class com_facebook_Session_AuthorizationRequest_4
 public:
 
 	com_facebook_Session_AuthorizationRequest_4(const com_facebook_Session_AuthorizationRequest_4& cc);
-	com_facebook_Session_AuthorizationRequest_4(void * proxy);
+	com_facebook_Session_AuthorizationRequest_4(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_Session_AuthorizationRequest_4();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_AuthorizationRequest_4();
 	// Functions
-	 void startActivityForResult(AndroidCXX::android_content_Intent& arg0,int& arg1);
+	 void startActivityForResult(AndroidCXX::android_content_Intent const& arg0,int const& arg1);
 	 AndroidCXX::android_app_Activity getActivityContext();
 };	
 

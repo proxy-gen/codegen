@@ -53,17 +53,14 @@ class android_view_MenuItem_OnActionExpandListener
 public:
 
 	android_view_MenuItem_OnActionExpandListener(const android_view_MenuItem_OnActionExpandListener& cc);
-	android_view_MenuItem_OnActionExpandListener(void * proxy);
+	android_view_MenuItem_OnActionExpandListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_view_MenuItem_OnActionExpandListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_MenuItem_OnActionExpandListener();
 	// Functions
-	 bool onMenuItemActionExpand(AndroidCXX::android_view_MenuItem& arg0);
-	 bool onMenuItemActionCollapse(AndroidCXX::android_view_MenuItem& arg0);
+	 bool onMenuItemActionExpand(AndroidCXX::android_view_MenuItem const& arg0);
+	 bool onMenuItemActionCollapse(AndroidCXX::android_view_MenuItem const& arg0);
 };	
 
 } // namespace

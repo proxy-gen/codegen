@@ -98,31 +98,28 @@ class android_widget_DialerFilter
 public:
 
 	android_widget_DialerFilter(const android_widget_DialerFilter& cc);
-	android_widget_DialerFilter(void * proxy);
+	android_widget_DialerFilter(Proxy proxy);
 	// Public Constructors
-	android_widget_DialerFilter(AndroidCXX::android_content_Context& arg0);
-	android_widget_DialerFilter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	// TODO: remove
-	// 
-	// android_widget_DialerFilter();
-	// 
+	android_widget_DialerFilter(AndroidCXX::android_content_Context const& arg0);
+	android_widget_DialerFilter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_DialerFilter();
 	// Functions
-	 void append(AndroidCXX::java_lang_String& arg0);
-	 void setMode(int& arg0);
+	 void append(AndroidCXX::java_lang_String const& arg0);
+	 void setMode(int const& arg0);
 	 int getMode();
-	 bool onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1);
-	 bool onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1);
+	 bool onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
+	 bool onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
 	 bool isQwertyKeyboard();
 	 AndroidCXX::java_lang_CharSequence getLetters();
 	 AndroidCXX::java_lang_CharSequence getDigits();
 	 AndroidCXX::java_lang_CharSequence getFilterText();
 	 void clearText();
-	 void setLettersWatcher(AndroidCXX::android_text_TextWatcher& arg0);
-	 void setDigitsWatcher(AndroidCXX::android_text_TextWatcher& arg0);
-	 void setFilterWatcher(AndroidCXX::android_text_TextWatcher& arg0);
-	 void removeFilterWatcher(AndroidCXX::android_text_TextWatcher& arg0);
+	 void setLettersWatcher(AndroidCXX::android_text_TextWatcher const& arg0);
+	 void setDigitsWatcher(AndroidCXX::android_text_TextWatcher const& arg0);
+	 void setFilterWatcher(AndroidCXX::android_text_TextWatcher const& arg0);
+	 void removeFilterWatcher(AndroidCXX::android_text_TextWatcher const& arg0);
 };	
 
 } // namespace

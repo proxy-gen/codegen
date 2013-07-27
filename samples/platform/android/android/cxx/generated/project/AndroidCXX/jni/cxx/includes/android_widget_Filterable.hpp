@@ -51,12 +51,9 @@ class android_widget_Filterable
 public:
 
 	android_widget_Filterable(const android_widget_Filterable& cc);
-	android_widget_Filterable(void * proxy);
+	android_widget_Filterable(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_Filterable();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Filterable();
 	// Functions

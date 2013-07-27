@@ -73,17 +73,14 @@ class java_security_Timestamp
 public:
 
 	java_security_Timestamp(const java_security_Timestamp& cc);
-	java_security_Timestamp(void * proxy);
+	java_security_Timestamp(Proxy proxy);
 	// Public Constructors
-	java_security_Timestamp(AndroidCXX::java_util_Date& arg0,AndroidCXX::java_security_cert_CertPath& arg1);
-	// TODO: remove
-	// 
-	// java_security_Timestamp();
-	// 
+	java_security_Timestamp(AndroidCXX::java_util_Date const& arg0,AndroidCXX::java_security_cert_CertPath const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_security_Timestamp();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 AndroidCXX::java_security_cert_CertPath getSignerCertPath();

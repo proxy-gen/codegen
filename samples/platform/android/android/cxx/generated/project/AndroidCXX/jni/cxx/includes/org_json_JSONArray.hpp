@@ -143,56 +143,55 @@ class org_json_JSONArray
 public:
 
 	org_json_JSONArray(const org_json_JSONArray& cc);
-	org_json_JSONArray(void * proxy);
+	org_json_JSONArray(Proxy proxy);
 	// Public Constructors
-	org_json_JSONArray(AndroidCXX::org_json_JSONTokener& arg0);
-	org_json_JSONArray(AndroidCXX::java_lang_String& arg0);
+	org_json_JSONArray(AndroidCXX::org_json_JSONTokener const& arg0);
+	org_json_JSONArray(AndroidCXX::java_lang_String const& arg0);
 	org_json_JSONArray();
-	org_json_JSONArray(AndroidCXX::java_util_Collection& arg0);
-	// TODO: remove
-	// 
+	org_json_JSONArray(AndroidCXX::java_util_Collection const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~org_json_JSONArray();
 	// Functions
-	 AndroidCXX::java_lang_Object get(int& arg0);
-	 AndroidCXX::org_json_JSONArray put(AndroidCXX::java_lang_Object& arg0);
-	 AndroidCXX::org_json_JSONArray put(int& arg0,bool& arg1);
-	 AndroidCXX::org_json_JSONArray put(int& arg0,int& arg1);
-	 AndroidCXX::org_json_JSONArray put(int& arg0,long& arg1);
-	 AndroidCXX::org_json_JSONArray put(int& arg0,AndroidCXX::java_lang_Object& arg1);
-	 AndroidCXX::org_json_JSONArray put(int& arg0,double& arg1);
-	 AndroidCXX::org_json_JSONArray put(bool& arg0);
-	 AndroidCXX::org_json_JSONArray put(double& arg0);
-	 AndroidCXX::org_json_JSONArray put(int& arg0);
-	 AndroidCXX::org_json_JSONArray put(long& arg0);
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_Object get(int const& arg0);
+	 AndroidCXX::org_json_JSONArray put(AndroidCXX::java_lang_Object const& arg0);
+	 AndroidCXX::org_json_JSONArray put(int const& arg0,bool const& arg1);
+	 AndroidCXX::org_json_JSONArray put(int const& arg0,int const& arg1);
+	 AndroidCXX::org_json_JSONArray put(int const& arg0,long const& arg1);
+	 AndroidCXX::org_json_JSONArray put(int const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	 AndroidCXX::org_json_JSONArray put(int const& arg0,double const& arg1);
+	 AndroidCXX::org_json_JSONArray put(bool const& arg0);
+	 AndroidCXX::org_json_JSONArray put(double const& arg0);
+	 AndroidCXX::org_json_JSONArray put(int const& arg0);
+	 AndroidCXX::org_json_JSONArray put(long const& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
-	 AndroidCXX::java_lang_String toString(int& arg0);
+	 AndroidCXX::java_lang_String toString(int const& arg0);
 	 int hashCode();
-	 bool getBoolean(int& arg0);
-	 int getInt(int& arg0);
-	 long getLong(int& arg0);
-	 double getDouble(int& arg0);
+	 bool getBoolean(int const& arg0);
+	 int getInt(int const& arg0);
+	 long getLong(int const& arg0);
+	 double getDouble(int const& arg0);
 	 int length();
-	 AndroidCXX::java_lang_String join(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::java_lang_String getString(int& arg0);
-	 bool isNull(int& arg0);
-	 AndroidCXX::java_lang_Object opt(int& arg0);
-	 bool optBoolean(int& arg0,bool& arg1);
-	 bool optBoolean(int& arg0);
-	 double optDouble(int& arg0,double& arg1);
-	 double optDouble(int& arg0);
-	 int optInt(int& arg0);
-	 int optInt(int& arg0,int& arg1);
-	 long optLong(int& arg0,long& arg1);
-	 long optLong(int& arg0);
-	 AndroidCXX::java_lang_String optString(int& arg0,AndroidCXX::java_lang_String& arg1);
-	 AndroidCXX::java_lang_String optString(int& arg0);
-	 AndroidCXX::org_json_JSONArray getJSONArray(int& arg0);
-	 AndroidCXX::org_json_JSONArray optJSONArray(int& arg0);
-	 AndroidCXX::org_json_JSONObject getJSONObject(int& arg0);
-	 AndroidCXX::org_json_JSONObject optJSONObject(int& arg0);
-	 AndroidCXX::org_json_JSONObject toJSONObject(AndroidCXX::org_json_JSONArray& arg0);
+	 AndroidCXX::java_lang_String join(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::java_lang_String getString(int const& arg0);
+	 bool isNull(int const& arg0);
+	 AndroidCXX::java_lang_Object opt(int const& arg0);
+	 bool optBoolean(int const& arg0,bool const& arg1);
+	 bool optBoolean(int const& arg0);
+	 double optDouble(int const& arg0,double const& arg1);
+	 double optDouble(int const& arg0);
+	 int optInt(int const& arg0);
+	 int optInt(int const& arg0,int const& arg1);
+	 long optLong(int const& arg0,long const& arg1);
+	 long optLong(int const& arg0);
+	 AndroidCXX::java_lang_String optString(int const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 AndroidCXX::java_lang_String optString(int const& arg0);
+	 AndroidCXX::org_json_JSONArray getJSONArray(int const& arg0);
+	 AndroidCXX::org_json_JSONArray optJSONArray(int const& arg0);
+	 AndroidCXX::org_json_JSONObject getJSONObject(int const& arg0);
+	 AndroidCXX::org_json_JSONObject optJSONObject(int const& arg0);
+	 AndroidCXX::org_json_JSONObject toJSONObject(AndroidCXX::org_json_JSONArray const& arg0);
 };	
 
 } // namespace

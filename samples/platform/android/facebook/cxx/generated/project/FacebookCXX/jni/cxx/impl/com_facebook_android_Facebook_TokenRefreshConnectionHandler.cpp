@@ -49,7 +49,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_android_Facebook_TokenRefreshConnectionHandler::com_facebook_android_Facebook_TokenRefreshConnectionHandler(const com_facebook_android_Facebook_TokenRefreshConnectionHandler& cc)
 {
 	LOGV("com_facebook_android_Facebook_TokenRefreshConnectionHandler::com_facebook_android_Facebook_TokenRefreshConnectionHandler(const com_facebook_android_Facebook_TokenRefreshConnectionHandler& cc) enter");
@@ -73,9 +72,9 @@ com_facebook_android_Facebook_TokenRefreshConnectionHandler::com_facebook_androi
 
 	LOGV("com_facebook_android_Facebook_TokenRefreshConnectionHandler::com_facebook_android_Facebook_TokenRefreshConnectionHandler(const com_facebook_android_Facebook_TokenRefreshConnectionHandler& cc) exit");
 }
-com_facebook_android_Facebook_TokenRefreshConnectionHandler::com_facebook_android_Facebook_TokenRefreshConnectionHandler(void * proxy)
+com_facebook_android_Facebook_TokenRefreshConnectionHandler::com_facebook_android_Facebook_TokenRefreshConnectionHandler(Proxy proxy)
 {
-	LOGV("com_facebook_android_Facebook_TokenRefreshConnectionHandler::com_facebook_android_Facebook_TokenRefreshConnectionHandler(void * proxy) enter");
+	LOGV("com_facebook_android_Facebook_TokenRefreshConnectionHandler::com_facebook_android_Facebook_TokenRefreshConnectionHandler(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -85,52 +84,31 @@ com_facebook_android_Facebook_TokenRefreshConnectionHandler::com_facebook_androi
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_android_Facebook_TokenRefreshConnectionHandler::com_facebook_android_Facebook_TokenRefreshConnectionHandler(void * proxy) exit");
+	LOGV("com_facebook_android_Facebook_TokenRefreshConnectionHandler::com_facebook_android_Facebook_TokenRefreshConnectionHandler(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// com_facebook_android_Facebook_TokenRefreshConnectionHandler::com_facebook_android_Facebook_TokenRefreshConnectionHandler()
-// {
-// 	LOGV("com_facebook_android_Facebook_TokenRefreshConnectionHandler::com_facebook_android_Facebook_TokenRefreshConnectionHandler() enter");	
+Proxy com_facebook_android_Facebook_TokenRefreshConnectionHandler::proxy() const
+{	
+	LOGV("com_facebook_android_Facebook_TokenRefreshConnectionHandler::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "com/facebook/android/Facebook$TokenRefreshConnectionHandler";
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_android_Facebook_TokenRefreshConnectionHandler cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_android_Facebook_TokenRefreshConnectionHandler jni address %d", proxiedComponent);
 
-// 	LOGV("com_facebook_android_Facebook_TokenRefreshConnectionHandler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("com_facebook_android_Facebook_TokenRefreshConnectionHandler::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("com_facebook_android_Facebook_TokenRefreshConnectionHandler cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("com_facebook_android_Facebook_TokenRefreshConnectionHandler jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("com_facebook_android_Facebook_TokenRefreshConnectionHandler::com_facebook_android_Facebook_TokenRefreshConnectionHandler() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 com_facebook_android_Facebook_TokenRefreshConnectionHandler::~com_facebook_android_Facebook_TokenRefreshConnectionHandler()
 {
@@ -142,13 +120,13 @@ com_facebook_android_Facebook_TokenRefreshConnectionHandler::~com_facebook_andro
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_android_Facebook_TokenRefreshConnectionHandler::~com_facebook_android_Facebook_TokenRefreshConnectionHandler() exit");
 }
 // Functions
-void com_facebook_android_Facebook_TokenRefreshConnectionHandler::handleMessage(AndroidCXX::android_os_Message& arg0)
+void com_facebook_android_Facebook_TokenRefreshConnectionHandler::handleMessage(AndroidCXX::android_os_Message const& arg0)
 {
-	LOGV("void com_facebook_android_Facebook_TokenRefreshConnectionHandler::handleMessage(AndroidCXX::android_os_Message& arg0) enter");
+	LOGV("void com_facebook_android_Facebook_TokenRefreshConnectionHandler::handleMessage(AndroidCXX::android_os_Message const& arg0) enter");
 
 	const char *methodName = "handleMessage";
 	const char *methodSignature = "(Landroid/os/Message;)V";
@@ -158,8 +136,6 @@ void com_facebook_android_Facebook_TokenRefreshConnectionHandler::handleMessage(
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook_TokenRefreshConnectionHandler cxx address %d", cxxAddress);
@@ -190,8 +166,6 @@ void com_facebook_android_Facebook_TokenRefreshConnectionHandler::handleMessage(
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_Facebook_TokenRefreshConnectionHandler::handleMessage(AndroidCXX::android_os_Message& arg0) exit");
+	LOGV("void com_facebook_android_Facebook_TokenRefreshConnectionHandler::handleMessage(AndroidCXX::android_os_Message const& arg0) exit");
 
 }

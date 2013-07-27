@@ -72,7 +72,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_accounts_Account::android_accounts_Account(const android_accounts_Account& cc)
 {
 	LOGV("android_accounts_Account::android_accounts_Account(const android_accounts_Account& cc) enter");
@@ -96,9 +95,9 @@ android_accounts_Account::android_accounts_Account(const android_accounts_Accoun
 
 	LOGV("android_accounts_Account::android_accounts_Account(const android_accounts_Account& cc) exit");
 }
-android_accounts_Account::android_accounts_Account(void * proxy)
+android_accounts_Account::android_accounts_Account(Proxy proxy)
 {
-	LOGV("android_accounts_Account::android_accounts_Account(void * proxy) enter");
+	LOGV("android_accounts_Account::android_accounts_Account(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -108,55 +107,34 @@ android_accounts_Account::android_accounts_Account(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_accounts_Account::android_accounts_Account(void * proxy) exit");
+	LOGV("android_accounts_Account::android_accounts_Account(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_accounts_Account::android_accounts_Account()
-// {
-// 	LOGV("android_accounts_Account::android_accounts_Account() enter");	
+Proxy android_accounts_Account::proxy() const
+{	
+	LOGV("android_accounts_Account::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/accounts/Account";
+	long cxxAddress = (long) this;
+	LOGV("android_accounts_Account cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_accounts_Account jni address %d", proxiedComponent);
 
-// 	LOGV("android_accounts_Account className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_accounts_Account::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_accounts_Account cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_accounts_Account jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_accounts_Account::android_accounts_Account() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_accounts_Account::android_accounts_Account(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
+	return proxy;
+}
+android_accounts_Account::android_accounts_Account(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("android_accounts_Account::android_accounts_Account(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");	
+	LOGV("android_accounts_Account::android_accounts_Account(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
@@ -230,11 +208,11 @@ android_accounts_Account::android_accounts_Account(AndroidCXX::java_lang_String&
 
 	jni->popLocalFrame();
 
-	LOGV("android_accounts_Account::android_accounts_Account(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");	
+	LOGV("android_accounts_Account::android_accounts_Account(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) exit");	
 }
-android_accounts_Account::android_accounts_Account(AndroidCXX::android_os_Parcel& arg0)
+android_accounts_Account::android_accounts_Account(AndroidCXX::android_os_Parcel const& arg0)
 {
-	LOGV("android_accounts_Account::android_accounts_Account(AndroidCXX::android_os_Parcel& arg0) enter");	
+	LOGV("android_accounts_Account::android_accounts_Account(AndroidCXX::android_os_Parcel const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/os/Parcel;)V";
@@ -287,7 +265,7 @@ android_accounts_Account::android_accounts_Account(AndroidCXX::android_os_Parcel
 
 	jni->popLocalFrame();
 
-	LOGV("android_accounts_Account::android_accounts_Account(AndroidCXX::android_os_Parcel& arg0) exit");	
+	LOGV("android_accounts_Account::android_accounts_Account(AndroidCXX::android_os_Parcel const& arg0) exit");	
 }
 // Default Instance Destructor
 android_accounts_Account::~android_accounts_Account()
@@ -300,13 +278,13 @@ android_accounts_Account::~android_accounts_Account()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_accounts_Account::~android_accounts_Account() exit");
 }
 // Functions
-bool android_accounts_Account::equals(AndroidCXX::java_lang_Object& arg0)
+bool android_accounts_Account::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool android_accounts_Account::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool android_accounts_Account::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -316,8 +294,6 @@ bool android_accounts_Account::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_accounts_Account cxx address %d", cxxAddress);
@@ -367,9 +343,7 @@ bool android_accounts_Account::equals(AndroidCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_accounts_Account::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool android_accounts_Account::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -385,8 +359,6 @@ AndroidCXX::java_lang_String android_accounts_Account::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_accounts_Account cxx address %d", cxxAddress);
@@ -415,8 +387,6 @@ AndroidCXX::java_lang_String android_accounts_Account::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_accounts_Account::toString() exit");
 
 	return result;
@@ -434,8 +404,6 @@ int android_accounts_Account::hashCode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_accounts_Account cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -463,8 +431,6 @@ int android_accounts_Account::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_accounts_Account::hashCode() exit");
 
 	return result;
@@ -482,8 +448,6 @@ int android_accounts_Account::describeContents()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_accounts_Account cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -511,15 +475,13 @@ int android_accounts_Account::describeContents()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_accounts_Account::describeContents() exit");
 
 	return result;
 }
-void android_accounts_Account::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_accounts_Account::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_accounts_Account::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_accounts_Account::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -529,8 +491,6 @@ void android_accounts_Account::writeToParcel(AndroidCXX::android_os_Parcel& arg0
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_accounts_Account cxx address %d", cxxAddress);
@@ -582,8 +542,6 @@ void android_accounts_Account::writeToParcel(AndroidCXX::android_os_Parcel& arg0
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_accounts_Account::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_accounts_Account::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }

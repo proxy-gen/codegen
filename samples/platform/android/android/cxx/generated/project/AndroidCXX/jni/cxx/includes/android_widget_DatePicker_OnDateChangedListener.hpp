@@ -51,16 +51,13 @@ class android_widget_DatePicker_OnDateChangedListener
 public:
 
 	android_widget_DatePicker_OnDateChangedListener(const android_widget_DatePicker_OnDateChangedListener& cc);
-	android_widget_DatePicker_OnDateChangedListener(void * proxy);
+	android_widget_DatePicker_OnDateChangedListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_DatePicker_OnDateChangedListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_DatePicker_OnDateChangedListener();
 	// Functions
-	 void onDateChanged(AndroidCXX::android_widget_DatePicker& arg0,int& arg1,int& arg2,int& arg3);
+	 void onDateChanged(AndroidCXX::android_widget_DatePicker const& arg0,int const& arg1,int const& arg2,int const& arg3);
 };	
 
 } // namespace

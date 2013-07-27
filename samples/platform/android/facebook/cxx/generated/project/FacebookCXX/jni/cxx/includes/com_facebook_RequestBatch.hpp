@@ -104,31 +104,29 @@ class com_facebook_RequestBatch
 {
 public:
 
-	com_facebook_RequestBatch(const com_facebook_RequestBatch& cc);
-	com_facebook_RequestBatch(void * proxy);
+	com_facebook_RequestBatch(Proxy proxy);
 	// Public Constructors
 	com_facebook_RequestBatch();
-	com_facebook_RequestBatch(AndroidCXX::java_util_Collection& arg0);
-	com_facebook_RequestBatch(std::vector<FacebookCXX::com_facebook_Request >& arg0);
-	com_facebook_RequestBatch(FacebookCXX::com_facebook_RequestBatch& arg0);
-	// TODO: remove
-	// 
+	com_facebook_RequestBatch(AndroidCXX::java_util_Collection const& arg0);
+	com_facebook_RequestBatch(std::vector<FacebookCXX::com_facebook_Request > const& arg0);
+	com_facebook_RequestBatch(FacebookCXX::com_facebook_RequestBatch const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_RequestBatch();
 	// Functions
-	 bool add(FacebookCXX::com_facebook_Request& arg0);
-	 void add(int& arg0,FacebookCXX::com_facebook_Request& arg1);
-	 FacebookCXX::com_facebook_Request get(int& arg0);
+	 bool add(FacebookCXX::com_facebook_Request const& arg0);
+	 void add(int const& arg0,FacebookCXX::com_facebook_Request const& arg1);
+	 FacebookCXX::com_facebook_Request get(int const& arg0);
 	 void clear();
 	 int size();
-	 FacebookCXX::com_facebook_Request remove(int& arg0);
-	 FacebookCXX::com_facebook_Request set(int& arg0,FacebookCXX::com_facebook_Request& arg1);
-	 void setTimeout(int& arg0);
+	 FacebookCXX::com_facebook_Request remove(int const& arg0);
+	 FacebookCXX::com_facebook_Request set(int const& arg0,FacebookCXX::com_facebook_Request const& arg1);
+	 void setTimeout(int const& arg0);
 	 FacebookCXX::com_facebook_RequestAsyncTask executeAsync();
-	 void addCallback(FacebookCXX::com_facebook_RequestBatch_Callback& arg0);
+	 void addCallback(FacebookCXX::com_facebook_RequestBatch_Callback const& arg0);
 	 AndroidCXX::java_util_List executeAndWait();
 	 int getTimeout();
-	 void removeCallback(FacebookCXX::com_facebook_RequestBatch_Callback& arg0);
+	 void removeCallback(FacebookCXX::com_facebook_RequestBatch_Callback const& arg0);
 };	
 
 } // namespace

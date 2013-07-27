@@ -56,16 +56,13 @@ class android_view_View_OnHoverListener
 public:
 
 	android_view_View_OnHoverListener(const android_view_View_OnHoverListener& cc);
-	android_view_View_OnHoverListener(void * proxy);
+	android_view_View_OnHoverListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_view_View_OnHoverListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnHoverListener();
 	// Functions
-	 bool onHover(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_MotionEvent& arg1);
+	 bool onHover(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_MotionEvent const& arg1);
 };	
 
 } // namespace

@@ -50,16 +50,13 @@ class com_facebook_Session_TokenRefreshRequestHandler
 public:
 
 	com_facebook_Session_TokenRefreshRequestHandler(const com_facebook_Session_TokenRefreshRequestHandler& cc);
-	com_facebook_Session_TokenRefreshRequestHandler(void * proxy);
+	com_facebook_Session_TokenRefreshRequestHandler(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_Session_TokenRefreshRequestHandler();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_TokenRefreshRequestHandler();
 	// Functions
-	 void handleMessage(AndroidCXX::android_os_Message& arg0);
+	 void handleMessage(AndroidCXX::android_os_Message const& arg0);
 };	
 
 } // namespace

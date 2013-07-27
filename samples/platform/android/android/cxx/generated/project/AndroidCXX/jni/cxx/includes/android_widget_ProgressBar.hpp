@@ -118,43 +118,40 @@ class android_widget_ProgressBar
 public:
 
 	android_widget_ProgressBar(const android_widget_ProgressBar& cc);
-	android_widget_ProgressBar(void * proxy);
+	android_widget_ProgressBar(Proxy proxy);
 	// Public Constructors
-	android_widget_ProgressBar(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_ProgressBar(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_ProgressBar(AndroidCXX::android_content_Context& arg0);
-	// TODO: remove
-	// 
-	// android_widget_ProgressBar();
-	// 
+	android_widget_ProgressBar(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_ProgressBar(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_ProgressBar(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ProgressBar();
 	// Functions
 	 AndroidCXX::android_os_Parcelable onSaveInstanceState();
-	 void setInterpolator(AndroidCXX::android_view_animation_Interpolator& arg0);
-	 void setInterpolator(AndroidCXX::android_content_Context& arg0,int& arg1);
-	 void setVisibility(int& arg0);
-	 void onRestoreInstanceState(AndroidCXX::android_os_Parcelable& arg0);
-	 void setProgress(int& arg0);
-	 void setSecondaryProgress(int& arg0);
+	 void setInterpolator(AndroidCXX::android_view_animation_Interpolator const& arg0);
+	 void setInterpolator(AndroidCXX::android_content_Context const& arg0,int const& arg1);
+	 void setVisibility(int const& arg0);
+	 void onRestoreInstanceState(AndroidCXX::android_os_Parcelable const& arg0);
+	 void setProgress(int const& arg0);
+	 void setSecondaryProgress(int const& arg0);
 	 AndroidCXX::android_view_animation_Interpolator getInterpolator();
 	 void jumpDrawablesToCurrentState();
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
 	 void postInvalidate();
-	 void invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0);
+	 void invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
 	 int getProgress();
-	 void setMax(int& arg0);
+	 void setMax(int const& arg0);
 	 bool isIndeterminate();
-	 void setIndeterminate(bool& arg0);
+	 void setIndeterminate(bool const& arg0);
 	 AndroidCXX::android_graphics_drawable_Drawable getIndeterminateDrawable();
-	 void setIndeterminateDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0);
+	 void setIndeterminateDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
 	 AndroidCXX::android_graphics_drawable_Drawable getProgressDrawable();
-	 void setProgressDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0);
+	 void setProgressDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
 	 int getSecondaryProgress();
 	 int getMax();
-	 void incrementProgressBy(int& arg0);
-	 void incrementSecondaryProgressBy(int& arg0);
+	 void incrementProgressBy(int const& arg0);
+	 void incrementSecondaryProgressBy(int const& arg0);
 };	
 
 } // namespace

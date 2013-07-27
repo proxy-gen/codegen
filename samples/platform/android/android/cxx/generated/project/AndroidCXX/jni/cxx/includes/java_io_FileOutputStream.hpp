@@ -81,23 +81,20 @@ class java_io_FileOutputStream
 public:
 
 	java_io_FileOutputStream(const java_io_FileOutputStream& cc);
-	java_io_FileOutputStream(void * proxy);
+	java_io_FileOutputStream(Proxy proxy);
 	// Public Constructors
-	java_io_FileOutputStream(AndroidCXX::java_io_File& arg0);
-	java_io_FileOutputStream(AndroidCXX::java_lang_String& arg0);
-	java_io_FileOutputStream(AndroidCXX::java_lang_String& arg0,bool& arg1);
-	java_io_FileOutputStream(AndroidCXX::java_io_File& arg0,bool& arg1);
-	java_io_FileOutputStream(AndroidCXX::java_io_FileDescriptor& arg0);
-	// TODO: remove
-	// 
-	// java_io_FileOutputStream();
-	// 
+	java_io_FileOutputStream(AndroidCXX::java_io_File const& arg0);
+	java_io_FileOutputStream(AndroidCXX::java_lang_String const& arg0);
+	java_io_FileOutputStream(AndroidCXX::java_lang_String const& arg0,bool const& arg1);
+	java_io_FileOutputStream(AndroidCXX::java_io_File const& arg0,bool const& arg1);
+	java_io_FileOutputStream(AndroidCXX::java_io_FileDescriptor const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_io_FileOutputStream();
 	// Functions
-	 void write(std::vector<byte>& arg0,int& arg1,int& arg2);
-	 void write(int& arg0);
-	 void write(std::vector<byte>& arg0);
+	 void write(std::vector<byte> const& arg0,int const& arg1,int const& arg2);
+	 void write(int const& arg0);
+	 void write(std::vector<byte> const& arg0);
 	 void close();
 	 AndroidCXX::java_io_FileDescriptor getFD();
 	 AndroidCXX::java_nio_channels_FileChannel getChannel();

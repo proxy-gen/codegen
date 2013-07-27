@@ -45,12 +45,9 @@ class com_facebook_widget_ImageDownloader
 public:
 
 	com_facebook_widget_ImageDownloader(const com_facebook_widget_ImageDownloader& cc);
-	com_facebook_widget_ImageDownloader(void * proxy);
+	com_facebook_widget_ImageDownloader(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_widget_ImageDownloader();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageDownloader();
 	// Functions

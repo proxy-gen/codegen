@@ -61,14 +61,13 @@ class java_lang_Error
 public:
 
 	java_lang_Error(const java_lang_Error& cc);
-	java_lang_Error(void * proxy);
+	java_lang_Error(Proxy proxy);
 	// Public Constructors
 	java_lang_Error();
-	java_lang_Error(AndroidCXX::java_lang_String& arg0);
-	java_lang_Error(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1);
-	java_lang_Error(AndroidCXX::java_lang_Throwable& arg0);
-	// TODO: remove
-	// 
+	java_lang_Error(AndroidCXX::java_lang_String const& arg0);
+	java_lang_Error(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1);
+	java_lang_Error(AndroidCXX::java_lang_Throwable const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Error();
 	// Functions

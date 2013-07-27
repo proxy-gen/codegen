@@ -129,40 +129,37 @@ class android_widget_Gallery
 public:
 
 	android_widget_Gallery(const android_widget_Gallery& cc);
-	android_widget_Gallery(void * proxy);
+	android_widget_Gallery(Proxy proxy);
 	// Public Constructors
-	android_widget_Gallery(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_Gallery(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_Gallery(AndroidCXX::android_content_Context& arg0);
-	// TODO: remove
-	// 
-	// android_widget_Gallery();
-	// 
+	android_widget_Gallery(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_Gallery(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_Gallery(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Gallery();
 	// Functions
-	 bool onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1);
-	 bool onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1);
-	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0);
-	 bool dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0);
-	 bool showContextMenuForChild(AndroidCXX::android_view_View& arg0);
-	 void dispatchSetSelected(bool& arg0);
-	 AndroidCXX::android_view_ViewGroup_LayoutParams generateLayoutParams(AndroidCXX::android_util_AttributeSet& arg0);
+	 bool onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
+	 bool onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
+	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0);
+	 bool dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0);
+	 bool showContextMenuForChild(AndroidCXX::android_view_View const& arg0);
+	 void dispatchSetSelected(bool const& arg0);
+	 AndroidCXX::android_view_ViewGroup_LayoutParams generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0);
 	 bool showContextMenu();
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 bool performAccessibilityAction(int& arg0,AndroidCXX::android_os_Bundle& arg1);
-	 void setGravity(int& arg0);
-	 bool onScroll(AndroidCXX::android_view_MotionEvent& arg0,AndroidCXX::android_view_MotionEvent& arg1,float& arg2,float& arg3);
-	 void setCallbackDuringFling(bool& arg0);
-	 void setAnimationDuration(int& arg0);
-	 void setSpacing(int& arg0);
-	 void setUnselectedAlpha(float& arg0);
-	 bool onSingleTapUp(AndroidCXX::android_view_MotionEvent& arg0);
-	 bool onFling(AndroidCXX::android_view_MotionEvent& arg0,AndroidCXX::android_view_MotionEvent& arg1,float& arg2,float& arg3);
-	 bool onDown(AndroidCXX::android_view_MotionEvent& arg0);
-	 void onLongPress(AndroidCXX::android_view_MotionEvent& arg0);
-	 void onShowPress(AndroidCXX::android_view_MotionEvent& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 bool performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1);
+	 void setGravity(int const& arg0);
+	 bool onScroll(AndroidCXX::android_view_MotionEvent const& arg0,AndroidCXX::android_view_MotionEvent const& arg1,float const& arg2,float const& arg3);
+	 void setCallbackDuringFling(bool const& arg0);
+	 void setAnimationDuration(int const& arg0);
+	 void setSpacing(int const& arg0);
+	 void setUnselectedAlpha(float const& arg0);
+	 bool onSingleTapUp(AndroidCXX::android_view_MotionEvent const& arg0);
+	 bool onFling(AndroidCXX::android_view_MotionEvent const& arg0,AndroidCXX::android_view_MotionEvent const& arg1,float const& arg2,float const& arg3);
+	 bool onDown(AndroidCXX::android_view_MotionEvent const& arg0);
+	 void onLongPress(AndroidCXX::android_view_MotionEvent const& arg0);
+	 void onShowPress(AndroidCXX::android_view_MotionEvent const& arg0);
 };	
 
 } // namespace

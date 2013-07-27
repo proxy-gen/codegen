@@ -172,7 +172,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(const android_widget_HorizontalScrollView& cc)
 {
 	LOGV("android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(const android_widget_HorizontalScrollView& cc) enter");
@@ -196,9 +195,9 @@ android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(const a
 
 	LOGV("android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(const android_widget_HorizontalScrollView& cc) exit");
 }
-android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(void * proxy)
+android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(Proxy proxy)
 {
-	LOGV("android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(void * proxy) enter");
+	LOGV("android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -208,55 +207,34 @@ android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(void * 
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(void * proxy) exit");
+	LOGV("android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_HorizontalScrollView::android_widget_HorizontalScrollView()
-// {
-// 	LOGV("android_widget_HorizontalScrollView::android_widget_HorizontalScrollView() enter");	
+Proxy android_widget_HorizontalScrollView::proxy() const
+{	
+	LOGV("android_widget_HorizontalScrollView::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/HorizontalScrollView";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_HorizontalScrollView jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_HorizontalScrollView::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_HorizontalScrollView jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_HorizontalScrollView::android_widget_HorizontalScrollView() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(AndroidCXX::android_content_Context& arg0)
+	return proxy;
+}
+android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -309,11 +287,11 @@ android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(Android
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(AndroidCXX::android_content_Context const& arg0) exit");	
 }
-android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -387,11 +365,11 @@ android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(Android
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
+android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2)
 {
-	LOGV("android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) enter");	
+	LOGV("android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
@@ -486,7 +464,7 @@ android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(Android
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) exit");	
+	LOGV("android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) exit");	
 }
 // Default Instance Destructor
 android_widget_HorizontalScrollView::~android_widget_HorizontalScrollView()
@@ -499,13 +477,13 @@ android_widget_HorizontalScrollView::~android_widget_HorizontalScrollView()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_HorizontalScrollView::~android_widget_HorizontalScrollView() exit");
 }
 // Functions
-void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View& arg0,int& arg1)
+void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View& arg0,int& arg1) enter");
+	LOGV("void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View const& arg0,int const& arg1) enter");
 
 	const char *methodName = "addView";
 	const char *methodSignature = "(Landroid/view/View;I)V";
@@ -515,8 +493,6 @@ void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -568,14 +544,12 @@ void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View& arg0,int& arg1) exit");
+	LOGV("void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View const& arg0,int const& arg1) exit");
 
 }
-void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams& arg1)
+void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg1)
 {
-	LOGV("void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams& arg1) enter");
+	LOGV("void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg1) enter");
 
 	const char *methodName = "addView";
 	const char *methodSignature = "(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V";
@@ -585,8 +559,6 @@ void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -638,14 +610,12 @@ void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams& arg1) exit");
+	LOGV("void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg1) exit");
 
 }
-void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View& arg0)
+void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View const& arg0)
 {
-	LOGV("void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View& arg0) enter");
+	LOGV("void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View const& arg0) enter");
 
 	const char *methodName = "addView";
 	const char *methodSignature = "(Landroid/view/View;)V";
@@ -655,8 +625,6 @@ void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -687,14 +655,12 @@ void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View& arg0) exit");
+	LOGV("void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View const& arg0) exit");
 
 }
-void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View& arg0,int& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams& arg2)
+void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2)
 {
-	LOGV("void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View& arg0,int& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams& arg2) enter");
+	LOGV("void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) enter");
 
 	const char *methodName = "addView";
 	const char *methodSignature = "(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V";
@@ -704,8 +670,6 @@ void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -778,14 +742,12 @@ void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View& arg0,int& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams& arg2) exit");
+	LOGV("void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) exit");
 
 }
-bool android_widget_HorizontalScrollView::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_HorizontalScrollView::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_HorizontalScrollView::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_HorizontalScrollView::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onTouchEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -796,8 +758,6 @@ bool android_widget_HorizontalScrollView::onTouchEvent(AndroidCXX::android_view_
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -846,15 +806,13 @@ bool android_widget_HorizontalScrollView::onTouchEvent(AndroidCXX::android_view_
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_HorizontalScrollView::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	LOGV("bool android_widget_HorizontalScrollView::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-bool android_widget_HorizontalScrollView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_HorizontalScrollView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_HorizontalScrollView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_HorizontalScrollView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onGenericMotionEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -865,8 +823,6 @@ bool android_widget_HorizontalScrollView::onGenericMotionEvent(AndroidCXX::andro
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -915,15 +871,13 @@ bool android_widget_HorizontalScrollView::onGenericMotionEvent(AndroidCXX::andro
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_HorizontalScrollView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	LOGV("bool android_widget_HorizontalScrollView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-bool android_widget_HorizontalScrollView::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0)
+bool android_widget_HorizontalScrollView::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0)
 {
-	LOGV("bool android_widget_HorizontalScrollView::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0) enter");
+	LOGV("bool android_widget_HorizontalScrollView::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) enter");
 
 	const char *methodName = "dispatchKeyEvent";
 	const char *methodSignature = "(Landroid/view/KeyEvent;)Z";
@@ -933,8 +887,6 @@ bool android_widget_HorizontalScrollView::dispatchKeyEvent(AndroidCXX::android_v
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -984,15 +936,13 @@ bool android_widget_HorizontalScrollView::dispatchKeyEvent(AndroidCXX::android_v
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_HorizontalScrollView::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0) exit");
+	LOGV("bool android_widget_HorizontalScrollView::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) exit");
 
 	return result;
 }
-void android_widget_HorizontalScrollView::requestChildFocus(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_View& arg1)
+void android_widget_HorizontalScrollView::requestChildFocus(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1)
 {
-	LOGV("void android_widget_HorizontalScrollView::requestChildFocus(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_View& arg1) enter");
+	LOGV("void android_widget_HorizontalScrollView::requestChildFocus(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1) enter");
 
 	const char *methodName = "requestChildFocus";
 	const char *methodSignature = "(Landroid/view/View;Landroid/view/View;)V";
@@ -1002,8 +952,6 @@ void android_widget_HorizontalScrollView::requestChildFocus(AndroidCXX::android_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -1055,14 +1003,12 @@ void android_widget_HorizontalScrollView::requestChildFocus(AndroidCXX::android_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_HorizontalScrollView::requestChildFocus(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_View& arg1) exit");
+	LOGV("void android_widget_HorizontalScrollView::requestChildFocus(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1) exit");
 
 }
-bool android_widget_HorizontalScrollView::requestChildRectangleOnScreen(AndroidCXX::android_view_View& arg0,AndroidCXX::android_graphics_Rect& arg1,bool& arg2)
+bool android_widget_HorizontalScrollView::requestChildRectangleOnScreen(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,bool const& arg2)
 {
-	LOGV("bool android_widget_HorizontalScrollView::requestChildRectangleOnScreen(AndroidCXX::android_view_View& arg0,AndroidCXX::android_graphics_Rect& arg1,bool& arg2) enter");
+	LOGV("bool android_widget_HorizontalScrollView::requestChildRectangleOnScreen(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,bool const& arg2) enter");
 
 	const char *methodName = "requestChildRectangleOnScreen";
 	const char *methodSignature = "(Landroid/view/View;Landroid/graphics/Rect;Z)Z";
@@ -1072,8 +1018,6 @@ bool android_widget_HorizontalScrollView::requestChildRectangleOnScreen(AndroidC
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -1165,15 +1109,13 @@ bool android_widget_HorizontalScrollView::requestChildRectangleOnScreen(AndroidC
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_HorizontalScrollView::requestChildRectangleOnScreen(AndroidCXX::android_view_View& arg0,AndroidCXX::android_graphics_Rect& arg1,bool& arg2) exit");
+	LOGV("bool android_widget_HorizontalScrollView::requestChildRectangleOnScreen(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,bool const& arg2) exit");
 
 	return result;
 }
-void android_widget_HorizontalScrollView::requestDisallowInterceptTouchEvent(bool& arg0)
+void android_widget_HorizontalScrollView::requestDisallowInterceptTouchEvent(bool const& arg0)
 {
-	LOGV("void android_widget_HorizontalScrollView::requestDisallowInterceptTouchEvent(bool& arg0) enter");
+	LOGV("void android_widget_HorizontalScrollView::requestDisallowInterceptTouchEvent(bool const& arg0) enter");
 
 	const char *methodName = "requestDisallowInterceptTouchEvent";
 	const char *methodSignature = "(Z)V";
@@ -1183,8 +1125,6 @@ void android_widget_HorizontalScrollView::requestDisallowInterceptTouchEvent(boo
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -1215,14 +1155,12 @@ void android_widget_HorizontalScrollView::requestDisallowInterceptTouchEvent(boo
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_HorizontalScrollView::requestDisallowInterceptTouchEvent(bool& arg0) exit");
+	LOGV("void android_widget_HorizontalScrollView::requestDisallowInterceptTouchEvent(bool const& arg0) exit");
 
 }
-bool android_widget_HorizontalScrollView::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_HorizontalScrollView::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_HorizontalScrollView::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_HorizontalScrollView::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onInterceptTouchEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -1232,8 +1170,6 @@ bool android_widget_HorizontalScrollView::onInterceptTouchEvent(AndroidCXX::andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -1283,9 +1219,7 @@ bool android_widget_HorizontalScrollView::onInterceptTouchEvent(AndroidCXX::andr
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_HorizontalScrollView::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	LOGV("bool android_widget_HorizontalScrollView::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
@@ -1301,8 +1235,6 @@ bool android_widget_HorizontalScrollView::shouldDelayChildPressedState()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -1331,8 +1263,6 @@ bool android_widget_HorizontalScrollView::shouldDelayChildPressedState()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_HorizontalScrollView::shouldDelayChildPressedState() exit");
 
 	return result;
@@ -1350,8 +1280,6 @@ void android_widget_HorizontalScrollView::requestLayout()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1360,14 +1288,12 @@ void android_widget_HorizontalScrollView::requestLayout()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_HorizontalScrollView::requestLayout() exit");
 
 }
-void android_widget_HorizontalScrollView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_HorizontalScrollView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_HorizontalScrollView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_HorizontalScrollView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -1377,8 +1303,6 @@ void android_widget_HorizontalScrollView::onInitializeAccessibilityEvent(Android
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -1409,14 +1333,12 @@ void android_widget_HorizontalScrollView::onInitializeAccessibilityEvent(Android
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_HorizontalScrollView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_HorizontalScrollView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_HorizontalScrollView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0)
+void android_widget_HorizontalScrollView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0)
 {
-	LOGV("void android_widget_HorizontalScrollView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) enter");
+	LOGV("void android_widget_HorizontalScrollView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityNodeInfo";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
@@ -1426,8 +1348,6 @@ void android_widget_HorizontalScrollView::onInitializeAccessibilityNodeInfo(Andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -1458,14 +1378,12 @@ void android_widget_HorizontalScrollView::onInitializeAccessibilityNodeInfo(Andr
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_HorizontalScrollView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) exit");
+	LOGV("void android_widget_HorizontalScrollView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) exit");
 
 }
-bool android_widget_HorizontalScrollView::performAccessibilityAction(int& arg0,AndroidCXX::android_os_Bundle& arg1)
+bool android_widget_HorizontalScrollView::performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1)
 {
-	LOGV("bool android_widget_HorizontalScrollView::performAccessibilityAction(int& arg0,AndroidCXX::android_os_Bundle& arg1) enter");
+	LOGV("bool android_widget_HorizontalScrollView::performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) enter");
 
 	const char *methodName = "performAccessibilityAction";
 	const char *methodSignature = "(ILandroid/os/Bundle;)Z";
@@ -1475,8 +1393,6 @@ bool android_widget_HorizontalScrollView::performAccessibilityAction(int& arg0,A
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -1547,15 +1463,13 @@ bool android_widget_HorizontalScrollView::performAccessibilityAction(int& arg0,A
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_HorizontalScrollView::performAccessibilityAction(int& arg0,AndroidCXX::android_os_Bundle& arg1) exit");
+	LOGV("bool android_widget_HorizontalScrollView::performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) exit");
 
 	return result;
 }
-void android_widget_HorizontalScrollView::scrollTo(int& arg0,int& arg1)
+void android_widget_HorizontalScrollView::scrollTo(int const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_HorizontalScrollView::scrollTo(int& arg0,int& arg1) enter");
+	LOGV("void android_widget_HorizontalScrollView::scrollTo(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "scrollTo";
 	const char *methodSignature = "(II)V";
@@ -1565,8 +1479,6 @@ void android_widget_HorizontalScrollView::scrollTo(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -1618,9 +1530,7 @@ void android_widget_HorizontalScrollView::scrollTo(int& arg0,int& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_HorizontalScrollView::scrollTo(int& arg0,int& arg1) exit");
+	LOGV("void android_widget_HorizontalScrollView::scrollTo(int const& arg0,int const& arg1) exit");
 
 }
 void android_widget_HorizontalScrollView::computeScroll()
@@ -1636,8 +1546,6 @@ void android_widget_HorizontalScrollView::computeScroll()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1646,14 +1554,12 @@ void android_widget_HorizontalScrollView::computeScroll()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_HorizontalScrollView::computeScroll() exit");
 
 }
-void android_widget_HorizontalScrollView::draw(AndroidCXX::android_graphics_Canvas& arg0)
+void android_widget_HorizontalScrollView::draw(AndroidCXX::android_graphics_Canvas const& arg0)
 {
-	LOGV("void android_widget_HorizontalScrollView::draw(AndroidCXX::android_graphics_Canvas& arg0) enter");
+	LOGV("void android_widget_HorizontalScrollView::draw(AndroidCXX::android_graphics_Canvas const& arg0) enter");
 
 	const char *methodName = "draw";
 	const char *methodSignature = "(Landroid/graphics/Canvas;)V";
@@ -1663,8 +1569,6 @@ void android_widget_HorizontalScrollView::draw(AndroidCXX::android_graphics_Canv
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -1695,14 +1599,12 @@ void android_widget_HorizontalScrollView::draw(AndroidCXX::android_graphics_Canv
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_HorizontalScrollView::draw(AndroidCXX::android_graphics_Canvas& arg0) exit");
+	LOGV("void android_widget_HorizontalScrollView::draw(AndroidCXX::android_graphics_Canvas const& arg0) exit");
 
 }
-void android_widget_HorizontalScrollView::setOverScrollMode(int& arg0)
+void android_widget_HorizontalScrollView::setOverScrollMode(int const& arg0)
 {
-	LOGV("void android_widget_HorizontalScrollView::setOverScrollMode(int& arg0) enter");
+	LOGV("void android_widget_HorizontalScrollView::setOverScrollMode(int const& arg0) enter");
 
 	const char *methodName = "setOverScrollMode";
 	const char *methodSignature = "(I)V";
@@ -1712,8 +1614,6 @@ void android_widget_HorizontalScrollView::setOverScrollMode(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -1744,14 +1644,12 @@ void android_widget_HorizontalScrollView::setOverScrollMode(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_HorizontalScrollView::setOverScrollMode(int& arg0) exit");
+	LOGV("void android_widget_HorizontalScrollView::setOverScrollMode(int const& arg0) exit");
 
 }
-void android_widget_HorizontalScrollView::smoothScrollBy(int& arg0,int& arg1)
+void android_widget_HorizontalScrollView::smoothScrollBy(int const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_HorizontalScrollView::smoothScrollBy(int& arg0,int& arg1) enter");
+	LOGV("void android_widget_HorizontalScrollView::smoothScrollBy(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "smoothScrollBy";
 	const char *methodSignature = "(II)V";
@@ -1761,8 +1659,6 @@ void android_widget_HorizontalScrollView::smoothScrollBy(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -1814,9 +1710,7 @@ void android_widget_HorizontalScrollView::smoothScrollBy(int& arg0,int& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_HorizontalScrollView::smoothScrollBy(int& arg0,int& arg1) exit");
+	LOGV("void android_widget_HorizontalScrollView::smoothScrollBy(int const& arg0,int const& arg1) exit");
 
 }
 int android_widget_HorizontalScrollView::getMaxScrollAmount()
@@ -1831,8 +1725,6 @@ int android_widget_HorizontalScrollView::getMaxScrollAmount()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -1861,15 +1753,13 @@ int android_widget_HorizontalScrollView::getMaxScrollAmount()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_HorizontalScrollView::getMaxScrollAmount() exit");
 
 	return result;
 }
-void android_widget_HorizontalScrollView::fling(int& arg0)
+void android_widget_HorizontalScrollView::fling(int const& arg0)
 {
-	LOGV("void android_widget_HorizontalScrollView::fling(int& arg0) enter");
+	LOGV("void android_widget_HorizontalScrollView::fling(int const& arg0) enter");
 
 	const char *methodName = "fling";
 	const char *methodSignature = "(I)V";
@@ -1879,8 +1769,6 @@ void android_widget_HorizontalScrollView::fling(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -1911,9 +1799,7 @@ void android_widget_HorizontalScrollView::fling(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_HorizontalScrollView::fling(int& arg0) exit");
+	LOGV("void android_widget_HorizontalScrollView::fling(int const& arg0) exit");
 
 }
 bool android_widget_HorizontalScrollView::isFillViewport()
@@ -1929,8 +1815,6 @@ bool android_widget_HorizontalScrollView::isFillViewport()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1958,15 +1842,13 @@ bool android_widget_HorizontalScrollView::isFillViewport()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_HorizontalScrollView::isFillViewport() exit");
 
 	return result;
 }
-void android_widget_HorizontalScrollView::setFillViewport(bool& arg0)
+void android_widget_HorizontalScrollView::setFillViewport(bool const& arg0)
 {
-	LOGV("void android_widget_HorizontalScrollView::setFillViewport(bool& arg0) enter");
+	LOGV("void android_widget_HorizontalScrollView::setFillViewport(bool const& arg0) enter");
 
 	const char *methodName = "setFillViewport";
 	const char *methodSignature = "(Z)V";
@@ -1976,8 +1858,6 @@ void android_widget_HorizontalScrollView::setFillViewport(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -2008,9 +1888,7 @@ void android_widget_HorizontalScrollView::setFillViewport(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_HorizontalScrollView::setFillViewport(bool& arg0) exit");
+	LOGV("void android_widget_HorizontalScrollView::setFillViewport(bool const& arg0) exit");
 
 }
 bool android_widget_HorizontalScrollView::isSmoothScrollingEnabled()
@@ -2026,8 +1904,6 @@ bool android_widget_HorizontalScrollView::isSmoothScrollingEnabled()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2055,15 +1931,13 @@ bool android_widget_HorizontalScrollView::isSmoothScrollingEnabled()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_HorizontalScrollView::isSmoothScrollingEnabled() exit");
 
 	return result;
 }
-void android_widget_HorizontalScrollView::setSmoothScrollingEnabled(bool& arg0)
+void android_widget_HorizontalScrollView::setSmoothScrollingEnabled(bool const& arg0)
 {
-	LOGV("void android_widget_HorizontalScrollView::setSmoothScrollingEnabled(bool& arg0) enter");
+	LOGV("void android_widget_HorizontalScrollView::setSmoothScrollingEnabled(bool const& arg0) enter");
 
 	const char *methodName = "setSmoothScrollingEnabled";
 	const char *methodSignature = "(Z)V";
@@ -2073,8 +1947,6 @@ void android_widget_HorizontalScrollView::setSmoothScrollingEnabled(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -2105,14 +1977,12 @@ void android_widget_HorizontalScrollView::setSmoothScrollingEnabled(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_HorizontalScrollView::setSmoothScrollingEnabled(bool& arg0) exit");
+	LOGV("void android_widget_HorizontalScrollView::setSmoothScrollingEnabled(bool const& arg0) exit");
 
 }
-bool android_widget_HorizontalScrollView::executeKeyEvent(AndroidCXX::android_view_KeyEvent& arg0)
+bool android_widget_HorizontalScrollView::executeKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0)
 {
-	LOGV("bool android_widget_HorizontalScrollView::executeKeyEvent(AndroidCXX::android_view_KeyEvent& arg0) enter");
+	LOGV("bool android_widget_HorizontalScrollView::executeKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) enter");
 
 	const char *methodName = "executeKeyEvent";
 	const char *methodSignature = "(Landroid/view/KeyEvent;)Z";
@@ -2122,8 +1992,6 @@ bool android_widget_HorizontalScrollView::executeKeyEvent(AndroidCXX::android_vi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -2173,15 +2041,13 @@ bool android_widget_HorizontalScrollView::executeKeyEvent(AndroidCXX::android_vi
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_HorizontalScrollView::executeKeyEvent(AndroidCXX::android_view_KeyEvent& arg0) exit");
+	LOGV("bool android_widget_HorizontalScrollView::executeKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) exit");
 
 	return result;
 }
-bool android_widget_HorizontalScrollView::pageScroll(int& arg0)
+bool android_widget_HorizontalScrollView::pageScroll(int const& arg0)
 {
-	LOGV("bool android_widget_HorizontalScrollView::pageScroll(int& arg0) enter");
+	LOGV("bool android_widget_HorizontalScrollView::pageScroll(int const& arg0) enter");
 
 	const char *methodName = "pageScroll";
 	const char *methodSignature = "(I)Z";
@@ -2192,8 +2058,6 @@ bool android_widget_HorizontalScrollView::pageScroll(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2242,15 +2106,13 @@ bool android_widget_HorizontalScrollView::pageScroll(int& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_HorizontalScrollView::pageScroll(int& arg0) exit");
+	LOGV("bool android_widget_HorizontalScrollView::pageScroll(int const& arg0) exit");
 
 	return result;
 }
-bool android_widget_HorizontalScrollView::fullScroll(int& arg0)
+bool android_widget_HorizontalScrollView::fullScroll(int const& arg0)
 {
-	LOGV("bool android_widget_HorizontalScrollView::fullScroll(int& arg0) enter");
+	LOGV("bool android_widget_HorizontalScrollView::fullScroll(int const& arg0) enter");
 
 	const char *methodName = "fullScroll";
 	const char *methodSignature = "(I)Z";
@@ -2261,8 +2123,6 @@ bool android_widget_HorizontalScrollView::fullScroll(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2311,15 +2171,13 @@ bool android_widget_HorizontalScrollView::fullScroll(int& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_HorizontalScrollView::fullScroll(int& arg0) exit");
+	LOGV("bool android_widget_HorizontalScrollView::fullScroll(int const& arg0) exit");
 
 	return result;
 }
-bool android_widget_HorizontalScrollView::arrowScroll(int& arg0)
+bool android_widget_HorizontalScrollView::arrowScroll(int const& arg0)
 {
-	LOGV("bool android_widget_HorizontalScrollView::arrowScroll(int& arg0) enter");
+	LOGV("bool android_widget_HorizontalScrollView::arrowScroll(int const& arg0) enter");
 
 	const char *methodName = "arrowScroll";
 	const char *methodSignature = "(I)Z";
@@ -2330,8 +2188,6 @@ bool android_widget_HorizontalScrollView::arrowScroll(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2380,15 +2236,13 @@ bool android_widget_HorizontalScrollView::arrowScroll(int& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_HorizontalScrollView::arrowScroll(int& arg0) exit");
+	LOGV("bool android_widget_HorizontalScrollView::arrowScroll(int const& arg0) exit");
 
 	return result;
 }
-void android_widget_HorizontalScrollView::smoothScrollTo(int& arg0,int& arg1)
+void android_widget_HorizontalScrollView::smoothScrollTo(int const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_HorizontalScrollView::smoothScrollTo(int& arg0,int& arg1) enter");
+	LOGV("void android_widget_HorizontalScrollView::smoothScrollTo(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "smoothScrollTo";
 	const char *methodSignature = "(II)V";
@@ -2398,8 +2252,6 @@ void android_widget_HorizontalScrollView::smoothScrollTo(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HorizontalScrollView cxx address %d", cxxAddress);
@@ -2451,8 +2303,6 @@ void android_widget_HorizontalScrollView::smoothScrollTo(int& arg0,int& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_HorizontalScrollView::smoothScrollTo(int& arg0,int& arg1) exit");
+	LOGV("void android_widget_HorizontalScrollView::smoothScrollTo(int const& arg0,int const& arg1) exit");
 
 }

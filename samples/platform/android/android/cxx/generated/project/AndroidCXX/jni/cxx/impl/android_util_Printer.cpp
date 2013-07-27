@@ -46,7 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_util_Printer::android_util_Printer(const android_util_Printer& cc)
 {
 	LOGV("android_util_Printer::android_util_Printer(const android_util_Printer& cc) enter");
@@ -70,9 +69,9 @@ android_util_Printer::android_util_Printer(const android_util_Printer& cc)
 
 	LOGV("android_util_Printer::android_util_Printer(const android_util_Printer& cc) exit");
 }
-android_util_Printer::android_util_Printer(void * proxy)
+android_util_Printer::android_util_Printer(Proxy proxy)
 {
-	LOGV("android_util_Printer::android_util_Printer(void * proxy) enter");
+	LOGV("android_util_Printer::android_util_Printer(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -82,52 +81,31 @@ android_util_Printer::android_util_Printer(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_util_Printer::android_util_Printer(void * proxy) exit");
+	LOGV("android_util_Printer::android_util_Printer(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_util_Printer::android_util_Printer()
-// {
-// 	LOGV("android_util_Printer::android_util_Printer() enter");	
+Proxy android_util_Printer::proxy() const
+{	
+	LOGV("android_util_Printer::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/util/Printer";
+	long cxxAddress = (long) this;
+	LOGV("android_util_Printer cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_util_Printer jni address %d", proxiedComponent);
 
-// 	LOGV("android_util_Printer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_util_Printer::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_util_Printer cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_util_Printer jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_util_Printer::android_util_Printer() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_util_Printer::~android_util_Printer()
 {
@@ -139,13 +117,13 @@ android_util_Printer::~android_util_Printer()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_util_Printer::~android_util_Printer() exit");
 }
 // Functions
-void android_util_Printer::println(AndroidCXX::java_lang_String& arg0)
+void android_util_Printer::println(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_util_Printer::println(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_util_Printer::println(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "println";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -155,8 +133,6 @@ void android_util_Printer::println(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_Printer cxx address %d", cxxAddress);
@@ -187,8 +163,6 @@ void android_util_Printer::println(AndroidCXX::java_lang_String& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_util_Printer::println(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_util_Printer::println(AndroidCXX::java_lang_String const& arg0) exit");
 
 }

@@ -107,7 +107,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_android_FbDialog::com_facebook_android_FbDialog(const com_facebook_android_FbDialog& cc)
 {
 	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog(const com_facebook_android_FbDialog& cc) enter");
@@ -131,9 +130,9 @@ com_facebook_android_FbDialog::com_facebook_android_FbDialog(const com_facebook_
 
 	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog(const com_facebook_android_FbDialog& cc) exit");
 }
-com_facebook_android_FbDialog::com_facebook_android_FbDialog(void * proxy)
+com_facebook_android_FbDialog::com_facebook_android_FbDialog(Proxy proxy)
 {
-	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog(void * proxy) enter");
+	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -143,55 +142,34 @@ com_facebook_android_FbDialog::com_facebook_android_FbDialog(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog(void * proxy) exit");
+	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// com_facebook_android_FbDialog::com_facebook_android_FbDialog()
-// {
-// 	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog() enter");	
+Proxy com_facebook_android_FbDialog::proxy() const
+{	
+	LOGV("com_facebook_android_FbDialog::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "com/facebook/android/FbDialog";
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_android_FbDialog cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_android_FbDialog jni address %d", proxiedComponent);
 
-// 	LOGV("com_facebook_android_FbDialog className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("com_facebook_android_FbDialog::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("com_facebook_android_FbDialog cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("com_facebook_android_FbDialog jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog() exit");	
-// }
-// 
-// 
-// Public Constructors
-com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg2)
+	return proxy;
+}
+com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg2)
 {
-	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg2) enter");	
+	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;Lcom/facebook/android/Facebook$DialogListener;)V";
@@ -286,11 +264,11 @@ com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg2) exit");	
+	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg2) exit");	
 }
-com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg2,int& arg3)
+com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg2,int const& arg3)
 {
-	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg2,int& arg3) enter");	
+	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg2,int const& arg3) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;Lcom/facebook/android/Facebook$DialogListener;I)V";
@@ -406,11 +384,11 @@ com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg2,int& arg3) exit");	
+	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg2,int const& arg3) exit");	
 }
-com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg3)
+com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg3)
 {
-	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg3) enter");	
+	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg3) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/android/Facebook$DialogListener;)V";
@@ -526,11 +504,11 @@ com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg3) exit");	
+	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg3) exit");	
 }
-com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg3,int& arg4)
+com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg3,int const& arg4)
 {
-	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg3,int& arg4) enter");	
+	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg3,int const& arg4) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/android/Facebook$DialogListener;I)V";
@@ -667,7 +645,7 @@ com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg3,int& arg4) exit");	
+	LOGV("com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg3,int const& arg4) exit");	
 }
 // Default Instance Destructor
 com_facebook_android_FbDialog::~com_facebook_android_FbDialog()
@@ -680,7 +658,7 @@ com_facebook_android_FbDialog::~com_facebook_android_FbDialog()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_android_FbDialog::~com_facebook_android_FbDialog() exit");
 }
 // Functions

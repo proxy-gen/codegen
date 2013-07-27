@@ -39,7 +39,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_OnPreDrawListener(const android_view_ViewTreeObserver_OnPreDrawListener& cc)
 {
 	LOGV("android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_OnPreDrawListener(const android_view_ViewTreeObserver_OnPreDrawListener& cc) enter");
@@ -63,9 +62,9 @@ android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_O
 
 	LOGV("android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_OnPreDrawListener(const android_view_ViewTreeObserver_OnPreDrawListener& cc) exit");
 }
-android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_OnPreDrawListener(void * proxy)
+android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_OnPreDrawListener(Proxy proxy)
 {
-	LOGV("android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_OnPreDrawListener(void * proxy) enter");
+	LOGV("android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_OnPreDrawListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -75,52 +74,31 @@ android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_O
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_OnPreDrawListener(void * proxy) exit");
+	LOGV("android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_OnPreDrawListener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_OnPreDrawListener()
-// {
-// 	LOGV("android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_OnPreDrawListener() enter");	
+Proxy android_view_ViewTreeObserver_OnPreDrawListener::proxy() const
+{	
+	LOGV("android_view_ViewTreeObserver_OnPreDrawListener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/view/ViewTreeObserver$OnPreDrawListener";
+	long cxxAddress = (long) this;
+	LOGV("android_view_ViewTreeObserver_OnPreDrawListener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_ViewTreeObserver_OnPreDrawListener jni address %d", proxiedComponent);
 
-// 	LOGV("android_view_ViewTreeObserver_OnPreDrawListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_view_ViewTreeObserver_OnPreDrawListener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_view_ViewTreeObserver_OnPreDrawListener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_view_ViewTreeObserver_OnPreDrawListener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_OnPreDrawListener() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_view_ViewTreeObserver_OnPreDrawListener::~android_view_ViewTreeObserver_OnPreDrawListener()
 {
@@ -132,7 +110,7 @@ android_view_ViewTreeObserver_OnPreDrawListener::~android_view_ViewTreeObserver_
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_ViewTreeObserver_OnPreDrawListener::~android_view_ViewTreeObserver_OnPreDrawListener() exit");
 }
 // Functions
@@ -148,8 +126,6 @@ bool android_view_ViewTreeObserver_OnPreDrawListener::onPreDraw()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_ViewTreeObserver_OnPreDrawListener cxx address %d", cxxAddress);
@@ -178,8 +154,6 @@ bool android_view_ViewTreeObserver_OnPreDrawListener::onPreDraw()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_ViewTreeObserver_OnPreDrawListener::onPreDraw() exit");
 
 	return result;

@@ -39,7 +39,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_graphics_PathEffect::android_graphics_PathEffect(const android_graphics_PathEffect& cc)
 {
 	LOGV("android_graphics_PathEffect::android_graphics_PathEffect(const android_graphics_PathEffect& cc) enter");
@@ -63,9 +62,9 @@ android_graphics_PathEffect::android_graphics_PathEffect(const android_graphics_
 
 	LOGV("android_graphics_PathEffect::android_graphics_PathEffect(const android_graphics_PathEffect& cc) exit");
 }
-android_graphics_PathEffect::android_graphics_PathEffect(void * proxy)
+android_graphics_PathEffect::android_graphics_PathEffect(Proxy proxy)
 {
-	LOGV("android_graphics_PathEffect::android_graphics_PathEffect(void * proxy) enter");
+	LOGV("android_graphics_PathEffect::android_graphics_PathEffect(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -75,17 +74,31 @@ android_graphics_PathEffect::android_graphics_PathEffect(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_graphics_PathEffect::android_graphics_PathEffect(void * proxy) exit");
+	LOGV("android_graphics_PathEffect::android_graphics_PathEffect(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy android_graphics_PathEffect::proxy() const
+{	
+	LOGV("android_graphics_PathEffect::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_graphics_PathEffect cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_graphics_PathEffect jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_graphics_PathEffect::proxy() exit");	
+
+	return proxy;
+}
 android_graphics_PathEffect::android_graphics_PathEffect()
 {
 	LOGV("android_graphics_PathEffect::android_graphics_PathEffect() enter");	
@@ -133,7 +146,7 @@ android_graphics_PathEffect::~android_graphics_PathEffect()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_graphics_PathEffect::~android_graphics_PathEffect() exit");
 }
 // Functions

@@ -94,7 +94,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_content_SyncAdapterType::android_content_SyncAdapterType(const android_content_SyncAdapterType& cc)
 {
 	LOGV("android_content_SyncAdapterType::android_content_SyncAdapterType(const android_content_SyncAdapterType& cc) enter");
@@ -118,9 +117,9 @@ android_content_SyncAdapterType::android_content_SyncAdapterType(const android_c
 
 	LOGV("android_content_SyncAdapterType::android_content_SyncAdapterType(const android_content_SyncAdapterType& cc) exit");
 }
-android_content_SyncAdapterType::android_content_SyncAdapterType(void * proxy)
+android_content_SyncAdapterType::android_content_SyncAdapterType(Proxy proxy)
 {
-	LOGV("android_content_SyncAdapterType::android_content_SyncAdapterType(void * proxy) enter");
+	LOGV("android_content_SyncAdapterType::android_content_SyncAdapterType(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -130,55 +129,34 @@ android_content_SyncAdapterType::android_content_SyncAdapterType(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_content_SyncAdapterType::android_content_SyncAdapterType(void * proxy) exit");
+	LOGV("android_content_SyncAdapterType::android_content_SyncAdapterType(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_content_SyncAdapterType::android_content_SyncAdapterType()
-// {
-// 	LOGV("android_content_SyncAdapterType::android_content_SyncAdapterType() enter");	
+Proxy android_content_SyncAdapterType::proxy() const
+{	
+	LOGV("android_content_SyncAdapterType::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/content/SyncAdapterType";
+	long cxxAddress = (long) this;
+	LOGV("android_content_SyncAdapterType cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_content_SyncAdapterType jni address %d", proxiedComponent);
 
-// 	LOGV("android_content_SyncAdapterType className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_content_SyncAdapterType::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_content_SyncAdapterType cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_content_SyncAdapterType jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_content_SyncAdapterType::android_content_SyncAdapterType() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_content_SyncAdapterType::android_content_SyncAdapterType(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2,bool& arg3)
+	return proxy;
+}
+android_content_SyncAdapterType::android_content_SyncAdapterType(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2,bool const& arg3)
 {
-	LOGV("android_content_SyncAdapterType::android_content_SyncAdapterType(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2,bool& arg3) enter");	
+	LOGV("android_content_SyncAdapterType::android_content_SyncAdapterType(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2,bool const& arg3) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;ZZ)V";
@@ -294,11 +272,11 @@ android_content_SyncAdapterType::android_content_SyncAdapterType(AndroidCXX::jav
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_SyncAdapterType::android_content_SyncAdapterType(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2,bool& arg3) exit");	
+	LOGV("android_content_SyncAdapterType::android_content_SyncAdapterType(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2,bool const& arg3) exit");	
 }
-android_content_SyncAdapterType::android_content_SyncAdapterType(AndroidCXX::android_os_Parcel& arg0)
+android_content_SyncAdapterType::android_content_SyncAdapterType(AndroidCXX::android_os_Parcel const& arg0)
 {
-	LOGV("android_content_SyncAdapterType::android_content_SyncAdapterType(AndroidCXX::android_os_Parcel& arg0) enter");	
+	LOGV("android_content_SyncAdapterType::android_content_SyncAdapterType(AndroidCXX::android_os_Parcel const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/os/Parcel;)V";
@@ -351,7 +329,7 @@ android_content_SyncAdapterType::android_content_SyncAdapterType(AndroidCXX::and
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_SyncAdapterType::android_content_SyncAdapterType(AndroidCXX::android_os_Parcel& arg0) exit");	
+	LOGV("android_content_SyncAdapterType::android_content_SyncAdapterType(AndroidCXX::android_os_Parcel const& arg0) exit");	
 }
 // Default Instance Destructor
 android_content_SyncAdapterType::~android_content_SyncAdapterType()
@@ -364,13 +342,13 @@ android_content_SyncAdapterType::~android_content_SyncAdapterType()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_content_SyncAdapterType::~android_content_SyncAdapterType() exit");
 }
 // Functions
-bool android_content_SyncAdapterType::equals(AndroidCXX::java_lang_Object& arg0)
+bool android_content_SyncAdapterType::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool android_content_SyncAdapterType::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool android_content_SyncAdapterType::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -380,8 +358,6 @@ bool android_content_SyncAdapterType::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SyncAdapterType cxx address %d", cxxAddress);
@@ -431,9 +407,7 @@ bool android_content_SyncAdapterType::equals(AndroidCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_content_SyncAdapterType::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool android_content_SyncAdapterType::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -449,8 +423,6 @@ AndroidCXX::java_lang_String android_content_SyncAdapterType::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SyncAdapterType cxx address %d", cxxAddress);
@@ -479,8 +451,6 @@ AndroidCXX::java_lang_String android_content_SyncAdapterType::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_content_SyncAdapterType::toString() exit");
 
 	return result;
@@ -498,8 +468,6 @@ int android_content_SyncAdapterType::hashCode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_SyncAdapterType cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -527,8 +495,6 @@ int android_content_SyncAdapterType::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_content_SyncAdapterType::hashCode() exit");
 
 	return result;
@@ -546,8 +512,6 @@ int android_content_SyncAdapterType::describeContents()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_SyncAdapterType cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -575,15 +539,13 @@ int android_content_SyncAdapterType::describeContents()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_content_SyncAdapterType::describeContents() exit");
 
 	return result;
 }
-void android_content_SyncAdapterType::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_content_SyncAdapterType::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_content_SyncAdapterType::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_content_SyncAdapterType::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -593,8 +555,6 @@ void android_content_SyncAdapterType::writeToParcel(AndroidCXX::android_os_Parce
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SyncAdapterType cxx address %d", cxxAddress);
@@ -646,9 +606,7 @@ void android_content_SyncAdapterType::writeToParcel(AndroidCXX::android_os_Parce
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_SyncAdapterType::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_content_SyncAdapterType::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }
 bool android_content_SyncAdapterType::supportsUploading()
@@ -663,8 +621,6 @@ bool android_content_SyncAdapterType::supportsUploading()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SyncAdapterType cxx address %d", cxxAddress);
@@ -693,8 +649,6 @@ bool android_content_SyncAdapterType::supportsUploading()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_content_SyncAdapterType::supportsUploading() exit");
 
 	return result;
@@ -712,8 +666,6 @@ bool android_content_SyncAdapterType::isUserVisible()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_SyncAdapterType cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -741,8 +693,6 @@ bool android_content_SyncAdapterType::isUserVisible()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_content_SyncAdapterType::isUserVisible() exit");
 
 	return result;
@@ -760,8 +710,6 @@ bool android_content_SyncAdapterType::allowParallelSyncs()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_SyncAdapterType cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -789,8 +737,6 @@ bool android_content_SyncAdapterType::allowParallelSyncs()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_content_SyncAdapterType::allowParallelSyncs() exit");
 
 	return result;
@@ -808,8 +754,6 @@ bool android_content_SyncAdapterType::isAlwaysSyncable()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_SyncAdapterType cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -837,8 +781,6 @@ bool android_content_SyncAdapterType::isAlwaysSyncable()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_content_SyncAdapterType::isAlwaysSyncable() exit");
 
 	return result;
@@ -855,8 +797,6 @@ AndroidCXX::java_lang_String android_content_SyncAdapterType::getSettingsActivit
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SyncAdapterType cxx address %d", cxxAddress);
@@ -885,15 +825,13 @@ AndroidCXX::java_lang_String android_content_SyncAdapterType::getSettingsActivit
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_content_SyncAdapterType::getSettingsActivity() exit");
 
 	return result;
 }
-AndroidCXX::android_content_SyncAdapterType android_content_SyncAdapterType::newKey(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
+AndroidCXX::android_content_SyncAdapterType android_content_SyncAdapterType::newKey(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("AndroidCXX::android_content_SyncAdapterType android_content_SyncAdapterType::newKey(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("AndroidCXX::android_content_SyncAdapterType android_content_SyncAdapterType::newKey(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "newKey";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SyncAdapterType;";
@@ -903,8 +841,6 @@ AndroidCXX::android_content_SyncAdapterType android_content_SyncAdapterType::new
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_SyncAdapterType cxx address %d", cxxAddress);
@@ -954,7 +890,7 @@ AndroidCXX::android_content_SyncAdapterType android_content_SyncAdapterType::new
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -975,9 +911,7 @@ AndroidCXX::android_content_SyncAdapterType android_content_SyncAdapterType::new
 	AndroidCXX::android_content_SyncAdapterType result((AndroidCXX::android_content_SyncAdapterType) *((AndroidCXX::android_content_SyncAdapterType *) cxx_value));
 	delete ((AndroidCXX::android_content_SyncAdapterType *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_SyncAdapterType android_content_SyncAdapterType::newKey(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("AndroidCXX::android_content_SyncAdapterType android_content_SyncAdapterType::newKey(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }

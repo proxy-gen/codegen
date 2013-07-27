@@ -99,7 +99,7 @@ using namespace FacebookCXX;
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_RESPONSE_PAGINGDIRECTION;
+// using namespace com_facebook_Response_PagingDirection;
 // 
 // 
 // 
@@ -110,7 +110,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_Response::com_facebook_Response(const com_facebook_Response& cc)
 {
 	LOGV("com_facebook_Response::com_facebook_Response(const com_facebook_Response& cc) enter");
@@ -134,9 +133,9 @@ com_facebook_Response::com_facebook_Response(const com_facebook_Response& cc)
 
 	LOGV("com_facebook_Response::com_facebook_Response(const com_facebook_Response& cc) exit");
 }
-com_facebook_Response::com_facebook_Response(void * proxy)
+com_facebook_Response::com_facebook_Response(Proxy proxy)
 {
-	LOGV("com_facebook_Response::com_facebook_Response(void * proxy) enter");
+	LOGV("com_facebook_Response::com_facebook_Response(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -146,52 +145,31 @@ com_facebook_Response::com_facebook_Response(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_Response::com_facebook_Response(void * proxy) exit");
+	LOGV("com_facebook_Response::com_facebook_Response(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// com_facebook_Response::com_facebook_Response()
-// {
-// 	LOGV("com_facebook_Response::com_facebook_Response() enter");	
+Proxy com_facebook_Response::proxy() const
+{	
+	LOGV("com_facebook_Response::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "com/facebook/Response";
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_Response cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Response jni address %d", proxiedComponent);
 
-// 	LOGV("com_facebook_Response className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("com_facebook_Response::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("com_facebook_Response cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("com_facebook_Response jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("com_facebook_Response::com_facebook_Response() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 com_facebook_Response::~com_facebook_Response()
 {
@@ -203,7 +181,7 @@ com_facebook_Response::~com_facebook_Response()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_Response::~com_facebook_Response() exit");
 }
 // Functions
@@ -219,8 +197,6 @@ AndroidCXX::java_lang_String com_facebook_Response::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Response cxx address %d", cxxAddress);
@@ -249,15 +225,13 @@ AndroidCXX::java_lang_String com_facebook_Response::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String com_facebook_Response::toString() exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_model_GraphObject com_facebook_Response::getGraphObjectAs(AndroidCXX::java_lang_Class& arg0)
+FacebookCXX::com_facebook_model_GraphObject com_facebook_Response::getGraphObjectAs(AndroidCXX::java_lang_Class const& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_model_GraphObject com_facebook_Response::getGraphObjectAs(AndroidCXX::java_lang_Class& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_model_GraphObject com_facebook_Response::getGraphObjectAs(AndroidCXX::java_lang_Class const& arg0) enter");
 
 	const char *methodName = "getGraphObjectAs";
 	const char *methodSignature = "(Ljava/lang/Class;)Lcom/facebook/model/GraphObject;";
@@ -267,8 +241,6 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_Response::getGraphObjec
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Response cxx address %d", cxxAddress);
@@ -336,9 +308,7 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_Response::getGraphObjec
 	FacebookCXX::com_facebook_model_GraphObject result((FacebookCXX::com_facebook_model_GraphObject) *((FacebookCXX::com_facebook_model_GraphObject *) cxx_value));
 	delete ((FacebookCXX::com_facebook_model_GraphObject *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_model_GraphObject com_facebook_Response::getGraphObjectAs(AndroidCXX::java_lang_Class& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_model_GraphObject com_facebook_Response::getGraphObjectAs(AndroidCXX::java_lang_Class const& arg0) exit");
 
 	return result;
 }
@@ -354,8 +324,6 @@ FacebookCXX::com_facebook_FacebookRequestError com_facebook_Response::getError()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Response cxx address %d", cxxAddress);
@@ -384,8 +352,6 @@ FacebookCXX::com_facebook_FacebookRequestError com_facebook_Response::getError()
 	FacebookCXX::com_facebook_FacebookRequestError result((FacebookCXX::com_facebook_FacebookRequestError) *((FacebookCXX::com_facebook_FacebookRequestError *) cxx_value));
 	delete ((FacebookCXX::com_facebook_FacebookRequestError *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("FacebookCXX::com_facebook_FacebookRequestError com_facebook_Response::getError() exit");
 
 	return result;
@@ -402,8 +368,6 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_Response::getGraphObjec
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Response cxx address %d", cxxAddress);
@@ -432,8 +396,6 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_Response::getGraphObjec
 	FacebookCXX::com_facebook_model_GraphObject result((FacebookCXX::com_facebook_model_GraphObject) *((FacebookCXX::com_facebook_model_GraphObject *) cxx_value));
 	delete ((FacebookCXX::com_facebook_model_GraphObject *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("FacebookCXX::com_facebook_model_GraphObject com_facebook_Response::getGraphObject() exit");
 
 	return result;
@@ -450,8 +412,6 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response::getGraphO
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Response cxx address %d", cxxAddress);
@@ -498,15 +458,13 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response::getGraphO
 	FacebookCXX::com_facebook_model_GraphObjectList result((FacebookCXX::com_facebook_model_GraphObjectList) *((FacebookCXX::com_facebook_model_GraphObjectList *) cxx_value));
 	delete ((FacebookCXX::com_facebook_model_GraphObjectList *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response::getGraphObjectList() exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response::getGraphObjectListAs(AndroidCXX::java_lang_Class& arg0)
+FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response::getGraphObjectListAs(AndroidCXX::java_lang_Class const& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response::getGraphObjectListAs(AndroidCXX::java_lang_Class& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response::getGraphObjectListAs(AndroidCXX::java_lang_Class const& arg0) enter");
 
 	const char *methodName = "getGraphObjectListAs";
 	const char *methodSignature = "(Ljava/lang/Class;)Lcom/facebook/model/GraphObjectList;";
@@ -516,8 +474,6 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response::getGraphO
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Response cxx address %d", cxxAddress);
@@ -603,9 +559,7 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response::getGraphO
 	FacebookCXX::com_facebook_model_GraphObjectList result((FacebookCXX::com_facebook_model_GraphObjectList) *((FacebookCXX::com_facebook_model_GraphObjectList *) cxx_value));
 	delete ((FacebookCXX::com_facebook_model_GraphObjectList *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response::getGraphObjectListAs(AndroidCXX::java_lang_Class& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response::getGraphObjectListAs(AndroidCXX::java_lang_Class const& arg0) exit");
 
 	return result;
 }
@@ -621,8 +575,6 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_Response::getConnection()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Response cxx address %d", cxxAddress);
@@ -651,8 +603,6 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_Response::getConnection()
 	AndroidCXX::java_net_HttpURLConnection result((AndroidCXX::java_net_HttpURLConnection) *((AndroidCXX::java_net_HttpURLConnection *) cxx_value));
 	delete ((AndroidCXX::java_net_HttpURLConnection *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_net_HttpURLConnection com_facebook_Response::getConnection() exit");
 
 	return result;
@@ -669,8 +619,6 @@ FacebookCXX::com_facebook_Request com_facebook_Response::getRequest()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Response cxx address %d", cxxAddress);
@@ -699,15 +647,13 @@ FacebookCXX::com_facebook_Request com_facebook_Response::getRequest()
 	FacebookCXX::com_facebook_Request result((FacebookCXX::com_facebook_Request) *((FacebookCXX::com_facebook_Request *) cxx_value));
 	delete ((FacebookCXX::com_facebook_Request *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("FacebookCXX::com_facebook_Request com_facebook_Response::getRequest() exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_Request com_facebook_Response::getRequestForPagedResults(COM_FACEBOOK_RESPONSE_PAGINGDIRECTION::com_facebook_Response_PagingDirection& arg0)
+FacebookCXX::com_facebook_Request com_facebook_Response::getRequestForPagedResults(com_facebook_Response_PagingDirection::com_facebook_Response_PagingDirection const& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_Request com_facebook_Response::getRequestForPagedResults(COM_FACEBOOK_RESPONSE_PAGINGDIRECTION::com_facebook_Response_PagingDirection& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_Request com_facebook_Response::getRequestForPagedResults(com_facebook_Response_PagingDirection::com_facebook_Response_PagingDirection const& arg0) enter");
 
 	const char *methodName = "getRequestForPagedResults";
 	const char *methodSignature = "(Lcom/facebook/Response$PagingDirection;)Lcom/facebook/Request;";
@@ -717,8 +663,6 @@ FacebookCXX::com_facebook_Request com_facebook_Response::getRequestForPagedResul
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Response cxx address %d", cxxAddress);
@@ -768,9 +712,7 @@ FacebookCXX::com_facebook_Request com_facebook_Response::getRequestForPagedResul
 	FacebookCXX::com_facebook_Request result((FacebookCXX::com_facebook_Request) *((FacebookCXX::com_facebook_Request *) cxx_value));
 	delete ((FacebookCXX::com_facebook_Request *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_Request com_facebook_Response::getRequestForPagedResults(COM_FACEBOOK_RESPONSE_PAGINGDIRECTION::com_facebook_Response_PagingDirection& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_Request com_facebook_Response::getRequestForPagedResults(com_facebook_Response_PagingDirection::com_facebook_Response_PagingDirection const& arg0) exit");
 
 	return result;
 }
@@ -786,8 +728,6 @@ bool com_facebook_Response::getIsFromCache()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Response cxx address %d", cxxAddress);
@@ -816,8 +756,6 @@ bool com_facebook_Response::getIsFromCache()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool com_facebook_Response::getIsFromCache() exit");
 
 	return result;

@@ -46,12 +46,9 @@ class android_app_FragmentManager_OnBackStackChangedListener
 public:
 
 	android_app_FragmentManager_OnBackStackChangedListener(const android_app_FragmentManager_OnBackStackChangedListener& cc);
-	android_app_FragmentManager_OnBackStackChangedListener(void * proxy);
+	android_app_FragmentManager_OnBackStackChangedListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_app_FragmentManager_OnBackStackChangedListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_FragmentManager_OnBackStackChangedListener();
 	// Functions

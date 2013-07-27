@@ -57,21 +57,20 @@ class java_util_Random
 public:
 
 	java_util_Random(const java_util_Random& cc);
-	java_util_Random(void * proxy);
+	java_util_Random(Proxy proxy);
 	// Public Constructors
 	java_util_Random();
-	java_util_Random(long& arg0);
-	// TODO: remove
-	// 
+	java_util_Random(long const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Random();
 	// Functions
 	 int nextInt();
-	 int nextInt(int& arg0);
+	 int nextInt(int const& arg0);
 	 double nextDouble();
 	 long nextLong();
-	 void nextBytes(std::vector<byte>& arg0);
-	 void setSeed(long& arg0);
+	 void nextBytes(std::vector<byte> const& arg0);
+	 void setSeed(long const& arg0);
 	 bool nextBoolean();
 	 float nextFloat();
 	 double nextGaussian();

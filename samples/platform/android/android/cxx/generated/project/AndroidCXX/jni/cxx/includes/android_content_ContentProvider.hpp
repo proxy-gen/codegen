@@ -211,38 +211,37 @@ class android_content_ContentProvider
 public:
 
 	android_content_ContentProvider(const android_content_ContentProvider& cc);
-	android_content_ContentProvider(void * proxy);
+	android_content_ContentProvider(Proxy proxy);
 	// Public Constructors
 	android_content_ContentProvider();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ContentProvider();
 	// Functions
 	 void shutdown();
 	 AndroidCXX::android_content_Context getContext();
-	 AndroidCXX::java_lang_String getType(AndroidCXX::android_net_Uri& arg0);
-	 int _delete(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2);
-	 AndroidCXX::android_net_Uri insert(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_content_ContentValues& arg1);
-	 AndroidCXX::android_database_Cursor query(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4);
-	 AndroidCXX::android_database_Cursor query(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::android_os_CancellationSignal& arg5);
-	 int update(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3);
+	 AndroidCXX::java_lang_String getType(AndroidCXX::android_net_Uri const& arg0);
+	 int _delete(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_String > const& arg2);
+	 AndroidCXX::android_net_Uri insert(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_content_ContentValues const& arg1);
+	 AndroidCXX::android_database_Cursor query(AndroidCXX::android_net_Uri const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,AndroidCXX::java_lang_String const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,AndroidCXX::java_lang_String const& arg4);
+	 AndroidCXX::android_database_Cursor query(AndroidCXX::android_net_Uri const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,AndroidCXX::java_lang_String const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,AndroidCXX::java_lang_String const& arg4,AndroidCXX::android_os_CancellationSignal const& arg5);
+	 int update(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_content_ContentValues const& arg1,AndroidCXX::java_lang_String const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3);
 	 bool onCreate();
-	 void onConfigurationChanged(AndroidCXX::android_content_res_Configuration& arg0);
+	 void onConfigurationChanged(AndroidCXX::android_content_res_Configuration const& arg0);
 	 void onLowMemory();
-	 void onTrimMemory(int& arg0);
-	 std::vector<AndroidCXX::java_lang_String > getStreamTypes(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1);
-	 std::vector<AndroidCXX::android_content_ContentProviderResult > applyBatch(AndroidCXX::java_util_ArrayList& arg0);
-	 int bulkInsert(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::android_content_ContentValues >& arg1);
-	 AndroidCXX::android_os_Bundle call(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2);
-	 AndroidCXX::android_os_ParcelFileDescriptor openFile(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1);
-	 AndroidCXX::android_content_res_AssetFileDescriptor openAssetFile(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1);
+	 void onTrimMemory(int const& arg0);
+	 std::vector<AndroidCXX::java_lang_String > getStreamTypes(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 std::vector<AndroidCXX::android_content_ContentProviderResult > applyBatch(AndroidCXX::java_util_ArrayList const& arg0);
+	 int bulkInsert(AndroidCXX::android_net_Uri const& arg0,std::vector<AndroidCXX::android_content_ContentValues > const& arg1);
+	 AndroidCXX::android_os_Bundle call(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2);
+	 AndroidCXX::android_os_ParcelFileDescriptor openFile(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 AndroidCXX::android_content_res_AssetFileDescriptor openAssetFile(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1);
 	 AndroidCXX::java_lang_String getReadPermission();
 	 AndroidCXX::java_lang_String getWritePermission();
 	 std::vector<AndroidCXX::android_content_pm_PathPermission > getPathPermissions();
-	 AndroidCXX::android_content_res_AssetFileDescriptor openTypedAssetFile(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2);
-	 AndroidCXX::android_os_ParcelFileDescriptor openPipeHelper(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,AndroidCXX::java_lang_Object& arg3,AndroidCXX::android_content_ContentProvider_PipeDataWriter& arg4);
-	 void attachInfo(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_content_pm_ProviderInfo& arg1);
+	 AndroidCXX::android_content_res_AssetFileDescriptor openTypedAssetFile(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2);
+	 AndroidCXX::android_os_ParcelFileDescriptor openPipeHelper(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,AndroidCXX::java_lang_Object const& arg3,AndroidCXX::android_content_ContentProvider_PipeDataWriter const& arg4);
+	 void attachInfo(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_content_pm_ProviderInfo const& arg1);
 };	
 
 } // namespace

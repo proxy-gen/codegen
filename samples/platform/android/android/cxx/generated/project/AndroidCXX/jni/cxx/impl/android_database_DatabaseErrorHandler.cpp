@@ -46,7 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_database_DatabaseErrorHandler::android_database_DatabaseErrorHandler(const android_database_DatabaseErrorHandler& cc)
 {
 	LOGV("android_database_DatabaseErrorHandler::android_database_DatabaseErrorHandler(const android_database_DatabaseErrorHandler& cc) enter");
@@ -70,9 +69,9 @@ android_database_DatabaseErrorHandler::android_database_DatabaseErrorHandler(con
 
 	LOGV("android_database_DatabaseErrorHandler::android_database_DatabaseErrorHandler(const android_database_DatabaseErrorHandler& cc) exit");
 }
-android_database_DatabaseErrorHandler::android_database_DatabaseErrorHandler(void * proxy)
+android_database_DatabaseErrorHandler::android_database_DatabaseErrorHandler(Proxy proxy)
 {
-	LOGV("android_database_DatabaseErrorHandler::android_database_DatabaseErrorHandler(void * proxy) enter");
+	LOGV("android_database_DatabaseErrorHandler::android_database_DatabaseErrorHandler(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -82,52 +81,31 @@ android_database_DatabaseErrorHandler::android_database_DatabaseErrorHandler(voi
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_database_DatabaseErrorHandler::android_database_DatabaseErrorHandler(void * proxy) exit");
+	LOGV("android_database_DatabaseErrorHandler::android_database_DatabaseErrorHandler(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_database_DatabaseErrorHandler::android_database_DatabaseErrorHandler()
-// {
-// 	LOGV("android_database_DatabaseErrorHandler::android_database_DatabaseErrorHandler() enter");	
+Proxy android_database_DatabaseErrorHandler::proxy() const
+{	
+	LOGV("android_database_DatabaseErrorHandler::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/database/DatabaseErrorHandler";
+	long cxxAddress = (long) this;
+	LOGV("android_database_DatabaseErrorHandler cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_database_DatabaseErrorHandler jni address %d", proxiedComponent);
 
-// 	LOGV("android_database_DatabaseErrorHandler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_database_DatabaseErrorHandler::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_database_DatabaseErrorHandler cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_database_DatabaseErrorHandler jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_database_DatabaseErrorHandler::android_database_DatabaseErrorHandler() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_database_DatabaseErrorHandler::~android_database_DatabaseErrorHandler()
 {
@@ -139,13 +117,13 @@ android_database_DatabaseErrorHandler::~android_database_DatabaseErrorHandler()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_database_DatabaseErrorHandler::~android_database_DatabaseErrorHandler() exit");
 }
 // Functions
-void android_database_DatabaseErrorHandler::onCorruption(AndroidCXX::android_database_sqlite_SQLiteDatabase& arg0)
+void android_database_DatabaseErrorHandler::onCorruption(AndroidCXX::android_database_sqlite_SQLiteDatabase const& arg0)
 {
-	LOGV("void android_database_DatabaseErrorHandler::onCorruption(AndroidCXX::android_database_sqlite_SQLiteDatabase& arg0) enter");
+	LOGV("void android_database_DatabaseErrorHandler::onCorruption(AndroidCXX::android_database_sqlite_SQLiteDatabase const& arg0) enter");
 
 	const char *methodName = "onCorruption";
 	const char *methodSignature = "(Landroid/database/sqlite/SQLiteDatabase;)V";
@@ -155,8 +133,6 @@ void android_database_DatabaseErrorHandler::onCorruption(AndroidCXX::android_dat
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_database_DatabaseErrorHandler cxx address %d", cxxAddress);
@@ -187,8 +163,6 @@ void android_database_DatabaseErrorHandler::onCorruption(AndroidCXX::android_dat
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_database_DatabaseErrorHandler::onCorruption(AndroidCXX::android_database_sqlite_SQLiteDatabase& arg0) exit");
+	LOGV("void android_database_DatabaseErrorHandler::onCorruption(AndroidCXX::android_database_sqlite_SQLiteDatabase const& arg0) exit");
 
 }

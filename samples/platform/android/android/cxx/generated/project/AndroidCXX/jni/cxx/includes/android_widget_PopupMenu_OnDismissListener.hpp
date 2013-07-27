@@ -51,16 +51,13 @@ class android_widget_PopupMenu_OnDismissListener
 public:
 
 	android_widget_PopupMenu_OnDismissListener(const android_widget_PopupMenu_OnDismissListener& cc);
-	android_widget_PopupMenu_OnDismissListener(void * proxy);
+	android_widget_PopupMenu_OnDismissListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_PopupMenu_OnDismissListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_PopupMenu_OnDismissListener();
 	// Functions
-	 void onDismiss(AndroidCXX::android_widget_PopupMenu& arg0);
+	 void onDismiss(AndroidCXX::android_widget_PopupMenu const& arg0);
 };	
 
 } // namespace

@@ -138,7 +138,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_text_method_MovementMethod::android_text_method_MovementMethod(const android_text_method_MovementMethod& cc)
 {
 	LOGV("android_text_method_MovementMethod::android_text_method_MovementMethod(const android_text_method_MovementMethod& cc) enter");
@@ -162,9 +161,9 @@ android_text_method_MovementMethod::android_text_method_MovementMethod(const and
 
 	LOGV("android_text_method_MovementMethod::android_text_method_MovementMethod(const android_text_method_MovementMethod& cc) exit");
 }
-android_text_method_MovementMethod::android_text_method_MovementMethod(void * proxy)
+android_text_method_MovementMethod::android_text_method_MovementMethod(Proxy proxy)
 {
-	LOGV("android_text_method_MovementMethod::android_text_method_MovementMethod(void * proxy) enter");
+	LOGV("android_text_method_MovementMethod::android_text_method_MovementMethod(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -174,52 +173,31 @@ android_text_method_MovementMethod::android_text_method_MovementMethod(void * pr
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_text_method_MovementMethod::android_text_method_MovementMethod(void * proxy) exit");
+	LOGV("android_text_method_MovementMethod::android_text_method_MovementMethod(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_text_method_MovementMethod::android_text_method_MovementMethod()
-// {
-// 	LOGV("android_text_method_MovementMethod::android_text_method_MovementMethod() enter");	
+Proxy android_text_method_MovementMethod::proxy() const
+{	
+	LOGV("android_text_method_MovementMethod::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/text/method/MovementMethod";
+	long cxxAddress = (long) this;
+	LOGV("android_text_method_MovementMethod cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_text_method_MovementMethod jni address %d", proxiedComponent);
 
-// 	LOGV("android_text_method_MovementMethod className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_text_method_MovementMethod::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_text_method_MovementMethod cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_text_method_MovementMethod jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_text_method_MovementMethod::android_text_method_MovementMethod() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_text_method_MovementMethod::~android_text_method_MovementMethod()
 {
@@ -231,13 +209,13 @@ android_text_method_MovementMethod::~android_text_method_MovementMethod()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_text_method_MovementMethod::~android_text_method_MovementMethod() exit");
 }
 // Functions
-void android_text_method_MovementMethod::initialize(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1)
+void android_text_method_MovementMethod::initialize(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1)
 {
-	LOGV("void android_text_method_MovementMethod::initialize(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1) enter");
+	LOGV("void android_text_method_MovementMethod::initialize(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1) enter");
 
 	const char *methodName = "initialize";
 	const char *methodSignature = "(Landroid/widget/TextView;Landroid/text/Spannable;)V";
@@ -247,8 +225,6 @@ void android_text_method_MovementMethod::initialize(AndroidCXX::android_widget_T
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_method_MovementMethod cxx address %d", cxxAddress);
@@ -300,14 +276,12 @@ void android_text_method_MovementMethod::initialize(AndroidCXX::android_widget_T
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_text_method_MovementMethod::initialize(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1) exit");
+	LOGV("void android_text_method_MovementMethod::initialize(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1) exit");
 
 }
-bool android_text_method_MovementMethod::onKeyDown(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,int& arg2,AndroidCXX::android_view_KeyEvent& arg3)
+bool android_text_method_MovementMethod::onKeyDown(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3)
 {
-	LOGV("bool android_text_method_MovementMethod::onKeyDown(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,int& arg2,AndroidCXX::android_view_KeyEvent& arg3) enter");
+	LOGV("bool android_text_method_MovementMethod::onKeyDown(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3) enter");
 
 	const char *methodName = "onKeyDown";
 	const char *methodSignature = "(Landroid/widget/TextView;Landroid/text/Spannable;ILandroid/view/KeyEvent;)Z";
@@ -318,8 +292,6 @@ bool android_text_method_MovementMethod::onKeyDown(AndroidCXX::android_widget_Te
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_method_MovementMethod cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -431,15 +403,13 @@ bool android_text_method_MovementMethod::onKeyDown(AndroidCXX::android_widget_Te
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_text_method_MovementMethod::onKeyDown(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,int& arg2,AndroidCXX::android_view_KeyEvent& arg3) exit");
+	LOGV("bool android_text_method_MovementMethod::onKeyDown(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3) exit");
 
 	return result;
 }
-bool android_text_method_MovementMethod::onKeyUp(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,int& arg2,AndroidCXX::android_view_KeyEvent& arg3)
+bool android_text_method_MovementMethod::onKeyUp(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3)
 {
-	LOGV("bool android_text_method_MovementMethod::onKeyUp(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,int& arg2,AndroidCXX::android_view_KeyEvent& arg3) enter");
+	LOGV("bool android_text_method_MovementMethod::onKeyUp(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3) enter");
 
 	const char *methodName = "onKeyUp";
 	const char *methodSignature = "(Landroid/widget/TextView;Landroid/text/Spannable;ILandroid/view/KeyEvent;)Z";
@@ -450,8 +420,6 @@ bool android_text_method_MovementMethod::onKeyUp(AndroidCXX::android_widget_Text
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_method_MovementMethod cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -563,15 +531,13 @@ bool android_text_method_MovementMethod::onKeyUp(AndroidCXX::android_widget_Text
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_text_method_MovementMethod::onKeyUp(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,int& arg2,AndroidCXX::android_view_KeyEvent& arg3) exit");
+	LOGV("bool android_text_method_MovementMethod::onKeyUp(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3) exit");
 
 	return result;
 }
-bool android_text_method_MovementMethod::onTouchEvent(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,AndroidCXX::android_view_MotionEvent& arg2)
+bool android_text_method_MovementMethod::onTouchEvent(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_MotionEvent const& arg2)
 {
-	LOGV("bool android_text_method_MovementMethod::onTouchEvent(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,AndroidCXX::android_view_MotionEvent& arg2) enter");
+	LOGV("bool android_text_method_MovementMethod::onTouchEvent(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_MotionEvent const& arg2) enter");
 
 	const char *methodName = "onTouchEvent";
 	const char *methodSignature = "(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/MotionEvent;)Z";
@@ -582,8 +548,6 @@ bool android_text_method_MovementMethod::onTouchEvent(AndroidCXX::android_widget
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_method_MovementMethod cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -674,15 +638,13 @@ bool android_text_method_MovementMethod::onTouchEvent(AndroidCXX::android_widget
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_text_method_MovementMethod::onTouchEvent(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,AndroidCXX::android_view_MotionEvent& arg2) exit");
+	LOGV("bool android_text_method_MovementMethod::onTouchEvent(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_MotionEvent const& arg2) exit");
 
 	return result;
 }
-bool android_text_method_MovementMethod::onTrackballEvent(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,AndroidCXX::android_view_MotionEvent& arg2)
+bool android_text_method_MovementMethod::onTrackballEvent(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_MotionEvent const& arg2)
 {
-	LOGV("bool android_text_method_MovementMethod::onTrackballEvent(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,AndroidCXX::android_view_MotionEvent& arg2) enter");
+	LOGV("bool android_text_method_MovementMethod::onTrackballEvent(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_MotionEvent const& arg2) enter");
 
 	const char *methodName = "onTrackballEvent";
 	const char *methodSignature = "(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/MotionEvent;)Z";
@@ -693,8 +655,6 @@ bool android_text_method_MovementMethod::onTrackballEvent(AndroidCXX::android_wi
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_method_MovementMethod cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -785,15 +745,13 @@ bool android_text_method_MovementMethod::onTrackballEvent(AndroidCXX::android_wi
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_text_method_MovementMethod::onTrackballEvent(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,AndroidCXX::android_view_MotionEvent& arg2) exit");
+	LOGV("bool android_text_method_MovementMethod::onTrackballEvent(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_MotionEvent const& arg2) exit");
 
 	return result;
 }
-bool android_text_method_MovementMethod::onGenericMotionEvent(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,AndroidCXX::android_view_MotionEvent& arg2)
+bool android_text_method_MovementMethod::onGenericMotionEvent(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_MotionEvent const& arg2)
 {
-	LOGV("bool android_text_method_MovementMethod::onGenericMotionEvent(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,AndroidCXX::android_view_MotionEvent& arg2) enter");
+	LOGV("bool android_text_method_MovementMethod::onGenericMotionEvent(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_MotionEvent const& arg2) enter");
 
 	const char *methodName = "onGenericMotionEvent";
 	const char *methodSignature = "(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/MotionEvent;)Z";
@@ -804,8 +762,6 @@ bool android_text_method_MovementMethod::onGenericMotionEvent(AndroidCXX::androi
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_method_MovementMethod cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -896,15 +852,13 @@ bool android_text_method_MovementMethod::onGenericMotionEvent(AndroidCXX::androi
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_text_method_MovementMethod::onGenericMotionEvent(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,AndroidCXX::android_view_MotionEvent& arg2) exit");
+	LOGV("bool android_text_method_MovementMethod::onGenericMotionEvent(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_MotionEvent const& arg2) exit");
 
 	return result;
 }
-bool android_text_method_MovementMethod::onKeyOther(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,AndroidCXX::android_view_KeyEvent& arg2)
+bool android_text_method_MovementMethod::onKeyOther(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_KeyEvent const& arg2)
 {
-	LOGV("bool android_text_method_MovementMethod::onKeyOther(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,AndroidCXX::android_view_KeyEvent& arg2) enter");
+	LOGV("bool android_text_method_MovementMethod::onKeyOther(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) enter");
 
 	const char *methodName = "onKeyOther";
 	const char *methodSignature = "(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/KeyEvent;)Z";
@@ -914,8 +868,6 @@ bool android_text_method_MovementMethod::onKeyOther(AndroidCXX::android_widget_T
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_method_MovementMethod cxx address %d", cxxAddress);
@@ -1007,15 +959,13 @@ bool android_text_method_MovementMethod::onKeyOther(AndroidCXX::android_widget_T
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_text_method_MovementMethod::onKeyOther(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,AndroidCXX::android_view_KeyEvent& arg2) exit");
+	LOGV("bool android_text_method_MovementMethod::onKeyOther(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) exit");
 
 	return result;
 }
-void android_text_method_MovementMethod::onTakeFocus(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,int& arg2)
+void android_text_method_MovementMethod::onTakeFocus(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,int const& arg2)
 {
-	LOGV("void android_text_method_MovementMethod::onTakeFocus(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,int& arg2) enter");
+	LOGV("void android_text_method_MovementMethod::onTakeFocus(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,int const& arg2) enter");
 
 	const char *methodName = "onTakeFocus";
 	const char *methodSignature = "(Landroid/widget/TextView;Landroid/text/Spannable;I)V";
@@ -1025,8 +975,6 @@ void android_text_method_MovementMethod::onTakeFocus(AndroidCXX::android_widget_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_method_MovementMethod cxx address %d", cxxAddress);
@@ -1099,9 +1047,7 @@ void android_text_method_MovementMethod::onTakeFocus(AndroidCXX::android_widget_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_text_method_MovementMethod::onTakeFocus(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,int& arg2) exit");
+	LOGV("void android_text_method_MovementMethod::onTakeFocus(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,int const& arg2) exit");
 
 }
 bool android_text_method_MovementMethod::canSelectArbitrarily()
@@ -1116,8 +1062,6 @@ bool android_text_method_MovementMethod::canSelectArbitrarily()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_method_MovementMethod cxx address %d", cxxAddress);
@@ -1146,8 +1090,6 @@ bool android_text_method_MovementMethod::canSelectArbitrarily()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_text_method_MovementMethod::canSelectArbitrarily() exit");
 
 	return result;

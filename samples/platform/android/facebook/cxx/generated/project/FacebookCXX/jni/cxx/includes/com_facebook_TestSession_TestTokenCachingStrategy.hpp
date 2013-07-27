@@ -53,18 +53,15 @@ class com_facebook_TestSession_TestTokenCachingStrategy
 public:
 
 	com_facebook_TestSession_TestTokenCachingStrategy(const com_facebook_TestSession_TestTokenCachingStrategy& cc);
-	com_facebook_TestSession_TestTokenCachingStrategy(void * proxy);
+	com_facebook_TestSession_TestTokenCachingStrategy(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_TestSession_TestTokenCachingStrategy();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_TestSession_TestTokenCachingStrategy();
 	// Functions
 	 void clear();
 	 AndroidCXX::android_os_Bundle load();
-	 void save(AndroidCXX::android_os_Bundle& arg0);
+	 void save(AndroidCXX::android_os_Bundle const& arg0);
 };	
 
 } // namespace

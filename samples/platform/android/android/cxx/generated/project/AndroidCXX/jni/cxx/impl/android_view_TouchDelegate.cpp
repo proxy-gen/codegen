@@ -55,7 +55,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_TouchDelegate::android_view_TouchDelegate(const android_view_TouchDelegate& cc)
 {
 	LOGV("android_view_TouchDelegate::android_view_TouchDelegate(const android_view_TouchDelegate& cc) enter");
@@ -79,9 +78,9 @@ android_view_TouchDelegate::android_view_TouchDelegate(const android_view_TouchD
 
 	LOGV("android_view_TouchDelegate::android_view_TouchDelegate(const android_view_TouchDelegate& cc) exit");
 }
-android_view_TouchDelegate::android_view_TouchDelegate(void * proxy)
+android_view_TouchDelegate::android_view_TouchDelegate(Proxy proxy)
 {
-	LOGV("android_view_TouchDelegate::android_view_TouchDelegate(void * proxy) enter");
+	LOGV("android_view_TouchDelegate::android_view_TouchDelegate(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -91,55 +90,34 @@ android_view_TouchDelegate::android_view_TouchDelegate(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_TouchDelegate::android_view_TouchDelegate(void * proxy) exit");
+	LOGV("android_view_TouchDelegate::android_view_TouchDelegate(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_view_TouchDelegate::android_view_TouchDelegate()
-// {
-// 	LOGV("android_view_TouchDelegate::android_view_TouchDelegate() enter");	
+Proxy android_view_TouchDelegate::proxy() const
+{	
+	LOGV("android_view_TouchDelegate::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/view/TouchDelegate";
+	long cxxAddress = (long) this;
+	LOGV("android_view_TouchDelegate cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_TouchDelegate jni address %d", proxiedComponent);
 
-// 	LOGV("android_view_TouchDelegate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_view_TouchDelegate::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_view_TouchDelegate cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_view_TouchDelegate jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_view_TouchDelegate::android_view_TouchDelegate() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_view_TouchDelegate::android_view_TouchDelegate(AndroidCXX::android_graphics_Rect& arg0,AndroidCXX::android_view_View& arg1)
+	return proxy;
+}
+android_view_TouchDelegate::android_view_TouchDelegate(AndroidCXX::android_graphics_Rect const& arg0,AndroidCXX::android_view_View const& arg1)
 {
-	LOGV("android_view_TouchDelegate::android_view_TouchDelegate(AndroidCXX::android_graphics_Rect& arg0,AndroidCXX::android_view_View& arg1) enter");	
+	LOGV("android_view_TouchDelegate::android_view_TouchDelegate(AndroidCXX::android_graphics_Rect const& arg0,AndroidCXX::android_view_View const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/graphics/Rect;Landroid/view/View;)V";
@@ -213,7 +191,7 @@ android_view_TouchDelegate::android_view_TouchDelegate(AndroidCXX::android_graph
 
 	jni->popLocalFrame();
 
-	LOGV("android_view_TouchDelegate::android_view_TouchDelegate(AndroidCXX::android_graphics_Rect& arg0,AndroidCXX::android_view_View& arg1) exit");	
+	LOGV("android_view_TouchDelegate::android_view_TouchDelegate(AndroidCXX::android_graphics_Rect const& arg0,AndroidCXX::android_view_View const& arg1) exit");	
 }
 // Default Instance Destructor
 android_view_TouchDelegate::~android_view_TouchDelegate()
@@ -226,13 +204,13 @@ android_view_TouchDelegate::~android_view_TouchDelegate()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_TouchDelegate::~android_view_TouchDelegate() exit");
 }
 // Functions
-bool android_view_TouchDelegate::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_view_TouchDelegate::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_view_TouchDelegate::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_view_TouchDelegate::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onTouchEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -242,8 +220,6 @@ bool android_view_TouchDelegate::onTouchEvent(AndroidCXX::android_view_MotionEve
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_TouchDelegate cxx address %d", cxxAddress);
@@ -293,9 +269,7 @@ bool android_view_TouchDelegate::onTouchEvent(AndroidCXX::android_view_MotionEve
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_TouchDelegate::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	LOGV("bool android_view_TouchDelegate::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }

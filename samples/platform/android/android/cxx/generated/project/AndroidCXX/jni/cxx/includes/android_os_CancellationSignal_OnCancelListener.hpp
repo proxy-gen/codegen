@@ -46,12 +46,9 @@ class android_os_CancellationSignal_OnCancelListener
 public:
 
 	android_os_CancellationSignal_OnCancelListener(const android_os_CancellationSignal_OnCancelListener& cc);
-	android_os_CancellationSignal_OnCancelListener(void * proxy);
+	android_os_CancellationSignal_OnCancelListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_os_CancellationSignal_OnCancelListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_os_CancellationSignal_OnCancelListener();
 	// Functions

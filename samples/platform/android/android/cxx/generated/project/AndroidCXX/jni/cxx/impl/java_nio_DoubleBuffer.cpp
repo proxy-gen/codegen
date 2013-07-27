@@ -142,7 +142,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_nio_DoubleBuffer::java_nio_DoubleBuffer(const java_nio_DoubleBuffer& cc)
 {
 	LOGV("java_nio_DoubleBuffer::java_nio_DoubleBuffer(const java_nio_DoubleBuffer& cc) enter");
@@ -166,9 +165,9 @@ java_nio_DoubleBuffer::java_nio_DoubleBuffer(const java_nio_DoubleBuffer& cc)
 
 	LOGV("java_nio_DoubleBuffer::java_nio_DoubleBuffer(const java_nio_DoubleBuffer& cc) exit");
 }
-java_nio_DoubleBuffer::java_nio_DoubleBuffer(void * proxy)
+java_nio_DoubleBuffer::java_nio_DoubleBuffer(Proxy proxy)
 {
-	LOGV("java_nio_DoubleBuffer::java_nio_DoubleBuffer(void * proxy) enter");
+	LOGV("java_nio_DoubleBuffer::java_nio_DoubleBuffer(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -178,52 +177,31 @@ java_nio_DoubleBuffer::java_nio_DoubleBuffer(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_nio_DoubleBuffer::java_nio_DoubleBuffer(void * proxy) exit");
+	LOGV("java_nio_DoubleBuffer::java_nio_DoubleBuffer(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_nio_DoubleBuffer::java_nio_DoubleBuffer()
-// {
-// 	LOGV("java_nio_DoubleBuffer::java_nio_DoubleBuffer() enter");	
+Proxy java_nio_DoubleBuffer::proxy() const
+{	
+	LOGV("java_nio_DoubleBuffer::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/nio/DoubleBuffer";
+	long cxxAddress = (long) this;
+	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_DoubleBuffer jni address %d", proxiedComponent);
 
-// 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_nio_DoubleBuffer::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_nio_DoubleBuffer jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_nio_DoubleBuffer::java_nio_DoubleBuffer() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_nio_DoubleBuffer::~java_nio_DoubleBuffer()
 {
@@ -235,7 +213,7 @@ java_nio_DoubleBuffer::~java_nio_DoubleBuffer()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_nio_DoubleBuffer::~java_nio_DoubleBuffer() exit");
 }
 // Functions
@@ -251,8 +229,6 @@ double java_nio_DoubleBuffer::get()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
@@ -281,15 +257,13 @@ double java_nio_DoubleBuffer::get()
 	double result = (double) *((double *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("double java_nio_DoubleBuffer::get() exit");
 
 	return result;
 }
-AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::get(std::vector<double>& arg0)
+AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::get(std::vector<double> const& arg0)
 {
-	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::get(std::vector<double>& arg0) enter");
+	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::get(std::vector<double> const& arg0) enter");
 
 	const char *methodName = "get";
 	const char *methodSignature = "([D)Ljava/nio/DoubleBuffer;";
@@ -299,8 +273,6 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::get(std::vector<double>
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
@@ -368,15 +340,13 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::get(std::vector<double>
 	AndroidCXX::java_nio_DoubleBuffer result((AndroidCXX::java_nio_DoubleBuffer) *((AndroidCXX::java_nio_DoubleBuffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_DoubleBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::get(std::vector<double>& arg0) exit");
+	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::get(std::vector<double> const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::get(std::vector<double>& arg0,int& arg1,int& arg2)
+AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::get(std::vector<double> const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::get(std::vector<double>& arg0,int& arg1,int& arg2) enter");
+	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::get(std::vector<double> const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "get";
 	const char *methodSignature = "([DII)Ljava/nio/DoubleBuffer;";
@@ -386,8 +356,6 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::get(std::vector<double>
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
@@ -497,15 +465,13 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::get(std::vector<double>
 	AndroidCXX::java_nio_DoubleBuffer result((AndroidCXX::java_nio_DoubleBuffer) *((AndroidCXX::java_nio_DoubleBuffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_DoubleBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::get(std::vector<double>& arg0,int& arg1,int& arg2) exit");
+	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::get(std::vector<double> const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-double java_nio_DoubleBuffer::get(int& arg0)
+double java_nio_DoubleBuffer::get(int const& arg0)
 {
-	LOGV("double java_nio_DoubleBuffer::get(int& arg0) enter");
+	LOGV("double java_nio_DoubleBuffer::get(int const& arg0) enter");
 
 	const char *methodName = "get";
 	const char *methodSignature = "(I)D";
@@ -515,8 +481,6 @@ double java_nio_DoubleBuffer::get(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
@@ -566,15 +530,13 @@ double java_nio_DoubleBuffer::get(int& arg0)
 	double result = (double) *((double *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("double java_nio_DoubleBuffer::get(int& arg0) exit");
+	LOGV("double java_nio_DoubleBuffer::get(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(AndroidCXX::java_nio_DoubleBuffer& arg0)
+AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(AndroidCXX::java_nio_DoubleBuffer const& arg0)
 {
-	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(AndroidCXX::java_nio_DoubleBuffer& arg0) enter");
+	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(AndroidCXX::java_nio_DoubleBuffer const& arg0) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(Ljava/nio/DoubleBuffer;)Ljava/nio/DoubleBuffer;";
@@ -584,8 +546,6 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(AndroidCXX::java_ni
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
@@ -635,15 +595,13 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(AndroidCXX::java_ni
 	AndroidCXX::java_nio_DoubleBuffer result((AndroidCXX::java_nio_DoubleBuffer) *((AndroidCXX::java_nio_DoubleBuffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_DoubleBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(AndroidCXX::java_nio_DoubleBuffer& arg0) exit");
+	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(AndroidCXX::java_nio_DoubleBuffer const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(double& arg0)
+AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(double const& arg0)
 {
-	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(double& arg0) enter");
+	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(double const& arg0) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(D)Ljava/nio/DoubleBuffer;";
@@ -653,8 +611,6 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(double& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
@@ -704,15 +660,13 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(double& arg0)
 	AndroidCXX::java_nio_DoubleBuffer result((AndroidCXX::java_nio_DoubleBuffer) *((AndroidCXX::java_nio_DoubleBuffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_DoubleBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(double& arg0) exit");
+	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(double const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(int& arg0,double& arg1)
+AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(int const& arg0,double const& arg1)
 {
-	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(int& arg0,double& arg1) enter");
+	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(int const& arg0,double const& arg1) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(ID)Ljava/nio/DoubleBuffer;";
@@ -722,8 +676,6 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(int& arg0,double& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
@@ -794,15 +746,13 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(int& arg0,double& a
 	AndroidCXX::java_nio_DoubleBuffer result((AndroidCXX::java_nio_DoubleBuffer) *((AndroidCXX::java_nio_DoubleBuffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_DoubleBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(int& arg0,double& arg1) exit");
+	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(int const& arg0,double const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(std::vector<double>& arg0,int& arg1,int& arg2)
+AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(std::vector<double> const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(std::vector<double>& arg0,int& arg1,int& arg2) enter");
+	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(std::vector<double> const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "([DII)Ljava/nio/DoubleBuffer;";
@@ -812,8 +762,6 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(std::vector<double>
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
@@ -923,15 +871,13 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(std::vector<double>
 	AndroidCXX::java_nio_DoubleBuffer result((AndroidCXX::java_nio_DoubleBuffer) *((AndroidCXX::java_nio_DoubleBuffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_DoubleBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(std::vector<double>& arg0,int& arg1,int& arg2) exit");
+	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(std::vector<double> const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(std::vector<double>& arg0)
+AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(std::vector<double> const& arg0)
 {
-	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(std::vector<double>& arg0) enter");
+	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(std::vector<double> const& arg0) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "([D)Ljava/nio/DoubleBuffer;";
@@ -941,8 +887,6 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(std::vector<double>
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
@@ -1010,15 +954,13 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(std::vector<double>
 	AndroidCXX::java_nio_DoubleBuffer result((AndroidCXX::java_nio_DoubleBuffer) *((AndroidCXX::java_nio_DoubleBuffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_DoubleBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(std::vector<double>& arg0) exit");
+	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::put(std::vector<double> const& arg0) exit");
 
 	return result;
 }
-bool java_nio_DoubleBuffer::equals(AndroidCXX::java_lang_Object& arg0)
+bool java_nio_DoubleBuffer::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_nio_DoubleBuffer::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_nio_DoubleBuffer::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -1028,8 +970,6 @@ bool java_nio_DoubleBuffer::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
@@ -1079,9 +1019,7 @@ bool java_nio_DoubleBuffer::equals(AndroidCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_nio_DoubleBuffer::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_nio_DoubleBuffer::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -1097,8 +1035,6 @@ AndroidCXX::java_lang_String java_nio_DoubleBuffer::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
@@ -1127,8 +1063,6 @@ AndroidCXX::java_lang_String java_nio_DoubleBuffer::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_nio_DoubleBuffer::toString() exit");
 
 	return result;
@@ -1145,8 +1079,6 @@ int java_nio_DoubleBuffer::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
@@ -1175,15 +1107,13 @@ int java_nio_DoubleBuffer::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_nio_DoubleBuffer::hashCode() exit");
 
 	return result;
 }
-int java_nio_DoubleBuffer::compareTo(AndroidCXX::java_nio_DoubleBuffer& arg0)
+int java_nio_DoubleBuffer::compareTo(AndroidCXX::java_nio_DoubleBuffer const& arg0)
 {
-	LOGV("int java_nio_DoubleBuffer::compareTo(AndroidCXX::java_nio_DoubleBuffer& arg0) enter");
+	LOGV("int java_nio_DoubleBuffer::compareTo(AndroidCXX::java_nio_DoubleBuffer const& arg0) enter");
 
 	const char *methodName = "compareTo";
 	const char *methodSignature = "(Ljava/nio/DoubleBuffer;)I";
@@ -1193,8 +1123,6 @@ int java_nio_DoubleBuffer::compareTo(AndroidCXX::java_nio_DoubleBuffer& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
@@ -1244,9 +1172,7 @@ int java_nio_DoubleBuffer::compareTo(AndroidCXX::java_nio_DoubleBuffer& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_nio_DoubleBuffer::compareTo(AndroidCXX::java_nio_DoubleBuffer& arg0) exit");
+	LOGV("int java_nio_DoubleBuffer::compareTo(AndroidCXX::java_nio_DoubleBuffer const& arg0) exit");
 
 	return result;
 }
@@ -1262,8 +1188,6 @@ bool java_nio_DoubleBuffer::isDirect()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
@@ -1292,8 +1216,6 @@ bool java_nio_DoubleBuffer::isDirect()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_nio_DoubleBuffer::isDirect() exit");
 
 	return result;
@@ -1311,8 +1233,6 @@ bool java_nio_DoubleBuffer::hasArray()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1340,8 +1260,6 @@ bool java_nio_DoubleBuffer::hasArray()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_nio_DoubleBuffer::hasArray() exit");
 
 	return result;
@@ -1358,8 +1276,6 @@ std::vector<double> java_nio_DoubleBuffer::array()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
@@ -1406,8 +1322,6 @@ std::vector<double> java_nio_DoubleBuffer::array()
 	std::vector<double> result = (std::vector<double>) *((std::vector<double> *) cxx_value);
 	delete ((std::vector<double> *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<double> java_nio_DoubleBuffer::array() exit");
 
 	return result;
@@ -1424,8 +1338,6 @@ int java_nio_DoubleBuffer::arrayOffset()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
@@ -1454,15 +1366,13 @@ int java_nio_DoubleBuffer::arrayOffset()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_nio_DoubleBuffer::arrayOffset() exit");
 
 	return result;
 }
-AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::wrap(std::vector<double>& arg0,int& arg1,int& arg2)
+AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::wrap(std::vector<double> const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::wrap(std::vector<double>& arg0,int& arg1,int& arg2) enter");
+	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::wrap(std::vector<double> const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "wrap";
 	const char *methodSignature = "([DII)Ljava/nio/DoubleBuffer;";
@@ -1472,8 +1382,6 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::wrap(std::vector<double
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
@@ -1562,7 +1470,7 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::wrap(std::vector<double
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1583,15 +1491,13 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::wrap(std::vector<double
 	AndroidCXX::java_nio_DoubleBuffer result((AndroidCXX::java_nio_DoubleBuffer) *((AndroidCXX::java_nio_DoubleBuffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_DoubleBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::wrap(std::vector<double>& arg0,int& arg1,int& arg2) exit");
+	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::wrap(std::vector<double> const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::wrap(std::vector<double>& arg0)
+AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::wrap(std::vector<double> const& arg0)
 {
-	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::wrap(std::vector<double>& arg0) enter");
+	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::wrap(std::vector<double> const& arg0) enter");
 
 	const char *methodName = "wrap";
 	const char *methodSignature = "([D)Ljava/nio/DoubleBuffer;";
@@ -1601,8 +1507,6 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::wrap(std::vector<double
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
@@ -1649,7 +1553,7 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::wrap(std::vector<double
 		jarg0 = convert_jni__double_array_type_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1670,15 +1574,13 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::wrap(std::vector<double
 	AndroidCXX::java_nio_DoubleBuffer result((AndroidCXX::java_nio_DoubleBuffer) *((AndroidCXX::java_nio_DoubleBuffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_DoubleBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::wrap(std::vector<double>& arg0) exit");
+	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::wrap(std::vector<double> const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::allocate(int& arg0)
+AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::allocate(int const& arg0)
 {
-	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::allocate(int& arg0) enter");
+	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::allocate(int const& arg0) enter");
 
 	const char *methodName = "allocate";
 	const char *methodSignature = "(I)Ljava/nio/DoubleBuffer;";
@@ -1688,8 +1590,6 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::allocate(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
@@ -1718,7 +1618,7 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::allocate(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1739,9 +1639,7 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::allocate(int& arg0)
 	AndroidCXX::java_nio_DoubleBuffer result((AndroidCXX::java_nio_DoubleBuffer) *((AndroidCXX::java_nio_DoubleBuffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_DoubleBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::allocate(int& arg0) exit");
+	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::allocate(int const& arg0) exit");
 
 	return result;
 }
@@ -1757,8 +1655,6 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::duplicate()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
@@ -1787,8 +1683,6 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::duplicate()
 	AndroidCXX::java_nio_DoubleBuffer result((AndroidCXX::java_nio_DoubleBuffer) *((AndroidCXX::java_nio_DoubleBuffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_DoubleBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::duplicate() exit");
 
 	return result;
@@ -1806,8 +1700,6 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::slice()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1835,8 +1727,6 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::slice()
 	AndroidCXX::java_nio_DoubleBuffer result((AndroidCXX::java_nio_DoubleBuffer) *((AndroidCXX::java_nio_DoubleBuffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_DoubleBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::slice() exit");
 
 	return result;
@@ -1854,8 +1744,6 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::asReadOnlyBuffer()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1883,8 +1771,6 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::asReadOnlyBuffer()
 	AndroidCXX::java_nio_DoubleBuffer result((AndroidCXX::java_nio_DoubleBuffer) *((AndroidCXX::java_nio_DoubleBuffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_DoubleBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::asReadOnlyBuffer() exit");
 
 	return result;
@@ -1902,8 +1788,6 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::compact()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1931,8 +1815,6 @@ AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::compact()
 	AndroidCXX::java_nio_DoubleBuffer result((AndroidCXX::java_nio_DoubleBuffer) *((AndroidCXX::java_nio_DoubleBuffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_DoubleBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_DoubleBuffer::compact() exit");
 
 	return result;
@@ -1949,8 +1831,6 @@ AndroidCXX::java_nio_ByteOrder java_nio_DoubleBuffer::order()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
@@ -1979,8 +1859,6 @@ AndroidCXX::java_nio_ByteOrder java_nio_DoubleBuffer::order()
 	AndroidCXX::java_nio_ByteOrder result((AndroidCXX::java_nio_ByteOrder) *((AndroidCXX::java_nio_ByteOrder *) cxx_value));
 	delete ((AndroidCXX::java_nio_ByteOrder *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_nio_ByteOrder java_nio_DoubleBuffer::order() exit");
 
 	return result;

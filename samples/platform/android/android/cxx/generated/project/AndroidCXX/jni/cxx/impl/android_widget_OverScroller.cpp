@@ -93,7 +93,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_OverScroller::android_widget_OverScroller(const android_widget_OverScroller& cc)
 {
 	LOGV("android_widget_OverScroller::android_widget_OverScroller(const android_widget_OverScroller& cc) enter");
@@ -117,9 +116,9 @@ android_widget_OverScroller::android_widget_OverScroller(const android_widget_Ov
 
 	LOGV("android_widget_OverScroller::android_widget_OverScroller(const android_widget_OverScroller& cc) exit");
 }
-android_widget_OverScroller::android_widget_OverScroller(void * proxy)
+android_widget_OverScroller::android_widget_OverScroller(Proxy proxy)
 {
-	LOGV("android_widget_OverScroller::android_widget_OverScroller(void * proxy) enter");
+	LOGV("android_widget_OverScroller::android_widget_OverScroller(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -129,55 +128,34 @@ android_widget_OverScroller::android_widget_OverScroller(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_OverScroller::android_widget_OverScroller(void * proxy) exit");
+	LOGV("android_widget_OverScroller::android_widget_OverScroller(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_OverScroller::android_widget_OverScroller()
-// {
-// 	LOGV("android_widget_OverScroller::android_widget_OverScroller() enter");	
+Proxy android_widget_OverScroller::proxy() const
+{	
+	LOGV("android_widget_OverScroller::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/OverScroller";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_OverScroller cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_OverScroller jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_OverScroller::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_OverScroller cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_OverScroller jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_OverScroller::android_widget_OverScroller() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context& arg0)
+	return proxy;
+}
+android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -230,11 +208,11 @@ android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context const& arg0) exit");	
 }
-android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_animation_Interpolator& arg1)
+android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1)
 {
-	LOGV("android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_animation_Interpolator& arg1) enter");	
+	LOGV("android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/view/animation/Interpolator;)V";
@@ -308,11 +286,11 @@ android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_animation_Interpolator& arg1) exit");	
+	LOGV("android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1) exit");	
 }
-android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_animation_Interpolator& arg1,float& arg2,float& arg3)
+android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1,float const& arg2,float const& arg3)
 {
-	LOGV("android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_animation_Interpolator& arg1,float& arg2,float& arg3) enter");	
+	LOGV("android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1,float const& arg2,float const& arg3) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/view/animation/Interpolator;FF)V";
@@ -428,11 +406,11 @@ android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_animation_Interpolator& arg1,float& arg2,float& arg3) exit");	
+	LOGV("android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1,float const& arg2,float const& arg3) exit");	
 }
-android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_animation_Interpolator& arg1,float& arg2,float& arg3,bool& arg4)
+android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1,float const& arg2,float const& arg3,bool const& arg4)
 {
-	LOGV("android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_animation_Interpolator& arg1,float& arg2,float& arg3,bool& arg4) enter");	
+	LOGV("android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1,float const& arg2,float const& arg3,bool const& arg4) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/view/animation/Interpolator;FFZ)V";
@@ -569,7 +547,7 @@ android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_animation_Interpolator& arg1,float& arg2,float& arg3,bool& arg4) exit");	
+	LOGV("android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1,float const& arg2,float const& arg3,bool const& arg4) exit");	
 }
 // Default Instance Destructor
 android_widget_OverScroller::~android_widget_OverScroller()
@@ -582,13 +560,13 @@ android_widget_OverScroller::~android_widget_OverScroller()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_OverScroller::~android_widget_OverScroller() exit");
 }
 // Functions
-void android_widget_OverScroller::setFriction(float& arg0)
+void android_widget_OverScroller::setFriction(float const& arg0)
 {
-	LOGV("void android_widget_OverScroller::setFriction(float& arg0) enter");
+	LOGV("void android_widget_OverScroller::setFriction(float const& arg0) enter");
 
 	const char *methodName = "setFriction";
 	const char *methodSignature = "(F)V";
@@ -598,8 +576,6 @@ void android_widget_OverScroller::setFriction(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_OverScroller cxx address %d", cxxAddress);
@@ -630,9 +606,7 @@ void android_widget_OverScroller::setFriction(float& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_OverScroller::setFriction(float& arg0) exit");
+	LOGV("void android_widget_OverScroller::setFriction(float const& arg0) exit");
 
 }
 bool android_widget_OverScroller::isFinished()
@@ -647,8 +621,6 @@ bool android_widget_OverScroller::isFinished()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_OverScroller cxx address %d", cxxAddress);
@@ -677,15 +649,13 @@ bool android_widget_OverScroller::isFinished()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_OverScroller::isFinished() exit");
 
 	return result;
 }
-void android_widget_OverScroller::forceFinished(bool& arg0)
+void android_widget_OverScroller::forceFinished(bool const& arg0)
 {
-	LOGV("void android_widget_OverScroller::forceFinished(bool& arg0) enter");
+	LOGV("void android_widget_OverScroller::forceFinished(bool const& arg0) enter");
 
 	const char *methodName = "forceFinished";
 	const char *methodSignature = "(Z)V";
@@ -695,8 +665,6 @@ void android_widget_OverScroller::forceFinished(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_OverScroller cxx address %d", cxxAddress);
@@ -727,9 +695,7 @@ void android_widget_OverScroller::forceFinished(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_OverScroller::forceFinished(bool& arg0) exit");
+	LOGV("void android_widget_OverScroller::forceFinished(bool const& arg0) exit");
 
 }
 int android_widget_OverScroller::getCurrX()
@@ -744,8 +710,6 @@ int android_widget_OverScroller::getCurrX()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_OverScroller cxx address %d", cxxAddress);
@@ -774,8 +738,6 @@ int android_widget_OverScroller::getCurrX()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_OverScroller::getCurrX() exit");
 
 	return result;
@@ -793,8 +755,6 @@ int android_widget_OverScroller::getCurrY()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_OverScroller cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -822,8 +782,6 @@ int android_widget_OverScroller::getCurrY()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_OverScroller::getCurrY() exit");
 
 	return result;
@@ -840,8 +798,6 @@ float android_widget_OverScroller::getCurrVelocity()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_OverScroller cxx address %d", cxxAddress);
@@ -870,8 +826,6 @@ float android_widget_OverScroller::getCurrVelocity()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float android_widget_OverScroller::getCurrVelocity() exit");
 
 	return result;
@@ -889,8 +843,6 @@ int android_widget_OverScroller::getStartX()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_OverScroller cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -918,8 +870,6 @@ int android_widget_OverScroller::getStartX()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_OverScroller::getStartX() exit");
 
 	return result;
@@ -937,8 +887,6 @@ int android_widget_OverScroller::getStartY()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_OverScroller cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -966,8 +914,6 @@ int android_widget_OverScroller::getStartY()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_OverScroller::getStartY() exit");
 
 	return result;
@@ -985,8 +931,6 @@ int android_widget_OverScroller::getFinalX()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_OverScroller cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1014,8 +958,6 @@ int android_widget_OverScroller::getFinalX()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_OverScroller::getFinalX() exit");
 
 	return result;
@@ -1033,8 +975,6 @@ int android_widget_OverScroller::getFinalY()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_OverScroller cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1062,8 +1002,6 @@ int android_widget_OverScroller::getFinalY()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_OverScroller::getFinalY() exit");
 
 	return result;
@@ -1080,8 +1018,6 @@ bool android_widget_OverScroller::computeScrollOffset()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_OverScroller cxx address %d", cxxAddress);
@@ -1110,15 +1046,13 @@ bool android_widget_OverScroller::computeScrollOffset()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_OverScroller::computeScrollOffset() exit");
 
 	return result;
 }
-void android_widget_OverScroller::startScroll(int& arg0,int& arg1,int& arg2,int& arg3)
+void android_widget_OverScroller::startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("void android_widget_OverScroller::startScroll(int& arg0,int& arg1,int& arg2,int& arg3) enter");
+	LOGV("void android_widget_OverScroller::startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3) enter");
 
 	const char *methodName = "startScroll";
 	const char *methodSignature = "(IIII)V";
@@ -1128,8 +1062,6 @@ void android_widget_OverScroller::startScroll(int& arg0,int& arg1,int& arg2,int&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_OverScroller cxx address %d", cxxAddress);
@@ -1223,14 +1155,12 @@ void android_widget_OverScroller::startScroll(int& arg0,int& arg1,int& arg2,int&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_OverScroller::startScroll(int& arg0,int& arg1,int& arg2,int& arg3) exit");
+	LOGV("void android_widget_OverScroller::startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3) exit");
 
 }
-void android_widget_OverScroller::startScroll(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4)
+void android_widget_OverScroller::startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4)
 {
-	LOGV("void android_widget_OverScroller::startScroll(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4) enter");
+	LOGV("void android_widget_OverScroller::startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) enter");
 
 	const char *methodName = "startScroll";
 	const char *methodSignature = "(IIIII)V";
@@ -1240,8 +1170,6 @@ void android_widget_OverScroller::startScroll(int& arg0,int& arg1,int& arg2,int&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_OverScroller cxx address %d", cxxAddress);
@@ -1356,14 +1284,12 @@ void android_widget_OverScroller::startScroll(int& arg0,int& arg1,int& arg2,int&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_OverScroller::startScroll(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4) exit");
+	LOGV("void android_widget_OverScroller::startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) exit");
 
 }
-void android_widget_OverScroller::fling(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6,int& arg7)
+void android_widget_OverScroller::fling(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,int const& arg7)
 {
-	LOGV("void android_widget_OverScroller::fling(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6,int& arg7) enter");
+	LOGV("void android_widget_OverScroller::fling(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,int const& arg7) enter");
 
 	const char *methodName = "fling";
 	const char *methodSignature = "(IIIIIIII)V";
@@ -1373,8 +1299,6 @@ void android_widget_OverScroller::fling(int& arg0,int& arg1,int& arg2,int& arg3,
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_OverScroller cxx address %d", cxxAddress);
@@ -1552,14 +1476,12 @@ void android_widget_OverScroller::fling(int& arg0,int& arg1,int& arg2,int& arg3,
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6,jarg7);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_OverScroller::fling(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6,int& arg7) exit");
+	LOGV("void android_widget_OverScroller::fling(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,int const& arg7) exit");
 
 }
-void android_widget_OverScroller::fling(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6,int& arg7,int& arg8,int& arg9)
+void android_widget_OverScroller::fling(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,int const& arg7,int const& arg8,int const& arg9)
 {
-	LOGV("void android_widget_OverScroller::fling(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6,int& arg7,int& arg8,int& arg9) enter");
+	LOGV("void android_widget_OverScroller::fling(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,int const& arg7,int const& arg8,int const& arg9) enter");
 
 	const char *methodName = "fling";
 	const char *methodSignature = "(IIIIIIIIII)V";
@@ -1569,8 +1491,6 @@ void android_widget_OverScroller::fling(int& arg0,int& arg1,int& arg2,int& arg3,
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_OverScroller cxx address %d", cxxAddress);
@@ -1790,9 +1710,7 @@ void android_widget_OverScroller::fling(int& arg0,int& arg1,int& arg2,int& arg3,
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6,jarg7,jarg8,jarg9);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_OverScroller::fling(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6,int& arg7,int& arg8,int& arg9) exit");
+	LOGV("void android_widget_OverScroller::fling(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,int const& arg7,int const& arg8,int const& arg9) exit");
 
 }
 void android_widget_OverScroller::abortAnimation()
@@ -1808,8 +1726,6 @@ void android_widget_OverScroller::abortAnimation()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_OverScroller cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1818,14 +1734,12 @@ void android_widget_OverScroller::abortAnimation()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_OverScroller::abortAnimation() exit");
 
 }
-bool android_widget_OverScroller::springBack(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5)
+bool android_widget_OverScroller::springBack(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5)
 {
-	LOGV("bool android_widget_OverScroller::springBack(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5) enter");
+	LOGV("bool android_widget_OverScroller::springBack(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5) enter");
 
 	const char *methodName = "springBack";
 	const char *methodSignature = "(IIIIII)Z";
@@ -1835,8 +1749,6 @@ bool android_widget_OverScroller::springBack(int& arg0,int& arg1,int& arg2,int& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_OverScroller cxx address %d", cxxAddress);
@@ -1991,15 +1903,13 @@ bool android_widget_OverScroller::springBack(int& arg0,int& arg1,int& arg2,int& 
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_OverScroller::springBack(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5) exit");
+	LOGV("bool android_widget_OverScroller::springBack(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5) exit");
 
 	return result;
 }
-void android_widget_OverScroller::notifyHorizontalEdgeReached(int& arg0,int& arg1,int& arg2)
+void android_widget_OverScroller::notifyHorizontalEdgeReached(int const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("void android_widget_OverScroller::notifyHorizontalEdgeReached(int& arg0,int& arg1,int& arg2) enter");
+	LOGV("void android_widget_OverScroller::notifyHorizontalEdgeReached(int const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "notifyHorizontalEdgeReached";
 	const char *methodSignature = "(III)V";
@@ -2010,8 +1920,6 @@ void android_widget_OverScroller::notifyHorizontalEdgeReached(int& arg0,int& arg
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_OverScroller cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2083,14 +1991,12 @@ void android_widget_OverScroller::notifyHorizontalEdgeReached(int& arg0,int& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_OverScroller::notifyHorizontalEdgeReached(int& arg0,int& arg1,int& arg2) exit");
+	LOGV("void android_widget_OverScroller::notifyHorizontalEdgeReached(int const& arg0,int const& arg1,int const& arg2) exit");
 
 }
-void android_widget_OverScroller::notifyVerticalEdgeReached(int& arg0,int& arg1,int& arg2)
+void android_widget_OverScroller::notifyVerticalEdgeReached(int const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("void android_widget_OverScroller::notifyVerticalEdgeReached(int& arg0,int& arg1,int& arg2) enter");
+	LOGV("void android_widget_OverScroller::notifyVerticalEdgeReached(int const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "notifyVerticalEdgeReached";
 	const char *methodSignature = "(III)V";
@@ -2101,8 +2007,6 @@ void android_widget_OverScroller::notifyVerticalEdgeReached(int& arg0,int& arg1,
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_OverScroller cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2174,9 +2078,7 @@ void android_widget_OverScroller::notifyVerticalEdgeReached(int& arg0,int& arg1,
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_OverScroller::notifyVerticalEdgeReached(int& arg0,int& arg1,int& arg2) exit");
+	LOGV("void android_widget_OverScroller::notifyVerticalEdgeReached(int const& arg0,int const& arg1,int const& arg2) exit");
 
 }
 bool android_widget_OverScroller::isOverScrolled()
@@ -2191,8 +2093,6 @@ bool android_widget_OverScroller::isOverScrolled()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_OverScroller cxx address %d", cxxAddress);
@@ -2221,8 +2121,6 @@ bool android_widget_OverScroller::isOverScrolled()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_OverScroller::isOverScrolled() exit");
 
 	return result;

@@ -46,16 +46,13 @@ class android_widget_Filter_FilterListener
 public:
 
 	android_widget_Filter_FilterListener(const android_widget_Filter_FilterListener& cc);
-	android_widget_Filter_FilterListener(void * proxy);
+	android_widget_Filter_FilterListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_Filter_FilterListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Filter_FilterListener();
 	// Functions
-	 void onFilterComplete(int& arg0);
+	 void onFilterComplete(int const& arg0);
 };	
 
 } // namespace

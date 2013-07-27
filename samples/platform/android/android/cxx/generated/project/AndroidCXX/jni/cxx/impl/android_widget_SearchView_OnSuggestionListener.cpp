@@ -40,7 +40,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_SearchView_OnSuggestionListener::android_widget_SearchView_OnSuggestionListener(const android_widget_SearchView_OnSuggestionListener& cc)
 {
 	LOGV("android_widget_SearchView_OnSuggestionListener::android_widget_SearchView_OnSuggestionListener(const android_widget_SearchView_OnSuggestionListener& cc) enter");
@@ -64,9 +63,9 @@ android_widget_SearchView_OnSuggestionListener::android_widget_SearchView_OnSugg
 
 	LOGV("android_widget_SearchView_OnSuggestionListener::android_widget_SearchView_OnSuggestionListener(const android_widget_SearchView_OnSuggestionListener& cc) exit");
 }
-android_widget_SearchView_OnSuggestionListener::android_widget_SearchView_OnSuggestionListener(void * proxy)
+android_widget_SearchView_OnSuggestionListener::android_widget_SearchView_OnSuggestionListener(Proxy proxy)
 {
-	LOGV("android_widget_SearchView_OnSuggestionListener::android_widget_SearchView_OnSuggestionListener(void * proxy) enter");
+	LOGV("android_widget_SearchView_OnSuggestionListener::android_widget_SearchView_OnSuggestionListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -76,52 +75,31 @@ android_widget_SearchView_OnSuggestionListener::android_widget_SearchView_OnSugg
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_SearchView_OnSuggestionListener::android_widget_SearchView_OnSuggestionListener(void * proxy) exit");
+	LOGV("android_widget_SearchView_OnSuggestionListener::android_widget_SearchView_OnSuggestionListener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_SearchView_OnSuggestionListener::android_widget_SearchView_OnSuggestionListener()
-// {
-// 	LOGV("android_widget_SearchView_OnSuggestionListener::android_widget_SearchView_OnSuggestionListener() enter");	
+Proxy android_widget_SearchView_OnSuggestionListener::proxy() const
+{	
+	LOGV("android_widget_SearchView_OnSuggestionListener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/SearchView$OnSuggestionListener";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_SearchView_OnSuggestionListener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_SearchView_OnSuggestionListener jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_SearchView_OnSuggestionListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_SearchView_OnSuggestionListener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_SearchView_OnSuggestionListener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_SearchView_OnSuggestionListener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_SearchView_OnSuggestionListener::android_widget_SearchView_OnSuggestionListener() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_widget_SearchView_OnSuggestionListener::~android_widget_SearchView_OnSuggestionListener()
 {
@@ -133,13 +111,13 @@ android_widget_SearchView_OnSuggestionListener::~android_widget_SearchView_OnSug
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_SearchView_OnSuggestionListener::~android_widget_SearchView_OnSuggestionListener() exit");
 }
 // Functions
-bool android_widget_SearchView_OnSuggestionListener::onSuggestionSelect(int& arg0)
+bool android_widget_SearchView_OnSuggestionListener::onSuggestionSelect(int const& arg0)
 {
-	LOGV("bool android_widget_SearchView_OnSuggestionListener::onSuggestionSelect(int& arg0) enter");
+	LOGV("bool android_widget_SearchView_OnSuggestionListener::onSuggestionSelect(int const& arg0) enter");
 
 	const char *methodName = "onSuggestionSelect";
 	const char *methodSignature = "(I)Z";
@@ -150,8 +128,6 @@ bool android_widget_SearchView_OnSuggestionListener::onSuggestionSelect(int& arg
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView_OnSuggestionListener cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -200,15 +176,13 @@ bool android_widget_SearchView_OnSuggestionListener::onSuggestionSelect(int& arg
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_SearchView_OnSuggestionListener::onSuggestionSelect(int& arg0) exit");
+	LOGV("bool android_widget_SearchView_OnSuggestionListener::onSuggestionSelect(int const& arg0) exit");
 
 	return result;
 }
-bool android_widget_SearchView_OnSuggestionListener::onSuggestionClick(int& arg0)
+bool android_widget_SearchView_OnSuggestionListener::onSuggestionClick(int const& arg0)
 {
-	LOGV("bool android_widget_SearchView_OnSuggestionListener::onSuggestionClick(int& arg0) enter");
+	LOGV("bool android_widget_SearchView_OnSuggestionListener::onSuggestionClick(int const& arg0) enter");
 
 	const char *methodName = "onSuggestionClick";
 	const char *methodSignature = "(I)Z";
@@ -219,8 +193,6 @@ bool android_widget_SearchView_OnSuggestionListener::onSuggestionClick(int& arg0
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView_OnSuggestionListener cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -269,9 +241,7 @@ bool android_widget_SearchView_OnSuggestionListener::onSuggestionClick(int& arg0
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_SearchView_OnSuggestionListener::onSuggestionClick(int& arg0) exit");
+	LOGV("bool android_widget_SearchView_OnSuggestionListener::onSuggestionClick(int const& arg0) exit");
 
 	return result;
 }

@@ -51,16 +51,13 @@ class android_media_MediaPlayer_OnPreparedListener
 public:
 
 	android_media_MediaPlayer_OnPreparedListener(const android_media_MediaPlayer_OnPreparedListener& cc);
-	android_media_MediaPlayer_OnPreparedListener(void * proxy);
+	android_media_MediaPlayer_OnPreparedListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_media_MediaPlayer_OnPreparedListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_OnPreparedListener();
 	// Functions
-	 void onPrepared(AndroidCXX::android_media_MediaPlayer& arg0);
+	 void onPrepared(AndroidCXX::android_media_MediaPlayer const& arg0);
 };	
 
 } // namespace

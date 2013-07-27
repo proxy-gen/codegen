@@ -66,17 +66,16 @@ class android_widget_Filter
 public:
 
 	android_widget_Filter(const android_widget_Filter& cc);
-	android_widget_Filter(void * proxy);
+	android_widget_Filter(Proxy proxy);
 	// Public Constructors
 	android_widget_Filter();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Filter();
 	// Functions
-	 void filter(AndroidCXX::java_lang_CharSequence& arg0);
-	 void filter(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_widget_Filter_FilterListener& arg1);
-	 AndroidCXX::java_lang_CharSequence convertResultToString(AndroidCXX::java_lang_Object& arg0);
+	 void filter(AndroidCXX::java_lang_CharSequence const& arg0);
+	 void filter(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_widget_Filter_FilterListener const& arg1);
+	 AndroidCXX::java_lang_CharSequence convertResultToString(AndroidCXX::java_lang_Object const& arg0);
 };	
 
 } // namespace

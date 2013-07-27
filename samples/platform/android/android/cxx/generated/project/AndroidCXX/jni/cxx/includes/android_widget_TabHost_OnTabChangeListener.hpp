@@ -51,16 +51,13 @@ class android_widget_TabHost_OnTabChangeListener
 public:
 
 	android_widget_TabHost_OnTabChangeListener(const android_widget_TabHost_OnTabChangeListener& cc);
-	android_widget_TabHost_OnTabChangeListener(void * proxy);
+	android_widget_TabHost_OnTabChangeListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_TabHost_OnTabChangeListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TabHost_OnTabChangeListener();
 	// Functions
-	 void onTabChanged(AndroidCXX::java_lang_String& arg0);
+	 void onTabChanged(AndroidCXX::java_lang_String const& arg0);
 };	
 
 } // namespace

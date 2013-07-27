@@ -73,7 +73,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_ActionMode_Callback::android_view_ActionMode_Callback(const android_view_ActionMode_Callback& cc)
 {
 	LOGV("android_view_ActionMode_Callback::android_view_ActionMode_Callback(const android_view_ActionMode_Callback& cc) enter");
@@ -97,9 +96,9 @@ android_view_ActionMode_Callback::android_view_ActionMode_Callback(const android
 
 	LOGV("android_view_ActionMode_Callback::android_view_ActionMode_Callback(const android_view_ActionMode_Callback& cc) exit");
 }
-android_view_ActionMode_Callback::android_view_ActionMode_Callback(void * proxy)
+android_view_ActionMode_Callback::android_view_ActionMode_Callback(Proxy proxy)
 {
-	LOGV("android_view_ActionMode_Callback::android_view_ActionMode_Callback(void * proxy) enter");
+	LOGV("android_view_ActionMode_Callback::android_view_ActionMode_Callback(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -109,52 +108,31 @@ android_view_ActionMode_Callback::android_view_ActionMode_Callback(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_ActionMode_Callback::android_view_ActionMode_Callback(void * proxy) exit");
+	LOGV("android_view_ActionMode_Callback::android_view_ActionMode_Callback(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_view_ActionMode_Callback::android_view_ActionMode_Callback()
-// {
-// 	LOGV("android_view_ActionMode_Callback::android_view_ActionMode_Callback() enter");	
+Proxy android_view_ActionMode_Callback::proxy() const
+{	
+	LOGV("android_view_ActionMode_Callback::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/view/ActionMode$Callback";
+	long cxxAddress = (long) this;
+	LOGV("android_view_ActionMode_Callback cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_ActionMode_Callback jni address %d", proxiedComponent);
 
-// 	LOGV("android_view_ActionMode_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_view_ActionMode_Callback::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_view_ActionMode_Callback cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_view_ActionMode_Callback jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_view_ActionMode_Callback::android_view_ActionMode_Callback() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_view_ActionMode_Callback::~android_view_ActionMode_Callback()
 {
@@ -166,13 +144,13 @@ android_view_ActionMode_Callback::~android_view_ActionMode_Callback()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_ActionMode_Callback::~android_view_ActionMode_Callback() exit");
 }
 // Functions
-bool android_view_ActionMode_Callback::onCreateActionMode(AndroidCXX::android_view_ActionMode& arg0,AndroidCXX::android_view_Menu& arg1)
+bool android_view_ActionMode_Callback::onCreateActionMode(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_Menu const& arg1)
 {
-	LOGV("bool android_view_ActionMode_Callback::onCreateActionMode(AndroidCXX::android_view_ActionMode& arg0,AndroidCXX::android_view_Menu& arg1) enter");
+	LOGV("bool android_view_ActionMode_Callback::onCreateActionMode(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_Menu const& arg1) enter");
 
 	const char *methodName = "onCreateActionMode";
 	const char *methodSignature = "(Landroid/view/ActionMode;Landroid/view/Menu;)Z";
@@ -183,8 +161,6 @@ bool android_view_ActionMode_Callback::onCreateActionMode(AndroidCXX::android_vi
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ActionMode_Callback cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -254,15 +230,13 @@ bool android_view_ActionMode_Callback::onCreateActionMode(AndroidCXX::android_vi
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_ActionMode_Callback::onCreateActionMode(AndroidCXX::android_view_ActionMode& arg0,AndroidCXX::android_view_Menu& arg1) exit");
+	LOGV("bool android_view_ActionMode_Callback::onCreateActionMode(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_Menu const& arg1) exit");
 
 	return result;
 }
-bool android_view_ActionMode_Callback::onPrepareActionMode(AndroidCXX::android_view_ActionMode& arg0,AndroidCXX::android_view_Menu& arg1)
+bool android_view_ActionMode_Callback::onPrepareActionMode(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_Menu const& arg1)
 {
-	LOGV("bool android_view_ActionMode_Callback::onPrepareActionMode(AndroidCXX::android_view_ActionMode& arg0,AndroidCXX::android_view_Menu& arg1) enter");
+	LOGV("bool android_view_ActionMode_Callback::onPrepareActionMode(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_Menu const& arg1) enter");
 
 	const char *methodName = "onPrepareActionMode";
 	const char *methodSignature = "(Landroid/view/ActionMode;Landroid/view/Menu;)Z";
@@ -273,8 +247,6 @@ bool android_view_ActionMode_Callback::onPrepareActionMode(AndroidCXX::android_v
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ActionMode_Callback cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -344,15 +316,13 @@ bool android_view_ActionMode_Callback::onPrepareActionMode(AndroidCXX::android_v
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_ActionMode_Callback::onPrepareActionMode(AndroidCXX::android_view_ActionMode& arg0,AndroidCXX::android_view_Menu& arg1) exit");
+	LOGV("bool android_view_ActionMode_Callback::onPrepareActionMode(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_Menu const& arg1) exit");
 
 	return result;
 }
-bool android_view_ActionMode_Callback::onActionItemClicked(AndroidCXX::android_view_ActionMode& arg0,AndroidCXX::android_view_MenuItem& arg1)
+bool android_view_ActionMode_Callback::onActionItemClicked(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_MenuItem const& arg1)
 {
-	LOGV("bool android_view_ActionMode_Callback::onActionItemClicked(AndroidCXX::android_view_ActionMode& arg0,AndroidCXX::android_view_MenuItem& arg1) enter");
+	LOGV("bool android_view_ActionMode_Callback::onActionItemClicked(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_MenuItem const& arg1) enter");
 
 	const char *methodName = "onActionItemClicked";
 	const char *methodSignature = "(Landroid/view/ActionMode;Landroid/view/MenuItem;)Z";
@@ -362,8 +332,6 @@ bool android_view_ActionMode_Callback::onActionItemClicked(AndroidCXX::android_v
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_ActionMode_Callback cxx address %d", cxxAddress);
@@ -434,15 +402,13 @@ bool android_view_ActionMode_Callback::onActionItemClicked(AndroidCXX::android_v
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_ActionMode_Callback::onActionItemClicked(AndroidCXX::android_view_ActionMode& arg0,AndroidCXX::android_view_MenuItem& arg1) exit");
+	LOGV("bool android_view_ActionMode_Callback::onActionItemClicked(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_MenuItem const& arg1) exit");
 
 	return result;
 }
-void android_view_ActionMode_Callback::onDestroyActionMode(AndroidCXX::android_view_ActionMode& arg0)
+void android_view_ActionMode_Callback::onDestroyActionMode(AndroidCXX::android_view_ActionMode const& arg0)
 {
-	LOGV("void android_view_ActionMode_Callback::onDestroyActionMode(AndroidCXX::android_view_ActionMode& arg0) enter");
+	LOGV("void android_view_ActionMode_Callback::onDestroyActionMode(AndroidCXX::android_view_ActionMode const& arg0) enter");
 
 	const char *methodName = "onDestroyActionMode";
 	const char *methodSignature = "(Landroid/view/ActionMode;)V";
@@ -452,8 +418,6 @@ void android_view_ActionMode_Callback::onDestroyActionMode(AndroidCXX::android_v
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_ActionMode_Callback cxx address %d", cxxAddress);
@@ -484,8 +448,6 @@ void android_view_ActionMode_Callback::onDestroyActionMode(AndroidCXX::android_v
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_ActionMode_Callback::onDestroyActionMode(AndroidCXX::android_view_ActionMode& arg0) exit");
+	LOGV("void android_view_ActionMode_Callback::onDestroyActionMode(AndroidCXX::android_view_ActionMode const& arg0) exit");
 
 }

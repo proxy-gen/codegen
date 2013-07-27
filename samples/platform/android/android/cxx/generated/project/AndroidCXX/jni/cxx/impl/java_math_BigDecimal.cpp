@@ -330,7 +330,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace JAVA_MATH_ROUNDINGMODE;
+// using namespace java_math_RoundingMode;
 // 
 // 
 // 
@@ -506,7 +506,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_math_BigDecimal::java_math_BigDecimal(const java_math_BigDecimal& cc)
 {
 	LOGV("java_math_BigDecimal::java_math_BigDecimal(const java_math_BigDecimal& cc) enter");
@@ -530,9 +529,9 @@ java_math_BigDecimal::java_math_BigDecimal(const java_math_BigDecimal& cc)
 
 	LOGV("java_math_BigDecimal::java_math_BigDecimal(const java_math_BigDecimal& cc) exit");
 }
-java_math_BigDecimal::java_math_BigDecimal(void * proxy)
+java_math_BigDecimal::java_math_BigDecimal(Proxy proxy)
 {
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(void * proxy) enter");
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -542,55 +541,34 @@ java_math_BigDecimal::java_math_BigDecimal(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(void * proxy) exit");
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_math_BigDecimal::java_math_BigDecimal()
-// {
-// 	LOGV("java_math_BigDecimal::java_math_BigDecimal() enter");	
+Proxy java_math_BigDecimal::proxy() const
+{	
+	LOGV("java_math_BigDecimal::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/math/BigDecimal";
+	long cxxAddress = (long) this;
+	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_math_BigDecimal jni address %d", proxiedComponent);
 
-// 	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_math_BigDecimal::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_math_BigDecimal jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_math_BigDecimal::java_math_BigDecimal() exit");	
-// }
-// 
-// 
-// Public Constructors
-java_math_BigDecimal::java_math_BigDecimal(std::vector<char>& arg0,int& arg1,int& arg2)
+	return proxy;
+}
+java_math_BigDecimal::java_math_BigDecimal(std::vector<char> const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(std::vector<char>& arg0,int& arg1,int& arg2) enter");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(std::vector<char> const& arg0,int const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "([CII)V";
@@ -703,11 +681,11 @@ java_math_BigDecimal::java_math_BigDecimal(std::vector<char>& arg0,int& arg1,int
 
 	jni->popLocalFrame();
 
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(std::vector<char>& arg0,int& arg1,int& arg2) exit");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(std::vector<char> const& arg0,int const& arg1,int const& arg2) exit");	
 }
-java_math_BigDecimal::java_math_BigDecimal(std::vector<char>& arg0,int& arg1,int& arg2,AndroidCXX::java_math_MathContext& arg3)
+java_math_BigDecimal::java_math_BigDecimal(std::vector<char> const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_math_MathContext const& arg3)
 {
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(std::vector<char>& arg0,int& arg1,int& arg2,AndroidCXX::java_math_MathContext& arg3) enter");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(std::vector<char> const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_math_MathContext const& arg3) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "([CIILjava/math/MathContext;)V";
@@ -841,11 +819,11 @@ java_math_BigDecimal::java_math_BigDecimal(std::vector<char>& arg0,int& arg1,int
 
 	jni->popLocalFrame();
 
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(std::vector<char>& arg0,int& arg1,int& arg2,AndroidCXX::java_math_MathContext& arg3) exit");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(std::vector<char> const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_math_MathContext const& arg3) exit");	
 }
-java_math_BigDecimal::java_math_BigDecimal(std::vector<char>& arg0)
+java_math_BigDecimal::java_math_BigDecimal(std::vector<char> const& arg0)
 {
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(std::vector<char>& arg0) enter");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(std::vector<char> const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "([C)V";
@@ -916,11 +894,11 @@ java_math_BigDecimal::java_math_BigDecimal(std::vector<char>& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(std::vector<char>& arg0) exit");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(std::vector<char> const& arg0) exit");	
 }
-java_math_BigDecimal::java_math_BigDecimal(std::vector<char>& arg0,AndroidCXX::java_math_MathContext& arg1)
+java_math_BigDecimal::java_math_BigDecimal(std::vector<char> const& arg0,AndroidCXX::java_math_MathContext const& arg1)
 {
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(std::vector<char>& arg0,AndroidCXX::java_math_MathContext& arg1) enter");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(std::vector<char> const& arg0,AndroidCXX::java_math_MathContext const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "([CLjava/math/MathContext;)V";
@@ -1012,11 +990,11 @@ java_math_BigDecimal::java_math_BigDecimal(std::vector<char>& arg0,AndroidCXX::j
 
 	jni->popLocalFrame();
 
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(std::vector<char>& arg0,AndroidCXX::java_math_MathContext& arg1) exit");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(std::vector<char> const& arg0,AndroidCXX::java_math_MathContext const& arg1) exit");	
 }
-java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_lang_String& arg0)
+java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -1069,11 +1047,11 @@ java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_lang_String const& arg0) exit");	
 }
-java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_math_MathContext& arg1)
+java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_math_MathContext const& arg1)
 {
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_math_MathContext& arg1) enter");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_math_MathContext const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/math/MathContext;)V";
@@ -1147,11 +1125,11 @@ java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_lang_String& arg0,An
 
 	jni->popLocalFrame();
 
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_math_MathContext& arg1) exit");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_math_MathContext const& arg1) exit");	
 }
-java_math_BigDecimal::java_math_BigDecimal(double& arg0)
+java_math_BigDecimal::java_math_BigDecimal(double const& arg0)
 {
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(double& arg0) enter");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(double const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(D)V";
@@ -1204,11 +1182,11 @@ java_math_BigDecimal::java_math_BigDecimal(double& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(double& arg0) exit");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(double const& arg0) exit");	
 }
-java_math_BigDecimal::java_math_BigDecimal(double& arg0,AndroidCXX::java_math_MathContext& arg1)
+java_math_BigDecimal::java_math_BigDecimal(double const& arg0,AndroidCXX::java_math_MathContext const& arg1)
 {
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(double& arg0,AndroidCXX::java_math_MathContext& arg1) enter");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(double const& arg0,AndroidCXX::java_math_MathContext const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(DLjava/math/MathContext;)V";
@@ -1282,11 +1260,11 @@ java_math_BigDecimal::java_math_BigDecimal(double& arg0,AndroidCXX::java_math_Ma
 
 	jni->popLocalFrame();
 
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(double& arg0,AndroidCXX::java_math_MathContext& arg1) exit");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(double const& arg0,AndroidCXX::java_math_MathContext const& arg1) exit");	
 }
-java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger& arg0)
+java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger const& arg0)
 {
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger& arg0) enter");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/math/BigInteger;)V";
@@ -1339,11 +1317,11 @@ java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger& arg
 
 	jni->popLocalFrame();
 
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger& arg0) exit");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger const& arg0) exit");	
 }
-java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger& arg0,AndroidCXX::java_math_MathContext& arg1)
+java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger const& arg0,AndroidCXX::java_math_MathContext const& arg1)
 {
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger& arg0,AndroidCXX::java_math_MathContext& arg1) enter");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger const& arg0,AndroidCXX::java_math_MathContext const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/math/BigInteger;Ljava/math/MathContext;)V";
@@ -1417,11 +1395,11 @@ java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger& arg
 
 	jni->popLocalFrame();
 
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger& arg0,AndroidCXX::java_math_MathContext& arg1) exit");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger const& arg0,AndroidCXX::java_math_MathContext const& arg1) exit");	
 }
-java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger& arg0,int& arg1)
+java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger const& arg0,int const& arg1)
 {
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger& arg0,int& arg1) enter");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger const& arg0,int const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/math/BigInteger;I)V";
@@ -1495,11 +1473,11 @@ java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger& arg
 
 	jni->popLocalFrame();
 
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger& arg0,int& arg1) exit");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger const& arg0,int const& arg1) exit");	
 }
-java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger& arg0,int& arg1,AndroidCXX::java_math_MathContext& arg2)
+java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger const& arg0,int const& arg1,AndroidCXX::java_math_MathContext const& arg2)
 {
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger& arg0,int& arg1,AndroidCXX::java_math_MathContext& arg2) enter");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger const& arg0,int const& arg1,AndroidCXX::java_math_MathContext const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/math/BigInteger;ILjava/math/MathContext;)V";
@@ -1594,11 +1572,11 @@ java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger& arg
 
 	jni->popLocalFrame();
 
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger& arg0,int& arg1,AndroidCXX::java_math_MathContext& arg2) exit");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger const& arg0,int const& arg1,AndroidCXX::java_math_MathContext const& arg2) exit");	
 }
-java_math_BigDecimal::java_math_BigDecimal(int& arg0)
+java_math_BigDecimal::java_math_BigDecimal(int const& arg0)
 {
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(int& arg0) enter");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(int const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(I)V";
@@ -1651,11 +1629,11 @@ java_math_BigDecimal::java_math_BigDecimal(int& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(int& arg0) exit");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(int const& arg0) exit");	
 }
-java_math_BigDecimal::java_math_BigDecimal(int& arg0,AndroidCXX::java_math_MathContext& arg1)
+java_math_BigDecimal::java_math_BigDecimal(int const& arg0,AndroidCXX::java_math_MathContext const& arg1)
 {
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(int& arg0,AndroidCXX::java_math_MathContext& arg1) enter");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(int const& arg0,AndroidCXX::java_math_MathContext const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(ILjava/math/MathContext;)V";
@@ -1729,11 +1707,11 @@ java_math_BigDecimal::java_math_BigDecimal(int& arg0,AndroidCXX::java_math_MathC
 
 	jni->popLocalFrame();
 
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(int& arg0,AndroidCXX::java_math_MathContext& arg1) exit");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(int const& arg0,AndroidCXX::java_math_MathContext const& arg1) exit");	
 }
-java_math_BigDecimal::java_math_BigDecimal(long& arg0)
+java_math_BigDecimal::java_math_BigDecimal(long const& arg0)
 {
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(long& arg0) enter");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(long const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(J)V";
@@ -1786,11 +1764,11 @@ java_math_BigDecimal::java_math_BigDecimal(long& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(long& arg0) exit");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(long const& arg0) exit");	
 }
-java_math_BigDecimal::java_math_BigDecimal(long& arg0,AndroidCXX::java_math_MathContext& arg1)
+java_math_BigDecimal::java_math_BigDecimal(long const& arg0,AndroidCXX::java_math_MathContext const& arg1)
 {
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(long& arg0,AndroidCXX::java_math_MathContext& arg1) enter");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(long const& arg0,AndroidCXX::java_math_MathContext const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(JLjava/math/MathContext;)V";
@@ -1864,7 +1842,7 @@ java_math_BigDecimal::java_math_BigDecimal(long& arg0,AndroidCXX::java_math_Math
 
 	jni->popLocalFrame();
 
-	LOGV("java_math_BigDecimal::java_math_BigDecimal(long& arg0,AndroidCXX::java_math_MathContext& arg1) exit");	
+	LOGV("java_math_BigDecimal::java_math_BigDecimal(long const& arg0,AndroidCXX::java_math_MathContext const& arg1) exit");	
 }
 // Default Instance Destructor
 java_math_BigDecimal::~java_math_BigDecimal()
@@ -1877,13 +1855,13 @@ java_math_BigDecimal::~java_math_BigDecimal()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_math_BigDecimal::~java_math_BigDecimal() exit");
 }
 // Functions
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::add(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::add(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::add(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::add(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1) enter");
 
 	const char *methodName = "add";
 	const char *methodSignature = "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;";
@@ -1893,8 +1871,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::add(AndroidCXX::java_math
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -1965,15 +1941,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::add(AndroidCXX::java_math
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::add(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::add(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::add(AndroidCXX::java_math_BigDecimal& arg0)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::add(AndroidCXX::java_math_BigDecimal const& arg0)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::add(AndroidCXX::java_math_BigDecimal& arg0) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::add(AndroidCXX::java_math_BigDecimal const& arg0) enter");
 
 	const char *methodName = "add";
 	const char *methodSignature = "(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;";
@@ -1983,8 +1957,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::add(AndroidCXX::java_math
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -2034,15 +2006,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::add(AndroidCXX::java_math
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::add(AndroidCXX::java_math_BigDecimal& arg0) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::add(AndroidCXX::java_math_BigDecimal const& arg0) exit");
 
 	return result;
 }
-bool java_math_BigDecimal::equals(AndroidCXX::java_lang_Object& arg0)
+bool java_math_BigDecimal::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_math_BigDecimal::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_math_BigDecimal::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -2052,8 +2022,6 @@ bool java_math_BigDecimal::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -2103,9 +2071,7 @@ bool java_math_BigDecimal::equals(AndroidCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_math_BigDecimal::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_math_BigDecimal::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -2121,8 +2087,6 @@ AndroidCXX::java_lang_String java_math_BigDecimal::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -2151,8 +2115,6 @@ AndroidCXX::java_lang_String java_math_BigDecimal::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_math_BigDecimal::toString() exit");
 
 	return result;
@@ -2169,8 +2131,6 @@ int java_math_BigDecimal::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -2199,8 +2159,6 @@ int java_math_BigDecimal::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_math_BigDecimal::hashCode() exit");
 
 	return result;
@@ -2217,8 +2175,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::abs()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -2247,15 +2203,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::abs()
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::abs() exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::abs(AndroidCXX::java_math_MathContext& arg0)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::abs(AndroidCXX::java_math_MathContext const& arg0)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::abs(AndroidCXX::java_math_MathContext& arg0) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::abs(AndroidCXX::java_math_MathContext const& arg0) enter");
 
 	const char *methodName = "abs";
 	const char *methodSignature = "(Ljava/math/MathContext;)Ljava/math/BigDecimal;";
@@ -2265,8 +2219,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::abs(AndroidCXX::java_math
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -2316,15 +2268,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::abs(AndroidCXX::java_math
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::abs(AndroidCXX::java_math_MathContext& arg0) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::abs(AndroidCXX::java_math_MathContext const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::pow(int& arg0)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::pow(int const& arg0)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::pow(int& arg0) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::pow(int const& arg0) enter");
 
 	const char *methodName = "pow";
 	const char *methodSignature = "(I)Ljava/math/BigDecimal;";
@@ -2334,8 +2284,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::pow(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -2385,15 +2333,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::pow(int& arg0)
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::pow(int& arg0) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::pow(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::pow(int& arg0,AndroidCXX::java_math_MathContext& arg1)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::pow(int const& arg0,AndroidCXX::java_math_MathContext const& arg1)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::pow(int& arg0,AndroidCXX::java_math_MathContext& arg1) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::pow(int const& arg0,AndroidCXX::java_math_MathContext const& arg1) enter");
 
 	const char *methodName = "pow";
 	const char *methodSignature = "(ILjava/math/MathContext;)Ljava/math/BigDecimal;";
@@ -2403,8 +2349,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::pow(int& arg0,AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -2475,15 +2419,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::pow(int& arg0,AndroidCXX:
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::pow(int& arg0,AndroidCXX::java_math_MathContext& arg1) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::pow(int const& arg0,AndroidCXX::java_math_MathContext const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::min(AndroidCXX::java_math_BigDecimal& arg0)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::min(AndroidCXX::java_math_BigDecimal const& arg0)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::min(AndroidCXX::java_math_BigDecimal& arg0) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::min(AndroidCXX::java_math_BigDecimal const& arg0) enter");
 
 	const char *methodName = "min";
 	const char *methodSignature = "(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;";
@@ -2494,8 +2436,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::min(AndroidCXX::java_math
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2544,15 +2484,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::min(AndroidCXX::java_math
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::min(AndroidCXX::java_math_BigDecimal& arg0) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::min(AndroidCXX::java_math_BigDecimal const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::max(AndroidCXX::java_math_BigDecimal& arg0)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::max(AndroidCXX::java_math_BigDecimal const& arg0)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::max(AndroidCXX::java_math_BigDecimal& arg0) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::max(AndroidCXX::java_math_BigDecimal const& arg0) enter");
 
 	const char *methodName = "max";
 	const char *methodSignature = "(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;";
@@ -2563,8 +2501,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::max(AndroidCXX::java_math
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2613,15 +2549,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::max(AndroidCXX::java_math
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::max(AndroidCXX::java_math_BigDecimal& arg0) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::max(AndroidCXX::java_math_BigDecimal const& arg0) exit");
 
 	return result;
 }
-int java_math_BigDecimal::compareTo(AndroidCXX::java_math_BigDecimal& arg0)
+int java_math_BigDecimal::compareTo(AndroidCXX::java_math_BigDecimal const& arg0)
 {
-	LOGV("int java_math_BigDecimal::compareTo(AndroidCXX::java_math_BigDecimal& arg0) enter");
+	LOGV("int java_math_BigDecimal::compareTo(AndroidCXX::java_math_BigDecimal const& arg0) enter");
 
 	const char *methodName = "compareTo";
 	const char *methodSignature = "(Ljava/math/BigDecimal;)I";
@@ -2631,8 +2565,6 @@ int java_math_BigDecimal::compareTo(AndroidCXX::java_math_BigDecimal& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -2682,9 +2614,7 @@ int java_math_BigDecimal::compareTo(AndroidCXX::java_math_BigDecimal& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_math_BigDecimal::compareTo(AndroidCXX::java_math_BigDecimal& arg0) exit");
+	LOGV("int java_math_BigDecimal::compareTo(AndroidCXX::java_math_BigDecimal const& arg0) exit");
 
 	return result;
 }
@@ -2700,8 +2630,6 @@ int java_math_BigDecimal::intValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -2730,8 +2658,6 @@ int java_math_BigDecimal::intValue()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_math_BigDecimal::intValue() exit");
 
 	return result;
@@ -2748,8 +2674,6 @@ long java_math_BigDecimal::longValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -2778,8 +2702,6 @@ long java_math_BigDecimal::longValue()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long java_math_BigDecimal::longValue() exit");
 
 	return result;
@@ -2796,8 +2718,6 @@ float java_math_BigDecimal::floatValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -2826,8 +2746,6 @@ float java_math_BigDecimal::floatValue()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float java_math_BigDecimal::floatValue() exit");
 
 	return result;
@@ -2844,8 +2762,6 @@ double java_math_BigDecimal::doubleValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -2874,15 +2790,13 @@ double java_math_BigDecimal::doubleValue()
 	double result = (double) *((double *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("double java_math_BigDecimal::doubleValue() exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(double& arg0)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(double const& arg0)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(double& arg0) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(double const& arg0) enter");
 
 	const char *methodName = "valueOf";
 	const char *methodSignature = "(D)Ljava/math/BigDecimal;";
@@ -2892,8 +2806,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(double& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -2922,7 +2834,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(double& arg0)
 		jarg0 = convert_jni_double_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -2943,15 +2855,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(double& arg0)
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(double& arg0) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(double const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(long& arg0)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(long const& arg0)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(long& arg0) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(long const& arg0) enter");
 
 	const char *methodName = "valueOf";
 	const char *methodSignature = "(J)Ljava/math/BigDecimal;";
@@ -2961,8 +2871,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -2991,7 +2899,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(long& arg0)
 		jarg0 = convert_jni_long_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -3012,15 +2920,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(long& arg0)
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(long& arg0) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(long const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(long& arg0,int& arg1)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(long const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(long& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(long const& arg0,int const& arg1) enter");
 
 	const char *methodName = "valueOf";
 	const char *methodSignature = "(JI)Ljava/math/BigDecimal;";
@@ -3030,8 +2936,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(long& arg0,int& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -3081,7 +2985,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(long& arg0,int& a
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -3102,9 +3006,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(long& arg0,int& a
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(long& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(long const& arg0,int const& arg1) exit");
 
 	return result;
 }
@@ -3120,8 +3022,6 @@ int java_math_BigDecimal::signum()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -3150,15 +3050,13 @@ int java_math_BigDecimal::signum()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_math_BigDecimal::signum() exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::round(AndroidCXX::java_math_MathContext& arg0)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::round(AndroidCXX::java_math_MathContext const& arg0)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::round(AndroidCXX::java_math_MathContext& arg0) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::round(AndroidCXX::java_math_MathContext const& arg0) enter");
 
 	const char *methodName = "round";
 	const char *methodSignature = "(Ljava/math/MathContext;)Ljava/math/BigDecimal;";
@@ -3168,8 +3066,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::round(AndroidCXX::java_ma
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -3219,9 +3115,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::round(AndroidCXX::java_ma
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::round(AndroidCXX::java_math_MathContext& arg0) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::round(AndroidCXX::java_math_MathContext const& arg0) exit");
 
 	return result;
 }
@@ -3237,8 +3131,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::ulp()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -3267,8 +3159,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::ulp()
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::ulp() exit");
 
 	return result;
@@ -3286,8 +3176,6 @@ int java_math_BigDecimal::scale()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3315,8 +3203,6 @@ int java_math_BigDecimal::scale()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_math_BigDecimal::scale() exit");
 
 	return result;
@@ -3334,8 +3220,6 @@ int java_math_BigDecimal::precision()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3363,15 +3247,13 @@ int java_math_BigDecimal::precision()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_math_BigDecimal::precision() exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::subtract(AndroidCXX::java_math_BigDecimal& arg0)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::subtract(AndroidCXX::java_math_BigDecimal const& arg0)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::subtract(AndroidCXX::java_math_BigDecimal& arg0) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::subtract(AndroidCXX::java_math_BigDecimal const& arg0) enter");
 
 	const char *methodName = "subtract";
 	const char *methodSignature = "(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;";
@@ -3381,8 +3263,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::subtract(AndroidCXX::java
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -3432,15 +3312,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::subtract(AndroidCXX::java
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::subtract(AndroidCXX::java_math_BigDecimal& arg0) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::subtract(AndroidCXX::java_math_BigDecimal const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::subtract(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::subtract(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::subtract(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::subtract(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1) enter");
 
 	const char *methodName = "subtract";
 	const char *methodSignature = "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;";
@@ -3450,8 +3328,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::subtract(AndroidCXX::java
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -3522,15 +3398,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::subtract(AndroidCXX::java
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::subtract(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::subtract(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::multiply(AndroidCXX::java_math_BigDecimal& arg0)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::multiply(AndroidCXX::java_math_BigDecimal const& arg0)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::multiply(AndroidCXX::java_math_BigDecimal& arg0) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::multiply(AndroidCXX::java_math_BigDecimal const& arg0) enter");
 
 	const char *methodName = "multiply";
 	const char *methodSignature = "(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;";
@@ -3540,8 +3414,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::multiply(AndroidCXX::java
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -3591,15 +3463,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::multiply(AndroidCXX::java
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::multiply(AndroidCXX::java_math_BigDecimal& arg0) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::multiply(AndroidCXX::java_math_BigDecimal const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::multiply(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::multiply(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::multiply(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::multiply(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1) enter");
 
 	const char *methodName = "multiply";
 	const char *methodSignature = "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;";
@@ -3609,8 +3479,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::multiply(AndroidCXX::java
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -3681,15 +3549,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::multiply(AndroidCXX::java
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::multiply(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::multiply(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1) enter");
 
 	const char *methodName = "divide";
 	const char *methodSignature = "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;";
@@ -3700,8 +3566,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_m
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3771,15 +3635,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_m
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal& arg0,int& arg1,JAVA_MATH_ROUNDINGMODE::java_math_RoundingMode& arg2)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal const& arg0,int const& arg1,java_math_RoundingMode::java_math_RoundingMode const& arg2)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal& arg0,int& arg1,JAVA_MATH_ROUNDINGMODE::java_math_RoundingMode& arg2) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal const& arg0,int const& arg1,java_math_RoundingMode::java_math_RoundingMode const& arg2) enter");
 
 	const char *methodName = "divide";
 	const char *methodSignature = "(Ljava/math/BigDecimal;ILjava/math/RoundingMode;)Ljava/math/BigDecimal;";
@@ -3789,8 +3651,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_m
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -3882,15 +3742,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_m
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal& arg0,int& arg1,JAVA_MATH_ROUNDINGMODE::java_math_RoundingMode& arg2) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal const& arg0,int const& arg1,java_math_RoundingMode::java_math_RoundingMode const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal& arg0,int& arg1)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal const& arg0,int const& arg1) enter");
 
 	const char *methodName = "divide";
 	const char *methodSignature = "(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;";
@@ -3900,8 +3758,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_m
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -3972,15 +3828,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_m
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal& arg0,JAVA_MATH_ROUNDINGMODE::java_math_RoundingMode& arg1)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal const& arg0,java_math_RoundingMode::java_math_RoundingMode const& arg1)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal& arg0,JAVA_MATH_ROUNDINGMODE::java_math_RoundingMode& arg1) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal const& arg0,java_math_RoundingMode::java_math_RoundingMode const& arg1) enter");
 
 	const char *methodName = "divide";
 	const char *methodSignature = "(Ljava/math/BigDecimal;Ljava/math/RoundingMode;)Ljava/math/BigDecimal;";
@@ -3990,8 +3844,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_m
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -4062,15 +3914,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_m
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal& arg0,JAVA_MATH_ROUNDINGMODE::java_math_RoundingMode& arg1) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal const& arg0,java_math_RoundingMode::java_math_RoundingMode const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal& arg0)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal const& arg0)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal& arg0) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal const& arg0) enter");
 
 	const char *methodName = "divide";
 	const char *methodSignature = "(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;";
@@ -4080,8 +3930,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_m
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -4131,15 +3979,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_m
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal& arg0) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal& arg0,int& arg1,int& arg2)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal& arg0,int& arg1,int& arg2) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "divide";
 	const char *methodSignature = "(Ljava/math/BigDecimal;II)Ljava/math/BigDecimal;";
@@ -4149,8 +3995,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_m
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -4242,15 +4086,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_m
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal& arg0,int& arg1,int& arg2) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_math_BigDecimal const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divideToIntegralValue(AndroidCXX::java_math_BigDecimal& arg0)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divideToIntegralValue(AndroidCXX::java_math_BigDecimal const& arg0)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divideToIntegralValue(AndroidCXX::java_math_BigDecimal& arg0) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divideToIntegralValue(AndroidCXX::java_math_BigDecimal const& arg0) enter");
 
 	const char *methodName = "divideToIntegralValue";
 	const char *methodSignature = "(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;";
@@ -4260,8 +4102,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divideToIntegralValue(And
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -4311,15 +4151,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divideToIntegralValue(And
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divideToIntegralValue(AndroidCXX::java_math_BigDecimal& arg0) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divideToIntegralValue(AndroidCXX::java_math_BigDecimal const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divideToIntegralValue(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divideToIntegralValue(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divideToIntegralValue(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divideToIntegralValue(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1) enter");
 
 	const char *methodName = "divideToIntegralValue";
 	const char *methodSignature = "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;";
@@ -4329,8 +4167,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divideToIntegralValue(And
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -4401,15 +4237,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divideToIntegralValue(And
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divideToIntegralValue(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divideToIntegralValue(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::remainder(AndroidCXX::java_math_BigDecimal& arg0)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::remainder(AndroidCXX::java_math_BigDecimal const& arg0)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::remainder(AndroidCXX::java_math_BigDecimal& arg0) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::remainder(AndroidCXX::java_math_BigDecimal const& arg0) enter");
 
 	const char *methodName = "remainder";
 	const char *methodSignature = "(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;";
@@ -4419,8 +4253,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::remainder(AndroidCXX::jav
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -4470,15 +4302,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::remainder(AndroidCXX::jav
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::remainder(AndroidCXX::java_math_BigDecimal& arg0) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::remainder(AndroidCXX::java_math_BigDecimal const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::remainder(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::remainder(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::remainder(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::remainder(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1) enter");
 
 	const char *methodName = "remainder";
 	const char *methodSignature = "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;";
@@ -4488,8 +4318,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::remainder(AndroidCXX::jav
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -4560,15 +4388,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::remainder(AndroidCXX::jav
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::remainder(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::remainder(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1) exit");
 
 	return result;
 }
-std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1)
+std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1)
 {
-	LOGV("std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1) enter");
+	LOGV("std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1) enter");
 
 	const char *methodName = "divideAndRemainder";
 	const char *methodSignature = "(Ljava/math/BigDecimal;Ljava/math/MathContext;)[Ljava/math/BigDecimal;";
@@ -4578,8 +4404,6 @@ std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRe
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -4668,15 +4492,13 @@ std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRe
 	std::vector<AndroidCXX::java_math_BigDecimal > result = (std::vector<AndroidCXX::java_math_BigDecimal >) *((std::vector<AndroidCXX::java_math_BigDecimal > *) cxx_value);
 	delete ((std::vector<AndroidCXX::java_math_BigDecimal > *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1) exit");
+	LOGV("std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1) exit");
 
 	return result;
 }
-std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal& arg0)
+std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal const& arg0)
 {
-	LOGV("std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal const& arg0) enter");
 
 	const char *methodName = "divideAndRemainder";
 	const char *methodSignature = "(Ljava/math/BigDecimal;)[Ljava/math/BigDecimal;";
@@ -4686,8 +4508,6 @@ std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRe
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -4755,9 +4575,7 @@ std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRe
 	std::vector<AndroidCXX::java_math_BigDecimal > result = (std::vector<AndroidCXX::java_math_BigDecimal >) *((std::vector<AndroidCXX::java_math_BigDecimal > *) cxx_value);
 	delete ((std::vector<AndroidCXX::java_math_BigDecimal > *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal const& arg0) exit");
 
 	return result;
 }
@@ -4774,8 +4592,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::negate()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -4803,15 +4619,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::negate()
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::negate() exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::negate(AndroidCXX::java_math_MathContext& arg0)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::negate(AndroidCXX::java_math_MathContext const& arg0)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::negate(AndroidCXX::java_math_MathContext& arg0) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::negate(AndroidCXX::java_math_MathContext const& arg0) enter");
 
 	const char *methodName = "negate";
 	const char *methodSignature = "(Ljava/math/MathContext;)Ljava/math/BigDecimal;";
@@ -4822,8 +4636,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::negate(AndroidCXX::java_m
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -4872,15 +4684,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::negate(AndroidCXX::java_m
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::negate(AndroidCXX::java_math_MathContext& arg0) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::negate(AndroidCXX::java_math_MathContext const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::plus(AndroidCXX::java_math_MathContext& arg0)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::plus(AndroidCXX::java_math_MathContext const& arg0)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::plus(AndroidCXX::java_math_MathContext& arg0) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::plus(AndroidCXX::java_math_MathContext const& arg0) enter");
 
 	const char *methodName = "plus";
 	const char *methodSignature = "(Ljava/math/MathContext;)Ljava/math/BigDecimal;";
@@ -4891,8 +4701,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::plus(AndroidCXX::java_mat
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -4941,9 +4749,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::plus(AndroidCXX::java_mat
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::plus(AndroidCXX::java_math_MathContext& arg0) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::plus(AndroidCXX::java_math_MathContext const& arg0) exit");
 
 	return result;
 }
@@ -4960,8 +4766,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::plus()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -4989,8 +4793,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::plus()
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::plus() exit");
 
 	return result;
@@ -5007,8 +4809,6 @@ AndroidCXX::java_math_BigInteger java_math_BigDecimal::unscaledValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -5037,15 +4837,13 @@ AndroidCXX::java_math_BigInteger java_math_BigDecimal::unscaledValue()
 	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
 	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_math_BigInteger java_math_BigDecimal::unscaledValue() exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int& arg0,JAVA_MATH_ROUNDINGMODE::java_math_RoundingMode& arg1)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int const& arg0,java_math_RoundingMode::java_math_RoundingMode const& arg1)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int& arg0,JAVA_MATH_ROUNDINGMODE::java_math_RoundingMode& arg1) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int const& arg0,java_math_RoundingMode::java_math_RoundingMode const& arg1) enter");
 
 	const char *methodName = "setScale";
 	const char *methodSignature = "(ILjava/math/RoundingMode;)Ljava/math/BigDecimal;";
@@ -5055,8 +4853,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int& arg0,JAVA_M
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -5127,15 +4923,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int& arg0,JAVA_M
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int& arg0,JAVA_MATH_ROUNDINGMODE::java_math_RoundingMode& arg1) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int const& arg0,java_math_RoundingMode::java_math_RoundingMode const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int& arg0,int& arg1)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setScale";
 	const char *methodSignature = "(II)Ljava/math/BigDecimal;";
@@ -5145,8 +4939,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int& arg0,int& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -5217,15 +5009,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int& arg0,int& a
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int& arg0)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int const& arg0)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int& arg0) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int const& arg0) enter");
 
 	const char *methodName = "setScale";
 	const char *methodSignature = "(I)Ljava/math/BigDecimal;";
@@ -5236,8 +5026,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5286,15 +5074,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int& arg0)
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int& arg0) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::movePointLeft(int& arg0)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::movePointLeft(int const& arg0)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::movePointLeft(int& arg0) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::movePointLeft(int const& arg0) enter");
 
 	const char *methodName = "movePointLeft";
 	const char *methodSignature = "(I)Ljava/math/BigDecimal;";
@@ -5305,8 +5091,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::movePointLeft(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5355,15 +5139,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::movePointLeft(int& arg0)
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::movePointLeft(int& arg0) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::movePointLeft(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::movePointRight(int& arg0)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::movePointRight(int const& arg0)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::movePointRight(int& arg0) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::movePointRight(int const& arg0) enter");
 
 	const char *methodName = "movePointRight";
 	const char *methodSignature = "(I)Ljava/math/BigDecimal;";
@@ -5374,8 +5156,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::movePointRight(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5424,15 +5204,13 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::movePointRight(int& arg0)
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::movePointRight(int& arg0) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::movePointRight(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_math_BigDecimal java_math_BigDecimal::scaleByPowerOfTen(int& arg0)
+AndroidCXX::java_math_BigDecimal java_math_BigDecimal::scaleByPowerOfTen(int const& arg0)
 {
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::scaleByPowerOfTen(int& arg0) enter");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::scaleByPowerOfTen(int const& arg0) enter");
 
 	const char *methodName = "scaleByPowerOfTen";
 	const char *methodSignature = "(I)Ljava/math/BigDecimal;";
@@ -5443,8 +5221,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::scaleByPowerOfTen(int& ar
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5493,9 +5269,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::scaleByPowerOfTen(int& ar
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::scaleByPowerOfTen(int& arg0) exit");
+	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::scaleByPowerOfTen(int const& arg0) exit");
 
 	return result;
 }
@@ -5511,8 +5285,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::stripTrailingZeros()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -5541,8 +5313,6 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::stripTrailingZeros()
 	AndroidCXX::java_math_BigDecimal result((AndroidCXX::java_math_BigDecimal) *((AndroidCXX::java_math_BigDecimal *) cxx_value));
 	delete ((AndroidCXX::java_math_BigDecimal *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_math_BigDecimal java_math_BigDecimal::stripTrailingZeros() exit");
 
 	return result;
@@ -5560,8 +5330,6 @@ AndroidCXX::java_lang_String java_math_BigDecimal::toEngineeringString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5589,8 +5357,6 @@ AndroidCXX::java_lang_String java_math_BigDecimal::toEngineeringString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_math_BigDecimal::toEngineeringString() exit");
 
 	return result;
@@ -5608,8 +5374,6 @@ AndroidCXX::java_lang_String java_math_BigDecimal::toPlainString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5637,8 +5401,6 @@ AndroidCXX::java_lang_String java_math_BigDecimal::toPlainString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_math_BigDecimal::toPlainString() exit");
 
 	return result;
@@ -5656,8 +5418,6 @@ AndroidCXX::java_math_BigInteger java_math_BigDecimal::toBigInteger()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5685,8 +5445,6 @@ AndroidCXX::java_math_BigInteger java_math_BigDecimal::toBigInteger()
 	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
 	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_math_BigInteger java_math_BigDecimal::toBigInteger() exit");
 
 	return result;
@@ -5704,8 +5462,6 @@ AndroidCXX::java_math_BigInteger java_math_BigDecimal::toBigIntegerExact()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5733,8 +5489,6 @@ AndroidCXX::java_math_BigInteger java_math_BigDecimal::toBigIntegerExact()
 	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
 	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_math_BigInteger java_math_BigDecimal::toBigIntegerExact() exit");
 
 	return result;
@@ -5751,8 +5505,6 @@ long java_math_BigDecimal::longValueExact()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -5781,8 +5533,6 @@ long java_math_BigDecimal::longValueExact()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long java_math_BigDecimal::longValueExact() exit");
 
 	return result;
@@ -5799,8 +5549,6 @@ int java_math_BigDecimal::intValueExact()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -5829,8 +5577,6 @@ int java_math_BigDecimal::intValueExact()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_math_BigDecimal::intValueExact() exit");
 
 	return result;
@@ -5847,8 +5593,6 @@ short java_math_BigDecimal::shortValueExact()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -5877,8 +5621,6 @@ short java_math_BigDecimal::shortValueExact()
 	short result = (short) *((short *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("short java_math_BigDecimal::shortValueExact() exit");
 
 	return result;
@@ -5895,8 +5637,6 @@ byte java_math_BigDecimal::byteValueExact()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_math_BigDecimal cxx address %d", cxxAddress);
@@ -5925,8 +5665,6 @@ byte java_math_BigDecimal::byteValueExact()
 	byte result = (byte) *((byte *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("byte java_math_BigDecimal::byteValueExact() exit");
 
 	return result;

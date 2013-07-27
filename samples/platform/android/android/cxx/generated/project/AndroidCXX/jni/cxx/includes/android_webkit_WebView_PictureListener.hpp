@@ -56,16 +56,13 @@ class android_webkit_WebView_PictureListener
 public:
 
 	android_webkit_WebView_PictureListener(const android_webkit_WebView_PictureListener& cc);
-	android_webkit_WebView_PictureListener(void * proxy);
+	android_webkit_WebView_PictureListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_webkit_WebView_PictureListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebView_PictureListener();
 	// Functions
-	 void onNewPicture(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_graphics_Picture& arg1);
+	 void onNewPicture(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_graphics_Picture const& arg1);
 };	
 
 } // namespace

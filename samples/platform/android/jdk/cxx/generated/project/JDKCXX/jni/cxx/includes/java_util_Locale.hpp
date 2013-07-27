@@ -115,25 +115,22 @@ class java_util_Locale
 public:
 
 	java_util_Locale(const java_util_Locale& cc);
-	java_util_Locale(void * proxy);
+	java_util_Locale(Proxy proxy);
 	// Public Constructors
-	java_util_Locale(JDKCXX::java_lang_String& arg0,JDKCXX::java_lang_String& arg1,JDKCXX::java_lang_String& arg2);
-	java_util_Locale(JDKCXX::java_lang_String& arg0,JDKCXX::java_lang_String& arg1);
-	java_util_Locale(JDKCXX::java_lang_String& arg0);
-	// TODO: remove
-	// 
-	// java_util_Locale();
-	// 
+	java_util_Locale(JDKCXX::java_lang_String const& arg0,JDKCXX::java_lang_String const& arg1,JDKCXX::java_lang_String const& arg2);
+	java_util_Locale(JDKCXX::java_lang_String const& arg0,JDKCXX::java_lang_String const& arg1);
+	java_util_Locale(JDKCXX::java_lang_String const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Locale();
 	// Functions
-	 bool equals(JDKCXX::java_lang_Object& arg0);
+	 bool equals(JDKCXX::java_lang_Object const& arg0);
 	 JDKCXX::java_lang_String toString();
 	 int hashCode();
 	 JDKCXX::java_lang_Object clone();
 	 JDKCXX::java_lang_String getLanguage();
 	static JDKCXX::java_util_Locale getDefault();
-	static void setDefault(JDKCXX::java_util_Locale& arg0);
+	static void setDefault(JDKCXX::java_util_Locale const& arg0);
 	static std::vector<JDKCXX::java_util_Locale > getAvailableLocales();
 	static std::vector<JDKCXX::java_lang_String > getISOCountries();
 	static std::vector<JDKCXX::java_lang_String > getISOLanguages();
@@ -141,13 +138,13 @@ public:
 	 JDKCXX::java_lang_String getVariant();
 	 JDKCXX::java_lang_String getISO3Language();
 	 JDKCXX::java_lang_String getISO3Country();
-	 JDKCXX::java_lang_String getDisplayLanguage(JDKCXX::java_util_Locale& arg0);
+	 JDKCXX::java_lang_String getDisplayLanguage(JDKCXX::java_util_Locale const& arg0);
 	 JDKCXX::java_lang_String getDisplayLanguage();
-	 JDKCXX::java_lang_String getDisplayCountry(JDKCXX::java_util_Locale& arg0);
+	 JDKCXX::java_lang_String getDisplayCountry(JDKCXX::java_util_Locale const& arg0);
 	 JDKCXX::java_lang_String getDisplayCountry();
 	 JDKCXX::java_lang_String getDisplayVariant();
-	 JDKCXX::java_lang_String getDisplayVariant(JDKCXX::java_util_Locale& arg0);
-	 JDKCXX::java_lang_String getDisplayName(JDKCXX::java_util_Locale& arg0);
+	 JDKCXX::java_lang_String getDisplayVariant(JDKCXX::java_util_Locale const& arg0);
+	 JDKCXX::java_lang_String getDisplayName(JDKCXX::java_util_Locale const& arg0);
 	 JDKCXX::java_lang_String getDisplayName();
 };	
 

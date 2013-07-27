@@ -46,16 +46,13 @@ class android_view_ViewTreeObserver_OnTouchModeChangeListener
 public:
 
 	android_view_ViewTreeObserver_OnTouchModeChangeListener(const android_view_ViewTreeObserver_OnTouchModeChangeListener& cc);
-	android_view_ViewTreeObserver_OnTouchModeChangeListener(void * proxy);
+	android_view_ViewTreeObserver_OnTouchModeChangeListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_view_ViewTreeObserver_OnTouchModeChangeListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewTreeObserver_OnTouchModeChangeListener();
 	// Functions
-	 void onTouchModeChanged(bool& arg0);
+	 void onTouchModeChanged(bool const& arg0);
 };	
 
 } // namespace

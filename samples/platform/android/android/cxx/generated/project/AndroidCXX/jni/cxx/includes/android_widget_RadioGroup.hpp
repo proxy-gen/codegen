@@ -103,24 +103,21 @@ class android_widget_RadioGroup
 public:
 
 	android_widget_RadioGroup(const android_widget_RadioGroup& cc);
-	android_widget_RadioGroup(void * proxy);
+	android_widget_RadioGroup(Proxy proxy);
 	// Public Constructors
-	android_widget_RadioGroup(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_RadioGroup(AndroidCXX::android_content_Context& arg0);
-	// TODO: remove
-	// 
-	// android_widget_RadioGroup();
-	// 
+	android_widget_RadioGroup(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_RadioGroup(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RadioGroup();
 	// Functions
-	 void check(int& arg0);
-	 void addView(AndroidCXX::android_view_View& arg0,int& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams& arg2);
-	 void setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener& arg0);
-	 AndroidCXX::android_widget_RadioGroup_LayoutParams generateLayoutParams(AndroidCXX::android_util_AttributeSet& arg0);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 void setOnCheckedChangeListener(AndroidCXX::android_widget_RadioGroup_OnCheckedChangeListener& arg0);
+	 void check(int const& arg0);
+	 void addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2);
+	 void setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener const& arg0);
+	 AndroidCXX::android_widget_RadioGroup_LayoutParams generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 void setOnCheckedChangeListener(AndroidCXX::android_widget_RadioGroup_OnCheckedChangeListener const& arg0);
 	 int getCheckedRadioButtonId();
 	 void clearCheck();
 };	

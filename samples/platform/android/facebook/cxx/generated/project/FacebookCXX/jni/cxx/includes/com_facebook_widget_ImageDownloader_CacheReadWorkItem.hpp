@@ -46,12 +46,9 @@ class com_facebook_widget_ImageDownloader_CacheReadWorkItem
 public:
 
 	com_facebook_widget_ImageDownloader_CacheReadWorkItem(const com_facebook_widget_ImageDownloader_CacheReadWorkItem& cc);
-	com_facebook_widget_ImageDownloader_CacheReadWorkItem(void * proxy);
+	com_facebook_widget_ImageDownloader_CacheReadWorkItem(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_widget_ImageDownloader_CacheReadWorkItem();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageDownloader_CacheReadWorkItem();
 	// Functions

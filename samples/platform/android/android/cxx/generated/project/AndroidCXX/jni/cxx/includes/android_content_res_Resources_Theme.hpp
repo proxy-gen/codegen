@@ -82,22 +82,19 @@ class android_content_res_Resources_Theme
 public:
 
 	android_content_res_Resources_Theme(const android_content_res_Resources_Theme& cc);
-	android_content_res_Resources_Theme(void * proxy);
+	android_content_res_Resources_Theme(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_content_res_Resources_Theme();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_res_Resources_Theme();
 	// Functions
-	 void dump(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2);
-	 AndroidCXX::android_content_res_TypedArray obtainStyledAttributes(std::vector<int>& arg0);
-	 AndroidCXX::android_content_res_TypedArray obtainStyledAttributes(int& arg0,std::vector<int>& arg1);
-	 AndroidCXX::android_content_res_TypedArray obtainStyledAttributes(AndroidCXX::android_util_AttributeSet& arg0,std::vector<int>& arg1,int& arg2,int& arg3);
-	 void setTo(AndroidCXX::android_content_res_Resources_Theme& arg0);
-	 void applyStyle(int& arg0,bool& arg1);
-	 bool resolveAttribute(int& arg0,AndroidCXX::android_util_TypedValue& arg1,bool& arg2);
+	 void dump(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2);
+	 AndroidCXX::android_content_res_TypedArray obtainStyledAttributes(std::vector<int> const& arg0);
+	 AndroidCXX::android_content_res_TypedArray obtainStyledAttributes(int const& arg0,std::vector<int> const& arg1);
+	 AndroidCXX::android_content_res_TypedArray obtainStyledAttributes(AndroidCXX::android_util_AttributeSet const& arg0,std::vector<int> const& arg1,int const& arg2,int const& arg3);
+	 void setTo(AndroidCXX::android_content_res_Resources_Theme const& arg0);
+	 void applyStyle(int const& arg0,bool const& arg1);
+	 bool resolveAttribute(int const& arg0,AndroidCXX::android_util_TypedValue const& arg1,bool const& arg2);
 };	
 
 } // namespace

@@ -59,7 +59,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_app_FragmentManager_BackStackEntry::android_app_FragmentManager_BackStackEntry(const android_app_FragmentManager_BackStackEntry& cc)
 {
 	LOGV("android_app_FragmentManager_BackStackEntry::android_app_FragmentManager_BackStackEntry(const android_app_FragmentManager_BackStackEntry& cc) enter");
@@ -83,9 +82,9 @@ android_app_FragmentManager_BackStackEntry::android_app_FragmentManager_BackStac
 
 	LOGV("android_app_FragmentManager_BackStackEntry::android_app_FragmentManager_BackStackEntry(const android_app_FragmentManager_BackStackEntry& cc) exit");
 }
-android_app_FragmentManager_BackStackEntry::android_app_FragmentManager_BackStackEntry(void * proxy)
+android_app_FragmentManager_BackStackEntry::android_app_FragmentManager_BackStackEntry(Proxy proxy)
 {
-	LOGV("android_app_FragmentManager_BackStackEntry::android_app_FragmentManager_BackStackEntry(void * proxy) enter");
+	LOGV("android_app_FragmentManager_BackStackEntry::android_app_FragmentManager_BackStackEntry(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -95,52 +94,31 @@ android_app_FragmentManager_BackStackEntry::android_app_FragmentManager_BackStac
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_app_FragmentManager_BackStackEntry::android_app_FragmentManager_BackStackEntry(void * proxy) exit");
+	LOGV("android_app_FragmentManager_BackStackEntry::android_app_FragmentManager_BackStackEntry(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_app_FragmentManager_BackStackEntry::android_app_FragmentManager_BackStackEntry()
-// {
-// 	LOGV("android_app_FragmentManager_BackStackEntry::android_app_FragmentManager_BackStackEntry() enter");	
+Proxy android_app_FragmentManager_BackStackEntry::proxy() const
+{	
+	LOGV("android_app_FragmentManager_BackStackEntry::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/app/FragmentManager$BackStackEntry";
+	long cxxAddress = (long) this;
+	LOGV("android_app_FragmentManager_BackStackEntry cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_FragmentManager_BackStackEntry jni address %d", proxiedComponent);
 
-// 	LOGV("android_app_FragmentManager_BackStackEntry className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_app_FragmentManager_BackStackEntry::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_app_FragmentManager_BackStackEntry cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_app_FragmentManager_BackStackEntry jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_app_FragmentManager_BackStackEntry::android_app_FragmentManager_BackStackEntry() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_app_FragmentManager_BackStackEntry::~android_app_FragmentManager_BackStackEntry()
 {
@@ -152,7 +130,7 @@ android_app_FragmentManager_BackStackEntry::~android_app_FragmentManager_BackSta
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_app_FragmentManager_BackStackEntry::~android_app_FragmentManager_BackStackEntry() exit");
 }
 // Functions
@@ -168,8 +146,6 @@ AndroidCXX::java_lang_String android_app_FragmentManager_BackStackEntry::getName
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager_BackStackEntry cxx address %d", cxxAddress);
@@ -198,8 +174,6 @@ AndroidCXX::java_lang_String android_app_FragmentManager_BackStackEntry::getName
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_app_FragmentManager_BackStackEntry::getName() exit");
 
 	return result;
@@ -217,8 +191,6 @@ int android_app_FragmentManager_BackStackEntry::getId()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager_BackStackEntry cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -246,8 +218,6 @@ int android_app_FragmentManager_BackStackEntry::getId()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_app_FragmentManager_BackStackEntry::getId() exit");
 
 	return result;
@@ -265,8 +235,6 @@ int android_app_FragmentManager_BackStackEntry::getBreadCrumbTitleRes()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager_BackStackEntry cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -294,8 +262,6 @@ int android_app_FragmentManager_BackStackEntry::getBreadCrumbTitleRes()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_app_FragmentManager_BackStackEntry::getBreadCrumbTitleRes() exit");
 
 	return result;
@@ -313,8 +279,6 @@ int android_app_FragmentManager_BackStackEntry::getBreadCrumbShortTitleRes()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager_BackStackEntry cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -342,8 +306,6 @@ int android_app_FragmentManager_BackStackEntry::getBreadCrumbShortTitleRes()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_app_FragmentManager_BackStackEntry::getBreadCrumbShortTitleRes() exit");
 
 	return result;
@@ -361,8 +323,6 @@ AndroidCXX::java_lang_CharSequence android_app_FragmentManager_BackStackEntry::g
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager_BackStackEntry cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -390,8 +350,6 @@ AndroidCXX::java_lang_CharSequence android_app_FragmentManager_BackStackEntry::g
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_app_FragmentManager_BackStackEntry::getBreadCrumbTitle() exit");
 
 	return result;
@@ -409,8 +367,6 @@ AndroidCXX::java_lang_CharSequence android_app_FragmentManager_BackStackEntry::g
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager_BackStackEntry cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -438,8 +394,6 @@ AndroidCXX::java_lang_CharSequence android_app_FragmentManager_BackStackEntry::g
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_app_FragmentManager_BackStackEntry::getBreadCrumbShortTitle() exit");
 
 	return result;

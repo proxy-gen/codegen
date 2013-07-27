@@ -46,7 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_os_IInterface::android_os_IInterface(const android_os_IInterface& cc)
 {
 	LOGV("android_os_IInterface::android_os_IInterface(const android_os_IInterface& cc) enter");
@@ -70,9 +69,9 @@ android_os_IInterface::android_os_IInterface(const android_os_IInterface& cc)
 
 	LOGV("android_os_IInterface::android_os_IInterface(const android_os_IInterface& cc) exit");
 }
-android_os_IInterface::android_os_IInterface(void * proxy)
+android_os_IInterface::android_os_IInterface(Proxy proxy)
 {
-	LOGV("android_os_IInterface::android_os_IInterface(void * proxy) enter");
+	LOGV("android_os_IInterface::android_os_IInterface(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -82,52 +81,31 @@ android_os_IInterface::android_os_IInterface(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_os_IInterface::android_os_IInterface(void * proxy) exit");
+	LOGV("android_os_IInterface::android_os_IInterface(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_os_IInterface::android_os_IInterface()
-// {
-// 	LOGV("android_os_IInterface::android_os_IInterface() enter");	
+Proxy android_os_IInterface::proxy() const
+{	
+	LOGV("android_os_IInterface::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/os/IInterface";
+	long cxxAddress = (long) this;
+	LOGV("android_os_IInterface cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_os_IInterface jni address %d", proxiedComponent);
 
-// 	LOGV("android_os_IInterface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_os_IInterface::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_os_IInterface cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_os_IInterface jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_os_IInterface::android_os_IInterface() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_os_IInterface::~android_os_IInterface()
 {
@@ -139,7 +117,7 @@ android_os_IInterface::~android_os_IInterface()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_os_IInterface::~android_os_IInterface() exit");
 }
 // Functions
@@ -155,8 +133,6 @@ AndroidCXX::android_os_IBinder android_os_IInterface::asBinder()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_os_IInterface cxx address %d", cxxAddress);
@@ -185,8 +161,6 @@ AndroidCXX::android_os_IBinder android_os_IInterface::asBinder()
 	AndroidCXX::android_os_IBinder result((AndroidCXX::android_os_IBinder) *((AndroidCXX::android_os_IBinder *) cxx_value));
 	delete ((AndroidCXX::android_os_IBinder *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_os_IBinder android_os_IInterface::asBinder() exit");
 
 	return result;

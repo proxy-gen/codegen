@@ -58,17 +58,16 @@ class android_text_TextPaint
 public:
 
 	android_text_TextPaint(const android_text_TextPaint& cc);
-	android_text_TextPaint(void * proxy);
+	android_text_TextPaint(Proxy proxy);
 	// Public Constructors
 	android_text_TextPaint();
-	android_text_TextPaint(int& arg0);
-	android_text_TextPaint(AndroidCXX::android_graphics_Paint& arg0);
-	// TODO: remove
-	// 
+	android_text_TextPaint(int const& arg0);
+	android_text_TextPaint(AndroidCXX::android_graphics_Paint const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_text_TextPaint();
 	// Functions
-	 void set(AndroidCXX::android_text_TextPaint& arg0);
+	 void set(AndroidCXX::android_text_TextPaint const& arg0);
 };	
 
 } // namespace

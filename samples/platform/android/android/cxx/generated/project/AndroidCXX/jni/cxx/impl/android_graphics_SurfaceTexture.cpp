@@ -54,7 +54,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(const android_graphics_SurfaceTexture& cc)
 {
 	LOGV("android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(const android_graphics_SurfaceTexture& cc) enter");
@@ -78,9 +77,9 @@ android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(const android_g
 
 	LOGV("android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(const android_graphics_SurfaceTexture& cc) exit");
 }
-android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(void * proxy)
+android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(Proxy proxy)
 {
-	LOGV("android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(void * proxy) enter");
+	LOGV("android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -90,55 +89,34 @@ android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(void * proxy) exit");
+	LOGV("android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_graphics_SurfaceTexture::android_graphics_SurfaceTexture()
-// {
-// 	LOGV("android_graphics_SurfaceTexture::android_graphics_SurfaceTexture() enter");	
+Proxy android_graphics_SurfaceTexture::proxy() const
+{	
+	LOGV("android_graphics_SurfaceTexture::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/graphics/SurfaceTexture";
+	long cxxAddress = (long) this;
+	LOGV("android_graphics_SurfaceTexture cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_graphics_SurfaceTexture jni address %d", proxiedComponent);
 
-// 	LOGV("android_graphics_SurfaceTexture className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_graphics_SurfaceTexture::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_graphics_SurfaceTexture cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_graphics_SurfaceTexture jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_graphics_SurfaceTexture::android_graphics_SurfaceTexture() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(int& arg0)
+	return proxy;
+}
+android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(int const& arg0)
 {
-	LOGV("android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(int& arg0) enter");	
+	LOGV("android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(int const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(I)V";
@@ -191,7 +169,7 @@ android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(int& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(int& arg0) exit");	
+	LOGV("android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(int const& arg0) exit");	
 }
 // Default Instance Destructor
 android_graphics_SurfaceTexture::~android_graphics_SurfaceTexture()
@@ -204,7 +182,7 @@ android_graphics_SurfaceTexture::~android_graphics_SurfaceTexture()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_graphics_SurfaceTexture::~android_graphics_SurfaceTexture() exit");
 }
 // Functions
@@ -221,8 +199,6 @@ void android_graphics_SurfaceTexture::release()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_SurfaceTexture cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -231,8 +207,6 @@ void android_graphics_SurfaceTexture::release()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_graphics_SurfaceTexture::release() exit");
 
 }
@@ -248,8 +222,6 @@ long android_graphics_SurfaceTexture::getTimestamp()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_SurfaceTexture cxx address %d", cxxAddress);
@@ -278,15 +250,13 @@ long android_graphics_SurfaceTexture::getTimestamp()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long android_graphics_SurfaceTexture::getTimestamp() exit");
 
 	return result;
 }
-void android_graphics_SurfaceTexture::setOnFrameAvailableListener(AndroidCXX::android_graphics_SurfaceTexture_OnFrameAvailableListener& arg0)
+void android_graphics_SurfaceTexture::setOnFrameAvailableListener(AndroidCXX::android_graphics_SurfaceTexture_OnFrameAvailableListener const& arg0)
 {
-	LOGV("void android_graphics_SurfaceTexture::setOnFrameAvailableListener(AndroidCXX::android_graphics_SurfaceTexture_OnFrameAvailableListener& arg0) enter");
+	LOGV("void android_graphics_SurfaceTexture::setOnFrameAvailableListener(AndroidCXX::android_graphics_SurfaceTexture_OnFrameAvailableListener const& arg0) enter");
 
 	const char *methodName = "setOnFrameAvailableListener";
 	const char *methodSignature = "(Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;)V";
@@ -296,8 +266,6 @@ void android_graphics_SurfaceTexture::setOnFrameAvailableListener(AndroidCXX::an
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_SurfaceTexture cxx address %d", cxxAddress);
@@ -328,14 +296,12 @@ void android_graphics_SurfaceTexture::setOnFrameAvailableListener(AndroidCXX::an
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_SurfaceTexture::setOnFrameAvailableListener(AndroidCXX::android_graphics_SurfaceTexture_OnFrameAvailableListener& arg0) exit");
+	LOGV("void android_graphics_SurfaceTexture::setOnFrameAvailableListener(AndroidCXX::android_graphics_SurfaceTexture_OnFrameAvailableListener const& arg0) exit");
 
 }
-void android_graphics_SurfaceTexture::setDefaultBufferSize(int& arg0,int& arg1)
+void android_graphics_SurfaceTexture::setDefaultBufferSize(int const& arg0,int const& arg1)
 {
-	LOGV("void android_graphics_SurfaceTexture::setDefaultBufferSize(int& arg0,int& arg1) enter");
+	LOGV("void android_graphics_SurfaceTexture::setDefaultBufferSize(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setDefaultBufferSize";
 	const char *methodSignature = "(II)V";
@@ -345,8 +311,6 @@ void android_graphics_SurfaceTexture::setDefaultBufferSize(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_SurfaceTexture cxx address %d", cxxAddress);
@@ -398,9 +362,7 @@ void android_graphics_SurfaceTexture::setDefaultBufferSize(int& arg0,int& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_SurfaceTexture::setDefaultBufferSize(int& arg0,int& arg1) exit");
+	LOGV("void android_graphics_SurfaceTexture::setDefaultBufferSize(int const& arg0,int const& arg1) exit");
 
 }
 void android_graphics_SurfaceTexture::updateTexImage()
@@ -416,8 +378,6 @@ void android_graphics_SurfaceTexture::updateTexImage()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_SurfaceTexture cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -426,8 +386,6 @@ void android_graphics_SurfaceTexture::updateTexImage()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_graphics_SurfaceTexture::updateTexImage() exit");
 
 }
@@ -444,8 +402,6 @@ void android_graphics_SurfaceTexture::detachFromGLContext()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_SurfaceTexture cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -454,14 +410,12 @@ void android_graphics_SurfaceTexture::detachFromGLContext()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_graphics_SurfaceTexture::detachFromGLContext() exit");
 
 }
-void android_graphics_SurfaceTexture::attachToGLContext(int& arg0)
+void android_graphics_SurfaceTexture::attachToGLContext(int const& arg0)
 {
-	LOGV("void android_graphics_SurfaceTexture::attachToGLContext(int& arg0) enter");
+	LOGV("void android_graphics_SurfaceTexture::attachToGLContext(int const& arg0) enter");
 
 	const char *methodName = "attachToGLContext";
 	const char *methodSignature = "(I)V";
@@ -471,8 +425,6 @@ void android_graphics_SurfaceTexture::attachToGLContext(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_SurfaceTexture cxx address %d", cxxAddress);
@@ -503,14 +455,12 @@ void android_graphics_SurfaceTexture::attachToGLContext(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_SurfaceTexture::attachToGLContext(int& arg0) exit");
+	LOGV("void android_graphics_SurfaceTexture::attachToGLContext(int const& arg0) exit");
 
 }
-void android_graphics_SurfaceTexture::getTransformMatrix(std::vector<float>& arg0)
+void android_graphics_SurfaceTexture::getTransformMatrix(std::vector<float> const& arg0)
 {
-	LOGV("void android_graphics_SurfaceTexture::getTransformMatrix(std::vector<float>& arg0) enter");
+	LOGV("void android_graphics_SurfaceTexture::getTransformMatrix(std::vector<float> const& arg0) enter");
 
 	const char *methodName = "getTransformMatrix";
 	const char *methodSignature = "([F)V";
@@ -520,8 +470,6 @@ void android_graphics_SurfaceTexture::getTransformMatrix(std::vector<float>& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_SurfaceTexture cxx address %d", cxxAddress);
@@ -570,8 +518,6 @@ void android_graphics_SurfaceTexture::getTransformMatrix(std::vector<float>& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_SurfaceTexture::getTransformMatrix(std::vector<float>& arg0) exit");
+	LOGV("void android_graphics_SurfaceTexture::getTransformMatrix(std::vector<float> const& arg0) exit");
 
 }

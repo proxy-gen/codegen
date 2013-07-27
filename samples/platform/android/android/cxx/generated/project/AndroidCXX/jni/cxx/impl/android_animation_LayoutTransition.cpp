@@ -144,7 +144,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_animation_LayoutTransition::android_animation_LayoutTransition(const android_animation_LayoutTransition& cc)
 {
 	LOGV("android_animation_LayoutTransition::android_animation_LayoutTransition(const android_animation_LayoutTransition& cc) enter");
@@ -168,9 +167,9 @@ android_animation_LayoutTransition::android_animation_LayoutTransition(const and
 
 	LOGV("android_animation_LayoutTransition::android_animation_LayoutTransition(const android_animation_LayoutTransition& cc) exit");
 }
-android_animation_LayoutTransition::android_animation_LayoutTransition(void * proxy)
+android_animation_LayoutTransition::android_animation_LayoutTransition(Proxy proxy)
 {
-	LOGV("android_animation_LayoutTransition::android_animation_LayoutTransition(void * proxy) enter");
+	LOGV("android_animation_LayoutTransition::android_animation_LayoutTransition(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -180,17 +179,31 @@ android_animation_LayoutTransition::android_animation_LayoutTransition(void * pr
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_animation_LayoutTransition::android_animation_LayoutTransition(void * proxy) exit");
+	LOGV("android_animation_LayoutTransition::android_animation_LayoutTransition(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy android_animation_LayoutTransition::proxy() const
+{	
+	LOGV("android_animation_LayoutTransition::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_animation_LayoutTransition jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_animation_LayoutTransition::proxy() exit");	
+
+	return proxy;
+}
 android_animation_LayoutTransition::android_animation_LayoutTransition()
 {
 	LOGV("android_animation_LayoutTransition::android_animation_LayoutTransition() enter");	
@@ -238,13 +251,13 @@ android_animation_LayoutTransition::~android_animation_LayoutTransition()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_animation_LayoutTransition::~android_animation_LayoutTransition() exit");
 }
 // Functions
-void android_animation_LayoutTransition::setInterpolator(int& arg0,AndroidCXX::android_animation_TimeInterpolator& arg1)
+void android_animation_LayoutTransition::setInterpolator(int const& arg0,AndroidCXX::android_animation_TimeInterpolator const& arg1)
 {
-	LOGV("void android_animation_LayoutTransition::setInterpolator(int& arg0,AndroidCXX::android_animation_TimeInterpolator& arg1) enter");
+	LOGV("void android_animation_LayoutTransition::setInterpolator(int const& arg0,AndroidCXX::android_animation_TimeInterpolator const& arg1) enter");
 
 	const char *methodName = "setInterpolator";
 	const char *methodSignature = "(ILandroid/animation/TimeInterpolator;)V";
@@ -254,8 +267,6 @@ void android_animation_LayoutTransition::setInterpolator(int& arg0,AndroidCXX::a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
@@ -307,14 +318,12 @@ void android_animation_LayoutTransition::setInterpolator(int& arg0,AndroidCXX::a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_LayoutTransition::setInterpolator(int& arg0,AndroidCXX::android_animation_TimeInterpolator& arg1) exit");
+	LOGV("void android_animation_LayoutTransition::setInterpolator(int const& arg0,AndroidCXX::android_animation_TimeInterpolator const& arg1) exit");
 
 }
-void android_animation_LayoutTransition::setDuration(int& arg0,long& arg1)
+void android_animation_LayoutTransition::setDuration(int const& arg0,long const& arg1)
 {
-	LOGV("void android_animation_LayoutTransition::setDuration(int& arg0,long& arg1) enter");
+	LOGV("void android_animation_LayoutTransition::setDuration(int const& arg0,long const& arg1) enter");
 
 	const char *methodName = "setDuration";
 	const char *methodSignature = "(IJ)V";
@@ -324,8 +333,6 @@ void android_animation_LayoutTransition::setDuration(int& arg0,long& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
@@ -377,14 +384,12 @@ void android_animation_LayoutTransition::setDuration(int& arg0,long& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_LayoutTransition::setDuration(int& arg0,long& arg1) exit");
+	LOGV("void android_animation_LayoutTransition::setDuration(int const& arg0,long const& arg1) exit");
 
 }
-void android_animation_LayoutTransition::setDuration(long& arg0)
+void android_animation_LayoutTransition::setDuration(long const& arg0)
 {
-	LOGV("void android_animation_LayoutTransition::setDuration(long& arg0) enter");
+	LOGV("void android_animation_LayoutTransition::setDuration(long const& arg0) enter");
 
 	const char *methodName = "setDuration";
 	const char *methodSignature = "(J)V";
@@ -394,8 +399,6 @@ void android_animation_LayoutTransition::setDuration(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
@@ -426,14 +429,12 @@ void android_animation_LayoutTransition::setDuration(long& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_LayoutTransition::setDuration(long& arg0) exit");
+	LOGV("void android_animation_LayoutTransition::setDuration(long const& arg0) exit");
 
 }
-AndroidCXX::android_animation_TimeInterpolator android_animation_LayoutTransition::getInterpolator(int& arg0)
+AndroidCXX::android_animation_TimeInterpolator android_animation_LayoutTransition::getInterpolator(int const& arg0)
 {
-	LOGV("AndroidCXX::android_animation_TimeInterpolator android_animation_LayoutTransition::getInterpolator(int& arg0) enter");
+	LOGV("AndroidCXX::android_animation_TimeInterpolator android_animation_LayoutTransition::getInterpolator(int const& arg0) enter");
 
 	const char *methodName = "getInterpolator";
 	const char *methodSignature = "(I)Landroid/animation/TimeInterpolator;";
@@ -443,8 +444,6 @@ AndroidCXX::android_animation_TimeInterpolator android_animation_LayoutTransitio
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
@@ -494,15 +493,13 @@ AndroidCXX::android_animation_TimeInterpolator android_animation_LayoutTransitio
 	AndroidCXX::android_animation_TimeInterpolator result((AndroidCXX::android_animation_TimeInterpolator) *((AndroidCXX::android_animation_TimeInterpolator *) cxx_value));
 	delete ((AndroidCXX::android_animation_TimeInterpolator *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_animation_TimeInterpolator android_animation_LayoutTransition::getInterpolator(int& arg0) exit");
+	LOGV("AndroidCXX::android_animation_TimeInterpolator android_animation_LayoutTransition::getInterpolator(int const& arg0) exit");
 
 	return result;
 }
-long android_animation_LayoutTransition::getDuration(int& arg0)
+long android_animation_LayoutTransition::getDuration(int const& arg0)
 {
-	LOGV("long android_animation_LayoutTransition::getDuration(int& arg0) enter");
+	LOGV("long android_animation_LayoutTransition::getDuration(int const& arg0) enter");
 
 	const char *methodName = "getDuration";
 	const char *methodSignature = "(I)J";
@@ -513,8 +510,6 @@ long android_animation_LayoutTransition::getDuration(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -563,15 +558,13 @@ long android_animation_LayoutTransition::getDuration(int& arg0)
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long android_animation_LayoutTransition::getDuration(int& arg0) exit");
+	LOGV("long android_animation_LayoutTransition::getDuration(int const& arg0) exit");
 
 	return result;
 }
-long android_animation_LayoutTransition::getStartDelay(int& arg0)
+long android_animation_LayoutTransition::getStartDelay(int const& arg0)
 {
-	LOGV("long android_animation_LayoutTransition::getStartDelay(int& arg0) enter");
+	LOGV("long android_animation_LayoutTransition::getStartDelay(int const& arg0) enter");
 
 	const char *methodName = "getStartDelay";
 	const char *methodSignature = "(I)J";
@@ -582,8 +575,6 @@ long android_animation_LayoutTransition::getStartDelay(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -632,15 +623,13 @@ long android_animation_LayoutTransition::getStartDelay(int& arg0)
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long android_animation_LayoutTransition::getStartDelay(int& arg0) exit");
+	LOGV("long android_animation_LayoutTransition::getStartDelay(int const& arg0) exit");
 
 	return result;
 }
-void android_animation_LayoutTransition::setStartDelay(int& arg0,long& arg1)
+void android_animation_LayoutTransition::setStartDelay(int const& arg0,long const& arg1)
 {
-	LOGV("void android_animation_LayoutTransition::setStartDelay(int& arg0,long& arg1) enter");
+	LOGV("void android_animation_LayoutTransition::setStartDelay(int const& arg0,long const& arg1) enter");
 
 	const char *methodName = "setStartDelay";
 	const char *methodSignature = "(IJ)V";
@@ -650,8 +639,6 @@ void android_animation_LayoutTransition::setStartDelay(int& arg0,long& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
@@ -703,14 +690,12 @@ void android_animation_LayoutTransition::setStartDelay(int& arg0,long& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_LayoutTransition::setStartDelay(int& arg0,long& arg1) exit");
+	LOGV("void android_animation_LayoutTransition::setStartDelay(int const& arg0,long const& arg1) exit");
 
 }
-void android_animation_LayoutTransition::addChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1)
+void android_animation_LayoutTransition::addChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1)
 {
-	LOGV("void android_animation_LayoutTransition::addChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1) enter");
+	LOGV("void android_animation_LayoutTransition::addChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1) enter");
 
 	const char *methodName = "addChild";
 	const char *methodSignature = "(Landroid/view/ViewGroup;Landroid/view/View;)V";
@@ -720,8 +705,6 @@ void android_animation_LayoutTransition::addChild(AndroidCXX::android_view_ViewG
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
@@ -773,14 +756,12 @@ void android_animation_LayoutTransition::addChild(AndroidCXX::android_view_ViewG
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_LayoutTransition::addChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1) exit");
+	LOGV("void android_animation_LayoutTransition::addChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1) exit");
 
 }
-void android_animation_LayoutTransition::enableTransitionType(int& arg0)
+void android_animation_LayoutTransition::enableTransitionType(int const& arg0)
 {
-	LOGV("void android_animation_LayoutTransition::enableTransitionType(int& arg0) enter");
+	LOGV("void android_animation_LayoutTransition::enableTransitionType(int const& arg0) enter");
 
 	const char *methodName = "enableTransitionType";
 	const char *methodSignature = "(I)V";
@@ -791,8 +772,6 @@ void android_animation_LayoutTransition::enableTransitionType(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -822,14 +801,12 @@ void android_animation_LayoutTransition::enableTransitionType(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_LayoutTransition::enableTransitionType(int& arg0) exit");
+	LOGV("void android_animation_LayoutTransition::enableTransitionType(int const& arg0) exit");
 
 }
-void android_animation_LayoutTransition::disableTransitionType(int& arg0)
+void android_animation_LayoutTransition::disableTransitionType(int const& arg0)
 {
-	LOGV("void android_animation_LayoutTransition::disableTransitionType(int& arg0) enter");
+	LOGV("void android_animation_LayoutTransition::disableTransitionType(int const& arg0) enter");
 
 	const char *methodName = "disableTransitionType";
 	const char *methodSignature = "(I)V";
@@ -840,8 +817,6 @@ void android_animation_LayoutTransition::disableTransitionType(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -871,14 +846,12 @@ void android_animation_LayoutTransition::disableTransitionType(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_LayoutTransition::disableTransitionType(int& arg0) exit");
+	LOGV("void android_animation_LayoutTransition::disableTransitionType(int const& arg0) exit");
 
 }
-bool android_animation_LayoutTransition::isTransitionTypeEnabled(int& arg0)
+bool android_animation_LayoutTransition::isTransitionTypeEnabled(int const& arg0)
 {
-	LOGV("bool android_animation_LayoutTransition::isTransitionTypeEnabled(int& arg0) enter");
+	LOGV("bool android_animation_LayoutTransition::isTransitionTypeEnabled(int const& arg0) enter");
 
 	const char *methodName = "isTransitionTypeEnabled";
 	const char *methodSignature = "(I)Z";
@@ -888,8 +861,6 @@ bool android_animation_LayoutTransition::isTransitionTypeEnabled(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
@@ -939,15 +910,13 @@ bool android_animation_LayoutTransition::isTransitionTypeEnabled(int& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_animation_LayoutTransition::isTransitionTypeEnabled(int& arg0) exit");
+	LOGV("bool android_animation_LayoutTransition::isTransitionTypeEnabled(int const& arg0) exit");
 
 	return result;
 }
-void android_animation_LayoutTransition::setStagger(int& arg0,long& arg1)
+void android_animation_LayoutTransition::setStagger(int const& arg0,long const& arg1)
 {
-	LOGV("void android_animation_LayoutTransition::setStagger(int& arg0,long& arg1) enter");
+	LOGV("void android_animation_LayoutTransition::setStagger(int const& arg0,long const& arg1) enter");
 
 	const char *methodName = "setStagger";
 	const char *methodSignature = "(IJ)V";
@@ -957,8 +926,6 @@ void android_animation_LayoutTransition::setStagger(int& arg0,long& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
@@ -1010,14 +977,12 @@ void android_animation_LayoutTransition::setStagger(int& arg0,long& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_LayoutTransition::setStagger(int& arg0,long& arg1) exit");
+	LOGV("void android_animation_LayoutTransition::setStagger(int const& arg0,long const& arg1) exit");
 
 }
-long android_animation_LayoutTransition::getStagger(int& arg0)
+long android_animation_LayoutTransition::getStagger(int const& arg0)
 {
-	LOGV("long android_animation_LayoutTransition::getStagger(int& arg0) enter");
+	LOGV("long android_animation_LayoutTransition::getStagger(int const& arg0) enter");
 
 	const char *methodName = "getStagger";
 	const char *methodSignature = "(I)J";
@@ -1027,8 +992,6 @@ long android_animation_LayoutTransition::getStagger(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
@@ -1078,15 +1041,13 @@ long android_animation_LayoutTransition::getStagger(int& arg0)
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long android_animation_LayoutTransition::getStagger(int& arg0) exit");
+	LOGV("long android_animation_LayoutTransition::getStagger(int const& arg0) exit");
 
 	return result;
 }
-void android_animation_LayoutTransition::setAnimator(int& arg0,AndroidCXX::android_animation_Animator& arg1)
+void android_animation_LayoutTransition::setAnimator(int const& arg0,AndroidCXX::android_animation_Animator const& arg1)
 {
-	LOGV("void android_animation_LayoutTransition::setAnimator(int& arg0,AndroidCXX::android_animation_Animator& arg1) enter");
+	LOGV("void android_animation_LayoutTransition::setAnimator(int const& arg0,AndroidCXX::android_animation_Animator const& arg1) enter");
 
 	const char *methodName = "setAnimator";
 	const char *methodSignature = "(ILandroid/animation/Animator;)V";
@@ -1096,8 +1057,6 @@ void android_animation_LayoutTransition::setAnimator(int& arg0,AndroidCXX::andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
@@ -1149,14 +1108,12 @@ void android_animation_LayoutTransition::setAnimator(int& arg0,AndroidCXX::andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_LayoutTransition::setAnimator(int& arg0,AndroidCXX::android_animation_Animator& arg1) exit");
+	LOGV("void android_animation_LayoutTransition::setAnimator(int const& arg0,AndroidCXX::android_animation_Animator const& arg1) exit");
 
 }
-AndroidCXX::android_animation_Animator android_animation_LayoutTransition::getAnimator(int& arg0)
+AndroidCXX::android_animation_Animator android_animation_LayoutTransition::getAnimator(int const& arg0)
 {
-	LOGV("AndroidCXX::android_animation_Animator android_animation_LayoutTransition::getAnimator(int& arg0) enter");
+	LOGV("AndroidCXX::android_animation_Animator android_animation_LayoutTransition::getAnimator(int const& arg0) enter");
 
 	const char *methodName = "getAnimator";
 	const char *methodSignature = "(I)Landroid/animation/Animator;";
@@ -1166,8 +1123,6 @@ AndroidCXX::android_animation_Animator android_animation_LayoutTransition::getAn
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
@@ -1217,15 +1172,13 @@ AndroidCXX::android_animation_Animator android_animation_LayoutTransition::getAn
 	AndroidCXX::android_animation_Animator result((AndroidCXX::android_animation_Animator) *((AndroidCXX::android_animation_Animator *) cxx_value));
 	delete ((AndroidCXX::android_animation_Animator *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_animation_Animator android_animation_LayoutTransition::getAnimator(int& arg0) exit");
+	LOGV("AndroidCXX::android_animation_Animator android_animation_LayoutTransition::getAnimator(int const& arg0) exit");
 
 	return result;
 }
-void android_animation_LayoutTransition::setAnimateParentHierarchy(bool& arg0)
+void android_animation_LayoutTransition::setAnimateParentHierarchy(bool const& arg0)
 {
-	LOGV("void android_animation_LayoutTransition::setAnimateParentHierarchy(bool& arg0) enter");
+	LOGV("void android_animation_LayoutTransition::setAnimateParentHierarchy(bool const& arg0) enter");
 
 	const char *methodName = "setAnimateParentHierarchy";
 	const char *methodSignature = "(Z)V";
@@ -1235,8 +1188,6 @@ void android_animation_LayoutTransition::setAnimateParentHierarchy(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
@@ -1267,9 +1218,7 @@ void android_animation_LayoutTransition::setAnimateParentHierarchy(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_LayoutTransition::setAnimateParentHierarchy(bool& arg0) exit");
+	LOGV("void android_animation_LayoutTransition::setAnimateParentHierarchy(bool const& arg0) exit");
 
 }
 bool android_animation_LayoutTransition::isChangingLayout()
@@ -1284,8 +1233,6 @@ bool android_animation_LayoutTransition::isChangingLayout()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
@@ -1314,8 +1261,6 @@ bool android_animation_LayoutTransition::isChangingLayout()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_animation_LayoutTransition::isChangingLayout() exit");
 
 	return result;
@@ -1333,8 +1278,6 @@ bool android_animation_LayoutTransition::isRunning()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1362,15 +1305,13 @@ bool android_animation_LayoutTransition::isRunning()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_animation_LayoutTransition::isRunning() exit");
 
 	return result;
 }
-void android_animation_LayoutTransition::showChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1)
+void android_animation_LayoutTransition::showChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1)
 {
-	LOGV("void android_animation_LayoutTransition::showChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1) enter");
+	LOGV("void android_animation_LayoutTransition::showChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1) enter");
 
 	const char *methodName = "showChild";
 	const char *methodSignature = "(Landroid/view/ViewGroup;Landroid/view/View;)V";
@@ -1380,8 +1321,6 @@ void android_animation_LayoutTransition::showChild(AndroidCXX::android_view_View
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
@@ -1433,14 +1372,12 @@ void android_animation_LayoutTransition::showChild(AndroidCXX::android_view_View
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_LayoutTransition::showChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1) exit");
+	LOGV("void android_animation_LayoutTransition::showChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1) exit");
 
 }
-void android_animation_LayoutTransition::showChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1,int& arg2)
+void android_animation_LayoutTransition::showChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2)
 {
-	LOGV("void android_animation_LayoutTransition::showChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1,int& arg2) enter");
+	LOGV("void android_animation_LayoutTransition::showChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2) enter");
 
 	const char *methodName = "showChild";
 	const char *methodSignature = "(Landroid/view/ViewGroup;Landroid/view/View;I)V";
@@ -1450,8 +1387,6 @@ void android_animation_LayoutTransition::showChild(AndroidCXX::android_view_View
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
@@ -1524,14 +1459,12 @@ void android_animation_LayoutTransition::showChild(AndroidCXX::android_view_View
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_LayoutTransition::showChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1,int& arg2) exit");
+	LOGV("void android_animation_LayoutTransition::showChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2) exit");
 
 }
-void android_animation_LayoutTransition::removeChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1)
+void android_animation_LayoutTransition::removeChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1)
 {
-	LOGV("void android_animation_LayoutTransition::removeChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1) enter");
+	LOGV("void android_animation_LayoutTransition::removeChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1) enter");
 
 	const char *methodName = "removeChild";
 	const char *methodSignature = "(Landroid/view/ViewGroup;Landroid/view/View;)V";
@@ -1542,8 +1475,6 @@ void android_animation_LayoutTransition::removeChild(AndroidCXX::android_view_Vi
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1594,14 +1525,12 @@ void android_animation_LayoutTransition::removeChild(AndroidCXX::android_view_Vi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_LayoutTransition::removeChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1) exit");
+	LOGV("void android_animation_LayoutTransition::removeChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1) exit");
 
 }
-void android_animation_LayoutTransition::hideChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1)
+void android_animation_LayoutTransition::hideChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1)
 {
-	LOGV("void android_animation_LayoutTransition::hideChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1) enter");
+	LOGV("void android_animation_LayoutTransition::hideChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1) enter");
 
 	const char *methodName = "hideChild";
 	const char *methodSignature = "(Landroid/view/ViewGroup;Landroid/view/View;)V";
@@ -1612,8 +1541,6 @@ void android_animation_LayoutTransition::hideChild(AndroidCXX::android_view_View
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1664,14 +1591,12 @@ void android_animation_LayoutTransition::hideChild(AndroidCXX::android_view_View
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_LayoutTransition::hideChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1) exit");
+	LOGV("void android_animation_LayoutTransition::hideChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1) exit");
 
 }
-void android_animation_LayoutTransition::hideChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1,int& arg2)
+void android_animation_LayoutTransition::hideChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2)
 {
-	LOGV("void android_animation_LayoutTransition::hideChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1,int& arg2) enter");
+	LOGV("void android_animation_LayoutTransition::hideChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2) enter");
 
 	const char *methodName = "hideChild";
 	const char *methodSignature = "(Landroid/view/ViewGroup;Landroid/view/View;I)V";
@@ -1681,8 +1606,6 @@ void android_animation_LayoutTransition::hideChild(AndroidCXX::android_view_View
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
@@ -1755,14 +1678,12 @@ void android_animation_LayoutTransition::hideChild(AndroidCXX::android_view_View
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_LayoutTransition::hideChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1,int& arg2) exit");
+	LOGV("void android_animation_LayoutTransition::hideChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2) exit");
 
 }
-void android_animation_LayoutTransition::addTransitionListener(AndroidCXX::android_animation_LayoutTransition_TransitionListener& arg0)
+void android_animation_LayoutTransition::addTransitionListener(AndroidCXX::android_animation_LayoutTransition_TransitionListener const& arg0)
 {
-	LOGV("void android_animation_LayoutTransition::addTransitionListener(AndroidCXX::android_animation_LayoutTransition_TransitionListener& arg0) enter");
+	LOGV("void android_animation_LayoutTransition::addTransitionListener(AndroidCXX::android_animation_LayoutTransition_TransitionListener const& arg0) enter");
 
 	const char *methodName = "addTransitionListener";
 	const char *methodSignature = "(Landroid/animation/LayoutTransition$TransitionListener;)V";
@@ -1773,8 +1694,6 @@ void android_animation_LayoutTransition::addTransitionListener(AndroidCXX::andro
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1804,14 +1723,12 @@ void android_animation_LayoutTransition::addTransitionListener(AndroidCXX::andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_LayoutTransition::addTransitionListener(AndroidCXX::android_animation_LayoutTransition_TransitionListener& arg0) exit");
+	LOGV("void android_animation_LayoutTransition::addTransitionListener(AndroidCXX::android_animation_LayoutTransition_TransitionListener const& arg0) exit");
 
 }
-void android_animation_LayoutTransition::removeTransitionListener(AndroidCXX::android_animation_LayoutTransition_TransitionListener& arg0)
+void android_animation_LayoutTransition::removeTransitionListener(AndroidCXX::android_animation_LayoutTransition_TransitionListener const& arg0)
 {
-	LOGV("void android_animation_LayoutTransition::removeTransitionListener(AndroidCXX::android_animation_LayoutTransition_TransitionListener& arg0) enter");
+	LOGV("void android_animation_LayoutTransition::removeTransitionListener(AndroidCXX::android_animation_LayoutTransition_TransitionListener const& arg0) enter");
 
 	const char *methodName = "removeTransitionListener";
 	const char *methodSignature = "(Landroid/animation/LayoutTransition$TransitionListener;)V";
@@ -1822,8 +1739,6 @@ void android_animation_LayoutTransition::removeTransitionListener(AndroidCXX::an
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1853,9 +1768,7 @@ void android_animation_LayoutTransition::removeTransitionListener(AndroidCXX::an
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_LayoutTransition::removeTransitionListener(AndroidCXX::android_animation_LayoutTransition_TransitionListener& arg0) exit");
+	LOGV("void android_animation_LayoutTransition::removeTransitionListener(AndroidCXX::android_animation_LayoutTransition_TransitionListener const& arg0) exit");
 
 }
 AndroidCXX::java_util_List android_animation_LayoutTransition::getTransitionListeners()
@@ -1870,8 +1783,6 @@ AndroidCXX::java_util_List android_animation_LayoutTransition::getTransitionList
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_LayoutTransition cxx address %d", cxxAddress);
@@ -1918,8 +1829,6 @@ AndroidCXX::java_util_List android_animation_LayoutTransition::getTransitionList
 	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
 	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_util_List android_animation_LayoutTransition::getTransitionListeners() exit");
 
 	return result;

@@ -39,7 +39,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_app_ActionBar_OnNavigationListener::android_app_ActionBar_OnNavigationListener(const android_app_ActionBar_OnNavigationListener& cc)
 {
 	LOGV("android_app_ActionBar_OnNavigationListener::android_app_ActionBar_OnNavigationListener(const android_app_ActionBar_OnNavigationListener& cc) enter");
@@ -63,9 +62,9 @@ android_app_ActionBar_OnNavigationListener::android_app_ActionBar_OnNavigationLi
 
 	LOGV("android_app_ActionBar_OnNavigationListener::android_app_ActionBar_OnNavigationListener(const android_app_ActionBar_OnNavigationListener& cc) exit");
 }
-android_app_ActionBar_OnNavigationListener::android_app_ActionBar_OnNavigationListener(void * proxy)
+android_app_ActionBar_OnNavigationListener::android_app_ActionBar_OnNavigationListener(Proxy proxy)
 {
-	LOGV("android_app_ActionBar_OnNavigationListener::android_app_ActionBar_OnNavigationListener(void * proxy) enter");
+	LOGV("android_app_ActionBar_OnNavigationListener::android_app_ActionBar_OnNavigationListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -75,52 +74,31 @@ android_app_ActionBar_OnNavigationListener::android_app_ActionBar_OnNavigationLi
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_app_ActionBar_OnNavigationListener::android_app_ActionBar_OnNavigationListener(void * proxy) exit");
+	LOGV("android_app_ActionBar_OnNavigationListener::android_app_ActionBar_OnNavigationListener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_app_ActionBar_OnNavigationListener::android_app_ActionBar_OnNavigationListener()
-// {
-// 	LOGV("android_app_ActionBar_OnNavigationListener::android_app_ActionBar_OnNavigationListener() enter");	
+Proxy android_app_ActionBar_OnNavigationListener::proxy() const
+{	
+	LOGV("android_app_ActionBar_OnNavigationListener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/app/ActionBar$OnNavigationListener";
+	long cxxAddress = (long) this;
+	LOGV("android_app_ActionBar_OnNavigationListener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_ActionBar_OnNavigationListener jni address %d", proxiedComponent);
 
-// 	LOGV("android_app_ActionBar_OnNavigationListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_app_ActionBar_OnNavigationListener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_app_ActionBar_OnNavigationListener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_app_ActionBar_OnNavigationListener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_app_ActionBar_OnNavigationListener::android_app_ActionBar_OnNavigationListener() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_app_ActionBar_OnNavigationListener::~android_app_ActionBar_OnNavigationListener()
 {
@@ -132,13 +110,13 @@ android_app_ActionBar_OnNavigationListener::~android_app_ActionBar_OnNavigationL
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_app_ActionBar_OnNavigationListener::~android_app_ActionBar_OnNavigationListener() exit");
 }
 // Functions
-bool android_app_ActionBar_OnNavigationListener::onNavigationItemSelected(int& arg0,long& arg1)
+bool android_app_ActionBar_OnNavigationListener::onNavigationItemSelected(int const& arg0,long const& arg1)
 {
-	LOGV("bool android_app_ActionBar_OnNavigationListener::onNavigationItemSelected(int& arg0,long& arg1) enter");
+	LOGV("bool android_app_ActionBar_OnNavigationListener::onNavigationItemSelected(int const& arg0,long const& arg1) enter");
 
 	const char *methodName = "onNavigationItemSelected";
 	const char *methodSignature = "(IJ)Z";
@@ -148,8 +126,6 @@ bool android_app_ActionBar_OnNavigationListener::onNavigationItemSelected(int& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_ActionBar_OnNavigationListener cxx address %d", cxxAddress);
@@ -220,9 +196,7 @@ bool android_app_ActionBar_OnNavigationListener::onNavigationItemSelected(int& a
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_app_ActionBar_OnNavigationListener::onNavigationItemSelected(int& arg0,long& arg1) exit");
+	LOGV("bool android_app_ActionBar_OnNavigationListener::onNavigationItemSelected(int const& arg0,long const& arg1) exit");
 
 	return result;
 }

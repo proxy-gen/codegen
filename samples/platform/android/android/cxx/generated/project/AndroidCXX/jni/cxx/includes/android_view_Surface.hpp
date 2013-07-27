@@ -83,13 +83,10 @@ class android_view_Surface
 public:
 
 	android_view_Surface(const android_view_Surface& cc);
-	android_view_Surface(void * proxy);
+	android_view_Surface(Proxy proxy);
 	// Public Constructors
-	android_view_Surface(AndroidCXX::android_graphics_SurfaceTexture& arg0);
-	// TODO: remove
-	// 
-	// android_view_Surface();
-	// 
+	android_view_Surface(AndroidCXX::android_graphics_SurfaceTexture const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_Surface();
 	// Functions
@@ -97,11 +94,11 @@ public:
 	 void release();
 	 bool isValid();
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
-	 void readFromParcel(AndroidCXX::android_os_Parcel& arg0);
-	 AndroidCXX::android_graphics_Canvas lockCanvas(AndroidCXX::android_graphics_Rect& arg0);
-	 void unlockCanvasAndPost(AndroidCXX::android_graphics_Canvas& arg0);
-	 void unlockCanvas(AndroidCXX::android_graphics_Canvas& arg0);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	 void readFromParcel(AndroidCXX::android_os_Parcel const& arg0);
+	 AndroidCXX::android_graphics_Canvas lockCanvas(AndroidCXX::android_graphics_Rect const& arg0);
+	 void unlockCanvasAndPost(AndroidCXX::android_graphics_Canvas const& arg0);
+	 void unlockCanvas(AndroidCXX::android_graphics_Canvas const& arg0);
 };	
 
 } // namespace

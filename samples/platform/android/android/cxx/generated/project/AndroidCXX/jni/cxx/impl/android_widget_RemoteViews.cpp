@@ -269,7 +269,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_RemoteViews::android_widget_RemoteViews(const android_widget_RemoteViews& cc)
 {
 	LOGV("android_widget_RemoteViews::android_widget_RemoteViews(const android_widget_RemoteViews& cc) enter");
@@ -293,9 +292,9 @@ android_widget_RemoteViews::android_widget_RemoteViews(const android_widget_Remo
 
 	LOGV("android_widget_RemoteViews::android_widget_RemoteViews(const android_widget_RemoteViews& cc) exit");
 }
-android_widget_RemoteViews::android_widget_RemoteViews(void * proxy)
+android_widget_RemoteViews::android_widget_RemoteViews(Proxy proxy)
 {
-	LOGV("android_widget_RemoteViews::android_widget_RemoteViews(void * proxy) enter");
+	LOGV("android_widget_RemoteViews::android_widget_RemoteViews(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -305,55 +304,34 @@ android_widget_RemoteViews::android_widget_RemoteViews(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_RemoteViews::android_widget_RemoteViews(void * proxy) exit");
+	LOGV("android_widget_RemoteViews::android_widget_RemoteViews(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_RemoteViews::android_widget_RemoteViews()
-// {
-// 	LOGV("android_widget_RemoteViews::android_widget_RemoteViews() enter");	
+Proxy android_widget_RemoteViews::proxy() const
+{	
+	LOGV("android_widget_RemoteViews::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/RemoteViews";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_RemoteViews jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_RemoteViews className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_RemoteViews::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_RemoteViews jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_RemoteViews::android_widget_RemoteViews() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_RemoteViews::android_widget_RemoteViews(AndroidCXX::java_lang_String& arg0,int& arg1)
+	return proxy;
+}
+android_widget_RemoteViews::android_widget_RemoteViews(AndroidCXX::java_lang_String const& arg0,int const& arg1)
 {
-	LOGV("android_widget_RemoteViews::android_widget_RemoteViews(AndroidCXX::java_lang_String& arg0,int& arg1) enter");	
+	LOGV("android_widget_RemoteViews::android_widget_RemoteViews(AndroidCXX::java_lang_String const& arg0,int const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;I)V";
@@ -427,11 +405,11 @@ android_widget_RemoteViews::android_widget_RemoteViews(AndroidCXX::java_lang_Str
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_RemoteViews::android_widget_RemoteViews(AndroidCXX::java_lang_String& arg0,int& arg1) exit");	
+	LOGV("android_widget_RemoteViews::android_widget_RemoteViews(AndroidCXX::java_lang_String const& arg0,int const& arg1) exit");	
 }
-android_widget_RemoteViews::android_widget_RemoteViews(AndroidCXX::android_os_Parcel& arg0)
+android_widget_RemoteViews::android_widget_RemoteViews(AndroidCXX::android_os_Parcel const& arg0)
 {
-	LOGV("android_widget_RemoteViews::android_widget_RemoteViews(AndroidCXX::android_os_Parcel& arg0) enter");	
+	LOGV("android_widget_RemoteViews::android_widget_RemoteViews(AndroidCXX::android_os_Parcel const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/os/Parcel;)V";
@@ -484,11 +462,11 @@ android_widget_RemoteViews::android_widget_RemoteViews(AndroidCXX::android_os_Pa
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_RemoteViews::android_widget_RemoteViews(AndroidCXX::android_os_Parcel& arg0) exit");	
+	LOGV("android_widget_RemoteViews::android_widget_RemoteViews(AndroidCXX::android_os_Parcel const& arg0) exit");	
 }
-android_widget_RemoteViews::android_widget_RemoteViews(AndroidCXX::android_widget_RemoteViews& arg0,AndroidCXX::android_widget_RemoteViews& arg1)
+android_widget_RemoteViews::android_widget_RemoteViews(AndroidCXX::android_widget_RemoteViews const& arg0,AndroidCXX::android_widget_RemoteViews const& arg1)
 {
-	LOGV("android_widget_RemoteViews::android_widget_RemoteViews(AndroidCXX::android_widget_RemoteViews& arg0,AndroidCXX::android_widget_RemoteViews& arg1) enter");	
+	LOGV("android_widget_RemoteViews::android_widget_RemoteViews(AndroidCXX::android_widget_RemoteViews const& arg0,AndroidCXX::android_widget_RemoteViews const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/widget/RemoteViews;Landroid/widget/RemoteViews;)V";
@@ -562,7 +540,7 @@ android_widget_RemoteViews::android_widget_RemoteViews(AndroidCXX::android_widge
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_RemoteViews::android_widget_RemoteViews(AndroidCXX::android_widget_RemoteViews& arg0,AndroidCXX::android_widget_RemoteViews& arg1) exit");	
+	LOGV("android_widget_RemoteViews::android_widget_RemoteViews(AndroidCXX::android_widget_RemoteViews const& arg0,AndroidCXX::android_widget_RemoteViews const& arg1) exit");	
 }
 // Default Instance Destructor
 android_widget_RemoteViews::~android_widget_RemoteViews()
@@ -575,7 +553,7 @@ android_widget_RemoteViews::~android_widget_RemoteViews()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_RemoteViews::~android_widget_RemoteViews() exit");
 }
 // Functions
@@ -591,8 +569,6 @@ AndroidCXX::android_widget_RemoteViews android_widget_RemoteViews::clone()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -621,8 +597,6 @@ AndroidCXX::android_widget_RemoteViews android_widget_RemoteViews::clone()
 	AndroidCXX::android_widget_RemoteViews result((AndroidCXX::android_widget_RemoteViews) *((AndroidCXX::android_widget_RemoteViews *) cxx_value));
 	delete ((AndroidCXX::android_widget_RemoteViews *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_widget_RemoteViews android_widget_RemoteViews::clone() exit");
 
 	return result;
@@ -639,8 +613,6 @@ AndroidCXX::java_lang_String android_widget_RemoteViews::getPackage()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -669,15 +641,13 @@ AndroidCXX::java_lang_String android_widget_RemoteViews::getPackage()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_widget_RemoteViews::getPackage() exit");
 
 	return result;
 }
-void android_widget_RemoteViews::setBoolean(int& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2)
+void android_widget_RemoteViews::setBoolean(int const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2)
 {
-	LOGV("void android_widget_RemoteViews::setBoolean(int& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2) enter");
+	LOGV("void android_widget_RemoteViews::setBoolean(int const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2) enter");
 
 	const char *methodName = "setBoolean";
 	const char *methodSignature = "(ILjava/lang/String;Z)V";
@@ -687,8 +657,6 @@ void android_widget_RemoteViews::setBoolean(int& arg0,AndroidCXX::java_lang_Stri
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -761,14 +729,12 @@ void android_widget_RemoteViews::setBoolean(int& arg0,AndroidCXX::java_lang_Stri
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setBoolean(int& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2) exit");
+	LOGV("void android_widget_RemoteViews::setBoolean(int const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2) exit");
 
 }
-void android_widget_RemoteViews::setByte(int& arg0,AndroidCXX::java_lang_String& arg1,byte& arg2)
+void android_widget_RemoteViews::setByte(int const& arg0,AndroidCXX::java_lang_String const& arg1,byte const& arg2)
 {
-	LOGV("void android_widget_RemoteViews::setByte(int& arg0,AndroidCXX::java_lang_String& arg1,byte& arg2) enter");
+	LOGV("void android_widget_RemoteViews::setByte(int const& arg0,AndroidCXX::java_lang_String const& arg1,byte const& arg2) enter");
 
 	const char *methodName = "setByte";
 	const char *methodSignature = "(ILjava/lang/String;B)V";
@@ -778,8 +744,6 @@ void android_widget_RemoteViews::setByte(int& arg0,AndroidCXX::java_lang_String&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -852,14 +816,12 @@ void android_widget_RemoteViews::setByte(int& arg0,AndroidCXX::java_lang_String&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setByte(int& arg0,AndroidCXX::java_lang_String& arg1,byte& arg2) exit");
+	LOGV("void android_widget_RemoteViews::setByte(int const& arg0,AndroidCXX::java_lang_String const& arg1,byte const& arg2) exit");
 
 }
-void android_widget_RemoteViews::setChar(int& arg0,AndroidCXX::java_lang_String& arg1,char& arg2)
+void android_widget_RemoteViews::setChar(int const& arg0,AndroidCXX::java_lang_String const& arg1,char const& arg2)
 {
-	LOGV("void android_widget_RemoteViews::setChar(int& arg0,AndroidCXX::java_lang_String& arg1,char& arg2) enter");
+	LOGV("void android_widget_RemoteViews::setChar(int const& arg0,AndroidCXX::java_lang_String const& arg1,char const& arg2) enter");
 
 	const char *methodName = "setChar";
 	const char *methodSignature = "(ILjava/lang/String;C)V";
@@ -869,8 +831,6 @@ void android_widget_RemoteViews::setChar(int& arg0,AndroidCXX::java_lang_String&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -943,14 +903,12 @@ void android_widget_RemoteViews::setChar(int& arg0,AndroidCXX::java_lang_String&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setChar(int& arg0,AndroidCXX::java_lang_String& arg1,char& arg2) exit");
+	LOGV("void android_widget_RemoteViews::setChar(int const& arg0,AndroidCXX::java_lang_String const& arg1,char const& arg2) exit");
 
 }
-void android_widget_RemoteViews::setShort(int& arg0,AndroidCXX::java_lang_String& arg1,short& arg2)
+void android_widget_RemoteViews::setShort(int const& arg0,AndroidCXX::java_lang_String const& arg1,short const& arg2)
 {
-	LOGV("void android_widget_RemoteViews::setShort(int& arg0,AndroidCXX::java_lang_String& arg1,short& arg2) enter");
+	LOGV("void android_widget_RemoteViews::setShort(int const& arg0,AndroidCXX::java_lang_String const& arg1,short const& arg2) enter");
 
 	const char *methodName = "setShort";
 	const char *methodSignature = "(ILjava/lang/String;S)V";
@@ -960,8 +918,6 @@ void android_widget_RemoteViews::setShort(int& arg0,AndroidCXX::java_lang_String
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -1034,14 +990,12 @@ void android_widget_RemoteViews::setShort(int& arg0,AndroidCXX::java_lang_String
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setShort(int& arg0,AndroidCXX::java_lang_String& arg1,short& arg2) exit");
+	LOGV("void android_widget_RemoteViews::setShort(int const& arg0,AndroidCXX::java_lang_String const& arg1,short const& arg2) exit");
 
 }
-void android_widget_RemoteViews::setInt(int& arg0,AndroidCXX::java_lang_String& arg1,int& arg2)
+void android_widget_RemoteViews::setInt(int const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2)
 {
-	LOGV("void android_widget_RemoteViews::setInt(int& arg0,AndroidCXX::java_lang_String& arg1,int& arg2) enter");
+	LOGV("void android_widget_RemoteViews::setInt(int const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2) enter");
 
 	const char *methodName = "setInt";
 	const char *methodSignature = "(ILjava/lang/String;I)V";
@@ -1051,8 +1005,6 @@ void android_widget_RemoteViews::setInt(int& arg0,AndroidCXX::java_lang_String& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -1125,14 +1077,12 @@ void android_widget_RemoteViews::setInt(int& arg0,AndroidCXX::java_lang_String& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setInt(int& arg0,AndroidCXX::java_lang_String& arg1,int& arg2) exit");
+	LOGV("void android_widget_RemoteViews::setInt(int const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2) exit");
 
 }
-void android_widget_RemoteViews::setLong(int& arg0,AndroidCXX::java_lang_String& arg1,long& arg2)
+void android_widget_RemoteViews::setLong(int const& arg0,AndroidCXX::java_lang_String const& arg1,long const& arg2)
 {
-	LOGV("void android_widget_RemoteViews::setLong(int& arg0,AndroidCXX::java_lang_String& arg1,long& arg2) enter");
+	LOGV("void android_widget_RemoteViews::setLong(int const& arg0,AndroidCXX::java_lang_String const& arg1,long const& arg2) enter");
 
 	const char *methodName = "setLong";
 	const char *methodSignature = "(ILjava/lang/String;J)V";
@@ -1142,8 +1092,6 @@ void android_widget_RemoteViews::setLong(int& arg0,AndroidCXX::java_lang_String&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -1216,14 +1164,12 @@ void android_widget_RemoteViews::setLong(int& arg0,AndroidCXX::java_lang_String&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setLong(int& arg0,AndroidCXX::java_lang_String& arg1,long& arg2) exit");
+	LOGV("void android_widget_RemoteViews::setLong(int const& arg0,AndroidCXX::java_lang_String const& arg1,long const& arg2) exit");
 
 }
-void android_widget_RemoteViews::setFloat(int& arg0,AndroidCXX::java_lang_String& arg1,float& arg2)
+void android_widget_RemoteViews::setFloat(int const& arg0,AndroidCXX::java_lang_String const& arg1,float const& arg2)
 {
-	LOGV("void android_widget_RemoteViews::setFloat(int& arg0,AndroidCXX::java_lang_String& arg1,float& arg2) enter");
+	LOGV("void android_widget_RemoteViews::setFloat(int const& arg0,AndroidCXX::java_lang_String const& arg1,float const& arg2) enter");
 
 	const char *methodName = "setFloat";
 	const char *methodSignature = "(ILjava/lang/String;F)V";
@@ -1233,8 +1179,6 @@ void android_widget_RemoteViews::setFloat(int& arg0,AndroidCXX::java_lang_String
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -1307,14 +1251,12 @@ void android_widget_RemoteViews::setFloat(int& arg0,AndroidCXX::java_lang_String
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setFloat(int& arg0,AndroidCXX::java_lang_String& arg1,float& arg2) exit");
+	LOGV("void android_widget_RemoteViews::setFloat(int const& arg0,AndroidCXX::java_lang_String const& arg1,float const& arg2) exit");
 
 }
-void android_widget_RemoteViews::setDouble(int& arg0,AndroidCXX::java_lang_String& arg1,double& arg2)
+void android_widget_RemoteViews::setDouble(int const& arg0,AndroidCXX::java_lang_String const& arg1,double const& arg2)
 {
-	LOGV("void android_widget_RemoteViews::setDouble(int& arg0,AndroidCXX::java_lang_String& arg1,double& arg2) enter");
+	LOGV("void android_widget_RemoteViews::setDouble(int const& arg0,AndroidCXX::java_lang_String const& arg1,double const& arg2) enter");
 
 	const char *methodName = "setDouble";
 	const char *methodSignature = "(ILjava/lang/String;D)V";
@@ -1324,8 +1266,6 @@ void android_widget_RemoteViews::setDouble(int& arg0,AndroidCXX::java_lang_Strin
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -1398,9 +1338,7 @@ void android_widget_RemoteViews::setDouble(int& arg0,AndroidCXX::java_lang_Strin
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setDouble(int& arg0,AndroidCXX::java_lang_String& arg1,double& arg2) exit");
+	LOGV("void android_widget_RemoteViews::setDouble(int const& arg0,AndroidCXX::java_lang_String const& arg1,double const& arg2) exit");
 
 }
 int android_widget_RemoteViews::describeContents()
@@ -1415,8 +1353,6 @@ int android_widget_RemoteViews::describeContents()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -1445,15 +1381,13 @@ int android_widget_RemoteViews::describeContents()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_RemoteViews::describeContents() exit");
 
 	return result;
 }
-void android_widget_RemoteViews::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_widget_RemoteViews::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_RemoteViews::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_widget_RemoteViews::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -1463,8 +1397,6 @@ void android_widget_RemoteViews::writeToParcel(AndroidCXX::android_os_Parcel& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -1516,14 +1448,12 @@ void android_widget_RemoteViews::writeToParcel(AndroidCXX::android_os_Parcel& ar
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_widget_RemoteViews::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }
-void android_widget_RemoteViews::addView(int& arg0,AndroidCXX::android_widget_RemoteViews& arg1)
+void android_widget_RemoteViews::addView(int const& arg0,AndroidCXX::android_widget_RemoteViews const& arg1)
 {
-	LOGV("void android_widget_RemoteViews::addView(int& arg0,AndroidCXX::android_widget_RemoteViews& arg1) enter");
+	LOGV("void android_widget_RemoteViews::addView(int const& arg0,AndroidCXX::android_widget_RemoteViews const& arg1) enter");
 
 	const char *methodName = "addView";
 	const char *methodSignature = "(ILandroid/widget/RemoteViews;)V";
@@ -1533,8 +1463,6 @@ void android_widget_RemoteViews::addView(int& arg0,AndroidCXX::android_widget_Re
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -1586,14 +1514,12 @@ void android_widget_RemoteViews::addView(int& arg0,AndroidCXX::android_widget_Re
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::addView(int& arg0,AndroidCXX::android_widget_RemoteViews& arg1) exit");
+	LOGV("void android_widget_RemoteViews::addView(int const& arg0,AndroidCXX::android_widget_RemoteViews const& arg1) exit");
 
 }
-void android_widget_RemoteViews::setIntent(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_content_Intent& arg2)
+void android_widget_RemoteViews::setIntent(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_content_Intent const& arg2)
 {
-	LOGV("void android_widget_RemoteViews::setIntent(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_content_Intent& arg2) enter");
+	LOGV("void android_widget_RemoteViews::setIntent(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_content_Intent const& arg2) enter");
 
 	const char *methodName = "setIntent";
 	const char *methodSignature = "(ILjava/lang/String;Landroid/content/Intent;)V";
@@ -1603,8 +1529,6 @@ void android_widget_RemoteViews::setIntent(int& arg0,AndroidCXX::java_lang_Strin
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -1677,14 +1601,12 @@ void android_widget_RemoteViews::setIntent(int& arg0,AndroidCXX::java_lang_Strin
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setIntent(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_content_Intent& arg2) exit");
+	LOGV("void android_widget_RemoteViews::setIntent(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_content_Intent const& arg2) exit");
 
 }
-void android_widget_RemoteViews::removeAllViews(int& arg0)
+void android_widget_RemoteViews::removeAllViews(int const& arg0)
 {
-	LOGV("void android_widget_RemoteViews::removeAllViews(int& arg0) enter");
+	LOGV("void android_widget_RemoteViews::removeAllViews(int const& arg0) enter");
 
 	const char *methodName = "removeAllViews";
 	const char *methodSignature = "(I)V";
@@ -1694,8 +1616,6 @@ void android_widget_RemoteViews::removeAllViews(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -1726,14 +1646,12 @@ void android_widget_RemoteViews::removeAllViews(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::removeAllViews(int& arg0) exit");
+	LOGV("void android_widget_RemoteViews::removeAllViews(int const& arg0) exit");
 
 }
-void android_widget_RemoteViews::setContentDescription(int& arg0,AndroidCXX::java_lang_CharSequence& arg1)
+void android_widget_RemoteViews::setContentDescription(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1)
 {
-	LOGV("void android_widget_RemoteViews::setContentDescription(int& arg0,AndroidCXX::java_lang_CharSequence& arg1) enter");
+	LOGV("void android_widget_RemoteViews::setContentDescription(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) enter");
 
 	const char *methodName = "setContentDescription";
 	const char *methodSignature = "(ILjava/lang/CharSequence;)V";
@@ -1743,8 +1661,6 @@ void android_widget_RemoteViews::setContentDescription(int& arg0,AndroidCXX::jav
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -1796,14 +1712,12 @@ void android_widget_RemoteViews::setContentDescription(int& arg0,AndroidCXX::jav
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setContentDescription(int& arg0,AndroidCXX::java_lang_CharSequence& arg1) exit");
+	LOGV("void android_widget_RemoteViews::setContentDescription(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) exit");
 
 }
-void android_widget_RemoteViews::setLabelFor(int& arg0,int& arg1)
+void android_widget_RemoteViews::setLabelFor(int const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_RemoteViews::setLabelFor(int& arg0,int& arg1) enter");
+	LOGV("void android_widget_RemoteViews::setLabelFor(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setLabelFor";
 	const char *methodSignature = "(II)V";
@@ -1813,8 +1727,6 @@ void android_widget_RemoteViews::setLabelFor(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -1866,14 +1778,12 @@ void android_widget_RemoteViews::setLabelFor(int& arg0,int& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setLabelFor(int& arg0,int& arg1) exit");
+	LOGV("void android_widget_RemoteViews::setLabelFor(int const& arg0,int const& arg1) exit");
 
 }
-void android_widget_RemoteViews::setBitmap(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_graphics_Bitmap& arg2)
+void android_widget_RemoteViews::setBitmap(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_graphics_Bitmap const& arg2)
 {
-	LOGV("void android_widget_RemoteViews::setBitmap(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_graphics_Bitmap& arg2) enter");
+	LOGV("void android_widget_RemoteViews::setBitmap(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_graphics_Bitmap const& arg2) enter");
 
 	const char *methodName = "setBitmap";
 	const char *methodSignature = "(ILjava/lang/String;Landroid/graphics/Bitmap;)V";
@@ -1883,8 +1793,6 @@ void android_widget_RemoteViews::setBitmap(int& arg0,AndroidCXX::java_lang_Strin
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -1957,14 +1865,12 @@ void android_widget_RemoteViews::setBitmap(int& arg0,AndroidCXX::java_lang_Strin
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setBitmap(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_graphics_Bitmap& arg2) exit");
+	LOGV("void android_widget_RemoteViews::setBitmap(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_graphics_Bitmap const& arg2) exit");
 
 }
-AndroidCXX::android_view_View android_widget_RemoteViews::apply(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_ViewGroup& arg1)
+AndroidCXX::android_view_View android_widget_RemoteViews::apply(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_ViewGroup const& arg1)
 {
-	LOGV("AndroidCXX::android_view_View android_widget_RemoteViews::apply(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_ViewGroup& arg1) enter");
+	LOGV("AndroidCXX::android_view_View android_widget_RemoteViews::apply(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_ViewGroup const& arg1) enter");
 
 	const char *methodName = "apply";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/view/ViewGroup;)Landroid/view/View;";
@@ -1974,8 +1880,6 @@ AndroidCXX::android_view_View android_widget_RemoteViews::apply(AndroidCXX::andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -2046,15 +1950,13 @@ AndroidCXX::android_view_View android_widget_RemoteViews::apply(AndroidCXX::andr
 	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
 	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_View android_widget_RemoteViews::apply(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_ViewGroup& arg1) exit");
+	LOGV("AndroidCXX::android_view_View android_widget_RemoteViews::apply(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_ViewGroup const& arg1) exit");
 
 	return result;
 }
-bool android_widget_RemoteViews::onLoadClass(AndroidCXX::java_lang_Class& arg0)
+bool android_widget_RemoteViews::onLoadClass(AndroidCXX::java_lang_Class const& arg0)
 {
-	LOGV("bool android_widget_RemoteViews::onLoadClass(AndroidCXX::java_lang_Class& arg0) enter");
+	LOGV("bool android_widget_RemoteViews::onLoadClass(AndroidCXX::java_lang_Class const& arg0) enter");
 
 	const char *methodName = "onLoadClass";
 	const char *methodSignature = "(Ljava/lang/Class;)Z";
@@ -2064,8 +1966,6 @@ bool android_widget_RemoteViews::onLoadClass(AndroidCXX::java_lang_Class& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -2115,15 +2015,13 @@ bool android_widget_RemoteViews::onLoadClass(AndroidCXX::java_lang_Class& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_RemoteViews::onLoadClass(AndroidCXX::java_lang_Class& arg0) exit");
+	LOGV("bool android_widget_RemoteViews::onLoadClass(AndroidCXX::java_lang_Class const& arg0) exit");
 
 	return result;
 }
-void android_widget_RemoteViews::setEmptyView(int& arg0,int& arg1)
+void android_widget_RemoteViews::setEmptyView(int const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_RemoteViews::setEmptyView(int& arg0,int& arg1) enter");
+	LOGV("void android_widget_RemoteViews::setEmptyView(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setEmptyView";
 	const char *methodSignature = "(II)V";
@@ -2134,8 +2032,6 @@ void android_widget_RemoteViews::setEmptyView(int& arg0,int& arg1)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2186,14 +2082,12 @@ void android_widget_RemoteViews::setEmptyView(int& arg0,int& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setEmptyView(int& arg0,int& arg1) exit");
+	LOGV("void android_widget_RemoteViews::setEmptyView(int const& arg0,int const& arg1) exit");
 
 }
-void android_widget_RemoteViews::setTextColor(int& arg0,int& arg1)
+void android_widget_RemoteViews::setTextColor(int const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_RemoteViews::setTextColor(int& arg0,int& arg1) enter");
+	LOGV("void android_widget_RemoteViews::setTextColor(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setTextColor";
 	const char *methodSignature = "(II)V";
@@ -2204,8 +2098,6 @@ void android_widget_RemoteViews::setTextColor(int& arg0,int& arg1)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2256,9 +2148,7 @@ void android_widget_RemoteViews::setTextColor(int& arg0,int& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setTextColor(int& arg0,int& arg1) exit");
+	LOGV("void android_widget_RemoteViews::setTextColor(int const& arg0,int const& arg1) exit");
 
 }
 int android_widget_RemoteViews::getLayoutId()
@@ -2273,8 +2163,6 @@ int android_widget_RemoteViews::getLayoutId()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -2303,15 +2191,13 @@ int android_widget_RemoteViews::getLayoutId()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_RemoteViews::getLayoutId() exit");
 
 	return result;
 }
-void android_widget_RemoteViews::showNext(int& arg0)
+void android_widget_RemoteViews::showNext(int const& arg0)
 {
-	LOGV("void android_widget_RemoteViews::showNext(int& arg0) enter");
+	LOGV("void android_widget_RemoteViews::showNext(int const& arg0) enter");
 
 	const char *methodName = "showNext";
 	const char *methodSignature = "(I)V";
@@ -2322,8 +2208,6 @@ void android_widget_RemoteViews::showNext(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2353,14 +2237,12 @@ void android_widget_RemoteViews::showNext(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::showNext(int& arg0) exit");
+	LOGV("void android_widget_RemoteViews::showNext(int const& arg0) exit");
 
 }
-void android_widget_RemoteViews::showPrevious(int& arg0)
+void android_widget_RemoteViews::showPrevious(int const& arg0)
 {
-	LOGV("void android_widget_RemoteViews::showPrevious(int& arg0) enter");
+	LOGV("void android_widget_RemoteViews::showPrevious(int const& arg0) enter");
 
 	const char *methodName = "showPrevious";
 	const char *methodSignature = "(I)V";
@@ -2371,8 +2253,6 @@ void android_widget_RemoteViews::showPrevious(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2402,14 +2282,12 @@ void android_widget_RemoteViews::showPrevious(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::showPrevious(int& arg0) exit");
+	LOGV("void android_widget_RemoteViews::showPrevious(int const& arg0) exit");
 
 }
-void android_widget_RemoteViews::setDisplayedChild(int& arg0,int& arg1)
+void android_widget_RemoteViews::setDisplayedChild(int const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_RemoteViews::setDisplayedChild(int& arg0,int& arg1) enter");
+	LOGV("void android_widget_RemoteViews::setDisplayedChild(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setDisplayedChild";
 	const char *methodSignature = "(II)V";
@@ -2420,8 +2298,6 @@ void android_widget_RemoteViews::setDisplayedChild(int& arg0,int& arg1)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2472,14 +2348,12 @@ void android_widget_RemoteViews::setDisplayedChild(int& arg0,int& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setDisplayedChild(int& arg0,int& arg1) exit");
+	LOGV("void android_widget_RemoteViews::setDisplayedChild(int const& arg0,int const& arg1) exit");
 
 }
-void android_widget_RemoteViews::setViewVisibility(int& arg0,int& arg1)
+void android_widget_RemoteViews::setViewVisibility(int const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_RemoteViews::setViewVisibility(int& arg0,int& arg1) enter");
+	LOGV("void android_widget_RemoteViews::setViewVisibility(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setViewVisibility";
 	const char *methodSignature = "(II)V";
@@ -2490,8 +2364,6 @@ void android_widget_RemoteViews::setViewVisibility(int& arg0,int& arg1)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2542,14 +2414,12 @@ void android_widget_RemoteViews::setViewVisibility(int& arg0,int& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setViewVisibility(int& arg0,int& arg1) exit");
+	LOGV("void android_widget_RemoteViews::setViewVisibility(int const& arg0,int const& arg1) exit");
 
 }
-void android_widget_RemoteViews::setTextViewText(int& arg0,AndroidCXX::java_lang_CharSequence& arg1)
+void android_widget_RemoteViews::setTextViewText(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1)
 {
-	LOGV("void android_widget_RemoteViews::setTextViewText(int& arg0,AndroidCXX::java_lang_CharSequence& arg1) enter");
+	LOGV("void android_widget_RemoteViews::setTextViewText(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) enter");
 
 	const char *methodName = "setTextViewText";
 	const char *methodSignature = "(ILjava/lang/CharSequence;)V";
@@ -2559,8 +2429,6 @@ void android_widget_RemoteViews::setTextViewText(int& arg0,AndroidCXX::java_lang
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -2612,14 +2480,12 @@ void android_widget_RemoteViews::setTextViewText(int& arg0,AndroidCXX::java_lang
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setTextViewText(int& arg0,AndroidCXX::java_lang_CharSequence& arg1) exit");
+	LOGV("void android_widget_RemoteViews::setTextViewText(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) exit");
 
 }
-void android_widget_RemoteViews::setTextViewTextSize(int& arg0,int& arg1,float& arg2)
+void android_widget_RemoteViews::setTextViewTextSize(int const& arg0,int const& arg1,float const& arg2)
 {
-	LOGV("void android_widget_RemoteViews::setTextViewTextSize(int& arg0,int& arg1,float& arg2) enter");
+	LOGV("void android_widget_RemoteViews::setTextViewTextSize(int const& arg0,int const& arg1,float const& arg2) enter");
 
 	const char *methodName = "setTextViewTextSize";
 	const char *methodSignature = "(IIF)V";
@@ -2629,8 +2495,6 @@ void android_widget_RemoteViews::setTextViewTextSize(int& arg0,int& arg1,float& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -2703,14 +2567,12 @@ void android_widget_RemoteViews::setTextViewTextSize(int& arg0,int& arg1,float& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setTextViewTextSize(int& arg0,int& arg1,float& arg2) exit");
+	LOGV("void android_widget_RemoteViews::setTextViewTextSize(int const& arg0,int const& arg1,float const& arg2) exit");
 
 }
-void android_widget_RemoteViews::setTextViewCompoundDrawables(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4)
+void android_widget_RemoteViews::setTextViewCompoundDrawables(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4)
 {
-	LOGV("void android_widget_RemoteViews::setTextViewCompoundDrawables(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4) enter");
+	LOGV("void android_widget_RemoteViews::setTextViewCompoundDrawables(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) enter");
 
 	const char *methodName = "setTextViewCompoundDrawables";
 	const char *methodSignature = "(IIIII)V";
@@ -2721,8 +2583,6 @@ void android_widget_RemoteViews::setTextViewCompoundDrawables(int& arg0,int& arg
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2836,14 +2696,12 @@ void android_widget_RemoteViews::setTextViewCompoundDrawables(int& arg0,int& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setTextViewCompoundDrawables(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4) exit");
+	LOGV("void android_widget_RemoteViews::setTextViewCompoundDrawables(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) exit");
 
 }
-void android_widget_RemoteViews::setTextViewCompoundDrawablesRelative(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4)
+void android_widget_RemoteViews::setTextViewCompoundDrawablesRelative(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4)
 {
-	LOGV("void android_widget_RemoteViews::setTextViewCompoundDrawablesRelative(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4) enter");
+	LOGV("void android_widget_RemoteViews::setTextViewCompoundDrawablesRelative(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) enter");
 
 	const char *methodName = "setTextViewCompoundDrawablesRelative";
 	const char *methodSignature = "(IIIII)V";
@@ -2854,8 +2712,6 @@ void android_widget_RemoteViews::setTextViewCompoundDrawablesRelative(int& arg0,
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2969,14 +2825,12 @@ void android_widget_RemoteViews::setTextViewCompoundDrawablesRelative(int& arg0,
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setTextViewCompoundDrawablesRelative(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4) exit");
+	LOGV("void android_widget_RemoteViews::setTextViewCompoundDrawablesRelative(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) exit");
 
 }
-void android_widget_RemoteViews::setImageViewResource(int& arg0,int& arg1)
+void android_widget_RemoteViews::setImageViewResource(int const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_RemoteViews::setImageViewResource(int& arg0,int& arg1) enter");
+	LOGV("void android_widget_RemoteViews::setImageViewResource(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setImageViewResource";
 	const char *methodSignature = "(II)V";
@@ -2986,8 +2840,6 @@ void android_widget_RemoteViews::setImageViewResource(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -3039,14 +2891,12 @@ void android_widget_RemoteViews::setImageViewResource(int& arg0,int& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setImageViewResource(int& arg0,int& arg1) exit");
+	LOGV("void android_widget_RemoteViews::setImageViewResource(int const& arg0,int const& arg1) exit");
 
 }
-void android_widget_RemoteViews::setImageViewUri(int& arg0,AndroidCXX::android_net_Uri& arg1)
+void android_widget_RemoteViews::setImageViewUri(int const& arg0,AndroidCXX::android_net_Uri const& arg1)
 {
-	LOGV("void android_widget_RemoteViews::setImageViewUri(int& arg0,AndroidCXX::android_net_Uri& arg1) enter");
+	LOGV("void android_widget_RemoteViews::setImageViewUri(int const& arg0,AndroidCXX::android_net_Uri const& arg1) enter");
 
 	const char *methodName = "setImageViewUri";
 	const char *methodSignature = "(ILandroid/net/Uri;)V";
@@ -3056,8 +2906,6 @@ void android_widget_RemoteViews::setImageViewUri(int& arg0,AndroidCXX::android_n
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -3109,14 +2957,12 @@ void android_widget_RemoteViews::setImageViewUri(int& arg0,AndroidCXX::android_n
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setImageViewUri(int& arg0,AndroidCXX::android_net_Uri& arg1) exit");
+	LOGV("void android_widget_RemoteViews::setImageViewUri(int const& arg0,AndroidCXX::android_net_Uri const& arg1) exit");
 
 }
-void android_widget_RemoteViews::setImageViewBitmap(int& arg0,AndroidCXX::android_graphics_Bitmap& arg1)
+void android_widget_RemoteViews::setImageViewBitmap(int const& arg0,AndroidCXX::android_graphics_Bitmap const& arg1)
 {
-	LOGV("void android_widget_RemoteViews::setImageViewBitmap(int& arg0,AndroidCXX::android_graphics_Bitmap& arg1) enter");
+	LOGV("void android_widget_RemoteViews::setImageViewBitmap(int const& arg0,AndroidCXX::android_graphics_Bitmap const& arg1) enter");
 
 	const char *methodName = "setImageViewBitmap";
 	const char *methodSignature = "(ILandroid/graphics/Bitmap;)V";
@@ -3126,8 +2972,6 @@ void android_widget_RemoteViews::setImageViewBitmap(int& arg0,AndroidCXX::androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -3179,14 +3023,12 @@ void android_widget_RemoteViews::setImageViewBitmap(int& arg0,AndroidCXX::androi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setImageViewBitmap(int& arg0,AndroidCXX::android_graphics_Bitmap& arg1) exit");
+	LOGV("void android_widget_RemoteViews::setImageViewBitmap(int const& arg0,AndroidCXX::android_graphics_Bitmap const& arg1) exit");
 
 }
-void android_widget_RemoteViews::setChronometer(int& arg0,long& arg1,AndroidCXX::java_lang_String& arg2,bool& arg3)
+void android_widget_RemoteViews::setChronometer(int const& arg0,long const& arg1,AndroidCXX::java_lang_String const& arg2,bool const& arg3)
 {
-	LOGV("void android_widget_RemoteViews::setChronometer(int& arg0,long& arg1,AndroidCXX::java_lang_String& arg2,bool& arg3) enter");
+	LOGV("void android_widget_RemoteViews::setChronometer(int const& arg0,long const& arg1,AndroidCXX::java_lang_String const& arg2,bool const& arg3) enter");
 
 	const char *methodName = "setChronometer";
 	const char *methodSignature = "(IJLjava/lang/String;Z)V";
@@ -3196,8 +3038,6 @@ void android_widget_RemoteViews::setChronometer(int& arg0,long& arg1,AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -3291,14 +3131,12 @@ void android_widget_RemoteViews::setChronometer(int& arg0,long& arg1,AndroidCXX:
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setChronometer(int& arg0,long& arg1,AndroidCXX::java_lang_String& arg2,bool& arg3) exit");
+	LOGV("void android_widget_RemoteViews::setChronometer(int const& arg0,long const& arg1,AndroidCXX::java_lang_String const& arg2,bool const& arg3) exit");
 
 }
-void android_widget_RemoteViews::setProgressBar(int& arg0,int& arg1,int& arg2,bool& arg3)
+void android_widget_RemoteViews::setProgressBar(int const& arg0,int const& arg1,int const& arg2,bool const& arg3)
 {
-	LOGV("void android_widget_RemoteViews::setProgressBar(int& arg0,int& arg1,int& arg2,bool& arg3) enter");
+	LOGV("void android_widget_RemoteViews::setProgressBar(int const& arg0,int const& arg1,int const& arg2,bool const& arg3) enter");
 
 	const char *methodName = "setProgressBar";
 	const char *methodSignature = "(IIIZ)V";
@@ -3308,8 +3146,6 @@ void android_widget_RemoteViews::setProgressBar(int& arg0,int& arg1,int& arg2,bo
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -3403,14 +3239,12 @@ void android_widget_RemoteViews::setProgressBar(int& arg0,int& arg1,int& arg2,bo
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setProgressBar(int& arg0,int& arg1,int& arg2,bool& arg3) exit");
+	LOGV("void android_widget_RemoteViews::setProgressBar(int const& arg0,int const& arg1,int const& arg2,bool const& arg3) exit");
 
 }
-void android_widget_RemoteViews::setOnClickPendingIntent(int& arg0,AndroidCXX::android_app_PendingIntent& arg1)
+void android_widget_RemoteViews::setOnClickPendingIntent(int const& arg0,AndroidCXX::android_app_PendingIntent const& arg1)
 {
-	LOGV("void android_widget_RemoteViews::setOnClickPendingIntent(int& arg0,AndroidCXX::android_app_PendingIntent& arg1) enter");
+	LOGV("void android_widget_RemoteViews::setOnClickPendingIntent(int const& arg0,AndroidCXX::android_app_PendingIntent const& arg1) enter");
 
 	const char *methodName = "setOnClickPendingIntent";
 	const char *methodSignature = "(ILandroid/app/PendingIntent;)V";
@@ -3421,8 +3255,6 @@ void android_widget_RemoteViews::setOnClickPendingIntent(int& arg0,AndroidCXX::a
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3473,14 +3305,12 @@ void android_widget_RemoteViews::setOnClickPendingIntent(int& arg0,AndroidCXX::a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setOnClickPendingIntent(int& arg0,AndroidCXX::android_app_PendingIntent& arg1) exit");
+	LOGV("void android_widget_RemoteViews::setOnClickPendingIntent(int const& arg0,AndroidCXX::android_app_PendingIntent const& arg1) exit");
 
 }
-void android_widget_RemoteViews::setPendingIntentTemplate(int& arg0,AndroidCXX::android_app_PendingIntent& arg1)
+void android_widget_RemoteViews::setPendingIntentTemplate(int const& arg0,AndroidCXX::android_app_PendingIntent const& arg1)
 {
-	LOGV("void android_widget_RemoteViews::setPendingIntentTemplate(int& arg0,AndroidCXX::android_app_PendingIntent& arg1) enter");
+	LOGV("void android_widget_RemoteViews::setPendingIntentTemplate(int const& arg0,AndroidCXX::android_app_PendingIntent const& arg1) enter");
 
 	const char *methodName = "setPendingIntentTemplate";
 	const char *methodSignature = "(ILandroid/app/PendingIntent;)V";
@@ -3491,8 +3321,6 @@ void android_widget_RemoteViews::setPendingIntentTemplate(int& arg0,AndroidCXX::
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3543,14 +3371,12 @@ void android_widget_RemoteViews::setPendingIntentTemplate(int& arg0,AndroidCXX::
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setPendingIntentTemplate(int& arg0,AndroidCXX::android_app_PendingIntent& arg1) exit");
+	LOGV("void android_widget_RemoteViews::setPendingIntentTemplate(int const& arg0,AndroidCXX::android_app_PendingIntent const& arg1) exit");
 
 }
-void android_widget_RemoteViews::setOnClickFillInIntent(int& arg0,AndroidCXX::android_content_Intent& arg1)
+void android_widget_RemoteViews::setOnClickFillInIntent(int const& arg0,AndroidCXX::android_content_Intent const& arg1)
 {
-	LOGV("void android_widget_RemoteViews::setOnClickFillInIntent(int& arg0,AndroidCXX::android_content_Intent& arg1) enter");
+	LOGV("void android_widget_RemoteViews::setOnClickFillInIntent(int const& arg0,AndroidCXX::android_content_Intent const& arg1) enter");
 
 	const char *methodName = "setOnClickFillInIntent";
 	const char *methodSignature = "(ILandroid/content/Intent;)V";
@@ -3560,8 +3386,6 @@ void android_widget_RemoteViews::setOnClickFillInIntent(int& arg0,AndroidCXX::an
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -3613,14 +3437,12 @@ void android_widget_RemoteViews::setOnClickFillInIntent(int& arg0,AndroidCXX::an
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setOnClickFillInIntent(int& arg0,AndroidCXX::android_content_Intent& arg1) exit");
+	LOGV("void android_widget_RemoteViews::setOnClickFillInIntent(int const& arg0,AndroidCXX::android_content_Intent const& arg1) exit");
 
 }
-void android_widget_RemoteViews::setRemoteAdapter(int& arg0,int& arg1,AndroidCXX::android_content_Intent& arg2)
+void android_widget_RemoteViews::setRemoteAdapter(int const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2)
 {
-	LOGV("void android_widget_RemoteViews::setRemoteAdapter(int& arg0,int& arg1,AndroidCXX::android_content_Intent& arg2) enter");
+	LOGV("void android_widget_RemoteViews::setRemoteAdapter(int const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2) enter");
 
 	const char *methodName = "setRemoteAdapter";
 	const char *methodSignature = "(IILandroid/content/Intent;)V";
@@ -3630,8 +3452,6 @@ void android_widget_RemoteViews::setRemoteAdapter(int& arg0,int& arg1,AndroidCXX
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -3704,14 +3524,12 @@ void android_widget_RemoteViews::setRemoteAdapter(int& arg0,int& arg1,AndroidCXX
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setRemoteAdapter(int& arg0,int& arg1,AndroidCXX::android_content_Intent& arg2) exit");
+	LOGV("void android_widget_RemoteViews::setRemoteAdapter(int const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2) exit");
 
 }
-void android_widget_RemoteViews::setRemoteAdapter(int& arg0,AndroidCXX::android_content_Intent& arg1)
+void android_widget_RemoteViews::setRemoteAdapter(int const& arg0,AndroidCXX::android_content_Intent const& arg1)
 {
-	LOGV("void android_widget_RemoteViews::setRemoteAdapter(int& arg0,AndroidCXX::android_content_Intent& arg1) enter");
+	LOGV("void android_widget_RemoteViews::setRemoteAdapter(int const& arg0,AndroidCXX::android_content_Intent const& arg1) enter");
 
 	const char *methodName = "setRemoteAdapter";
 	const char *methodSignature = "(ILandroid/content/Intent;)V";
@@ -3721,8 +3539,6 @@ void android_widget_RemoteViews::setRemoteAdapter(int& arg0,AndroidCXX::android_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -3774,14 +3590,12 @@ void android_widget_RemoteViews::setRemoteAdapter(int& arg0,AndroidCXX::android_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setRemoteAdapter(int& arg0,AndroidCXX::android_content_Intent& arg1) exit");
+	LOGV("void android_widget_RemoteViews::setRemoteAdapter(int const& arg0,AndroidCXX::android_content_Intent const& arg1) exit");
 
 }
-void android_widget_RemoteViews::setScrollPosition(int& arg0,int& arg1)
+void android_widget_RemoteViews::setScrollPosition(int const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_RemoteViews::setScrollPosition(int& arg0,int& arg1) enter");
+	LOGV("void android_widget_RemoteViews::setScrollPosition(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setScrollPosition";
 	const char *methodSignature = "(II)V";
@@ -3792,8 +3606,6 @@ void android_widget_RemoteViews::setScrollPosition(int& arg0,int& arg1)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3844,14 +3656,12 @@ void android_widget_RemoteViews::setScrollPosition(int& arg0,int& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setScrollPosition(int& arg0,int& arg1) exit");
+	LOGV("void android_widget_RemoteViews::setScrollPosition(int const& arg0,int const& arg1) exit");
 
 }
-void android_widget_RemoteViews::setRelativeScrollPosition(int& arg0,int& arg1)
+void android_widget_RemoteViews::setRelativeScrollPosition(int const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_RemoteViews::setRelativeScrollPosition(int& arg0,int& arg1) enter");
+	LOGV("void android_widget_RemoteViews::setRelativeScrollPosition(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setRelativeScrollPosition";
 	const char *methodSignature = "(II)V";
@@ -3862,8 +3672,6 @@ void android_widget_RemoteViews::setRelativeScrollPosition(int& arg0,int& arg1)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3914,14 +3722,12 @@ void android_widget_RemoteViews::setRelativeScrollPosition(int& arg0,int& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setRelativeScrollPosition(int& arg0,int& arg1) exit");
+	LOGV("void android_widget_RemoteViews::setRelativeScrollPosition(int const& arg0,int const& arg1) exit");
 
 }
-void android_widget_RemoteViews::setViewPadding(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4)
+void android_widget_RemoteViews::setViewPadding(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4)
 {
-	LOGV("void android_widget_RemoteViews::setViewPadding(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4) enter");
+	LOGV("void android_widget_RemoteViews::setViewPadding(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) enter");
 
 	const char *methodName = "setViewPadding";
 	const char *methodSignature = "(IIIII)V";
@@ -3931,8 +3737,6 @@ void android_widget_RemoteViews::setViewPadding(int& arg0,int& arg1,int& arg2,in
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -4047,14 +3851,12 @@ void android_widget_RemoteViews::setViewPadding(int& arg0,int& arg1,int& arg2,in
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setViewPadding(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4) exit");
+	LOGV("void android_widget_RemoteViews::setViewPadding(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) exit");
 
 }
-void android_widget_RemoteViews::setString(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2)
+void android_widget_RemoteViews::setString(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2)
 {
-	LOGV("void android_widget_RemoteViews::setString(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2) enter");
+	LOGV("void android_widget_RemoteViews::setString(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) enter");
 
 	const char *methodName = "setString";
 	const char *methodSignature = "(ILjava/lang/String;Ljava/lang/String;)V";
@@ -4064,8 +3866,6 @@ void android_widget_RemoteViews::setString(int& arg0,AndroidCXX::java_lang_Strin
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -4138,14 +3938,12 @@ void android_widget_RemoteViews::setString(int& arg0,AndroidCXX::java_lang_Strin
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setString(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2) exit");
+	LOGV("void android_widget_RemoteViews::setString(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) exit");
 
 }
-void android_widget_RemoteViews::setCharSequence(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_CharSequence& arg2)
+void android_widget_RemoteViews::setCharSequence(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_CharSequence const& arg2)
 {
-	LOGV("void android_widget_RemoteViews::setCharSequence(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_CharSequence& arg2) enter");
+	LOGV("void android_widget_RemoteViews::setCharSequence(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_CharSequence const& arg2) enter");
 
 	const char *methodName = "setCharSequence";
 	const char *methodSignature = "(ILjava/lang/String;Ljava/lang/CharSequence;)V";
@@ -4155,8 +3953,6 @@ void android_widget_RemoteViews::setCharSequence(int& arg0,AndroidCXX::java_lang
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -4229,14 +4025,12 @@ void android_widget_RemoteViews::setCharSequence(int& arg0,AndroidCXX::java_lang
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setCharSequence(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_CharSequence& arg2) exit");
+	LOGV("void android_widget_RemoteViews::setCharSequence(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_CharSequence const& arg2) exit");
 
 }
-void android_widget_RemoteViews::setUri(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_net_Uri& arg2)
+void android_widget_RemoteViews::setUri(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_net_Uri const& arg2)
 {
-	LOGV("void android_widget_RemoteViews::setUri(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_net_Uri& arg2) enter");
+	LOGV("void android_widget_RemoteViews::setUri(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_net_Uri const& arg2) enter");
 
 	const char *methodName = "setUri";
 	const char *methodSignature = "(ILjava/lang/String;Landroid/net/Uri;)V";
@@ -4246,8 +4040,6 @@ void android_widget_RemoteViews::setUri(int& arg0,AndroidCXX::java_lang_String& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -4320,14 +4112,12 @@ void android_widget_RemoteViews::setUri(int& arg0,AndroidCXX::java_lang_String& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setUri(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_net_Uri& arg2) exit");
+	LOGV("void android_widget_RemoteViews::setUri(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_net_Uri const& arg2) exit");
 
 }
-void android_widget_RemoteViews::setBundle(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2)
+void android_widget_RemoteViews::setBundle(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2)
 {
-	LOGV("void android_widget_RemoteViews::setBundle(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2) enter");
+	LOGV("void android_widget_RemoteViews::setBundle(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2) enter");
 
 	const char *methodName = "setBundle";
 	const char *methodSignature = "(ILjava/lang/String;Landroid/os/Bundle;)V";
@@ -4337,8 +4127,6 @@ void android_widget_RemoteViews::setBundle(int& arg0,AndroidCXX::java_lang_Strin
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -4411,14 +4199,12 @@ void android_widget_RemoteViews::setBundle(int& arg0,AndroidCXX::java_lang_Strin
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::setBundle(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2) exit");
+	LOGV("void android_widget_RemoteViews::setBundle(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2) exit");
 
 }
-void android_widget_RemoteViews::reapply(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_View& arg1)
+void android_widget_RemoteViews::reapply(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_View const& arg1)
 {
-	LOGV("void android_widget_RemoteViews::reapply(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_View& arg1) enter");
+	LOGV("void android_widget_RemoteViews::reapply(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_View const& arg1) enter");
 
 	const char *methodName = "reapply";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/view/View;)V";
@@ -4428,8 +4214,6 @@ void android_widget_RemoteViews::reapply(AndroidCXX::android_content_Context& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RemoteViews cxx address %d", cxxAddress);
@@ -4481,8 +4265,6 @@ void android_widget_RemoteViews::reapply(AndroidCXX::android_content_Context& ar
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RemoteViews::reapply(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_View& arg1) exit");
+	LOGV("void android_widget_RemoteViews::reapply(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_View const& arg1) exit");
 
 }

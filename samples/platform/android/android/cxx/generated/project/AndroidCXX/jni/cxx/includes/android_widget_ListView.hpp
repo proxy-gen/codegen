@@ -162,55 +162,52 @@ class android_widget_ListView
 public:
 
 	android_widget_ListView(const android_widget_ListView& cc);
-	android_widget_ListView(void * proxy);
+	android_widget_ListView(Proxy proxy);
 	// Public Constructors
-	android_widget_ListView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_ListView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_ListView(AndroidCXX::android_content_Context& arg0);
-	// TODO: remove
-	// 
-	// android_widget_ListView();
-	// 
+	android_widget_ListView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_ListView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_ListView(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ListView();
 	// Functions
 	 bool isOpaque();
-	 bool onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1);
-	 bool onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1);
-	 bool onKeyMultiple(int& arg0,int& arg1,AndroidCXX::android_view_KeyEvent& arg2);
-	 bool dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0);
-	 bool requestChildRectangleOnScreen(AndroidCXX::android_view_View& arg0,AndroidCXX::android_graphics_Rect& arg1,bool& arg2);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 void setSelection(int& arg0);
-	 void setAdapter(AndroidCXX::android_widget_ListAdapter& arg0);
-	 void smoothScrollToPosition(int& arg0);
-	 void setCacheColorHint(int& arg0);
-	 void setRemoteViewsAdapter(AndroidCXX::android_content_Intent& arg0);
+	 bool onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
+	 bool onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
+	 bool onKeyMultiple(int const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2);
+	 bool dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0);
+	 bool requestChildRectangleOnScreen(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,bool const& arg2);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 void setSelection(int const& arg0);
+	 void setAdapter(AndroidCXX::android_widget_ListAdapter const& arg0);
+	 void smoothScrollToPosition(int const& arg0);
+	 void setCacheColorHint(int const& arg0);
+	 void setRemoteViewsAdapter(AndroidCXX::android_content_Intent const& arg0);
 	 AndroidCXX::android_widget_ListAdapter getAdapter();
 	 int getMaxScrollAmount();
-	 void addHeaderView(AndroidCXX::android_view_View& arg0,AndroidCXX::java_lang_Object& arg1,bool& arg2);
-	 void addHeaderView(AndroidCXX::android_view_View& arg0);
+	 void addHeaderView(AndroidCXX::android_view_View const& arg0,AndroidCXX::java_lang_Object const& arg1,bool const& arg2);
+	 void addHeaderView(AndroidCXX::android_view_View const& arg0);
 	 int getHeaderViewsCount();
-	 bool removeHeaderView(AndroidCXX::android_view_View& arg0);
-	 void addFooterView(AndroidCXX::android_view_View& arg0);
-	 void addFooterView(AndroidCXX::android_view_View& arg0,AndroidCXX::java_lang_Object& arg1,bool& arg2);
+	 bool removeHeaderView(AndroidCXX::android_view_View const& arg0);
+	 void addFooterView(AndroidCXX::android_view_View const& arg0);
+	 void addFooterView(AndroidCXX::android_view_View const& arg0,AndroidCXX::java_lang_Object const& arg1,bool const& arg2);
 	 int getFooterViewsCount();
-	 bool removeFooterView(AndroidCXX::android_view_View& arg0);
-	 void smoothScrollByOffset(int& arg0);
-	 void setSelectionFromTop(int& arg0,int& arg1);
+	 bool removeFooterView(AndroidCXX::android_view_View const& arg0);
+	 void smoothScrollByOffset(int const& arg0);
+	 void setSelectionFromTop(int const& arg0,int const& arg1);
 	 void setSelectionAfterHeaderView();
-	 void setItemsCanFocus(bool& arg0);
+	 void setItemsCanFocus(bool const& arg0);
 	 bool getItemsCanFocus();
 	 AndroidCXX::android_graphics_drawable_Drawable getDivider();
-	 void setDivider(AndroidCXX::android_graphics_drawable_Drawable& arg0);
+	 void setDivider(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
 	 int getDividerHeight();
-	 void setDividerHeight(int& arg0);
-	 void setHeaderDividersEnabled(bool& arg0);
-	 void setFooterDividersEnabled(bool& arg0);
-	 void setOverscrollHeader(AndroidCXX::android_graphics_drawable_Drawable& arg0);
+	 void setDividerHeight(int const& arg0);
+	 void setHeaderDividersEnabled(bool const& arg0);
+	 void setFooterDividersEnabled(bool const& arg0);
+	 void setOverscrollHeader(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
 	 AndroidCXX::android_graphics_drawable_Drawable getOverscrollHeader();
-	 void setOverscrollFooter(AndroidCXX::android_graphics_drawable_Drawable& arg0);
+	 void setOverscrollFooter(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
 	 AndroidCXX::android_graphics_drawable_Drawable getOverscrollFooter();
 	 std::vector<long> getCheckItemIds();
 };	

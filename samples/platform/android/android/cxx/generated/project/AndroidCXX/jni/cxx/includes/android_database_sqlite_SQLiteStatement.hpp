@@ -63,12 +63,9 @@ class android_database_sqlite_SQLiteStatement
 public:
 
 	android_database_sqlite_SQLiteStatement(const android_database_sqlite_SQLiteStatement& cc);
-	android_database_sqlite_SQLiteStatement(void * proxy);
+	android_database_sqlite_SQLiteStatement(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_database_sqlite_SQLiteStatement();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteStatement();
 	// Functions

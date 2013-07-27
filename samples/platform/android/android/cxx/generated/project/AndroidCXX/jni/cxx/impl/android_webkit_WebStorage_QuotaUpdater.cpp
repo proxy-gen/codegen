@@ -39,7 +39,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_webkit_WebStorage_QuotaUpdater::android_webkit_WebStorage_QuotaUpdater(const android_webkit_WebStorage_QuotaUpdater& cc)
 {
 	LOGV("android_webkit_WebStorage_QuotaUpdater::android_webkit_WebStorage_QuotaUpdater(const android_webkit_WebStorage_QuotaUpdater& cc) enter");
@@ -63,9 +62,9 @@ android_webkit_WebStorage_QuotaUpdater::android_webkit_WebStorage_QuotaUpdater(c
 
 	LOGV("android_webkit_WebStorage_QuotaUpdater::android_webkit_WebStorage_QuotaUpdater(const android_webkit_WebStorage_QuotaUpdater& cc) exit");
 }
-android_webkit_WebStorage_QuotaUpdater::android_webkit_WebStorage_QuotaUpdater(void * proxy)
+android_webkit_WebStorage_QuotaUpdater::android_webkit_WebStorage_QuotaUpdater(Proxy proxy)
 {
-	LOGV("android_webkit_WebStorage_QuotaUpdater::android_webkit_WebStorage_QuotaUpdater(void * proxy) enter");
+	LOGV("android_webkit_WebStorage_QuotaUpdater::android_webkit_WebStorage_QuotaUpdater(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -75,52 +74,31 @@ android_webkit_WebStorage_QuotaUpdater::android_webkit_WebStorage_QuotaUpdater(v
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_webkit_WebStorage_QuotaUpdater::android_webkit_WebStorage_QuotaUpdater(void * proxy) exit");
+	LOGV("android_webkit_WebStorage_QuotaUpdater::android_webkit_WebStorage_QuotaUpdater(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_webkit_WebStorage_QuotaUpdater::android_webkit_WebStorage_QuotaUpdater()
-// {
-// 	LOGV("android_webkit_WebStorage_QuotaUpdater::android_webkit_WebStorage_QuotaUpdater() enter");	
+Proxy android_webkit_WebStorage_QuotaUpdater::proxy() const
+{	
+	LOGV("android_webkit_WebStorage_QuotaUpdater::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/webkit/WebStorage$QuotaUpdater";
+	long cxxAddress = (long) this;
+	LOGV("android_webkit_WebStorage_QuotaUpdater cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_webkit_WebStorage_QuotaUpdater jni address %d", proxiedComponent);
 
-// 	LOGV("android_webkit_WebStorage_QuotaUpdater className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_webkit_WebStorage_QuotaUpdater::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_webkit_WebStorage_QuotaUpdater cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_webkit_WebStorage_QuotaUpdater jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_webkit_WebStorage_QuotaUpdater::android_webkit_WebStorage_QuotaUpdater() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_webkit_WebStorage_QuotaUpdater::~android_webkit_WebStorage_QuotaUpdater()
 {
@@ -132,13 +110,13 @@ android_webkit_WebStorage_QuotaUpdater::~android_webkit_WebStorage_QuotaUpdater(
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_webkit_WebStorage_QuotaUpdater::~android_webkit_WebStorage_QuotaUpdater() exit");
 }
 // Functions
-void android_webkit_WebStorage_QuotaUpdater::updateQuota(long& arg0)
+void android_webkit_WebStorage_QuotaUpdater::updateQuota(long const& arg0)
 {
-	LOGV("void android_webkit_WebStorage_QuotaUpdater::updateQuota(long& arg0) enter");
+	LOGV("void android_webkit_WebStorage_QuotaUpdater::updateQuota(long const& arg0) enter");
 
 	const char *methodName = "updateQuota";
 	const char *methodSignature = "(J)V";
@@ -148,8 +126,6 @@ void android_webkit_WebStorage_QuotaUpdater::updateQuota(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebStorage_QuotaUpdater cxx address %d", cxxAddress);
@@ -180,8 +156,6 @@ void android_webkit_WebStorage_QuotaUpdater::updateQuota(long& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebStorage_QuotaUpdater::updateQuota(long& arg0) exit");
+	LOGV("void android_webkit_WebStorage_QuotaUpdater::updateQuota(long const& arg0) exit");
 
 }

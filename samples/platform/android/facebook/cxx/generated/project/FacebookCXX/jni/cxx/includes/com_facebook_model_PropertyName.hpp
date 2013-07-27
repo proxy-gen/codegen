@@ -50,12 +50,9 @@ class com_facebook_model_PropertyName
 public:
 
 	com_facebook_model_PropertyName(const com_facebook_model_PropertyName& cc);
-	com_facebook_model_PropertyName(void * proxy);
+	com_facebook_model_PropertyName(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_model_PropertyName();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_PropertyName();
 	// Functions

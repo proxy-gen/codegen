@@ -56,16 +56,13 @@ class android_view_View_OnDragListener
 public:
 
 	android_view_View_OnDragListener(const android_view_View_OnDragListener& cc);
-	android_view_View_OnDragListener(void * proxy);
+	android_view_View_OnDragListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_view_View_OnDragListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnDragListener();
 	// Functions
-	 bool onDrag(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_DragEvent& arg1);
+	 bool onDrag(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_DragEvent const& arg1);
 };	
 
 } // namespace

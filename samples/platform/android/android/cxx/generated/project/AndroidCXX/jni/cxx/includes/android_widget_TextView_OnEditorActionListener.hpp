@@ -56,16 +56,13 @@ class android_widget_TextView_OnEditorActionListener
 public:
 
 	android_widget_TextView_OnEditorActionListener(const android_widget_TextView_OnEditorActionListener& cc);
-	android_widget_TextView_OnEditorActionListener(void * proxy);
+	android_widget_TextView_OnEditorActionListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_TextView_OnEditorActionListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TextView_OnEditorActionListener();
 	// Functions
-	 bool onEditorAction(AndroidCXX::android_widget_TextView& arg0,int& arg1,AndroidCXX::android_view_KeyEvent& arg2);
+	 bool onEditorAction(AndroidCXX::android_widget_TextView const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2);
 };	
 
 } // namespace

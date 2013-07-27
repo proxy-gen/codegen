@@ -103,41 +103,38 @@ class java_lang_ThreadGroup
 public:
 
 	java_lang_ThreadGroup(const java_lang_ThreadGroup& cc);
-	java_lang_ThreadGroup(void * proxy);
+	java_lang_ThreadGroup(Proxy proxy);
 	// Public Constructors
-	java_lang_ThreadGroup(AndroidCXX::java_lang_String& arg0);
-	java_lang_ThreadGroup(AndroidCXX::java_lang_ThreadGroup& arg0,AndroidCXX::java_lang_String& arg1);
-	// TODO: remove
-	// 
-	// java_lang_ThreadGroup();
-	// 
+	java_lang_ThreadGroup(AndroidCXX::java_lang_String const& arg0);
+	java_lang_ThreadGroup(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_String const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_ThreadGroup();
 	// Functions
-	 void uncaughtException(AndroidCXX::java_lang_Thread& arg0,AndroidCXX::java_lang_Throwable& arg1);
+	 void uncaughtException(AndroidCXX::java_lang_Thread const& arg0,AndroidCXX::java_lang_Throwable const& arg1);
 	 AndroidCXX::java_lang_String toString();
 	 AndroidCXX::java_lang_String getName();
 	 AndroidCXX::java_lang_ThreadGroup getParent();
-	 void setDaemon(bool& arg0);
+	 void setDaemon(bool const& arg0);
 	 void stop();
 	 void interrupt();
 	 void destroy();
 	 void suspend();
 	 void resume();
 	 int activeCount();
-	 int enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup >& arg0);
-	 int enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup >& arg0,bool& arg1);
-	 int enumerate(std::vector<AndroidCXX::java_lang_Thread >& arg0,bool& arg1);
-	 int enumerate(std::vector<AndroidCXX::java_lang_Thread >& arg0);
+	 int enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup > const& arg0);
+	 int enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup > const& arg0,bool const& arg1);
+	 int enumerate(std::vector<AndroidCXX::java_lang_Thread > const& arg0,bool const& arg1);
+	 int enumerate(std::vector<AndroidCXX::java_lang_Thread > const& arg0);
 	 bool isDaemon();
 	 void checkAccess();
 	 int getMaxPriority();
 	 bool isDestroyed();
-	 void setMaxPriority(int& arg0);
-	 bool parentOf(AndroidCXX::java_lang_ThreadGroup& arg0);
+	 void setMaxPriority(int const& arg0);
+	 bool parentOf(AndroidCXX::java_lang_ThreadGroup const& arg0);
 	 int activeGroupCount();
 	 void list();
-	 bool allowThreadSuspension(bool& arg0);
+	 bool allowThreadSuspension(bool const& arg0);
 };	
 
 } // namespace

@@ -39,7 +39,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_widget_ImageResponseCache::com_facebook_widget_ImageResponseCache(const com_facebook_widget_ImageResponseCache& cc)
 {
 	LOGV("com_facebook_widget_ImageResponseCache::com_facebook_widget_ImageResponseCache(const com_facebook_widget_ImageResponseCache& cc) enter");
@@ -63,9 +62,9 @@ com_facebook_widget_ImageResponseCache::com_facebook_widget_ImageResponseCache(c
 
 	LOGV("com_facebook_widget_ImageResponseCache::com_facebook_widget_ImageResponseCache(const com_facebook_widget_ImageResponseCache& cc) exit");
 }
-com_facebook_widget_ImageResponseCache::com_facebook_widget_ImageResponseCache(void * proxy)
+com_facebook_widget_ImageResponseCache::com_facebook_widget_ImageResponseCache(Proxy proxy)
 {
-	LOGV("com_facebook_widget_ImageResponseCache::com_facebook_widget_ImageResponseCache(void * proxy) enter");
+	LOGV("com_facebook_widget_ImageResponseCache::com_facebook_widget_ImageResponseCache(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -75,52 +74,31 @@ com_facebook_widget_ImageResponseCache::com_facebook_widget_ImageResponseCache(v
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_widget_ImageResponseCache::com_facebook_widget_ImageResponseCache(void * proxy) exit");
+	LOGV("com_facebook_widget_ImageResponseCache::com_facebook_widget_ImageResponseCache(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// com_facebook_widget_ImageResponseCache::com_facebook_widget_ImageResponseCache()
-// {
-// 	LOGV("com_facebook_widget_ImageResponseCache::com_facebook_widget_ImageResponseCache() enter");	
+Proxy com_facebook_widget_ImageResponseCache::proxy() const
+{	
+	LOGV("com_facebook_widget_ImageResponseCache::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "com/facebook/widget/ImageResponseCache";
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_widget_ImageResponseCache cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_widget_ImageResponseCache jni address %d", proxiedComponent);
 
-// 	LOGV("com_facebook_widget_ImageResponseCache className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("com_facebook_widget_ImageResponseCache::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("com_facebook_widget_ImageResponseCache cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("com_facebook_widget_ImageResponseCache jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("com_facebook_widget_ImageResponseCache::com_facebook_widget_ImageResponseCache() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 com_facebook_widget_ImageResponseCache::~com_facebook_widget_ImageResponseCache()
 {
@@ -132,7 +110,7 @@ com_facebook_widget_ImageResponseCache::~com_facebook_widget_ImageResponseCache(
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_widget_ImageResponseCache::~com_facebook_widget_ImageResponseCache() exit");
 }
 // Functions

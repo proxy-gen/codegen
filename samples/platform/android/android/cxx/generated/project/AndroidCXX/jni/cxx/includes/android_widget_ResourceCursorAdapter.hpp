@@ -82,22 +82,19 @@ class android_widget_ResourceCursorAdapter
 public:
 
 	android_widget_ResourceCursorAdapter(const android_widget_ResourceCursorAdapter& cc);
-	android_widget_ResourceCursorAdapter(void * proxy);
+	android_widget_ResourceCursorAdapter(Proxy proxy);
 	// Public Constructors
-	android_widget_ResourceCursorAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,AndroidCXX::android_database_Cursor& arg2);
-	android_widget_ResourceCursorAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,AndroidCXX::android_database_Cursor& arg2,bool& arg3);
-	android_widget_ResourceCursorAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,AndroidCXX::android_database_Cursor& arg2,int& arg3);
-	// TODO: remove
-	// 
-	// android_widget_ResourceCursorAdapter();
-	// 
+	android_widget_ResourceCursorAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_database_Cursor const& arg2);
+	android_widget_ResourceCursorAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_database_Cursor const& arg2,bool const& arg3);
+	android_widget_ResourceCursorAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_database_Cursor const& arg2,int const& arg3);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ResourceCursorAdapter();
 	// Functions
-	 void setDropDownViewResource(int& arg0);
-	 AndroidCXX::android_view_View newView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,AndroidCXX::android_view_ViewGroup& arg2);
-	 AndroidCXX::android_view_View newDropDownView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,AndroidCXX::android_view_ViewGroup& arg2);
-	 void setViewResource(int& arg0);
+	 void setDropDownViewResource(int const& arg0);
+	 AndroidCXX::android_view_View newView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
+	 AndroidCXX::android_view_View newDropDownView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
+	 void setViewResource(int const& arg0);
 };	
 
 } // namespace

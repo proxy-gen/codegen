@@ -57,12 +57,9 @@ class com_facebook_TestSession_FqlResult
 public:
 
 	com_facebook_TestSession_FqlResult(const com_facebook_TestSession_FqlResult& cc);
-	com_facebook_TestSession_FqlResult(void * proxy);
+	com_facebook_TestSession_FqlResult(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_TestSession_FqlResult();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_TestSession_FqlResult();
 	// Functions

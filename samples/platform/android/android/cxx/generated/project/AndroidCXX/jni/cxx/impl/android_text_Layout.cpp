@@ -138,7 +138,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_TEXT_LAYOUT_ALIGNMENT;
+// using namespace android_text_Layout_Alignment;
 // 
 // 
 // 
@@ -161,7 +161,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_text_Layout::android_text_Layout(const android_text_Layout& cc)
 {
 	LOGV("android_text_Layout::android_text_Layout(const android_text_Layout& cc) enter");
@@ -185,9 +184,9 @@ android_text_Layout::android_text_Layout(const android_text_Layout& cc)
 
 	LOGV("android_text_Layout::android_text_Layout(const android_text_Layout& cc) exit");
 }
-android_text_Layout::android_text_Layout(void * proxy)
+android_text_Layout::android_text_Layout(Proxy proxy)
 {
-	LOGV("android_text_Layout::android_text_Layout(void * proxy) enter");
+	LOGV("android_text_Layout::android_text_Layout(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -197,52 +196,31 @@ android_text_Layout::android_text_Layout(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_text_Layout::android_text_Layout(void * proxy) exit");
+	LOGV("android_text_Layout::android_text_Layout(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_text_Layout::android_text_Layout()
-// {
-// 	LOGV("android_text_Layout::android_text_Layout() enter");	
+Proxy android_text_Layout::proxy() const
+{	
+	LOGV("android_text_Layout::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/text/Layout";
+	long cxxAddress = (long) this;
+	LOGV("android_text_Layout cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_text_Layout jni address %d", proxiedComponent);
 
-// 	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_text_Layout::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_text_Layout cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_text_Layout jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_text_Layout::android_text_Layout() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_text_Layout::~android_text_Layout()
 {
@@ -254,7 +232,7 @@ android_text_Layout::~android_text_Layout()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_text_Layout::~android_text_Layout() exit");
 }
 // Functions
@@ -270,8 +248,6 @@ AndroidCXX::java_lang_CharSequence android_text_Layout::getText()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
@@ -300,8 +276,6 @@ AndroidCXX::java_lang_CharSequence android_text_Layout::getText()
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_text_Layout::getText() exit");
 
 	return result;
@@ -319,8 +293,6 @@ int android_text_Layout::getWidth()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -348,8 +320,6 @@ int android_text_Layout::getWidth()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_text_Layout::getWidth() exit");
 
 	return result;
@@ -367,8 +337,6 @@ int android_text_Layout::getHeight()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -396,15 +364,13 @@ int android_text_Layout::getHeight()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_text_Layout::getHeight() exit");
 
 	return result;
 }
-void android_text_Layout::draw(AndroidCXX::android_graphics_Canvas& arg0,AndroidCXX::android_graphics_Path& arg1,AndroidCXX::android_graphics_Paint& arg2,int& arg3)
+void android_text_Layout::draw(AndroidCXX::android_graphics_Canvas const& arg0,AndroidCXX::android_graphics_Path const& arg1,AndroidCXX::android_graphics_Paint const& arg2,int const& arg3)
 {
-	LOGV("void android_text_Layout::draw(AndroidCXX::android_graphics_Canvas& arg0,AndroidCXX::android_graphics_Path& arg1,AndroidCXX::android_graphics_Paint& arg2,int& arg3) enter");
+	LOGV("void android_text_Layout::draw(AndroidCXX::android_graphics_Canvas const& arg0,AndroidCXX::android_graphics_Path const& arg1,AndroidCXX::android_graphics_Paint const& arg2,int const& arg3) enter");
 
 	const char *methodName = "draw";
 	const char *methodSignature = "(Landroid/graphics/Canvas;Landroid/graphics/Path;Landroid/graphics/Paint;I)V";
@@ -414,8 +380,6 @@ void android_text_Layout::draw(AndroidCXX::android_graphics_Canvas& arg0,Android
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
@@ -509,14 +473,12 @@ void android_text_Layout::draw(AndroidCXX::android_graphics_Canvas& arg0,Android
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_text_Layout::draw(AndroidCXX::android_graphics_Canvas& arg0,AndroidCXX::android_graphics_Path& arg1,AndroidCXX::android_graphics_Paint& arg2,int& arg3) exit");
+	LOGV("void android_text_Layout::draw(AndroidCXX::android_graphics_Canvas const& arg0,AndroidCXX::android_graphics_Path const& arg1,AndroidCXX::android_graphics_Paint const& arg2,int const& arg3) exit");
 
 }
-void android_text_Layout::draw(AndroidCXX::android_graphics_Canvas& arg0)
+void android_text_Layout::draw(AndroidCXX::android_graphics_Canvas const& arg0)
 {
-	LOGV("void android_text_Layout::draw(AndroidCXX::android_graphics_Canvas& arg0) enter");
+	LOGV("void android_text_Layout::draw(AndroidCXX::android_graphics_Canvas const& arg0) enter");
 
 	const char *methodName = "draw";
 	const char *methodSignature = "(Landroid/graphics/Canvas;)V";
@@ -526,8 +488,6 @@ void android_text_Layout::draw(AndroidCXX::android_graphics_Canvas& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
@@ -558,9 +518,7 @@ void android_text_Layout::draw(AndroidCXX::android_graphics_Canvas& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_text_Layout::draw(AndroidCXX::android_graphics_Canvas& arg0) exit");
+	LOGV("void android_text_Layout::draw(AndroidCXX::android_graphics_Canvas const& arg0) exit");
 
 }
 AndroidCXX::android_text_TextPaint android_text_Layout::getPaint()
@@ -575,8 +533,6 @@ AndroidCXX::android_text_TextPaint android_text_Layout::getPaint()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
@@ -605,8 +561,6 @@ AndroidCXX::android_text_TextPaint android_text_Layout::getPaint()
 	AndroidCXX::android_text_TextPaint result((AndroidCXX::android_text_TextPaint) *((AndroidCXX::android_text_TextPaint *) cxx_value));
 	delete ((AndroidCXX::android_text_TextPaint *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_text_TextPaint android_text_Layout::getPaint() exit");
 
 	return result;
@@ -623,8 +577,6 @@ int android_text_Layout::getLineCount()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
@@ -653,15 +605,13 @@ int android_text_Layout::getLineCount()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_text_Layout::getLineCount() exit");
 
 	return result;
 }
-int android_text_Layout::getLineBounds(int& arg0,AndroidCXX::android_graphics_Rect& arg1)
+int android_text_Layout::getLineBounds(int const& arg0,AndroidCXX::android_graphics_Rect const& arg1)
 {
-	LOGV("int android_text_Layout::getLineBounds(int& arg0,AndroidCXX::android_graphics_Rect& arg1) enter");
+	LOGV("int android_text_Layout::getLineBounds(int const& arg0,AndroidCXX::android_graphics_Rect const& arg1) enter");
 
 	const char *methodName = "getLineBounds";
 	const char *methodSignature = "(ILandroid/graphics/Rect;)I";
@@ -671,8 +621,6 @@ int android_text_Layout::getLineBounds(int& arg0,AndroidCXX::android_graphics_Re
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
@@ -743,15 +691,13 @@ int android_text_Layout::getLineBounds(int& arg0,AndroidCXX::android_graphics_Re
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Layout::getLineBounds(int& arg0,AndroidCXX::android_graphics_Rect& arg1) exit");
+	LOGV("int android_text_Layout::getLineBounds(int const& arg0,AndroidCXX::android_graphics_Rect const& arg1) exit");
 
 	return result;
 }
-float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,AndroidCXX::android_text_TextPaint& arg3)
+float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_text_TextPaint const& arg3)
 {
-	LOGV("float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,AndroidCXX::android_text_TextPaint& arg3) enter");
+	LOGV("float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_text_TextPaint const& arg3) enter");
 
 	const char *methodName = "getDesiredWidth";
 	const char *methodSignature = "(Ljava/lang/CharSequence;IILandroid/text/TextPaint;)F";
@@ -761,8 +707,6 @@ float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
@@ -854,7 +798,7 @@ float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence& a
 		jarg3 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
+	jfloat jni_result = (jfloat) jni->invokeStaticFloatMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
 	{
@@ -875,15 +819,13 @@ float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence& a
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,AndroidCXX::android_text_TextPaint& arg3) exit");
+	LOGV("float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_text_TextPaint const& arg3) exit");
 
 	return result;
 }
-float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_text_TextPaint& arg1)
+float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_text_TextPaint const& arg1)
 {
-	LOGV("float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_text_TextPaint& arg1) enter");
+	LOGV("float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_text_TextPaint const& arg1) enter");
 
 	const char *methodName = "getDesiredWidth";
 	const char *methodSignature = "(Ljava/lang/CharSequence;Landroid/text/TextPaint;)F";
@@ -893,8 +835,6 @@ float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
@@ -944,7 +884,7 @@ float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence& a
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jfloat jni_result = (jfloat) jni->invokeStaticFloatMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
 	{
@@ -965,9 +905,7 @@ float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence& a
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_text_TextPaint& arg1) exit");
+	LOGV("float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_text_TextPaint const& arg1) exit");
 
 	return result;
 }
@@ -983,8 +921,6 @@ int android_text_Layout::getEllipsizedWidth()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
@@ -1013,15 +949,13 @@ int android_text_Layout::getEllipsizedWidth()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_text_Layout::getEllipsizedWidth() exit");
 
 	return result;
 }
-void android_text_Layout::increaseWidthTo(int& arg0)
+void android_text_Layout::increaseWidthTo(int const& arg0)
 {
-	LOGV("void android_text_Layout::increaseWidthTo(int& arg0) enter");
+	LOGV("void android_text_Layout::increaseWidthTo(int const& arg0) enter");
 
 	const char *methodName = "increaseWidthTo";
 	const char *methodSignature = "(I)V";
@@ -1031,8 +965,6 @@ void android_text_Layout::increaseWidthTo(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
@@ -1063,14 +995,12 @@ void android_text_Layout::increaseWidthTo(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_text_Layout::increaseWidthTo(int& arg0) exit");
+	LOGV("void android_text_Layout::increaseWidthTo(int const& arg0) exit");
 
 }
-ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment android_text_Layout::getAlignment()
+android_text_Layout_Alignment::android_text_Layout_Alignment android_text_Layout::getAlignment()
 {
-	LOGV("ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment android_text_Layout::getAlignment() enter");
+	LOGV("android_text_Layout_Alignment::android_text_Layout_Alignment android_text_Layout::getAlignment() enter");
 
 	const char *methodName = "getAlignment";
 	const char *methodSignature = "()Landroid/text/Layout$Alignment;";
@@ -1080,8 +1010,6 @@ ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment android_text_Layout
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
@@ -1107,12 +1035,10 @@ ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment android_text_Layout
 		convert_android_text_Layout_Alignment(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 
-	ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment result = (ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment) (cxx_value);
+	android_text_Layout_Alignment::android_text_Layout_Alignment result = (android_text_Layout_Alignment::android_text_Layout_Alignment) (cxx_value);
 	//
 		
-	jni->popLocalFrame();
-
-	LOGV("ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment android_text_Layout::getAlignment() exit");
+	LOGV("android_text_Layout_Alignment::android_text_Layout_Alignment android_text_Layout::getAlignment() exit");
 
 	return result;
 }
@@ -1128,8 +1054,6 @@ float android_text_Layout::getSpacingMultiplier()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
@@ -1158,8 +1082,6 @@ float android_text_Layout::getSpacingMultiplier()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float android_text_Layout::getSpacingMultiplier() exit");
 
 	return result;
@@ -1177,8 +1099,6 @@ float android_text_Layout::getSpacingAdd()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1206,15 +1126,13 @@ float android_text_Layout::getSpacingAdd()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float android_text_Layout::getSpacingAdd() exit");
 
 	return result;
 }
-int android_text_Layout::getLineTop(int& arg0)
+int android_text_Layout::getLineTop(int const& arg0)
 {
-	LOGV("int android_text_Layout::getLineTop(int& arg0) enter");
+	LOGV("int android_text_Layout::getLineTop(int const& arg0) enter");
 
 	const char *methodName = "getLineTop";
 	const char *methodSignature = "(I)I";
@@ -1225,8 +1143,6 @@ int android_text_Layout::getLineTop(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1275,15 +1191,13 @@ int android_text_Layout::getLineTop(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Layout::getLineTop(int& arg0) exit");
+	LOGV("int android_text_Layout::getLineTop(int const& arg0) exit");
 
 	return result;
 }
-int android_text_Layout::getLineDescent(int& arg0)
+int android_text_Layout::getLineDescent(int const& arg0)
 {
-	LOGV("int android_text_Layout::getLineDescent(int& arg0) enter");
+	LOGV("int android_text_Layout::getLineDescent(int const& arg0) enter");
 
 	const char *methodName = "getLineDescent";
 	const char *methodSignature = "(I)I";
@@ -1294,8 +1208,6 @@ int android_text_Layout::getLineDescent(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1344,15 +1256,13 @@ int android_text_Layout::getLineDescent(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Layout::getLineDescent(int& arg0) exit");
+	LOGV("int android_text_Layout::getLineDescent(int const& arg0) exit");
 
 	return result;
 }
-int android_text_Layout::getLineStart(int& arg0)
+int android_text_Layout::getLineStart(int const& arg0)
 {
-	LOGV("int android_text_Layout::getLineStart(int& arg0) enter");
+	LOGV("int android_text_Layout::getLineStart(int const& arg0) enter");
 
 	const char *methodName = "getLineStart";
 	const char *methodSignature = "(I)I";
@@ -1363,8 +1273,6 @@ int android_text_Layout::getLineStart(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1413,15 +1321,13 @@ int android_text_Layout::getLineStart(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Layout::getLineStart(int& arg0) exit");
+	LOGV("int android_text_Layout::getLineStart(int const& arg0) exit");
 
 	return result;
 }
-int android_text_Layout::getParagraphDirection(int& arg0)
+int android_text_Layout::getParagraphDirection(int const& arg0)
 {
-	LOGV("int android_text_Layout::getParagraphDirection(int& arg0) enter");
+	LOGV("int android_text_Layout::getParagraphDirection(int const& arg0) enter");
 
 	const char *methodName = "getParagraphDirection";
 	const char *methodSignature = "(I)I";
@@ -1432,8 +1338,6 @@ int android_text_Layout::getParagraphDirection(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1482,15 +1386,13 @@ int android_text_Layout::getParagraphDirection(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Layout::getParagraphDirection(int& arg0) exit");
+	LOGV("int android_text_Layout::getParagraphDirection(int const& arg0) exit");
 
 	return result;
 }
-bool android_text_Layout::getLineContainsTab(int& arg0)
+bool android_text_Layout::getLineContainsTab(int const& arg0)
 {
-	LOGV("bool android_text_Layout::getLineContainsTab(int& arg0) enter");
+	LOGV("bool android_text_Layout::getLineContainsTab(int const& arg0) enter");
 
 	const char *methodName = "getLineContainsTab";
 	const char *methodSignature = "(I)Z";
@@ -1500,8 +1402,6 @@ bool android_text_Layout::getLineContainsTab(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
@@ -1551,15 +1451,13 @@ bool android_text_Layout::getLineContainsTab(int& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_text_Layout::getLineContainsTab(int& arg0) exit");
+	LOGV("bool android_text_Layout::getLineContainsTab(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_text_Layout_Directions android_text_Layout::getLineDirections(int& arg0)
+AndroidCXX::android_text_Layout_Directions android_text_Layout::getLineDirections(int const& arg0)
 {
-	LOGV("AndroidCXX::android_text_Layout_Directions android_text_Layout::getLineDirections(int& arg0) enter");
+	LOGV("AndroidCXX::android_text_Layout_Directions android_text_Layout::getLineDirections(int const& arg0) enter");
 
 	const char *methodName = "getLineDirections";
 	const char *methodSignature = "(I)Landroid/text/Layout$Directions;";
@@ -1569,8 +1467,6 @@ AndroidCXX::android_text_Layout_Directions android_text_Layout::getLineDirection
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
@@ -1620,9 +1516,7 @@ AndroidCXX::android_text_Layout_Directions android_text_Layout::getLineDirection
 	AndroidCXX::android_text_Layout_Directions result((AndroidCXX::android_text_Layout_Directions) *((AndroidCXX::android_text_Layout_Directions *) cxx_value));
 	delete ((AndroidCXX::android_text_Layout_Directions *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_text_Layout_Directions android_text_Layout::getLineDirections(int& arg0) exit");
+	LOGV("AndroidCXX::android_text_Layout_Directions android_text_Layout::getLineDirections(int const& arg0) exit");
 
 	return result;
 }
@@ -1638,8 +1532,6 @@ int android_text_Layout::getTopPadding()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
@@ -1668,8 +1560,6 @@ int android_text_Layout::getTopPadding()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_text_Layout::getTopPadding() exit");
 
 	return result;
@@ -1687,8 +1577,6 @@ int android_text_Layout::getBottomPadding()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1716,15 +1604,13 @@ int android_text_Layout::getBottomPadding()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_text_Layout::getBottomPadding() exit");
 
 	return result;
 }
-bool android_text_Layout::isRtlCharAt(int& arg0)
+bool android_text_Layout::isRtlCharAt(int const& arg0)
 {
-	LOGV("bool android_text_Layout::isRtlCharAt(int& arg0) enter");
+	LOGV("bool android_text_Layout::isRtlCharAt(int const& arg0) enter");
 
 	const char *methodName = "isRtlCharAt";
 	const char *methodSignature = "(I)Z";
@@ -1734,8 +1620,6 @@ bool android_text_Layout::isRtlCharAt(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
@@ -1785,15 +1669,13 @@ bool android_text_Layout::isRtlCharAt(int& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_text_Layout::isRtlCharAt(int& arg0) exit");
+	LOGV("bool android_text_Layout::isRtlCharAt(int const& arg0) exit");
 
 	return result;
 }
-float android_text_Layout::getPrimaryHorizontal(int& arg0)
+float android_text_Layout::getPrimaryHorizontal(int const& arg0)
 {
-	LOGV("float android_text_Layout::getPrimaryHorizontal(int& arg0) enter");
+	LOGV("float android_text_Layout::getPrimaryHorizontal(int const& arg0) enter");
 
 	const char *methodName = "getPrimaryHorizontal";
 	const char *methodSignature = "(I)F";
@@ -1804,8 +1686,6 @@ float android_text_Layout::getPrimaryHorizontal(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1854,15 +1734,13 @@ float android_text_Layout::getPrimaryHorizontal(int& arg0)
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("float android_text_Layout::getPrimaryHorizontal(int& arg0) exit");
+	LOGV("float android_text_Layout::getPrimaryHorizontal(int const& arg0) exit");
 
 	return result;
 }
-float android_text_Layout::getSecondaryHorizontal(int& arg0)
+float android_text_Layout::getSecondaryHorizontal(int const& arg0)
 {
-	LOGV("float android_text_Layout::getSecondaryHorizontal(int& arg0) enter");
+	LOGV("float android_text_Layout::getSecondaryHorizontal(int const& arg0) enter");
 
 	const char *methodName = "getSecondaryHorizontal";
 	const char *methodSignature = "(I)F";
@@ -1873,8 +1751,6 @@ float android_text_Layout::getSecondaryHorizontal(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1923,15 +1799,13 @@ float android_text_Layout::getSecondaryHorizontal(int& arg0)
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("float android_text_Layout::getSecondaryHorizontal(int& arg0) exit");
+	LOGV("float android_text_Layout::getSecondaryHorizontal(int const& arg0) exit");
 
 	return result;
 }
-float android_text_Layout::getLineLeft(int& arg0)
+float android_text_Layout::getLineLeft(int const& arg0)
 {
-	LOGV("float android_text_Layout::getLineLeft(int& arg0) enter");
+	LOGV("float android_text_Layout::getLineLeft(int const& arg0) enter");
 
 	const char *methodName = "getLineLeft";
 	const char *methodSignature = "(I)F";
@@ -1942,8 +1816,6 @@ float android_text_Layout::getLineLeft(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1992,15 +1864,13 @@ float android_text_Layout::getLineLeft(int& arg0)
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("float android_text_Layout::getLineLeft(int& arg0) exit");
+	LOGV("float android_text_Layout::getLineLeft(int const& arg0) exit");
 
 	return result;
 }
-float android_text_Layout::getLineRight(int& arg0)
+float android_text_Layout::getLineRight(int const& arg0)
 {
-	LOGV("float android_text_Layout::getLineRight(int& arg0) enter");
+	LOGV("float android_text_Layout::getLineRight(int const& arg0) enter");
 
 	const char *methodName = "getLineRight";
 	const char *methodSignature = "(I)F";
@@ -2011,8 +1881,6 @@ float android_text_Layout::getLineRight(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2061,15 +1929,13 @@ float android_text_Layout::getLineRight(int& arg0)
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("float android_text_Layout::getLineRight(int& arg0) exit");
+	LOGV("float android_text_Layout::getLineRight(int const& arg0) exit");
 
 	return result;
 }
-float android_text_Layout::getLineMax(int& arg0)
+float android_text_Layout::getLineMax(int const& arg0)
 {
-	LOGV("float android_text_Layout::getLineMax(int& arg0) enter");
+	LOGV("float android_text_Layout::getLineMax(int const& arg0) enter");
 
 	const char *methodName = "getLineMax";
 	const char *methodSignature = "(I)F";
@@ -2080,8 +1946,6 @@ float android_text_Layout::getLineMax(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2130,15 +1994,13 @@ float android_text_Layout::getLineMax(int& arg0)
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("float android_text_Layout::getLineMax(int& arg0) exit");
+	LOGV("float android_text_Layout::getLineMax(int const& arg0) exit");
 
 	return result;
 }
-float android_text_Layout::getLineWidth(int& arg0)
+float android_text_Layout::getLineWidth(int const& arg0)
 {
-	LOGV("float android_text_Layout::getLineWidth(int& arg0) enter");
+	LOGV("float android_text_Layout::getLineWidth(int const& arg0) enter");
 
 	const char *methodName = "getLineWidth";
 	const char *methodSignature = "(I)F";
@@ -2149,8 +2011,6 @@ float android_text_Layout::getLineWidth(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2199,15 +2059,13 @@ float android_text_Layout::getLineWidth(int& arg0)
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("float android_text_Layout::getLineWidth(int& arg0) exit");
+	LOGV("float android_text_Layout::getLineWidth(int const& arg0) exit");
 
 	return result;
 }
-int android_text_Layout::getLineForVertical(int& arg0)
+int android_text_Layout::getLineForVertical(int const& arg0)
 {
-	LOGV("int android_text_Layout::getLineForVertical(int& arg0) enter");
+	LOGV("int android_text_Layout::getLineForVertical(int const& arg0) enter");
 
 	const char *methodName = "getLineForVertical";
 	const char *methodSignature = "(I)I";
@@ -2218,8 +2076,6 @@ int android_text_Layout::getLineForVertical(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2268,15 +2124,13 @@ int android_text_Layout::getLineForVertical(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Layout::getLineForVertical(int& arg0) exit");
+	LOGV("int android_text_Layout::getLineForVertical(int const& arg0) exit");
 
 	return result;
 }
-int android_text_Layout::getLineForOffset(int& arg0)
+int android_text_Layout::getLineForOffset(int const& arg0)
 {
-	LOGV("int android_text_Layout::getLineForOffset(int& arg0) enter");
+	LOGV("int android_text_Layout::getLineForOffset(int const& arg0) enter");
 
 	const char *methodName = "getLineForOffset";
 	const char *methodSignature = "(I)I";
@@ -2287,8 +2141,6 @@ int android_text_Layout::getLineForOffset(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2337,15 +2189,13 @@ int android_text_Layout::getLineForOffset(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Layout::getLineForOffset(int& arg0) exit");
+	LOGV("int android_text_Layout::getLineForOffset(int const& arg0) exit");
 
 	return result;
 }
-int android_text_Layout::getOffsetForHorizontal(int& arg0,float& arg1)
+int android_text_Layout::getOffsetForHorizontal(int const& arg0,float const& arg1)
 {
-	LOGV("int android_text_Layout::getOffsetForHorizontal(int& arg0,float& arg1) enter");
+	LOGV("int android_text_Layout::getOffsetForHorizontal(int const& arg0,float const& arg1) enter");
 
 	const char *methodName = "getOffsetForHorizontal";
 	const char *methodSignature = "(IF)I";
@@ -2355,8 +2205,6 @@ int android_text_Layout::getOffsetForHorizontal(int& arg0,float& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
@@ -2427,15 +2275,13 @@ int android_text_Layout::getOffsetForHorizontal(int& arg0,float& arg1)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Layout::getOffsetForHorizontal(int& arg0,float& arg1) exit");
+	LOGV("int android_text_Layout::getOffsetForHorizontal(int const& arg0,float const& arg1) exit");
 
 	return result;
 }
-int android_text_Layout::getLineEnd(int& arg0)
+int android_text_Layout::getLineEnd(int const& arg0)
 {
-	LOGV("int android_text_Layout::getLineEnd(int& arg0) enter");
+	LOGV("int android_text_Layout::getLineEnd(int const& arg0) enter");
 
 	const char *methodName = "getLineEnd";
 	const char *methodSignature = "(I)I";
@@ -2446,8 +2292,6 @@ int android_text_Layout::getLineEnd(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2496,15 +2340,13 @@ int android_text_Layout::getLineEnd(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Layout::getLineEnd(int& arg0) exit");
+	LOGV("int android_text_Layout::getLineEnd(int const& arg0) exit");
 
 	return result;
 }
-int android_text_Layout::getLineVisibleEnd(int& arg0)
+int android_text_Layout::getLineVisibleEnd(int const& arg0)
 {
-	LOGV("int android_text_Layout::getLineVisibleEnd(int& arg0) enter");
+	LOGV("int android_text_Layout::getLineVisibleEnd(int const& arg0) enter");
 
 	const char *methodName = "getLineVisibleEnd";
 	const char *methodSignature = "(I)I";
@@ -2515,8 +2357,6 @@ int android_text_Layout::getLineVisibleEnd(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2565,15 +2405,13 @@ int android_text_Layout::getLineVisibleEnd(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Layout::getLineVisibleEnd(int& arg0) exit");
+	LOGV("int android_text_Layout::getLineVisibleEnd(int const& arg0) exit");
 
 	return result;
 }
-int android_text_Layout::getLineBottom(int& arg0)
+int android_text_Layout::getLineBottom(int const& arg0)
 {
-	LOGV("int android_text_Layout::getLineBottom(int& arg0) enter");
+	LOGV("int android_text_Layout::getLineBottom(int const& arg0) enter");
 
 	const char *methodName = "getLineBottom";
 	const char *methodSignature = "(I)I";
@@ -2584,8 +2422,6 @@ int android_text_Layout::getLineBottom(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2634,15 +2470,13 @@ int android_text_Layout::getLineBottom(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Layout::getLineBottom(int& arg0) exit");
+	LOGV("int android_text_Layout::getLineBottom(int const& arg0) exit");
 
 	return result;
 }
-int android_text_Layout::getLineBaseline(int& arg0)
+int android_text_Layout::getLineBaseline(int const& arg0)
 {
-	LOGV("int android_text_Layout::getLineBaseline(int& arg0) enter");
+	LOGV("int android_text_Layout::getLineBaseline(int const& arg0) enter");
 
 	const char *methodName = "getLineBaseline";
 	const char *methodSignature = "(I)I";
@@ -2653,8 +2487,6 @@ int android_text_Layout::getLineBaseline(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2703,15 +2535,13 @@ int android_text_Layout::getLineBaseline(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Layout::getLineBaseline(int& arg0) exit");
+	LOGV("int android_text_Layout::getLineBaseline(int const& arg0) exit");
 
 	return result;
 }
-int android_text_Layout::getLineAscent(int& arg0)
+int android_text_Layout::getLineAscent(int const& arg0)
 {
-	LOGV("int android_text_Layout::getLineAscent(int& arg0) enter");
+	LOGV("int android_text_Layout::getLineAscent(int const& arg0) enter");
 
 	const char *methodName = "getLineAscent";
 	const char *methodSignature = "(I)I";
@@ -2722,8 +2552,6 @@ int android_text_Layout::getLineAscent(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2772,15 +2600,13 @@ int android_text_Layout::getLineAscent(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Layout::getLineAscent(int& arg0) exit");
+	LOGV("int android_text_Layout::getLineAscent(int const& arg0) exit");
 
 	return result;
 }
-int android_text_Layout::getOffsetToLeftOf(int& arg0)
+int android_text_Layout::getOffsetToLeftOf(int const& arg0)
 {
-	LOGV("int android_text_Layout::getOffsetToLeftOf(int& arg0) enter");
+	LOGV("int android_text_Layout::getOffsetToLeftOf(int const& arg0) enter");
 
 	const char *methodName = "getOffsetToLeftOf";
 	const char *methodSignature = "(I)I";
@@ -2791,8 +2617,6 @@ int android_text_Layout::getOffsetToLeftOf(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2841,15 +2665,13 @@ int android_text_Layout::getOffsetToLeftOf(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Layout::getOffsetToLeftOf(int& arg0) exit");
+	LOGV("int android_text_Layout::getOffsetToLeftOf(int const& arg0) exit");
 
 	return result;
 }
-int android_text_Layout::getOffsetToRightOf(int& arg0)
+int android_text_Layout::getOffsetToRightOf(int const& arg0)
 {
-	LOGV("int android_text_Layout::getOffsetToRightOf(int& arg0) enter");
+	LOGV("int android_text_Layout::getOffsetToRightOf(int const& arg0) enter");
 
 	const char *methodName = "getOffsetToRightOf";
 	const char *methodSignature = "(I)I";
@@ -2860,8 +2682,6 @@ int android_text_Layout::getOffsetToRightOf(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2910,15 +2730,13 @@ int android_text_Layout::getOffsetToRightOf(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Layout::getOffsetToRightOf(int& arg0) exit");
+	LOGV("int android_text_Layout::getOffsetToRightOf(int const& arg0) exit");
 
 	return result;
 }
-void android_text_Layout::getCursorPath(int& arg0,AndroidCXX::android_graphics_Path& arg1,AndroidCXX::java_lang_CharSequence& arg2)
+void android_text_Layout::getCursorPath(int const& arg0,AndroidCXX::android_graphics_Path const& arg1,AndroidCXX::java_lang_CharSequence const& arg2)
 {
-	LOGV("void android_text_Layout::getCursorPath(int& arg0,AndroidCXX::android_graphics_Path& arg1,AndroidCXX::java_lang_CharSequence& arg2) enter");
+	LOGV("void android_text_Layout::getCursorPath(int const& arg0,AndroidCXX::android_graphics_Path const& arg1,AndroidCXX::java_lang_CharSequence const& arg2) enter");
 
 	const char *methodName = "getCursorPath";
 	const char *methodSignature = "(ILandroid/graphics/Path;Ljava/lang/CharSequence;)V";
@@ -2928,8 +2746,6 @@ void android_text_Layout::getCursorPath(int& arg0,AndroidCXX::android_graphics_P
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
@@ -3002,14 +2818,12 @@ void android_text_Layout::getCursorPath(int& arg0,AndroidCXX::android_graphics_P
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_text_Layout::getCursorPath(int& arg0,AndroidCXX::android_graphics_Path& arg1,AndroidCXX::java_lang_CharSequence& arg2) exit");
+	LOGV("void android_text_Layout::getCursorPath(int const& arg0,AndroidCXX::android_graphics_Path const& arg1,AndroidCXX::java_lang_CharSequence const& arg2) exit");
 
 }
-void android_text_Layout::getSelectionPath(int& arg0,int& arg1,AndroidCXX::android_graphics_Path& arg2)
+void android_text_Layout::getSelectionPath(int const& arg0,int const& arg1,AndroidCXX::android_graphics_Path const& arg2)
 {
-	LOGV("void android_text_Layout::getSelectionPath(int& arg0,int& arg1,AndroidCXX::android_graphics_Path& arg2) enter");
+	LOGV("void android_text_Layout::getSelectionPath(int const& arg0,int const& arg1,AndroidCXX::android_graphics_Path const& arg2) enter");
 
 	const char *methodName = "getSelectionPath";
 	const char *methodSignature = "(IILandroid/graphics/Path;)V";
@@ -3019,8 +2833,6 @@ void android_text_Layout::getSelectionPath(int& arg0,int& arg1,AndroidCXX::andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
@@ -3093,14 +2905,12 @@ void android_text_Layout::getSelectionPath(int& arg0,int& arg1,AndroidCXX::andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_text_Layout::getSelectionPath(int& arg0,int& arg1,AndroidCXX::android_graphics_Path& arg2) exit");
+	LOGV("void android_text_Layout::getSelectionPath(int const& arg0,int const& arg1,AndroidCXX::android_graphics_Path const& arg2) exit");
 
 }
-ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment android_text_Layout::getParagraphAlignment(int& arg0)
+android_text_Layout_Alignment::android_text_Layout_Alignment android_text_Layout::getParagraphAlignment(int const& arg0)
 {
-	LOGV("ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment android_text_Layout::getParagraphAlignment(int& arg0) enter");
+	LOGV("android_text_Layout_Alignment::android_text_Layout_Alignment android_text_Layout::getParagraphAlignment(int const& arg0) enter");
 
 	const char *methodName = "getParagraphAlignment";
 	const char *methodSignature = "(I)Landroid/text/Layout$Alignment;";
@@ -3110,8 +2920,6 @@ ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment android_text_Layout
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
@@ -3158,18 +2966,16 @@ ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment android_text_Layout
 		convert_android_text_Layout_Alignment(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 
-	ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment result = (ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment) (cxx_value);
+	android_text_Layout_Alignment::android_text_Layout_Alignment result = (android_text_Layout_Alignment::android_text_Layout_Alignment) (cxx_value);
 	//
 		
-	jni->popLocalFrame();
-
-	LOGV("ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment android_text_Layout::getParagraphAlignment(int& arg0) exit");
+	LOGV("android_text_Layout_Alignment::android_text_Layout_Alignment android_text_Layout::getParagraphAlignment(int const& arg0) exit");
 
 	return result;
 }
-int android_text_Layout::getParagraphLeft(int& arg0)
+int android_text_Layout::getParagraphLeft(int const& arg0)
 {
-	LOGV("int android_text_Layout::getParagraphLeft(int& arg0) enter");
+	LOGV("int android_text_Layout::getParagraphLeft(int const& arg0) enter");
 
 	const char *methodName = "getParagraphLeft";
 	const char *methodSignature = "(I)I";
@@ -3180,8 +2986,6 @@ int android_text_Layout::getParagraphLeft(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3230,15 +3034,13 @@ int android_text_Layout::getParagraphLeft(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Layout::getParagraphLeft(int& arg0) exit");
+	LOGV("int android_text_Layout::getParagraphLeft(int const& arg0) exit");
 
 	return result;
 }
-int android_text_Layout::getParagraphRight(int& arg0)
+int android_text_Layout::getParagraphRight(int const& arg0)
 {
-	LOGV("int android_text_Layout::getParagraphRight(int& arg0) enter");
+	LOGV("int android_text_Layout::getParagraphRight(int const& arg0) enter");
 
 	const char *methodName = "getParagraphRight";
 	const char *methodSignature = "(I)I";
@@ -3249,8 +3051,6 @@ int android_text_Layout::getParagraphRight(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3299,15 +3099,13 @@ int android_text_Layout::getParagraphRight(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Layout::getParagraphRight(int& arg0) exit");
+	LOGV("int android_text_Layout::getParagraphRight(int const& arg0) exit");
 
 	return result;
 }
-int android_text_Layout::getEllipsisStart(int& arg0)
+int android_text_Layout::getEllipsisStart(int const& arg0)
 {
-	LOGV("int android_text_Layout::getEllipsisStart(int& arg0) enter");
+	LOGV("int android_text_Layout::getEllipsisStart(int const& arg0) enter");
 
 	const char *methodName = "getEllipsisStart";
 	const char *methodSignature = "(I)I";
@@ -3318,8 +3116,6 @@ int android_text_Layout::getEllipsisStart(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3368,15 +3164,13 @@ int android_text_Layout::getEllipsisStart(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Layout::getEllipsisStart(int& arg0) exit");
+	LOGV("int android_text_Layout::getEllipsisStart(int const& arg0) exit");
 
 	return result;
 }
-int android_text_Layout::getEllipsisCount(int& arg0)
+int android_text_Layout::getEllipsisCount(int const& arg0)
 {
-	LOGV("int android_text_Layout::getEllipsisCount(int& arg0) enter");
+	LOGV("int android_text_Layout::getEllipsisCount(int const& arg0) enter");
 
 	const char *methodName = "getEllipsisCount";
 	const char *methodSignature = "(I)I";
@@ -3387,8 +3181,6 @@ int android_text_Layout::getEllipsisCount(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3437,9 +3229,7 @@ int android_text_Layout::getEllipsisCount(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Layout::getEllipsisCount(int& arg0) exit");
+	LOGV("int android_text_Layout::getEllipsisCount(int const& arg0) exit");
 
 	return result;
 }

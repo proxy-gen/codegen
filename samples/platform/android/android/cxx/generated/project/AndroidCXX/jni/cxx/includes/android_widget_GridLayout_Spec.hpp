@@ -52,16 +52,13 @@ class android_widget_GridLayout_Spec
 public:
 
 	android_widget_GridLayout_Spec(const android_widget_GridLayout_Spec& cc);
-	android_widget_GridLayout_Spec(void * proxy);
+	android_widget_GridLayout_Spec(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_GridLayout_Spec();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_GridLayout_Spec();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 int hashCode();
 };	
 

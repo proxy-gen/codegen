@@ -70,22 +70,19 @@ class android_accounts_Account
 public:
 
 	android_accounts_Account(const android_accounts_Account& cc);
-	android_accounts_Account(void * proxy);
+	android_accounts_Account(Proxy proxy);
 	// Public Constructors
-	android_accounts_Account(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
-	android_accounts_Account(AndroidCXX::android_os_Parcel& arg0);
-	// TODO: remove
-	// 
-	// android_accounts_Account();
-	// 
+	android_accounts_Account(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
+	android_accounts_Account(AndroidCXX::android_os_Parcel const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_accounts_Account();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 };	
 
 } // namespace

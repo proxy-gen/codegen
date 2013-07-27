@@ -71,7 +71,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_security_CodeSigner::java_security_CodeSigner(const java_security_CodeSigner& cc)
 {
 	LOGV("java_security_CodeSigner::java_security_CodeSigner(const java_security_CodeSigner& cc) enter");
@@ -95,9 +94,9 @@ java_security_CodeSigner::java_security_CodeSigner(const java_security_CodeSigne
 
 	LOGV("java_security_CodeSigner::java_security_CodeSigner(const java_security_CodeSigner& cc) exit");
 }
-java_security_CodeSigner::java_security_CodeSigner(void * proxy)
+java_security_CodeSigner::java_security_CodeSigner(Proxy proxy)
 {
-	LOGV("java_security_CodeSigner::java_security_CodeSigner(void * proxy) enter");
+	LOGV("java_security_CodeSigner::java_security_CodeSigner(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -107,55 +106,34 @@ java_security_CodeSigner::java_security_CodeSigner(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_security_CodeSigner::java_security_CodeSigner(void * proxy) exit");
+	LOGV("java_security_CodeSigner::java_security_CodeSigner(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_security_CodeSigner::java_security_CodeSigner()
-// {
-// 	LOGV("java_security_CodeSigner::java_security_CodeSigner() enter");	
+Proxy java_security_CodeSigner::proxy() const
+{	
+	LOGV("java_security_CodeSigner::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/security/CodeSigner";
+	long cxxAddress = (long) this;
+	LOGV("java_security_CodeSigner cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_security_CodeSigner jni address %d", proxiedComponent);
 
-// 	LOGV("java_security_CodeSigner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_security_CodeSigner::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_security_CodeSigner cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_security_CodeSigner jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_security_CodeSigner::java_security_CodeSigner() exit");	
-// }
-// 
-// 
-// Public Constructors
-java_security_CodeSigner::java_security_CodeSigner(AndroidCXX::java_security_cert_CertPath& arg0,AndroidCXX::java_security_Timestamp& arg1)
+	return proxy;
+}
+java_security_CodeSigner::java_security_CodeSigner(AndroidCXX::java_security_cert_CertPath const& arg0,AndroidCXX::java_security_Timestamp const& arg1)
 {
-	LOGV("java_security_CodeSigner::java_security_CodeSigner(AndroidCXX::java_security_cert_CertPath& arg0,AndroidCXX::java_security_Timestamp& arg1) enter");	
+	LOGV("java_security_CodeSigner::java_security_CodeSigner(AndroidCXX::java_security_cert_CertPath const& arg0,AndroidCXX::java_security_Timestamp const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/security/cert/CertPath;Ljava/security/Timestamp;)V";
@@ -229,7 +207,7 @@ java_security_CodeSigner::java_security_CodeSigner(AndroidCXX::java_security_cer
 
 	jni->popLocalFrame();
 
-	LOGV("java_security_CodeSigner::java_security_CodeSigner(AndroidCXX::java_security_cert_CertPath& arg0,AndroidCXX::java_security_Timestamp& arg1) exit");	
+	LOGV("java_security_CodeSigner::java_security_CodeSigner(AndroidCXX::java_security_cert_CertPath const& arg0,AndroidCXX::java_security_Timestamp const& arg1) exit");	
 }
 // Default Instance Destructor
 java_security_CodeSigner::~java_security_CodeSigner()
@@ -242,13 +220,13 @@ java_security_CodeSigner::~java_security_CodeSigner()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_security_CodeSigner::~java_security_CodeSigner() exit");
 }
 // Functions
-bool java_security_CodeSigner::equals(AndroidCXX::java_lang_Object& arg0)
+bool java_security_CodeSigner::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_security_CodeSigner::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_security_CodeSigner::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -258,8 +236,6 @@ bool java_security_CodeSigner::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_CodeSigner cxx address %d", cxxAddress);
@@ -309,9 +285,7 @@ bool java_security_CodeSigner::equals(AndroidCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_security_CodeSigner::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_security_CodeSigner::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -327,8 +301,6 @@ AndroidCXX::java_lang_String java_security_CodeSigner::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_CodeSigner cxx address %d", cxxAddress);
@@ -357,8 +329,6 @@ AndroidCXX::java_lang_String java_security_CodeSigner::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_security_CodeSigner::toString() exit");
 
 	return result;
@@ -375,8 +345,6 @@ int java_security_CodeSigner::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_CodeSigner cxx address %d", cxxAddress);
@@ -405,8 +373,6 @@ int java_security_CodeSigner::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_security_CodeSigner::hashCode() exit");
 
 	return result;
@@ -423,8 +389,6 @@ AndroidCXX::java_security_cert_CertPath java_security_CodeSigner::getSignerCertP
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_CodeSigner cxx address %d", cxxAddress);
@@ -453,8 +417,6 @@ AndroidCXX::java_security_cert_CertPath java_security_CodeSigner::getSignerCertP
 	AndroidCXX::java_security_cert_CertPath result((AndroidCXX::java_security_cert_CertPath) *((AndroidCXX::java_security_cert_CertPath *) cxx_value));
 	delete ((AndroidCXX::java_security_cert_CertPath *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_security_cert_CertPath java_security_CodeSigner::getSignerCertPath() exit");
 
 	return result;
@@ -471,8 +433,6 @@ AndroidCXX::java_security_Timestamp java_security_CodeSigner::getTimestamp()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_CodeSigner cxx address %d", cxxAddress);
@@ -501,8 +461,6 @@ AndroidCXX::java_security_Timestamp java_security_CodeSigner::getTimestamp()
 	AndroidCXX::java_security_Timestamp result((AndroidCXX::java_security_Timestamp) *((AndroidCXX::java_security_Timestamp *) cxx_value));
 	delete ((AndroidCXX::java_security_Timestamp *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_security_Timestamp java_security_CodeSigner::getTimestamp() exit");
 
 	return result;

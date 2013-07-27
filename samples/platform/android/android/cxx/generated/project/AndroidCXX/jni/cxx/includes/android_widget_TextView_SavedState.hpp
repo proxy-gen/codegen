@@ -57,17 +57,14 @@ class android_widget_TextView_SavedState
 public:
 
 	android_widget_TextView_SavedState(const android_widget_TextView_SavedState& cc);
-	android_widget_TextView_SavedState(void * proxy);
+	android_widget_TextView_SavedState(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_TextView_SavedState();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TextView_SavedState();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 };	
 
 } // namespace

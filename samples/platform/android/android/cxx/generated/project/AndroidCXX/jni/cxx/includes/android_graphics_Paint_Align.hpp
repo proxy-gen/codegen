@@ -30,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace ANDROID_GRAPHICS_PAINT_ALIGN {
+namespace android_graphics_Paint_Align {
 
 enum android_graphics_Paint_Align
 {

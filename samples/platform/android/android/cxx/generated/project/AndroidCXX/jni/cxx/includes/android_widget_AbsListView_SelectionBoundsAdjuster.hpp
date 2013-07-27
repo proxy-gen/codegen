@@ -51,16 +51,13 @@ class android_widget_AbsListView_SelectionBoundsAdjuster
 public:
 
 	android_widget_AbsListView_SelectionBoundsAdjuster(const android_widget_AbsListView_SelectionBoundsAdjuster& cc);
-	android_widget_AbsListView_SelectionBoundsAdjuster(void * proxy);
+	android_widget_AbsListView_SelectionBoundsAdjuster(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_AbsListView_SelectionBoundsAdjuster();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AbsListView_SelectionBoundsAdjuster();
 	// Functions
-	 void adjustListItemSelectionBounds(AndroidCXX::android_graphics_Rect& arg0);
+	 void adjustListItemSelectionBounds(AndroidCXX::android_graphics_Rect const& arg0);
 };	
 
 } // namespace

@@ -68,19 +68,16 @@ class android_view_ActionMode_Callback
 public:
 
 	android_view_ActionMode_Callback(const android_view_ActionMode_Callback& cc);
-	android_view_ActionMode_Callback(void * proxy);
+	android_view_ActionMode_Callback(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_view_ActionMode_Callback();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ActionMode_Callback();
 	// Functions
-	 bool onCreateActionMode(AndroidCXX::android_view_ActionMode& arg0,AndroidCXX::android_view_Menu& arg1);
-	 bool onPrepareActionMode(AndroidCXX::android_view_ActionMode& arg0,AndroidCXX::android_view_Menu& arg1);
-	 bool onActionItemClicked(AndroidCXX::android_view_ActionMode& arg0,AndroidCXX::android_view_MenuItem& arg1);
-	 void onDestroyActionMode(AndroidCXX::android_view_ActionMode& arg0);
+	 bool onCreateActionMode(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_Menu const& arg1);
+	 bool onPrepareActionMode(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_Menu const& arg1);
+	 bool onActionItemClicked(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_MenuItem const& arg1);
+	 void onDestroyActionMode(AndroidCXX::android_view_ActionMode const& arg0);
 };	
 
 } // namespace

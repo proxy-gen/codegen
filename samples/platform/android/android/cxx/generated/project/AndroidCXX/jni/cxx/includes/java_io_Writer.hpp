@@ -75,23 +75,20 @@ class java_io_Writer
 public:
 
 	java_io_Writer(const java_io_Writer& cc);
-	java_io_Writer(void * proxy);
+	java_io_Writer(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_io_Writer();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_io_Writer();
 	// Functions
-	 AndroidCXX::java_io_Writer append(AndroidCXX::java_lang_CharSequence& arg0);
-	 AndroidCXX::java_io_Writer append(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2);
-	 AndroidCXX::java_io_Writer append(char& arg0);
-	 void write(std::vector<char>& arg0,int& arg1,int& arg2);
-	 void write(int& arg0);
-	 void write(std::vector<char>& arg0);
-	 void write(AndroidCXX::java_lang_String& arg0);
-	 void write(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2);
+	 AndroidCXX::java_io_Writer append(AndroidCXX::java_lang_CharSequence const& arg0);
+	 AndroidCXX::java_io_Writer append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2);
+	 AndroidCXX::java_io_Writer append(char const& arg0);
+	 void write(std::vector<char> const& arg0,int const& arg1,int const& arg2);
+	 void write(int const& arg0);
+	 void write(std::vector<char> const& arg0);
+	 void write(AndroidCXX::java_lang_String const& arg0);
+	 void write(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2);
 	 void flush();
 	 void close();
 };	

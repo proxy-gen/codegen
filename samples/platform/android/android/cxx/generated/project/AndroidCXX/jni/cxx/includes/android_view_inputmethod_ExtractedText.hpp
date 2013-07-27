@@ -53,16 +53,15 @@ class android_view_inputmethod_ExtractedText
 public:
 
 	android_view_inputmethod_ExtractedText(const android_view_inputmethod_ExtractedText& cc);
-	android_view_inputmethod_ExtractedText(void * proxy);
+	android_view_inputmethod_ExtractedText(Proxy proxy);
 	// Public Constructors
 	android_view_inputmethod_ExtractedText();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_inputmethod_ExtractedText();
 	// Functions
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 };	
 
 } // namespace

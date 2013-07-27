@@ -141,46 +141,43 @@ class java_nio_CharBuffer
 public:
 
 	java_nio_CharBuffer(const java_nio_CharBuffer& cc);
-	java_nio_CharBuffer(void * proxy);
+	java_nio_CharBuffer(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_nio_CharBuffer();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_CharBuffer();
 	// Functions
-	 JDKCXX::java_nio_CharBuffer get(std::vector<char>& arg0);
-	 JDKCXX::java_nio_CharBuffer get(std::vector<char>& arg0,int& arg1,int& arg2);
+	 JDKCXX::java_nio_CharBuffer get(std::vector<char> const& arg0);
+	 JDKCXX::java_nio_CharBuffer get(std::vector<char> const& arg0,int const& arg1,int const& arg2);
 	 char get();
-	 char get(int& arg0);
-	 JDKCXX::java_nio_CharBuffer put(int& arg0,char& arg1);
-	 JDKCXX::java_nio_CharBuffer put(char& arg0);
-	 JDKCXX::java_nio_CharBuffer put(JDKCXX::java_lang_String& arg0);
-	 JDKCXX::java_nio_CharBuffer put(JDKCXX::java_lang_String& arg0,int& arg1,int& arg2);
-	 JDKCXX::java_nio_CharBuffer put(std::vector<char>& arg0);
-	 JDKCXX::java_nio_CharBuffer put(std::vector<char>& arg0,int& arg1,int& arg2);
-	 JDKCXX::java_nio_CharBuffer put(JDKCXX::java_nio_CharBuffer& arg0);
-	 bool equals(JDKCXX::java_lang_Object& arg0);
+	 char get(int const& arg0);
+	 JDKCXX::java_nio_CharBuffer put(int const& arg0,char const& arg1);
+	 JDKCXX::java_nio_CharBuffer put(char const& arg0);
+	 JDKCXX::java_nio_CharBuffer put(JDKCXX::java_lang_String const& arg0);
+	 JDKCXX::java_nio_CharBuffer put(JDKCXX::java_lang_String const& arg0,int const& arg1,int const& arg2);
+	 JDKCXX::java_nio_CharBuffer put(std::vector<char> const& arg0);
+	 JDKCXX::java_nio_CharBuffer put(std::vector<char> const& arg0,int const& arg1,int const& arg2);
+	 JDKCXX::java_nio_CharBuffer put(JDKCXX::java_nio_CharBuffer const& arg0);
+	 bool equals(JDKCXX::java_lang_Object const& arg0);
 	 JDKCXX::java_lang_String toString();
-	 JDKCXX::java_nio_CharBuffer append(JDKCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2);
-	 JDKCXX::java_nio_CharBuffer append(char& arg0);
-	 JDKCXX::java_nio_CharBuffer append(JDKCXX::java_lang_CharSequence& arg0);
+	 JDKCXX::java_nio_CharBuffer append(JDKCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2);
+	 JDKCXX::java_nio_CharBuffer append(char const& arg0);
+	 JDKCXX::java_nio_CharBuffer append(JDKCXX::java_lang_CharSequence const& arg0);
 	 int hashCode();
-	 int compareTo(JDKCXX::java_nio_CharBuffer& arg0);
+	 int compareTo(JDKCXX::java_nio_CharBuffer const& arg0);
 	 int length();
-	 char charAt(int& arg0);
-	 JDKCXX::java_lang_CharSequence subSequence(int& arg0,int& arg1);
+	 char charAt(int const& arg0);
+	 JDKCXX::java_lang_CharSequence subSequence(int const& arg0,int const& arg1);
 	 bool isDirect();
 	 bool hasArray();
 	 std::vector<char> array();
 	 int arrayOffset();
-	static JDKCXX::java_nio_CharBuffer wrap(JDKCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2);
-	static JDKCXX::java_nio_CharBuffer wrap(std::vector<char>& arg0,int& arg1,int& arg2);
-	static JDKCXX::java_nio_CharBuffer wrap(std::vector<char>& arg0);
-	static JDKCXX::java_nio_CharBuffer wrap(JDKCXX::java_lang_CharSequence& arg0);
-	 int read(JDKCXX::java_nio_CharBuffer& arg0);
-	static JDKCXX::java_nio_CharBuffer allocate(int& arg0);
+	static JDKCXX::java_nio_CharBuffer wrap(JDKCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2);
+	static JDKCXX::java_nio_CharBuffer wrap(std::vector<char> const& arg0,int const& arg1,int const& arg2);
+	static JDKCXX::java_nio_CharBuffer wrap(std::vector<char> const& arg0);
+	static JDKCXX::java_nio_CharBuffer wrap(JDKCXX::java_lang_CharSequence const& arg0);
+	 int read(JDKCXX::java_nio_CharBuffer const& arg0);
+	static JDKCXX::java_nio_CharBuffer allocate(int const& arg0);
 	 JDKCXX::java_nio_CharBuffer duplicate();
 	 JDKCXX::java_nio_CharBuffer slice();
 	 JDKCXX::java_nio_CharBuffer asReadOnlyBuffer();

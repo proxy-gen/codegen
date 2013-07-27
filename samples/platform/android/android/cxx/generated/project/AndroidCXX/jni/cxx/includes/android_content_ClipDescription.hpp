@@ -84,27 +84,23 @@ class android_content_ClipDescription
 {
 public:
 
-	android_content_ClipDescription(const android_content_ClipDescription& cc);
-	android_content_ClipDescription(void * proxy);
+	android_content_ClipDescription(Proxy proxy);
 	// Public Constructors
-	android_content_ClipDescription(AndroidCXX::java_lang_CharSequence& arg0,std::vector<AndroidCXX::java_lang_String >& arg1);
-	android_content_ClipDescription(AndroidCXX::android_content_ClipDescription& arg0);
-	// TODO: remove
-	// 
-	// android_content_ClipDescription();
-	// 
+	android_content_ClipDescription(AndroidCXX::java_lang_CharSequence const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1);
+	android_content_ClipDescription(AndroidCXX::android_content_ClipDescription const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ClipDescription();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
-	static bool compareMimeTypes(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	static bool compareMimeTypes(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
 	 AndroidCXX::java_lang_CharSequence getLabel();
-	 bool hasMimeType(AndroidCXX::java_lang_String& arg0);
-	 std::vector<AndroidCXX::java_lang_String > filterMimeTypes(AndroidCXX::java_lang_String& arg0);
+	 bool hasMimeType(AndroidCXX::java_lang_String const& arg0);
+	 std::vector<AndroidCXX::java_lang_String > filterMimeTypes(AndroidCXX::java_lang_String const& arg0);
 	 int getMimeTypeCount();
-	 AndroidCXX::java_lang_String getMimeType(int& arg0);
+	 AndroidCXX::java_lang_String getMimeType(int const& arg0);
 };	
 
 } // namespace

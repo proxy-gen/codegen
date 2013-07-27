@@ -84,7 +84,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_os_Looper::android_os_Looper(const android_os_Looper& cc)
 {
 	LOGV("android_os_Looper::android_os_Looper(const android_os_Looper& cc) enter");
@@ -108,9 +107,9 @@ android_os_Looper::android_os_Looper(const android_os_Looper& cc)
 
 	LOGV("android_os_Looper::android_os_Looper(const android_os_Looper& cc) exit");
 }
-android_os_Looper::android_os_Looper(void * proxy)
+android_os_Looper::android_os_Looper(Proxy proxy)
 {
-	LOGV("android_os_Looper::android_os_Looper(void * proxy) enter");
+	LOGV("android_os_Looper::android_os_Looper(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -120,52 +119,31 @@ android_os_Looper::android_os_Looper(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_os_Looper::android_os_Looper(void * proxy) exit");
+	LOGV("android_os_Looper::android_os_Looper(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_os_Looper::android_os_Looper()
-// {
-// 	LOGV("android_os_Looper::android_os_Looper() enter");	
+Proxy android_os_Looper::proxy() const
+{	
+	LOGV("android_os_Looper::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/os/Looper";
+	long cxxAddress = (long) this;
+	LOGV("android_os_Looper cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_os_Looper jni address %d", proxiedComponent);
 
-// 	LOGV("android_os_Looper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_os_Looper::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_os_Looper cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_os_Looper jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_os_Looper::android_os_Looper() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_os_Looper::~android_os_Looper()
 {
@@ -177,7 +155,7 @@ android_os_Looper::~android_os_Looper()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_os_Looper::~android_os_Looper() exit");
 }
 // Functions
@@ -193,8 +171,6 @@ AndroidCXX::java_lang_String android_os_Looper::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_os_Looper cxx address %d", cxxAddress);
@@ -223,8 +199,6 @@ AndroidCXX::java_lang_String android_os_Looper::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_os_Looper::toString() exit");
 
 	return result;
@@ -242,24 +216,20 @@ void android_os_Looper::loop()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_os_Looper cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_Looper jni address %d", javaObject);
 
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_os_Looper::loop() exit");
 
 }
-void android_os_Looper::dump(AndroidCXX::android_util_Printer& arg0,AndroidCXX::java_lang_String& arg1)
+void android_os_Looper::dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("void android_os_Looper::dump(AndroidCXX::android_util_Printer& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("void android_os_Looper::dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "dump";
 	const char *methodSignature = "(Landroid/util/Printer;Ljava/lang/String;)V";
@@ -269,8 +239,6 @@ void android_os_Looper::dump(AndroidCXX::android_util_Printer& arg0,AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_os_Looper cxx address %d", cxxAddress);
@@ -322,9 +290,7 @@ void android_os_Looper::dump(AndroidCXX::android_util_Printer& arg0,AndroidCXX::
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_os_Looper::dump(AndroidCXX::android_util_Printer& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("void android_os_Looper::dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 }
 AndroidCXX::android_os_Looper android_os_Looper::myLooper()
@@ -340,15 +306,13 @@ AndroidCXX::android_os_Looper android_os_Looper::myLooper()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_os_Looper cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_Looper jni address %d", javaObject);
 
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -369,8 +333,6 @@ AndroidCXX::android_os_Looper android_os_Looper::myLooper()
 	AndroidCXX::android_os_Looper result((AndroidCXX::android_os_Looper) *((AndroidCXX::android_os_Looper *) cxx_value));
 	delete ((AndroidCXX::android_os_Looper *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_os_Looper android_os_Looper::myLooper() exit");
 
 	return result;
@@ -388,15 +350,13 @@ AndroidCXX::android_os_Looper android_os_Looper::getMainLooper()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_os_Looper cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_Looper jni address %d", javaObject);
 
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -417,8 +377,6 @@ AndroidCXX::android_os_Looper android_os_Looper::getMainLooper()
 	AndroidCXX::android_os_Looper result((AndroidCXX::android_os_Looper) *((AndroidCXX::android_os_Looper *) cxx_value));
 	delete ((AndroidCXX::android_os_Looper *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_os_Looper android_os_Looper::getMainLooper() exit");
 
 	return result;
@@ -436,18 +394,14 @@ void android_os_Looper::prepare()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_os_Looper cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_Looper jni address %d", javaObject);
 
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_os_Looper::prepare() exit");
 
 }
@@ -464,24 +418,20 @@ void android_os_Looper::prepareMainLooper()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_os_Looper cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_Looper jni address %d", javaObject);
 
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_os_Looper::prepareMainLooper() exit");
 
 }
-void android_os_Looper::setMessageLogging(AndroidCXX::android_util_Printer& arg0)
+void android_os_Looper::setMessageLogging(AndroidCXX::android_util_Printer const& arg0)
 {
-	LOGV("void android_os_Looper::setMessageLogging(AndroidCXX::android_util_Printer& arg0) enter");
+	LOGV("void android_os_Looper::setMessageLogging(AndroidCXX::android_util_Printer const& arg0) enter");
 
 	const char *methodName = "setMessageLogging";
 	const char *methodSignature = "(Landroid/util/Printer;)V";
@@ -491,8 +441,6 @@ void android_os_Looper::setMessageLogging(AndroidCXX::android_util_Printer& arg0
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_os_Looper cxx address %d", cxxAddress);
@@ -523,9 +471,7 @@ void android_os_Looper::setMessageLogging(AndroidCXX::android_util_Printer& arg0
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_os_Looper::setMessageLogging(AndroidCXX::android_util_Printer& arg0) exit");
+	LOGV("void android_os_Looper::setMessageLogging(AndroidCXX::android_util_Printer const& arg0) exit");
 
 }
 AndroidCXX::android_os_MessageQueue android_os_Looper::myQueue()
@@ -541,15 +487,13 @@ AndroidCXX::android_os_MessageQueue android_os_Looper::myQueue()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_os_Looper cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_Looper jni address %d", javaObject);
 
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -570,8 +514,6 @@ AndroidCXX::android_os_MessageQueue android_os_Looper::myQueue()
 	AndroidCXX::android_os_MessageQueue result((AndroidCXX::android_os_MessageQueue) *((AndroidCXX::android_os_MessageQueue *) cxx_value));
 	delete ((AndroidCXX::android_os_MessageQueue *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_os_MessageQueue android_os_Looper::myQueue() exit");
 
 	return result;
@@ -589,8 +531,6 @@ void android_os_Looper::quit()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_os_Looper cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -599,8 +539,6 @@ void android_os_Looper::quit()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_os_Looper::quit() exit");
 
 }
@@ -616,8 +554,6 @@ AndroidCXX::java_lang_Thread android_os_Looper::getThread()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_os_Looper cxx address %d", cxxAddress);
@@ -646,8 +582,6 @@ AndroidCXX::java_lang_Thread android_os_Looper::getThread()
 	AndroidCXX::java_lang_Thread result((AndroidCXX::java_lang_Thread) *((AndroidCXX::java_lang_Thread *) cxx_value));
 	delete ((AndroidCXX::java_lang_Thread *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_Thread android_os_Looper::getThread() exit");
 
 	return result;

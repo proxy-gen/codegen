@@ -261,7 +261,7 @@ using namespace FacebookCXX;
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_ACCESSTOKENSOURCE;
+// using namespace com_facebook_AccessTokenSource;
 // 
 // 
 // 
@@ -327,7 +327,7 @@ using namespace FacebookCXX;
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_AUTHORIZATIONCLIENT_RESULT_CODE;
+// using namespace com_facebook_AuthorizationClient_Result_Code;
 // 
 // 
 // 
@@ -373,7 +373,7 @@ using namespace FacebookCXX;
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_FACEBOOKREQUESTERROR_CATEGORY;
+// using namespace com_facebook_FacebookRequestError_Category;
 // 
 // 
 // 
@@ -407,7 +407,7 @@ using namespace FacebookCXX;
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_HTTPMETHOD;
+// using namespace com_facebook_HttpMethod;
 // 
 // 
 // 
@@ -425,7 +425,7 @@ using namespace FacebookCXX;
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_LOGGINGBEHAVIOR;
+// using namespace com_facebook_LoggingBehavior;
 // 
 // 
 // 
@@ -511,7 +511,7 @@ using namespace FacebookCXX;
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_RESPONSE_PAGINGDIRECTION;
+// using namespace com_facebook_Response_PagingDirection;
 // 
 // 
 // 
@@ -605,25 +605,25 @@ using namespace FacebookCXX;
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_SESSIONDEFAULTAUDIENCE;
+// using namespace com_facebook_SessionDefaultAudience;
 // 
 // 
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_SESSIONLOGINBEHAVIOR;
+// using namespace com_facebook_SessionLoginBehavior;
 // 
 // 
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_SESSIONSTATE_CATEGORY;
+// using namespace com_facebook_SessionState_Category;
 // 
 // 
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_SESSIONSTATE;
+// using namespace com_facebook_SessionState;
 // 
 // 
 // 
@@ -657,7 +657,7 @@ using namespace FacebookCXX;
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_TESTSESSION_MODE;
+// using namespace com_facebook_TestSession_Mode;
 // 
 // 
 // 
@@ -859,7 +859,7 @@ using namespace FacebookCXX;
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_WIDGET_GRAPHOBJECTADAPTER_SECTIONANDITEM_TYPE;
+// using namespace com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type;
 // 
 // 
 // 

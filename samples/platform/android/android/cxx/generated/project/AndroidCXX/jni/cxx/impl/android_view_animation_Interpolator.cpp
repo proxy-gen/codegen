@@ -38,7 +38,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_animation_Interpolator::android_view_animation_Interpolator(const android_view_animation_Interpolator& cc)
 {
 	LOGV("android_view_animation_Interpolator::android_view_animation_Interpolator(const android_view_animation_Interpolator& cc) enter");
@@ -62,9 +61,9 @@ android_view_animation_Interpolator::android_view_animation_Interpolator(const a
 
 	LOGV("android_view_animation_Interpolator::android_view_animation_Interpolator(const android_view_animation_Interpolator& cc) exit");
 }
-android_view_animation_Interpolator::android_view_animation_Interpolator(void * proxy)
+android_view_animation_Interpolator::android_view_animation_Interpolator(Proxy proxy)
 {
-	LOGV("android_view_animation_Interpolator::android_view_animation_Interpolator(void * proxy) enter");
+	LOGV("android_view_animation_Interpolator::android_view_animation_Interpolator(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -74,52 +73,31 @@ android_view_animation_Interpolator::android_view_animation_Interpolator(void * 
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_animation_Interpolator::android_view_animation_Interpolator(void * proxy) exit");
+	LOGV("android_view_animation_Interpolator::android_view_animation_Interpolator(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_view_animation_Interpolator::android_view_animation_Interpolator()
-// {
-// 	LOGV("android_view_animation_Interpolator::android_view_animation_Interpolator() enter");	
+Proxy android_view_animation_Interpolator::proxy() const
+{	
+	LOGV("android_view_animation_Interpolator::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/view/animation/Interpolator";
+	long cxxAddress = (long) this;
+	LOGV("android_view_animation_Interpolator cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_animation_Interpolator jni address %d", proxiedComponent);
 
-// 	LOGV("android_view_animation_Interpolator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_view_animation_Interpolator::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_view_animation_Interpolator cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_view_animation_Interpolator jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_view_animation_Interpolator::android_view_animation_Interpolator() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_view_animation_Interpolator::~android_view_animation_Interpolator()
 {
@@ -131,7 +109,7 @@ android_view_animation_Interpolator::~android_view_animation_Interpolator()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_animation_Interpolator::~android_view_animation_Interpolator() exit");
 }
 // Functions

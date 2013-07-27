@@ -59,20 +59,17 @@ class java_util_Map_Entry
 public:
 
 	java_util_Map_Entry(const java_util_Map_Entry& cc);
-	java_util_Map_Entry(void * proxy);
+	java_util_Map_Entry(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_util_Map_Entry();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Map_Entry();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 int hashCode();
 	 AndroidCXX::java_lang_Object getValue();
 	 AndroidCXX::java_lang_Object getKey();
-	 AndroidCXX::java_lang_Object setValue(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_Object setValue(AndroidCXX::java_lang_Object const& arg0);
 };	
 
 } // namespace

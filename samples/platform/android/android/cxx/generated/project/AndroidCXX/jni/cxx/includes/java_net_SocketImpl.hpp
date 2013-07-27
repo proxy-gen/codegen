@@ -52,11 +52,10 @@ class java_net_SocketImpl
 public:
 
 	java_net_SocketImpl(const java_net_SocketImpl& cc);
-	java_net_SocketImpl(void * proxy);
+	java_net_SocketImpl(Proxy proxy);
 	// Public Constructors
 	java_net_SocketImpl();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_SocketImpl();
 	// Functions

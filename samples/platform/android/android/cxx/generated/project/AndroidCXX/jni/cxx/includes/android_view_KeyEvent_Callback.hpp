@@ -57,19 +57,16 @@ class android_view_KeyEvent_Callback
 public:
 
 	android_view_KeyEvent_Callback(const android_view_KeyEvent_Callback& cc);
-	android_view_KeyEvent_Callback(void * proxy);
+	android_view_KeyEvent_Callback(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_view_KeyEvent_Callback();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_KeyEvent_Callback();
 	// Functions
-	 bool onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1);
-	 bool onKeyLongPress(int& arg0,AndroidCXX::android_view_KeyEvent& arg1);
-	 bool onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1);
-	 bool onKeyMultiple(int& arg0,int& arg1,AndroidCXX::android_view_KeyEvent& arg2);
+	 bool onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
+	 bool onKeyLongPress(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
+	 bool onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
+	 bool onKeyMultiple(int const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2);
 };	
 
 } // namespace

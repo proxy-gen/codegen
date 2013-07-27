@@ -80,27 +80,24 @@ class android_widget_ZoomButtonsController
 public:
 
 	android_widget_ZoomButtonsController(const android_widget_ZoomButtonsController& cc);
-	android_widget_ZoomButtonsController(void * proxy);
+	android_widget_ZoomButtonsController(Proxy proxy);
 	// Public Constructors
-	android_widget_ZoomButtonsController(AndroidCXX::android_view_View& arg0);
-	// TODO: remove
-	// 
-	// android_widget_ZoomButtonsController();
-	// 
+	android_widget_ZoomButtonsController(AndroidCXX::android_view_View const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ZoomButtonsController();
 	// Functions
 	 bool isVisible();
-	 void setVisible(bool& arg0);
-	 void setFocusable(bool& arg0);
-	 bool onTouch(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_MotionEvent& arg1);
+	 void setVisible(bool const& arg0);
+	 void setFocusable(bool const& arg0);
+	 bool onTouch(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_MotionEvent const& arg1);
 	 AndroidCXX::android_view_ViewGroup getContainer();
-	 void setZoomSpeed(long& arg0);
-	 void setZoomInEnabled(bool& arg0);
-	 void setZoomOutEnabled(bool& arg0);
-	 void setOnZoomListener(AndroidCXX::android_widget_ZoomButtonsController_OnZoomListener& arg0);
+	 void setZoomSpeed(long const& arg0);
+	 void setZoomInEnabled(bool const& arg0);
+	 void setZoomOutEnabled(bool const& arg0);
+	 void setOnZoomListener(AndroidCXX::android_widget_ZoomButtonsController_OnZoomListener const& arg0);
 	 bool isAutoDismissed();
-	 void setAutoDismissed(bool& arg0);
+	 void setAutoDismissed(bool const& arg0);
 	 AndroidCXX::android_view_View getZoomControls();
 };	
 

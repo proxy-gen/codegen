@@ -71,7 +71,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_DragEvent::android_view_DragEvent(const android_view_DragEvent& cc)
 {
 	LOGV("android_view_DragEvent::android_view_DragEvent(const android_view_DragEvent& cc) enter");
@@ -95,9 +94,9 @@ android_view_DragEvent::android_view_DragEvent(const android_view_DragEvent& cc)
 
 	LOGV("android_view_DragEvent::android_view_DragEvent(const android_view_DragEvent& cc) exit");
 }
-android_view_DragEvent::android_view_DragEvent(void * proxy)
+android_view_DragEvent::android_view_DragEvent(Proxy proxy)
 {
-	LOGV("android_view_DragEvent::android_view_DragEvent(void * proxy) enter");
+	LOGV("android_view_DragEvent::android_view_DragEvent(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -107,52 +106,31 @@ android_view_DragEvent::android_view_DragEvent(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_DragEvent::android_view_DragEvent(void * proxy) exit");
+	LOGV("android_view_DragEvent::android_view_DragEvent(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_view_DragEvent::android_view_DragEvent()
-// {
-// 	LOGV("android_view_DragEvent::android_view_DragEvent() enter");	
+Proxy android_view_DragEvent::proxy() const
+{	
+	LOGV("android_view_DragEvent::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/view/DragEvent";
+	long cxxAddress = (long) this;
+	LOGV("android_view_DragEvent cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_DragEvent jni address %d", proxiedComponent);
 
-// 	LOGV("android_view_DragEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_view_DragEvent::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_view_DragEvent cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_view_DragEvent jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_view_DragEvent::android_view_DragEvent() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_view_DragEvent::~android_view_DragEvent()
 {
@@ -164,7 +142,7 @@ android_view_DragEvent::~android_view_DragEvent()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_DragEvent::~android_view_DragEvent() exit");
 }
 // Functions
@@ -180,8 +158,6 @@ AndroidCXX::java_lang_String android_view_DragEvent::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_DragEvent cxx address %d", cxxAddress);
@@ -210,8 +186,6 @@ AndroidCXX::java_lang_String android_view_DragEvent::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_view_DragEvent::toString() exit");
 
 	return result;
@@ -229,8 +203,6 @@ float android_view_DragEvent::getY()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_DragEvent cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -258,8 +230,6 @@ float android_view_DragEvent::getY()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float android_view_DragEvent::getY() exit");
 
 	return result;
@@ -277,8 +247,6 @@ float android_view_DragEvent::getX()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_DragEvent cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -306,8 +274,6 @@ float android_view_DragEvent::getX()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float android_view_DragEvent::getX() exit");
 
 	return result;
@@ -324,8 +290,6 @@ bool android_view_DragEvent::getResult()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_DragEvent cxx address %d", cxxAddress);
@@ -354,8 +318,6 @@ bool android_view_DragEvent::getResult()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_DragEvent::getResult() exit");
 
 	return result;
@@ -372,8 +334,6 @@ int android_view_DragEvent::describeContents()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_DragEvent cxx address %d", cxxAddress);
@@ -402,15 +362,13 @@ int android_view_DragEvent::describeContents()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_DragEvent::describeContents() exit");
 
 	return result;
 }
-void android_view_DragEvent::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_view_DragEvent::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_view_DragEvent::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_view_DragEvent::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -420,8 +378,6 @@ void android_view_DragEvent::writeToParcel(AndroidCXX::android_os_Parcel& arg0,i
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_DragEvent cxx address %d", cxxAddress);
@@ -473,9 +429,7 @@ void android_view_DragEvent::writeToParcel(AndroidCXX::android_os_Parcel& arg0,i
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_DragEvent::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_view_DragEvent::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }
 int android_view_DragEvent::getAction()
@@ -490,8 +444,6 @@ int android_view_DragEvent::getAction()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_DragEvent cxx address %d", cxxAddress);
@@ -520,8 +472,6 @@ int android_view_DragEvent::getAction()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_DragEvent::getAction() exit");
 
 	return result;
@@ -538,8 +488,6 @@ AndroidCXX::android_content_ClipData android_view_DragEvent::getClipData()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_DragEvent cxx address %d", cxxAddress);
@@ -568,8 +516,6 @@ AndroidCXX::android_content_ClipData android_view_DragEvent::getClipData()
 	AndroidCXX::android_content_ClipData result((AndroidCXX::android_content_ClipData) *((AndroidCXX::android_content_ClipData *) cxx_value));
 	delete ((AndroidCXX::android_content_ClipData *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_content_ClipData android_view_DragEvent::getClipData() exit");
 
 	return result;
@@ -586,8 +532,6 @@ AndroidCXX::android_content_ClipDescription android_view_DragEvent::getClipDescr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_DragEvent cxx address %d", cxxAddress);
@@ -616,8 +560,6 @@ AndroidCXX::android_content_ClipDescription android_view_DragEvent::getClipDescr
 	AndroidCXX::android_content_ClipDescription result((AndroidCXX::android_content_ClipDescription) *((AndroidCXX::android_content_ClipDescription *) cxx_value));
 	delete ((AndroidCXX::android_content_ClipDescription *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_content_ClipDescription android_view_DragEvent::getClipDescription() exit");
 
 	return result;
@@ -634,8 +576,6 @@ AndroidCXX::java_lang_Object android_view_DragEvent::getLocalState()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_DragEvent cxx address %d", cxxAddress);
@@ -664,8 +604,6 @@ AndroidCXX::java_lang_Object android_view_DragEvent::getLocalState()
 	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
 	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_Object android_view_DragEvent::getLocalState() exit");
 
 	return result;

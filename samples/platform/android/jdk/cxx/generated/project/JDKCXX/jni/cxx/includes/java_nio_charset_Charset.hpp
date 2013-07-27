@@ -131,31 +131,28 @@ class java_nio_charset_Charset
 public:
 
 	java_nio_charset_Charset(const java_nio_charset_Charset& cc);
-	java_nio_charset_Charset(void * proxy);
+	java_nio_charset_Charset(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_nio_charset_Charset();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_charset_Charset();
 	// Functions
 	 JDKCXX::java_lang_String name();
-	static JDKCXX::java_nio_charset_Charset forName(JDKCXX::java_lang_String& arg0);
-	 bool equals(JDKCXX::java_lang_Object& arg0);
+	static JDKCXX::java_nio_charset_Charset forName(JDKCXX::java_lang_String const& arg0);
+	 bool equals(JDKCXX::java_lang_Object const& arg0);
 	 JDKCXX::java_lang_String toString();
 	 int hashCode();
-	 int compareTo(JDKCXX::java_nio_charset_Charset& arg0);
-	 bool contains(JDKCXX::java_nio_charset_Charset& arg0);
-	 JDKCXX::java_nio_CharBuffer decode(JDKCXX::java_nio_ByteBuffer& arg0);
-	 JDKCXX::java_nio_ByteBuffer encode(JDKCXX::java_nio_CharBuffer& arg0);
-	 JDKCXX::java_nio_ByteBuffer encode(JDKCXX::java_lang_String& arg0);
-	static bool isSupported(JDKCXX::java_lang_String& arg0);
+	 int compareTo(JDKCXX::java_nio_charset_Charset const& arg0);
+	 bool contains(JDKCXX::java_nio_charset_Charset const& arg0);
+	 JDKCXX::java_nio_CharBuffer decode(JDKCXX::java_nio_ByteBuffer const& arg0);
+	 JDKCXX::java_nio_ByteBuffer encode(JDKCXX::java_nio_CharBuffer const& arg0);
+	 JDKCXX::java_nio_ByteBuffer encode(JDKCXX::java_lang_String const& arg0);
+	static bool isSupported(JDKCXX::java_lang_String const& arg0);
 	static JDKCXX::java_nio_charset_Charset defaultCharset();
 	 JDKCXX::java_util_Set aliases();
 	static JDKCXX::java_util_SortedMap availableCharsets();
 	 JDKCXX::java_lang_String displayName();
-	 JDKCXX::java_lang_String displayName(JDKCXX::java_util_Locale& arg0);
+	 JDKCXX::java_lang_String displayName(JDKCXX::java_util_Locale const& arg0);
 	 bool isRegistered();
 	 JDKCXX::java_nio_charset_CharsetDecoder newDecoder();
 	 JDKCXX::java_nio_charset_CharsetEncoder newEncoder();

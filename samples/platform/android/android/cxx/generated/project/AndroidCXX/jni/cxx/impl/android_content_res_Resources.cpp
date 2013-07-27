@@ -281,7 +281,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_content_res_Resources::android_content_res_Resources(const android_content_res_Resources& cc)
 {
 	LOGV("android_content_res_Resources::android_content_res_Resources(const android_content_res_Resources& cc) enter");
@@ -305,9 +304,9 @@ android_content_res_Resources::android_content_res_Resources(const android_conte
 
 	LOGV("android_content_res_Resources::android_content_res_Resources(const android_content_res_Resources& cc) exit");
 }
-android_content_res_Resources::android_content_res_Resources(void * proxy)
+android_content_res_Resources::android_content_res_Resources(Proxy proxy)
 {
-	LOGV("android_content_res_Resources::android_content_res_Resources(void * proxy) enter");
+	LOGV("android_content_res_Resources::android_content_res_Resources(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -317,55 +316,34 @@ android_content_res_Resources::android_content_res_Resources(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_content_res_Resources::android_content_res_Resources(void * proxy) exit");
+	LOGV("android_content_res_Resources::android_content_res_Resources(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_content_res_Resources::android_content_res_Resources()
-// {
-// 	LOGV("android_content_res_Resources::android_content_res_Resources() enter");	
+Proxy android_content_res_Resources::proxy() const
+{	
+	LOGV("android_content_res_Resources::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/content/res/Resources";
+	long cxxAddress = (long) this;
+	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_content_res_Resources jni address %d", proxiedComponent);
 
-// 	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_content_res_Resources::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_content_res_Resources jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_content_res_Resources::android_content_res_Resources() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_content_res_Resources::android_content_res_Resources(AndroidCXX::android_content_res_AssetManager& arg0,AndroidCXX::android_util_DisplayMetrics& arg1,AndroidCXX::android_content_res_Configuration& arg2)
+	return proxy;
+}
+android_content_res_Resources::android_content_res_Resources(AndroidCXX::android_content_res_AssetManager const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1,AndroidCXX::android_content_res_Configuration const& arg2)
 {
-	LOGV("android_content_res_Resources::android_content_res_Resources(AndroidCXX::android_content_res_AssetManager& arg0,AndroidCXX::android_util_DisplayMetrics& arg1,AndroidCXX::android_content_res_Configuration& arg2) enter");	
+	LOGV("android_content_res_Resources::android_content_res_Resources(AndroidCXX::android_content_res_AssetManager const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1,AndroidCXX::android_content_res_Configuration const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/res/AssetManager;Landroid/util/DisplayMetrics;Landroid/content/res/Configuration;)V";
@@ -460,7 +438,7 @@ android_content_res_Resources::android_content_res_Resources(AndroidCXX::android
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_res_Resources::android_content_res_Resources(AndroidCXX::android_content_res_AssetManager& arg0,AndroidCXX::android_util_DisplayMetrics& arg1,AndroidCXX::android_content_res_Configuration& arg2) exit");	
+	LOGV("android_content_res_Resources::android_content_res_Resources(AndroidCXX::android_content_res_AssetManager const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1,AndroidCXX::android_content_res_Configuration const& arg2) exit");	
 }
 // Default Instance Destructor
 android_content_res_Resources::~android_content_res_Resources()
@@ -473,13 +451,13 @@ android_content_res_Resources::~android_content_res_Resources()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_content_res_Resources::~android_content_res_Resources() exit");
 }
 // Functions
-bool android_content_res_Resources::getBoolean(int& arg0)
+bool android_content_res_Resources::getBoolean(int const& arg0)
 {
-	LOGV("bool android_content_res_Resources::getBoolean(int& arg0) enter");
+	LOGV("bool android_content_res_Resources::getBoolean(int const& arg0) enter");
 
 	const char *methodName = "getBoolean";
 	const char *methodSignature = "(I)Z";
@@ -489,8 +467,6 @@ bool android_content_res_Resources::getBoolean(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -540,15 +516,13 @@ bool android_content_res_Resources::getBoolean(int& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_content_res_Resources::getBoolean(int& arg0) exit");
+	LOGV("bool android_content_res_Resources::getBoolean(int const& arg0) exit");
 
 	return result;
 }
-void android_content_res_Resources::getValue(int& arg0,AndroidCXX::android_util_TypedValue& arg1,bool& arg2)
+void android_content_res_Resources::getValue(int const& arg0,AndroidCXX::android_util_TypedValue const& arg1,bool const& arg2)
 {
-	LOGV("void android_content_res_Resources::getValue(int& arg0,AndroidCXX::android_util_TypedValue& arg1,bool& arg2) enter");
+	LOGV("void android_content_res_Resources::getValue(int const& arg0,AndroidCXX::android_util_TypedValue const& arg1,bool const& arg2) enter");
 
 	const char *methodName = "getValue";
 	const char *methodSignature = "(ILandroid/util/TypedValue;Z)V";
@@ -558,8 +532,6 @@ void android_content_res_Resources::getValue(int& arg0,AndroidCXX::android_util_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -632,14 +604,12 @@ void android_content_res_Resources::getValue(int& arg0,AndroidCXX::android_util_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_res_Resources::getValue(int& arg0,AndroidCXX::android_util_TypedValue& arg1,bool& arg2) exit");
+	LOGV("void android_content_res_Resources::getValue(int const& arg0,AndroidCXX::android_util_TypedValue const& arg1,bool const& arg2) exit");
 
 }
-void android_content_res_Resources::getValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_util_TypedValue& arg1,bool& arg2)
+void android_content_res_Resources::getValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_util_TypedValue const& arg1,bool const& arg2)
 {
-	LOGV("void android_content_res_Resources::getValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_util_TypedValue& arg1,bool& arg2) enter");
+	LOGV("void android_content_res_Resources::getValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_util_TypedValue const& arg1,bool const& arg2) enter");
 
 	const char *methodName = "getValue";
 	const char *methodSignature = "(Ljava/lang/String;Landroid/util/TypedValue;Z)V";
@@ -649,8 +619,6 @@ void android_content_res_Resources::getValue(AndroidCXX::java_lang_String& arg0,
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -723,14 +691,12 @@ void android_content_res_Resources::getValue(AndroidCXX::java_lang_String& arg0,
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_res_Resources::getValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_util_TypedValue& arg1,bool& arg2) exit");
+	LOGV("void android_content_res_Resources::getValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_util_TypedValue const& arg1,bool const& arg2) exit");
 
 }
-int android_content_res_Resources::getInteger(int& arg0)
+int android_content_res_Resources::getInteger(int const& arg0)
 {
-	LOGV("int android_content_res_Resources::getInteger(int& arg0) enter");
+	LOGV("int android_content_res_Resources::getInteger(int const& arg0) enter");
 
 	const char *methodName = "getInteger";
 	const char *methodSignature = "(I)I";
@@ -740,8 +706,6 @@ int android_content_res_Resources::getInteger(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -791,15 +755,13 @@ int android_content_res_Resources::getInteger(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_content_res_Resources::getInteger(int& arg0) exit");
+	LOGV("int android_content_res_Resources::getInteger(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_res_Resources::getString(int& arg0)
+AndroidCXX::java_lang_String android_content_res_Resources::getString(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getString(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getString(int const& arg0) enter");
 
 	const char *methodName = "getString";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -809,8 +771,6 @@ AndroidCXX::java_lang_String android_content_res_Resources::getString(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -860,15 +820,13 @@ AndroidCXX::java_lang_String android_content_res_Resources::getString(int& arg0)
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getString(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getString(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_res_Resources::getString(int& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1)
+AndroidCXX::java_lang_String android_content_res_Resources::getString(int const& arg0,std::vector<AndroidCXX::java_lang_Object > const& arg1)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getString(int& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getString(int const& arg0,std::vector<AndroidCXX::java_lang_Object > const& arg1) enter");
 
 	const char *methodName = "getString";
 	const char *methodSignature = "(I[Ljava/lang/Object;)Ljava/lang/String;";
@@ -878,8 +836,6 @@ AndroidCXX::java_lang_String android_content_res_Resources::getString(int& arg0,
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -968,15 +924,13 @@ AndroidCXX::java_lang_String android_content_res_Resources::getString(int& arg0,
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getString(int& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getString(int const& arg0,std::vector<AndroidCXX::java_lang_Object > const& arg1) exit");
 
 	return result;
 }
-int android_content_res_Resources::getIdentifier(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2)
+int android_content_res_Resources::getIdentifier(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2)
 {
-	LOGV("int android_content_res_Resources::getIdentifier(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2) enter");
+	LOGV("int android_content_res_Resources::getIdentifier(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) enter");
 
 	const char *methodName = "getIdentifier";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I";
@@ -986,8 +940,6 @@ int android_content_res_Resources::getIdentifier(AndroidCXX::java_lang_String& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -1079,15 +1031,13 @@ int android_content_res_Resources::getIdentifier(AndroidCXX::java_lang_String& a
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_content_res_Resources::getIdentifier(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2) exit");
+	LOGV("int android_content_res_Resources::getIdentifier(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) exit");
 
 	return result;
 }
-std::vector<AndroidCXX::java_lang_String > android_content_res_Resources::getStringArray(int& arg0)
+std::vector<AndroidCXX::java_lang_String > android_content_res_Resources::getStringArray(int const& arg0)
 {
-	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_res_Resources::getStringArray(int& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_res_Resources::getStringArray(int const& arg0) enter");
 
 	const char *methodName = "getStringArray";
 	const char *methodSignature = "(I)[Ljava/lang/String;";
@@ -1097,8 +1047,6 @@ std::vector<AndroidCXX::java_lang_String > android_content_res_Resources::getStr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -1166,15 +1114,13 @@ std::vector<AndroidCXX::java_lang_String > android_content_res_Resources::getStr
 	std::vector<AndroidCXX::java_lang_String > result = (std::vector<AndroidCXX::java_lang_String >) *((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 	delete ((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_res_Resources::getStringArray(int& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_res_Resources::getStringArray(int const& arg0) exit");
 
 	return result;
 }
-std::vector<int> android_content_res_Resources::getIntArray(int& arg0)
+std::vector<int> android_content_res_Resources::getIntArray(int const& arg0)
 {
-	LOGV("std::vector<int> android_content_res_Resources::getIntArray(int& arg0) enter");
+	LOGV("std::vector<int> android_content_res_Resources::getIntArray(int const& arg0) enter");
 
 	const char *methodName = "getIntArray";
 	const char *methodSignature = "(I)[I";
@@ -1184,8 +1130,6 @@ std::vector<int> android_content_res_Resources::getIntArray(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -1253,15 +1197,13 @@ std::vector<int> android_content_res_Resources::getIntArray(int& arg0)
 	std::vector<int> result = (std::vector<int>) *((std::vector<int> *) cxx_value);
 	delete ((std::vector<int> *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<int> android_content_res_Resources::getIntArray(int& arg0) exit");
+	LOGV("std::vector<int> android_content_res_Resources::getIntArray(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_CharSequence android_content_res_Resources::getText(int& arg0,AndroidCXX::java_lang_CharSequence& arg1)
+AndroidCXX::java_lang_CharSequence android_content_res_Resources::getText(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1)
 {
-	LOGV("AndroidCXX::java_lang_CharSequence android_content_res_Resources::getText(int& arg0,AndroidCXX::java_lang_CharSequence& arg1) enter");
+	LOGV("AndroidCXX::java_lang_CharSequence android_content_res_Resources::getText(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) enter");
 
 	const char *methodName = "getText";
 	const char *methodSignature = "(ILjava/lang/CharSequence;)Ljava/lang/CharSequence;";
@@ -1271,8 +1213,6 @@ AndroidCXX::java_lang_CharSequence android_content_res_Resources::getText(int& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -1343,15 +1283,13 @@ AndroidCXX::java_lang_CharSequence android_content_res_Resources::getText(int& a
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_CharSequence android_content_res_Resources::getText(int& arg0,AndroidCXX::java_lang_CharSequence& arg1) exit");
+	LOGV("AndroidCXX::java_lang_CharSequence android_content_res_Resources::getText(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_CharSequence android_content_res_Resources::getText(int& arg0)
+AndroidCXX::java_lang_CharSequence android_content_res_Resources::getText(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_CharSequence android_content_res_Resources::getText(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_CharSequence android_content_res_Resources::getText(int const& arg0) enter");
 
 	const char *methodName = "getText";
 	const char *methodSignature = "(I)Ljava/lang/CharSequence;";
@@ -1361,8 +1299,6 @@ AndroidCXX::java_lang_CharSequence android_content_res_Resources::getText(int& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -1412,15 +1348,13 @@ AndroidCXX::java_lang_CharSequence android_content_res_Resources::getText(int& a
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_CharSequence android_content_res_Resources::getText(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_CharSequence android_content_res_Resources::getText(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_res_Resources::getResourceName(int& arg0)
+AndroidCXX::java_lang_String android_content_res_Resources::getResourceName(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getResourceName(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getResourceName(int const& arg0) enter");
 
 	const char *methodName = "getResourceName";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -1430,8 +1364,6 @@ AndroidCXX::java_lang_String android_content_res_Resources::getResourceName(int&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -1481,9 +1413,7 @@ AndroidCXX::java_lang_String android_content_res_Resources::getResourceName(int&
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getResourceName(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getResourceName(int const& arg0) exit");
 
 	return result;
 }
@@ -1500,15 +1430,13 @@ AndroidCXX::android_content_res_Resources android_content_res_Resources::getSyst
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_res_Resources jni address %d", javaObject);
 
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1529,15 +1457,13 @@ AndroidCXX::android_content_res_Resources android_content_res_Resources::getSyst
 	AndroidCXX::android_content_res_Resources result((AndroidCXX::android_content_res_Resources) *((AndroidCXX::android_content_res_Resources *) cxx_value));
 	delete ((AndroidCXX::android_content_res_Resources *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_content_res_Resources android_content_res_Resources::getSystem() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_CharSequence android_content_res_Resources::getQuantityText(int& arg0,int& arg1)
+AndroidCXX::java_lang_CharSequence android_content_res_Resources::getQuantityText(int const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::java_lang_CharSequence android_content_res_Resources::getQuantityText(int& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::java_lang_CharSequence android_content_res_Resources::getQuantityText(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getQuantityText";
 	const char *methodSignature = "(II)Ljava/lang/CharSequence;";
@@ -1547,8 +1473,6 @@ AndroidCXX::java_lang_CharSequence android_content_res_Resources::getQuantityTex
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -1619,15 +1543,13 @@ AndroidCXX::java_lang_CharSequence android_content_res_Resources::getQuantityTex
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_CharSequence android_content_res_Resources::getQuantityText(int& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::java_lang_CharSequence android_content_res_Resources::getQuantityText(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(int& arg0,int& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2)
+AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(int const& arg0,int const& arg1,std::vector<AndroidCXX::java_lang_Object > const& arg2)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(int& arg0,int& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(int const& arg0,int const& arg1,std::vector<AndroidCXX::java_lang_Object > const& arg2) enter");
 
 	const char *methodName = "getQuantityString";
 	const char *methodSignature = "(II[Ljava/lang/Object;)Ljava/lang/String;";
@@ -1637,8 +1559,6 @@ AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(in
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -1748,15 +1668,13 @@ AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(in
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(int& arg0,int& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(int const& arg0,int const& arg1,std::vector<AndroidCXX::java_lang_Object > const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(int& arg0,int& arg1)
+AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(int const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(int& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getQuantityString";
 	const char *methodSignature = "(II)Ljava/lang/String;";
@@ -1766,8 +1684,6 @@ AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(in
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -1838,15 +1754,13 @@ AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(in
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(int& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-std::vector<AndroidCXX::java_lang_CharSequence > android_content_res_Resources::getTextArray(int& arg0)
+std::vector<AndroidCXX::java_lang_CharSequence > android_content_res_Resources::getTextArray(int const& arg0)
 {
-	LOGV("std::vector<AndroidCXX::java_lang_CharSequence > android_content_res_Resources::getTextArray(int& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_CharSequence > android_content_res_Resources::getTextArray(int const& arg0) enter");
 
 	const char *methodName = "getTextArray";
 	const char *methodSignature = "(I)[Ljava/lang/CharSequence;";
@@ -1856,8 +1770,6 @@ std::vector<AndroidCXX::java_lang_CharSequence > android_content_res_Resources::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -1925,15 +1837,13 @@ std::vector<AndroidCXX::java_lang_CharSequence > android_content_res_Resources::
 	std::vector<AndroidCXX::java_lang_CharSequence > result = (std::vector<AndroidCXX::java_lang_CharSequence >) *((std::vector<AndroidCXX::java_lang_CharSequence > *) cxx_value);
 	delete ((std::vector<AndroidCXX::java_lang_CharSequence > *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<AndroidCXX::java_lang_CharSequence > android_content_res_Resources::getTextArray(int& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_CharSequence > android_content_res_Resources::getTextArray(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_res_TypedArray android_content_res_Resources::obtainTypedArray(int& arg0)
+AndroidCXX::android_content_res_TypedArray android_content_res_Resources::obtainTypedArray(int const& arg0)
 {
-	LOGV("AndroidCXX::android_content_res_TypedArray android_content_res_Resources::obtainTypedArray(int& arg0) enter");
+	LOGV("AndroidCXX::android_content_res_TypedArray android_content_res_Resources::obtainTypedArray(int const& arg0) enter");
 
 	const char *methodName = "obtainTypedArray";
 	const char *methodSignature = "(I)Landroid/content/res/TypedArray;";
@@ -1943,8 +1853,6 @@ AndroidCXX::android_content_res_TypedArray android_content_res_Resources::obtain
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -1994,15 +1902,13 @@ AndroidCXX::android_content_res_TypedArray android_content_res_Resources::obtain
 	AndroidCXX::android_content_res_TypedArray result((AndroidCXX::android_content_res_TypedArray) *((AndroidCXX::android_content_res_TypedArray *) cxx_value));
 	delete ((AndroidCXX::android_content_res_TypedArray *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_res_TypedArray android_content_res_Resources::obtainTypedArray(int& arg0) exit");
+	LOGV("AndroidCXX::android_content_res_TypedArray android_content_res_Resources::obtainTypedArray(int const& arg0) exit");
 
 	return result;
 }
-float android_content_res_Resources::getDimension(int& arg0)
+float android_content_res_Resources::getDimension(int const& arg0)
 {
-	LOGV("float android_content_res_Resources::getDimension(int& arg0) enter");
+	LOGV("float android_content_res_Resources::getDimension(int const& arg0) enter");
 
 	const char *methodName = "getDimension";
 	const char *methodSignature = "(I)F";
@@ -2012,8 +1918,6 @@ float android_content_res_Resources::getDimension(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -2063,15 +1967,13 @@ float android_content_res_Resources::getDimension(int& arg0)
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("float android_content_res_Resources::getDimension(int& arg0) exit");
+	LOGV("float android_content_res_Resources::getDimension(int const& arg0) exit");
 
 	return result;
 }
-int android_content_res_Resources::getDimensionPixelOffset(int& arg0)
+int android_content_res_Resources::getDimensionPixelOffset(int const& arg0)
 {
-	LOGV("int android_content_res_Resources::getDimensionPixelOffset(int& arg0) enter");
+	LOGV("int android_content_res_Resources::getDimensionPixelOffset(int const& arg0) enter");
 
 	const char *methodName = "getDimensionPixelOffset";
 	const char *methodSignature = "(I)I";
@@ -2082,8 +1984,6 @@ int android_content_res_Resources::getDimensionPixelOffset(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2132,15 +2032,13 @@ int android_content_res_Resources::getDimensionPixelOffset(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_content_res_Resources::getDimensionPixelOffset(int& arg0) exit");
+	LOGV("int android_content_res_Resources::getDimensionPixelOffset(int const& arg0) exit");
 
 	return result;
 }
-int android_content_res_Resources::getDimensionPixelSize(int& arg0)
+int android_content_res_Resources::getDimensionPixelSize(int const& arg0)
 {
-	LOGV("int android_content_res_Resources::getDimensionPixelSize(int& arg0) enter");
+	LOGV("int android_content_res_Resources::getDimensionPixelSize(int const& arg0) enter");
 
 	const char *methodName = "getDimensionPixelSize";
 	const char *methodSignature = "(I)I";
@@ -2151,8 +2049,6 @@ int android_content_res_Resources::getDimensionPixelSize(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2201,15 +2097,13 @@ int android_content_res_Resources::getDimensionPixelSize(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_content_res_Resources::getDimensionPixelSize(int& arg0) exit");
+	LOGV("int android_content_res_Resources::getDimensionPixelSize(int const& arg0) exit");
 
 	return result;
 }
-float android_content_res_Resources::getFraction(int& arg0,int& arg1,int& arg2)
+float android_content_res_Resources::getFraction(int const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("float android_content_res_Resources::getFraction(int& arg0,int& arg1,int& arg2) enter");
+	LOGV("float android_content_res_Resources::getFraction(int const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "getFraction";
 	const char *methodSignature = "(III)F";
@@ -2219,8 +2113,6 @@ float android_content_res_Resources::getFraction(int& arg0,int& arg1,int& arg2)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -2312,15 +2204,13 @@ float android_content_res_Resources::getFraction(int& arg0,int& arg1,int& arg2)
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("float android_content_res_Resources::getFraction(int& arg0,int& arg1,int& arg2) exit");
+	LOGV("float android_content_res_Resources::getFraction(int const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_drawable_Drawable android_content_res_Resources::getDrawable(int& arg0)
+AndroidCXX::android_graphics_drawable_Drawable android_content_res_Resources::getDrawable(int const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_res_Resources::getDrawable(int& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_res_Resources::getDrawable(int const& arg0) enter");
 
 	const char *methodName = "getDrawable";
 	const char *methodSignature = "(I)Landroid/graphics/drawable/Drawable;";
@@ -2330,8 +2220,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_res_Resources::ge
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -2381,15 +2269,13 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_res_Resources::ge
 	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
 	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_res_Resources::getDrawable(int& arg0) exit");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_res_Resources::getDrawable(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_drawable_Drawable android_content_res_Resources::getDrawableForDensity(int& arg0,int& arg1)
+AndroidCXX::android_graphics_drawable_Drawable android_content_res_Resources::getDrawableForDensity(int const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_res_Resources::getDrawableForDensity(int& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_res_Resources::getDrawableForDensity(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getDrawableForDensity";
 	const char *methodSignature = "(II)Landroid/graphics/drawable/Drawable;";
@@ -2399,8 +2285,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_res_Resources::ge
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -2471,15 +2355,13 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_res_Resources::ge
 	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
 	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_res_Resources::getDrawableForDensity(int& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_res_Resources::getDrawableForDensity(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Movie android_content_res_Resources::getMovie(int& arg0)
+AndroidCXX::android_graphics_Movie android_content_res_Resources::getMovie(int const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_Movie android_content_res_Resources::getMovie(int& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_Movie android_content_res_Resources::getMovie(int const& arg0) enter");
 
 	const char *methodName = "getMovie";
 	const char *methodSignature = "(I)Landroid/graphics/Movie;";
@@ -2489,8 +2371,6 @@ AndroidCXX::android_graphics_Movie android_content_res_Resources::getMovie(int& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -2540,15 +2420,13 @@ AndroidCXX::android_graphics_Movie android_content_res_Resources::getMovie(int& 
 	AndroidCXX::android_graphics_Movie result((AndroidCXX::android_graphics_Movie) *((AndroidCXX::android_graphics_Movie *) cxx_value));
 	delete ((AndroidCXX::android_graphics_Movie *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_graphics_Movie android_content_res_Resources::getMovie(int& arg0) exit");
+	LOGV("AndroidCXX::android_graphics_Movie android_content_res_Resources::getMovie(int const& arg0) exit");
 
 	return result;
 }
-int android_content_res_Resources::getColor(int& arg0)
+int android_content_res_Resources::getColor(int const& arg0)
 {
-	LOGV("int android_content_res_Resources::getColor(int& arg0) enter");
+	LOGV("int android_content_res_Resources::getColor(int const& arg0) enter");
 
 	const char *methodName = "getColor";
 	const char *methodSignature = "(I)I";
@@ -2558,8 +2436,6 @@ int android_content_res_Resources::getColor(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -2609,15 +2485,13 @@ int android_content_res_Resources::getColor(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_content_res_Resources::getColor(int& arg0) exit");
+	LOGV("int android_content_res_Resources::getColor(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_res_ColorStateList android_content_res_Resources::getColorStateList(int& arg0)
+AndroidCXX::android_content_res_ColorStateList android_content_res_Resources::getColorStateList(int const& arg0)
 {
-	LOGV("AndroidCXX::android_content_res_ColorStateList android_content_res_Resources::getColorStateList(int& arg0) enter");
+	LOGV("AndroidCXX::android_content_res_ColorStateList android_content_res_Resources::getColorStateList(int const& arg0) enter");
 
 	const char *methodName = "getColorStateList";
 	const char *methodSignature = "(I)Landroid/content/res/ColorStateList;";
@@ -2627,8 +2501,6 @@ AndroidCXX::android_content_res_ColorStateList android_content_res_Resources::ge
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -2678,15 +2550,13 @@ AndroidCXX::android_content_res_ColorStateList android_content_res_Resources::ge
 	AndroidCXX::android_content_res_ColorStateList result((AndroidCXX::android_content_res_ColorStateList) *((AndroidCXX::android_content_res_ColorStateList *) cxx_value));
 	delete ((AndroidCXX::android_content_res_ColorStateList *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_res_ColorStateList android_content_res_Resources::getColorStateList(int& arg0) exit");
+	LOGV("AndroidCXX::android_content_res_ColorStateList android_content_res_Resources::getColorStateList(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources::getLayout(int& arg0)
+AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources::getLayout(int const& arg0)
 {
-	LOGV("AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources::getLayout(int& arg0) enter");
+	LOGV("AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources::getLayout(int const& arg0) enter");
 
 	const char *methodName = "getLayout";
 	const char *methodSignature = "(I)Landroid/content/res/XmlResourceParser;";
@@ -2697,8 +2567,6 @@ AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources:
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2747,15 +2615,13 @@ AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources:
 	AndroidCXX::android_content_res_XmlResourceParser result((AndroidCXX::android_content_res_XmlResourceParser) *((AndroidCXX::android_content_res_XmlResourceParser *) cxx_value));
 	delete ((AndroidCXX::android_content_res_XmlResourceParser *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources::getLayout(int& arg0) exit");
+	LOGV("AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources::getLayout(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources::getAnimation(int& arg0)
+AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources::getAnimation(int const& arg0)
 {
-	LOGV("AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources::getAnimation(int& arg0) enter");
+	LOGV("AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources::getAnimation(int const& arg0) enter");
 
 	const char *methodName = "getAnimation";
 	const char *methodSignature = "(I)Landroid/content/res/XmlResourceParser;";
@@ -2766,8 +2632,6 @@ AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources:
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2816,15 +2680,13 @@ AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources:
 	AndroidCXX::android_content_res_XmlResourceParser result((AndroidCXX::android_content_res_XmlResourceParser) *((AndroidCXX::android_content_res_XmlResourceParser *) cxx_value));
 	delete ((AndroidCXX::android_content_res_XmlResourceParser *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources::getAnimation(int& arg0) exit");
+	LOGV("AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources::getAnimation(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources::getXml(int& arg0)
+AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources::getXml(int const& arg0)
 {
-	LOGV("AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources::getXml(int& arg0) enter");
+	LOGV("AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources::getXml(int const& arg0) enter");
 
 	const char *methodName = "getXml";
 	const char *methodSignature = "(I)Landroid/content/res/XmlResourceParser;";
@@ -2835,8 +2697,6 @@ AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources:
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2885,15 +2745,13 @@ AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources:
 	AndroidCXX::android_content_res_XmlResourceParser result((AndroidCXX::android_content_res_XmlResourceParser) *((AndroidCXX::android_content_res_XmlResourceParser *) cxx_value));
 	delete ((AndroidCXX::android_content_res_XmlResourceParser *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources::getXml(int& arg0) exit");
+	LOGV("AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources::getXml(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_io_InputStream android_content_res_Resources::openRawResource(int& arg0,AndroidCXX::android_util_TypedValue& arg1)
+AndroidCXX::java_io_InputStream android_content_res_Resources::openRawResource(int const& arg0,AndroidCXX::android_util_TypedValue const& arg1)
 {
-	LOGV("AndroidCXX::java_io_InputStream android_content_res_Resources::openRawResource(int& arg0,AndroidCXX::android_util_TypedValue& arg1) enter");
+	LOGV("AndroidCXX::java_io_InputStream android_content_res_Resources::openRawResource(int const& arg0,AndroidCXX::android_util_TypedValue const& arg1) enter");
 
 	const char *methodName = "openRawResource";
 	const char *methodSignature = "(ILandroid/util/TypedValue;)Ljava/io/InputStream;";
@@ -2903,8 +2761,6 @@ AndroidCXX::java_io_InputStream android_content_res_Resources::openRawResource(i
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -2975,15 +2831,13 @@ AndroidCXX::java_io_InputStream android_content_res_Resources::openRawResource(i
 	AndroidCXX::java_io_InputStream result((AndroidCXX::java_io_InputStream) *((AndroidCXX::java_io_InputStream *) cxx_value));
 	delete ((AndroidCXX::java_io_InputStream *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_io_InputStream android_content_res_Resources::openRawResource(int& arg0,AndroidCXX::android_util_TypedValue& arg1) exit");
+	LOGV("AndroidCXX::java_io_InputStream android_content_res_Resources::openRawResource(int const& arg0,AndroidCXX::android_util_TypedValue const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_io_InputStream android_content_res_Resources::openRawResource(int& arg0)
+AndroidCXX::java_io_InputStream android_content_res_Resources::openRawResource(int const& arg0)
 {
-	LOGV("AndroidCXX::java_io_InputStream android_content_res_Resources::openRawResource(int& arg0) enter");
+	LOGV("AndroidCXX::java_io_InputStream android_content_res_Resources::openRawResource(int const& arg0) enter");
 
 	const char *methodName = "openRawResource";
 	const char *methodSignature = "(I)Ljava/io/InputStream;";
@@ -2993,8 +2847,6 @@ AndroidCXX::java_io_InputStream android_content_res_Resources::openRawResource(i
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -3044,15 +2896,13 @@ AndroidCXX::java_io_InputStream android_content_res_Resources::openRawResource(i
 	AndroidCXX::java_io_InputStream result((AndroidCXX::java_io_InputStream) *((AndroidCXX::java_io_InputStream *) cxx_value));
 	delete ((AndroidCXX::java_io_InputStream *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_io_InputStream android_content_res_Resources::openRawResource(int& arg0) exit");
+	LOGV("AndroidCXX::java_io_InputStream android_content_res_Resources::openRawResource(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_res_AssetFileDescriptor android_content_res_Resources::openRawResourceFd(int& arg0)
+AndroidCXX::android_content_res_AssetFileDescriptor android_content_res_Resources::openRawResourceFd(int const& arg0)
 {
-	LOGV("AndroidCXX::android_content_res_AssetFileDescriptor android_content_res_Resources::openRawResourceFd(int& arg0) enter");
+	LOGV("AndroidCXX::android_content_res_AssetFileDescriptor android_content_res_Resources::openRawResourceFd(int const& arg0) enter");
 
 	const char *methodName = "openRawResourceFd";
 	const char *methodSignature = "(I)Landroid/content/res/AssetFileDescriptor;";
@@ -3062,8 +2912,6 @@ AndroidCXX::android_content_res_AssetFileDescriptor android_content_res_Resource
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -3113,15 +2961,13 @@ AndroidCXX::android_content_res_AssetFileDescriptor android_content_res_Resource
 	AndroidCXX::android_content_res_AssetFileDescriptor result((AndroidCXX::android_content_res_AssetFileDescriptor) *((AndroidCXX::android_content_res_AssetFileDescriptor *) cxx_value));
 	delete ((AndroidCXX::android_content_res_AssetFileDescriptor *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_res_AssetFileDescriptor android_content_res_Resources::openRawResourceFd(int& arg0) exit");
+	LOGV("AndroidCXX::android_content_res_AssetFileDescriptor android_content_res_Resources::openRawResourceFd(int const& arg0) exit");
 
 	return result;
 }
-void android_content_res_Resources::getValueForDensity(int& arg0,int& arg1,AndroidCXX::android_util_TypedValue& arg2,bool& arg3)
+void android_content_res_Resources::getValueForDensity(int const& arg0,int const& arg1,AndroidCXX::android_util_TypedValue const& arg2,bool const& arg3)
 {
-	LOGV("void android_content_res_Resources::getValueForDensity(int& arg0,int& arg1,AndroidCXX::android_util_TypedValue& arg2,bool& arg3) enter");
+	LOGV("void android_content_res_Resources::getValueForDensity(int const& arg0,int const& arg1,AndroidCXX::android_util_TypedValue const& arg2,bool const& arg3) enter");
 
 	const char *methodName = "getValueForDensity";
 	const char *methodSignature = "(IILandroid/util/TypedValue;Z)V";
@@ -3131,8 +2977,6 @@ void android_content_res_Resources::getValueForDensity(int& arg0,int& arg1,Andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -3226,9 +3070,7 @@ void android_content_res_Resources::getValueForDensity(int& arg0,int& arg1,Andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_res_Resources::getValueForDensity(int& arg0,int& arg1,AndroidCXX::android_util_TypedValue& arg2,bool& arg3) exit");
+	LOGV("void android_content_res_Resources::getValueForDensity(int const& arg0,int const& arg1,AndroidCXX::android_util_TypedValue const& arg2,bool const& arg3) exit");
 
 }
 AndroidCXX::android_content_res_Resources_Theme android_content_res_Resources::newTheme()
@@ -3243,8 +3085,6 @@ AndroidCXX::android_content_res_Resources_Theme android_content_res_Resources::n
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -3273,15 +3113,13 @@ AndroidCXX::android_content_res_Resources_Theme android_content_res_Resources::n
 	AndroidCXX::android_content_res_Resources_Theme result((AndroidCXX::android_content_res_Resources_Theme) *((AndroidCXX::android_content_res_Resources_Theme *) cxx_value));
 	delete ((AndroidCXX::android_content_res_Resources_Theme *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_content_res_Resources_Theme android_content_res_Resources::newTheme() exit");
 
 	return result;
 }
-AndroidCXX::android_content_res_TypedArray android_content_res_Resources::obtainAttributes(AndroidCXX::android_util_AttributeSet& arg0,std::vector<int>& arg1)
+AndroidCXX::android_content_res_TypedArray android_content_res_Resources::obtainAttributes(AndroidCXX::android_util_AttributeSet const& arg0,std::vector<int> const& arg1)
 {
-	LOGV("AndroidCXX::android_content_res_TypedArray android_content_res_Resources::obtainAttributes(AndroidCXX::android_util_AttributeSet& arg0,std::vector<int>& arg1) enter");
+	LOGV("AndroidCXX::android_content_res_TypedArray android_content_res_Resources::obtainAttributes(AndroidCXX::android_util_AttributeSet const& arg0,std::vector<int> const& arg1) enter");
 
 	const char *methodName = "obtainAttributes";
 	const char *methodSignature = "(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;";
@@ -3291,8 +3129,6 @@ AndroidCXX::android_content_res_TypedArray android_content_res_Resources::obtain
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -3381,15 +3217,13 @@ AndroidCXX::android_content_res_TypedArray android_content_res_Resources::obtain
 	AndroidCXX::android_content_res_TypedArray result((AndroidCXX::android_content_res_TypedArray) *((AndroidCXX::android_content_res_TypedArray *) cxx_value));
 	delete ((AndroidCXX::android_content_res_TypedArray *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_res_TypedArray android_content_res_Resources::obtainAttributes(AndroidCXX::android_util_AttributeSet& arg0,std::vector<int>& arg1) exit");
+	LOGV("AndroidCXX::android_content_res_TypedArray android_content_res_Resources::obtainAttributes(AndroidCXX::android_util_AttributeSet const& arg0,std::vector<int> const& arg1) exit");
 
 	return result;
 }
-void android_content_res_Resources::updateConfiguration(AndroidCXX::android_content_res_Configuration& arg0,AndroidCXX::android_util_DisplayMetrics& arg1)
+void android_content_res_Resources::updateConfiguration(AndroidCXX::android_content_res_Configuration const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1)
 {
-	LOGV("void android_content_res_Resources::updateConfiguration(AndroidCXX::android_content_res_Configuration& arg0,AndroidCXX::android_util_DisplayMetrics& arg1) enter");
+	LOGV("void android_content_res_Resources::updateConfiguration(AndroidCXX::android_content_res_Configuration const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1) enter");
 
 	const char *methodName = "updateConfiguration";
 	const char *methodSignature = "(Landroid/content/res/Configuration;Landroid/util/DisplayMetrics;)V";
@@ -3399,8 +3233,6 @@ void android_content_res_Resources::updateConfiguration(AndroidCXX::android_cont
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -3452,9 +3284,7 @@ void android_content_res_Resources::updateConfiguration(AndroidCXX::android_cont
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_res_Resources::updateConfiguration(AndroidCXX::android_content_res_Configuration& arg0,AndroidCXX::android_util_DisplayMetrics& arg1) exit");
+	LOGV("void android_content_res_Resources::updateConfiguration(AndroidCXX::android_content_res_Configuration const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1) exit");
 
 }
 AndroidCXX::android_util_DisplayMetrics android_content_res_Resources::getDisplayMetrics()
@@ -3469,8 +3299,6 @@ AndroidCXX::android_util_DisplayMetrics android_content_res_Resources::getDispla
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -3499,8 +3327,6 @@ AndroidCXX::android_util_DisplayMetrics android_content_res_Resources::getDispla
 	AndroidCXX::android_util_DisplayMetrics result((AndroidCXX::android_util_DisplayMetrics) *((AndroidCXX::android_util_DisplayMetrics *) cxx_value));
 	delete ((AndroidCXX::android_util_DisplayMetrics *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_util_DisplayMetrics android_content_res_Resources::getDisplayMetrics() exit");
 
 	return result;
@@ -3517,8 +3343,6 @@ AndroidCXX::android_content_res_Configuration android_content_res_Resources::get
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -3547,15 +3371,13 @@ AndroidCXX::android_content_res_Configuration android_content_res_Resources::get
 	AndroidCXX::android_content_res_Configuration result((AndroidCXX::android_content_res_Configuration) *((AndroidCXX::android_content_res_Configuration *) cxx_value));
 	delete ((AndroidCXX::android_content_res_Configuration *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_content_res_Configuration android_content_res_Resources::getConfiguration() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_res_Resources::getResourcePackageName(int& arg0)
+AndroidCXX::java_lang_String android_content_res_Resources::getResourcePackageName(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getResourcePackageName(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getResourcePackageName(int const& arg0) enter");
 
 	const char *methodName = "getResourcePackageName";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -3566,8 +3388,6 @@ AndroidCXX::java_lang_String android_content_res_Resources::getResourcePackageNa
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3616,15 +3436,13 @@ AndroidCXX::java_lang_String android_content_res_Resources::getResourcePackageNa
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getResourcePackageName(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getResourcePackageName(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_res_Resources::getResourceTypeName(int& arg0)
+AndroidCXX::java_lang_String android_content_res_Resources::getResourceTypeName(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getResourceTypeName(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getResourceTypeName(int const& arg0) enter");
 
 	const char *methodName = "getResourceTypeName";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -3635,8 +3453,6 @@ AndroidCXX::java_lang_String android_content_res_Resources::getResourceTypeName(
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3685,15 +3501,13 @@ AndroidCXX::java_lang_String android_content_res_Resources::getResourceTypeName(
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getResourceTypeName(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getResourceTypeName(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_res_Resources::getResourceEntryName(int& arg0)
+AndroidCXX::java_lang_String android_content_res_Resources::getResourceEntryName(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getResourceEntryName(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getResourceEntryName(int const& arg0) enter");
 
 	const char *methodName = "getResourceEntryName";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -3704,8 +3518,6 @@ AndroidCXX::java_lang_String android_content_res_Resources::getResourceEntryName
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3754,15 +3566,13 @@ AndroidCXX::java_lang_String android_content_res_Resources::getResourceEntryName
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getResourceEntryName(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getResourceEntryName(int const& arg0) exit");
 
 	return result;
 }
-void android_content_res_Resources::parseBundleExtras(AndroidCXX::android_content_res_XmlResourceParser& arg0,AndroidCXX::android_os_Bundle& arg1)
+void android_content_res_Resources::parseBundleExtras(AndroidCXX::android_content_res_XmlResourceParser const& arg0,AndroidCXX::android_os_Bundle const& arg1)
 {
-	LOGV("void android_content_res_Resources::parseBundleExtras(AndroidCXX::android_content_res_XmlResourceParser& arg0,AndroidCXX::android_os_Bundle& arg1) enter");
+	LOGV("void android_content_res_Resources::parseBundleExtras(AndroidCXX::android_content_res_XmlResourceParser const& arg0,AndroidCXX::android_os_Bundle const& arg1) enter");
 
 	const char *methodName = "parseBundleExtras";
 	const char *methodSignature = "(Landroid/content/res/XmlResourceParser;Landroid/os/Bundle;)V";
@@ -3772,8 +3582,6 @@ void android_content_res_Resources::parseBundleExtras(AndroidCXX::android_conten
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -3825,14 +3633,12 @@ void android_content_res_Resources::parseBundleExtras(AndroidCXX::android_conten
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_res_Resources::parseBundleExtras(AndroidCXX::android_content_res_XmlResourceParser& arg0,AndroidCXX::android_os_Bundle& arg1) exit");
+	LOGV("void android_content_res_Resources::parseBundleExtras(AndroidCXX::android_content_res_XmlResourceParser const& arg0,AndroidCXX::android_os_Bundle const& arg1) exit");
 
 }
-void android_content_res_Resources::parseBundleExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_util_AttributeSet& arg1,AndroidCXX::android_os_Bundle& arg2)
+void android_content_res_Resources::parseBundleExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,AndroidCXX::android_os_Bundle const& arg2)
 {
-	LOGV("void android_content_res_Resources::parseBundleExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_util_AttributeSet& arg1,AndroidCXX::android_os_Bundle& arg2) enter");
+	LOGV("void android_content_res_Resources::parseBundleExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,AndroidCXX::android_os_Bundle const& arg2) enter");
 
 	const char *methodName = "parseBundleExtra";
 	const char *methodSignature = "(Ljava/lang/String;Landroid/util/AttributeSet;Landroid/os/Bundle;)V";
@@ -3842,8 +3648,6 @@ void android_content_res_Resources::parseBundleExtra(AndroidCXX::java_lang_Strin
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -3916,9 +3720,7 @@ void android_content_res_Resources::parseBundleExtra(AndroidCXX::java_lang_Strin
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_res_Resources::parseBundleExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_util_AttributeSet& arg1,AndroidCXX::android_os_Bundle& arg2) exit");
+	LOGV("void android_content_res_Resources::parseBundleExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,AndroidCXX::android_os_Bundle const& arg2) exit");
 
 }
 AndroidCXX::android_content_res_AssetManager android_content_res_Resources::getAssets()
@@ -3933,8 +3735,6 @@ AndroidCXX::android_content_res_AssetManager android_content_res_Resources::getA
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
@@ -3963,8 +3763,6 @@ AndroidCXX::android_content_res_AssetManager android_content_res_Resources::getA
 	AndroidCXX::android_content_res_AssetManager result((AndroidCXX::android_content_res_AssetManager) *((AndroidCXX::android_content_res_AssetManager *) cxx_value));
 	delete ((AndroidCXX::android_content_res_AssetManager *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_content_res_AssetManager android_content_res_Resources::getAssets() exit");
 
 	return result;
@@ -3982,8 +3780,6 @@ void android_content_res_Resources::flushLayoutCache()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3992,8 +3788,6 @@ void android_content_res_Resources::flushLayoutCache()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_content_res_Resources::flushLayoutCache() exit");
 
 }
@@ -4010,8 +3804,6 @@ void android_content_res_Resources::finishPreloading()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -4020,8 +3812,6 @@ void android_content_res_Resources::finishPreloading()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_content_res_Resources::finishPreloading() exit");
 
 }

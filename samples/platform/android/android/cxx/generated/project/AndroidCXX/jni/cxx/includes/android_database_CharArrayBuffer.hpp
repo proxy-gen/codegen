@@ -48,14 +48,11 @@ class android_database_CharArrayBuffer
 public:
 
 	android_database_CharArrayBuffer(const android_database_CharArrayBuffer& cc);
-	android_database_CharArrayBuffer(void * proxy);
+	android_database_CharArrayBuffer(Proxy proxy);
 	// Public Constructors
-	android_database_CharArrayBuffer(int& arg0);
-	android_database_CharArrayBuffer(std::vector<char>& arg0);
-	// TODO: remove
-	// 
-	// android_database_CharArrayBuffer();
-	// 
+	android_database_CharArrayBuffer(int const& arg0);
+	android_database_CharArrayBuffer(std::vector<char> const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_database_CharArrayBuffer();
 	// Functions

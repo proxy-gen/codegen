@@ -102,18 +102,15 @@ class android_content_ClipData_Item
 public:
 
 	android_content_ClipData_Item(const android_content_ClipData_Item& cc);
-	android_content_ClipData_Item(void * proxy);
+	android_content_ClipData_Item(Proxy proxy);
 	// Public Constructors
-	android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence& arg0);
-	android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::java_lang_String& arg1);
-	android_content_ClipData_Item(AndroidCXX::android_content_Intent& arg0);
-	android_content_ClipData_Item(AndroidCXX::android_net_Uri& arg0);
-	android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_content_Intent& arg1,AndroidCXX::android_net_Uri& arg2);
-	android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_content_Intent& arg2,AndroidCXX::android_net_Uri& arg3);
-	// TODO: remove
-	// 
-	// android_content_ClipData_Item();
-	// 
+	android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence const& arg0);
+	android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::java_lang_String const& arg1);
+	android_content_ClipData_Item(AndroidCXX::android_content_Intent const& arg0);
+	android_content_ClipData_Item(AndroidCXX::android_net_Uri const& arg0);
+	android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_content_Intent const& arg1,AndroidCXX::android_net_Uri const& arg2);
+	android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_content_Intent const& arg2,AndroidCXX::android_net_Uri const& arg3);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ClipData_Item();
 	// Functions
@@ -122,9 +119,9 @@ public:
 	 AndroidCXX::android_content_Intent getIntent();
 	 AndroidCXX::android_net_Uri getUri();
 	 AndroidCXX::java_lang_String getHtmlText();
-	 AndroidCXX::java_lang_CharSequence coerceToText(AndroidCXX::android_content_Context& arg0);
-	 AndroidCXX::java_lang_CharSequence coerceToStyledText(AndroidCXX::android_content_Context& arg0);
-	 AndroidCXX::java_lang_String coerceToHtmlText(AndroidCXX::android_content_Context& arg0);
+	 AndroidCXX::java_lang_CharSequence coerceToText(AndroidCXX::android_content_Context const& arg0);
+	 AndroidCXX::java_lang_CharSequence coerceToStyledText(AndroidCXX::android_content_Context const& arg0);
+	 AndroidCXX::java_lang_String coerceToHtmlText(AndroidCXX::android_content_Context const& arg0);
 };	
 
 } // namespace

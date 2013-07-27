@@ -50,16 +50,13 @@ class com_facebook_widget_WebDialog_2
 public:
 
 	com_facebook_widget_WebDialog_2(const com_facebook_widget_WebDialog_2& cc);
-	com_facebook_widget_WebDialog_2(void * proxy);
+	com_facebook_widget_WebDialog_2(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_widget_WebDialog_2();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog_2();
 	// Functions
-	 void onCancel(AndroidCXX::android_content_DialogInterface& arg0);
+	 void onCancel(AndroidCXX::android_content_DialogInterface const& arg0);
 };	
 
 } // namespace

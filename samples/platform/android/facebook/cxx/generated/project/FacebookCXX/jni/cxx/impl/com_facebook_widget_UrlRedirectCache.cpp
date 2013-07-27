@@ -39,7 +39,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_widget_UrlRedirectCache::com_facebook_widget_UrlRedirectCache(const com_facebook_widget_UrlRedirectCache& cc)
 {
 	LOGV("com_facebook_widget_UrlRedirectCache::com_facebook_widget_UrlRedirectCache(const com_facebook_widget_UrlRedirectCache& cc) enter");
@@ -63,9 +62,9 @@ com_facebook_widget_UrlRedirectCache::com_facebook_widget_UrlRedirectCache(const
 
 	LOGV("com_facebook_widget_UrlRedirectCache::com_facebook_widget_UrlRedirectCache(const com_facebook_widget_UrlRedirectCache& cc) exit");
 }
-com_facebook_widget_UrlRedirectCache::com_facebook_widget_UrlRedirectCache(void * proxy)
+com_facebook_widget_UrlRedirectCache::com_facebook_widget_UrlRedirectCache(Proxy proxy)
 {
-	LOGV("com_facebook_widget_UrlRedirectCache::com_facebook_widget_UrlRedirectCache(void * proxy) enter");
+	LOGV("com_facebook_widget_UrlRedirectCache::com_facebook_widget_UrlRedirectCache(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -75,52 +74,31 @@ com_facebook_widget_UrlRedirectCache::com_facebook_widget_UrlRedirectCache(void 
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_widget_UrlRedirectCache::com_facebook_widget_UrlRedirectCache(void * proxy) exit");
+	LOGV("com_facebook_widget_UrlRedirectCache::com_facebook_widget_UrlRedirectCache(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// com_facebook_widget_UrlRedirectCache::com_facebook_widget_UrlRedirectCache()
-// {
-// 	LOGV("com_facebook_widget_UrlRedirectCache::com_facebook_widget_UrlRedirectCache() enter");	
+Proxy com_facebook_widget_UrlRedirectCache::proxy() const
+{	
+	LOGV("com_facebook_widget_UrlRedirectCache::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "com/facebook/widget/UrlRedirectCache";
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_widget_UrlRedirectCache cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_widget_UrlRedirectCache jni address %d", proxiedComponent);
 
-// 	LOGV("com_facebook_widget_UrlRedirectCache className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("com_facebook_widget_UrlRedirectCache::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("com_facebook_widget_UrlRedirectCache cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("com_facebook_widget_UrlRedirectCache jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("com_facebook_widget_UrlRedirectCache::com_facebook_widget_UrlRedirectCache() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 com_facebook_widget_UrlRedirectCache::~com_facebook_widget_UrlRedirectCache()
 {
@@ -132,7 +110,7 @@ com_facebook_widget_UrlRedirectCache::~com_facebook_widget_UrlRedirectCache()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_widget_UrlRedirectCache::~com_facebook_widget_UrlRedirectCache() exit");
 }
 // Functions

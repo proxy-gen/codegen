@@ -98,27 +98,24 @@ class android_widget_QuickContactBadge
 public:
 
 	android_widget_QuickContactBadge(const android_widget_QuickContactBadge& cc);
-	android_widget_QuickContactBadge(void * proxy);
+	android_widget_QuickContactBadge(Proxy proxy);
 	// Public Constructors
-	android_widget_QuickContactBadge(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_QuickContactBadge(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_QuickContactBadge(AndroidCXX::android_content_Context& arg0);
-	// TODO: remove
-	// 
-	// android_widget_QuickContactBadge();
-	// 
+	android_widget_QuickContactBadge(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_QuickContactBadge(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_QuickContactBadge(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_QuickContactBadge();
 	// Functions
-	 void setMode(int& arg0);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 void onClick(AndroidCXX::android_view_View& arg0);
+	 void setMode(int const& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 void onClick(AndroidCXX::android_view_View const& arg0);
 	 void setImageToDefault();
-	 void assignContactUri(AndroidCXX::android_net_Uri& arg0);
-	 void assignContactFromEmail(AndroidCXX::java_lang_String& arg0,bool& arg1);
-	 void assignContactFromPhone(AndroidCXX::java_lang_String& arg0,bool& arg1);
-	 void setExcludeMimes(std::vector<AndroidCXX::java_lang_String >& arg0);
+	 void assignContactUri(AndroidCXX::android_net_Uri const& arg0);
+	 void assignContactFromEmail(AndroidCXX::java_lang_String const& arg0,bool const& arg1);
+	 void assignContactFromPhone(AndroidCXX::java_lang_String const& arg0,bool const& arg1);
+	 void setExcludeMimes(std::vector<AndroidCXX::java_lang_String > const& arg0);
 };	
 
 } // namespace

@@ -46,12 +46,9 @@ class java_lang_Runnable
 public:
 
 	java_lang_Runnable(const java_lang_Runnable& cc);
-	java_lang_Runnable(void * proxy);
+	java_lang_Runnable(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_lang_Runnable();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Runnable();
 	// Functions

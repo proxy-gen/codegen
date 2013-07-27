@@ -56,12 +56,9 @@ class com_facebook_widget_PickerFragment_SingleSelectionStrategy
 public:
 
 	com_facebook_widget_PickerFragment_SingleSelectionStrategy(const com_facebook_widget_PickerFragment_SingleSelectionStrategy& cc);
-	com_facebook_widget_PickerFragment_SingleSelectionStrategy(void * proxy);
+	com_facebook_widget_PickerFragment_SingleSelectionStrategy(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_widget_PickerFragment_SingleSelectionStrategy();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_SingleSelectionStrategy();
 	// Functions

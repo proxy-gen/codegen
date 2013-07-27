@@ -70,17 +70,16 @@ class java_security_PermissionCollection
 public:
 
 	java_security_PermissionCollection(const java_security_PermissionCollection& cc);
-	java_security_PermissionCollection(void * proxy);
+	java_security_PermissionCollection(Proxy proxy);
 	// Public Constructors
 	java_security_PermissionCollection();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_security_PermissionCollection();
 	// Functions
-	 void add(JDKCXX::java_security_Permission& arg0);
+	 void add(JDKCXX::java_security_Permission const& arg0);
 	 JDKCXX::java_lang_String toString();
-	 bool implies(JDKCXX::java_security_Permission& arg0);
+	 bool implies(JDKCXX::java_security_Permission const& arg0);
 	 void setReadOnly();
 	 JDKCXX::java_util_Enumeration elements();
 	 bool isReadOnly();

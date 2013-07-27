@@ -147,7 +147,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_content_ClipData_Item::android_content_ClipData_Item(const android_content_ClipData_Item& cc)
 {
 	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(const android_content_ClipData_Item& cc) enter");
@@ -171,9 +170,9 @@ android_content_ClipData_Item::android_content_ClipData_Item(const android_conte
 
 	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(const android_content_ClipData_Item& cc) exit");
 }
-android_content_ClipData_Item::android_content_ClipData_Item(void * proxy)
+android_content_ClipData_Item::android_content_ClipData_Item(Proxy proxy)
 {
-	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(void * proxy) enter");
+	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -183,55 +182,34 @@ android_content_ClipData_Item::android_content_ClipData_Item(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(void * proxy) exit");
+	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_content_ClipData_Item::android_content_ClipData_Item()
-// {
-// 	LOGV("android_content_ClipData_Item::android_content_ClipData_Item() enter");	
+Proxy android_content_ClipData_Item::proxy() const
+{	
+	LOGV("android_content_ClipData_Item::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/content/ClipData$Item";
+	long cxxAddress = (long) this;
+	LOGV("android_content_ClipData_Item cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_content_ClipData_Item jni address %d", proxiedComponent);
 
-// 	LOGV("android_content_ClipData_Item className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_content_ClipData_Item::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_content_ClipData_Item cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_content_ClipData_Item jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_content_ClipData_Item::android_content_ClipData_Item() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence& arg0)
+	return proxy;
+}
+android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence& arg0) enter");	
+	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -284,11 +262,11 @@ android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_la
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence& arg0) exit");	
+	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence const& arg0) exit");	
 }
-android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::java_lang_String& arg1)
+android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::java_lang_String& arg1) enter");	
+	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::java_lang_String const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/CharSequence;Ljava/lang/String;)V";
@@ -362,11 +340,11 @@ android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_la
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::java_lang_String& arg1) exit");	
+	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::java_lang_String const& arg1) exit");	
 }
-android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::android_content_Intent& arg0)
+android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::android_content_Intent const& arg0)
 {
-	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::android_content_Intent& arg0) enter");	
+	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::android_content_Intent const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Intent;)V";
@@ -419,11 +397,11 @@ android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::android
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::android_content_Intent& arg0) exit");	
+	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::android_content_Intent const& arg0) exit");	
 }
-android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::android_net_Uri& arg0)
+android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::android_net_Uri const& arg0)
 {
-	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::android_net_Uri& arg0) enter");	
+	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::android_net_Uri const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/net/Uri;)V";
@@ -476,11 +454,11 @@ android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::android
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::android_net_Uri& arg0) exit");	
+	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::android_net_Uri const& arg0) exit");	
 }
-android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_content_Intent& arg1,AndroidCXX::android_net_Uri& arg2)
+android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_content_Intent const& arg1,AndroidCXX::android_net_Uri const& arg2)
 {
-	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_content_Intent& arg1,AndroidCXX::android_net_Uri& arg2) enter");	
+	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_content_Intent const& arg1,AndroidCXX::android_net_Uri const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/CharSequence;Landroid/content/Intent;Landroid/net/Uri;)V";
@@ -575,11 +553,11 @@ android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_la
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_content_Intent& arg1,AndroidCXX::android_net_Uri& arg2) exit");	
+	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_content_Intent const& arg1,AndroidCXX::android_net_Uri const& arg2) exit");	
 }
-android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_content_Intent& arg2,AndroidCXX::android_net_Uri& arg3)
+android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_content_Intent const& arg2,AndroidCXX::android_net_Uri const& arg3)
 {
-	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_content_Intent& arg2,AndroidCXX::android_net_Uri& arg3) enter");	
+	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_content_Intent const& arg2,AndroidCXX::android_net_Uri const& arg3) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/CharSequence;Ljava/lang/String;Landroid/content/Intent;Landroid/net/Uri;)V";
@@ -695,7 +673,7 @@ android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_la
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_content_Intent& arg2,AndroidCXX::android_net_Uri& arg3) exit");	
+	LOGV("android_content_ClipData_Item::android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_content_Intent const& arg2,AndroidCXX::android_net_Uri const& arg3) exit");	
 }
 // Default Instance Destructor
 android_content_ClipData_Item::~android_content_ClipData_Item()
@@ -708,7 +686,7 @@ android_content_ClipData_Item::~android_content_ClipData_Item()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_content_ClipData_Item::~android_content_ClipData_Item() exit");
 }
 // Functions
@@ -724,8 +702,6 @@ AndroidCXX::java_lang_String android_content_ClipData_Item::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ClipData_Item cxx address %d", cxxAddress);
@@ -754,8 +730,6 @@ AndroidCXX::java_lang_String android_content_ClipData_Item::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_content_ClipData_Item::toString() exit");
 
 	return result;
@@ -772,8 +746,6 @@ AndroidCXX::java_lang_CharSequence android_content_ClipData_Item::getText()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ClipData_Item cxx address %d", cxxAddress);
@@ -802,8 +774,6 @@ AndroidCXX::java_lang_CharSequence android_content_ClipData_Item::getText()
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_content_ClipData_Item::getText() exit");
 
 	return result;
@@ -820,8 +790,6 @@ AndroidCXX::android_content_Intent android_content_ClipData_Item::getIntent()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ClipData_Item cxx address %d", cxxAddress);
@@ -850,8 +818,6 @@ AndroidCXX::android_content_Intent android_content_ClipData_Item::getIntent()
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_content_Intent android_content_ClipData_Item::getIntent() exit");
 
 	return result;
@@ -868,8 +834,6 @@ AndroidCXX::android_net_Uri android_content_ClipData_Item::getUri()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ClipData_Item cxx address %d", cxxAddress);
@@ -898,8 +862,6 @@ AndroidCXX::android_net_Uri android_content_ClipData_Item::getUri()
 	AndroidCXX::android_net_Uri result((AndroidCXX::android_net_Uri) *((AndroidCXX::android_net_Uri *) cxx_value));
 	delete ((AndroidCXX::android_net_Uri *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_net_Uri android_content_ClipData_Item::getUri() exit");
 
 	return result;
@@ -916,8 +878,6 @@ AndroidCXX::java_lang_String android_content_ClipData_Item::getHtmlText()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ClipData_Item cxx address %d", cxxAddress);
@@ -946,15 +906,13 @@ AndroidCXX::java_lang_String android_content_ClipData_Item::getHtmlText()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_content_ClipData_Item::getHtmlText() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_CharSequence android_content_ClipData_Item::coerceToText(AndroidCXX::android_content_Context& arg0)
+AndroidCXX::java_lang_CharSequence android_content_ClipData_Item::coerceToText(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_CharSequence android_content_ClipData_Item::coerceToText(AndroidCXX::android_content_Context& arg0) enter");
+	LOGV("AndroidCXX::java_lang_CharSequence android_content_ClipData_Item::coerceToText(AndroidCXX::android_content_Context const& arg0) enter");
 
 	const char *methodName = "coerceToText";
 	const char *methodSignature = "(Landroid/content/Context;)Ljava/lang/CharSequence;";
@@ -965,8 +923,6 @@ AndroidCXX::java_lang_CharSequence android_content_ClipData_Item::coerceToText(A
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_ClipData_Item cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1015,15 +971,13 @@ AndroidCXX::java_lang_CharSequence android_content_ClipData_Item::coerceToText(A
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_CharSequence android_content_ClipData_Item::coerceToText(AndroidCXX::android_content_Context& arg0) exit");
+	LOGV("AndroidCXX::java_lang_CharSequence android_content_ClipData_Item::coerceToText(AndroidCXX::android_content_Context const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_CharSequence android_content_ClipData_Item::coerceToStyledText(AndroidCXX::android_content_Context& arg0)
+AndroidCXX::java_lang_CharSequence android_content_ClipData_Item::coerceToStyledText(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_CharSequence android_content_ClipData_Item::coerceToStyledText(AndroidCXX::android_content_Context& arg0) enter");
+	LOGV("AndroidCXX::java_lang_CharSequence android_content_ClipData_Item::coerceToStyledText(AndroidCXX::android_content_Context const& arg0) enter");
 
 	const char *methodName = "coerceToStyledText";
 	const char *methodSignature = "(Landroid/content/Context;)Ljava/lang/CharSequence;";
@@ -1034,8 +988,6 @@ AndroidCXX::java_lang_CharSequence android_content_ClipData_Item::coerceToStyled
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_ClipData_Item cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1084,15 +1036,13 @@ AndroidCXX::java_lang_CharSequence android_content_ClipData_Item::coerceToStyled
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_CharSequence android_content_ClipData_Item::coerceToStyledText(AndroidCXX::android_content_Context& arg0) exit");
+	LOGV("AndroidCXX::java_lang_CharSequence android_content_ClipData_Item::coerceToStyledText(AndroidCXX::android_content_Context const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_ClipData_Item::coerceToHtmlText(AndroidCXX::android_content_Context& arg0)
+AndroidCXX::java_lang_String android_content_ClipData_Item::coerceToHtmlText(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_ClipData_Item::coerceToHtmlText(AndroidCXX::android_content_Context& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_ClipData_Item::coerceToHtmlText(AndroidCXX::android_content_Context const& arg0) enter");
 
 	const char *methodName = "coerceToHtmlText";
 	const char *methodSignature = "(Landroid/content/Context;)Ljava/lang/String;";
@@ -1102,8 +1052,6 @@ AndroidCXX::java_lang_String android_content_ClipData_Item::coerceToHtmlText(And
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ClipData_Item cxx address %d", cxxAddress);
@@ -1153,9 +1101,7 @@ AndroidCXX::java_lang_String android_content_ClipData_Item::coerceToHtmlText(And
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_content_ClipData_Item::coerceToHtmlText(AndroidCXX::android_content_Context& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_ClipData_Item::coerceToHtmlText(AndroidCXX::android_content_Context const& arg0) exit");
 
 	return result;
 }

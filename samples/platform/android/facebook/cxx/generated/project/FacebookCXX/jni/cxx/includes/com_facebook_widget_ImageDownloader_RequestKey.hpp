@@ -51,16 +51,13 @@ class com_facebook_widget_ImageDownloader_RequestKey
 public:
 
 	com_facebook_widget_ImageDownloader_RequestKey(const com_facebook_widget_ImageDownloader_RequestKey& cc);
-	com_facebook_widget_ImageDownloader_RequestKey(void * proxy);
+	com_facebook_widget_ImageDownloader_RequestKey(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_widget_ImageDownloader_RequestKey();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageDownloader_RequestKey();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 int hashCode();
 };	
 

@@ -39,7 +39,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_SearchView_OnCloseListener::android_widget_SearchView_OnCloseListener(const android_widget_SearchView_OnCloseListener& cc)
 {
 	LOGV("android_widget_SearchView_OnCloseListener::android_widget_SearchView_OnCloseListener(const android_widget_SearchView_OnCloseListener& cc) enter");
@@ -63,9 +62,9 @@ android_widget_SearchView_OnCloseListener::android_widget_SearchView_OnCloseList
 
 	LOGV("android_widget_SearchView_OnCloseListener::android_widget_SearchView_OnCloseListener(const android_widget_SearchView_OnCloseListener& cc) exit");
 }
-android_widget_SearchView_OnCloseListener::android_widget_SearchView_OnCloseListener(void * proxy)
+android_widget_SearchView_OnCloseListener::android_widget_SearchView_OnCloseListener(Proxy proxy)
 {
-	LOGV("android_widget_SearchView_OnCloseListener::android_widget_SearchView_OnCloseListener(void * proxy) enter");
+	LOGV("android_widget_SearchView_OnCloseListener::android_widget_SearchView_OnCloseListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -75,52 +74,31 @@ android_widget_SearchView_OnCloseListener::android_widget_SearchView_OnCloseList
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_SearchView_OnCloseListener::android_widget_SearchView_OnCloseListener(void * proxy) exit");
+	LOGV("android_widget_SearchView_OnCloseListener::android_widget_SearchView_OnCloseListener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_SearchView_OnCloseListener::android_widget_SearchView_OnCloseListener()
-// {
-// 	LOGV("android_widget_SearchView_OnCloseListener::android_widget_SearchView_OnCloseListener() enter");	
+Proxy android_widget_SearchView_OnCloseListener::proxy() const
+{	
+	LOGV("android_widget_SearchView_OnCloseListener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/SearchView$OnCloseListener";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_SearchView_OnCloseListener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_SearchView_OnCloseListener jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_SearchView_OnCloseListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_SearchView_OnCloseListener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_SearchView_OnCloseListener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_SearchView_OnCloseListener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_SearchView_OnCloseListener::android_widget_SearchView_OnCloseListener() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_widget_SearchView_OnCloseListener::~android_widget_SearchView_OnCloseListener()
 {
@@ -132,7 +110,7 @@ android_widget_SearchView_OnCloseListener::~android_widget_SearchView_OnCloseLis
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_SearchView_OnCloseListener::~android_widget_SearchView_OnCloseListener() exit");
 }
 // Functions
@@ -148,8 +126,6 @@ bool android_widget_SearchView_OnCloseListener::onClose()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView_OnCloseListener cxx address %d", cxxAddress);
@@ -178,8 +154,6 @@ bool android_widget_SearchView_OnCloseListener::onClose()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_SearchView_OnCloseListener::onClose() exit");
 
 	return result;

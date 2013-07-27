@@ -99,7 +99,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_ExpandableListAdapter::android_widget_ExpandableListAdapter(const android_widget_ExpandableListAdapter& cc)
 {
 	LOGV("android_widget_ExpandableListAdapter::android_widget_ExpandableListAdapter(const android_widget_ExpandableListAdapter& cc) enter");
@@ -123,9 +122,9 @@ android_widget_ExpandableListAdapter::android_widget_ExpandableListAdapter(const
 
 	LOGV("android_widget_ExpandableListAdapter::android_widget_ExpandableListAdapter(const android_widget_ExpandableListAdapter& cc) exit");
 }
-android_widget_ExpandableListAdapter::android_widget_ExpandableListAdapter(void * proxy)
+android_widget_ExpandableListAdapter::android_widget_ExpandableListAdapter(Proxy proxy)
 {
-	LOGV("android_widget_ExpandableListAdapter::android_widget_ExpandableListAdapter(void * proxy) enter");
+	LOGV("android_widget_ExpandableListAdapter::android_widget_ExpandableListAdapter(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -135,52 +134,31 @@ android_widget_ExpandableListAdapter::android_widget_ExpandableListAdapter(void 
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_ExpandableListAdapter::android_widget_ExpandableListAdapter(void * proxy) exit");
+	LOGV("android_widget_ExpandableListAdapter::android_widget_ExpandableListAdapter(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_ExpandableListAdapter::android_widget_ExpandableListAdapter()
-// {
-// 	LOGV("android_widget_ExpandableListAdapter::android_widget_ExpandableListAdapter() enter");	
+Proxy android_widget_ExpandableListAdapter::proxy() const
+{	
+	LOGV("android_widget_ExpandableListAdapter::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/ExpandableListAdapter";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_ExpandableListAdapter cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_ExpandableListAdapter jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_ExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_ExpandableListAdapter::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_ExpandableListAdapter cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_ExpandableListAdapter jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_ExpandableListAdapter::android_widget_ExpandableListAdapter() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_widget_ExpandableListAdapter::~android_widget_ExpandableListAdapter()
 {
@@ -192,7 +170,7 @@ android_widget_ExpandableListAdapter::~android_widget_ExpandableListAdapter()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_ExpandableListAdapter::~android_widget_ExpandableListAdapter() exit");
 }
 // Functions
@@ -208,8 +186,6 @@ bool android_widget_ExpandableListAdapter::isEmpty()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ExpandableListAdapter cxx address %d", cxxAddress);
@@ -238,15 +214,13 @@ bool android_widget_ExpandableListAdapter::isEmpty()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_ExpandableListAdapter::isEmpty() exit");
 
 	return result;
 }
-long android_widget_ExpandableListAdapter::getGroupId(int& arg0)
+long android_widget_ExpandableListAdapter::getGroupId(int const& arg0)
 {
-	LOGV("long android_widget_ExpandableListAdapter::getGroupId(int& arg0) enter");
+	LOGV("long android_widget_ExpandableListAdapter::getGroupId(int const& arg0) enter");
 
 	const char *methodName = "getGroupId";
 	const char *methodSignature = "(I)J";
@@ -256,8 +230,6 @@ long android_widget_ExpandableListAdapter::getGroupId(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ExpandableListAdapter cxx address %d", cxxAddress);
@@ -307,15 +279,13 @@ long android_widget_ExpandableListAdapter::getGroupId(int& arg0)
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long android_widget_ExpandableListAdapter::getGroupId(int& arg0) exit");
+	LOGV("long android_widget_ExpandableListAdapter::getGroupId(int const& arg0) exit");
 
 	return result;
 }
-void android_widget_ExpandableListAdapter::registerDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0)
+void android_widget_ExpandableListAdapter::registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0)
 {
-	LOGV("void android_widget_ExpandableListAdapter::registerDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0) enter");
+	LOGV("void android_widget_ExpandableListAdapter::registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) enter");
 
 	const char *methodName = "registerDataSetObserver";
 	const char *methodSignature = "(Landroid/database/DataSetObserver;)V";
@@ -326,8 +296,6 @@ void android_widget_ExpandableListAdapter::registerDataSetObserver(AndroidCXX::a
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ExpandableListAdapter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -357,14 +325,12 @@ void android_widget_ExpandableListAdapter::registerDataSetObserver(AndroidCXX::a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ExpandableListAdapter::registerDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0) exit");
+	LOGV("void android_widget_ExpandableListAdapter::registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) exit");
 
 }
-void android_widget_ExpandableListAdapter::unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0)
+void android_widget_ExpandableListAdapter::unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0)
 {
-	LOGV("void android_widget_ExpandableListAdapter::unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0) enter");
+	LOGV("void android_widget_ExpandableListAdapter::unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) enter");
 
 	const char *methodName = "unregisterDataSetObserver";
 	const char *methodSignature = "(Landroid/database/DataSetObserver;)V";
@@ -375,8 +341,6 @@ void android_widget_ExpandableListAdapter::unregisterDataSetObserver(AndroidCXX:
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ExpandableListAdapter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -406,14 +370,12 @@ void android_widget_ExpandableListAdapter::unregisterDataSetObserver(AndroidCXX:
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ExpandableListAdapter::unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0) exit");
+	LOGV("void android_widget_ExpandableListAdapter::unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) exit");
 
 }
-AndroidCXX::java_lang_Object android_widget_ExpandableListAdapter::getChild(int& arg0,int& arg1)
+AndroidCXX::java_lang_Object android_widget_ExpandableListAdapter::getChild(int const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::java_lang_Object android_widget_ExpandableListAdapter::getChild(int& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::java_lang_Object android_widget_ExpandableListAdapter::getChild(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getChild";
 	const char *methodSignature = "(II)Ljava/lang/Object;";
@@ -423,8 +385,6 @@ AndroidCXX::java_lang_Object android_widget_ExpandableListAdapter::getChild(int&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ExpandableListAdapter cxx address %d", cxxAddress);
@@ -495,9 +455,7 @@ AndroidCXX::java_lang_Object android_widget_ExpandableListAdapter::getChild(int&
 	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
 	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_Object android_widget_ExpandableListAdapter::getChild(int& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::java_lang_Object android_widget_ExpandableListAdapter::getChild(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
@@ -513,8 +471,6 @@ bool android_widget_ExpandableListAdapter::hasStableIds()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ExpandableListAdapter cxx address %d", cxxAddress);
@@ -543,8 +499,6 @@ bool android_widget_ExpandableListAdapter::hasStableIds()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_ExpandableListAdapter::hasStableIds() exit");
 
 	return result;
@@ -562,8 +516,6 @@ bool android_widget_ExpandableListAdapter::areAllItemsEnabled()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ExpandableListAdapter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -591,8 +543,6 @@ bool android_widget_ExpandableListAdapter::areAllItemsEnabled()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_ExpandableListAdapter::areAllItemsEnabled() exit");
 
 	return result;
@@ -609,8 +559,6 @@ int android_widget_ExpandableListAdapter::getGroupCount()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ExpandableListAdapter cxx address %d", cxxAddress);
@@ -639,15 +587,13 @@ int android_widget_ExpandableListAdapter::getGroupCount()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_ExpandableListAdapter::getGroupCount() exit");
 
 	return result;
 }
-int android_widget_ExpandableListAdapter::getChildrenCount(int& arg0)
+int android_widget_ExpandableListAdapter::getChildrenCount(int const& arg0)
 {
-	LOGV("int android_widget_ExpandableListAdapter::getChildrenCount(int& arg0) enter");
+	LOGV("int android_widget_ExpandableListAdapter::getChildrenCount(int const& arg0) enter");
 
 	const char *methodName = "getChildrenCount";
 	const char *methodSignature = "(I)I";
@@ -657,8 +603,6 @@ int android_widget_ExpandableListAdapter::getChildrenCount(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ExpandableListAdapter cxx address %d", cxxAddress);
@@ -708,15 +652,13 @@ int android_widget_ExpandableListAdapter::getChildrenCount(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_widget_ExpandableListAdapter::getChildrenCount(int& arg0) exit");
+	LOGV("int android_widget_ExpandableListAdapter::getChildrenCount(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_Object android_widget_ExpandableListAdapter::getGroup(int& arg0)
+AndroidCXX::java_lang_Object android_widget_ExpandableListAdapter::getGroup(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Object android_widget_ExpandableListAdapter::getGroup(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Object android_widget_ExpandableListAdapter::getGroup(int const& arg0) enter");
 
 	const char *methodName = "getGroup";
 	const char *methodSignature = "(I)Ljava/lang/Object;";
@@ -726,8 +668,6 @@ AndroidCXX::java_lang_Object android_widget_ExpandableListAdapter::getGroup(int&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ExpandableListAdapter cxx address %d", cxxAddress);
@@ -777,15 +717,13 @@ AndroidCXX::java_lang_Object android_widget_ExpandableListAdapter::getGroup(int&
 	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
 	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_Object android_widget_ExpandableListAdapter::getGroup(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_Object android_widget_ExpandableListAdapter::getGroup(int const& arg0) exit");
 
 	return result;
 }
-long android_widget_ExpandableListAdapter::getChildId(int& arg0,int& arg1)
+long android_widget_ExpandableListAdapter::getChildId(int const& arg0,int const& arg1)
 {
-	LOGV("long android_widget_ExpandableListAdapter::getChildId(int& arg0,int& arg1) enter");
+	LOGV("long android_widget_ExpandableListAdapter::getChildId(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getChildId";
 	const char *methodSignature = "(II)J";
@@ -795,8 +733,6 @@ long android_widget_ExpandableListAdapter::getChildId(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ExpandableListAdapter cxx address %d", cxxAddress);
@@ -867,15 +803,13 @@ long android_widget_ExpandableListAdapter::getChildId(int& arg0,int& arg1)
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long android_widget_ExpandableListAdapter::getChildId(int& arg0,int& arg1) exit");
+	LOGV("long android_widget_ExpandableListAdapter::getChildId(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_view_View android_widget_ExpandableListAdapter::getGroupView(int& arg0,bool& arg1,AndroidCXX::android_view_View& arg2,AndroidCXX::android_view_ViewGroup& arg3)
+AndroidCXX::android_view_View android_widget_ExpandableListAdapter::getGroupView(int const& arg0,bool const& arg1,AndroidCXX::android_view_View const& arg2,AndroidCXX::android_view_ViewGroup const& arg3)
 {
-	LOGV("AndroidCXX::android_view_View android_widget_ExpandableListAdapter::getGroupView(int& arg0,bool& arg1,AndroidCXX::android_view_View& arg2,AndroidCXX::android_view_ViewGroup& arg3) enter");
+	LOGV("AndroidCXX::android_view_View android_widget_ExpandableListAdapter::getGroupView(int const& arg0,bool const& arg1,AndroidCXX::android_view_View const& arg2,AndroidCXX::android_view_ViewGroup const& arg3) enter");
 
 	const char *methodName = "getGroupView";
 	const char *methodSignature = "(IZLandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;";
@@ -885,8 +819,6 @@ AndroidCXX::android_view_View android_widget_ExpandableListAdapter::getGroupView
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ExpandableListAdapter cxx address %d", cxxAddress);
@@ -999,15 +931,13 @@ AndroidCXX::android_view_View android_widget_ExpandableListAdapter::getGroupView
 	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
 	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_View android_widget_ExpandableListAdapter::getGroupView(int& arg0,bool& arg1,AndroidCXX::android_view_View& arg2,AndroidCXX::android_view_ViewGroup& arg3) exit");
+	LOGV("AndroidCXX::android_view_View android_widget_ExpandableListAdapter::getGroupView(int const& arg0,bool const& arg1,AndroidCXX::android_view_View const& arg2,AndroidCXX::android_view_ViewGroup const& arg3) exit");
 
 	return result;
 }
-AndroidCXX::android_view_View android_widget_ExpandableListAdapter::getChildView(int& arg0,int& arg1,bool& arg2,AndroidCXX::android_view_View& arg3,AndroidCXX::android_view_ViewGroup& arg4)
+AndroidCXX::android_view_View android_widget_ExpandableListAdapter::getChildView(int const& arg0,int const& arg1,bool const& arg2,AndroidCXX::android_view_View const& arg3,AndroidCXX::android_view_ViewGroup const& arg4)
 {
-	LOGV("AndroidCXX::android_view_View android_widget_ExpandableListAdapter::getChildView(int& arg0,int& arg1,bool& arg2,AndroidCXX::android_view_View& arg3,AndroidCXX::android_view_ViewGroup& arg4) enter");
+	LOGV("AndroidCXX::android_view_View android_widget_ExpandableListAdapter::getChildView(int const& arg0,int const& arg1,bool const& arg2,AndroidCXX::android_view_View const& arg3,AndroidCXX::android_view_ViewGroup const& arg4) enter");
 
 	const char *methodName = "getChildView";
 	const char *methodSignature = "(IIZLandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;";
@@ -1017,8 +947,6 @@ AndroidCXX::android_view_View android_widget_ExpandableListAdapter::getChildView
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ExpandableListAdapter cxx address %d", cxxAddress);
@@ -1152,15 +1080,13 @@ AndroidCXX::android_view_View android_widget_ExpandableListAdapter::getChildView
 	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
 	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_View android_widget_ExpandableListAdapter::getChildView(int& arg0,int& arg1,bool& arg2,AndroidCXX::android_view_View& arg3,AndroidCXX::android_view_ViewGroup& arg4) exit");
+	LOGV("AndroidCXX::android_view_View android_widget_ExpandableListAdapter::getChildView(int const& arg0,int const& arg1,bool const& arg2,AndroidCXX::android_view_View const& arg3,AndroidCXX::android_view_ViewGroup const& arg4) exit");
 
 	return result;
 }
-bool android_widget_ExpandableListAdapter::isChildSelectable(int& arg0,int& arg1)
+bool android_widget_ExpandableListAdapter::isChildSelectable(int const& arg0,int const& arg1)
 {
-	LOGV("bool android_widget_ExpandableListAdapter::isChildSelectable(int& arg0,int& arg1) enter");
+	LOGV("bool android_widget_ExpandableListAdapter::isChildSelectable(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "isChildSelectable";
 	const char *methodSignature = "(II)Z";
@@ -1170,8 +1096,6 @@ bool android_widget_ExpandableListAdapter::isChildSelectable(int& arg0,int& arg1
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ExpandableListAdapter cxx address %d", cxxAddress);
@@ -1242,15 +1166,13 @@ bool android_widget_ExpandableListAdapter::isChildSelectable(int& arg0,int& arg1
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_ExpandableListAdapter::isChildSelectable(int& arg0,int& arg1) exit");
+	LOGV("bool android_widget_ExpandableListAdapter::isChildSelectable(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-void android_widget_ExpandableListAdapter::onGroupExpanded(int& arg0)
+void android_widget_ExpandableListAdapter::onGroupExpanded(int const& arg0)
 {
-	LOGV("void android_widget_ExpandableListAdapter::onGroupExpanded(int& arg0) enter");
+	LOGV("void android_widget_ExpandableListAdapter::onGroupExpanded(int const& arg0) enter");
 
 	const char *methodName = "onGroupExpanded";
 	const char *methodSignature = "(I)V";
@@ -1261,8 +1183,6 @@ void android_widget_ExpandableListAdapter::onGroupExpanded(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ExpandableListAdapter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1292,14 +1212,12 @@ void android_widget_ExpandableListAdapter::onGroupExpanded(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ExpandableListAdapter::onGroupExpanded(int& arg0) exit");
+	LOGV("void android_widget_ExpandableListAdapter::onGroupExpanded(int const& arg0) exit");
 
 }
-void android_widget_ExpandableListAdapter::onGroupCollapsed(int& arg0)
+void android_widget_ExpandableListAdapter::onGroupCollapsed(int const& arg0)
 {
-	LOGV("void android_widget_ExpandableListAdapter::onGroupCollapsed(int& arg0) enter");
+	LOGV("void android_widget_ExpandableListAdapter::onGroupCollapsed(int const& arg0) enter");
 
 	const char *methodName = "onGroupCollapsed";
 	const char *methodSignature = "(I)V";
@@ -1310,8 +1228,6 @@ void android_widget_ExpandableListAdapter::onGroupCollapsed(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ExpandableListAdapter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1341,14 +1257,12 @@ void android_widget_ExpandableListAdapter::onGroupCollapsed(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ExpandableListAdapter::onGroupCollapsed(int& arg0) exit");
+	LOGV("void android_widget_ExpandableListAdapter::onGroupCollapsed(int const& arg0) exit");
 
 }
-long android_widget_ExpandableListAdapter::getCombinedChildId(long& arg0,long& arg1)
+long android_widget_ExpandableListAdapter::getCombinedChildId(long const& arg0,long const& arg1)
 {
-	LOGV("long android_widget_ExpandableListAdapter::getCombinedChildId(long& arg0,long& arg1) enter");
+	LOGV("long android_widget_ExpandableListAdapter::getCombinedChildId(long const& arg0,long const& arg1) enter");
 
 	const char *methodName = "getCombinedChildId";
 	const char *methodSignature = "(JJ)J";
@@ -1358,8 +1272,6 @@ long android_widget_ExpandableListAdapter::getCombinedChildId(long& arg0,long& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ExpandableListAdapter cxx address %d", cxxAddress);
@@ -1430,15 +1342,13 @@ long android_widget_ExpandableListAdapter::getCombinedChildId(long& arg0,long& a
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long android_widget_ExpandableListAdapter::getCombinedChildId(long& arg0,long& arg1) exit");
+	LOGV("long android_widget_ExpandableListAdapter::getCombinedChildId(long const& arg0,long const& arg1) exit");
 
 	return result;
 }
-long android_widget_ExpandableListAdapter::getCombinedGroupId(long& arg0)
+long android_widget_ExpandableListAdapter::getCombinedGroupId(long const& arg0)
 {
-	LOGV("long android_widget_ExpandableListAdapter::getCombinedGroupId(long& arg0) enter");
+	LOGV("long android_widget_ExpandableListAdapter::getCombinedGroupId(long const& arg0) enter");
 
 	const char *methodName = "getCombinedGroupId";
 	const char *methodSignature = "(J)J";
@@ -1448,8 +1358,6 @@ long android_widget_ExpandableListAdapter::getCombinedGroupId(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ExpandableListAdapter cxx address %d", cxxAddress);
@@ -1499,9 +1407,7 @@ long android_widget_ExpandableListAdapter::getCombinedGroupId(long& arg0)
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long android_widget_ExpandableListAdapter::getCombinedGroupId(long& arg0) exit");
+	LOGV("long android_widget_ExpandableListAdapter::getCombinedGroupId(long const& arg0) exit");
 
 	return result;
 }

@@ -56,16 +56,13 @@ class java_net_URLStreamHandlerFactory
 public:
 
 	java_net_URLStreamHandlerFactory(const java_net_URLStreamHandlerFactory& cc);
-	java_net_URLStreamHandlerFactory(void * proxy);
+	java_net_URLStreamHandlerFactory(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_net_URLStreamHandlerFactory();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_URLStreamHandlerFactory();
 	// Functions
-	 JDKCXX::java_net_URLStreamHandler createURLStreamHandler(JDKCXX::java_lang_String& arg0);
+	 JDKCXX::java_net_URLStreamHandler createURLStreamHandler(JDKCXX::java_lang_String const& arg0);
 };	
 
 } // namespace

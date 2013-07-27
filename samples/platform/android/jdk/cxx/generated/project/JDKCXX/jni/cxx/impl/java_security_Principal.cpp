@@ -57,7 +57,6 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_security_Principal::java_security_Principal(const java_security_Principal& cc)
 {
 	LOGV("java_security_Principal::java_security_Principal(const java_security_Principal& cc) enter");
@@ -81,9 +80,9 @@ java_security_Principal::java_security_Principal(const java_security_Principal& 
 
 	LOGV("java_security_Principal::java_security_Principal(const java_security_Principal& cc) exit");
 }
-java_security_Principal::java_security_Principal(void * proxy)
+java_security_Principal::java_security_Principal(Proxy proxy)
 {
-	LOGV("java_security_Principal::java_security_Principal(void * proxy) enter");
+	LOGV("java_security_Principal::java_security_Principal(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -93,52 +92,31 @@ java_security_Principal::java_security_Principal(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_security_Principal::java_security_Principal(void * proxy) exit");
+	LOGV("java_security_Principal::java_security_Principal(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_security_Principal::java_security_Principal()
-// {
-// 	LOGV("java_security_Principal::java_security_Principal() enter");	
+Proxy java_security_Principal::proxy() const
+{	
+	LOGV("java_security_Principal::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/security/Principal";
+	long cxxAddress = (long) this;
+	LOGV("java_security_Principal cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_security_Principal jni address %d", proxiedComponent);
 
-// 	LOGV("java_security_Principal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_security_Principal::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_security_Principal cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_security_Principal jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_security_Principal::java_security_Principal() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_security_Principal::~java_security_Principal()
 {
@@ -150,13 +128,13 @@ java_security_Principal::~java_security_Principal()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_security_Principal::~java_security_Principal() exit");
 }
 // Functions
-bool java_security_Principal::equals(JDKCXX::java_lang_Object& arg0)
+bool java_security_Principal::equals(JDKCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_security_Principal::equals(JDKCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_security_Principal::equals(JDKCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -166,8 +144,6 @@ bool java_security_Principal::equals(JDKCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_Principal cxx address %d", cxxAddress);
@@ -217,9 +193,7 @@ bool java_security_Principal::equals(JDKCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_security_Principal::equals(JDKCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_security_Principal::equals(JDKCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -235,8 +209,6 @@ JDKCXX::java_lang_String java_security_Principal::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_Principal cxx address %d", cxxAddress);
@@ -265,8 +237,6 @@ JDKCXX::java_lang_String java_security_Principal::toString()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_security_Principal::toString() exit");
 
 	return result;
@@ -283,8 +253,6 @@ int java_security_Principal::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_Principal cxx address %d", cxxAddress);
@@ -313,8 +281,6 @@ int java_security_Principal::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_security_Principal::hashCode() exit");
 
 	return result;
@@ -331,8 +297,6 @@ JDKCXX::java_lang_String java_security_Principal::getName()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_Principal cxx address %d", cxxAddress);
@@ -361,8 +325,6 @@ JDKCXX::java_lang_String java_security_Principal::getName()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_security_Principal::getName() exit");
 
 	return result;

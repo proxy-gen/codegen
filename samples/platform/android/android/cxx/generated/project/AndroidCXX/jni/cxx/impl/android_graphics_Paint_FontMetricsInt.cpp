@@ -47,7 +47,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_graphics_Paint_FontMetricsInt::android_graphics_Paint_FontMetricsInt(const android_graphics_Paint_FontMetricsInt& cc)
 {
 	LOGV("android_graphics_Paint_FontMetricsInt::android_graphics_Paint_FontMetricsInt(const android_graphics_Paint_FontMetricsInt& cc) enter");
@@ -71,9 +70,9 @@ android_graphics_Paint_FontMetricsInt::android_graphics_Paint_FontMetricsInt(con
 
 	LOGV("android_graphics_Paint_FontMetricsInt::android_graphics_Paint_FontMetricsInt(const android_graphics_Paint_FontMetricsInt& cc) exit");
 }
-android_graphics_Paint_FontMetricsInt::android_graphics_Paint_FontMetricsInt(void * proxy)
+android_graphics_Paint_FontMetricsInt::android_graphics_Paint_FontMetricsInt(Proxy proxy)
 {
-	LOGV("android_graphics_Paint_FontMetricsInt::android_graphics_Paint_FontMetricsInt(void * proxy) enter");
+	LOGV("android_graphics_Paint_FontMetricsInt::android_graphics_Paint_FontMetricsInt(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -83,17 +82,31 @@ android_graphics_Paint_FontMetricsInt::android_graphics_Paint_FontMetricsInt(voi
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_graphics_Paint_FontMetricsInt::android_graphics_Paint_FontMetricsInt(void * proxy) exit");
+	LOGV("android_graphics_Paint_FontMetricsInt::android_graphics_Paint_FontMetricsInt(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy android_graphics_Paint_FontMetricsInt::proxy() const
+{	
+	LOGV("android_graphics_Paint_FontMetricsInt::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_graphics_Paint_FontMetricsInt cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_graphics_Paint_FontMetricsInt jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_graphics_Paint_FontMetricsInt::proxy() exit");	
+
+	return proxy;
+}
 android_graphics_Paint_FontMetricsInt::android_graphics_Paint_FontMetricsInt()
 {
 	LOGV("android_graphics_Paint_FontMetricsInt::android_graphics_Paint_FontMetricsInt() enter");	
@@ -141,7 +154,7 @@ android_graphics_Paint_FontMetricsInt::~android_graphics_Paint_FontMetricsInt()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_graphics_Paint_FontMetricsInt::~android_graphics_Paint_FontMetricsInt() exit");
 }
 // Functions
@@ -157,8 +170,6 @@ AndroidCXX::java_lang_String android_graphics_Paint_FontMetricsInt::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint_FontMetricsInt cxx address %d", cxxAddress);
@@ -187,8 +198,6 @@ AndroidCXX::java_lang_String android_graphics_Paint_FontMetricsInt::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_graphics_Paint_FontMetricsInt::toString() exit");
 
 	return result;

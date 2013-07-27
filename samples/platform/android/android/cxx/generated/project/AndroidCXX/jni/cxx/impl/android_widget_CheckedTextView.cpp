@@ -89,7 +89,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_CheckedTextView::android_widget_CheckedTextView(const android_widget_CheckedTextView& cc)
 {
 	LOGV("android_widget_CheckedTextView::android_widget_CheckedTextView(const android_widget_CheckedTextView& cc) enter");
@@ -113,9 +112,9 @@ android_widget_CheckedTextView::android_widget_CheckedTextView(const android_wid
 
 	LOGV("android_widget_CheckedTextView::android_widget_CheckedTextView(const android_widget_CheckedTextView& cc) exit");
 }
-android_widget_CheckedTextView::android_widget_CheckedTextView(void * proxy)
+android_widget_CheckedTextView::android_widget_CheckedTextView(Proxy proxy)
 {
-	LOGV("android_widget_CheckedTextView::android_widget_CheckedTextView(void * proxy) enter");
+	LOGV("android_widget_CheckedTextView::android_widget_CheckedTextView(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -125,55 +124,34 @@ android_widget_CheckedTextView::android_widget_CheckedTextView(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_CheckedTextView::android_widget_CheckedTextView(void * proxy) exit");
+	LOGV("android_widget_CheckedTextView::android_widget_CheckedTextView(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_CheckedTextView::android_widget_CheckedTextView()
-// {
-// 	LOGV("android_widget_CheckedTextView::android_widget_CheckedTextView() enter");	
+Proxy android_widget_CheckedTextView::proxy() const
+{	
+	LOGV("android_widget_CheckedTextView::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/CheckedTextView";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_CheckedTextView cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_CheckedTextView jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_CheckedTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_CheckedTextView::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_CheckedTextView cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_CheckedTextView jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_CheckedTextView::android_widget_CheckedTextView() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+	return proxy;
+}
+android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -247,11 +225,11 @@ android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::andro
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
+android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2)
 {
-	LOGV("android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) enter");	
+	LOGV("android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
@@ -346,11 +324,11 @@ android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::andro
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) exit");	
+	LOGV("android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) exit");	
 }
-android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::android_content_Context& arg0)
+android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -403,7 +381,7 @@ android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::andro
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::android_content_Context const& arg0) exit");	
 }
 // Default Instance Destructor
 android_widget_CheckedTextView::~android_widget_CheckedTextView()
@@ -416,13 +394,13 @@ android_widget_CheckedTextView::~android_widget_CheckedTextView()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_CheckedTextView::~android_widget_CheckedTextView() exit");
 }
 // Functions
-void android_widget_CheckedTextView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_CheckedTextView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_CheckedTextView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_CheckedTextView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -432,8 +410,6 @@ void android_widget_CheckedTextView::onInitializeAccessibilityEvent(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CheckedTextView cxx address %d", cxxAddress);
@@ -464,14 +440,12 @@ void android_widget_CheckedTextView::onInitializeAccessibilityEvent(AndroidCXX::
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CheckedTextView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_CheckedTextView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_CheckedTextView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0)
+void android_widget_CheckedTextView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0)
 {
-	LOGV("void android_widget_CheckedTextView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) enter");
+	LOGV("void android_widget_CheckedTextView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityNodeInfo";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
@@ -481,8 +455,6 @@ void android_widget_CheckedTextView::onInitializeAccessibilityNodeInfo(AndroidCX
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CheckedTextView cxx address %d", cxxAddress);
@@ -513,14 +485,12 @@ void android_widget_CheckedTextView::onInitializeAccessibilityNodeInfo(AndroidCX
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CheckedTextView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) exit");
+	LOGV("void android_widget_CheckedTextView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) exit");
 
 }
-void android_widget_CheckedTextView::onRtlPropertiesChanged(int& arg0)
+void android_widget_CheckedTextView::onRtlPropertiesChanged(int const& arg0)
 {
-	LOGV("void android_widget_CheckedTextView::onRtlPropertiesChanged(int& arg0) enter");
+	LOGV("void android_widget_CheckedTextView::onRtlPropertiesChanged(int const& arg0) enter");
 
 	const char *methodName = "onRtlPropertiesChanged";
 	const char *methodSignature = "(I)V";
@@ -530,8 +500,6 @@ void android_widget_CheckedTextView::onRtlPropertiesChanged(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CheckedTextView cxx address %d", cxxAddress);
@@ -562,14 +530,12 @@ void android_widget_CheckedTextView::onRtlPropertiesChanged(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CheckedTextView::onRtlPropertiesChanged(int& arg0) exit");
+	LOGV("void android_widget_CheckedTextView::onRtlPropertiesChanged(int const& arg0) exit");
 
 }
-void android_widget_CheckedTextView::setChecked(bool& arg0)
+void android_widget_CheckedTextView::setChecked(bool const& arg0)
 {
-	LOGV("void android_widget_CheckedTextView::setChecked(bool& arg0) enter");
+	LOGV("void android_widget_CheckedTextView::setChecked(bool const& arg0) enter");
 
 	const char *methodName = "setChecked";
 	const char *methodSignature = "(Z)V";
@@ -579,8 +545,6 @@ void android_widget_CheckedTextView::setChecked(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CheckedTextView cxx address %d", cxxAddress);
@@ -611,9 +575,7 @@ void android_widget_CheckedTextView::setChecked(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CheckedTextView::setChecked(bool& arg0) exit");
+	LOGV("void android_widget_CheckedTextView::setChecked(bool const& arg0) exit");
 
 }
 bool android_widget_CheckedTextView::isChecked()
@@ -628,8 +590,6 @@ bool android_widget_CheckedTextView::isChecked()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CheckedTextView cxx address %d", cxxAddress);
@@ -658,8 +618,6 @@ bool android_widget_CheckedTextView::isChecked()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_CheckedTextView::isChecked() exit");
 
 	return result;
@@ -677,8 +635,6 @@ void android_widget_CheckedTextView::toggle()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CheckedTextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -687,14 +643,12 @@ void android_widget_CheckedTextView::toggle()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_CheckedTextView::toggle() exit");
 
 }
-void android_widget_CheckedTextView::setCheckMarkDrawable(int& arg0)
+void android_widget_CheckedTextView::setCheckMarkDrawable(int const& arg0)
 {
-	LOGV("void android_widget_CheckedTextView::setCheckMarkDrawable(int& arg0) enter");
+	LOGV("void android_widget_CheckedTextView::setCheckMarkDrawable(int const& arg0) enter");
 
 	const char *methodName = "setCheckMarkDrawable";
 	const char *methodSignature = "(I)V";
@@ -704,8 +658,6 @@ void android_widget_CheckedTextView::setCheckMarkDrawable(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CheckedTextView cxx address %d", cxxAddress);
@@ -736,14 +688,12 @@ void android_widget_CheckedTextView::setCheckMarkDrawable(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CheckedTextView::setCheckMarkDrawable(int& arg0) exit");
+	LOGV("void android_widget_CheckedTextView::setCheckMarkDrawable(int const& arg0) exit");
 
 }
-void android_widget_CheckedTextView::setCheckMarkDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0)
+void android_widget_CheckedTextView::setCheckMarkDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0)
 {
-	LOGV("void android_widget_CheckedTextView::setCheckMarkDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0) enter");
+	LOGV("void android_widget_CheckedTextView::setCheckMarkDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) enter");
 
 	const char *methodName = "setCheckMarkDrawable";
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
@@ -753,8 +703,6 @@ void android_widget_CheckedTextView::setCheckMarkDrawable(AndroidCXX::android_gr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CheckedTextView cxx address %d", cxxAddress);
@@ -785,9 +733,7 @@ void android_widget_CheckedTextView::setCheckMarkDrawable(AndroidCXX::android_gr
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CheckedTextView::setCheckMarkDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0) exit");
+	LOGV("void android_widget_CheckedTextView::setCheckMarkDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) exit");
 
 }
 AndroidCXX::android_graphics_drawable_Drawable android_widget_CheckedTextView::getCheckMarkDrawable()
@@ -802,8 +748,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_CheckedTextView::g
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CheckedTextView cxx address %d", cxxAddress);
@@ -832,8 +776,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_CheckedTextView::g
 	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
 	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_widget_CheckedTextView::getCheckMarkDrawable() exit");
 
 	return result;

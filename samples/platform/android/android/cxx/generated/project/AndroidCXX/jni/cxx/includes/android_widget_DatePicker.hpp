@@ -103,38 +103,35 @@ class android_widget_DatePicker
 public:
 
 	android_widget_DatePicker(const android_widget_DatePicker& cc);
-	android_widget_DatePicker(void * proxy);
+	android_widget_DatePicker(Proxy proxy);
 	// Public Constructors
-	android_widget_DatePicker(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_DatePicker(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_DatePicker(AndroidCXX::android_content_Context& arg0);
-	// TODO: remove
-	// 
-	// android_widget_DatePicker();
-	// 
+	android_widget_DatePicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_DatePicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_DatePicker(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_DatePicker();
 	// Functions
-	 void init(int& arg0,int& arg1,int& arg2,AndroidCXX::android_widget_DatePicker_OnDateChangedListener& arg3);
+	 void init(int const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_widget_DatePicker_OnDateChangedListener const& arg3);
 	 int getYear();
 	 int getMonth();
 	 int getDayOfMonth();
 	 bool isEnabled();
-	 bool dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 void setEnabled(bool& arg0);
+	 bool dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 void setEnabled(bool const& arg0);
 	 long getMinDate();
-	 void setMinDate(long& arg0);
+	 void setMinDate(long const& arg0);
 	 long getMaxDate();
-	 void setMaxDate(long& arg0);
+	 void setMaxDate(long const& arg0);
 	 bool getCalendarViewShown();
 	 AndroidCXX::android_widget_CalendarView getCalendarView();
-	 void setCalendarViewShown(bool& arg0);
+	 void setCalendarViewShown(bool const& arg0);
 	 bool getSpinnersShown();
-	 void setSpinnersShown(bool& arg0);
-	 void updateDate(int& arg0,int& arg1,int& arg2);
+	 void setSpinnersShown(bool const& arg0);
+	 void updateDate(int const& arg0,int const& arg1,int const& arg2);
 };	
 
 } // namespace

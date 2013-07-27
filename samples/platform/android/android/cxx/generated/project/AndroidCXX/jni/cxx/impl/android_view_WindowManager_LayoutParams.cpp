@@ -88,7 +88,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(const android_view_WindowManager_LayoutParams& cc)
 {
 	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(const android_view_WindowManager_LayoutParams& cc) enter");
@@ -112,9 +111,9 @@ android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams
 
 	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(const android_view_WindowManager_LayoutParams& cc) exit");
 }
-android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(void * proxy)
+android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(Proxy proxy)
 {
-	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(void * proxy) enter");
+	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -124,20 +123,34 @@ android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(void * proxy) exit");
+	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
-android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int& arg0,int& arg1,int& arg2)
+Proxy android_view_WindowManager_LayoutParams::proxy() const
+{	
+	LOGV("android_view_WindowManager_LayoutParams::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_view_WindowManager_LayoutParams cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_WindowManager_LayoutParams jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_view_WindowManager_LayoutParams::proxy() exit");	
+
+	return proxy;
+}
+android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int& arg0,int& arg1,int& arg2) enter");	
+	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int const& arg0,int const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(III)V";
@@ -232,11 +245,11 @@ android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams
 
 	jni->popLocalFrame();
 
-	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int& arg0,int& arg1,int& arg2) exit");	
+	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int const& arg0,int const& arg1,int const& arg2) exit");	
 }
-android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int& arg0)
+android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int const& arg0)
 {
-	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int& arg0) enter");	
+	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(I)V";
@@ -289,11 +302,11 @@ android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams
 
 	jni->popLocalFrame();
 
-	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int& arg0) exit");	
+	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int const& arg0) exit");	
 }
-android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int& arg0,int& arg1)
+android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int const& arg0,int const& arg1)
 {
-	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int& arg0,int& arg1) enter");	
+	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int const& arg0,int const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(II)V";
@@ -367,7 +380,7 @@ android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams
 
 	jni->popLocalFrame();
 
-	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int& arg0,int& arg1) exit");	
+	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int const& arg0,int const& arg1) exit");	
 }
 android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams()
 {
@@ -405,9 +418,9 @@ android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams
 
 	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams() exit");	
 }
-android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4)
+android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4)
 {
-	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4) enter");	
+	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(IIIII)V";
@@ -544,11 +557,11 @@ android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams
 
 	jni->popLocalFrame();
 
-	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4) exit");	
+	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) exit");	
 }
-android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6)
+android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6)
 {
-	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6) enter");	
+	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(IIIIIII)V";
@@ -727,11 +740,11 @@ android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams
 
 	jni->popLocalFrame();
 
-	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6) exit");	
+	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6) exit");	
 }
-android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(AndroidCXX::android_os_Parcel& arg0)
+android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(AndroidCXX::android_os_Parcel const& arg0)
 {
-	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(AndroidCXX::android_os_Parcel& arg0) enter");	
+	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(AndroidCXX::android_os_Parcel const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/os/Parcel;)V";
@@ -784,7 +797,7 @@ android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams
 
 	jni->popLocalFrame();
 
-	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(AndroidCXX::android_os_Parcel& arg0) exit");	
+	LOGV("android_view_WindowManager_LayoutParams::android_view_WindowManager_LayoutParams(AndroidCXX::android_os_Parcel const& arg0) exit");	
 }
 // Default Instance Destructor
 android_view_WindowManager_LayoutParams::~android_view_WindowManager_LayoutParams()
@@ -797,7 +810,7 @@ android_view_WindowManager_LayoutParams::~android_view_WindowManager_LayoutParam
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_WindowManager_LayoutParams::~android_view_WindowManager_LayoutParams() exit");
 }
 // Functions
@@ -813,8 +826,6 @@ AndroidCXX::java_lang_String android_view_WindowManager_LayoutParams::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_WindowManager_LayoutParams cxx address %d", cxxAddress);
@@ -843,15 +854,13 @@ AndroidCXX::java_lang_String android_view_WindowManager_LayoutParams::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_view_WindowManager_LayoutParams::toString() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_view_WindowManager_LayoutParams::debug(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_lang_String android_view_WindowManager_LayoutParams::debug(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_view_WindowManager_LayoutParams::debug(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_view_WindowManager_LayoutParams::debug(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "debug";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
@@ -861,8 +870,6 @@ AndroidCXX::java_lang_String android_view_WindowManager_LayoutParams::debug(Andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_WindowManager_LayoutParams cxx address %d", cxxAddress);
@@ -912,15 +919,13 @@ AndroidCXX::java_lang_String android_view_WindowManager_LayoutParams::debug(Andr
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_view_WindowManager_LayoutParams::debug(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String android_view_WindowManager_LayoutParams::debug(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-int android_view_WindowManager_LayoutParams::copyFrom(AndroidCXX::android_view_WindowManager_LayoutParams& arg0)
+int android_view_WindowManager_LayoutParams::copyFrom(AndroidCXX::android_view_WindowManager_LayoutParams const& arg0)
 {
-	LOGV("int android_view_WindowManager_LayoutParams::copyFrom(AndroidCXX::android_view_WindowManager_LayoutParams& arg0) enter");
+	LOGV("int android_view_WindowManager_LayoutParams::copyFrom(AndroidCXX::android_view_WindowManager_LayoutParams const& arg0) enter");
 
 	const char *methodName = "copyFrom";
 	const char *methodSignature = "(Landroid/view/WindowManager$LayoutParams;)I";
@@ -930,8 +935,6 @@ int android_view_WindowManager_LayoutParams::copyFrom(AndroidCXX::android_view_W
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_WindowManager_LayoutParams cxx address %d", cxxAddress);
@@ -981,9 +984,7 @@ int android_view_WindowManager_LayoutParams::copyFrom(AndroidCXX::android_view_W
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_view_WindowManager_LayoutParams::copyFrom(AndroidCXX::android_view_WindowManager_LayoutParams& arg0) exit");
+	LOGV("int android_view_WindowManager_LayoutParams::copyFrom(AndroidCXX::android_view_WindowManager_LayoutParams const& arg0) exit");
 
 	return result;
 }
@@ -999,8 +1000,6 @@ int android_view_WindowManager_LayoutParams::describeContents()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_WindowManager_LayoutParams cxx address %d", cxxAddress);
@@ -1029,15 +1028,13 @@ int android_view_WindowManager_LayoutParams::describeContents()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_WindowManager_LayoutParams::describeContents() exit");
 
 	return result;
 }
-void android_view_WindowManager_LayoutParams::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_view_WindowManager_LayoutParams::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_view_WindowManager_LayoutParams::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_view_WindowManager_LayoutParams::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -1047,8 +1044,6 @@ void android_view_WindowManager_LayoutParams::writeToParcel(AndroidCXX::android_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_WindowManager_LayoutParams cxx address %d", cxxAddress);
@@ -1100,14 +1095,12 @@ void android_view_WindowManager_LayoutParams::writeToParcel(AndroidCXX::android_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_WindowManager_LayoutParams::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_view_WindowManager_LayoutParams::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }
-void android_view_WindowManager_LayoutParams::setTitle(AndroidCXX::java_lang_CharSequence& arg0)
+void android_view_WindowManager_LayoutParams::setTitle(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_view_WindowManager_LayoutParams::setTitle(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_view_WindowManager_LayoutParams::setTitle(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setTitle";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -1117,8 +1110,6 @@ void android_view_WindowManager_LayoutParams::setTitle(AndroidCXX::java_lang_Cha
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_WindowManager_LayoutParams cxx address %d", cxxAddress);
@@ -1149,9 +1140,7 @@ void android_view_WindowManager_LayoutParams::setTitle(AndroidCXX::java_lang_Cha
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_WindowManager_LayoutParams::setTitle(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_view_WindowManager_LayoutParams::setTitle(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }
 AndroidCXX::java_lang_CharSequence android_view_WindowManager_LayoutParams::getTitle()
@@ -1166,8 +1155,6 @@ AndroidCXX::java_lang_CharSequence android_view_WindowManager_LayoutParams::getT
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_WindowManager_LayoutParams cxx address %d", cxxAddress);
@@ -1196,15 +1183,13 @@ AndroidCXX::java_lang_CharSequence android_view_WindowManager_LayoutParams::getT
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_view_WindowManager_LayoutParams::getTitle() exit");
 
 	return result;
 }
-bool android_view_WindowManager_LayoutParams::mayUseInputMethod(int& arg0)
+bool android_view_WindowManager_LayoutParams::mayUseInputMethod(int const& arg0)
 {
-	LOGV("bool android_view_WindowManager_LayoutParams::mayUseInputMethod(int& arg0) enter");
+	LOGV("bool android_view_WindowManager_LayoutParams::mayUseInputMethod(int const& arg0) enter");
 
 	const char *methodName = "mayUseInputMethod";
 	const char *methodSignature = "(I)Z";
@@ -1214,8 +1199,6 @@ bool android_view_WindowManager_LayoutParams::mayUseInputMethod(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_view_WindowManager_LayoutParams cxx address %d", cxxAddress);
@@ -1244,7 +1227,7 @@ bool android_view_WindowManager_LayoutParams::mayUseInputMethod(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jboolean jni_result = (jboolean) jni->invokeStaticBooleanMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
 	{
@@ -1265,9 +1248,7 @@ bool android_view_WindowManager_LayoutParams::mayUseInputMethod(int& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_WindowManager_LayoutParams::mayUseInputMethod(int& arg0) exit");
+	LOGV("bool android_view_WindowManager_LayoutParams::mayUseInputMethod(int const& arg0) exit");
 
 	return result;
 }

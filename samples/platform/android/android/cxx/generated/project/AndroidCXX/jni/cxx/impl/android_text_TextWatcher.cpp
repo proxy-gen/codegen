@@ -56,7 +56,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_text_TextWatcher::android_text_TextWatcher(const android_text_TextWatcher& cc)
 {
 	LOGV("android_text_TextWatcher::android_text_TextWatcher(const android_text_TextWatcher& cc) enter");
@@ -80,9 +79,9 @@ android_text_TextWatcher::android_text_TextWatcher(const android_text_TextWatche
 
 	LOGV("android_text_TextWatcher::android_text_TextWatcher(const android_text_TextWatcher& cc) exit");
 }
-android_text_TextWatcher::android_text_TextWatcher(void * proxy)
+android_text_TextWatcher::android_text_TextWatcher(Proxy proxy)
 {
-	LOGV("android_text_TextWatcher::android_text_TextWatcher(void * proxy) enter");
+	LOGV("android_text_TextWatcher::android_text_TextWatcher(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -92,52 +91,31 @@ android_text_TextWatcher::android_text_TextWatcher(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_text_TextWatcher::android_text_TextWatcher(void * proxy) exit");
+	LOGV("android_text_TextWatcher::android_text_TextWatcher(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_text_TextWatcher::android_text_TextWatcher()
-// {
-// 	LOGV("android_text_TextWatcher::android_text_TextWatcher() enter");	
+Proxy android_text_TextWatcher::proxy() const
+{	
+	LOGV("android_text_TextWatcher::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/text/TextWatcher";
+	long cxxAddress = (long) this;
+	LOGV("android_text_TextWatcher cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_text_TextWatcher jni address %d", proxiedComponent);
 
-// 	LOGV("android_text_TextWatcher className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_text_TextWatcher::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_text_TextWatcher cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_text_TextWatcher jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_text_TextWatcher::android_text_TextWatcher() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_text_TextWatcher::~android_text_TextWatcher()
 {
@@ -149,13 +127,13 @@ android_text_TextWatcher::~android_text_TextWatcher()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_text_TextWatcher::~android_text_TextWatcher() exit");
 }
 // Functions
-void android_text_TextWatcher::beforeTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3)
+void android_text_TextWatcher::beforeTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("void android_text_TextWatcher::beforeTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3) enter");
+	LOGV("void android_text_TextWatcher::beforeTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3) enter");
 
 	const char *methodName = "beforeTextChanged";
 	const char *methodSignature = "(Ljava/lang/CharSequence;III)V";
@@ -166,8 +144,6 @@ void android_text_TextWatcher::beforeTextChanged(AndroidCXX::java_lang_CharSeque
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_TextWatcher cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -260,14 +236,12 @@ void android_text_TextWatcher::beforeTextChanged(AndroidCXX::java_lang_CharSeque
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_text_TextWatcher::beforeTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3) exit");
+	LOGV("void android_text_TextWatcher::beforeTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3) exit");
 
 }
-void android_text_TextWatcher::onTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3)
+void android_text_TextWatcher::onTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("void android_text_TextWatcher::onTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3) enter");
+	LOGV("void android_text_TextWatcher::onTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3) enter");
 
 	const char *methodName = "onTextChanged";
 	const char *methodSignature = "(Ljava/lang/CharSequence;III)V";
@@ -278,8 +252,6 @@ void android_text_TextWatcher::onTextChanged(AndroidCXX::java_lang_CharSequence&
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_TextWatcher cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -372,14 +344,12 @@ void android_text_TextWatcher::onTextChanged(AndroidCXX::java_lang_CharSequence&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_text_TextWatcher::onTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3) exit");
+	LOGV("void android_text_TextWatcher::onTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3) exit");
 
 }
-void android_text_TextWatcher::afterTextChanged(AndroidCXX::android_text_Editable& arg0)
+void android_text_TextWatcher::afterTextChanged(AndroidCXX::android_text_Editable const& arg0)
 {
-	LOGV("void android_text_TextWatcher::afterTextChanged(AndroidCXX::android_text_Editable& arg0) enter");
+	LOGV("void android_text_TextWatcher::afterTextChanged(AndroidCXX::android_text_Editable const& arg0) enter");
 
 	const char *methodName = "afterTextChanged";
 	const char *methodSignature = "(Landroid/text/Editable;)V";
@@ -389,8 +359,6 @@ void android_text_TextWatcher::afterTextChanged(AndroidCXX::android_text_Editabl
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_TextWatcher cxx address %d", cxxAddress);
@@ -421,8 +389,6 @@ void android_text_TextWatcher::afterTextChanged(AndroidCXX::android_text_Editabl
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_text_TextWatcher::afterTextChanged(AndroidCXX::android_text_Editable& arg0) exit");
+	LOGV("void android_text_TextWatcher::afterTextChanged(AndroidCXX::android_text_Editable const& arg0) exit");
 
 }

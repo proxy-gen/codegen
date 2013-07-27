@@ -114,35 +114,32 @@ class java_nio_channels_FileChannel
 public:
 
 	java_nio_channels_FileChannel(const java_nio_channels_FileChannel& cc);
-	java_nio_channels_FileChannel(void * proxy);
+	java_nio_channels_FileChannel(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_nio_channels_FileChannel();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_FileChannel();
 	// Functions
 	 AndroidCXX::java_nio_channels_FileLock lock();
-	 AndroidCXX::java_nio_channels_FileLock lock(long& arg0,long& arg1,bool& arg2);
+	 AndroidCXX::java_nio_channels_FileLock lock(long const& arg0,long const& arg1,bool const& arg2);
 	 long size();
 	 long position();
-	 AndroidCXX::java_nio_channels_FileChannel position(long& arg0);
-	 int write(AndroidCXX::java_nio_ByteBuffer& arg0);
-	 long write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2);
-	 long write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0);
-	 int write(AndroidCXX::java_nio_ByteBuffer& arg0,long& arg1);
-	 AndroidCXX::java_nio_channels_FileChannel truncate(long& arg0);
-	 AndroidCXX::java_nio_MappedByteBuffer map(AndroidCXX::java_nio_channels_FileChannel_MapMode& arg0,long& arg1,long& arg2);
-	 int read(AndroidCXX::java_nio_ByteBuffer& arg0);
-	 long read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2);
-	 int read(AndroidCXX::java_nio_ByteBuffer& arg0,long& arg1);
-	 long read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0);
+	 AndroidCXX::java_nio_channels_FileChannel position(long const& arg0);
+	 int write(AndroidCXX::java_nio_ByteBuffer const& arg0);
+	 long write(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0,int const& arg1,int const& arg2);
+	 long write(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0);
+	 int write(AndroidCXX::java_nio_ByteBuffer const& arg0,long const& arg1);
+	 AndroidCXX::java_nio_channels_FileChannel truncate(long const& arg0);
+	 AndroidCXX::java_nio_MappedByteBuffer map(AndroidCXX::java_nio_channels_FileChannel_MapMode const& arg0,long const& arg1,long const& arg2);
+	 int read(AndroidCXX::java_nio_ByteBuffer const& arg0);
+	 long read(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0,int const& arg1,int const& arg2);
+	 int read(AndroidCXX::java_nio_ByteBuffer const& arg0,long const& arg1);
+	 long read(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0);
 	 AndroidCXX::java_nio_channels_FileLock tryLock();
-	 AndroidCXX::java_nio_channels_FileLock tryLock(long& arg0,long& arg1,bool& arg2);
-	 void force(bool& arg0);
-	 long transferTo(long& arg0,long& arg1,AndroidCXX::java_nio_channels_WritableByteChannel& arg2);
-	 long transferFrom(AndroidCXX::java_nio_channels_ReadableByteChannel& arg0,long& arg1,long& arg2);
+	 AndroidCXX::java_nio_channels_FileLock tryLock(long const& arg0,long const& arg1,bool const& arg2);
+	 void force(bool const& arg0);
+	 long transferTo(long const& arg0,long const& arg1,AndroidCXX::java_nio_channels_WritableByteChannel const& arg2);
+	 long transferFrom(AndroidCXX::java_nio_channels_ReadableByteChannel const& arg0,long const& arg1,long const& arg2);
 };	
 
 } // namespace

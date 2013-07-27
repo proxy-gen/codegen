@@ -53,7 +53,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_webkit_WebBackForwardList::android_webkit_WebBackForwardList(const android_webkit_WebBackForwardList& cc)
 {
 	LOGV("android_webkit_WebBackForwardList::android_webkit_WebBackForwardList(const android_webkit_WebBackForwardList& cc) enter");
@@ -77,9 +76,9 @@ android_webkit_WebBackForwardList::android_webkit_WebBackForwardList(const andro
 
 	LOGV("android_webkit_WebBackForwardList::android_webkit_WebBackForwardList(const android_webkit_WebBackForwardList& cc) exit");
 }
-android_webkit_WebBackForwardList::android_webkit_WebBackForwardList(void * proxy)
+android_webkit_WebBackForwardList::android_webkit_WebBackForwardList(Proxy proxy)
 {
-	LOGV("android_webkit_WebBackForwardList::android_webkit_WebBackForwardList(void * proxy) enter");
+	LOGV("android_webkit_WebBackForwardList::android_webkit_WebBackForwardList(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -89,52 +88,31 @@ android_webkit_WebBackForwardList::android_webkit_WebBackForwardList(void * prox
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_webkit_WebBackForwardList::android_webkit_WebBackForwardList(void * proxy) exit");
+	LOGV("android_webkit_WebBackForwardList::android_webkit_WebBackForwardList(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_webkit_WebBackForwardList::android_webkit_WebBackForwardList()
-// {
-// 	LOGV("android_webkit_WebBackForwardList::android_webkit_WebBackForwardList() enter");	
+Proxy android_webkit_WebBackForwardList::proxy() const
+{	
+	LOGV("android_webkit_WebBackForwardList::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/webkit/WebBackForwardList";
+	long cxxAddress = (long) this;
+	LOGV("android_webkit_WebBackForwardList cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_webkit_WebBackForwardList jni address %d", proxiedComponent);
 
-// 	LOGV("android_webkit_WebBackForwardList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_webkit_WebBackForwardList::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_webkit_WebBackForwardList cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_webkit_WebBackForwardList jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_webkit_WebBackForwardList::android_webkit_WebBackForwardList() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_webkit_WebBackForwardList::~android_webkit_WebBackForwardList()
 {
@@ -146,7 +124,7 @@ android_webkit_WebBackForwardList::~android_webkit_WebBackForwardList()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_webkit_WebBackForwardList::~android_webkit_WebBackForwardList() exit");
 }
 // Functions
@@ -162,8 +140,6 @@ int android_webkit_WebBackForwardList::getSize()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebBackForwardList cxx address %d", cxxAddress);
@@ -192,8 +168,6 @@ int android_webkit_WebBackForwardList::getSize()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_webkit_WebBackForwardList::getSize() exit");
 
 	return result;
@@ -210,8 +184,6 @@ AndroidCXX::android_webkit_WebHistoryItem android_webkit_WebBackForwardList::get
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebBackForwardList cxx address %d", cxxAddress);
@@ -240,8 +212,6 @@ AndroidCXX::android_webkit_WebHistoryItem android_webkit_WebBackForwardList::get
 	AndroidCXX::android_webkit_WebHistoryItem result((AndroidCXX::android_webkit_WebHistoryItem) *((AndroidCXX::android_webkit_WebHistoryItem *) cxx_value));
 	delete ((AndroidCXX::android_webkit_WebHistoryItem *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_webkit_WebHistoryItem android_webkit_WebBackForwardList::getCurrentItem() exit");
 
 	return result;
@@ -258,8 +228,6 @@ int android_webkit_WebBackForwardList::getCurrentIndex()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebBackForwardList cxx address %d", cxxAddress);
@@ -288,15 +256,13 @@ int android_webkit_WebBackForwardList::getCurrentIndex()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_webkit_WebBackForwardList::getCurrentIndex() exit");
 
 	return result;
 }
-AndroidCXX::android_webkit_WebHistoryItem android_webkit_WebBackForwardList::getItemAtIndex(int& arg0)
+AndroidCXX::android_webkit_WebHistoryItem android_webkit_WebBackForwardList::getItemAtIndex(int const& arg0)
 {
-	LOGV("AndroidCXX::android_webkit_WebHistoryItem android_webkit_WebBackForwardList::getItemAtIndex(int& arg0) enter");
+	LOGV("AndroidCXX::android_webkit_WebHistoryItem android_webkit_WebBackForwardList::getItemAtIndex(int const& arg0) enter");
 
 	const char *methodName = "getItemAtIndex";
 	const char *methodSignature = "(I)Landroid/webkit/WebHistoryItem;";
@@ -306,8 +272,6 @@ AndroidCXX::android_webkit_WebHistoryItem android_webkit_WebBackForwardList::get
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebBackForwardList cxx address %d", cxxAddress);
@@ -357,9 +321,7 @@ AndroidCXX::android_webkit_WebHistoryItem android_webkit_WebBackForwardList::get
 	AndroidCXX::android_webkit_WebHistoryItem result((AndroidCXX::android_webkit_WebHistoryItem) *((AndroidCXX::android_webkit_WebHistoryItem *) cxx_value));
 	delete ((AndroidCXX::android_webkit_WebHistoryItem *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_webkit_WebHistoryItem android_webkit_WebBackForwardList::getItemAtIndex(int& arg0) exit");
+	LOGV("AndroidCXX::android_webkit_WebHistoryItem android_webkit_WebBackForwardList::getItemAtIndex(int const& arg0) exit");
 
 	return result;
 }

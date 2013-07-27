@@ -57,7 +57,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_nio_channels_FileLock::java_nio_channels_FileLock(const java_nio_channels_FileLock& cc)
 {
 	LOGV("java_nio_channels_FileLock::java_nio_channels_FileLock(const java_nio_channels_FileLock& cc) enter");
@@ -81,9 +80,9 @@ java_nio_channels_FileLock::java_nio_channels_FileLock(const java_nio_channels_F
 
 	LOGV("java_nio_channels_FileLock::java_nio_channels_FileLock(const java_nio_channels_FileLock& cc) exit");
 }
-java_nio_channels_FileLock::java_nio_channels_FileLock(void * proxy)
+java_nio_channels_FileLock::java_nio_channels_FileLock(Proxy proxy)
 {
-	LOGV("java_nio_channels_FileLock::java_nio_channels_FileLock(void * proxy) enter");
+	LOGV("java_nio_channels_FileLock::java_nio_channels_FileLock(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -93,52 +92,31 @@ java_nio_channels_FileLock::java_nio_channels_FileLock(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_nio_channels_FileLock::java_nio_channels_FileLock(void * proxy) exit");
+	LOGV("java_nio_channels_FileLock::java_nio_channels_FileLock(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_nio_channels_FileLock::java_nio_channels_FileLock()
-// {
-// 	LOGV("java_nio_channels_FileLock::java_nio_channels_FileLock() enter");	
+Proxy java_nio_channels_FileLock::proxy() const
+{	
+	LOGV("java_nio_channels_FileLock::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/nio/channels/FileLock";
+	long cxxAddress = (long) this;
+	LOGV("java_nio_channels_FileLock cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_channels_FileLock jni address %d", proxiedComponent);
 
-// 	LOGV("java_nio_channels_FileLock className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_nio_channels_FileLock::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_nio_channels_FileLock cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_nio_channels_FileLock jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_nio_channels_FileLock::java_nio_channels_FileLock() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_nio_channels_FileLock::~java_nio_channels_FileLock()
 {
@@ -150,7 +128,7 @@ java_nio_channels_FileLock::~java_nio_channels_FileLock()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_nio_channels_FileLock::~java_nio_channels_FileLock() exit");
 }
 // Functions
@@ -166,8 +144,6 @@ AndroidCXX::java_lang_String java_nio_channels_FileLock::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileLock cxx address %d", cxxAddress);
@@ -196,8 +172,6 @@ AndroidCXX::java_lang_String java_nio_channels_FileLock::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_nio_channels_FileLock::toString() exit");
 
 	return result;
@@ -215,8 +189,6 @@ long java_nio_channels_FileLock::size()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileLock cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -244,8 +216,6 @@ long java_nio_channels_FileLock::size()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long java_nio_channels_FileLock::size() exit");
 
 	return result;
@@ -263,8 +233,6 @@ long java_nio_channels_FileLock::position()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileLock cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -292,8 +260,6 @@ long java_nio_channels_FileLock::position()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long java_nio_channels_FileLock::position() exit");
 
 	return result;
@@ -311,8 +277,6 @@ void java_nio_channels_FileLock::release()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileLock cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -321,8 +285,6 @@ void java_nio_channels_FileLock::release()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_nio_channels_FileLock::release() exit");
 
 }
@@ -338,8 +300,6 @@ AndroidCXX::java_nio_channels_FileChannel java_nio_channels_FileLock::channel()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileLock cxx address %d", cxxAddress);
@@ -368,8 +328,6 @@ AndroidCXX::java_nio_channels_FileChannel java_nio_channels_FileLock::channel()
 	AndroidCXX::java_nio_channels_FileChannel result((AndroidCXX::java_nio_channels_FileChannel) *((AndroidCXX::java_nio_channels_FileChannel *) cxx_value));
 	delete ((AndroidCXX::java_nio_channels_FileChannel *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_nio_channels_FileChannel java_nio_channels_FileLock::channel() exit");
 
 	return result;
@@ -387,8 +345,6 @@ bool java_nio_channels_FileLock::isShared()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileLock cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -416,8 +372,6 @@ bool java_nio_channels_FileLock::isShared()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_nio_channels_FileLock::isShared() exit");
 
 	return result;
@@ -435,8 +389,6 @@ bool java_nio_channels_FileLock::isValid()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileLock cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -464,15 +416,13 @@ bool java_nio_channels_FileLock::isValid()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_nio_channels_FileLock::isValid() exit");
 
 	return result;
 }
-bool java_nio_channels_FileLock::overlaps(long& arg0,long& arg1)
+bool java_nio_channels_FileLock::overlaps(long const& arg0,long const& arg1)
 {
-	LOGV("bool java_nio_channels_FileLock::overlaps(long& arg0,long& arg1) enter");
+	LOGV("bool java_nio_channels_FileLock::overlaps(long const& arg0,long const& arg1) enter");
 
 	const char *methodName = "overlaps";
 	const char *methodSignature = "(JJ)Z";
@@ -482,8 +432,6 @@ bool java_nio_channels_FileLock::overlaps(long& arg0,long& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileLock cxx address %d", cxxAddress);
@@ -554,9 +502,7 @@ bool java_nio_channels_FileLock::overlaps(long& arg0,long& arg1)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_nio_channels_FileLock::overlaps(long& arg0,long& arg1) exit");
+	LOGV("bool java_nio_channels_FileLock::overlaps(long const& arg0,long const& arg1) exit");
 
 	return result;
 }

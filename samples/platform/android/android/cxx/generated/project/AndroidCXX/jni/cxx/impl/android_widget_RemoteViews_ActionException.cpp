@@ -51,7 +51,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException(const android_widget_RemoteViews_ActionException& cc)
 {
 	LOGV("android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException(const android_widget_RemoteViews_ActionException& cc) enter");
@@ -75,9 +74,9 @@ android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionExc
 
 	LOGV("android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException(const android_widget_RemoteViews_ActionException& cc) exit");
 }
-android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException(void * proxy)
+android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException(Proxy proxy)
 {
-	LOGV("android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException(void * proxy) enter");
+	LOGV("android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -87,55 +86,34 @@ android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionExc
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException(void * proxy) exit");
+	LOGV("android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException()
-// {
-// 	LOGV("android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException() enter");	
+Proxy android_widget_RemoteViews_ActionException::proxy() const
+{	
+	LOGV("android_widget_RemoteViews_ActionException::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/RemoteViews$ActionException";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_RemoteViews_ActionException cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_RemoteViews_ActionException jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_RemoteViews_ActionException className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_RemoteViews_ActionException::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_RemoteViews_ActionException cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_RemoteViews_ActionException jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_Exception& arg0)
+	return proxy;
+}
+android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_Exception const& arg0)
 {
-	LOGV("android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_Exception& arg0) enter");	
+	LOGV("android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_Exception const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/Exception;)V";
@@ -188,11 +166,11 @@ android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionExc
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_Exception& arg0) exit");	
+	LOGV("android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_Exception const& arg0) exit");	
 }
-android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_String& arg0)
+android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -245,7 +223,7 @@ android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionExc
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("android_widget_RemoteViews_ActionException::android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_String const& arg0) exit");	
 }
 // Default Instance Destructor
 android_widget_RemoteViews_ActionException::~android_widget_RemoteViews_ActionException()
@@ -258,7 +236,7 @@ android_widget_RemoteViews_ActionException::~android_widget_RemoteViews_ActionEx
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_RemoteViews_ActionException::~android_widget_RemoteViews_ActionException() exit");
 }
 // Functions

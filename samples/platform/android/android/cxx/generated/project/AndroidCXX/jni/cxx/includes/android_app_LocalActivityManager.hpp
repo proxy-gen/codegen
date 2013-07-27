@@ -90,24 +90,21 @@ class android_app_LocalActivityManager
 public:
 
 	android_app_LocalActivityManager(const android_app_LocalActivityManager& cc);
-	android_app_LocalActivityManager(void * proxy);
+	android_app_LocalActivityManager(Proxy proxy);
 	// Public Constructors
-	android_app_LocalActivityManager(AndroidCXX::android_app_Activity& arg0,bool& arg1);
-	// TODO: remove
-	// 
-	// android_app_LocalActivityManager();
-	// 
+	android_app_LocalActivityManager(AndroidCXX::android_app_Activity const& arg0,bool const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_LocalActivityManager();
 	// Functions
-	 AndroidCXX::android_app_Activity getActivity(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::android_view_Window startActivity(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_content_Intent& arg1);
+	 AndroidCXX::android_app_Activity getActivity(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::android_view_Window startActivity(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_content_Intent const& arg1);
 	 void dispatchResume();
-	 void dispatchCreate(AndroidCXX::android_os_Bundle& arg0);
-	 void dispatchPause(bool& arg0);
+	 void dispatchCreate(AndroidCXX::android_os_Bundle const& arg0);
+	 void dispatchPause(bool const& arg0);
 	 void dispatchStop();
-	 void dispatchDestroy(bool& arg0);
-	 AndroidCXX::android_view_Window destroyActivity(AndroidCXX::java_lang_String& arg0,bool& arg1);
+	 void dispatchDestroy(bool const& arg0);
+	 AndroidCXX::android_view_Window destroyActivity(AndroidCXX::java_lang_String const& arg0,bool const& arg1);
 	 AndroidCXX::android_app_Activity getCurrentActivity();
 	 AndroidCXX::java_lang_String getCurrentId();
 	 AndroidCXX::android_os_Bundle saveInstanceState();

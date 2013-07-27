@@ -54,7 +54,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_io_BufferedOutputStream::java_io_BufferedOutputStream(const java_io_BufferedOutputStream& cc)
 {
 	LOGV("java_io_BufferedOutputStream::java_io_BufferedOutputStream(const java_io_BufferedOutputStream& cc) enter");
@@ -78,9 +77,9 @@ java_io_BufferedOutputStream::java_io_BufferedOutputStream(const java_io_Buffere
 
 	LOGV("java_io_BufferedOutputStream::java_io_BufferedOutputStream(const java_io_BufferedOutputStream& cc) exit");
 }
-java_io_BufferedOutputStream::java_io_BufferedOutputStream(void * proxy)
+java_io_BufferedOutputStream::java_io_BufferedOutputStream(Proxy proxy)
 {
-	LOGV("java_io_BufferedOutputStream::java_io_BufferedOutputStream(void * proxy) enter");
+	LOGV("java_io_BufferedOutputStream::java_io_BufferedOutputStream(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -90,55 +89,34 @@ java_io_BufferedOutputStream::java_io_BufferedOutputStream(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_io_BufferedOutputStream::java_io_BufferedOutputStream(void * proxy) exit");
+	LOGV("java_io_BufferedOutputStream::java_io_BufferedOutputStream(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_io_BufferedOutputStream::java_io_BufferedOutputStream()
-// {
-// 	LOGV("java_io_BufferedOutputStream::java_io_BufferedOutputStream() enter");	
+Proxy java_io_BufferedOutputStream::proxy() const
+{	
+	LOGV("java_io_BufferedOutputStream::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/io/BufferedOutputStream";
+	long cxxAddress = (long) this;
+	LOGV("java_io_BufferedOutputStream cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_io_BufferedOutputStream jni address %d", proxiedComponent);
 
-// 	LOGV("java_io_BufferedOutputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_io_BufferedOutputStream::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_io_BufferedOutputStream cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_io_BufferedOutputStream jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_io_BufferedOutputStream::java_io_BufferedOutputStream() exit");	
-// }
-// 
-// 
-// Public Constructors
-java_io_BufferedOutputStream::java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream& arg0)
+	return proxy;
+}
+java_io_BufferedOutputStream::java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream const& arg0)
 {
-	LOGV("java_io_BufferedOutputStream::java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream& arg0) enter");	
+	LOGV("java_io_BufferedOutputStream::java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/io/OutputStream;)V";
@@ -191,11 +169,11 @@ java_io_BufferedOutputStream::java_io_BufferedOutputStream(AndroidCXX::java_io_O
 
 	jni->popLocalFrame();
 
-	LOGV("java_io_BufferedOutputStream::java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream& arg0) exit");	
+	LOGV("java_io_BufferedOutputStream::java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream const& arg0) exit");	
 }
-java_io_BufferedOutputStream::java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream& arg0,int& arg1)
+java_io_BufferedOutputStream::java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream const& arg0,int const& arg1)
 {
-	LOGV("java_io_BufferedOutputStream::java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream& arg0,int& arg1) enter");	
+	LOGV("java_io_BufferedOutputStream::java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream const& arg0,int const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/io/OutputStream;I)V";
@@ -269,7 +247,7 @@ java_io_BufferedOutputStream::java_io_BufferedOutputStream(AndroidCXX::java_io_O
 
 	jni->popLocalFrame();
 
-	LOGV("java_io_BufferedOutputStream::java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream& arg0,int& arg1) exit");	
+	LOGV("java_io_BufferedOutputStream::java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream const& arg0,int const& arg1) exit");	
 }
 // Default Instance Destructor
 java_io_BufferedOutputStream::~java_io_BufferedOutputStream()
@@ -282,13 +260,13 @@ java_io_BufferedOutputStream::~java_io_BufferedOutputStream()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_io_BufferedOutputStream::~java_io_BufferedOutputStream() exit");
 }
 // Functions
-void java_io_BufferedOutputStream::write(int& arg0)
+void java_io_BufferedOutputStream::write(int const& arg0)
 {
-	LOGV("void java_io_BufferedOutputStream::write(int& arg0) enter");
+	LOGV("void java_io_BufferedOutputStream::write(int const& arg0) enter");
 
 	const char *methodName = "write";
 	const char *methodSignature = "(I)V";
@@ -298,8 +276,6 @@ void java_io_BufferedOutputStream::write(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_BufferedOutputStream cxx address %d", cxxAddress);
@@ -330,14 +306,12 @@ void java_io_BufferedOutputStream::write(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_BufferedOutputStream::write(int& arg0) exit");
+	LOGV("void java_io_BufferedOutputStream::write(int const& arg0) exit");
 
 }
-void java_io_BufferedOutputStream::write(std::vector<byte>& arg0,int& arg1,int& arg2)
+void java_io_BufferedOutputStream::write(std::vector<byte> const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("void java_io_BufferedOutputStream::write(std::vector<byte>& arg0,int& arg1,int& arg2) enter");
+	LOGV("void java_io_BufferedOutputStream::write(std::vector<byte> const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "write";
 	const char *methodSignature = "([BII)V";
@@ -347,8 +321,6 @@ void java_io_BufferedOutputStream::write(std::vector<byte>& arg0,int& arg1,int& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_BufferedOutputStream cxx address %d", cxxAddress);
@@ -439,9 +411,7 @@ void java_io_BufferedOutputStream::write(std::vector<byte>& arg0,int& arg1,int& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_BufferedOutputStream::write(std::vector<byte>& arg0,int& arg1,int& arg2) exit");
+	LOGV("void java_io_BufferedOutputStream::write(std::vector<byte> const& arg0,int const& arg1,int const& arg2) exit");
 
 }
 void java_io_BufferedOutputStream::flush()
@@ -457,8 +427,6 @@ void java_io_BufferedOutputStream::flush()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_io_BufferedOutputStream cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -467,8 +435,6 @@ void java_io_BufferedOutputStream::flush()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_io_BufferedOutputStream::flush() exit");
 
 }

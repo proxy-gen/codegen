@@ -59,20 +59,17 @@ class java_util_Map_Entry
 public:
 
 	java_util_Map_Entry(const java_util_Map_Entry& cc);
-	java_util_Map_Entry(void * proxy);
+	java_util_Map_Entry(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_util_Map_Entry();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Map_Entry();
 	// Functions
-	 bool equals(JDKCXX::java_lang_Object& arg0);
+	 bool equals(JDKCXX::java_lang_Object const& arg0);
 	 int hashCode();
 	 JDKCXX::java_lang_Object getValue();
 	 JDKCXX::java_lang_Object getKey();
-	 JDKCXX::java_lang_Object setValue(JDKCXX::java_lang_Object& arg0);
+	 JDKCXX::java_lang_Object setValue(JDKCXX::java_lang_Object const& arg0);
 };	
 
 } // namespace

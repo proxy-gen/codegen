@@ -56,16 +56,13 @@ class android_widget_ExpandableListView_OnGroupClickListener
 public:
 
 	android_widget_ExpandableListView_OnGroupClickListener(const android_widget_ExpandableListView_OnGroupClickListener& cc);
-	android_widget_ExpandableListView_OnGroupClickListener(void * proxy);
+	android_widget_ExpandableListView_OnGroupClickListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_ExpandableListView_OnGroupClickListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ExpandableListView_OnGroupClickListener();
 	// Functions
-	 bool onGroupClick(AndroidCXX::android_widget_ExpandableListView& arg0,AndroidCXX::android_view_View& arg1,int& arg2,long& arg3);
+	 bool onGroupClick(AndroidCXX::android_widget_ExpandableListView const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2,long const& arg3);
 };	
 
 } // namespace

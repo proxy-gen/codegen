@@ -41,7 +41,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_io_FileDescriptor::java_io_FileDescriptor(const java_io_FileDescriptor& cc)
 {
 	LOGV("java_io_FileDescriptor::java_io_FileDescriptor(const java_io_FileDescriptor& cc) enter");
@@ -65,9 +64,9 @@ java_io_FileDescriptor::java_io_FileDescriptor(const java_io_FileDescriptor& cc)
 
 	LOGV("java_io_FileDescriptor::java_io_FileDescriptor(const java_io_FileDescriptor& cc) exit");
 }
-java_io_FileDescriptor::java_io_FileDescriptor(void * proxy)
+java_io_FileDescriptor::java_io_FileDescriptor(Proxy proxy)
 {
-	LOGV("java_io_FileDescriptor::java_io_FileDescriptor(void * proxy) enter");
+	LOGV("java_io_FileDescriptor::java_io_FileDescriptor(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -77,17 +76,31 @@ java_io_FileDescriptor::java_io_FileDescriptor(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_io_FileDescriptor::java_io_FileDescriptor(void * proxy) exit");
+	LOGV("java_io_FileDescriptor::java_io_FileDescriptor(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy java_io_FileDescriptor::proxy() const
+{	
+	LOGV("java_io_FileDescriptor::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("java_io_FileDescriptor cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_io_FileDescriptor jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("java_io_FileDescriptor::proxy() exit");	
+
+	return proxy;
+}
 java_io_FileDescriptor::java_io_FileDescriptor()
 {
 	LOGV("java_io_FileDescriptor::java_io_FileDescriptor() enter");	
@@ -135,7 +148,7 @@ java_io_FileDescriptor::~java_io_FileDescriptor()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_io_FileDescriptor::~java_io_FileDescriptor() exit");
 }
 // Functions
@@ -151,8 +164,6 @@ bool java_io_FileDescriptor::valid()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_FileDescriptor cxx address %d", cxxAddress);
@@ -181,8 +192,6 @@ bool java_io_FileDescriptor::valid()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_io_FileDescriptor::valid() exit");
 
 	return result;
@@ -200,8 +209,6 @@ void java_io_FileDescriptor::sync()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_io_FileDescriptor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -210,8 +217,6 @@ void java_io_FileDescriptor::sync()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_io_FileDescriptor::sync() exit");
 
 }

@@ -250,7 +250,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_REGION_OP;
+// using namespace android_graphics_Region_Op;
 // 
 // 
 // 
@@ -300,7 +300,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_CANVAS_EDGETYPE;
+// using namespace android_graphics_Canvas_EdgeType;
 // 
 // 
 // 
@@ -323,7 +323,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_PORTERDUFF_MODE;
+// using namespace android_graphics_PorterDuff_Mode;
 // 
 // 
 // 
@@ -445,7 +445,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_CANVAS_VERTEXMODE;
+// using namespace android_graphics_Canvas_VertexMode;
 // 
 // 
 // 
@@ -519,7 +519,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_graphics_Canvas::android_graphics_Canvas(const android_graphics_Canvas& cc)
 {
 	LOGV("android_graphics_Canvas::android_graphics_Canvas(const android_graphics_Canvas& cc) enter");
@@ -543,9 +542,9 @@ android_graphics_Canvas::android_graphics_Canvas(const android_graphics_Canvas& 
 
 	LOGV("android_graphics_Canvas::android_graphics_Canvas(const android_graphics_Canvas& cc) exit");
 }
-android_graphics_Canvas::android_graphics_Canvas(void * proxy)
+android_graphics_Canvas::android_graphics_Canvas(Proxy proxy)
 {
-	LOGV("android_graphics_Canvas::android_graphics_Canvas(void * proxy) enter");
+	LOGV("android_graphics_Canvas::android_graphics_Canvas(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -555,17 +554,31 @@ android_graphics_Canvas::android_graphics_Canvas(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_graphics_Canvas::android_graphics_Canvas(void * proxy) exit");
+	LOGV("android_graphics_Canvas::android_graphics_Canvas(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy android_graphics_Canvas::proxy() const
+{	
+	LOGV("android_graphics_Canvas::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_graphics_Canvas jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_graphics_Canvas::proxy() exit");	
+
+	return proxy;
+}
 android_graphics_Canvas::android_graphics_Canvas()
 {
 	LOGV("android_graphics_Canvas::android_graphics_Canvas() enter");	
@@ -602,9 +615,9 @@ android_graphics_Canvas::android_graphics_Canvas()
 
 	LOGV("android_graphics_Canvas::android_graphics_Canvas() exit");	
 }
-android_graphics_Canvas::android_graphics_Canvas(AndroidCXX::android_graphics_Bitmap& arg0)
+android_graphics_Canvas::android_graphics_Canvas(AndroidCXX::android_graphics_Bitmap const& arg0)
 {
-	LOGV("android_graphics_Canvas::android_graphics_Canvas(AndroidCXX::android_graphics_Bitmap& arg0) enter");	
+	LOGV("android_graphics_Canvas::android_graphics_Canvas(AndroidCXX::android_graphics_Bitmap const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/graphics/Bitmap;)V";
@@ -657,7 +670,7 @@ android_graphics_Canvas::android_graphics_Canvas(AndroidCXX::android_graphics_Bi
 
 	jni->popLocalFrame();
 
-	LOGV("android_graphics_Canvas::android_graphics_Canvas(AndroidCXX::android_graphics_Bitmap& arg0) exit");	
+	LOGV("android_graphics_Canvas::android_graphics_Canvas(AndroidCXX::android_graphics_Bitmap const& arg0) exit");	
 }
 // Default Instance Destructor
 android_graphics_Canvas::~android_graphics_Canvas()
@@ -670,13 +683,13 @@ android_graphics_Canvas::~android_graphics_Canvas()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_graphics_Canvas::~android_graphics_Canvas() exit");
 }
 // Functions
-void android_graphics_Canvas::concat(AndroidCXX::android_graphics_Matrix& arg0)
+void android_graphics_Canvas::concat(AndroidCXX::android_graphics_Matrix const& arg0)
 {
-	LOGV("void android_graphics_Canvas::concat(AndroidCXX::android_graphics_Matrix& arg0) enter");
+	LOGV("void android_graphics_Canvas::concat(AndroidCXX::android_graphics_Matrix const& arg0) enter");
 
 	const char *methodName = "concat";
 	const char *methodSignature = "(Landroid/graphics/Matrix;)V";
@@ -686,8 +699,6 @@ void android_graphics_Canvas::concat(AndroidCXX::android_graphics_Matrix& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -718,14 +729,12 @@ void android_graphics_Canvas::concat(AndroidCXX::android_graphics_Matrix& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::concat(AndroidCXX::android_graphics_Matrix& arg0) exit");
+	LOGV("void android_graphics_Canvas::concat(AndroidCXX::android_graphics_Matrix const& arg0) exit");
 
 }
-int android_graphics_Canvas::save(int& arg0)
+int android_graphics_Canvas::save(int const& arg0)
 {
-	LOGV("int android_graphics_Canvas::save(int& arg0) enter");
+	LOGV("int android_graphics_Canvas::save(int const& arg0) enter");
 
 	const char *methodName = "save";
 	const char *methodSignature = "(I)I";
@@ -735,8 +744,6 @@ int android_graphics_Canvas::save(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -786,9 +793,7 @@ int android_graphics_Canvas::save(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_graphics_Canvas::save(int& arg0) exit");
+	LOGV("int android_graphics_Canvas::save(int const& arg0) exit");
 
 	return result;
 }
@@ -804,8 +809,6 @@ int android_graphics_Canvas::save()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -834,15 +837,13 @@ int android_graphics_Canvas::save()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_graphics_Canvas::save() exit");
 
 	return result;
 }
-void android_graphics_Canvas::rotate(float& arg0,float& arg1,float& arg2)
+void android_graphics_Canvas::rotate(float const& arg0,float const& arg1,float const& arg2)
 {
-	LOGV("void android_graphics_Canvas::rotate(float& arg0,float& arg1,float& arg2) enter");
+	LOGV("void android_graphics_Canvas::rotate(float const& arg0,float const& arg1,float const& arg2) enter");
 
 	const char *methodName = "rotate";
 	const char *methodSignature = "(FFF)V";
@@ -852,8 +853,6 @@ void android_graphics_Canvas::rotate(float& arg0,float& arg1,float& arg2)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -926,14 +925,12 @@ void android_graphics_Canvas::rotate(float& arg0,float& arg1,float& arg2)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::rotate(float& arg0,float& arg1,float& arg2) exit");
+	LOGV("void android_graphics_Canvas::rotate(float const& arg0,float const& arg1,float const& arg2) exit");
 
 }
-void android_graphics_Canvas::rotate(float& arg0)
+void android_graphics_Canvas::rotate(float const& arg0)
 {
-	LOGV("void android_graphics_Canvas::rotate(float& arg0) enter");
+	LOGV("void android_graphics_Canvas::rotate(float const& arg0) enter");
 
 	const char *methodName = "rotate";
 	const char *methodSignature = "(F)V";
@@ -943,8 +940,6 @@ void android_graphics_Canvas::rotate(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -975,9 +970,7 @@ void android_graphics_Canvas::rotate(float& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::rotate(float& arg0) exit");
+	LOGV("void android_graphics_Canvas::rotate(float const& arg0) exit");
 
 }
 bool android_graphics_Canvas::isOpaque()
@@ -992,8 +985,6 @@ bool android_graphics_Canvas::isOpaque()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -1022,15 +1013,13 @@ bool android_graphics_Canvas::isOpaque()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_graphics_Canvas::isOpaque() exit");
 
 	return result;
 }
-void android_graphics_Canvas::scale(float& arg0,float& arg1,float& arg2,float& arg3)
+void android_graphics_Canvas::scale(float const& arg0,float const& arg1,float const& arg2,float const& arg3)
 {
-	LOGV("void android_graphics_Canvas::scale(float& arg0,float& arg1,float& arg2,float& arg3) enter");
+	LOGV("void android_graphics_Canvas::scale(float const& arg0,float const& arg1,float const& arg2,float const& arg3) enter");
 
 	const char *methodName = "scale";
 	const char *methodSignature = "(FFFF)V";
@@ -1040,8 +1029,6 @@ void android_graphics_Canvas::scale(float& arg0,float& arg1,float& arg2,float& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -1135,14 +1122,12 @@ void android_graphics_Canvas::scale(float& arg0,float& arg1,float& arg2,float& a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::scale(float& arg0,float& arg1,float& arg2,float& arg3) exit");
+	LOGV("void android_graphics_Canvas::scale(float const& arg0,float const& arg1,float const& arg2,float const& arg3) exit");
 
 }
-void android_graphics_Canvas::scale(float& arg0,float& arg1)
+void android_graphics_Canvas::scale(float const& arg0,float const& arg1)
 {
-	LOGV("void android_graphics_Canvas::scale(float& arg0,float& arg1) enter");
+	LOGV("void android_graphics_Canvas::scale(float const& arg0,float const& arg1) enter");
 
 	const char *methodName = "scale";
 	const char *methodSignature = "(FF)V";
@@ -1152,8 +1137,6 @@ void android_graphics_Canvas::scale(float& arg0,float& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -1205,9 +1188,7 @@ void android_graphics_Canvas::scale(float& arg0,float& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::scale(float& arg0,float& arg1) exit");
+	LOGV("void android_graphics_Canvas::scale(float const& arg0,float const& arg1) exit");
 
 }
 int android_graphics_Canvas::getWidth()
@@ -1222,8 +1203,6 @@ int android_graphics_Canvas::getWidth()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -1252,8 +1231,6 @@ int android_graphics_Canvas::getWidth()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_graphics_Canvas::getWidth() exit");
 
 	return result;
@@ -1271,8 +1248,6 @@ int android_graphics_Canvas::getHeight()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1300,8 +1275,6 @@ int android_graphics_Canvas::getHeight()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_graphics_Canvas::getHeight() exit");
 
 	return result;
@@ -1318,8 +1291,6 @@ AndroidCXX::android_graphics_Matrix android_graphics_Canvas::getMatrix()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -1348,15 +1319,13 @@ AndroidCXX::android_graphics_Matrix android_graphics_Canvas::getMatrix()
 	AndroidCXX::android_graphics_Matrix result((AndroidCXX::android_graphics_Matrix) *((AndroidCXX::android_graphics_Matrix *) cxx_value));
 	delete ((AndroidCXX::android_graphics_Matrix *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_graphics_Matrix android_graphics_Canvas::getMatrix() exit");
 
 	return result;
 }
-void android_graphics_Canvas::getMatrix(AndroidCXX::android_graphics_Matrix& arg0)
+void android_graphics_Canvas::getMatrix(AndroidCXX::android_graphics_Matrix const& arg0)
 {
-	LOGV("void android_graphics_Canvas::getMatrix(AndroidCXX::android_graphics_Matrix& arg0) enter");
+	LOGV("void android_graphics_Canvas::getMatrix(AndroidCXX::android_graphics_Matrix const& arg0) enter");
 
 	const char *methodName = "getMatrix";
 	const char *methodSignature = "(Landroid/graphics/Matrix;)V";
@@ -1366,8 +1335,6 @@ void android_graphics_Canvas::getMatrix(AndroidCXX::android_graphics_Matrix& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -1398,9 +1365,7 @@ void android_graphics_Canvas::getMatrix(AndroidCXX::android_graphics_Matrix& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::getMatrix(AndroidCXX::android_graphics_Matrix& arg0) exit");
+	LOGV("void android_graphics_Canvas::getMatrix(AndroidCXX::android_graphics_Matrix const& arg0) exit");
 
 }
 bool android_graphics_Canvas::isHardwareAccelerated()
@@ -1415,8 +1380,6 @@ bool android_graphics_Canvas::isHardwareAccelerated()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -1445,15 +1408,13 @@ bool android_graphics_Canvas::isHardwareAccelerated()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_graphics_Canvas::isHardwareAccelerated() exit");
 
 	return result;
 }
-void android_graphics_Canvas::setBitmap(AndroidCXX::android_graphics_Bitmap& arg0)
+void android_graphics_Canvas::setBitmap(AndroidCXX::android_graphics_Bitmap const& arg0)
 {
-	LOGV("void android_graphics_Canvas::setBitmap(AndroidCXX::android_graphics_Bitmap& arg0) enter");
+	LOGV("void android_graphics_Canvas::setBitmap(AndroidCXX::android_graphics_Bitmap const& arg0) enter");
 
 	const char *methodName = "setBitmap";
 	const char *methodSignature = "(Landroid/graphics/Bitmap;)V";
@@ -1463,8 +1424,6 @@ void android_graphics_Canvas::setBitmap(AndroidCXX::android_graphics_Bitmap& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -1495,9 +1454,7 @@ void android_graphics_Canvas::setBitmap(AndroidCXX::android_graphics_Bitmap& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::setBitmap(AndroidCXX::android_graphics_Bitmap& arg0) exit");
+	LOGV("void android_graphics_Canvas::setBitmap(AndroidCXX::android_graphics_Bitmap const& arg0) exit");
 
 }
 int android_graphics_Canvas::getDensity()
@@ -1512,8 +1469,6 @@ int android_graphics_Canvas::getDensity()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -1542,15 +1497,13 @@ int android_graphics_Canvas::getDensity()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_graphics_Canvas::getDensity() exit");
 
 	return result;
 }
-void android_graphics_Canvas::setDensity(int& arg0)
+void android_graphics_Canvas::setDensity(int const& arg0)
 {
-	LOGV("void android_graphics_Canvas::setDensity(int& arg0) enter");
+	LOGV("void android_graphics_Canvas::setDensity(int const& arg0) enter");
 
 	const char *methodName = "setDensity";
 	const char *methodSignature = "(I)V";
@@ -1560,8 +1513,6 @@ void android_graphics_Canvas::setDensity(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -1592,9 +1543,7 @@ void android_graphics_Canvas::setDensity(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::setDensity(int& arg0) exit");
+	LOGV("void android_graphics_Canvas::setDensity(int const& arg0) exit");
 
 }
 int android_graphics_Canvas::getMaximumBitmapWidth()
@@ -1609,8 +1558,6 @@ int android_graphics_Canvas::getMaximumBitmapWidth()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -1639,8 +1586,6 @@ int android_graphics_Canvas::getMaximumBitmapWidth()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_graphics_Canvas::getMaximumBitmapWidth() exit");
 
 	return result;
@@ -1658,8 +1603,6 @@ int android_graphics_Canvas::getMaximumBitmapHeight()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1687,15 +1630,13 @@ int android_graphics_Canvas::getMaximumBitmapHeight()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_graphics_Canvas::getMaximumBitmapHeight() exit");
 
 	return result;
 }
-int android_graphics_Canvas::saveLayer(float& arg0,float& arg1,float& arg2,float& arg3,AndroidCXX::android_graphics_Paint& arg4,int& arg5)
+int android_graphics_Canvas::saveLayer(float const& arg0,float const& arg1,float const& arg2,float const& arg3,AndroidCXX::android_graphics_Paint const& arg4,int const& arg5)
 {
-	LOGV("int android_graphics_Canvas::saveLayer(float& arg0,float& arg1,float& arg2,float& arg3,AndroidCXX::android_graphics_Paint& arg4,int& arg5) enter");
+	LOGV("int android_graphics_Canvas::saveLayer(float const& arg0,float const& arg1,float const& arg2,float const& arg3,AndroidCXX::android_graphics_Paint const& arg4,int const& arg5) enter");
 
 	const char *methodName = "saveLayer";
 	const char *methodSignature = "(FFFFLandroid/graphics/Paint;I)I";
@@ -1705,8 +1646,6 @@ int android_graphics_Canvas::saveLayer(float& arg0,float& arg1,float& arg2,float
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -1861,15 +1800,13 @@ int android_graphics_Canvas::saveLayer(float& arg0,float& arg1,float& arg2,float
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_graphics_Canvas::saveLayer(float& arg0,float& arg1,float& arg2,float& arg3,AndroidCXX::android_graphics_Paint& arg4,int& arg5) exit");
+	LOGV("int android_graphics_Canvas::saveLayer(float const& arg0,float const& arg1,float const& arg2,float const& arg3,AndroidCXX::android_graphics_Paint const& arg4,int const& arg5) exit");
 
 	return result;
 }
-int android_graphics_Canvas::saveLayer(AndroidCXX::android_graphics_RectF& arg0,AndroidCXX::android_graphics_Paint& arg1,int& arg2)
+int android_graphics_Canvas::saveLayer(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_Paint const& arg1,int const& arg2)
 {
-	LOGV("int android_graphics_Canvas::saveLayer(AndroidCXX::android_graphics_RectF& arg0,AndroidCXX::android_graphics_Paint& arg1,int& arg2) enter");
+	LOGV("int android_graphics_Canvas::saveLayer(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_Paint const& arg1,int const& arg2) enter");
 
 	const char *methodName = "saveLayer";
 	const char *methodSignature = "(Landroid/graphics/RectF;Landroid/graphics/Paint;I)I";
@@ -1879,8 +1816,6 @@ int android_graphics_Canvas::saveLayer(AndroidCXX::android_graphics_RectF& arg0,
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -1972,15 +1907,13 @@ int android_graphics_Canvas::saveLayer(AndroidCXX::android_graphics_RectF& arg0,
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_graphics_Canvas::saveLayer(AndroidCXX::android_graphics_RectF& arg0,AndroidCXX::android_graphics_Paint& arg1,int& arg2) exit");
+	LOGV("int android_graphics_Canvas::saveLayer(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_Paint const& arg1,int const& arg2) exit");
 
 	return result;
 }
-int android_graphics_Canvas::saveLayerAlpha(AndroidCXX::android_graphics_RectF& arg0,int& arg1,int& arg2)
+int android_graphics_Canvas::saveLayerAlpha(AndroidCXX::android_graphics_RectF const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("int android_graphics_Canvas::saveLayerAlpha(AndroidCXX::android_graphics_RectF& arg0,int& arg1,int& arg2) enter");
+	LOGV("int android_graphics_Canvas::saveLayerAlpha(AndroidCXX::android_graphics_RectF const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "saveLayerAlpha";
 	const char *methodSignature = "(Landroid/graphics/RectF;II)I";
@@ -1990,8 +1923,6 @@ int android_graphics_Canvas::saveLayerAlpha(AndroidCXX::android_graphics_RectF& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -2083,15 +2014,13 @@ int android_graphics_Canvas::saveLayerAlpha(AndroidCXX::android_graphics_RectF& 
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_graphics_Canvas::saveLayerAlpha(AndroidCXX::android_graphics_RectF& arg0,int& arg1,int& arg2) exit");
+	LOGV("int android_graphics_Canvas::saveLayerAlpha(AndroidCXX::android_graphics_RectF const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-int android_graphics_Canvas::saveLayerAlpha(float& arg0,float& arg1,float& arg2,float& arg3,int& arg4,int& arg5)
+int android_graphics_Canvas::saveLayerAlpha(float const& arg0,float const& arg1,float const& arg2,float const& arg3,int const& arg4,int const& arg5)
 {
-	LOGV("int android_graphics_Canvas::saveLayerAlpha(float& arg0,float& arg1,float& arg2,float& arg3,int& arg4,int& arg5) enter");
+	LOGV("int android_graphics_Canvas::saveLayerAlpha(float const& arg0,float const& arg1,float const& arg2,float const& arg3,int const& arg4,int const& arg5) enter");
 
 	const char *methodName = "saveLayerAlpha";
 	const char *methodSignature = "(FFFFII)I";
@@ -2101,8 +2030,6 @@ int android_graphics_Canvas::saveLayerAlpha(float& arg0,float& arg1,float& arg2,
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -2257,9 +2184,7 @@ int android_graphics_Canvas::saveLayerAlpha(float& arg0,float& arg1,float& arg2,
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_graphics_Canvas::saveLayerAlpha(float& arg0,float& arg1,float& arg2,float& arg3,int& arg4,int& arg5) exit");
+	LOGV("int android_graphics_Canvas::saveLayerAlpha(float const& arg0,float const& arg1,float const& arg2,float const& arg3,int const& arg4,int const& arg5) exit");
 
 	return result;
 }
@@ -2276,8 +2201,6 @@ void android_graphics_Canvas::restore()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2286,8 +2209,6 @@ void android_graphics_Canvas::restore()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_graphics_Canvas::restore() exit");
 
 }
@@ -2303,8 +2224,6 @@ int android_graphics_Canvas::getSaveCount()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -2333,15 +2252,13 @@ int android_graphics_Canvas::getSaveCount()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_graphics_Canvas::getSaveCount() exit");
 
 	return result;
 }
-void android_graphics_Canvas::restoreToCount(int& arg0)
+void android_graphics_Canvas::restoreToCount(int const& arg0)
 {
-	LOGV("void android_graphics_Canvas::restoreToCount(int& arg0) enter");
+	LOGV("void android_graphics_Canvas::restoreToCount(int const& arg0) enter");
 
 	const char *methodName = "restoreToCount";
 	const char *methodSignature = "(I)V";
@@ -2351,8 +2268,6 @@ void android_graphics_Canvas::restoreToCount(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -2383,14 +2298,12 @@ void android_graphics_Canvas::restoreToCount(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::restoreToCount(int& arg0) exit");
+	LOGV("void android_graphics_Canvas::restoreToCount(int const& arg0) exit");
 
 }
-void android_graphics_Canvas::translate(float& arg0,float& arg1)
+void android_graphics_Canvas::translate(float const& arg0,float const& arg1)
 {
-	LOGV("void android_graphics_Canvas::translate(float& arg0,float& arg1) enter");
+	LOGV("void android_graphics_Canvas::translate(float const& arg0,float const& arg1) enter");
 
 	const char *methodName = "translate";
 	const char *methodSignature = "(FF)V";
@@ -2401,8 +2314,6 @@ void android_graphics_Canvas::translate(float& arg0,float& arg1)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2453,14 +2364,12 @@ void android_graphics_Canvas::translate(float& arg0,float& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::translate(float& arg0,float& arg1) exit");
+	LOGV("void android_graphics_Canvas::translate(float const& arg0,float const& arg1) exit");
 
 }
-void android_graphics_Canvas::skew(float& arg0,float& arg1)
+void android_graphics_Canvas::skew(float const& arg0,float const& arg1)
 {
-	LOGV("void android_graphics_Canvas::skew(float& arg0,float& arg1) enter");
+	LOGV("void android_graphics_Canvas::skew(float const& arg0,float const& arg1) enter");
 
 	const char *methodName = "skew";
 	const char *methodSignature = "(FF)V";
@@ -2471,8 +2380,6 @@ void android_graphics_Canvas::skew(float& arg0,float& arg1)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2523,14 +2430,12 @@ void android_graphics_Canvas::skew(float& arg0,float& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::skew(float& arg0,float& arg1) exit");
+	LOGV("void android_graphics_Canvas::skew(float const& arg0,float const& arg1) exit");
 
 }
-void android_graphics_Canvas::setMatrix(AndroidCXX::android_graphics_Matrix& arg0)
+void android_graphics_Canvas::setMatrix(AndroidCXX::android_graphics_Matrix const& arg0)
 {
-	LOGV("void android_graphics_Canvas::setMatrix(AndroidCXX::android_graphics_Matrix& arg0) enter");
+	LOGV("void android_graphics_Canvas::setMatrix(AndroidCXX::android_graphics_Matrix const& arg0) enter");
 
 	const char *methodName = "setMatrix";
 	const char *methodSignature = "(Landroid/graphics/Matrix;)V";
@@ -2540,8 +2445,6 @@ void android_graphics_Canvas::setMatrix(AndroidCXX::android_graphics_Matrix& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -2572,14 +2475,12 @@ void android_graphics_Canvas::setMatrix(AndroidCXX::android_graphics_Matrix& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::setMatrix(AndroidCXX::android_graphics_Matrix& arg0) exit");
+	LOGV("void android_graphics_Canvas::setMatrix(AndroidCXX::android_graphics_Matrix const& arg0) exit");
 
 }
-bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF& arg0,ANDROID_GRAPHICS_REGION_OP::android_graphics_Region_Op& arg1)
+bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1)
 {
-	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF& arg0,ANDROID_GRAPHICS_REGION_OP::android_graphics_Region_Op& arg1) enter");
+	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1) enter");
 
 	const char *methodName = "clipRect";
 	const char *methodSignature = "(Landroid/graphics/RectF;Landroid/graphics/Region$Op;)Z";
@@ -2590,8 +2491,6 @@ bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF& arg0,
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2661,15 +2560,13 @@ bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF& arg0,
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF& arg0,ANDROID_GRAPHICS_REGION_OP::android_graphics_Region_Op& arg1) exit");
+	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1) exit");
 
 	return result;
 }
-bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect& arg0,ANDROID_GRAPHICS_REGION_OP::android_graphics_Region_Op& arg1)
+bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1)
 {
-	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect& arg0,ANDROID_GRAPHICS_REGION_OP::android_graphics_Region_Op& arg1) enter");
+	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1) enter");
 
 	const char *methodName = "clipRect";
 	const char *methodSignature = "(Landroid/graphics/Rect;Landroid/graphics/Region$Op;)Z";
@@ -2680,8 +2577,6 @@ bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect& arg0,A
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2751,15 +2646,13 @@ bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect& arg0,A
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect& arg0,ANDROID_GRAPHICS_REGION_OP::android_graphics_Region_Op& arg1) exit");
+	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1) exit");
 
 	return result;
 }
-bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF& arg0)
+bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF const& arg0)
 {
-	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF& arg0) enter");
+	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF const& arg0) enter");
 
 	const char *methodName = "clipRect";
 	const char *methodSignature = "(Landroid/graphics/RectF;)Z";
@@ -2769,8 +2662,6 @@ bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -2820,15 +2711,13 @@ bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF& arg0) exit");
+	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF const& arg0) exit");
 
 	return result;
 }
-bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect& arg0)
+bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect const& arg0)
 {
-	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect& arg0) enter");
+	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect const& arg0) enter");
 
 	const char *methodName = "clipRect";
 	const char *methodSignature = "(Landroid/graphics/Rect;)Z";
@@ -2838,8 +2727,6 @@ bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -2889,15 +2776,13 @@ bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect& arg0) exit");
+	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect const& arg0) exit");
 
 	return result;
 }
-bool android_graphics_Canvas::clipRect(float& arg0,float& arg1,float& arg2,float& arg3,ANDROID_GRAPHICS_REGION_OP::android_graphics_Region_Op& arg4)
+bool android_graphics_Canvas::clipRect(float const& arg0,float const& arg1,float const& arg2,float const& arg3,android_graphics_Region_Op::android_graphics_Region_Op const& arg4)
 {
-	LOGV("bool android_graphics_Canvas::clipRect(float& arg0,float& arg1,float& arg2,float& arg3,ANDROID_GRAPHICS_REGION_OP::android_graphics_Region_Op& arg4) enter");
+	LOGV("bool android_graphics_Canvas::clipRect(float const& arg0,float const& arg1,float const& arg2,float const& arg3,android_graphics_Region_Op::android_graphics_Region_Op const& arg4) enter");
 
 	const char *methodName = "clipRect";
 	const char *methodSignature = "(FFFFLandroid/graphics/Region$Op;)Z";
@@ -2907,8 +2792,6 @@ bool android_graphics_Canvas::clipRect(float& arg0,float& arg1,float& arg2,float
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -3042,15 +2925,13 @@ bool android_graphics_Canvas::clipRect(float& arg0,float& arg1,float& arg2,float
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_graphics_Canvas::clipRect(float& arg0,float& arg1,float& arg2,float& arg3,ANDROID_GRAPHICS_REGION_OP::android_graphics_Region_Op& arg4) exit");
+	LOGV("bool android_graphics_Canvas::clipRect(float const& arg0,float const& arg1,float const& arg2,float const& arg3,android_graphics_Region_Op::android_graphics_Region_Op const& arg4) exit");
 
 	return result;
 }
-bool android_graphics_Canvas::clipRect(float& arg0,float& arg1,float& arg2,float& arg3)
+bool android_graphics_Canvas::clipRect(float const& arg0,float const& arg1,float const& arg2,float const& arg3)
 {
-	LOGV("bool android_graphics_Canvas::clipRect(float& arg0,float& arg1,float& arg2,float& arg3) enter");
+	LOGV("bool android_graphics_Canvas::clipRect(float const& arg0,float const& arg1,float const& arg2,float const& arg3) enter");
 
 	const char *methodName = "clipRect";
 	const char *methodSignature = "(FFFF)Z";
@@ -3060,8 +2941,6 @@ bool android_graphics_Canvas::clipRect(float& arg0,float& arg1,float& arg2,float
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -3174,15 +3053,13 @@ bool android_graphics_Canvas::clipRect(float& arg0,float& arg1,float& arg2,float
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_graphics_Canvas::clipRect(float& arg0,float& arg1,float& arg2,float& arg3) exit");
+	LOGV("bool android_graphics_Canvas::clipRect(float const& arg0,float const& arg1,float const& arg2,float const& arg3) exit");
 
 	return result;
 }
-bool android_graphics_Canvas::clipRect(int& arg0,int& arg1,int& arg2,int& arg3)
+bool android_graphics_Canvas::clipRect(int const& arg0,int const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("bool android_graphics_Canvas::clipRect(int& arg0,int& arg1,int& arg2,int& arg3) enter");
+	LOGV("bool android_graphics_Canvas::clipRect(int const& arg0,int const& arg1,int const& arg2,int const& arg3) enter");
 
 	const char *methodName = "clipRect";
 	const char *methodSignature = "(IIII)Z";
@@ -3192,8 +3069,6 @@ bool android_graphics_Canvas::clipRect(int& arg0,int& arg1,int& arg2,int& arg3)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -3306,15 +3181,13 @@ bool android_graphics_Canvas::clipRect(int& arg0,int& arg1,int& arg2,int& arg3)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_graphics_Canvas::clipRect(int& arg0,int& arg1,int& arg2,int& arg3) exit");
+	LOGV("bool android_graphics_Canvas::clipRect(int const& arg0,int const& arg1,int const& arg2,int const& arg3) exit");
 
 	return result;
 }
-bool android_graphics_Canvas::clipPath(AndroidCXX::android_graphics_Path& arg0,ANDROID_GRAPHICS_REGION_OP::android_graphics_Region_Op& arg1)
+bool android_graphics_Canvas::clipPath(AndroidCXX::android_graphics_Path const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1)
 {
-	LOGV("bool android_graphics_Canvas::clipPath(AndroidCXX::android_graphics_Path& arg0,ANDROID_GRAPHICS_REGION_OP::android_graphics_Region_Op& arg1) enter");
+	LOGV("bool android_graphics_Canvas::clipPath(AndroidCXX::android_graphics_Path const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1) enter");
 
 	const char *methodName = "clipPath";
 	const char *methodSignature = "(Landroid/graphics/Path;Landroid/graphics/Region$Op;)Z";
@@ -3325,8 +3198,6 @@ bool android_graphics_Canvas::clipPath(AndroidCXX::android_graphics_Path& arg0,A
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3396,15 +3267,13 @@ bool android_graphics_Canvas::clipPath(AndroidCXX::android_graphics_Path& arg0,A
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_graphics_Canvas::clipPath(AndroidCXX::android_graphics_Path& arg0,ANDROID_GRAPHICS_REGION_OP::android_graphics_Region_Op& arg1) exit");
+	LOGV("bool android_graphics_Canvas::clipPath(AndroidCXX::android_graphics_Path const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1) exit");
 
 	return result;
 }
-bool android_graphics_Canvas::clipPath(AndroidCXX::android_graphics_Path& arg0)
+bool android_graphics_Canvas::clipPath(AndroidCXX::android_graphics_Path const& arg0)
 {
-	LOGV("bool android_graphics_Canvas::clipPath(AndroidCXX::android_graphics_Path& arg0) enter");
+	LOGV("bool android_graphics_Canvas::clipPath(AndroidCXX::android_graphics_Path const& arg0) enter");
 
 	const char *methodName = "clipPath";
 	const char *methodSignature = "(Landroid/graphics/Path;)Z";
@@ -3415,8 +3284,6 @@ bool android_graphics_Canvas::clipPath(AndroidCXX::android_graphics_Path& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3465,15 +3332,13 @@ bool android_graphics_Canvas::clipPath(AndroidCXX::android_graphics_Path& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_graphics_Canvas::clipPath(AndroidCXX::android_graphics_Path& arg0) exit");
+	LOGV("bool android_graphics_Canvas::clipPath(AndroidCXX::android_graphics_Path const& arg0) exit");
 
 	return result;
 }
-bool android_graphics_Canvas::clipRegion(AndroidCXX::android_graphics_Region& arg0,ANDROID_GRAPHICS_REGION_OP::android_graphics_Region_Op& arg1)
+bool android_graphics_Canvas::clipRegion(AndroidCXX::android_graphics_Region const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1)
 {
-	LOGV("bool android_graphics_Canvas::clipRegion(AndroidCXX::android_graphics_Region& arg0,ANDROID_GRAPHICS_REGION_OP::android_graphics_Region_Op& arg1) enter");
+	LOGV("bool android_graphics_Canvas::clipRegion(AndroidCXX::android_graphics_Region const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1) enter");
 
 	const char *methodName = "clipRegion";
 	const char *methodSignature = "(Landroid/graphics/Region;Landroid/graphics/Region$Op;)Z";
@@ -3483,8 +3348,6 @@ bool android_graphics_Canvas::clipRegion(AndroidCXX::android_graphics_Region& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -3555,15 +3418,13 @@ bool android_graphics_Canvas::clipRegion(AndroidCXX::android_graphics_Region& ar
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_graphics_Canvas::clipRegion(AndroidCXX::android_graphics_Region& arg0,ANDROID_GRAPHICS_REGION_OP::android_graphics_Region_Op& arg1) exit");
+	LOGV("bool android_graphics_Canvas::clipRegion(AndroidCXX::android_graphics_Region const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1) exit");
 
 	return result;
 }
-bool android_graphics_Canvas::clipRegion(AndroidCXX::android_graphics_Region& arg0)
+bool android_graphics_Canvas::clipRegion(AndroidCXX::android_graphics_Region const& arg0)
 {
-	LOGV("bool android_graphics_Canvas::clipRegion(AndroidCXX::android_graphics_Region& arg0) enter");
+	LOGV("bool android_graphics_Canvas::clipRegion(AndroidCXX::android_graphics_Region const& arg0) enter");
 
 	const char *methodName = "clipRegion";
 	const char *methodSignature = "(Landroid/graphics/Region;)Z";
@@ -3573,8 +3434,6 @@ bool android_graphics_Canvas::clipRegion(AndroidCXX::android_graphics_Region& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -3624,9 +3483,7 @@ bool android_graphics_Canvas::clipRegion(AndroidCXX::android_graphics_Region& ar
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_graphics_Canvas::clipRegion(AndroidCXX::android_graphics_Region& arg0) exit");
+	LOGV("bool android_graphics_Canvas::clipRegion(AndroidCXX::android_graphics_Region const& arg0) exit");
 
 	return result;
 }
@@ -3642,8 +3499,6 @@ AndroidCXX::android_graphics_DrawFilter android_graphics_Canvas::getDrawFilter()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -3672,15 +3527,13 @@ AndroidCXX::android_graphics_DrawFilter android_graphics_Canvas::getDrawFilter()
 	AndroidCXX::android_graphics_DrawFilter result((AndroidCXX::android_graphics_DrawFilter) *((AndroidCXX::android_graphics_DrawFilter *) cxx_value));
 	delete ((AndroidCXX::android_graphics_DrawFilter *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_graphics_DrawFilter android_graphics_Canvas::getDrawFilter() exit");
 
 	return result;
 }
-void android_graphics_Canvas::setDrawFilter(AndroidCXX::android_graphics_DrawFilter& arg0)
+void android_graphics_Canvas::setDrawFilter(AndroidCXX::android_graphics_DrawFilter const& arg0)
 {
-	LOGV("void android_graphics_Canvas::setDrawFilter(AndroidCXX::android_graphics_DrawFilter& arg0) enter");
+	LOGV("void android_graphics_Canvas::setDrawFilter(AndroidCXX::android_graphics_DrawFilter const& arg0) enter");
 
 	const char *methodName = "setDrawFilter";
 	const char *methodSignature = "(Landroid/graphics/DrawFilter;)V";
@@ -3690,8 +3543,6 @@ void android_graphics_Canvas::setDrawFilter(AndroidCXX::android_graphics_DrawFil
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -3722,14 +3573,12 @@ void android_graphics_Canvas::setDrawFilter(AndroidCXX::android_graphics_DrawFil
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::setDrawFilter(AndroidCXX::android_graphics_DrawFilter& arg0) exit");
+	LOGV("void android_graphics_Canvas::setDrawFilter(AndroidCXX::android_graphics_DrawFilter const& arg0) exit");
 
 }
-bool android_graphics_Canvas::quickReject(AndroidCXX::android_graphics_RectF& arg0,ANDROID_GRAPHICS_CANVAS_EDGETYPE::android_graphics_Canvas_EdgeType& arg1)
+bool android_graphics_Canvas::quickReject(AndroidCXX::android_graphics_RectF const& arg0,android_graphics_Canvas_EdgeType::android_graphics_Canvas_EdgeType const& arg1)
 {
-	LOGV("bool android_graphics_Canvas::quickReject(AndroidCXX::android_graphics_RectF& arg0,ANDROID_GRAPHICS_CANVAS_EDGETYPE::android_graphics_Canvas_EdgeType& arg1) enter");
+	LOGV("bool android_graphics_Canvas::quickReject(AndroidCXX::android_graphics_RectF const& arg0,android_graphics_Canvas_EdgeType::android_graphics_Canvas_EdgeType const& arg1) enter");
 
 	const char *methodName = "quickReject";
 	const char *methodSignature = "(Landroid/graphics/RectF;Landroid/graphics/Canvas$EdgeType;)Z";
@@ -3739,8 +3588,6 @@ bool android_graphics_Canvas::quickReject(AndroidCXX::android_graphics_RectF& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -3811,15 +3658,13 @@ bool android_graphics_Canvas::quickReject(AndroidCXX::android_graphics_RectF& ar
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_graphics_Canvas::quickReject(AndroidCXX::android_graphics_RectF& arg0,ANDROID_GRAPHICS_CANVAS_EDGETYPE::android_graphics_Canvas_EdgeType& arg1) exit");
+	LOGV("bool android_graphics_Canvas::quickReject(AndroidCXX::android_graphics_RectF const& arg0,android_graphics_Canvas_EdgeType::android_graphics_Canvas_EdgeType const& arg1) exit");
 
 	return result;
 }
-bool android_graphics_Canvas::quickReject(AndroidCXX::android_graphics_Path& arg0,ANDROID_GRAPHICS_CANVAS_EDGETYPE::android_graphics_Canvas_EdgeType& arg1)
+bool android_graphics_Canvas::quickReject(AndroidCXX::android_graphics_Path const& arg0,android_graphics_Canvas_EdgeType::android_graphics_Canvas_EdgeType const& arg1)
 {
-	LOGV("bool android_graphics_Canvas::quickReject(AndroidCXX::android_graphics_Path& arg0,ANDROID_GRAPHICS_CANVAS_EDGETYPE::android_graphics_Canvas_EdgeType& arg1) enter");
+	LOGV("bool android_graphics_Canvas::quickReject(AndroidCXX::android_graphics_Path const& arg0,android_graphics_Canvas_EdgeType::android_graphics_Canvas_EdgeType const& arg1) enter");
 
 	const char *methodName = "quickReject";
 	const char *methodSignature = "(Landroid/graphics/Path;Landroid/graphics/Canvas$EdgeType;)Z";
@@ -3829,8 +3674,6 @@ bool android_graphics_Canvas::quickReject(AndroidCXX::android_graphics_Path& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -3901,15 +3744,13 @@ bool android_graphics_Canvas::quickReject(AndroidCXX::android_graphics_Path& arg
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_graphics_Canvas::quickReject(AndroidCXX::android_graphics_Path& arg0,ANDROID_GRAPHICS_CANVAS_EDGETYPE::android_graphics_Canvas_EdgeType& arg1) exit");
+	LOGV("bool android_graphics_Canvas::quickReject(AndroidCXX::android_graphics_Path const& arg0,android_graphics_Canvas_EdgeType::android_graphics_Canvas_EdgeType const& arg1) exit");
 
 	return result;
 }
-bool android_graphics_Canvas::quickReject(float& arg0,float& arg1,float& arg2,float& arg3,ANDROID_GRAPHICS_CANVAS_EDGETYPE::android_graphics_Canvas_EdgeType& arg4)
+bool android_graphics_Canvas::quickReject(float const& arg0,float const& arg1,float const& arg2,float const& arg3,android_graphics_Canvas_EdgeType::android_graphics_Canvas_EdgeType const& arg4)
 {
-	LOGV("bool android_graphics_Canvas::quickReject(float& arg0,float& arg1,float& arg2,float& arg3,ANDROID_GRAPHICS_CANVAS_EDGETYPE::android_graphics_Canvas_EdgeType& arg4) enter");
+	LOGV("bool android_graphics_Canvas::quickReject(float const& arg0,float const& arg1,float const& arg2,float const& arg3,android_graphics_Canvas_EdgeType::android_graphics_Canvas_EdgeType const& arg4) enter");
 
 	const char *methodName = "quickReject";
 	const char *methodSignature = "(FFFFLandroid/graphics/Canvas$EdgeType;)Z";
@@ -3919,8 +3760,6 @@ bool android_graphics_Canvas::quickReject(float& arg0,float& arg1,float& arg2,fl
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -4054,15 +3893,13 @@ bool android_graphics_Canvas::quickReject(float& arg0,float& arg1,float& arg2,fl
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_graphics_Canvas::quickReject(float& arg0,float& arg1,float& arg2,float& arg3,ANDROID_GRAPHICS_CANVAS_EDGETYPE::android_graphics_Canvas_EdgeType& arg4) exit");
+	LOGV("bool android_graphics_Canvas::quickReject(float const& arg0,float const& arg1,float const& arg2,float const& arg3,android_graphics_Canvas_EdgeType::android_graphics_Canvas_EdgeType const& arg4) exit");
 
 	return result;
 }
-bool android_graphics_Canvas::getClipBounds(AndroidCXX::android_graphics_Rect& arg0)
+bool android_graphics_Canvas::getClipBounds(AndroidCXX::android_graphics_Rect const& arg0)
 {
-	LOGV("bool android_graphics_Canvas::getClipBounds(AndroidCXX::android_graphics_Rect& arg0) enter");
+	LOGV("bool android_graphics_Canvas::getClipBounds(AndroidCXX::android_graphics_Rect const& arg0) enter");
 
 	const char *methodName = "getClipBounds";
 	const char *methodSignature = "(Landroid/graphics/Rect;)Z";
@@ -4072,8 +3909,6 @@ bool android_graphics_Canvas::getClipBounds(AndroidCXX::android_graphics_Rect& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -4123,9 +3958,7 @@ bool android_graphics_Canvas::getClipBounds(AndroidCXX::android_graphics_Rect& a
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_graphics_Canvas::getClipBounds(AndroidCXX::android_graphics_Rect& arg0) exit");
+	LOGV("bool android_graphics_Canvas::getClipBounds(AndroidCXX::android_graphics_Rect const& arg0) exit");
 
 	return result;
 }
@@ -4141,8 +3974,6 @@ AndroidCXX::android_graphics_Rect android_graphics_Canvas::getClipBounds()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -4171,15 +4002,13 @@ AndroidCXX::android_graphics_Rect android_graphics_Canvas::getClipBounds()
 	AndroidCXX::android_graphics_Rect result((AndroidCXX::android_graphics_Rect) *((AndroidCXX::android_graphics_Rect *) cxx_value));
 	delete ((AndroidCXX::android_graphics_Rect *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_graphics_Rect android_graphics_Canvas::getClipBounds() exit");
 
 	return result;
 }
-void android_graphics_Canvas::drawRGB(int& arg0,int& arg1,int& arg2)
+void android_graphics_Canvas::drawRGB(int const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("void android_graphics_Canvas::drawRGB(int& arg0,int& arg1,int& arg2) enter");
+	LOGV("void android_graphics_Canvas::drawRGB(int const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "drawRGB";
 	const char *methodSignature = "(III)V";
@@ -4189,8 +4018,6 @@ void android_graphics_Canvas::drawRGB(int& arg0,int& arg1,int& arg2)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -4263,14 +4090,12 @@ void android_graphics_Canvas::drawRGB(int& arg0,int& arg1,int& arg2)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawRGB(int& arg0,int& arg1,int& arg2) exit");
+	LOGV("void android_graphics_Canvas::drawRGB(int const& arg0,int const& arg1,int const& arg2) exit");
 
 }
-void android_graphics_Canvas::drawARGB(int& arg0,int& arg1,int& arg2,int& arg3)
+void android_graphics_Canvas::drawARGB(int const& arg0,int const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("void android_graphics_Canvas::drawARGB(int& arg0,int& arg1,int& arg2,int& arg3) enter");
+	LOGV("void android_graphics_Canvas::drawARGB(int const& arg0,int const& arg1,int const& arg2,int const& arg3) enter");
 
 	const char *methodName = "drawARGB";
 	const char *methodSignature = "(IIII)V";
@@ -4280,8 +4105,6 @@ void android_graphics_Canvas::drawARGB(int& arg0,int& arg1,int& arg2,int& arg3)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -4375,14 +4198,12 @@ void android_graphics_Canvas::drawARGB(int& arg0,int& arg1,int& arg2,int& arg3)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawARGB(int& arg0,int& arg1,int& arg2,int& arg3) exit");
+	LOGV("void android_graphics_Canvas::drawARGB(int const& arg0,int const& arg1,int const& arg2,int const& arg3) exit");
 
 }
-void android_graphics_Canvas::drawColor(int& arg0)
+void android_graphics_Canvas::drawColor(int const& arg0)
 {
-	LOGV("void android_graphics_Canvas::drawColor(int& arg0) enter");
+	LOGV("void android_graphics_Canvas::drawColor(int const& arg0) enter");
 
 	const char *methodName = "drawColor";
 	const char *methodSignature = "(I)V";
@@ -4392,8 +4213,6 @@ void android_graphics_Canvas::drawColor(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -4424,14 +4243,12 @@ void android_graphics_Canvas::drawColor(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawColor(int& arg0) exit");
+	LOGV("void android_graphics_Canvas::drawColor(int const& arg0) exit");
 
 }
-void android_graphics_Canvas::drawColor(int& arg0,ANDROID_GRAPHICS_PORTERDUFF_MODE::android_graphics_PorterDuff_Mode& arg1)
+void android_graphics_Canvas::drawColor(int const& arg0,android_graphics_PorterDuff_Mode::android_graphics_PorterDuff_Mode const& arg1)
 {
-	LOGV("void android_graphics_Canvas::drawColor(int& arg0,ANDROID_GRAPHICS_PORTERDUFF_MODE::android_graphics_PorterDuff_Mode& arg1) enter");
+	LOGV("void android_graphics_Canvas::drawColor(int const& arg0,android_graphics_PorterDuff_Mode::android_graphics_PorterDuff_Mode const& arg1) enter");
 
 	const char *methodName = "drawColor";
 	const char *methodSignature = "(ILandroid/graphics/PorterDuff$Mode;)V";
@@ -4441,8 +4258,6 @@ void android_graphics_Canvas::drawColor(int& arg0,ANDROID_GRAPHICS_PORTERDUFF_MO
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -4494,14 +4309,12 @@ void android_graphics_Canvas::drawColor(int& arg0,ANDROID_GRAPHICS_PORTERDUFF_MO
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawColor(int& arg0,ANDROID_GRAPHICS_PORTERDUFF_MODE::android_graphics_PorterDuff_Mode& arg1) exit");
+	LOGV("void android_graphics_Canvas::drawColor(int const& arg0,android_graphics_PorterDuff_Mode::android_graphics_PorterDuff_Mode const& arg1) exit");
 
 }
-void android_graphics_Canvas::drawPaint(AndroidCXX::android_graphics_Paint& arg0)
+void android_graphics_Canvas::drawPaint(AndroidCXX::android_graphics_Paint const& arg0)
 {
-	LOGV("void android_graphics_Canvas::drawPaint(AndroidCXX::android_graphics_Paint& arg0) enter");
+	LOGV("void android_graphics_Canvas::drawPaint(AndroidCXX::android_graphics_Paint const& arg0) enter");
 
 	const char *methodName = "drawPaint";
 	const char *methodSignature = "(Landroid/graphics/Paint;)V";
@@ -4511,8 +4324,6 @@ void android_graphics_Canvas::drawPaint(AndroidCXX::android_graphics_Paint& arg0
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -4543,14 +4354,12 @@ void android_graphics_Canvas::drawPaint(AndroidCXX::android_graphics_Paint& arg0
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawPaint(AndroidCXX::android_graphics_Paint& arg0) exit");
+	LOGV("void android_graphics_Canvas::drawPaint(AndroidCXX::android_graphics_Paint const& arg0) exit");
 
 }
-void android_graphics_Canvas::drawPoints(std::vector<float>& arg0,int& arg1,int& arg2,AndroidCXX::android_graphics_Paint& arg3)
+void android_graphics_Canvas::drawPoints(std::vector<float> const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_graphics_Paint const& arg3)
 {
-	LOGV("void android_graphics_Canvas::drawPoints(std::vector<float>& arg0,int& arg1,int& arg2,AndroidCXX::android_graphics_Paint& arg3) enter");
+	LOGV("void android_graphics_Canvas::drawPoints(std::vector<float> const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_graphics_Paint const& arg3) enter");
 
 	const char *methodName = "drawPoints";
 	const char *methodSignature = "([FIILandroid/graphics/Paint;)V";
@@ -4560,8 +4369,6 @@ void android_graphics_Canvas::drawPoints(std::vector<float>& arg0,int& arg1,int&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -4673,14 +4480,12 @@ void android_graphics_Canvas::drawPoints(std::vector<float>& arg0,int& arg1,int&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawPoints(std::vector<float>& arg0,int& arg1,int& arg2,AndroidCXX::android_graphics_Paint& arg3) exit");
+	LOGV("void android_graphics_Canvas::drawPoints(std::vector<float> const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_graphics_Paint const& arg3) exit");
 
 }
-void android_graphics_Canvas::drawPoints(std::vector<float>& arg0,AndroidCXX::android_graphics_Paint& arg1)
+void android_graphics_Canvas::drawPoints(std::vector<float> const& arg0,AndroidCXX::android_graphics_Paint const& arg1)
 {
-	LOGV("void android_graphics_Canvas::drawPoints(std::vector<float>& arg0,AndroidCXX::android_graphics_Paint& arg1) enter");
+	LOGV("void android_graphics_Canvas::drawPoints(std::vector<float> const& arg0,AndroidCXX::android_graphics_Paint const& arg1) enter");
 
 	const char *methodName = "drawPoints";
 	const char *methodSignature = "([FLandroid/graphics/Paint;)V";
@@ -4690,8 +4495,6 @@ void android_graphics_Canvas::drawPoints(std::vector<float>& arg0,AndroidCXX::an
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -4761,14 +4564,12 @@ void android_graphics_Canvas::drawPoints(std::vector<float>& arg0,AndroidCXX::an
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawPoints(std::vector<float>& arg0,AndroidCXX::android_graphics_Paint& arg1) exit");
+	LOGV("void android_graphics_Canvas::drawPoints(std::vector<float> const& arg0,AndroidCXX::android_graphics_Paint const& arg1) exit");
 
 }
-void android_graphics_Canvas::drawPoint(float& arg0,float& arg1,AndroidCXX::android_graphics_Paint& arg2)
+void android_graphics_Canvas::drawPoint(float const& arg0,float const& arg1,AndroidCXX::android_graphics_Paint const& arg2)
 {
-	LOGV("void android_graphics_Canvas::drawPoint(float& arg0,float& arg1,AndroidCXX::android_graphics_Paint& arg2) enter");
+	LOGV("void android_graphics_Canvas::drawPoint(float const& arg0,float const& arg1,AndroidCXX::android_graphics_Paint const& arg2) enter");
 
 	const char *methodName = "drawPoint";
 	const char *methodSignature = "(FFLandroid/graphics/Paint;)V";
@@ -4778,8 +4579,6 @@ void android_graphics_Canvas::drawPoint(float& arg0,float& arg1,AndroidCXX::andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -4852,14 +4651,12 @@ void android_graphics_Canvas::drawPoint(float& arg0,float& arg1,AndroidCXX::andr
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawPoint(float& arg0,float& arg1,AndroidCXX::android_graphics_Paint& arg2) exit");
+	LOGV("void android_graphics_Canvas::drawPoint(float const& arg0,float const& arg1,AndroidCXX::android_graphics_Paint const& arg2) exit");
 
 }
-void android_graphics_Canvas::drawLine(float& arg0,float& arg1,float& arg2,float& arg3,AndroidCXX::android_graphics_Paint& arg4)
+void android_graphics_Canvas::drawLine(float const& arg0,float const& arg1,float const& arg2,float const& arg3,AndroidCXX::android_graphics_Paint const& arg4)
 {
-	LOGV("void android_graphics_Canvas::drawLine(float& arg0,float& arg1,float& arg2,float& arg3,AndroidCXX::android_graphics_Paint& arg4) enter");
+	LOGV("void android_graphics_Canvas::drawLine(float const& arg0,float const& arg1,float const& arg2,float const& arg3,AndroidCXX::android_graphics_Paint const& arg4) enter");
 
 	const char *methodName = "drawLine";
 	const char *methodSignature = "(FFFFLandroid/graphics/Paint;)V";
@@ -4869,8 +4666,6 @@ void android_graphics_Canvas::drawLine(float& arg0,float& arg1,float& arg2,float
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -4985,14 +4780,12 @@ void android_graphics_Canvas::drawLine(float& arg0,float& arg1,float& arg2,float
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawLine(float& arg0,float& arg1,float& arg2,float& arg3,AndroidCXX::android_graphics_Paint& arg4) exit");
+	LOGV("void android_graphics_Canvas::drawLine(float const& arg0,float const& arg1,float const& arg2,float const& arg3,AndroidCXX::android_graphics_Paint const& arg4) exit");
 
 }
-void android_graphics_Canvas::drawLines(std::vector<float>& arg0,int& arg1,int& arg2,AndroidCXX::android_graphics_Paint& arg3)
+void android_graphics_Canvas::drawLines(std::vector<float> const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_graphics_Paint const& arg3)
 {
-	LOGV("void android_graphics_Canvas::drawLines(std::vector<float>& arg0,int& arg1,int& arg2,AndroidCXX::android_graphics_Paint& arg3) enter");
+	LOGV("void android_graphics_Canvas::drawLines(std::vector<float> const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_graphics_Paint const& arg3) enter");
 
 	const char *methodName = "drawLines";
 	const char *methodSignature = "([FIILandroid/graphics/Paint;)V";
@@ -5002,8 +4795,6 @@ void android_graphics_Canvas::drawLines(std::vector<float>& arg0,int& arg1,int& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -5115,14 +4906,12 @@ void android_graphics_Canvas::drawLines(std::vector<float>& arg0,int& arg1,int& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawLines(std::vector<float>& arg0,int& arg1,int& arg2,AndroidCXX::android_graphics_Paint& arg3) exit");
+	LOGV("void android_graphics_Canvas::drawLines(std::vector<float> const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_graphics_Paint const& arg3) exit");
 
 }
-void android_graphics_Canvas::drawLines(std::vector<float>& arg0,AndroidCXX::android_graphics_Paint& arg1)
+void android_graphics_Canvas::drawLines(std::vector<float> const& arg0,AndroidCXX::android_graphics_Paint const& arg1)
 {
-	LOGV("void android_graphics_Canvas::drawLines(std::vector<float>& arg0,AndroidCXX::android_graphics_Paint& arg1) enter");
+	LOGV("void android_graphics_Canvas::drawLines(std::vector<float> const& arg0,AndroidCXX::android_graphics_Paint const& arg1) enter");
 
 	const char *methodName = "drawLines";
 	const char *methodSignature = "([FLandroid/graphics/Paint;)V";
@@ -5132,8 +4921,6 @@ void android_graphics_Canvas::drawLines(std::vector<float>& arg0,AndroidCXX::and
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -5203,14 +4990,12 @@ void android_graphics_Canvas::drawLines(std::vector<float>& arg0,AndroidCXX::and
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawLines(std::vector<float>& arg0,AndroidCXX::android_graphics_Paint& arg1) exit");
+	LOGV("void android_graphics_Canvas::drawLines(std::vector<float> const& arg0,AndroidCXX::android_graphics_Paint const& arg1) exit");
 
 }
-void android_graphics_Canvas::drawRect(AndroidCXX::android_graphics_RectF& arg0,AndroidCXX::android_graphics_Paint& arg1)
+void android_graphics_Canvas::drawRect(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_Paint const& arg1)
 {
-	LOGV("void android_graphics_Canvas::drawRect(AndroidCXX::android_graphics_RectF& arg0,AndroidCXX::android_graphics_Paint& arg1) enter");
+	LOGV("void android_graphics_Canvas::drawRect(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_Paint const& arg1) enter");
 
 	const char *methodName = "drawRect";
 	const char *methodSignature = "(Landroid/graphics/RectF;Landroid/graphics/Paint;)V";
@@ -5220,8 +5005,6 @@ void android_graphics_Canvas::drawRect(AndroidCXX::android_graphics_RectF& arg0,
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -5273,14 +5056,12 @@ void android_graphics_Canvas::drawRect(AndroidCXX::android_graphics_RectF& arg0,
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawRect(AndroidCXX::android_graphics_RectF& arg0,AndroidCXX::android_graphics_Paint& arg1) exit");
+	LOGV("void android_graphics_Canvas::drawRect(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_Paint const& arg1) exit");
 
 }
-void android_graphics_Canvas::drawRect(AndroidCXX::android_graphics_Rect& arg0,AndroidCXX::android_graphics_Paint& arg1)
+void android_graphics_Canvas::drawRect(AndroidCXX::android_graphics_Rect const& arg0,AndroidCXX::android_graphics_Paint const& arg1)
 {
-	LOGV("void android_graphics_Canvas::drawRect(AndroidCXX::android_graphics_Rect& arg0,AndroidCXX::android_graphics_Paint& arg1) enter");
+	LOGV("void android_graphics_Canvas::drawRect(AndroidCXX::android_graphics_Rect const& arg0,AndroidCXX::android_graphics_Paint const& arg1) enter");
 
 	const char *methodName = "drawRect";
 	const char *methodSignature = "(Landroid/graphics/Rect;Landroid/graphics/Paint;)V";
@@ -5290,8 +5071,6 @@ void android_graphics_Canvas::drawRect(AndroidCXX::android_graphics_Rect& arg0,A
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -5343,14 +5122,12 @@ void android_graphics_Canvas::drawRect(AndroidCXX::android_graphics_Rect& arg0,A
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawRect(AndroidCXX::android_graphics_Rect& arg0,AndroidCXX::android_graphics_Paint& arg1) exit");
+	LOGV("void android_graphics_Canvas::drawRect(AndroidCXX::android_graphics_Rect const& arg0,AndroidCXX::android_graphics_Paint const& arg1) exit");
 
 }
-void android_graphics_Canvas::drawRect(float& arg0,float& arg1,float& arg2,float& arg3,AndroidCXX::android_graphics_Paint& arg4)
+void android_graphics_Canvas::drawRect(float const& arg0,float const& arg1,float const& arg2,float const& arg3,AndroidCXX::android_graphics_Paint const& arg4)
 {
-	LOGV("void android_graphics_Canvas::drawRect(float& arg0,float& arg1,float& arg2,float& arg3,AndroidCXX::android_graphics_Paint& arg4) enter");
+	LOGV("void android_graphics_Canvas::drawRect(float const& arg0,float const& arg1,float const& arg2,float const& arg3,AndroidCXX::android_graphics_Paint const& arg4) enter");
 
 	const char *methodName = "drawRect";
 	const char *methodSignature = "(FFFFLandroid/graphics/Paint;)V";
@@ -5360,8 +5137,6 @@ void android_graphics_Canvas::drawRect(float& arg0,float& arg1,float& arg2,float
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -5476,14 +5251,12 @@ void android_graphics_Canvas::drawRect(float& arg0,float& arg1,float& arg2,float
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawRect(float& arg0,float& arg1,float& arg2,float& arg3,AndroidCXX::android_graphics_Paint& arg4) exit");
+	LOGV("void android_graphics_Canvas::drawRect(float const& arg0,float const& arg1,float const& arg2,float const& arg3,AndroidCXX::android_graphics_Paint const& arg4) exit");
 
 }
-void android_graphics_Canvas::drawOval(AndroidCXX::android_graphics_RectF& arg0,AndroidCXX::android_graphics_Paint& arg1)
+void android_graphics_Canvas::drawOval(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_Paint const& arg1)
 {
-	LOGV("void android_graphics_Canvas::drawOval(AndroidCXX::android_graphics_RectF& arg0,AndroidCXX::android_graphics_Paint& arg1) enter");
+	LOGV("void android_graphics_Canvas::drawOval(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_Paint const& arg1) enter");
 
 	const char *methodName = "drawOval";
 	const char *methodSignature = "(Landroid/graphics/RectF;Landroid/graphics/Paint;)V";
@@ -5493,8 +5266,6 @@ void android_graphics_Canvas::drawOval(AndroidCXX::android_graphics_RectF& arg0,
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -5546,14 +5317,12 @@ void android_graphics_Canvas::drawOval(AndroidCXX::android_graphics_RectF& arg0,
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawOval(AndroidCXX::android_graphics_RectF& arg0,AndroidCXX::android_graphics_Paint& arg1) exit");
+	LOGV("void android_graphics_Canvas::drawOval(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_Paint const& arg1) exit");
 
 }
-void android_graphics_Canvas::drawCircle(float& arg0,float& arg1,float& arg2,AndroidCXX::android_graphics_Paint& arg3)
+void android_graphics_Canvas::drawCircle(float const& arg0,float const& arg1,float const& arg2,AndroidCXX::android_graphics_Paint const& arg3)
 {
-	LOGV("void android_graphics_Canvas::drawCircle(float& arg0,float& arg1,float& arg2,AndroidCXX::android_graphics_Paint& arg3) enter");
+	LOGV("void android_graphics_Canvas::drawCircle(float const& arg0,float const& arg1,float const& arg2,AndroidCXX::android_graphics_Paint const& arg3) enter");
 
 	const char *methodName = "drawCircle";
 	const char *methodSignature = "(FFFLandroid/graphics/Paint;)V";
@@ -5563,8 +5332,6 @@ void android_graphics_Canvas::drawCircle(float& arg0,float& arg1,float& arg2,And
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -5658,14 +5425,12 @@ void android_graphics_Canvas::drawCircle(float& arg0,float& arg1,float& arg2,And
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawCircle(float& arg0,float& arg1,float& arg2,AndroidCXX::android_graphics_Paint& arg3) exit");
+	LOGV("void android_graphics_Canvas::drawCircle(float const& arg0,float const& arg1,float const& arg2,AndroidCXX::android_graphics_Paint const& arg3) exit");
 
 }
-void android_graphics_Canvas::drawArc(AndroidCXX::android_graphics_RectF& arg0,float& arg1,float& arg2,bool& arg3,AndroidCXX::android_graphics_Paint& arg4)
+void android_graphics_Canvas::drawArc(AndroidCXX::android_graphics_RectF const& arg0,float const& arg1,float const& arg2,bool const& arg3,AndroidCXX::android_graphics_Paint const& arg4)
 {
-	LOGV("void android_graphics_Canvas::drawArc(AndroidCXX::android_graphics_RectF& arg0,float& arg1,float& arg2,bool& arg3,AndroidCXX::android_graphics_Paint& arg4) enter");
+	LOGV("void android_graphics_Canvas::drawArc(AndroidCXX::android_graphics_RectF const& arg0,float const& arg1,float const& arg2,bool const& arg3,AndroidCXX::android_graphics_Paint const& arg4) enter");
 
 	const char *methodName = "drawArc";
 	const char *methodSignature = "(Landroid/graphics/RectF;FFZLandroid/graphics/Paint;)V";
@@ -5675,8 +5440,6 @@ void android_graphics_Canvas::drawArc(AndroidCXX::android_graphics_RectF& arg0,f
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -5791,14 +5554,12 @@ void android_graphics_Canvas::drawArc(AndroidCXX::android_graphics_RectF& arg0,f
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawArc(AndroidCXX::android_graphics_RectF& arg0,float& arg1,float& arg2,bool& arg3,AndroidCXX::android_graphics_Paint& arg4) exit");
+	LOGV("void android_graphics_Canvas::drawArc(AndroidCXX::android_graphics_RectF const& arg0,float const& arg1,float const& arg2,bool const& arg3,AndroidCXX::android_graphics_Paint const& arg4) exit");
 
 }
-void android_graphics_Canvas::drawRoundRect(AndroidCXX::android_graphics_RectF& arg0,float& arg1,float& arg2,AndroidCXX::android_graphics_Paint& arg3)
+void android_graphics_Canvas::drawRoundRect(AndroidCXX::android_graphics_RectF const& arg0,float const& arg1,float const& arg2,AndroidCXX::android_graphics_Paint const& arg3)
 {
-	LOGV("void android_graphics_Canvas::drawRoundRect(AndroidCXX::android_graphics_RectF& arg0,float& arg1,float& arg2,AndroidCXX::android_graphics_Paint& arg3) enter");
+	LOGV("void android_graphics_Canvas::drawRoundRect(AndroidCXX::android_graphics_RectF const& arg0,float const& arg1,float const& arg2,AndroidCXX::android_graphics_Paint const& arg3) enter");
 
 	const char *methodName = "drawRoundRect";
 	const char *methodSignature = "(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V";
@@ -5808,8 +5569,6 @@ void android_graphics_Canvas::drawRoundRect(AndroidCXX::android_graphics_RectF& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -5903,14 +5662,12 @@ void android_graphics_Canvas::drawRoundRect(AndroidCXX::android_graphics_RectF& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawRoundRect(AndroidCXX::android_graphics_RectF& arg0,float& arg1,float& arg2,AndroidCXX::android_graphics_Paint& arg3) exit");
+	LOGV("void android_graphics_Canvas::drawRoundRect(AndroidCXX::android_graphics_RectF const& arg0,float const& arg1,float const& arg2,AndroidCXX::android_graphics_Paint const& arg3) exit");
 
 }
-void android_graphics_Canvas::drawPath(AndroidCXX::android_graphics_Path& arg0,AndroidCXX::android_graphics_Paint& arg1)
+void android_graphics_Canvas::drawPath(AndroidCXX::android_graphics_Path const& arg0,AndroidCXX::android_graphics_Paint const& arg1)
 {
-	LOGV("void android_graphics_Canvas::drawPath(AndroidCXX::android_graphics_Path& arg0,AndroidCXX::android_graphics_Paint& arg1) enter");
+	LOGV("void android_graphics_Canvas::drawPath(AndroidCXX::android_graphics_Path const& arg0,AndroidCXX::android_graphics_Paint const& arg1) enter");
 
 	const char *methodName = "drawPath";
 	const char *methodSignature = "(Landroid/graphics/Path;Landroid/graphics/Paint;)V";
@@ -5920,8 +5677,6 @@ void android_graphics_Canvas::drawPath(AndroidCXX::android_graphics_Path& arg0,A
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -5973,14 +5728,12 @@ void android_graphics_Canvas::drawPath(AndroidCXX::android_graphics_Path& arg0,A
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawPath(AndroidCXX::android_graphics_Path& arg0,AndroidCXX::android_graphics_Paint& arg1) exit");
+	LOGV("void android_graphics_Canvas::drawPath(AndroidCXX::android_graphics_Path const& arg0,AndroidCXX::android_graphics_Paint const& arg1) exit");
 
 }
-void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap& arg0,float& arg1,float& arg2,AndroidCXX::android_graphics_Paint& arg3)
+void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,float const& arg1,float const& arg2,AndroidCXX::android_graphics_Paint const& arg3)
 {
-	LOGV("void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap& arg0,float& arg1,float& arg2,AndroidCXX::android_graphics_Paint& arg3) enter");
+	LOGV("void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,float const& arg1,float const& arg2,AndroidCXX::android_graphics_Paint const& arg3) enter");
 
 	const char *methodName = "drawBitmap";
 	const char *methodSignature = "(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V";
@@ -5990,8 +5743,6 @@ void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -6085,14 +5836,12 @@ void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap& ar
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap& arg0,float& arg1,float& arg2,AndroidCXX::android_graphics_Paint& arg3) exit");
+	LOGV("void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,float const& arg1,float const& arg2,AndroidCXX::android_graphics_Paint const& arg3) exit");
 
 }
-void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap& arg0,AndroidCXX::android_graphics_Rect& arg1,AndroidCXX::android_graphics_RectF& arg2,AndroidCXX::android_graphics_Paint& arg3)
+void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,AndroidCXX::android_graphics_Rect const& arg1,AndroidCXX::android_graphics_RectF const& arg2,AndroidCXX::android_graphics_Paint const& arg3)
 {
-	LOGV("void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap& arg0,AndroidCXX::android_graphics_Rect& arg1,AndroidCXX::android_graphics_RectF& arg2,AndroidCXX::android_graphics_Paint& arg3) enter");
+	LOGV("void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,AndroidCXX::android_graphics_Rect const& arg1,AndroidCXX::android_graphics_RectF const& arg2,AndroidCXX::android_graphics_Paint const& arg3) enter");
 
 	const char *methodName = "drawBitmap";
 	const char *methodSignature = "(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/RectF;Landroid/graphics/Paint;)V";
@@ -6102,8 +5851,6 @@ void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -6197,14 +5944,12 @@ void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap& ar
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap& arg0,AndroidCXX::android_graphics_Rect& arg1,AndroidCXX::android_graphics_RectF& arg2,AndroidCXX::android_graphics_Paint& arg3) exit");
+	LOGV("void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,AndroidCXX::android_graphics_Rect const& arg1,AndroidCXX::android_graphics_RectF const& arg2,AndroidCXX::android_graphics_Paint const& arg3) exit");
 
 }
-void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap& arg0,AndroidCXX::android_graphics_Rect& arg1,AndroidCXX::android_graphics_Rect& arg2,AndroidCXX::android_graphics_Paint& arg3)
+void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,AndroidCXX::android_graphics_Rect const& arg1,AndroidCXX::android_graphics_Rect const& arg2,AndroidCXX::android_graphics_Paint const& arg3)
 {
-	LOGV("void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap& arg0,AndroidCXX::android_graphics_Rect& arg1,AndroidCXX::android_graphics_Rect& arg2,AndroidCXX::android_graphics_Paint& arg3) enter");
+	LOGV("void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,AndroidCXX::android_graphics_Rect const& arg1,AndroidCXX::android_graphics_Rect const& arg2,AndroidCXX::android_graphics_Paint const& arg3) enter");
 
 	const char *methodName = "drawBitmap";
 	const char *methodSignature = "(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V";
@@ -6214,8 +5959,6 @@ void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -6309,14 +6052,12 @@ void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap& ar
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap& arg0,AndroidCXX::android_graphics_Rect& arg1,AndroidCXX::android_graphics_Rect& arg2,AndroidCXX::android_graphics_Paint& arg3) exit");
+	LOGV("void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,AndroidCXX::android_graphics_Rect const& arg1,AndroidCXX::android_graphics_Rect const& arg2,AndroidCXX::android_graphics_Paint const& arg3) exit");
 
 }
-void android_graphics_Canvas::drawBitmap(std::vector<int>& arg0,int& arg1,int& arg2,float& arg3,float& arg4,int& arg5,int& arg6,bool& arg7,AndroidCXX::android_graphics_Paint& arg8)
+void android_graphics_Canvas::drawBitmap(std::vector<int> const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,int const& arg5,int const& arg6,bool const& arg7,AndroidCXX::android_graphics_Paint const& arg8)
 {
-	LOGV("void android_graphics_Canvas::drawBitmap(std::vector<int>& arg0,int& arg1,int& arg2,float& arg3,float& arg4,int& arg5,int& arg6,bool& arg7,AndroidCXX::android_graphics_Paint& arg8) enter");
+	LOGV("void android_graphics_Canvas::drawBitmap(std::vector<int> const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,int const& arg5,int const& arg6,bool const& arg7,AndroidCXX::android_graphics_Paint const& arg8) enter");
 
 	const char *methodName = "drawBitmap";
 	const char *methodSignature = "([IIIFFIIZLandroid/graphics/Paint;)V";
@@ -6326,8 +6067,6 @@ void android_graphics_Canvas::drawBitmap(std::vector<int>& arg0,int& arg1,int& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -6544,14 +6283,12 @@ void android_graphics_Canvas::drawBitmap(std::vector<int>& arg0,int& arg1,int& a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6,jarg7,jarg8);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawBitmap(std::vector<int>& arg0,int& arg1,int& arg2,float& arg3,float& arg4,int& arg5,int& arg6,bool& arg7,AndroidCXX::android_graphics_Paint& arg8) exit");
+	LOGV("void android_graphics_Canvas::drawBitmap(std::vector<int> const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,int const& arg5,int const& arg6,bool const& arg7,AndroidCXX::android_graphics_Paint const& arg8) exit");
 
 }
-void android_graphics_Canvas::drawBitmap(std::vector<int>& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6,bool& arg7,AndroidCXX::android_graphics_Paint& arg8)
+void android_graphics_Canvas::drawBitmap(std::vector<int> const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,bool const& arg7,AndroidCXX::android_graphics_Paint const& arg8)
 {
-	LOGV("void android_graphics_Canvas::drawBitmap(std::vector<int>& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6,bool& arg7,AndroidCXX::android_graphics_Paint& arg8) enter");
+	LOGV("void android_graphics_Canvas::drawBitmap(std::vector<int> const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,bool const& arg7,AndroidCXX::android_graphics_Paint const& arg8) enter");
 
 	const char *methodName = "drawBitmap";
 	const char *methodSignature = "([IIIIIIIZLandroid/graphics/Paint;)V";
@@ -6561,8 +6298,6 @@ void android_graphics_Canvas::drawBitmap(std::vector<int>& arg0,int& arg1,int& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -6779,14 +6514,12 @@ void android_graphics_Canvas::drawBitmap(std::vector<int>& arg0,int& arg1,int& a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6,jarg7,jarg8);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawBitmap(std::vector<int>& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6,bool& arg7,AndroidCXX::android_graphics_Paint& arg8) exit");
+	LOGV("void android_graphics_Canvas::drawBitmap(std::vector<int> const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,bool const& arg7,AndroidCXX::android_graphics_Paint const& arg8) exit");
 
 }
-void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap& arg0,AndroidCXX::android_graphics_Matrix& arg1,AndroidCXX::android_graphics_Paint& arg2)
+void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,AndroidCXX::android_graphics_Matrix const& arg1,AndroidCXX::android_graphics_Paint const& arg2)
 {
-	LOGV("void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap& arg0,AndroidCXX::android_graphics_Matrix& arg1,AndroidCXX::android_graphics_Paint& arg2) enter");
+	LOGV("void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,AndroidCXX::android_graphics_Matrix const& arg1,AndroidCXX::android_graphics_Paint const& arg2) enter");
 
 	const char *methodName = "drawBitmap";
 	const char *methodSignature = "(Landroid/graphics/Bitmap;Landroid/graphics/Matrix;Landroid/graphics/Paint;)V";
@@ -6796,8 +6529,6 @@ void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -6870,14 +6601,12 @@ void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap& ar
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap& arg0,AndroidCXX::android_graphics_Matrix& arg1,AndroidCXX::android_graphics_Paint& arg2) exit");
+	LOGV("void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,AndroidCXX::android_graphics_Matrix const& arg1,AndroidCXX::android_graphics_Paint const& arg2) exit");
 
 }
-void android_graphics_Canvas::drawBitmapMesh(AndroidCXX::android_graphics_Bitmap& arg0,int& arg1,int& arg2,std::vector<float>& arg3,int& arg4,std::vector<int>& arg5,int& arg6,AndroidCXX::android_graphics_Paint& arg7)
+void android_graphics_Canvas::drawBitmapMesh(AndroidCXX::android_graphics_Bitmap const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3,int const& arg4,std::vector<int> const& arg5,int const& arg6,AndroidCXX::android_graphics_Paint const& arg7)
 {
-	LOGV("void android_graphics_Canvas::drawBitmapMesh(AndroidCXX::android_graphics_Bitmap& arg0,int& arg1,int& arg2,std::vector<float>& arg3,int& arg4,std::vector<int>& arg5,int& arg6,AndroidCXX::android_graphics_Paint& arg7) enter");
+	LOGV("void android_graphics_Canvas::drawBitmapMesh(AndroidCXX::android_graphics_Bitmap const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3,int const& arg4,std::vector<int> const& arg5,int const& arg6,AndroidCXX::android_graphics_Paint const& arg7) enter");
 
 	const char *methodName = "drawBitmapMesh";
 	const char *methodSignature = "(Landroid/graphics/Bitmap;II[FI[IILandroid/graphics/Paint;)V";
@@ -6887,8 +6616,6 @@ void android_graphics_Canvas::drawBitmapMesh(AndroidCXX::android_graphics_Bitmap
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -7102,14 +6829,12 @@ void android_graphics_Canvas::drawBitmapMesh(AndroidCXX::android_graphics_Bitmap
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6,jarg7);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawBitmapMesh(AndroidCXX::android_graphics_Bitmap& arg0,int& arg1,int& arg2,std::vector<float>& arg3,int& arg4,std::vector<int>& arg5,int& arg6,AndroidCXX::android_graphics_Paint& arg7) exit");
+	LOGV("void android_graphics_Canvas::drawBitmapMesh(AndroidCXX::android_graphics_Bitmap const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3,int const& arg4,std::vector<int> const& arg5,int const& arg6,AndroidCXX::android_graphics_Paint const& arg7) exit");
 
 }
-void android_graphics_Canvas::drawVertices(ANDROID_GRAPHICS_CANVAS_VERTEXMODE::android_graphics_Canvas_VertexMode& arg0,int& arg1,std::vector<float>& arg2,int& arg3,std::vector<float>& arg4,int& arg5,std::vector<int>& arg6,int& arg7,std::vector<short>& arg8,int& arg9,int& arg10,AndroidCXX::android_graphics_Paint& arg11)
+void android_graphics_Canvas::drawVertices(android_graphics_Canvas_VertexMode::android_graphics_Canvas_VertexMode const& arg0,int const& arg1,std::vector<float> const& arg2,int const& arg3,std::vector<float> const& arg4,int const& arg5,std::vector<int> const& arg6,int const& arg7,std::vector<short> const& arg8,int const& arg9,int const& arg10,AndroidCXX::android_graphics_Paint const& arg11)
 {
-	LOGV("void android_graphics_Canvas::drawVertices(ANDROID_GRAPHICS_CANVAS_VERTEXMODE::android_graphics_Canvas_VertexMode& arg0,int& arg1,std::vector<float>& arg2,int& arg3,std::vector<float>& arg4,int& arg5,std::vector<int>& arg6,int& arg7,std::vector<short>& arg8,int& arg9,int& arg10,AndroidCXX::android_graphics_Paint& arg11) enter");
+	LOGV("void android_graphics_Canvas::drawVertices(android_graphics_Canvas_VertexMode::android_graphics_Canvas_VertexMode const& arg0,int const& arg1,std::vector<float> const& arg2,int const& arg3,std::vector<float> const& arg4,int const& arg5,std::vector<int> const& arg6,int const& arg7,std::vector<short> const& arg8,int const& arg9,int const& arg10,AndroidCXX::android_graphics_Paint const& arg11) enter");
 
 	const char *methodName = "drawVertices";
 	const char *methodSignature = "(Landroid/graphics/Canvas$VertexMode;I[FI[FI[II[SIILandroid/graphics/Paint;)V";
@@ -7119,8 +6844,6 @@ void android_graphics_Canvas::drawVertices(ANDROID_GRAPHICS_CANVAS_VERTEXMODE::a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -7454,14 +7177,12 @@ void android_graphics_Canvas::drawVertices(ANDROID_GRAPHICS_CANVAS_VERTEXMODE::a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6,jarg7,jarg8,jarg9,jarg10,jarg11);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawVertices(ANDROID_GRAPHICS_CANVAS_VERTEXMODE::android_graphics_Canvas_VertexMode& arg0,int& arg1,std::vector<float>& arg2,int& arg3,std::vector<float>& arg4,int& arg5,std::vector<int>& arg6,int& arg7,std::vector<short>& arg8,int& arg9,int& arg10,AndroidCXX::android_graphics_Paint& arg11) exit");
+	LOGV("void android_graphics_Canvas::drawVertices(android_graphics_Canvas_VertexMode::android_graphics_Canvas_VertexMode const& arg0,int const& arg1,std::vector<float> const& arg2,int const& arg3,std::vector<float> const& arg4,int const& arg5,std::vector<int> const& arg6,int const& arg7,std::vector<short> const& arg8,int const& arg9,int const& arg10,AndroidCXX::android_graphics_Paint const& arg11) exit");
 
 }
-void android_graphics_Canvas::drawText(std::vector<char>& arg0,int& arg1,int& arg2,float& arg3,float& arg4,AndroidCXX::android_graphics_Paint& arg5)
+void android_graphics_Canvas::drawText(std::vector<char> const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,AndroidCXX::android_graphics_Paint const& arg5)
 {
-	LOGV("void android_graphics_Canvas::drawText(std::vector<char>& arg0,int& arg1,int& arg2,float& arg3,float& arg4,AndroidCXX::android_graphics_Paint& arg5) enter");
+	LOGV("void android_graphics_Canvas::drawText(std::vector<char> const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,AndroidCXX::android_graphics_Paint const& arg5) enter");
 
 	const char *methodName = "drawText";
 	const char *methodSignature = "([CIIFFLandroid/graphics/Paint;)V";
@@ -7471,8 +7192,6 @@ void android_graphics_Canvas::drawText(std::vector<char>& arg0,int& arg1,int& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -7626,14 +7345,12 @@ void android_graphics_Canvas::drawText(std::vector<char>& arg0,int& arg1,int& ar
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawText(std::vector<char>& arg0,int& arg1,int& arg2,float& arg3,float& arg4,AndroidCXX::android_graphics_Paint& arg5) exit");
+	LOGV("void android_graphics_Canvas::drawText(std::vector<char> const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,AndroidCXX::android_graphics_Paint const& arg5) exit");
 
 }
-void android_graphics_Canvas::drawText(AndroidCXX::java_lang_String& arg0,float& arg1,float& arg2,AndroidCXX::android_graphics_Paint& arg3)
+void android_graphics_Canvas::drawText(AndroidCXX::java_lang_String const& arg0,float const& arg1,float const& arg2,AndroidCXX::android_graphics_Paint const& arg3)
 {
-	LOGV("void android_graphics_Canvas::drawText(AndroidCXX::java_lang_String& arg0,float& arg1,float& arg2,AndroidCXX::android_graphics_Paint& arg3) enter");
+	LOGV("void android_graphics_Canvas::drawText(AndroidCXX::java_lang_String const& arg0,float const& arg1,float const& arg2,AndroidCXX::android_graphics_Paint const& arg3) enter");
 
 	const char *methodName = "drawText";
 	const char *methodSignature = "(Ljava/lang/String;FFLandroid/graphics/Paint;)V";
@@ -7643,8 +7360,6 @@ void android_graphics_Canvas::drawText(AndroidCXX::java_lang_String& arg0,float&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -7738,14 +7453,12 @@ void android_graphics_Canvas::drawText(AndroidCXX::java_lang_String& arg0,float&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawText(AndroidCXX::java_lang_String& arg0,float& arg1,float& arg2,AndroidCXX::android_graphics_Paint& arg3) exit");
+	LOGV("void android_graphics_Canvas::drawText(AndroidCXX::java_lang_String const& arg0,float const& arg1,float const& arg2,AndroidCXX::android_graphics_Paint const& arg3) exit");
 
 }
-void android_graphics_Canvas::drawText(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2,float& arg3,float& arg4,AndroidCXX::android_graphics_Paint& arg5)
+void android_graphics_Canvas::drawText(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,AndroidCXX::android_graphics_Paint const& arg5)
 {
-	LOGV("void android_graphics_Canvas::drawText(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2,float& arg3,float& arg4,AndroidCXX::android_graphics_Paint& arg5) enter");
+	LOGV("void android_graphics_Canvas::drawText(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,AndroidCXX::android_graphics_Paint const& arg5) enter");
 
 	const char *methodName = "drawText";
 	const char *methodSignature = "(Ljava/lang/String;IIFFLandroid/graphics/Paint;)V";
@@ -7755,8 +7468,6 @@ void android_graphics_Canvas::drawText(AndroidCXX::java_lang_String& arg0,int& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -7892,14 +7603,12 @@ void android_graphics_Canvas::drawText(AndroidCXX::java_lang_String& arg0,int& a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawText(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2,float& arg3,float& arg4,AndroidCXX::android_graphics_Paint& arg5) exit");
+	LOGV("void android_graphics_Canvas::drawText(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,AndroidCXX::android_graphics_Paint const& arg5) exit");
 
 }
-void android_graphics_Canvas::drawText(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,float& arg3,float& arg4,AndroidCXX::android_graphics_Paint& arg5)
+void android_graphics_Canvas::drawText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,AndroidCXX::android_graphics_Paint const& arg5)
 {
-	LOGV("void android_graphics_Canvas::drawText(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,float& arg3,float& arg4,AndroidCXX::android_graphics_Paint& arg5) enter");
+	LOGV("void android_graphics_Canvas::drawText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,AndroidCXX::android_graphics_Paint const& arg5) enter");
 
 	const char *methodName = "drawText";
 	const char *methodSignature = "(Ljava/lang/CharSequence;IIFFLandroid/graphics/Paint;)V";
@@ -7909,8 +7618,6 @@ void android_graphics_Canvas::drawText(AndroidCXX::java_lang_CharSequence& arg0,
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -8046,14 +7753,12 @@ void android_graphics_Canvas::drawText(AndroidCXX::java_lang_CharSequence& arg0,
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawText(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,float& arg3,float& arg4,AndroidCXX::android_graphics_Paint& arg5) exit");
+	LOGV("void android_graphics_Canvas::drawText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,AndroidCXX::android_graphics_Paint const& arg5) exit");
 
 }
-void android_graphics_Canvas::drawPosText(std::vector<char>& arg0,int& arg1,int& arg2,std::vector<float>& arg3,AndroidCXX::android_graphics_Paint& arg4)
+void android_graphics_Canvas::drawPosText(std::vector<char> const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3,AndroidCXX::android_graphics_Paint const& arg4)
 {
-	LOGV("void android_graphics_Canvas::drawPosText(std::vector<char>& arg0,int& arg1,int& arg2,std::vector<float>& arg3,AndroidCXX::android_graphics_Paint& arg4) enter");
+	LOGV("void android_graphics_Canvas::drawPosText(std::vector<char> const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3,AndroidCXX::android_graphics_Paint const& arg4) enter");
 
 	const char *methodName = "drawPosText";
 	const char *methodSignature = "([CII[FLandroid/graphics/Paint;)V";
@@ -8063,8 +7768,6 @@ void android_graphics_Canvas::drawPosText(std::vector<char>& arg0,int& arg1,int&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -8215,14 +7918,12 @@ void android_graphics_Canvas::drawPosText(std::vector<char>& arg0,int& arg1,int&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawPosText(std::vector<char>& arg0,int& arg1,int& arg2,std::vector<float>& arg3,AndroidCXX::android_graphics_Paint& arg4) exit");
+	LOGV("void android_graphics_Canvas::drawPosText(std::vector<char> const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3,AndroidCXX::android_graphics_Paint const& arg4) exit");
 
 }
-void android_graphics_Canvas::drawPosText(AndroidCXX::java_lang_String& arg0,std::vector<float>& arg1,AndroidCXX::android_graphics_Paint& arg2)
+void android_graphics_Canvas::drawPosText(AndroidCXX::java_lang_String const& arg0,std::vector<float> const& arg1,AndroidCXX::android_graphics_Paint const& arg2)
 {
-	LOGV("void android_graphics_Canvas::drawPosText(AndroidCXX::java_lang_String& arg0,std::vector<float>& arg1,AndroidCXX::android_graphics_Paint& arg2) enter");
+	LOGV("void android_graphics_Canvas::drawPosText(AndroidCXX::java_lang_String const& arg0,std::vector<float> const& arg1,AndroidCXX::android_graphics_Paint const& arg2) enter");
 
 	const char *methodName = "drawPosText";
 	const char *methodSignature = "(Ljava/lang/String;[FLandroid/graphics/Paint;)V";
@@ -8232,8 +7933,6 @@ void android_graphics_Canvas::drawPosText(AndroidCXX::java_lang_String& arg0,std
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -8324,14 +8023,12 @@ void android_graphics_Canvas::drawPosText(AndroidCXX::java_lang_String& arg0,std
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawPosText(AndroidCXX::java_lang_String& arg0,std::vector<float>& arg1,AndroidCXX::android_graphics_Paint& arg2) exit");
+	LOGV("void android_graphics_Canvas::drawPosText(AndroidCXX::java_lang_String const& arg0,std::vector<float> const& arg1,AndroidCXX::android_graphics_Paint const& arg2) exit");
 
 }
-void android_graphics_Canvas::drawTextOnPath(std::vector<char>& arg0,int& arg1,int& arg2,AndroidCXX::android_graphics_Path& arg3,float& arg4,float& arg5,AndroidCXX::android_graphics_Paint& arg6)
+void android_graphics_Canvas::drawTextOnPath(std::vector<char> const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_graphics_Path const& arg3,float const& arg4,float const& arg5,AndroidCXX::android_graphics_Paint const& arg6)
 {
-	LOGV("void android_graphics_Canvas::drawTextOnPath(std::vector<char>& arg0,int& arg1,int& arg2,AndroidCXX::android_graphics_Path& arg3,float& arg4,float& arg5,AndroidCXX::android_graphics_Paint& arg6) enter");
+	LOGV("void android_graphics_Canvas::drawTextOnPath(std::vector<char> const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_graphics_Path const& arg3,float const& arg4,float const& arg5,AndroidCXX::android_graphics_Paint const& arg6) enter");
 
 	const char *methodName = "drawTextOnPath";
 	const char *methodSignature = "([CIILandroid/graphics/Path;FFLandroid/graphics/Paint;)V";
@@ -8341,8 +8038,6 @@ void android_graphics_Canvas::drawTextOnPath(std::vector<char>& arg0,int& arg1,i
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -8517,14 +8212,12 @@ void android_graphics_Canvas::drawTextOnPath(std::vector<char>& arg0,int& arg1,i
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawTextOnPath(std::vector<char>& arg0,int& arg1,int& arg2,AndroidCXX::android_graphics_Path& arg3,float& arg4,float& arg5,AndroidCXX::android_graphics_Paint& arg6) exit");
+	LOGV("void android_graphics_Canvas::drawTextOnPath(std::vector<char> const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_graphics_Path const& arg3,float const& arg4,float const& arg5,AndroidCXX::android_graphics_Paint const& arg6) exit");
 
 }
-void android_graphics_Canvas::drawTextOnPath(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_graphics_Path& arg1,float& arg2,float& arg3,AndroidCXX::android_graphics_Paint& arg4)
+void android_graphics_Canvas::drawTextOnPath(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_graphics_Path const& arg1,float const& arg2,float const& arg3,AndroidCXX::android_graphics_Paint const& arg4)
 {
-	LOGV("void android_graphics_Canvas::drawTextOnPath(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_graphics_Path& arg1,float& arg2,float& arg3,AndroidCXX::android_graphics_Paint& arg4) enter");
+	LOGV("void android_graphics_Canvas::drawTextOnPath(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_graphics_Path const& arg1,float const& arg2,float const& arg3,AndroidCXX::android_graphics_Paint const& arg4) enter");
 
 	const char *methodName = "drawTextOnPath";
 	const char *methodSignature = "(Ljava/lang/String;Landroid/graphics/Path;FFLandroid/graphics/Paint;)V";
@@ -8534,8 +8227,6 @@ void android_graphics_Canvas::drawTextOnPath(AndroidCXX::java_lang_String& arg0,
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -8650,14 +8341,12 @@ void android_graphics_Canvas::drawTextOnPath(AndroidCXX::java_lang_String& arg0,
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawTextOnPath(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_graphics_Path& arg1,float& arg2,float& arg3,AndroidCXX::android_graphics_Paint& arg4) exit");
+	LOGV("void android_graphics_Canvas::drawTextOnPath(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_graphics_Path const& arg1,float const& arg2,float const& arg3,AndroidCXX::android_graphics_Paint const& arg4) exit");
 
 }
-void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture& arg0)
+void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture const& arg0)
 {
-	LOGV("void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture& arg0) enter");
+	LOGV("void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture const& arg0) enter");
 
 	const char *methodName = "drawPicture";
 	const char *methodSignature = "(Landroid/graphics/Picture;)V";
@@ -8667,8 +8356,6 @@ void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -8699,14 +8386,12 @@ void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture& arg0) exit");
+	LOGV("void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture const& arg0) exit");
 
 }
-void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture& arg0,AndroidCXX::android_graphics_RectF& arg1)
+void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture const& arg0,AndroidCXX::android_graphics_RectF const& arg1)
 {
-	LOGV("void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture& arg0,AndroidCXX::android_graphics_RectF& arg1) enter");
+	LOGV("void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture const& arg0,AndroidCXX::android_graphics_RectF const& arg1) enter");
 
 	const char *methodName = "drawPicture";
 	const char *methodSignature = "(Landroid/graphics/Picture;Landroid/graphics/RectF;)V";
@@ -8716,8 +8401,6 @@ void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -8769,14 +8452,12 @@ void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture& arg0,AndroidCXX::android_graphics_RectF& arg1) exit");
+	LOGV("void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture const& arg0,AndroidCXX::android_graphics_RectF const& arg1) exit");
 
 }
-void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture& arg0,AndroidCXX::android_graphics_Rect& arg1)
+void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture const& arg0,AndroidCXX::android_graphics_Rect const& arg1)
 {
-	LOGV("void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture& arg0,AndroidCXX::android_graphics_Rect& arg1) enter");
+	LOGV("void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture const& arg0,AndroidCXX::android_graphics_Rect const& arg1) enter");
 
 	const char *methodName = "drawPicture";
 	const char *methodSignature = "(Landroid/graphics/Picture;Landroid/graphics/Rect;)V";
@@ -8786,8 +8467,6 @@ void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
@@ -8839,8 +8518,6 @@ void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture& arg0,AndroidCXX::android_graphics_Rect& arg1) exit");
+	LOGV("void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture const& arg0,AndroidCXX::android_graphics_Rect const& arg1) exit");
 
 }

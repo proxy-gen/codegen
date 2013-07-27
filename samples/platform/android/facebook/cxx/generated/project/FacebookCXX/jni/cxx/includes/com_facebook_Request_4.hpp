@@ -46,12 +46,9 @@ class com_facebook_Request_4
 public:
 
 	com_facebook_Request_4(const com_facebook_Request_4& cc);
-	com_facebook_Request_4(void * proxy);
+	com_facebook_Request_4(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_Request_4();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Request_4();
 	// Functions

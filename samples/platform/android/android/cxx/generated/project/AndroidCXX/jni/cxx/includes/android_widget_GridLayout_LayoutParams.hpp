@@ -88,23 +88,21 @@ class android_widget_GridLayout_LayoutParams
 {
 public:
 
-	android_widget_GridLayout_LayoutParams(const android_widget_GridLayout_LayoutParams& cc);
-	android_widget_GridLayout_LayoutParams(void * proxy);
+	android_widget_GridLayout_LayoutParams(Proxy proxy);
 	// Public Constructors
-	android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_Spec& arg0,AndroidCXX::android_widget_GridLayout_Spec& arg1);
+	android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_Spec const& arg0,AndroidCXX::android_widget_GridLayout_Spec const& arg1);
 	android_widget_GridLayout_LayoutParams();
-	android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0);
-	android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams& arg0);
-	android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_LayoutParams& arg0);
-	android_widget_GridLayout_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	// TODO: remove
-	// 
+	android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0);
+	android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams const& arg0);
+	android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_LayoutParams const& arg0);
+	android_widget_GridLayout_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_GridLayout_LayoutParams();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 int hashCode();
-	 void setGravity(int& arg0);
+	 void setGravity(int const& arg0);
 };	
 
 } // namespace

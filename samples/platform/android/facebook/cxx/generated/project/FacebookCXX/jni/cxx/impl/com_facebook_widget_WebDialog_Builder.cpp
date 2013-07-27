@@ -81,7 +81,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(const com_facebook_widget_WebDialog_Builder& cc)
 {
 	LOGV("com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(const com_facebook_widget_WebDialog_Builder& cc) enter");
@@ -105,9 +104,9 @@ com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(con
 
 	LOGV("com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(const com_facebook_widget_WebDialog_Builder& cc) exit");
 }
-com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(void * proxy)
+com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(Proxy proxy)
 {
-	LOGV("com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(void * proxy) enter");
+	LOGV("com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -117,55 +116,34 @@ com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(voi
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(void * proxy) exit");
+	LOGV("com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder()
-// {
-// 	LOGV("com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder() enter");	
+Proxy com_facebook_widget_WebDialog_Builder::proxy() const
+{	
+	LOGV("com_facebook_widget_WebDialog_Builder::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "com/facebook/widget/WebDialog$Builder";
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_widget_WebDialog_Builder cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_widget_WebDialog_Builder jni address %d", proxiedComponent);
 
-// 	LOGV("com_facebook_widget_WebDialog_Builder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("com_facebook_widget_WebDialog_Builder::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("com_facebook_widget_WebDialog_Builder cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("com_facebook_widget_WebDialog_Builder jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder() exit");	
-// }
-// 
-// 
-// Public Constructors
-com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_os_Bundle& arg3)
+	return proxy;
+}
+com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_Session const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_os_Bundle const& arg3)
 {
-	LOGV("com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_os_Bundle& arg3) enter");	
+	LOGV("com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_Session const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_os_Bundle const& arg3) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/Session;Ljava/lang/String;Landroid/os/Bundle;)V";
@@ -281,11 +259,11 @@ com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(And
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_os_Bundle& arg3) exit");	
+	LOGV("com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_Session const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_os_Bundle const& arg3) exit");	
 }
-com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_os_Bundle& arg3)
+com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_os_Bundle const& arg3)
 {
-	LOGV("com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_os_Bundle& arg3) enter");	
+	LOGV("com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_os_Bundle const& arg3) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)V";
@@ -401,7 +379,7 @@ com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(And
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_os_Bundle& arg3) exit");	
+	LOGV("com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_os_Bundle const& arg3) exit");	
 }
 // Default Instance Destructor
 com_facebook_widget_WebDialog_Builder::~com_facebook_widget_WebDialog_Builder()
@@ -414,7 +392,7 @@ com_facebook_widget_WebDialog_Builder::~com_facebook_widget_WebDialog_Builder()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_widget_WebDialog_Builder::~com_facebook_widget_WebDialog_Builder() exit");
 }
 // Functions

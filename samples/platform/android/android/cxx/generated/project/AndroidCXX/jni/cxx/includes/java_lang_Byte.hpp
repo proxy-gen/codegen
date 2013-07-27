@@ -89,34 +89,31 @@ class java_lang_Byte
 public:
 
 	java_lang_Byte(const java_lang_Byte& cc);
-	java_lang_Byte(void * proxy);
+	java_lang_Byte(Proxy proxy);
 	// Public Constructors
-	java_lang_Byte(byte& arg0);
-	java_lang_Byte(AndroidCXX::java_lang_String& arg0);
-	// TODO: remove
-	// 
-	// java_lang_Byte();
-	// 
+	java_lang_Byte(byte const& arg0);
+	java_lang_Byte(AndroidCXX::java_lang_String const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Byte();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
-	static AndroidCXX::java_lang_String toString(byte& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
+	static AndroidCXX::java_lang_String toString(byte const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 int compareTo(AndroidCXX::java_lang_Byte& arg0);
+	 int compareTo(AndroidCXX::java_lang_Byte const& arg0);
 	 byte byteValue();
 	 short shortValue();
 	 int intValue();
 	 long longValue();
 	 float floatValue();
 	 double doubleValue();
-	static AndroidCXX::java_lang_Byte valueOf(AndroidCXX::java_lang_String& arg0);
-	static AndroidCXX::java_lang_Byte valueOf(AndroidCXX::java_lang_String& arg0,int& arg1);
-	static AndroidCXX::java_lang_Byte valueOf(byte& arg0);
-	static AndroidCXX::java_lang_Byte decode(AndroidCXX::java_lang_String& arg0);
-	static byte parseByte(AndroidCXX::java_lang_String& arg0);
-	static byte parseByte(AndroidCXX::java_lang_String& arg0,int& arg1);
+	static AndroidCXX::java_lang_Byte valueOf(AndroidCXX::java_lang_String const& arg0);
+	static AndroidCXX::java_lang_Byte valueOf(AndroidCXX::java_lang_String const& arg0,int const& arg1);
+	static AndroidCXX::java_lang_Byte valueOf(byte const& arg0);
+	static AndroidCXX::java_lang_Byte decode(AndroidCXX::java_lang_String const& arg0);
+	static byte parseByte(AndroidCXX::java_lang_String const& arg0);
+	static byte parseByte(AndroidCXX::java_lang_String const& arg0,int const& arg1);
 };	
 
 } // namespace

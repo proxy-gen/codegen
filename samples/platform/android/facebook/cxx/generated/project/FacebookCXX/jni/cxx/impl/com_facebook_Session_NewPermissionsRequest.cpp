@@ -69,7 +69,7 @@ using namespace FacebookCXX;
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_SESSIONLOGINBEHAVIOR;
+// using namespace com_facebook_SessionLoginBehavior;
 // 
 // 
 // 
@@ -83,7 +83,7 @@ using namespace FacebookCXX;
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_SESSIONDEFAULTAUDIENCE;
+// using namespace com_facebook_SessionDefaultAudience;
 // 
 // 
 // 
@@ -117,7 +117,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(const com_facebook_Session_NewPermissionsRequest& cc)
 {
 	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(const com_facebook_Session_NewPermissionsRequest& cc) enter");
@@ -141,9 +140,9 @@ com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsR
 
 	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(const com_facebook_Session_NewPermissionsRequest& cc) exit");
 }
-com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(void * proxy)
+com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(Proxy proxy)
 {
-	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(void * proxy) enter");
+	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -153,55 +152,34 @@ com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsR
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(void * proxy) exit");
+	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest()
-// {
-// 	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest() enter");	
+Proxy com_facebook_Session_NewPermissionsRequest::proxy() const
+{	
+	LOGV("com_facebook_Session_NewPermissionsRequest::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "com/facebook/Session$NewPermissionsRequest";
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_Session_NewPermissionsRequest cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Session_NewPermissionsRequest jni address %d", proxiedComponent);
 
-// 	LOGV("com_facebook_Session_NewPermissionsRequest className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("com_facebook_Session_NewPermissionsRequest::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("com_facebook_Session_NewPermissionsRequest cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("com_facebook_Session_NewPermissionsRequest jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest() exit");	
-// }
-// 
-// 
-// Public Constructors
-com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1)
+	return proxy;
+}
+com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::java_util_List const& arg1)
 {
-	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1) enter");	
+	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::java_util_List const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/app/Activity;Ljava/util/List;)V";
@@ -293,11 +271,11 @@ com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsR
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1) exit");	
+	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::java_util_List const& arg1) exit");	
 }
-com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_support_v4_app_Fragment& arg0,AndroidCXX::java_util_List& arg1)
+com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_support_v4_app_Fragment const& arg0,AndroidCXX::java_util_List const& arg1)
 {
-	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_support_v4_app_Fragment& arg0,AndroidCXX::java_util_List& arg1) enter");	
+	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_support_v4_app_Fragment const& arg0,AndroidCXX::java_util_List const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/support/v4/app/Fragment;Ljava/util/List;)V";
@@ -389,7 +367,7 @@ com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsR
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_support_v4_app_Fragment& arg0,AndroidCXX::java_util_List& arg1) exit");	
+	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_support_v4_app_Fragment const& arg0,AndroidCXX::java_util_List const& arg1) exit");	
 }
 // Default Instance Destructor
 com_facebook_Session_NewPermissionsRequest::~com_facebook_Session_NewPermissionsRequest()
@@ -402,13 +380,13 @@ com_facebook_Session_NewPermissionsRequest::~com_facebook_Session_NewPermissions
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_Session_NewPermissionsRequest::~com_facebook_Session_NewPermissionsRequest() exit");
 }
 // Functions
-FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setCallback(FacebookCXX::com_facebook_Session_StatusCallback& arg0)
+FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setCallback(FacebookCXX::com_facebook_Session_StatusCallback const& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setCallback(FacebookCXX::com_facebook_Session_StatusCallback& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setCallback(FacebookCXX::com_facebook_Session_StatusCallback const& arg0) enter");
 
 	const char *methodName = "setCallback";
 	const char *methodSignature = "(Lcom/facebook/Session$StatusCallback;)Lcom/facebook/Session$NewPermissionsRequest;";
@@ -418,8 +396,6 @@ FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_New
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Session_NewPermissionsRequest cxx address %d", cxxAddress);
@@ -469,15 +445,13 @@ FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_New
 	FacebookCXX::com_facebook_Session_NewPermissionsRequest result((FacebookCXX::com_facebook_Session_NewPermissionsRequest) *((FacebookCXX::com_facebook_Session_NewPermissionsRequest *) cxx_value));
 	delete ((FacebookCXX::com_facebook_Session_NewPermissionsRequest *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setCallback(FacebookCXX::com_facebook_Session_StatusCallback& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setCallback(FacebookCXX::com_facebook_Session_StatusCallback const& arg0) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setLoginBehavior(COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior& arg0)
+FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setLoginBehavior(com_facebook_SessionLoginBehavior::com_facebook_SessionLoginBehavior const& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setLoginBehavior(COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setLoginBehavior(com_facebook_SessionLoginBehavior::com_facebook_SessionLoginBehavior const& arg0) enter");
 
 	const char *methodName = "setLoginBehavior";
 	const char *methodSignature = "(Lcom/facebook/SessionLoginBehavior;)Lcom/facebook/Session$NewPermissionsRequest;";
@@ -487,8 +461,6 @@ FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_New
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Session_NewPermissionsRequest cxx address %d", cxxAddress);
@@ -538,15 +510,13 @@ FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_New
 	FacebookCXX::com_facebook_Session_NewPermissionsRequest result((FacebookCXX::com_facebook_Session_NewPermissionsRequest) *((FacebookCXX::com_facebook_Session_NewPermissionsRequest *) cxx_value));
 	delete ((FacebookCXX::com_facebook_Session_NewPermissionsRequest *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setLoginBehavior(COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setLoginBehavior(com_facebook_SessionLoginBehavior::com_facebook_SessionLoginBehavior const& arg0) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setRequestCode(int& arg0)
+FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setRequestCode(int const& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setRequestCode(int& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setRequestCode(int const& arg0) enter");
 
 	const char *methodName = "setRequestCode";
 	const char *methodSignature = "(I)Lcom/facebook/Session$NewPermissionsRequest;";
@@ -556,8 +526,6 @@ FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_New
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Session_NewPermissionsRequest cxx address %d", cxxAddress);
@@ -607,15 +575,13 @@ FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_New
 	FacebookCXX::com_facebook_Session_NewPermissionsRequest result((FacebookCXX::com_facebook_Session_NewPermissionsRequest) *((FacebookCXX::com_facebook_Session_NewPermissionsRequest *) cxx_value));
 	delete ((FacebookCXX::com_facebook_Session_NewPermissionsRequest *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setRequestCode(int& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setRequestCode(int const& arg0) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setDefaultAudience(COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience& arg0)
+FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setDefaultAudience(com_facebook_SessionDefaultAudience::com_facebook_SessionDefaultAudience const& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setDefaultAudience(COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setDefaultAudience(com_facebook_SessionDefaultAudience::com_facebook_SessionDefaultAudience const& arg0) enter");
 
 	const char *methodName = "setDefaultAudience";
 	const char *methodSignature = "(Lcom/facebook/SessionDefaultAudience;)Lcom/facebook/Session$NewPermissionsRequest;";
@@ -625,8 +591,6 @@ FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_New
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Session_NewPermissionsRequest cxx address %d", cxxAddress);
@@ -676,9 +640,7 @@ FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_New
 	FacebookCXX::com_facebook_Session_NewPermissionsRequest result((FacebookCXX::com_facebook_Session_NewPermissionsRequest) *((FacebookCXX::com_facebook_Session_NewPermissionsRequest *) cxx_value));
 	delete ((FacebookCXX::com_facebook_Session_NewPermissionsRequest *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setDefaultAudience(COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_NewPermissionsRequest::setDefaultAudience(com_facebook_SessionDefaultAudience::com_facebook_SessionDefaultAudience const& arg0) exit");
 
 	return result;
 }

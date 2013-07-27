@@ -192,67 +192,64 @@ class android_widget_RemoteViews
 public:
 
 	android_widget_RemoteViews(const android_widget_RemoteViews& cc);
-	android_widget_RemoteViews(void * proxy);
+	android_widget_RemoteViews(Proxy proxy);
 	// Public Constructors
-	android_widget_RemoteViews(AndroidCXX::java_lang_String& arg0,int& arg1);
-	android_widget_RemoteViews(AndroidCXX::android_os_Parcel& arg0);
-	android_widget_RemoteViews(AndroidCXX::android_widget_RemoteViews& arg0,AndroidCXX::android_widget_RemoteViews& arg1);
-	// TODO: remove
-	// 
-	// android_widget_RemoteViews();
-	// 
+	android_widget_RemoteViews(AndroidCXX::java_lang_String const& arg0,int const& arg1);
+	android_widget_RemoteViews(AndroidCXX::android_os_Parcel const& arg0);
+	android_widget_RemoteViews(AndroidCXX::android_widget_RemoteViews const& arg0,AndroidCXX::android_widget_RemoteViews const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RemoteViews();
 	// Functions
 	 AndroidCXX::android_widget_RemoteViews clone();
 	 AndroidCXX::java_lang_String getPackage();
-	 void setBoolean(int& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2);
-	 void setByte(int& arg0,AndroidCXX::java_lang_String& arg1,byte& arg2);
-	 void setChar(int& arg0,AndroidCXX::java_lang_String& arg1,char& arg2);
-	 void setShort(int& arg0,AndroidCXX::java_lang_String& arg1,short& arg2);
-	 void setInt(int& arg0,AndroidCXX::java_lang_String& arg1,int& arg2);
-	 void setLong(int& arg0,AndroidCXX::java_lang_String& arg1,long& arg2);
-	 void setFloat(int& arg0,AndroidCXX::java_lang_String& arg1,float& arg2);
-	 void setDouble(int& arg0,AndroidCXX::java_lang_String& arg1,double& arg2);
+	 void setBoolean(int const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2);
+	 void setByte(int const& arg0,AndroidCXX::java_lang_String const& arg1,byte const& arg2);
+	 void setChar(int const& arg0,AndroidCXX::java_lang_String const& arg1,char const& arg2);
+	 void setShort(int const& arg0,AndroidCXX::java_lang_String const& arg1,short const& arg2);
+	 void setInt(int const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2);
+	 void setLong(int const& arg0,AndroidCXX::java_lang_String const& arg1,long const& arg2);
+	 void setFloat(int const& arg0,AndroidCXX::java_lang_String const& arg1,float const& arg2);
+	 void setDouble(int const& arg0,AndroidCXX::java_lang_String const& arg1,double const& arg2);
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
-	 void addView(int& arg0,AndroidCXX::android_widget_RemoteViews& arg1);
-	 void setIntent(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_content_Intent& arg2);
-	 void removeAllViews(int& arg0);
-	 void setContentDescription(int& arg0,AndroidCXX::java_lang_CharSequence& arg1);
-	 void setLabelFor(int& arg0,int& arg1);
-	 void setBitmap(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_graphics_Bitmap& arg2);
-	 AndroidCXX::android_view_View apply(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_ViewGroup& arg1);
-	 bool onLoadClass(AndroidCXX::java_lang_Class& arg0);
-	 void setEmptyView(int& arg0,int& arg1);
-	 void setTextColor(int& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	 void addView(int const& arg0,AndroidCXX::android_widget_RemoteViews const& arg1);
+	 void setIntent(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_content_Intent const& arg2);
+	 void removeAllViews(int const& arg0);
+	 void setContentDescription(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1);
+	 void setLabelFor(int const& arg0,int const& arg1);
+	 void setBitmap(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_graphics_Bitmap const& arg2);
+	 AndroidCXX::android_view_View apply(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_ViewGroup const& arg1);
+	 bool onLoadClass(AndroidCXX::java_lang_Class const& arg0);
+	 void setEmptyView(int const& arg0,int const& arg1);
+	 void setTextColor(int const& arg0,int const& arg1);
 	 int getLayoutId();
-	 void showNext(int& arg0);
-	 void showPrevious(int& arg0);
-	 void setDisplayedChild(int& arg0,int& arg1);
-	 void setViewVisibility(int& arg0,int& arg1);
-	 void setTextViewText(int& arg0,AndroidCXX::java_lang_CharSequence& arg1);
-	 void setTextViewTextSize(int& arg0,int& arg1,float& arg2);
-	 void setTextViewCompoundDrawables(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4);
-	 void setTextViewCompoundDrawablesRelative(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4);
-	 void setImageViewResource(int& arg0,int& arg1);
-	 void setImageViewUri(int& arg0,AndroidCXX::android_net_Uri& arg1);
-	 void setImageViewBitmap(int& arg0,AndroidCXX::android_graphics_Bitmap& arg1);
-	 void setChronometer(int& arg0,long& arg1,AndroidCXX::java_lang_String& arg2,bool& arg3);
-	 void setProgressBar(int& arg0,int& arg1,int& arg2,bool& arg3);
-	 void setOnClickPendingIntent(int& arg0,AndroidCXX::android_app_PendingIntent& arg1);
-	 void setPendingIntentTemplate(int& arg0,AndroidCXX::android_app_PendingIntent& arg1);
-	 void setOnClickFillInIntent(int& arg0,AndroidCXX::android_content_Intent& arg1);
-	 void setRemoteAdapter(int& arg0,int& arg1,AndroidCXX::android_content_Intent& arg2);
-	 void setRemoteAdapter(int& arg0,AndroidCXX::android_content_Intent& arg1);
-	 void setScrollPosition(int& arg0,int& arg1);
-	 void setRelativeScrollPosition(int& arg0,int& arg1);
-	 void setViewPadding(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4);
-	 void setString(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2);
-	 void setCharSequence(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_CharSequence& arg2);
-	 void setUri(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_net_Uri& arg2);
-	 void setBundle(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2);
-	 void reapply(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_View& arg1);
+	 void showNext(int const& arg0);
+	 void showPrevious(int const& arg0);
+	 void setDisplayedChild(int const& arg0,int const& arg1);
+	 void setViewVisibility(int const& arg0,int const& arg1);
+	 void setTextViewText(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1);
+	 void setTextViewTextSize(int const& arg0,int const& arg1,float const& arg2);
+	 void setTextViewCompoundDrawables(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4);
+	 void setTextViewCompoundDrawablesRelative(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4);
+	 void setImageViewResource(int const& arg0,int const& arg1);
+	 void setImageViewUri(int const& arg0,AndroidCXX::android_net_Uri const& arg1);
+	 void setImageViewBitmap(int const& arg0,AndroidCXX::android_graphics_Bitmap const& arg1);
+	 void setChronometer(int const& arg0,long const& arg1,AndroidCXX::java_lang_String const& arg2,bool const& arg3);
+	 void setProgressBar(int const& arg0,int const& arg1,int const& arg2,bool const& arg3);
+	 void setOnClickPendingIntent(int const& arg0,AndroidCXX::android_app_PendingIntent const& arg1);
+	 void setPendingIntentTemplate(int const& arg0,AndroidCXX::android_app_PendingIntent const& arg1);
+	 void setOnClickFillInIntent(int const& arg0,AndroidCXX::android_content_Intent const& arg1);
+	 void setRemoteAdapter(int const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2);
+	 void setRemoteAdapter(int const& arg0,AndroidCXX::android_content_Intent const& arg1);
+	 void setScrollPosition(int const& arg0,int const& arg1);
+	 void setRelativeScrollPosition(int const& arg0,int const& arg1);
+	 void setViewPadding(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4);
+	 void setString(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2);
+	 void setCharSequence(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_CharSequence const& arg2);
+	 void setUri(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_net_Uri const& arg2);
+	 void setBundle(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2);
+	 void reapply(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_View const& arg1);
 };	
 
 } // namespace

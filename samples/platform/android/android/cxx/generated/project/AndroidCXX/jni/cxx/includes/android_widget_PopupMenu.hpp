@@ -83,23 +83,20 @@ class android_widget_PopupMenu
 public:
 
 	android_widget_PopupMenu(const android_widget_PopupMenu& cc);
-	android_widget_PopupMenu(void * proxy);
+	android_widget_PopupMenu(Proxy proxy);
 	// Public Constructors
-	android_widget_PopupMenu(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_View& arg1);
-	// TODO: remove
-	// 
-	// android_widget_PopupMenu();
-	// 
+	android_widget_PopupMenu(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_View const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_PopupMenu();
 	// Functions
-	 void inflate(int& arg0);
+	 void inflate(int const& arg0);
 	 void show();
 	 AndroidCXX::android_view_MenuInflater getMenuInflater();
-	 void setOnMenuItemClickListener(AndroidCXX::android_widget_PopupMenu_OnMenuItemClickListener& arg0);
+	 void setOnMenuItemClickListener(AndroidCXX::android_widget_PopupMenu_OnMenuItemClickListener const& arg0);
 	 AndroidCXX::android_view_Menu getMenu();
 	 void dismiss();
-	 void setOnDismissListener(AndroidCXX::android_widget_PopupMenu_OnDismissListener& arg0);
+	 void setOnDismissListener(AndroidCXX::android_widget_PopupMenu_OnDismissListener const& arg0);
 };	
 
 } // namespace

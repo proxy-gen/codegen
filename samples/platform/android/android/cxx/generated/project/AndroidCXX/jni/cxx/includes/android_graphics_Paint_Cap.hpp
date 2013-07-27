@@ -30,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace ANDROID_GRAPHICS_PAINT_CAP {
+namespace android_graphics_Paint_Cap {
 
 enum android_graphics_Paint_Cap
 {

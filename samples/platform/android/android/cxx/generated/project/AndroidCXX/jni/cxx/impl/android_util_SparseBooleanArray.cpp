@@ -59,7 +59,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_util_SparseBooleanArray::android_util_SparseBooleanArray(const android_util_SparseBooleanArray& cc)
 {
 	LOGV("android_util_SparseBooleanArray::android_util_SparseBooleanArray(const android_util_SparseBooleanArray& cc) enter");
@@ -83,9 +82,9 @@ android_util_SparseBooleanArray::android_util_SparseBooleanArray(const android_u
 
 	LOGV("android_util_SparseBooleanArray::android_util_SparseBooleanArray(const android_util_SparseBooleanArray& cc) exit");
 }
-android_util_SparseBooleanArray::android_util_SparseBooleanArray(void * proxy)
+android_util_SparseBooleanArray::android_util_SparseBooleanArray(Proxy proxy)
 {
-	LOGV("android_util_SparseBooleanArray::android_util_SparseBooleanArray(void * proxy) enter");
+	LOGV("android_util_SparseBooleanArray::android_util_SparseBooleanArray(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -95,20 +94,34 @@ android_util_SparseBooleanArray::android_util_SparseBooleanArray(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_util_SparseBooleanArray::android_util_SparseBooleanArray(void * proxy) exit");
+	LOGV("android_util_SparseBooleanArray::android_util_SparseBooleanArray(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
-android_util_SparseBooleanArray::android_util_SparseBooleanArray(int& arg0)
+Proxy android_util_SparseBooleanArray::proxy() const
+{	
+	LOGV("android_util_SparseBooleanArray::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_util_SparseBooleanArray cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_util_SparseBooleanArray jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_util_SparseBooleanArray::proxy() exit");	
+
+	return proxy;
+}
+android_util_SparseBooleanArray::android_util_SparseBooleanArray(int const& arg0)
 {
-	LOGV("android_util_SparseBooleanArray::android_util_SparseBooleanArray(int& arg0) enter");	
+	LOGV("android_util_SparseBooleanArray::android_util_SparseBooleanArray(int const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(I)V";
@@ -161,7 +174,7 @@ android_util_SparseBooleanArray::android_util_SparseBooleanArray(int& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("android_util_SparseBooleanArray::android_util_SparseBooleanArray(int& arg0) exit");	
+	LOGV("android_util_SparseBooleanArray::android_util_SparseBooleanArray(int const& arg0) exit");	
 }
 android_util_SparseBooleanArray::android_util_SparseBooleanArray()
 {
@@ -210,13 +223,13 @@ android_util_SparseBooleanArray::~android_util_SparseBooleanArray()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_util_SparseBooleanArray::~android_util_SparseBooleanArray() exit");
 }
 // Functions
-bool android_util_SparseBooleanArray::get(int& arg0)
+bool android_util_SparseBooleanArray::get(int const& arg0)
 {
-	LOGV("bool android_util_SparseBooleanArray::get(int& arg0) enter");
+	LOGV("bool android_util_SparseBooleanArray::get(int const& arg0) enter");
 
 	const char *methodName = "get";
 	const char *methodSignature = "(I)Z";
@@ -226,8 +239,6 @@ bool android_util_SparseBooleanArray::get(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_SparseBooleanArray cxx address %d", cxxAddress);
@@ -277,15 +288,13 @@ bool android_util_SparseBooleanArray::get(int& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_util_SparseBooleanArray::get(int& arg0) exit");
+	LOGV("bool android_util_SparseBooleanArray::get(int const& arg0) exit");
 
 	return result;
 }
-bool android_util_SparseBooleanArray::get(int& arg0,bool& arg1)
+bool android_util_SparseBooleanArray::get(int const& arg0,bool const& arg1)
 {
-	LOGV("bool android_util_SparseBooleanArray::get(int& arg0,bool& arg1) enter");
+	LOGV("bool android_util_SparseBooleanArray::get(int const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "get";
 	const char *methodSignature = "(IZ)Z";
@@ -295,8 +304,6 @@ bool android_util_SparseBooleanArray::get(int& arg0,bool& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_SparseBooleanArray cxx address %d", cxxAddress);
@@ -367,15 +374,13 @@ bool android_util_SparseBooleanArray::get(int& arg0,bool& arg1)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_util_SparseBooleanArray::get(int& arg0,bool& arg1) exit");
+	LOGV("bool android_util_SparseBooleanArray::get(int const& arg0,bool const& arg1) exit");
 
 	return result;
 }
-void android_util_SparseBooleanArray::put(int& arg0,bool& arg1)
+void android_util_SparseBooleanArray::put(int const& arg0,bool const& arg1)
 {
-	LOGV("void android_util_SparseBooleanArray::put(int& arg0,bool& arg1) enter");
+	LOGV("void android_util_SparseBooleanArray::put(int const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(IZ)V";
@@ -386,8 +391,6 @@ void android_util_SparseBooleanArray::put(int& arg0,bool& arg1)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_util_SparseBooleanArray cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -438,14 +441,12 @@ void android_util_SparseBooleanArray::put(int& arg0,bool& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_util_SparseBooleanArray::put(int& arg0,bool& arg1) exit");
+	LOGV("void android_util_SparseBooleanArray::put(int const& arg0,bool const& arg1) exit");
 
 }
-void android_util_SparseBooleanArray::append(int& arg0,bool& arg1)
+void android_util_SparseBooleanArray::append(int const& arg0,bool const& arg1)
 {
-	LOGV("void android_util_SparseBooleanArray::append(int& arg0,bool& arg1) enter");
+	LOGV("void android_util_SparseBooleanArray::append(int const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(IZ)V";
@@ -456,8 +457,6 @@ void android_util_SparseBooleanArray::append(int& arg0,bool& arg1)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_util_SparseBooleanArray cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -508,9 +507,7 @@ void android_util_SparseBooleanArray::append(int& arg0,bool& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_util_SparseBooleanArray::append(int& arg0,bool& arg1) exit");
+	LOGV("void android_util_SparseBooleanArray::append(int const& arg0,bool const& arg1) exit");
 
 }
 AndroidCXX::android_util_SparseBooleanArray android_util_SparseBooleanArray::clone()
@@ -525,8 +522,6 @@ AndroidCXX::android_util_SparseBooleanArray android_util_SparseBooleanArray::clo
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_SparseBooleanArray cxx address %d", cxxAddress);
@@ -555,8 +550,6 @@ AndroidCXX::android_util_SparseBooleanArray android_util_SparseBooleanArray::clo
 	AndroidCXX::android_util_SparseBooleanArray result((AndroidCXX::android_util_SparseBooleanArray) *((AndroidCXX::android_util_SparseBooleanArray *) cxx_value));
 	delete ((AndroidCXX::android_util_SparseBooleanArray *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_util_SparseBooleanArray android_util_SparseBooleanArray::clone() exit");
 
 	return result;
@@ -574,8 +567,6 @@ void android_util_SparseBooleanArray::clear()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_util_SparseBooleanArray cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -584,8 +575,6 @@ void android_util_SparseBooleanArray::clear()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_util_SparseBooleanArray::clear() exit");
 
 }
@@ -601,8 +590,6 @@ int android_util_SparseBooleanArray::size()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_SparseBooleanArray cxx address %d", cxxAddress);
@@ -631,15 +618,13 @@ int android_util_SparseBooleanArray::size()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_util_SparseBooleanArray::size() exit");
 
 	return result;
 }
-void android_util_SparseBooleanArray::_delete(int& arg0)
+void android_util_SparseBooleanArray::_delete(int const& arg0)
 {
-	LOGV("void android_util_SparseBooleanArray::_delete(int& arg0) enter");
+	LOGV("void android_util_SparseBooleanArray::_delete(int const& arg0) enter");
 
 	const char *methodName = "delete";
 	const char *methodSignature = "(I)V";
@@ -649,8 +634,6 @@ void android_util_SparseBooleanArray::_delete(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_SparseBooleanArray cxx address %d", cxxAddress);
@@ -681,14 +664,12 @@ void android_util_SparseBooleanArray::_delete(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_util_SparseBooleanArray::_delete(int& arg0) exit");
+	LOGV("void android_util_SparseBooleanArray::_delete(int const& arg0) exit");
 
 }
-int android_util_SparseBooleanArray::keyAt(int& arg0)
+int android_util_SparseBooleanArray::keyAt(int const& arg0)
 {
-	LOGV("int android_util_SparseBooleanArray::keyAt(int& arg0) enter");
+	LOGV("int android_util_SparseBooleanArray::keyAt(int const& arg0) enter");
 
 	const char *methodName = "keyAt";
 	const char *methodSignature = "(I)I";
@@ -698,8 +679,6 @@ int android_util_SparseBooleanArray::keyAt(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_SparseBooleanArray cxx address %d", cxxAddress);
@@ -749,15 +728,13 @@ int android_util_SparseBooleanArray::keyAt(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_util_SparseBooleanArray::keyAt(int& arg0) exit");
+	LOGV("int android_util_SparseBooleanArray::keyAt(int const& arg0) exit");
 
 	return result;
 }
-bool android_util_SparseBooleanArray::valueAt(int& arg0)
+bool android_util_SparseBooleanArray::valueAt(int const& arg0)
 {
-	LOGV("bool android_util_SparseBooleanArray::valueAt(int& arg0) enter");
+	LOGV("bool android_util_SparseBooleanArray::valueAt(int const& arg0) enter");
 
 	const char *methodName = "valueAt";
 	const char *methodSignature = "(I)Z";
@@ -767,8 +744,6 @@ bool android_util_SparseBooleanArray::valueAt(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_SparseBooleanArray cxx address %d", cxxAddress);
@@ -818,15 +793,13 @@ bool android_util_SparseBooleanArray::valueAt(int& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_util_SparseBooleanArray::valueAt(int& arg0) exit");
+	LOGV("bool android_util_SparseBooleanArray::valueAt(int const& arg0) exit");
 
 	return result;
 }
-int android_util_SparseBooleanArray::indexOfKey(int& arg0)
+int android_util_SparseBooleanArray::indexOfKey(int const& arg0)
 {
-	LOGV("int android_util_SparseBooleanArray::indexOfKey(int& arg0) enter");
+	LOGV("int android_util_SparseBooleanArray::indexOfKey(int const& arg0) enter");
 
 	const char *methodName = "indexOfKey";
 	const char *methodSignature = "(I)I";
@@ -836,8 +809,6 @@ int android_util_SparseBooleanArray::indexOfKey(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_SparseBooleanArray cxx address %d", cxxAddress);
@@ -887,15 +858,13 @@ int android_util_SparseBooleanArray::indexOfKey(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_util_SparseBooleanArray::indexOfKey(int& arg0) exit");
+	LOGV("int android_util_SparseBooleanArray::indexOfKey(int const& arg0) exit");
 
 	return result;
 }
-int android_util_SparseBooleanArray::indexOfValue(bool& arg0)
+int android_util_SparseBooleanArray::indexOfValue(bool const& arg0)
 {
-	LOGV("int android_util_SparseBooleanArray::indexOfValue(bool& arg0) enter");
+	LOGV("int android_util_SparseBooleanArray::indexOfValue(bool const& arg0) enter");
 
 	const char *methodName = "indexOfValue";
 	const char *methodSignature = "(Z)I";
@@ -905,8 +874,6 @@ int android_util_SparseBooleanArray::indexOfValue(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_SparseBooleanArray cxx address %d", cxxAddress);
@@ -956,9 +923,7 @@ int android_util_SparseBooleanArray::indexOfValue(bool& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_util_SparseBooleanArray::indexOfValue(bool& arg0) exit");
+	LOGV("int android_util_SparseBooleanArray::indexOfValue(bool const& arg0) exit");
 
 	return result;
 }

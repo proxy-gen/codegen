@@ -129,7 +129,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_NumberPicker::android_widget_NumberPicker(const android_widget_NumberPicker& cc)
 {
 	LOGV("android_widget_NumberPicker::android_widget_NumberPicker(const android_widget_NumberPicker& cc) enter");
@@ -153,9 +152,9 @@ android_widget_NumberPicker::android_widget_NumberPicker(const android_widget_Nu
 
 	LOGV("android_widget_NumberPicker::android_widget_NumberPicker(const android_widget_NumberPicker& cc) exit");
 }
-android_widget_NumberPicker::android_widget_NumberPicker(void * proxy)
+android_widget_NumberPicker::android_widget_NumberPicker(Proxy proxy)
 {
-	LOGV("android_widget_NumberPicker::android_widget_NumberPicker(void * proxy) enter");
+	LOGV("android_widget_NumberPicker::android_widget_NumberPicker(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -165,55 +164,34 @@ android_widget_NumberPicker::android_widget_NumberPicker(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_NumberPicker::android_widget_NumberPicker(void * proxy) exit");
+	LOGV("android_widget_NumberPicker::android_widget_NumberPicker(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_NumberPicker::android_widget_NumberPicker()
-// {
-// 	LOGV("android_widget_NumberPicker::android_widget_NumberPicker() enter");	
+Proxy android_widget_NumberPicker::proxy() const
+{	
+	LOGV("android_widget_NumberPicker::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/NumberPicker";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_NumberPicker jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_NumberPicker::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_NumberPicker jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_NumberPicker::android_widget_NumberPicker() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_content_Context& arg0)
+	return proxy;
+}
+android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -266,11 +244,11 @@ android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_content_Context const& arg0) exit");	
 }
-android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -344,11 +322,11 @@ android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
+android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2)
 {
-	LOGV("android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) enter");	
+	LOGV("android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
@@ -443,7 +421,7 @@ android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) exit");	
+	LOGV("android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) exit");	
 }
 // Default Instance Destructor
 android_widget_NumberPicker::~android_widget_NumberPicker()
@@ -456,7 +434,7 @@ android_widget_NumberPicker::~android_widget_NumberPicker()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_NumberPicker::~android_widget_NumberPicker() exit");
 }
 // Functions
@@ -472,8 +450,6 @@ int android_widget_NumberPicker::getValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
@@ -502,15 +478,13 @@ int android_widget_NumberPicker::getValue()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_NumberPicker::getValue() exit");
 
 	return result;
 }
-void android_widget_NumberPicker::setValue(int& arg0)
+void android_widget_NumberPicker::setValue(int const& arg0)
 {
-	LOGV("void android_widget_NumberPicker::setValue(int& arg0) enter");
+	LOGV("void android_widget_NumberPicker::setValue(int const& arg0) enter");
 
 	const char *methodName = "setValue";
 	const char *methodSignature = "(I)V";
@@ -520,8 +494,6 @@ void android_widget_NumberPicker::setValue(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
@@ -552,14 +524,12 @@ void android_widget_NumberPicker::setValue(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_NumberPicker::setValue(int& arg0) exit");
+	LOGV("void android_widget_NumberPicker::setValue(int const& arg0) exit");
 
 }
-bool android_widget_NumberPicker::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_NumberPicker::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_NumberPicker::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_NumberPicker::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onTouchEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -569,8 +539,6 @@ bool android_widget_NumberPicker::onTouchEvent(AndroidCXX::android_view_MotionEv
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
@@ -620,15 +588,13 @@ bool android_widget_NumberPicker::onTouchEvent(AndroidCXX::android_view_MotionEv
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_NumberPicker::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	LOGV("bool android_widget_NumberPicker::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-bool android_widget_NumberPicker::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0)
+bool android_widget_NumberPicker::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0)
 {
-	LOGV("bool android_widget_NumberPicker::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0) enter");
+	LOGV("bool android_widget_NumberPicker::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) enter");
 
 	const char *methodName = "dispatchKeyEvent";
 	const char *methodSignature = "(Landroid/view/KeyEvent;)Z";
@@ -638,8 +604,6 @@ bool android_widget_NumberPicker::dispatchKeyEvent(AndroidCXX::android_view_KeyE
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
@@ -689,15 +653,13 @@ bool android_widget_NumberPicker::dispatchKeyEvent(AndroidCXX::android_view_KeyE
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_NumberPicker::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0) exit");
+	LOGV("bool android_widget_NumberPicker::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) exit");
 
 	return result;
 }
-bool android_widget_NumberPicker::dispatchTouchEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_NumberPicker::dispatchTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_NumberPicker::dispatchTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_NumberPicker::dispatchTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "dispatchTouchEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -708,8 +670,6 @@ bool android_widget_NumberPicker::dispatchTouchEvent(AndroidCXX::android_view_Mo
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -758,15 +718,13 @@ bool android_widget_NumberPicker::dispatchTouchEvent(AndroidCXX::android_view_Mo
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_NumberPicker::dispatchTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	LOGV("bool android_widget_NumberPicker::dispatchTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-bool android_widget_NumberPicker::dispatchTrackballEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_NumberPicker::dispatchTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_NumberPicker::dispatchTrackballEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_NumberPicker::dispatchTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "dispatchTrackballEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -777,8 +735,6 @@ bool android_widget_NumberPicker::dispatchTrackballEvent(AndroidCXX::android_vie
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -827,15 +783,13 @@ bool android_widget_NumberPicker::dispatchTrackballEvent(AndroidCXX::android_vie
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_NumberPicker::dispatchTrackballEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	LOGV("bool android_widget_NumberPicker::dispatchTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-bool android_widget_NumberPicker::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_NumberPicker::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_NumberPicker::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_NumberPicker::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onInterceptTouchEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -846,8 +800,6 @@ bool android_widget_NumberPicker::onInterceptTouchEvent(AndroidCXX::android_view
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -896,15 +848,13 @@ bool android_widget_NumberPicker::onInterceptTouchEvent(AndroidCXX::android_view
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_NumberPicker::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	LOGV("bool android_widget_NumberPicker::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-void android_widget_NumberPicker::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_NumberPicker::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_NumberPicker::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_NumberPicker::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -914,8 +864,6 @@ void android_widget_NumberPicker::onInitializeAccessibilityEvent(AndroidCXX::and
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
@@ -946,9 +894,7 @@ void android_widget_NumberPicker::onInitializeAccessibilityEvent(AndroidCXX::and
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_NumberPicker::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_NumberPicker::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
 AndroidCXX::android_view_accessibility_AccessibilityNodeProvider android_widget_NumberPicker::getAccessibilityNodeProvider()
@@ -963,8 +909,6 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeProvider android_widget_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
@@ -993,15 +937,13 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeProvider android_widget_
 	AndroidCXX::android_view_accessibility_AccessibilityNodeProvider result((AndroidCXX::android_view_accessibility_AccessibilityNodeProvider) *((AndroidCXX::android_view_accessibility_AccessibilityNodeProvider *) cxx_value));
 	delete ((AndroidCXX::android_view_accessibility_AccessibilityNodeProvider *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeProvider android_widget_NumberPicker::getAccessibilityNodeProvider() exit");
 
 	return result;
 }
-void android_widget_NumberPicker::setEnabled(bool& arg0)
+void android_widget_NumberPicker::setEnabled(bool const& arg0)
 {
-	LOGV("void android_widget_NumberPicker::setEnabled(bool& arg0) enter");
+	LOGV("void android_widget_NumberPicker::setEnabled(bool const& arg0) enter");
 
 	const char *methodName = "setEnabled";
 	const char *methodSignature = "(Z)V";
@@ -1011,8 +953,6 @@ void android_widget_NumberPicker::setEnabled(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
@@ -1043,14 +983,12 @@ void android_widget_NumberPicker::setEnabled(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_NumberPicker::setEnabled(bool& arg0) exit");
+	LOGV("void android_widget_NumberPicker::setEnabled(bool const& arg0) exit");
 
 }
-void android_widget_NumberPicker::scrollBy(int& arg0,int& arg1)
+void android_widget_NumberPicker::scrollBy(int const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_NumberPicker::scrollBy(int& arg0,int& arg1) enter");
+	LOGV("void android_widget_NumberPicker::scrollBy(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "scrollBy";
 	const char *methodSignature = "(II)V";
@@ -1060,8 +998,6 @@ void android_widget_NumberPicker::scrollBy(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
@@ -1113,9 +1049,7 @@ void android_widget_NumberPicker::scrollBy(int& arg0,int& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_NumberPicker::scrollBy(int& arg0,int& arg1) exit");
+	LOGV("void android_widget_NumberPicker::scrollBy(int const& arg0,int const& arg1) exit");
 
 }
 void android_widget_NumberPicker::computeScroll()
@@ -1131,8 +1065,6 @@ void android_widget_NumberPicker::computeScroll()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1141,8 +1073,6 @@ void android_widget_NumberPicker::computeScroll()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_NumberPicker::computeScroll() exit");
 
 }
@@ -1158,8 +1088,6 @@ int android_widget_NumberPicker::getSolidColor()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
@@ -1188,15 +1116,13 @@ int android_widget_NumberPicker::getSolidColor()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_NumberPicker::getSolidColor() exit");
 
 	return result;
 }
-void android_widget_NumberPicker::setOnScrollListener(AndroidCXX::android_widget_NumberPicker_OnScrollListener& arg0)
+void android_widget_NumberPicker::setOnScrollListener(AndroidCXX::android_widget_NumberPicker_OnScrollListener const& arg0)
 {
-	LOGV("void android_widget_NumberPicker::setOnScrollListener(AndroidCXX::android_widget_NumberPicker_OnScrollListener& arg0) enter");
+	LOGV("void android_widget_NumberPicker::setOnScrollListener(AndroidCXX::android_widget_NumberPicker_OnScrollListener const& arg0) enter");
 
 	const char *methodName = "setOnScrollListener";
 	const char *methodSignature = "(Landroid/widget/NumberPicker$OnScrollListener;)V";
@@ -1206,8 +1132,6 @@ void android_widget_NumberPicker::setOnScrollListener(AndroidCXX::android_widget
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
@@ -1238,14 +1162,12 @@ void android_widget_NumberPicker::setOnScrollListener(AndroidCXX::android_widget
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_NumberPicker::setOnScrollListener(AndroidCXX::android_widget_NumberPicker_OnScrollListener& arg0) exit");
+	LOGV("void android_widget_NumberPicker::setOnScrollListener(AndroidCXX::android_widget_NumberPicker_OnScrollListener const& arg0) exit");
 
 }
-void android_widget_NumberPicker::setOnValueChangedListener(AndroidCXX::android_widget_NumberPicker_OnValueChangeListener& arg0)
+void android_widget_NumberPicker::setOnValueChangedListener(AndroidCXX::android_widget_NumberPicker_OnValueChangeListener const& arg0)
 {
-	LOGV("void android_widget_NumberPicker::setOnValueChangedListener(AndroidCXX::android_widget_NumberPicker_OnValueChangeListener& arg0) enter");
+	LOGV("void android_widget_NumberPicker::setOnValueChangedListener(AndroidCXX::android_widget_NumberPicker_OnValueChangeListener const& arg0) enter");
 
 	const char *methodName = "setOnValueChangedListener";
 	const char *methodSignature = "(Landroid/widget/NumberPicker$OnValueChangeListener;)V";
@@ -1255,8 +1177,6 @@ void android_widget_NumberPicker::setOnValueChangedListener(AndroidCXX::android_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
@@ -1287,14 +1207,12 @@ void android_widget_NumberPicker::setOnValueChangedListener(AndroidCXX::android_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_NumberPicker::setOnValueChangedListener(AndroidCXX::android_widget_NumberPicker_OnValueChangeListener& arg0) exit");
+	LOGV("void android_widget_NumberPicker::setOnValueChangedListener(AndroidCXX::android_widget_NumberPicker_OnValueChangeListener const& arg0) exit");
 
 }
-void android_widget_NumberPicker::setFormatter(AndroidCXX::android_widget_NumberPicker_Formatter& arg0)
+void android_widget_NumberPicker::setFormatter(AndroidCXX::android_widget_NumberPicker_Formatter const& arg0)
 {
-	LOGV("void android_widget_NumberPicker::setFormatter(AndroidCXX::android_widget_NumberPicker_Formatter& arg0) enter");
+	LOGV("void android_widget_NumberPicker::setFormatter(AndroidCXX::android_widget_NumberPicker_Formatter const& arg0) enter");
 
 	const char *methodName = "setFormatter";
 	const char *methodSignature = "(Landroid/widget/NumberPicker$Formatter;)V";
@@ -1304,8 +1222,6 @@ void android_widget_NumberPicker::setFormatter(AndroidCXX::android_widget_Number
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
@@ -1336,9 +1252,7 @@ void android_widget_NumberPicker::setFormatter(AndroidCXX::android_widget_Number
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_NumberPicker::setFormatter(AndroidCXX::android_widget_NumberPicker_Formatter& arg0) exit");
+	LOGV("void android_widget_NumberPicker::setFormatter(AndroidCXX::android_widget_NumberPicker_Formatter const& arg0) exit");
 
 }
 bool android_widget_NumberPicker::getWrapSelectorWheel()
@@ -1353,8 +1267,6 @@ bool android_widget_NumberPicker::getWrapSelectorWheel()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
@@ -1383,15 +1295,13 @@ bool android_widget_NumberPicker::getWrapSelectorWheel()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_NumberPicker::getWrapSelectorWheel() exit");
 
 	return result;
 }
-void android_widget_NumberPicker::setWrapSelectorWheel(bool& arg0)
+void android_widget_NumberPicker::setWrapSelectorWheel(bool const& arg0)
 {
-	LOGV("void android_widget_NumberPicker::setWrapSelectorWheel(bool& arg0) enter");
+	LOGV("void android_widget_NumberPicker::setWrapSelectorWheel(bool const& arg0) enter");
 
 	const char *methodName = "setWrapSelectorWheel";
 	const char *methodSignature = "(Z)V";
@@ -1401,8 +1311,6 @@ void android_widget_NumberPicker::setWrapSelectorWheel(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
@@ -1433,14 +1341,12 @@ void android_widget_NumberPicker::setWrapSelectorWheel(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_NumberPicker::setWrapSelectorWheel(bool& arg0) exit");
+	LOGV("void android_widget_NumberPicker::setWrapSelectorWheel(bool const& arg0) exit");
 
 }
-void android_widget_NumberPicker::setOnLongPressUpdateInterval(long& arg0)
+void android_widget_NumberPicker::setOnLongPressUpdateInterval(long const& arg0)
 {
-	LOGV("void android_widget_NumberPicker::setOnLongPressUpdateInterval(long& arg0) enter");
+	LOGV("void android_widget_NumberPicker::setOnLongPressUpdateInterval(long const& arg0) enter");
 
 	const char *methodName = "setOnLongPressUpdateInterval";
 	const char *methodSignature = "(J)V";
@@ -1450,8 +1356,6 @@ void android_widget_NumberPicker::setOnLongPressUpdateInterval(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
@@ -1482,9 +1386,7 @@ void android_widget_NumberPicker::setOnLongPressUpdateInterval(long& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_NumberPicker::setOnLongPressUpdateInterval(long& arg0) exit");
+	LOGV("void android_widget_NumberPicker::setOnLongPressUpdateInterval(long const& arg0) exit");
 
 }
 int android_widget_NumberPicker::getMinValue()
@@ -1500,8 +1402,6 @@ int android_widget_NumberPicker::getMinValue()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1529,15 +1429,13 @@ int android_widget_NumberPicker::getMinValue()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_NumberPicker::getMinValue() exit");
 
 	return result;
 }
-void android_widget_NumberPicker::setMinValue(int& arg0)
+void android_widget_NumberPicker::setMinValue(int const& arg0)
 {
-	LOGV("void android_widget_NumberPicker::setMinValue(int& arg0) enter");
+	LOGV("void android_widget_NumberPicker::setMinValue(int const& arg0) enter");
 
 	const char *methodName = "setMinValue";
 	const char *methodSignature = "(I)V";
@@ -1547,8 +1445,6 @@ void android_widget_NumberPicker::setMinValue(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
@@ -1579,9 +1475,7 @@ void android_widget_NumberPicker::setMinValue(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_NumberPicker::setMinValue(int& arg0) exit");
+	LOGV("void android_widget_NumberPicker::setMinValue(int const& arg0) exit");
 
 }
 int android_widget_NumberPicker::getMaxValue()
@@ -1597,8 +1491,6 @@ int android_widget_NumberPicker::getMaxValue()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1626,15 +1518,13 @@ int android_widget_NumberPicker::getMaxValue()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_NumberPicker::getMaxValue() exit");
 
 	return result;
 }
-void android_widget_NumberPicker::setMaxValue(int& arg0)
+void android_widget_NumberPicker::setMaxValue(int const& arg0)
 {
-	LOGV("void android_widget_NumberPicker::setMaxValue(int& arg0) enter");
+	LOGV("void android_widget_NumberPicker::setMaxValue(int const& arg0) enter");
 
 	const char *methodName = "setMaxValue";
 	const char *methodSignature = "(I)V";
@@ -1644,8 +1534,6 @@ void android_widget_NumberPicker::setMaxValue(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
@@ -1676,9 +1564,7 @@ void android_widget_NumberPicker::setMaxValue(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_NumberPicker::setMaxValue(int& arg0) exit");
+	LOGV("void android_widget_NumberPicker::setMaxValue(int const& arg0) exit");
 
 }
 std::vector<AndroidCXX::java_lang_String > android_widget_NumberPicker::getDisplayedValues()
@@ -1693,8 +1579,6 @@ std::vector<AndroidCXX::java_lang_String > android_widget_NumberPicker::getDispl
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
@@ -1741,15 +1625,13 @@ std::vector<AndroidCXX::java_lang_String > android_widget_NumberPicker::getDispl
 	std::vector<AndroidCXX::java_lang_String > result = (std::vector<AndroidCXX::java_lang_String >) *((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 	delete ((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<AndroidCXX::java_lang_String > android_widget_NumberPicker::getDisplayedValues() exit");
 
 	return result;
 }
-void android_widget_NumberPicker::setDisplayedValues(std::vector<AndroidCXX::java_lang_String >& arg0)
+void android_widget_NumberPicker::setDisplayedValues(std::vector<AndroidCXX::java_lang_String > const& arg0)
 {
-	LOGV("void android_widget_NumberPicker::setDisplayedValues(std::vector<AndroidCXX::java_lang_String >& arg0) enter");
+	LOGV("void android_widget_NumberPicker::setDisplayedValues(std::vector<AndroidCXX::java_lang_String > const& arg0) enter");
 
 	const char *methodName = "setDisplayedValues";
 	const char *methodSignature = "([Ljava/lang/String;)V";
@@ -1759,8 +1641,6 @@ void android_widget_NumberPicker::setDisplayedValues(std::vector<AndroidCXX::jav
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
@@ -1809,8 +1689,6 @@ void android_widget_NumberPicker::setDisplayedValues(std::vector<AndroidCXX::jav
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_NumberPicker::setDisplayedValues(std::vector<AndroidCXX::java_lang_String >& arg0) exit");
+	LOGV("void android_widget_NumberPicker::setDisplayedValues(std::vector<AndroidCXX::java_lang_String > const& arg0) exit");
 
 }

@@ -51,16 +51,13 @@ class com_facebook_widget_ImageRequest_Callback
 public:
 
 	com_facebook_widget_ImageRequest_Callback(const com_facebook_widget_ImageRequest_Callback& cc);
-	com_facebook_widget_ImageRequest_Callback(void * proxy);
+	com_facebook_widget_ImageRequest_Callback(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_widget_ImageRequest_Callback();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageRequest_Callback();
 	// Functions
-	 void onCompleted(FacebookCXX::com_facebook_widget_ImageResponse& arg0);
+	 void onCompleted(FacebookCXX::com_facebook_widget_ImageResponse const& arg0);
 };	
 
 } // namespace

@@ -119,13 +119,10 @@ class android_content_Loader
 public:
 
 	android_content_Loader(const android_content_Loader& cc);
-	android_content_Loader(void * proxy);
+	android_content_Loader(Proxy proxy);
 	// Public Constructors
-	android_content_Loader(AndroidCXX::android_content_Context& arg0);
-	// TODO: remove
-	// 
-	// android_content_Loader();
-	// 
+	android_content_Loader(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_Loader();
 	// Functions
@@ -133,23 +130,23 @@ public:
 	 AndroidCXX::android_content_Context getContext();
 	 int getId();
 	 void reset();
-	 void dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<AndroidCXX::java_lang_String >& arg3);
+	 void dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3);
 	 void abandon();
 	 void onContentChanged();
 	 bool isStarted();
-	 void deliverResult(AndroidCXX::java_lang_Object& arg0);
-	 void registerListener(int& arg0,AndroidCXX::android_content_Loader_OnLoadCompleteListener& arg1);
-	 void unregisterListener(AndroidCXX::android_content_Loader_OnLoadCompleteListener& arg0);
+	 void deliverResult(AndroidCXX::java_lang_Object const& arg0);
+	 void registerListener(int const& arg0,AndroidCXX::android_content_Loader_OnLoadCompleteListener const& arg1);
+	 void unregisterListener(AndroidCXX::android_content_Loader_OnLoadCompleteListener const& arg0);
 	 bool isAbandoned();
 	 bool isReset();
 	 void startLoading();
 	 void forceLoad();
 	 void stopLoading();
 	 bool takeContentChanged();
-	 AndroidCXX::java_lang_String dataToString(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String dataToString(AndroidCXX::java_lang_Object const& arg0);
 	 void deliverCancellation();
-	 void registerOnLoadCanceledListener(AndroidCXX::android_content_Loader_OnLoadCanceledListener& arg0);
-	 void unregisterOnLoadCanceledListener(AndroidCXX::android_content_Loader_OnLoadCanceledListener& arg0);
+	 void registerOnLoadCanceledListener(AndroidCXX::android_content_Loader_OnLoadCanceledListener const& arg0);
+	 void unregisterOnLoadCanceledListener(AndroidCXX::android_content_Loader_OnLoadCanceledListener const& arg0);
 	 bool cancelLoad();
 };	
 

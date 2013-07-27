@@ -101,34 +101,33 @@ class java_util_ArrayList
 public:
 
 	java_util_ArrayList(const java_util_ArrayList& cc);
-	java_util_ArrayList(void * proxy);
+	java_util_ArrayList(Proxy proxy);
 	// Public Constructors
-	java_util_ArrayList(int& arg0);
+	java_util_ArrayList(int const& arg0);
 	java_util_ArrayList();
-	java_util_ArrayList(AndroidCXX::java_util_Collection& arg0);
-	// TODO: remove
-	// 
+	java_util_ArrayList(AndroidCXX::java_util_Collection const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_ArrayList();
 	// Functions
-	 void add(int& arg0,AndroidCXX::java_lang_Object& arg1);
-	 bool add(AndroidCXX::java_lang_Object& arg0);
-	 AndroidCXX::java_lang_Object get(int& arg0);
+	 void add(int const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	 bool add(AndroidCXX::java_lang_Object const& arg0);
+	 AndroidCXX::java_lang_Object get(int const& arg0);
 	 AndroidCXX::java_lang_Object clone();
-	 int indexOf(AndroidCXX::java_lang_Object& arg0);
+	 int indexOf(AndroidCXX::java_lang_Object const& arg0);
 	 void clear();
 	 bool isEmpty();
-	 int lastIndexOf(AndroidCXX::java_lang_Object& arg0);
-	 bool contains(AndroidCXX::java_lang_Object& arg0);
-	 bool addAll(AndroidCXX::java_util_Collection& arg0);
-	 bool addAll(int& arg0,AndroidCXX::java_util_Collection& arg1);
+	 int lastIndexOf(AndroidCXX::java_lang_Object const& arg0);
+	 bool contains(AndroidCXX::java_lang_Object const& arg0);
+	 bool addAll(AndroidCXX::java_util_Collection const& arg0);
+	 bool addAll(int const& arg0,AndroidCXX::java_util_Collection const& arg1);
 	 int size();
-	 std::vector<AndroidCXX::java_lang_Object > toArray(std::vector<AndroidCXX::java_lang_Object >& arg0);
+	 std::vector<AndroidCXX::java_lang_Object > toArray(std::vector<AndroidCXX::java_lang_Object > const& arg0);
 	 std::vector<AndroidCXX::java_lang_Object > toArray();
-	 AndroidCXX::java_lang_Object remove(int& arg0);
-	 bool remove(AndroidCXX::java_lang_Object& arg0);
-	 AndroidCXX::java_lang_Object set(int& arg0,AndroidCXX::java_lang_Object& arg1);
-	 void ensureCapacity(int& arg0);
+	 AndroidCXX::java_lang_Object remove(int const& arg0);
+	 bool remove(AndroidCXX::java_lang_Object const& arg0);
+	 AndroidCXX::java_lang_Object set(int const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	 void ensureCapacity(int const& arg0);
 	 void trimToSize();
 };	
 

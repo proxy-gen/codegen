@@ -70,7 +70,9 @@ void convert_${entity_class_name}(long& java_value, long& cxx_value, const CXXTy
 		} 
 		while (0);		
 		#else
-		${entity_class_name} *cxx_object = new ${entity_class_name}((void *) java_value);
+		Proxy proxy;
+		proxy.address = (long) java_value;
+		${entity_class_name} *cxx_object = new ${entity_class_name}(proxy);
 		cxx_value = (long) cxx_object;
 		#end if
 	}

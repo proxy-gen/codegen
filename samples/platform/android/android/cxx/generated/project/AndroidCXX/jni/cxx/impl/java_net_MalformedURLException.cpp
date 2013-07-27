@@ -47,7 +47,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_net_MalformedURLException::java_net_MalformedURLException(const java_net_MalformedURLException& cc)
 {
 	LOGV("java_net_MalformedURLException::java_net_MalformedURLException(const java_net_MalformedURLException& cc) enter");
@@ -71,9 +70,9 @@ java_net_MalformedURLException::java_net_MalformedURLException(const java_net_Ma
 
 	LOGV("java_net_MalformedURLException::java_net_MalformedURLException(const java_net_MalformedURLException& cc) exit");
 }
-java_net_MalformedURLException::java_net_MalformedURLException(void * proxy)
+java_net_MalformedURLException::java_net_MalformedURLException(Proxy proxy)
 {
-	LOGV("java_net_MalformedURLException::java_net_MalformedURLException(void * proxy) enter");
+	LOGV("java_net_MalformedURLException::java_net_MalformedURLException(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -83,17 +82,31 @@ java_net_MalformedURLException::java_net_MalformedURLException(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_net_MalformedURLException::java_net_MalformedURLException(void * proxy) exit");
+	LOGV("java_net_MalformedURLException::java_net_MalformedURLException(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy java_net_MalformedURLException::proxy() const
+{	
+	LOGV("java_net_MalformedURLException::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_MalformedURLException cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_MalformedURLException jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("java_net_MalformedURLException::proxy() exit");	
+
+	return proxy;
+}
 java_net_MalformedURLException::java_net_MalformedURLException()
 {
 	LOGV("java_net_MalformedURLException::java_net_MalformedURLException() enter");	
@@ -130,9 +143,9 @@ java_net_MalformedURLException::java_net_MalformedURLException()
 
 	LOGV("java_net_MalformedURLException::java_net_MalformedURLException() exit");	
 }
-java_net_MalformedURLException::java_net_MalformedURLException(AndroidCXX::java_lang_String& arg0)
+java_net_MalformedURLException::java_net_MalformedURLException(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("java_net_MalformedURLException::java_net_MalformedURLException(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("java_net_MalformedURLException::java_net_MalformedURLException(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -185,7 +198,7 @@ java_net_MalformedURLException::java_net_MalformedURLException(AndroidCXX::java_
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_MalformedURLException::java_net_MalformedURLException(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("java_net_MalformedURLException::java_net_MalformedURLException(AndroidCXX::java_lang_String const& arg0) exit");	
 }
 // Default Instance Destructor
 java_net_MalformedURLException::~java_net_MalformedURLException()
@@ -198,7 +211,7 @@ java_net_MalformedURLException::~java_net_MalformedURLException()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_net_MalformedURLException::~java_net_MalformedURLException() exit");
 }
 // Functions

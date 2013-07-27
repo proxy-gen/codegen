@@ -42,7 +42,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_HeterogeneousExpandableList::android_widget_HeterogeneousExpandableList(const android_widget_HeterogeneousExpandableList& cc)
 {
 	LOGV("android_widget_HeterogeneousExpandableList::android_widget_HeterogeneousExpandableList(const android_widget_HeterogeneousExpandableList& cc) enter");
@@ -66,9 +65,9 @@ android_widget_HeterogeneousExpandableList::android_widget_HeterogeneousExpandab
 
 	LOGV("android_widget_HeterogeneousExpandableList::android_widget_HeterogeneousExpandableList(const android_widget_HeterogeneousExpandableList& cc) exit");
 }
-android_widget_HeterogeneousExpandableList::android_widget_HeterogeneousExpandableList(void * proxy)
+android_widget_HeterogeneousExpandableList::android_widget_HeterogeneousExpandableList(Proxy proxy)
 {
-	LOGV("android_widget_HeterogeneousExpandableList::android_widget_HeterogeneousExpandableList(void * proxy) enter");
+	LOGV("android_widget_HeterogeneousExpandableList::android_widget_HeterogeneousExpandableList(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -78,52 +77,31 @@ android_widget_HeterogeneousExpandableList::android_widget_HeterogeneousExpandab
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_HeterogeneousExpandableList::android_widget_HeterogeneousExpandableList(void * proxy) exit");
+	LOGV("android_widget_HeterogeneousExpandableList::android_widget_HeterogeneousExpandableList(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_HeterogeneousExpandableList::android_widget_HeterogeneousExpandableList()
-// {
-// 	LOGV("android_widget_HeterogeneousExpandableList::android_widget_HeterogeneousExpandableList() enter");	
+Proxy android_widget_HeterogeneousExpandableList::proxy() const
+{	
+	LOGV("android_widget_HeterogeneousExpandableList::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/HeterogeneousExpandableList";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_HeterogeneousExpandableList cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_HeterogeneousExpandableList jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_HeterogeneousExpandableList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_HeterogeneousExpandableList::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_HeterogeneousExpandableList cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_HeterogeneousExpandableList jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_HeterogeneousExpandableList::android_widget_HeterogeneousExpandableList() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_widget_HeterogeneousExpandableList::~android_widget_HeterogeneousExpandableList()
 {
@@ -135,13 +113,13 @@ android_widget_HeterogeneousExpandableList::~android_widget_HeterogeneousExpanda
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_HeterogeneousExpandableList::~android_widget_HeterogeneousExpandableList() exit");
 }
 // Functions
-int android_widget_HeterogeneousExpandableList::getGroupType(int& arg0)
+int android_widget_HeterogeneousExpandableList::getGroupType(int const& arg0)
 {
-	LOGV("int android_widget_HeterogeneousExpandableList::getGroupType(int& arg0) enter");
+	LOGV("int android_widget_HeterogeneousExpandableList::getGroupType(int const& arg0) enter");
 
 	const char *methodName = "getGroupType";
 	const char *methodSignature = "(I)I";
@@ -151,8 +129,6 @@ int android_widget_HeterogeneousExpandableList::getGroupType(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HeterogeneousExpandableList cxx address %d", cxxAddress);
@@ -202,15 +178,13 @@ int android_widget_HeterogeneousExpandableList::getGroupType(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_widget_HeterogeneousExpandableList::getGroupType(int& arg0) exit");
+	LOGV("int android_widget_HeterogeneousExpandableList::getGroupType(int const& arg0) exit");
 
 	return result;
 }
-int android_widget_HeterogeneousExpandableList::getChildType(int& arg0,int& arg1)
+int android_widget_HeterogeneousExpandableList::getChildType(int const& arg0,int const& arg1)
 {
-	LOGV("int android_widget_HeterogeneousExpandableList::getChildType(int& arg0,int& arg1) enter");
+	LOGV("int android_widget_HeterogeneousExpandableList::getChildType(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getChildType";
 	const char *methodSignature = "(II)I";
@@ -220,8 +194,6 @@ int android_widget_HeterogeneousExpandableList::getChildType(int& arg0,int& arg1
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HeterogeneousExpandableList cxx address %d", cxxAddress);
@@ -292,9 +264,7 @@ int android_widget_HeterogeneousExpandableList::getChildType(int& arg0,int& arg1
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_widget_HeterogeneousExpandableList::getChildType(int& arg0,int& arg1) exit");
+	LOGV("int android_widget_HeterogeneousExpandableList::getChildType(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
@@ -310,8 +280,6 @@ int android_widget_HeterogeneousExpandableList::getGroupTypeCount()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HeterogeneousExpandableList cxx address %d", cxxAddress);
@@ -340,8 +308,6 @@ int android_widget_HeterogeneousExpandableList::getGroupTypeCount()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_HeterogeneousExpandableList::getGroupTypeCount() exit");
 
 	return result;
@@ -359,8 +325,6 @@ int android_widget_HeterogeneousExpandableList::getChildTypeCount()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_HeterogeneousExpandableList cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -388,8 +352,6 @@ int android_widget_HeterogeneousExpandableList::getChildTypeCount()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_HeterogeneousExpandableList::getChildTypeCount() exit");
 
 	return result;

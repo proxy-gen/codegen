@@ -59,18 +59,15 @@ class android_text_TextWatcher
 public:
 
 	android_text_TextWatcher(const android_text_TextWatcher& cc);
-	android_text_TextWatcher(void * proxy);
+	android_text_TextWatcher(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_text_TextWatcher();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_text_TextWatcher();
 	// Functions
-	 void beforeTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3);
-	 void onTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3);
-	 void afterTextChanged(AndroidCXX::android_text_Editable& arg0);
+	 void beforeTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3);
+	 void onTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3);
+	 void afterTextChanged(AndroidCXX::android_text_Editable const& arg0);
 };	
 
 } // namespace

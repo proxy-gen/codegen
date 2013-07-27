@@ -84,31 +84,28 @@ class org_json_JSONTokener
 public:
 
 	org_json_JSONTokener(const org_json_JSONTokener& cc);
-	org_json_JSONTokener(void * proxy);
+	org_json_JSONTokener(Proxy proxy);
 	// Public Constructors
-	org_json_JSONTokener(AndroidCXX::java_lang_String& arg0);
-	// TODO: remove
-	// 
-	// org_json_JSONTokener();
-	// 
+	org_json_JSONTokener(AndroidCXX::java_lang_String const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~org_json_JSONTokener();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
-	 char next(char& arg0);
+	 char next(char const& arg0);
 	 char next();
-	 AndroidCXX::java_lang_String next(int& arg0);
+	 AndroidCXX::java_lang_String next(int const& arg0);
 	 AndroidCXX::java_lang_Object nextValue();
-	 AndroidCXX::java_lang_String nextString(char& arg0);
-	 AndroidCXX::org_json_JSONException syntaxError(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_lang_String nextString(char const& arg0);
+	 AndroidCXX::org_json_JSONException syntaxError(AndroidCXX::java_lang_String const& arg0);
 	 bool more();
 	 char nextClean();
-	 AndroidCXX::java_lang_String nextTo(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::java_lang_String nextTo(char& arg0);
-	 void skipPast(AndroidCXX::java_lang_String& arg0);
-	 char skipTo(char& arg0);
+	 AndroidCXX::java_lang_String nextTo(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::java_lang_String nextTo(char const& arg0);
+	 void skipPast(AndroidCXX::java_lang_String const& arg0);
+	 char skipTo(char const& arg0);
 	 void back();
-	static int dehexchar(char& arg0);
+	static int dehexchar(char const& arg0);
 };	
 
 } // namespace

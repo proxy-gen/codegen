@@ -121,7 +121,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_GridView::android_widget_GridView(const android_widget_GridView& cc)
 {
 	LOGV("android_widget_GridView::android_widget_GridView(const android_widget_GridView& cc) enter");
@@ -145,9 +144,9 @@ android_widget_GridView::android_widget_GridView(const android_widget_GridView& 
 
 	LOGV("android_widget_GridView::android_widget_GridView(const android_widget_GridView& cc) exit");
 }
-android_widget_GridView::android_widget_GridView(void * proxy)
+android_widget_GridView::android_widget_GridView(Proxy proxy)
 {
-	LOGV("android_widget_GridView::android_widget_GridView(void * proxy) enter");
+	LOGV("android_widget_GridView::android_widget_GridView(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -157,55 +156,34 @@ android_widget_GridView::android_widget_GridView(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_GridView::android_widget_GridView(void * proxy) exit");
+	LOGV("android_widget_GridView::android_widget_GridView(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_GridView::android_widget_GridView()
-// {
-// 	LOGV("android_widget_GridView::android_widget_GridView() enter");	
+Proxy android_widget_GridView::proxy() const
+{	
+	LOGV("android_widget_GridView::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/GridView";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_GridView cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_GridView jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_GridView::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_GridView jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_GridView::android_widget_GridView() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Context& arg0)
+	return proxy;
+}
+android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -258,11 +236,11 @@ android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Context const& arg0) exit");	
 }
-android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
+android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2)
 {
-	LOGV("android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) enter");	
+	LOGV("android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
@@ -357,11 +335,11 @@ android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) exit");	
+	LOGV("android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) exit");	
 }
-android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -435,7 +413,7 @@ android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
 // Default Instance Destructor
 android_widget_GridView::~android_widget_GridView()
@@ -448,13 +426,13 @@ android_widget_GridView::~android_widget_GridView()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_GridView::~android_widget_GridView() exit");
 }
 // Functions
-bool android_widget_GridView::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1)
+bool android_widget_GridView::onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1)
 {
-	LOGV("bool android_widget_GridView::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) enter");
+	LOGV("bool android_widget_GridView::onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) enter");
 
 	const char *methodName = "onKeyDown";
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
@@ -465,8 +443,6 @@ bool android_widget_GridView::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEv
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -536,15 +512,13 @@ bool android_widget_GridView::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEv
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_GridView::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) exit");
+	LOGV("bool android_widget_GridView::onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) exit");
 
 	return result;
 }
-bool android_widget_GridView::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1)
+bool android_widget_GridView::onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1)
 {
-	LOGV("bool android_widget_GridView::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) enter");
+	LOGV("bool android_widget_GridView::onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) enter");
 
 	const char *methodName = "onKeyUp";
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
@@ -555,8 +529,6 @@ bool android_widget_GridView::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEven
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -626,15 +598,13 @@ bool android_widget_GridView::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEven
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_GridView::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) exit");
+	LOGV("bool android_widget_GridView::onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) exit");
 
 	return result;
 }
-bool android_widget_GridView::onKeyMultiple(int& arg0,int& arg1,AndroidCXX::android_view_KeyEvent& arg2)
+bool android_widget_GridView::onKeyMultiple(int const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2)
 {
-	LOGV("bool android_widget_GridView::onKeyMultiple(int& arg0,int& arg1,AndroidCXX::android_view_KeyEvent& arg2) enter");
+	LOGV("bool android_widget_GridView::onKeyMultiple(int const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) enter");
 
 	const char *methodName = "onKeyMultiple";
 	const char *methodSignature = "(IILandroid/view/KeyEvent;)Z";
@@ -644,8 +614,6 @@ bool android_widget_GridView::onKeyMultiple(int& arg0,int& arg1,AndroidCXX::andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
@@ -737,15 +705,13 @@ bool android_widget_GridView::onKeyMultiple(int& arg0,int& arg1,AndroidCXX::andr
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_GridView::onKeyMultiple(int& arg0,int& arg1,AndroidCXX::android_view_KeyEvent& arg2) exit");
+	LOGV("bool android_widget_GridView::onKeyMultiple(int const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) exit");
 
 	return result;
 }
-void android_widget_GridView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_GridView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_GridView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_GridView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -755,8 +721,6 @@ void android_widget_GridView::onInitializeAccessibilityEvent(AndroidCXX::android
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
@@ -787,14 +751,12 @@ void android_widget_GridView::onInitializeAccessibilityEvent(AndroidCXX::android
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_GridView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_GridView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_GridView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0)
+void android_widget_GridView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0)
 {
-	LOGV("void android_widget_GridView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) enter");
+	LOGV("void android_widget_GridView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityNodeInfo";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
@@ -804,8 +766,6 @@ void android_widget_GridView::onInitializeAccessibilityNodeInfo(AndroidCXX::andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
@@ -836,14 +796,12 @@ void android_widget_GridView::onInitializeAccessibilityNodeInfo(AndroidCXX::andr
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_GridView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) exit");
+	LOGV("void android_widget_GridView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) exit");
 
 }
-void android_widget_GridView::setSelection(int& arg0)
+void android_widget_GridView::setSelection(int const& arg0)
 {
-	LOGV("void android_widget_GridView::setSelection(int& arg0) enter");
+	LOGV("void android_widget_GridView::setSelection(int const& arg0) enter");
 
 	const char *methodName = "setSelection";
 	const char *methodSignature = "(I)V";
@@ -854,8 +812,6 @@ void android_widget_GridView::setSelection(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -885,14 +841,12 @@ void android_widget_GridView::setSelection(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_GridView::setSelection(int& arg0) exit");
+	LOGV("void android_widget_GridView::setSelection(int const& arg0) exit");
 
 }
-void android_widget_GridView::setGravity(int& arg0)
+void android_widget_GridView::setGravity(int const& arg0)
 {
-	LOGV("void android_widget_GridView::setGravity(int& arg0) enter");
+	LOGV("void android_widget_GridView::setGravity(int const& arg0) enter");
 
 	const char *methodName = "setGravity";
 	const char *methodSignature = "(I)V";
@@ -903,8 +857,6 @@ void android_widget_GridView::setGravity(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -934,14 +886,12 @@ void android_widget_GridView::setGravity(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_GridView::setGravity(int& arg0) exit");
+	LOGV("void android_widget_GridView::setGravity(int const& arg0) exit");
 
 }
-void android_widget_GridView::setAdapter(AndroidCXX::android_widget_ListAdapter& arg0)
+void android_widget_GridView::setAdapter(AndroidCXX::android_widget_ListAdapter const& arg0)
 {
-	LOGV("void android_widget_GridView::setAdapter(AndroidCXX::android_widget_ListAdapter& arg0) enter");
+	LOGV("void android_widget_GridView::setAdapter(AndroidCXX::android_widget_ListAdapter const& arg0) enter");
 
 	const char *methodName = "setAdapter";
 	const char *methodSignature = "(Landroid/widget/ListAdapter;)V";
@@ -951,8 +901,6 @@ void android_widget_GridView::setAdapter(AndroidCXX::android_widget_ListAdapter&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
@@ -983,14 +931,12 @@ void android_widget_GridView::setAdapter(AndroidCXX::android_widget_ListAdapter&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_GridView::setAdapter(AndroidCXX::android_widget_ListAdapter& arg0) exit");
+	LOGV("void android_widget_GridView::setAdapter(AndroidCXX::android_widget_ListAdapter const& arg0) exit");
 
 }
-void android_widget_GridView::smoothScrollToPosition(int& arg0)
+void android_widget_GridView::smoothScrollToPosition(int const& arg0)
 {
-	LOGV("void android_widget_GridView::smoothScrollToPosition(int& arg0) enter");
+	LOGV("void android_widget_GridView::smoothScrollToPosition(int const& arg0) enter");
 
 	const char *methodName = "smoothScrollToPosition";
 	const char *methodSignature = "(I)V";
@@ -1000,8 +946,6 @@ void android_widget_GridView::smoothScrollToPosition(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
@@ -1032,14 +976,12 @@ void android_widget_GridView::smoothScrollToPosition(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_GridView::smoothScrollToPosition(int& arg0) exit");
+	LOGV("void android_widget_GridView::smoothScrollToPosition(int const& arg0) exit");
 
 }
-void android_widget_GridView::setRemoteViewsAdapter(AndroidCXX::android_content_Intent& arg0)
+void android_widget_GridView::setRemoteViewsAdapter(AndroidCXX::android_content_Intent const& arg0)
 {
-	LOGV("void android_widget_GridView::setRemoteViewsAdapter(AndroidCXX::android_content_Intent& arg0) enter");
+	LOGV("void android_widget_GridView::setRemoteViewsAdapter(AndroidCXX::android_content_Intent const& arg0) enter");
 
 	const char *methodName = "setRemoteViewsAdapter";
 	const char *methodSignature = "(Landroid/content/Intent;)V";
@@ -1049,8 +991,6 @@ void android_widget_GridView::setRemoteViewsAdapter(AndroidCXX::android_content_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
@@ -1081,9 +1021,7 @@ void android_widget_GridView::setRemoteViewsAdapter(AndroidCXX::android_content_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_GridView::setRemoteViewsAdapter(AndroidCXX::android_content_Intent& arg0) exit");
+	LOGV("void android_widget_GridView::setRemoteViewsAdapter(AndroidCXX::android_content_Intent const& arg0) exit");
 
 }
 AndroidCXX::android_widget_ListAdapter android_widget_GridView::getAdapter()
@@ -1098,8 +1036,6 @@ AndroidCXX::android_widget_ListAdapter android_widget_GridView::getAdapter()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
@@ -1128,8 +1064,6 @@ AndroidCXX::android_widget_ListAdapter android_widget_GridView::getAdapter()
 	AndroidCXX::android_widget_ListAdapter result((AndroidCXX::android_widget_ListAdapter) *((AndroidCXX::android_widget_ListAdapter *) cxx_value));
 	delete ((AndroidCXX::android_widget_ListAdapter *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_widget_ListAdapter android_widget_GridView::getAdapter() exit");
 
 	return result;
@@ -1147,8 +1081,6 @@ int android_widget_GridView::getGravity()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1176,15 +1108,13 @@ int android_widget_GridView::getGravity()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_GridView::getGravity() exit");
 
 	return result;
 }
-void android_widget_GridView::smoothScrollByOffset(int& arg0)
+void android_widget_GridView::smoothScrollByOffset(int const& arg0)
 {
-	LOGV("void android_widget_GridView::smoothScrollByOffset(int& arg0) enter");
+	LOGV("void android_widget_GridView::smoothScrollByOffset(int const& arg0) enter");
 
 	const char *methodName = "smoothScrollByOffset";
 	const char *methodSignature = "(I)V";
@@ -1195,8 +1125,6 @@ void android_widget_GridView::smoothScrollByOffset(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1226,14 +1154,12 @@ void android_widget_GridView::smoothScrollByOffset(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_GridView::smoothScrollByOffset(int& arg0) exit");
+	LOGV("void android_widget_GridView::smoothScrollByOffset(int const& arg0) exit");
 
 }
-void android_widget_GridView::setHorizontalSpacing(int& arg0)
+void android_widget_GridView::setHorizontalSpacing(int const& arg0)
 {
-	LOGV("void android_widget_GridView::setHorizontalSpacing(int& arg0) enter");
+	LOGV("void android_widget_GridView::setHorizontalSpacing(int const& arg0) enter");
 
 	const char *methodName = "setHorizontalSpacing";
 	const char *methodSignature = "(I)V";
@@ -1244,8 +1170,6 @@ void android_widget_GridView::setHorizontalSpacing(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1275,9 +1199,7 @@ void android_widget_GridView::setHorizontalSpacing(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_GridView::setHorizontalSpacing(int& arg0) exit");
+	LOGV("void android_widget_GridView::setHorizontalSpacing(int const& arg0) exit");
 
 }
 int android_widget_GridView::getHorizontalSpacing()
@@ -1293,8 +1215,6 @@ int android_widget_GridView::getHorizontalSpacing()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1322,8 +1242,6 @@ int android_widget_GridView::getHorizontalSpacing()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_GridView::getHorizontalSpacing() exit");
 
 	return result;
@@ -1341,8 +1259,6 @@ int android_widget_GridView::getRequestedHorizontalSpacing()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1370,15 +1286,13 @@ int android_widget_GridView::getRequestedHorizontalSpacing()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_GridView::getRequestedHorizontalSpacing() exit");
 
 	return result;
 }
-void android_widget_GridView::setVerticalSpacing(int& arg0)
+void android_widget_GridView::setVerticalSpacing(int const& arg0)
 {
-	LOGV("void android_widget_GridView::setVerticalSpacing(int& arg0) enter");
+	LOGV("void android_widget_GridView::setVerticalSpacing(int const& arg0) enter");
 
 	const char *methodName = "setVerticalSpacing";
 	const char *methodSignature = "(I)V";
@@ -1388,8 +1302,6 @@ void android_widget_GridView::setVerticalSpacing(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
@@ -1420,9 +1332,7 @@ void android_widget_GridView::setVerticalSpacing(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_GridView::setVerticalSpacing(int& arg0) exit");
+	LOGV("void android_widget_GridView::setVerticalSpacing(int const& arg0) exit");
 
 }
 int android_widget_GridView::getVerticalSpacing()
@@ -1438,8 +1348,6 @@ int android_widget_GridView::getVerticalSpacing()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1467,15 +1375,13 @@ int android_widget_GridView::getVerticalSpacing()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_GridView::getVerticalSpacing() exit");
 
 	return result;
 }
-void android_widget_GridView::setStretchMode(int& arg0)
+void android_widget_GridView::setStretchMode(int const& arg0)
 {
-	LOGV("void android_widget_GridView::setStretchMode(int& arg0) enter");
+	LOGV("void android_widget_GridView::setStretchMode(int const& arg0) enter");
 
 	const char *methodName = "setStretchMode";
 	const char *methodSignature = "(I)V";
@@ -1485,8 +1391,6 @@ void android_widget_GridView::setStretchMode(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
@@ -1517,9 +1421,7 @@ void android_widget_GridView::setStretchMode(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_GridView::setStretchMode(int& arg0) exit");
+	LOGV("void android_widget_GridView::setStretchMode(int const& arg0) exit");
 
 }
 int android_widget_GridView::getStretchMode()
@@ -1535,8 +1437,6 @@ int android_widget_GridView::getStretchMode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1564,15 +1464,13 @@ int android_widget_GridView::getStretchMode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_GridView::getStretchMode() exit");
 
 	return result;
 }
-void android_widget_GridView::setColumnWidth(int& arg0)
+void android_widget_GridView::setColumnWidth(int const& arg0)
 {
-	LOGV("void android_widget_GridView::setColumnWidth(int& arg0) enter");
+	LOGV("void android_widget_GridView::setColumnWidth(int const& arg0) enter");
 
 	const char *methodName = "setColumnWidth";
 	const char *methodSignature = "(I)V";
@@ -1582,8 +1480,6 @@ void android_widget_GridView::setColumnWidth(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
@@ -1614,9 +1510,7 @@ void android_widget_GridView::setColumnWidth(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_GridView::setColumnWidth(int& arg0) exit");
+	LOGV("void android_widget_GridView::setColumnWidth(int const& arg0) exit");
 
 }
 int android_widget_GridView::getColumnWidth()
@@ -1631,8 +1525,6 @@ int android_widget_GridView::getColumnWidth()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
@@ -1661,8 +1553,6 @@ int android_widget_GridView::getColumnWidth()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_GridView::getColumnWidth() exit");
 
 	return result;
@@ -1680,8 +1570,6 @@ int android_widget_GridView::getRequestedColumnWidth()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1709,15 +1597,13 @@ int android_widget_GridView::getRequestedColumnWidth()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_GridView::getRequestedColumnWidth() exit");
 
 	return result;
 }
-void android_widget_GridView::setNumColumns(int& arg0)
+void android_widget_GridView::setNumColumns(int const& arg0)
 {
-	LOGV("void android_widget_GridView::setNumColumns(int& arg0) enter");
+	LOGV("void android_widget_GridView::setNumColumns(int const& arg0) enter");
 
 	const char *methodName = "setNumColumns";
 	const char *methodSignature = "(I)V";
@@ -1727,8 +1613,6 @@ void android_widget_GridView::setNumColumns(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
@@ -1759,9 +1643,7 @@ void android_widget_GridView::setNumColumns(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_GridView::setNumColumns(int& arg0) exit");
+	LOGV("void android_widget_GridView::setNumColumns(int const& arg0) exit");
 
 }
 int android_widget_GridView::getNumColumns()
@@ -1776,8 +1658,6 @@ int android_widget_GridView::getNumColumns()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridView cxx address %d", cxxAddress);
@@ -1806,8 +1686,6 @@ int android_widget_GridView::getNumColumns()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_GridView::getNumColumns() exit");
 
 	return result;

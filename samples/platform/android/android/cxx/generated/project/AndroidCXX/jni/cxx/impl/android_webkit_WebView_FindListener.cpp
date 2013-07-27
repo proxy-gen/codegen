@@ -39,7 +39,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_webkit_WebView_FindListener::android_webkit_WebView_FindListener(const android_webkit_WebView_FindListener& cc)
 {
 	LOGV("android_webkit_WebView_FindListener::android_webkit_WebView_FindListener(const android_webkit_WebView_FindListener& cc) enter");
@@ -63,9 +62,9 @@ android_webkit_WebView_FindListener::android_webkit_WebView_FindListener(const a
 
 	LOGV("android_webkit_WebView_FindListener::android_webkit_WebView_FindListener(const android_webkit_WebView_FindListener& cc) exit");
 }
-android_webkit_WebView_FindListener::android_webkit_WebView_FindListener(void * proxy)
+android_webkit_WebView_FindListener::android_webkit_WebView_FindListener(Proxy proxy)
 {
-	LOGV("android_webkit_WebView_FindListener::android_webkit_WebView_FindListener(void * proxy) enter");
+	LOGV("android_webkit_WebView_FindListener::android_webkit_WebView_FindListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -75,52 +74,31 @@ android_webkit_WebView_FindListener::android_webkit_WebView_FindListener(void * 
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_webkit_WebView_FindListener::android_webkit_WebView_FindListener(void * proxy) exit");
+	LOGV("android_webkit_WebView_FindListener::android_webkit_WebView_FindListener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_webkit_WebView_FindListener::android_webkit_WebView_FindListener()
-// {
-// 	LOGV("android_webkit_WebView_FindListener::android_webkit_WebView_FindListener() enter");	
+Proxy android_webkit_WebView_FindListener::proxy() const
+{	
+	LOGV("android_webkit_WebView_FindListener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/webkit/WebView$FindListener";
+	long cxxAddress = (long) this;
+	LOGV("android_webkit_WebView_FindListener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_webkit_WebView_FindListener jni address %d", proxiedComponent);
 
-// 	LOGV("android_webkit_WebView_FindListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_webkit_WebView_FindListener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_webkit_WebView_FindListener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_webkit_WebView_FindListener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_webkit_WebView_FindListener::android_webkit_WebView_FindListener() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_webkit_WebView_FindListener::~android_webkit_WebView_FindListener()
 {
@@ -132,13 +110,13 @@ android_webkit_WebView_FindListener::~android_webkit_WebView_FindListener()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_webkit_WebView_FindListener::~android_webkit_WebView_FindListener() exit");
 }
 // Functions
-void android_webkit_WebView_FindListener::onFindResultReceived(int& arg0,int& arg1,bool& arg2)
+void android_webkit_WebView_FindListener::onFindResultReceived(int const& arg0,int const& arg1,bool const& arg2)
 {
-	LOGV("void android_webkit_WebView_FindListener::onFindResultReceived(int& arg0,int& arg1,bool& arg2) enter");
+	LOGV("void android_webkit_WebView_FindListener::onFindResultReceived(int const& arg0,int const& arg1,bool const& arg2) enter");
 
 	const char *methodName = "onFindResultReceived";
 	const char *methodSignature = "(IIZ)V";
@@ -148,8 +126,6 @@ void android_webkit_WebView_FindListener::onFindResultReceived(int& arg0,int& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebView_FindListener cxx address %d", cxxAddress);
@@ -222,8 +198,6 @@ void android_webkit_WebView_FindListener::onFindResultReceived(int& arg0,int& ar
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebView_FindListener::onFindResultReceived(int& arg0,int& arg1,bool& arg2) exit");
+	LOGV("void android_webkit_WebView_FindListener::onFindResultReceived(int const& arg0,int const& arg1,bool const& arg2) exit");
 
 }

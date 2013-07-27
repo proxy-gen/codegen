@@ -250,7 +250,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_android_Facebook::com_facebook_android_Facebook(const com_facebook_android_Facebook& cc)
 {
 	LOGV("com_facebook_android_Facebook::com_facebook_android_Facebook(const com_facebook_android_Facebook& cc) enter");
@@ -274,9 +273,9 @@ com_facebook_android_Facebook::com_facebook_android_Facebook(const com_facebook_
 
 	LOGV("com_facebook_android_Facebook::com_facebook_android_Facebook(const com_facebook_android_Facebook& cc) exit");
 }
-com_facebook_android_Facebook::com_facebook_android_Facebook(void * proxy)
+com_facebook_android_Facebook::com_facebook_android_Facebook(Proxy proxy)
 {
-	LOGV("com_facebook_android_Facebook::com_facebook_android_Facebook(void * proxy) enter");
+	LOGV("com_facebook_android_Facebook::com_facebook_android_Facebook(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -286,55 +285,34 @@ com_facebook_android_Facebook::com_facebook_android_Facebook(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_android_Facebook::com_facebook_android_Facebook(void * proxy) exit");
+	LOGV("com_facebook_android_Facebook::com_facebook_android_Facebook(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// com_facebook_android_Facebook::com_facebook_android_Facebook()
-// {
-// 	LOGV("com_facebook_android_Facebook::com_facebook_android_Facebook() enter");	
+Proxy com_facebook_android_Facebook::proxy() const
+{	
+	LOGV("com_facebook_android_Facebook::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "com/facebook/android/Facebook";
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_android_Facebook jni address %d", proxiedComponent);
 
-// 	LOGV("com_facebook_android_Facebook className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("com_facebook_android_Facebook::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("com_facebook_android_Facebook jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("com_facebook_android_Facebook::com_facebook_android_Facebook() exit");	
-// }
-// 
-// 
-// Public Constructors
-com_facebook_android_Facebook::com_facebook_android_Facebook(AndroidCXX::java_lang_String& arg0)
+	return proxy;
+}
+com_facebook_android_Facebook::com_facebook_android_Facebook(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("com_facebook_android_Facebook::com_facebook_android_Facebook(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("com_facebook_android_Facebook::com_facebook_android_Facebook(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -387,7 +365,7 @@ com_facebook_android_Facebook::com_facebook_android_Facebook(AndroidCXX::java_la
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_android_Facebook::com_facebook_android_Facebook(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("com_facebook_android_Facebook::com_facebook_android_Facebook(AndroidCXX::java_lang_String const& arg0) exit");	
 }
 // Default Instance Destructor
 com_facebook_android_Facebook::~com_facebook_android_Facebook()
@@ -400,13 +378,13 @@ com_facebook_android_Facebook::~com_facebook_android_Facebook()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_android_Facebook::~com_facebook_android_Facebook() exit");
 }
 // Functions
-void com_facebook_android_Facebook::dialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg3)
+void com_facebook_android_Facebook::dialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg3)
 {
-	LOGV("void com_facebook_android_Facebook::dialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg3) enter");
+	LOGV("void com_facebook_android_Facebook::dialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg3) enter");
 
 	const char *methodName = "dialog";
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/android/Facebook$DialogListener;)V";
@@ -416,8 +394,6 @@ void com_facebook_android_Facebook::dialog(AndroidCXX::android_content_Context& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -511,14 +487,12 @@ void com_facebook_android_Facebook::dialog(AndroidCXX::android_content_Context& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_Facebook::dialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg3) exit");
+	LOGV("void com_facebook_android_Facebook::dialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg3) exit");
 
 }
-void com_facebook_android_Facebook::dialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg2)
+void com_facebook_android_Facebook::dialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg2)
 {
-	LOGV("void com_facebook_android_Facebook::dialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg2) enter");
+	LOGV("void com_facebook_android_Facebook::dialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg2) enter");
 
 	const char *methodName = "dialog";
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;Lcom/facebook/android/Facebook$DialogListener;)V";
@@ -528,8 +502,6 @@ void com_facebook_android_Facebook::dialog(AndroidCXX::android_content_Context& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -602,14 +574,12 @@ void com_facebook_android_Facebook::dialog(AndroidCXX::android_content_Context& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_Facebook::dialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg2) exit");
+	LOGV("void com_facebook_android_Facebook::dialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg2) exit");
 
 }
-void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,int& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg3)
+void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,int const& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg3)
 {
-	LOGV("void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,int& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg3) enter");
+	LOGV("void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,int const& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg3) enter");
 
 	const char *methodName = "authorize";
 	const char *methodSignature = "(Landroid/app/Activity;[Ljava/lang/String;ILcom/facebook/android/Facebook$DialogListener;)V";
@@ -619,8 +589,6 @@ void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -732,14 +700,12 @@ void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,int& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg3) exit");
+	LOGV("void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,int const& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg3) exit");
 
 }
-void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity& arg0,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg1)
+void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity const& arg0,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg1)
 {
-	LOGV("void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity& arg0,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg1) enter");
+	LOGV("void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity const& arg0,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg1) enter");
 
 	const char *methodName = "authorize";
 	const char *methodSignature = "(Landroid/app/Activity;Lcom/facebook/android/Facebook$DialogListener;)V";
@@ -749,8 +715,6 @@ void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -802,14 +766,12 @@ void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity& arg0,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg1) exit");
+	LOGV("void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity const& arg0,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg1) exit");
 
 }
-void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg2)
+void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg2)
 {
-	LOGV("void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg2) enter");
+	LOGV("void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg2) enter");
 
 	const char *methodName = "authorize";
 	const char *methodSignature = "(Landroid/app/Activity;[Ljava/lang/String;Lcom/facebook/android/Facebook$DialogListener;)V";
@@ -819,8 +781,6 @@ void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -911,14 +871,12 @@ void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg2) exit");
+	LOGV("void com_facebook_android_Facebook::authorize(AndroidCXX::android_app_Activity const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg2) exit");
 
 }
-AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::android_os_Bundle& arg0)
+AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "request";
 	const char *methodSignature = "(Landroid/os/Bundle;)Ljava/lang/String;";
@@ -928,8 +886,6 @@ AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -979,15 +935,13 @@ AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,AndroidCXX::java_lang_String& arg2)
+AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1,AndroidCXX::java_lang_String const& arg2)
 {
-	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,AndroidCXX::java_lang_String& arg2) enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1,AndroidCXX::java_lang_String const& arg2) enter");
 
 	const char *methodName = "request";
 	const char *methodSignature = "(Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;)Ljava/lang/String;";
@@ -997,8 +951,6 @@ AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -1090,15 +1042,13 @@ AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,AndroidCXX::java_lang_String& arg2) exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1,AndroidCXX::java_lang_String const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1)
+AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1)
 {
-	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1) enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1) enter");
 
 	const char *methodName = "request";
 	const char *methodSignature = "(Ljava/lang/String;Landroid/os/Bundle;)Ljava/lang/String;";
@@ -1108,8 +1058,6 @@ AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -1180,15 +1128,13 @@ AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1) exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "request";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
@@ -1198,8 +1144,6 @@ AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -1249,9 +1193,7 @@ AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::request(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
@@ -1267,8 +1209,6 @@ FacebookCXX::com_facebook_Session com_facebook_android_Facebook::getSession()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -1297,15 +1237,13 @@ FacebookCXX::com_facebook_Session com_facebook_android_Facebook::getSession()
 	FacebookCXX::com_facebook_Session result((FacebookCXX::com_facebook_Session) *((FacebookCXX::com_facebook_Session *) cxx_value));
 	delete ((FacebookCXX::com_facebook_Session *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("FacebookCXX::com_facebook_Session com_facebook_android_Facebook::getSession() exit");
 
 	return result;
 }
-void com_facebook_android_Facebook::setSession(FacebookCXX::com_facebook_Session& arg0)
+void com_facebook_android_Facebook::setSession(FacebookCXX::com_facebook_Session const& arg0)
 {
-	LOGV("void com_facebook_android_Facebook::setSession(FacebookCXX::com_facebook_Session& arg0) enter");
+	LOGV("void com_facebook_android_Facebook::setSession(FacebookCXX::com_facebook_Session const& arg0) enter");
 
 	const char *methodName = "setSession";
 	const char *methodSignature = "(Lcom/facebook/Session;)V";
@@ -1315,8 +1253,6 @@ void com_facebook_android_Facebook::setSession(FacebookCXX::com_facebook_Session
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -1347,14 +1283,12 @@ void com_facebook_android_Facebook::setSession(FacebookCXX::com_facebook_Session
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_Facebook::setSession(FacebookCXX::com_facebook_Session& arg0) exit");
+	LOGV("void com_facebook_android_Facebook::setSession(FacebookCXX::com_facebook_Session const& arg0) exit");
 
 }
-bool com_facebook_android_Facebook::extendAccessTokenIfNeeded(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_Facebook_ServiceListener& arg1)
+bool com_facebook_android_Facebook::extendAccessTokenIfNeeded(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_android_Facebook_ServiceListener const& arg1)
 {
-	LOGV("bool com_facebook_android_Facebook::extendAccessTokenIfNeeded(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_Facebook_ServiceListener& arg1) enter");
+	LOGV("bool com_facebook_android_Facebook::extendAccessTokenIfNeeded(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_android_Facebook_ServiceListener const& arg1) enter");
 
 	const char *methodName = "extendAccessTokenIfNeeded";
 	const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/android/Facebook$ServiceListener;)Z";
@@ -1364,8 +1298,6 @@ bool com_facebook_android_Facebook::extendAccessTokenIfNeeded(AndroidCXX::androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -1436,9 +1368,7 @@ bool com_facebook_android_Facebook::extendAccessTokenIfNeeded(AndroidCXX::androi
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool com_facebook_android_Facebook::extendAccessTokenIfNeeded(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_Facebook_ServiceListener& arg1) exit");
+	LOGV("bool com_facebook_android_Facebook::extendAccessTokenIfNeeded(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_android_Facebook_ServiceListener const& arg1) exit");
 
 	return result;
 }
@@ -1454,8 +1384,6 @@ AndroidCXX::java_lang_String com_facebook_android_Facebook::getAccessToken()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -1484,8 +1412,6 @@ AndroidCXX::java_lang_String com_facebook_android_Facebook::getAccessToken()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::getAccessToken() exit");
 
 	return result;
@@ -1502,8 +1428,6 @@ bool com_facebook_android_Facebook::shouldExtendAccessToken()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -1532,15 +1456,13 @@ bool com_facebook_android_Facebook::shouldExtendAccessToken()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool com_facebook_android_Facebook::shouldExtendAccessToken() exit");
 
 	return result;
 }
-bool com_facebook_android_Facebook::extendAccessToken(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_Facebook_ServiceListener& arg1)
+bool com_facebook_android_Facebook::extendAccessToken(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_android_Facebook_ServiceListener const& arg1)
 {
-	LOGV("bool com_facebook_android_Facebook::extendAccessToken(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_Facebook_ServiceListener& arg1) enter");
+	LOGV("bool com_facebook_android_Facebook::extendAccessToken(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_android_Facebook_ServiceListener const& arg1) enter");
 
 	const char *methodName = "extendAccessToken";
 	const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/android/Facebook$ServiceListener;)Z";
@@ -1550,8 +1472,6 @@ bool com_facebook_android_Facebook::extendAccessToken(AndroidCXX::android_conten
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -1622,9 +1542,7 @@ bool com_facebook_android_Facebook::extendAccessToken(AndroidCXX::android_conten
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool com_facebook_android_Facebook::extendAccessToken(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_Facebook_ServiceListener& arg1) exit");
+	LOGV("bool com_facebook_android_Facebook::extendAccessToken(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_android_Facebook_ServiceListener const& arg1) exit");
 
 	return result;
 }
@@ -1640,8 +1558,6 @@ bool com_facebook_android_Facebook::getShouldAutoPublishInstall()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -1670,15 +1586,13 @@ bool com_facebook_android_Facebook::getShouldAutoPublishInstall()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool com_facebook_android_Facebook::getShouldAutoPublishInstall() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String com_facebook_android_Facebook::getAttributionId(AndroidCXX::android_content_ContentResolver& arg0)
+AndroidCXX::java_lang_String com_facebook_android_Facebook::getAttributionId(AndroidCXX::android_content_ContentResolver const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::getAttributionId(AndroidCXX::android_content_ContentResolver& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::getAttributionId(AndroidCXX::android_content_ContentResolver const& arg0) enter");
 
 	const char *methodName = "getAttributionId";
 	const char *methodSignature = "(Landroid/content/ContentResolver;)Ljava/lang/String;";
@@ -1688,8 +1602,6 @@ AndroidCXX::java_lang_String com_facebook_android_Facebook::getAttributionId(And
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -1718,7 +1630,7 @@ AndroidCXX::java_lang_String com_facebook_android_Facebook::getAttributionId(And
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jstring jni_result = (jstring) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
 	{
@@ -1739,15 +1651,13 @@ AndroidCXX::java_lang_String com_facebook_android_Facebook::getAttributionId(And
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::getAttributionId(AndroidCXX::android_content_ContentResolver& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::getAttributionId(AndroidCXX::android_content_ContentResolver const& arg0) exit");
 
 	return result;
 }
-void com_facebook_android_Facebook::setShouldAutoPublishInstall(bool& arg0)
+void com_facebook_android_Facebook::setShouldAutoPublishInstall(bool const& arg0)
 {
-	LOGV("void com_facebook_android_Facebook::setShouldAutoPublishInstall(bool& arg0) enter");
+	LOGV("void com_facebook_android_Facebook::setShouldAutoPublishInstall(bool const& arg0) enter");
 
 	const char *methodName = "setShouldAutoPublishInstall";
 	const char *methodSignature = "(Z)V";
@@ -1757,8 +1667,6 @@ void com_facebook_android_Facebook::setShouldAutoPublishInstall(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -1789,14 +1697,12 @@ void com_facebook_android_Facebook::setShouldAutoPublishInstall(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_Facebook::setShouldAutoPublishInstall(bool& arg0) exit");
+	LOGV("void com_facebook_android_Facebook::setShouldAutoPublishInstall(bool const& arg0) exit");
 
 }
-AndroidCXX::java_lang_String com_facebook_android_Facebook::logout(AndroidCXX::android_content_Context& arg0)
+AndroidCXX::java_lang_String com_facebook_android_Facebook::logout(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::logout(AndroidCXX::android_content_Context& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::logout(AndroidCXX::android_content_Context const& arg0) enter");
 
 	const char *methodName = "logout";
 	const char *methodSignature = "(Landroid/content/Context;)Ljava/lang/String;";
@@ -1806,8 +1712,6 @@ AndroidCXX::java_lang_String com_facebook_android_Facebook::logout(AndroidCXX::a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -1857,15 +1761,13 @@ AndroidCXX::java_lang_String com_facebook_android_Facebook::logout(AndroidCXX::a
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::logout(AndroidCXX::android_content_Context& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::logout(AndroidCXX::android_content_Context const& arg0) exit");
 
 	return result;
 }
-void com_facebook_android_Facebook::authorizeCallback(int& arg0,int& arg1,AndroidCXX::android_content_Intent& arg2)
+void com_facebook_android_Facebook::authorizeCallback(int const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2)
 {
-	LOGV("void com_facebook_android_Facebook::authorizeCallback(int& arg0,int& arg1,AndroidCXX::android_content_Intent& arg2) enter");
+	LOGV("void com_facebook_android_Facebook::authorizeCallback(int const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2) enter");
 
 	const char *methodName = "authorizeCallback";
 	const char *methodSignature = "(IILandroid/content/Intent;)V";
@@ -1875,8 +1777,6 @@ void com_facebook_android_Facebook::authorizeCallback(int& arg0,int& arg1,Androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -1949,9 +1849,7 @@ void com_facebook_android_Facebook::authorizeCallback(int& arg0,int& arg1,Androi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_Facebook::authorizeCallback(int& arg0,int& arg1,AndroidCXX::android_content_Intent& arg2) exit");
+	LOGV("void com_facebook_android_Facebook::authorizeCallback(int const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2) exit");
 
 }
 bool com_facebook_android_Facebook::isSessionValid()
@@ -1966,8 +1864,6 @@ bool com_facebook_android_Facebook::isSessionValid()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -1996,8 +1892,6 @@ bool com_facebook_android_Facebook::isSessionValid()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool com_facebook_android_Facebook::isSessionValid() exit");
 
 	return result;
@@ -2015,8 +1909,6 @@ long com_facebook_android_Facebook::getAccessExpires()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2044,8 +1936,6 @@ long com_facebook_android_Facebook::getAccessExpires()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long com_facebook_android_Facebook::getAccessExpires() exit");
 
 	return result;
@@ -2063,8 +1953,6 @@ long com_facebook_android_Facebook::getLastAccessUpdate()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2092,15 +1980,13 @@ long com_facebook_android_Facebook::getLastAccessUpdate()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long com_facebook_android_Facebook::getLastAccessUpdate() exit");
 
 	return result;
 }
-void com_facebook_android_Facebook::setTokenFromCache(AndroidCXX::java_lang_String& arg0,long& arg1,long& arg2)
+void com_facebook_android_Facebook::setTokenFromCache(AndroidCXX::java_lang_String const& arg0,long const& arg1,long const& arg2)
 {
-	LOGV("void com_facebook_android_Facebook::setTokenFromCache(AndroidCXX::java_lang_String& arg0,long& arg1,long& arg2) enter");
+	LOGV("void com_facebook_android_Facebook::setTokenFromCache(AndroidCXX::java_lang_String const& arg0,long const& arg1,long const& arg2) enter");
 
 	const char *methodName = "setTokenFromCache";
 	const char *methodSignature = "(Ljava/lang/String;JJ)V";
@@ -2110,8 +1996,6 @@ void com_facebook_android_Facebook::setTokenFromCache(AndroidCXX::java_lang_Stri
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -2184,14 +2068,12 @@ void com_facebook_android_Facebook::setTokenFromCache(AndroidCXX::java_lang_Stri
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_Facebook::setTokenFromCache(AndroidCXX::java_lang_String& arg0,long& arg1,long& arg2) exit");
+	LOGV("void com_facebook_android_Facebook::setTokenFromCache(AndroidCXX::java_lang_String const& arg0,long const& arg1,long const& arg2) exit");
 
 }
-void com_facebook_android_Facebook::setAccessToken(AndroidCXX::java_lang_String& arg0)
+void com_facebook_android_Facebook::setAccessToken(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void com_facebook_android_Facebook::setAccessToken(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_android_Facebook::setAccessToken(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setAccessToken";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -2201,8 +2083,6 @@ void com_facebook_android_Facebook::setAccessToken(AndroidCXX::java_lang_String&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -2233,14 +2113,12 @@ void com_facebook_android_Facebook::setAccessToken(AndroidCXX::java_lang_String&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_Facebook::setAccessToken(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_android_Facebook::setAccessToken(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-void com_facebook_android_Facebook::setAccessExpires(long& arg0)
+void com_facebook_android_Facebook::setAccessExpires(long const& arg0)
 {
-	LOGV("void com_facebook_android_Facebook::setAccessExpires(long& arg0) enter");
+	LOGV("void com_facebook_android_Facebook::setAccessExpires(long const& arg0) enter");
 
 	const char *methodName = "setAccessExpires";
 	const char *methodSignature = "(J)V";
@@ -2250,8 +2128,6 @@ void com_facebook_android_Facebook::setAccessExpires(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -2282,14 +2158,12 @@ void com_facebook_android_Facebook::setAccessExpires(long& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_Facebook::setAccessExpires(long& arg0) exit");
+	LOGV("void com_facebook_android_Facebook::setAccessExpires(long const& arg0) exit");
 
 }
-void com_facebook_android_Facebook::setAccessExpiresIn(AndroidCXX::java_lang_String& arg0)
+void com_facebook_android_Facebook::setAccessExpiresIn(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void com_facebook_android_Facebook::setAccessExpiresIn(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_android_Facebook::setAccessExpiresIn(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setAccessExpiresIn";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -2299,8 +2173,6 @@ void com_facebook_android_Facebook::setAccessExpiresIn(AndroidCXX::java_lang_Str
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -2331,9 +2203,7 @@ void com_facebook_android_Facebook::setAccessExpiresIn(AndroidCXX::java_lang_Str
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_Facebook::setAccessExpiresIn(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_android_Facebook::setAccessExpiresIn(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String com_facebook_android_Facebook::getAppId()
@@ -2348,8 +2218,6 @@ AndroidCXX::java_lang_String com_facebook_android_Facebook::getAppId()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -2378,15 +2246,13 @@ AndroidCXX::java_lang_String com_facebook_android_Facebook::getAppId()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String com_facebook_android_Facebook::getAppId() exit");
 
 	return result;
 }
-void com_facebook_android_Facebook::setAppId(AndroidCXX::java_lang_String& arg0)
+void com_facebook_android_Facebook::setAppId(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void com_facebook_android_Facebook::setAppId(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_android_Facebook::setAppId(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setAppId";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -2396,8 +2262,6 @@ void com_facebook_android_Facebook::setAppId(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -2428,14 +2292,12 @@ void com_facebook_android_Facebook::setAppId(AndroidCXX::java_lang_String& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_Facebook::setAppId(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_android_Facebook::setAppId(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-bool com_facebook_android_Facebook::publishInstall(AndroidCXX::android_content_Context& arg0)
+bool com_facebook_android_Facebook::publishInstall(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("bool com_facebook_android_Facebook::publishInstall(AndroidCXX::android_content_Context& arg0) enter");
+	LOGV("bool com_facebook_android_Facebook::publishInstall(AndroidCXX::android_content_Context const& arg0) enter");
 
 	const char *methodName = "publishInstall";
 	const char *methodSignature = "(Landroid/content/Context;)Z";
@@ -2445,8 +2307,6 @@ bool com_facebook_android_Facebook::publishInstall(AndroidCXX::android_content_C
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook cxx address %d", cxxAddress);
@@ -2496,9 +2356,7 @@ bool com_facebook_android_Facebook::publishInstall(AndroidCXX::android_content_C
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool com_facebook_android_Facebook::publishInstall(AndroidCXX::android_content_Context& arg0) exit");
+	LOGV("bool com_facebook_android_Facebook::publishInstall(AndroidCXX::android_content_Context const& arg0) exit");
 
 	return result;
 }

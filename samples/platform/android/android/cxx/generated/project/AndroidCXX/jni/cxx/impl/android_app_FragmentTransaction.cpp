@@ -210,7 +210,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_app_FragmentTransaction::android_app_FragmentTransaction(const android_app_FragmentTransaction& cc)
 {
 	LOGV("android_app_FragmentTransaction::android_app_FragmentTransaction(const android_app_FragmentTransaction& cc) enter");
@@ -234,9 +233,9 @@ android_app_FragmentTransaction::android_app_FragmentTransaction(const android_a
 
 	LOGV("android_app_FragmentTransaction::android_app_FragmentTransaction(const android_app_FragmentTransaction& cc) exit");
 }
-android_app_FragmentTransaction::android_app_FragmentTransaction(void * proxy)
+android_app_FragmentTransaction::android_app_FragmentTransaction(Proxy proxy)
 {
-	LOGV("android_app_FragmentTransaction::android_app_FragmentTransaction(void * proxy) enter");
+	LOGV("android_app_FragmentTransaction::android_app_FragmentTransaction(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -246,17 +245,31 @@ android_app_FragmentTransaction::android_app_FragmentTransaction(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_app_FragmentTransaction::android_app_FragmentTransaction(void * proxy) exit");
+	LOGV("android_app_FragmentTransaction::android_app_FragmentTransaction(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy android_app_FragmentTransaction::proxy() const
+{	
+	LOGV("android_app_FragmentTransaction::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_FragmentTransaction jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_app_FragmentTransaction::proxy() exit");	
+
+	return proxy;
+}
 android_app_FragmentTransaction::android_app_FragmentTransaction()
 {
 	LOGV("android_app_FragmentTransaction::android_app_FragmentTransaction() enter");	
@@ -304,13 +317,13 @@ android_app_FragmentTransaction::~android_app_FragmentTransaction()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_app_FragmentTransaction::~android_app_FragmentTransaction() exit");
 }
 // Functions
-AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add(int& arg0,AndroidCXX::android_app_Fragment& arg1)
+AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add(int const& arg0,AndroidCXX::android_app_Fragment const& arg1)
 {
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add(int& arg0,AndroidCXX::android_app_Fragment& arg1) enter");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add(int const& arg0,AndroidCXX::android_app_Fragment const& arg1) enter");
 
 	const char *methodName = "add";
 	const char *methodSignature = "(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;";
@@ -320,8 +333,6 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
@@ -392,15 +403,13 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add
 	AndroidCXX::android_app_FragmentTransaction result((AndroidCXX::android_app_FragmentTransaction) *((AndroidCXX::android_app_FragmentTransaction *) cxx_value));
 	delete ((AndroidCXX::android_app_FragmentTransaction *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add(int& arg0,AndroidCXX::android_app_Fragment& arg1) exit");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add(int const& arg0,AndroidCXX::android_app_Fragment const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add(int& arg0,AndroidCXX::android_app_Fragment& arg1,AndroidCXX::java_lang_String& arg2)
+AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add(int const& arg0,AndroidCXX::android_app_Fragment const& arg1,AndroidCXX::java_lang_String const& arg2)
 {
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add(int& arg0,AndroidCXX::android_app_Fragment& arg1,AndroidCXX::java_lang_String& arg2) enter");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add(int const& arg0,AndroidCXX::android_app_Fragment const& arg1,AndroidCXX::java_lang_String const& arg2) enter");
 
 	const char *methodName = "add";
 	const char *methodSignature = "(ILandroid/app/Fragment;Ljava/lang/String;)Landroid/app/FragmentTransaction;";
@@ -410,8 +419,6 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
@@ -503,15 +510,13 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add
 	AndroidCXX::android_app_FragmentTransaction result((AndroidCXX::android_app_FragmentTransaction) *((AndroidCXX::android_app_FragmentTransaction *) cxx_value));
 	delete ((AndroidCXX::android_app_FragmentTransaction *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add(int& arg0,AndroidCXX::android_app_Fragment& arg1,AndroidCXX::java_lang_String& arg2) exit");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add(int const& arg0,AndroidCXX::android_app_Fragment const& arg1,AndroidCXX::java_lang_String const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add(AndroidCXX::android_app_Fragment& arg0,AndroidCXX::java_lang_String& arg1)
+AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add(AndroidCXX::android_app_Fragment const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add(AndroidCXX::android_app_Fragment& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add(AndroidCXX::android_app_Fragment const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "add";
 	const char *methodSignature = "(Landroid/app/Fragment;Ljava/lang/String;)Landroid/app/FragmentTransaction;";
@@ -521,8 +526,6 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
@@ -593,9 +596,7 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add
 	AndroidCXX::android_app_FragmentTransaction result((AndroidCXX::android_app_FragmentTransaction) *((AndroidCXX::android_app_FragmentTransaction *) cxx_value));
 	delete ((AndroidCXX::android_app_FragmentTransaction *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add(AndroidCXX::android_app_Fragment& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add(AndroidCXX::android_app_Fragment const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
@@ -611,8 +612,6 @@ bool android_app_FragmentTransaction::isEmpty()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
@@ -641,15 +640,13 @@ bool android_app_FragmentTransaction::isEmpty()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_app_FragmentTransaction::isEmpty() exit");
 
 	return result;
 }
-AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::replace(int& arg0,AndroidCXX::android_app_Fragment& arg1,AndroidCXX::java_lang_String& arg2)
+AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::replace(int const& arg0,AndroidCXX::android_app_Fragment const& arg1,AndroidCXX::java_lang_String const& arg2)
 {
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::replace(int& arg0,AndroidCXX::android_app_Fragment& arg1,AndroidCXX::java_lang_String& arg2) enter");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::replace(int const& arg0,AndroidCXX::android_app_Fragment const& arg1,AndroidCXX::java_lang_String const& arg2) enter");
 
 	const char *methodName = "replace";
 	const char *methodSignature = "(ILandroid/app/Fragment;Ljava/lang/String;)Landroid/app/FragmentTransaction;";
@@ -659,8 +656,6 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::rep
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
@@ -752,15 +747,13 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::rep
 	AndroidCXX::android_app_FragmentTransaction result((AndroidCXX::android_app_FragmentTransaction) *((AndroidCXX::android_app_FragmentTransaction *) cxx_value));
 	delete ((AndroidCXX::android_app_FragmentTransaction *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::replace(int& arg0,AndroidCXX::android_app_Fragment& arg1,AndroidCXX::java_lang_String& arg2) exit");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::replace(int const& arg0,AndroidCXX::android_app_Fragment const& arg1,AndroidCXX::java_lang_String const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::replace(int& arg0,AndroidCXX::android_app_Fragment& arg1)
+AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::replace(int const& arg0,AndroidCXX::android_app_Fragment const& arg1)
 {
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::replace(int& arg0,AndroidCXX::android_app_Fragment& arg1) enter");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::replace(int const& arg0,AndroidCXX::android_app_Fragment const& arg1) enter");
 
 	const char *methodName = "replace";
 	const char *methodSignature = "(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;";
@@ -770,8 +763,6 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::rep
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
@@ -842,15 +833,13 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::rep
 	AndroidCXX::android_app_FragmentTransaction result((AndroidCXX::android_app_FragmentTransaction) *((AndroidCXX::android_app_FragmentTransaction *) cxx_value));
 	delete ((AndroidCXX::android_app_FragmentTransaction *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::replace(int& arg0,AndroidCXX::android_app_Fragment& arg1) exit");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::replace(int const& arg0,AndroidCXX::android_app_Fragment const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::remove(AndroidCXX::android_app_Fragment& arg0)
+AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::remove(AndroidCXX::android_app_Fragment const& arg0)
 {
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::remove(AndroidCXX::android_app_Fragment& arg0) enter");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::remove(AndroidCXX::android_app_Fragment const& arg0) enter");
 
 	const char *methodName = "remove";
 	const char *methodSignature = "(Landroid/app/Fragment;)Landroid/app/FragmentTransaction;";
@@ -861,8 +850,6 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::rem
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -911,15 +898,13 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::rem
 	AndroidCXX::android_app_FragmentTransaction result((AndroidCXX::android_app_FragmentTransaction) *((AndroidCXX::android_app_FragmentTransaction *) cxx_value));
 	delete ((AndroidCXX::android_app_FragmentTransaction *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::remove(AndroidCXX::android_app_Fragment& arg0) exit");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::remove(AndroidCXX::android_app_Fragment const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::attach(AndroidCXX::android_app_Fragment& arg0)
+AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::attach(AndroidCXX::android_app_Fragment const& arg0)
 {
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::attach(AndroidCXX::android_app_Fragment& arg0) enter");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::attach(AndroidCXX::android_app_Fragment const& arg0) enter");
 
 	const char *methodName = "attach";
 	const char *methodSignature = "(Landroid/app/Fragment;)Landroid/app/FragmentTransaction;";
@@ -930,8 +915,6 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::att
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -980,15 +963,13 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::att
 	AndroidCXX::android_app_FragmentTransaction result((AndroidCXX::android_app_FragmentTransaction) *((AndroidCXX::android_app_FragmentTransaction *) cxx_value));
 	delete ((AndroidCXX::android_app_FragmentTransaction *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::attach(AndroidCXX::android_app_Fragment& arg0) exit");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::attach(AndroidCXX::android_app_Fragment const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::show(AndroidCXX::android_app_Fragment& arg0)
+AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::show(AndroidCXX::android_app_Fragment const& arg0)
 {
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::show(AndroidCXX::android_app_Fragment& arg0) enter");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::show(AndroidCXX::android_app_Fragment const& arg0) enter");
 
 	const char *methodName = "show";
 	const char *methodSignature = "(Landroid/app/Fragment;)Landroid/app/FragmentTransaction;";
@@ -999,8 +980,6 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::sho
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1049,9 +1028,7 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::sho
 	AndroidCXX::android_app_FragmentTransaction result((AndroidCXX::android_app_FragmentTransaction) *((AndroidCXX::android_app_FragmentTransaction *) cxx_value));
 	delete ((AndroidCXX::android_app_FragmentTransaction *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::show(AndroidCXX::android_app_Fragment& arg0) exit");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::show(AndroidCXX::android_app_Fragment const& arg0) exit");
 
 	return result;
 }
@@ -1067,8 +1044,6 @@ int android_app_FragmentTransaction::commit()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
@@ -1097,15 +1072,13 @@ int android_app_FragmentTransaction::commit()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_app_FragmentTransaction::commit() exit");
 
 	return result;
 }
-AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::hide(AndroidCXX::android_app_Fragment& arg0)
+AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::hide(AndroidCXX::android_app_Fragment const& arg0)
 {
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::hide(AndroidCXX::android_app_Fragment& arg0) enter");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::hide(AndroidCXX::android_app_Fragment const& arg0) enter");
 
 	const char *methodName = "hide";
 	const char *methodSignature = "(Landroid/app/Fragment;)Landroid/app/FragmentTransaction;";
@@ -1116,8 +1089,6 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::hid
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1166,15 +1137,13 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::hid
 	AndroidCXX::android_app_FragmentTransaction result((AndroidCXX::android_app_FragmentTransaction) *((AndroidCXX::android_app_FragmentTransaction *) cxx_value));
 	delete ((AndroidCXX::android_app_FragmentTransaction *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::hide(AndroidCXX::android_app_Fragment& arg0) exit");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::hide(AndroidCXX::android_app_Fragment const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::detach(AndroidCXX::android_app_Fragment& arg0)
+AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::detach(AndroidCXX::android_app_Fragment const& arg0)
 {
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::detach(AndroidCXX::android_app_Fragment& arg0) enter");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::detach(AndroidCXX::android_app_Fragment const& arg0) enter");
 
 	const char *methodName = "detach";
 	const char *methodSignature = "(Landroid/app/Fragment;)Landroid/app/FragmentTransaction;";
@@ -1185,8 +1154,6 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::det
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1235,15 +1202,13 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::det
 	AndroidCXX::android_app_FragmentTransaction result((AndroidCXX::android_app_FragmentTransaction) *((AndroidCXX::android_app_FragmentTransaction *) cxx_value));
 	delete ((AndroidCXX::android_app_FragmentTransaction *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::detach(AndroidCXX::android_app_Fragment& arg0) exit");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::detach(AndroidCXX::android_app_Fragment const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setCustomAnimations(int& arg0,int& arg1)
+AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setCustomAnimations(int const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setCustomAnimations(int& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setCustomAnimations(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setCustomAnimations";
 	const char *methodSignature = "(II)Landroid/app/FragmentTransaction;";
@@ -1253,8 +1218,6 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::set
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
@@ -1325,15 +1288,13 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::set
 	AndroidCXX::android_app_FragmentTransaction result((AndroidCXX::android_app_FragmentTransaction) *((AndroidCXX::android_app_FragmentTransaction *) cxx_value));
 	delete ((AndroidCXX::android_app_FragmentTransaction *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setCustomAnimations(int& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setCustomAnimations(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setCustomAnimations(int& arg0,int& arg1,int& arg2,int& arg3)
+AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setCustomAnimations(int const& arg0,int const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setCustomAnimations(int& arg0,int& arg1,int& arg2,int& arg3) enter");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setCustomAnimations(int const& arg0,int const& arg1,int const& arg2,int const& arg3) enter");
 
 	const char *methodName = "setCustomAnimations";
 	const char *methodSignature = "(IIII)Landroid/app/FragmentTransaction;";
@@ -1343,8 +1304,6 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::set
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
@@ -1457,15 +1416,13 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::set
 	AndroidCXX::android_app_FragmentTransaction result((AndroidCXX::android_app_FragmentTransaction) *((AndroidCXX::android_app_FragmentTransaction *) cxx_value));
 	delete ((AndroidCXX::android_app_FragmentTransaction *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setCustomAnimations(int& arg0,int& arg1,int& arg2,int& arg3) exit");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setCustomAnimations(int const& arg0,int const& arg1,int const& arg2,int const& arg3) exit");
 
 	return result;
 }
-AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setTransition(int& arg0)
+AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setTransition(int const& arg0)
 {
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setTransition(int& arg0) enter");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setTransition(int const& arg0) enter");
 
 	const char *methodName = "setTransition";
 	const char *methodSignature = "(I)Landroid/app/FragmentTransaction;";
@@ -1476,8 +1433,6 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::set
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1526,15 +1481,13 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::set
 	AndroidCXX::android_app_FragmentTransaction result((AndroidCXX::android_app_FragmentTransaction) *((AndroidCXX::android_app_FragmentTransaction *) cxx_value));
 	delete ((AndroidCXX::android_app_FragmentTransaction *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setTransition(int& arg0) exit");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setTransition(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setTransitionStyle(int& arg0)
+AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setTransitionStyle(int const& arg0)
 {
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setTransitionStyle(int& arg0) enter");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setTransitionStyle(int const& arg0) enter");
 
 	const char *methodName = "setTransitionStyle";
 	const char *methodSignature = "(I)Landroid/app/FragmentTransaction;";
@@ -1545,8 +1498,6 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::set
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1595,15 +1546,13 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::set
 	AndroidCXX::android_app_FragmentTransaction result((AndroidCXX::android_app_FragmentTransaction) *((AndroidCXX::android_app_FragmentTransaction *) cxx_value));
 	delete ((AndroidCXX::android_app_FragmentTransaction *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setTransitionStyle(int& arg0) exit");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setTransitionStyle(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::addToBackStack(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::addToBackStack(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::addToBackStack(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::addToBackStack(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "addToBackStack";
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/app/FragmentTransaction;";
@@ -1613,8 +1562,6 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
@@ -1664,9 +1611,7 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::add
 	AndroidCXX::android_app_FragmentTransaction result((AndroidCXX::android_app_FragmentTransaction) *((AndroidCXX::android_app_FragmentTransaction *) cxx_value));
 	delete ((AndroidCXX::android_app_FragmentTransaction *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::addToBackStack(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::addToBackStack(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
@@ -1682,8 +1627,6 @@ bool android_app_FragmentTransaction::isAddToBackStackAllowed()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
@@ -1712,8 +1655,6 @@ bool android_app_FragmentTransaction::isAddToBackStackAllowed()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_app_FragmentTransaction::isAddToBackStackAllowed() exit");
 
 	return result;
@@ -1730,8 +1671,6 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::dis
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
@@ -1760,15 +1699,13 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::dis
 	AndroidCXX::android_app_FragmentTransaction result((AndroidCXX::android_app_FragmentTransaction) *((AndroidCXX::android_app_FragmentTransaction *) cxx_value));
 	delete ((AndroidCXX::android_app_FragmentTransaction *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::disallowAddToBackStack() exit");
 
 	return result;
 }
-AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbTitle(AndroidCXX::java_lang_CharSequence& arg0)
+AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbTitle(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbTitle(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbTitle(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setBreadCrumbTitle";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Landroid/app/FragmentTransaction;";
@@ -1778,8 +1715,6 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::set
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
@@ -1829,15 +1764,13 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::set
 	AndroidCXX::android_app_FragmentTransaction result((AndroidCXX::android_app_FragmentTransaction) *((AndroidCXX::android_app_FragmentTransaction *) cxx_value));
 	delete ((AndroidCXX::android_app_FragmentTransaction *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbTitle(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbTitle(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbTitle(int& arg0)
+AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbTitle(int const& arg0)
 {
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbTitle(int& arg0) enter");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbTitle(int const& arg0) enter");
 
 	const char *methodName = "setBreadCrumbTitle";
 	const char *methodSignature = "(I)Landroid/app/FragmentTransaction;";
@@ -1847,8 +1780,6 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::set
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
@@ -1898,15 +1829,13 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::set
 	AndroidCXX::android_app_FragmentTransaction result((AndroidCXX::android_app_FragmentTransaction) *((AndroidCXX::android_app_FragmentTransaction *) cxx_value));
 	delete ((AndroidCXX::android_app_FragmentTransaction *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbTitle(int& arg0) exit");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbTitle(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbShortTitle(AndroidCXX::java_lang_CharSequence& arg0)
+AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbShortTitle(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbShortTitle(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbShortTitle(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setBreadCrumbShortTitle";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Landroid/app/FragmentTransaction;";
@@ -1916,8 +1845,6 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::set
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
@@ -1967,15 +1894,13 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::set
 	AndroidCXX::android_app_FragmentTransaction result((AndroidCXX::android_app_FragmentTransaction) *((AndroidCXX::android_app_FragmentTransaction *) cxx_value));
 	delete ((AndroidCXX::android_app_FragmentTransaction *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbShortTitle(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbShortTitle(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbShortTitle(int& arg0)
+AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbShortTitle(int const& arg0)
 {
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbShortTitle(int& arg0) enter");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbShortTitle(int const& arg0) enter");
 
 	const char *methodName = "setBreadCrumbShortTitle";
 	const char *methodSignature = "(I)Landroid/app/FragmentTransaction;";
@@ -1985,8 +1910,6 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::set
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
@@ -2036,9 +1959,7 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::set
 	AndroidCXX::android_app_FragmentTransaction result((AndroidCXX::android_app_FragmentTransaction) *((AndroidCXX::android_app_FragmentTransaction *) cxx_value));
 	delete ((AndroidCXX::android_app_FragmentTransaction *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbShortTitle(int& arg0) exit");
+	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentTransaction::setBreadCrumbShortTitle(int const& arg0) exit");
 
 	return result;
 }
@@ -2054,8 +1975,6 @@ int android_app_FragmentTransaction::commitAllowingStateLoss()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentTransaction cxx address %d", cxxAddress);
@@ -2084,8 +2003,6 @@ int android_app_FragmentTransaction::commitAllowingStateLoss()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_app_FragmentTransaction::commitAllowingStateLoss() exit");
 
 	return result;

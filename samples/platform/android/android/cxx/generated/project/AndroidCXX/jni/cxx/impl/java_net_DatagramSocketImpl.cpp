@@ -39,7 +39,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_net_DatagramSocketImpl::java_net_DatagramSocketImpl(const java_net_DatagramSocketImpl& cc)
 {
 	LOGV("java_net_DatagramSocketImpl::java_net_DatagramSocketImpl(const java_net_DatagramSocketImpl& cc) enter");
@@ -63,9 +62,9 @@ java_net_DatagramSocketImpl::java_net_DatagramSocketImpl(const java_net_Datagram
 
 	LOGV("java_net_DatagramSocketImpl::java_net_DatagramSocketImpl(const java_net_DatagramSocketImpl& cc) exit");
 }
-java_net_DatagramSocketImpl::java_net_DatagramSocketImpl(void * proxy)
+java_net_DatagramSocketImpl::java_net_DatagramSocketImpl(Proxy proxy)
 {
-	LOGV("java_net_DatagramSocketImpl::java_net_DatagramSocketImpl(void * proxy) enter");
+	LOGV("java_net_DatagramSocketImpl::java_net_DatagramSocketImpl(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -75,17 +74,31 @@ java_net_DatagramSocketImpl::java_net_DatagramSocketImpl(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_net_DatagramSocketImpl::java_net_DatagramSocketImpl(void * proxy) exit");
+	LOGV("java_net_DatagramSocketImpl::java_net_DatagramSocketImpl(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy java_net_DatagramSocketImpl::proxy() const
+{	
+	LOGV("java_net_DatagramSocketImpl::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocketImpl cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocketImpl jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("java_net_DatagramSocketImpl::proxy() exit");	
+
+	return proxy;
+}
 java_net_DatagramSocketImpl::java_net_DatagramSocketImpl()
 {
 	LOGV("java_net_DatagramSocketImpl::java_net_DatagramSocketImpl() enter");	
@@ -133,7 +146,7 @@ java_net_DatagramSocketImpl::~java_net_DatagramSocketImpl()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_net_DatagramSocketImpl::~java_net_DatagramSocketImpl() exit");
 }
 // Functions

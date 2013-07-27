@@ -46,7 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMenuItemClickListener(const android_widget_PopupMenu_OnMenuItemClickListener& cc)
 {
 	LOGV("android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMenuItemClickListener(const android_widget_PopupMenu_OnMenuItemClickListener& cc) enter");
@@ -70,9 +69,9 @@ android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMen
 
 	LOGV("android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMenuItemClickListener(const android_widget_PopupMenu_OnMenuItemClickListener& cc) exit");
 }
-android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMenuItemClickListener(void * proxy)
+android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMenuItemClickListener(Proxy proxy)
 {
-	LOGV("android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMenuItemClickListener(void * proxy) enter");
+	LOGV("android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMenuItemClickListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -82,52 +81,31 @@ android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMen
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMenuItemClickListener(void * proxy) exit");
+	LOGV("android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMenuItemClickListener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMenuItemClickListener()
-// {
-// 	LOGV("android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMenuItemClickListener() enter");	
+Proxy android_widget_PopupMenu_OnMenuItemClickListener::proxy() const
+{	
+	LOGV("android_widget_PopupMenu_OnMenuItemClickListener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/PopupMenu$OnMenuItemClickListener";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_PopupMenu_OnMenuItemClickListener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_PopupMenu_OnMenuItemClickListener jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_PopupMenu_OnMenuItemClickListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_PopupMenu_OnMenuItemClickListener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_PopupMenu_OnMenuItemClickListener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_PopupMenu_OnMenuItemClickListener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMenuItemClickListener() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_widget_PopupMenu_OnMenuItemClickListener::~android_widget_PopupMenu_OnMenuItemClickListener()
 {
@@ -139,13 +117,13 @@ android_widget_PopupMenu_OnMenuItemClickListener::~android_widget_PopupMenu_OnMe
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_PopupMenu_OnMenuItemClickListener::~android_widget_PopupMenu_OnMenuItemClickListener() exit");
 }
 // Functions
-bool android_widget_PopupMenu_OnMenuItemClickListener::onMenuItemClick(AndroidCXX::android_view_MenuItem& arg0)
+bool android_widget_PopupMenu_OnMenuItemClickListener::onMenuItemClick(AndroidCXX::android_view_MenuItem const& arg0)
 {
-	LOGV("bool android_widget_PopupMenu_OnMenuItemClickListener::onMenuItemClick(AndroidCXX::android_view_MenuItem& arg0) enter");
+	LOGV("bool android_widget_PopupMenu_OnMenuItemClickListener::onMenuItemClick(AndroidCXX::android_view_MenuItem const& arg0) enter");
 
 	const char *methodName = "onMenuItemClick";
 	const char *methodSignature = "(Landroid/view/MenuItem;)Z";
@@ -155,8 +133,6 @@ bool android_widget_PopupMenu_OnMenuItemClickListener::onMenuItemClick(AndroidCX
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_PopupMenu_OnMenuItemClickListener cxx address %d", cxxAddress);
@@ -206,9 +182,7 @@ bool android_widget_PopupMenu_OnMenuItemClickListener::onMenuItemClick(AndroidCX
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_PopupMenu_OnMenuItemClickListener::onMenuItemClick(AndroidCXX::android_view_MenuItem& arg0) exit");
+	LOGV("bool android_widget_PopupMenu_OnMenuItemClickListener::onMenuItemClick(AndroidCXX::android_view_MenuItem const& arg0) exit");
 
 	return result;
 }

@@ -61,7 +61,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_animation_Animator_AnimatorListener::android_animation_Animator_AnimatorListener(const android_animation_Animator_AnimatorListener& cc)
 {
 	LOGV("android_animation_Animator_AnimatorListener::android_animation_Animator_AnimatorListener(const android_animation_Animator_AnimatorListener& cc) enter");
@@ -85,9 +84,9 @@ android_animation_Animator_AnimatorListener::android_animation_Animator_Animator
 
 	LOGV("android_animation_Animator_AnimatorListener::android_animation_Animator_AnimatorListener(const android_animation_Animator_AnimatorListener& cc) exit");
 }
-android_animation_Animator_AnimatorListener::android_animation_Animator_AnimatorListener(void * proxy)
+android_animation_Animator_AnimatorListener::android_animation_Animator_AnimatorListener(Proxy proxy)
 {
-	LOGV("android_animation_Animator_AnimatorListener::android_animation_Animator_AnimatorListener(void * proxy) enter");
+	LOGV("android_animation_Animator_AnimatorListener::android_animation_Animator_AnimatorListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -97,52 +96,31 @@ android_animation_Animator_AnimatorListener::android_animation_Animator_Animator
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_animation_Animator_AnimatorListener::android_animation_Animator_AnimatorListener(void * proxy) exit");
+	LOGV("android_animation_Animator_AnimatorListener::android_animation_Animator_AnimatorListener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_animation_Animator_AnimatorListener::android_animation_Animator_AnimatorListener()
-// {
-// 	LOGV("android_animation_Animator_AnimatorListener::android_animation_Animator_AnimatorListener() enter");	
+Proxy android_animation_Animator_AnimatorListener::proxy() const
+{	
+	LOGV("android_animation_Animator_AnimatorListener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/animation/Animator$AnimatorListener";
+	long cxxAddress = (long) this;
+	LOGV("android_animation_Animator_AnimatorListener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_animation_Animator_AnimatorListener jni address %d", proxiedComponent);
 
-// 	LOGV("android_animation_Animator_AnimatorListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_animation_Animator_AnimatorListener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_animation_Animator_AnimatorListener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_animation_Animator_AnimatorListener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_animation_Animator_AnimatorListener::android_animation_Animator_AnimatorListener() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_animation_Animator_AnimatorListener::~android_animation_Animator_AnimatorListener()
 {
@@ -154,13 +132,13 @@ android_animation_Animator_AnimatorListener::~android_animation_Animator_Animato
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_animation_Animator_AnimatorListener::~android_animation_Animator_AnimatorListener() exit");
 }
 // Functions
-void android_animation_Animator_AnimatorListener::onAnimationStart(AndroidCXX::android_animation_Animator& arg0)
+void android_animation_Animator_AnimatorListener::onAnimationStart(AndroidCXX::android_animation_Animator const& arg0)
 {
-	LOGV("void android_animation_Animator_AnimatorListener::onAnimationStart(AndroidCXX::android_animation_Animator& arg0) enter");
+	LOGV("void android_animation_Animator_AnimatorListener::onAnimationStart(AndroidCXX::android_animation_Animator const& arg0) enter");
 
 	const char *methodName = "onAnimationStart";
 	const char *methodSignature = "(Landroid/animation/Animator;)V";
@@ -171,8 +149,6 @@ void android_animation_Animator_AnimatorListener::onAnimationStart(AndroidCXX::a
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_Animator_AnimatorListener cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -202,14 +178,12 @@ void android_animation_Animator_AnimatorListener::onAnimationStart(AndroidCXX::a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_Animator_AnimatorListener::onAnimationStart(AndroidCXX::android_animation_Animator& arg0) exit");
+	LOGV("void android_animation_Animator_AnimatorListener::onAnimationStart(AndroidCXX::android_animation_Animator const& arg0) exit");
 
 }
-void android_animation_Animator_AnimatorListener::onAnimationEnd(AndroidCXX::android_animation_Animator& arg0)
+void android_animation_Animator_AnimatorListener::onAnimationEnd(AndroidCXX::android_animation_Animator const& arg0)
 {
-	LOGV("void android_animation_Animator_AnimatorListener::onAnimationEnd(AndroidCXX::android_animation_Animator& arg0) enter");
+	LOGV("void android_animation_Animator_AnimatorListener::onAnimationEnd(AndroidCXX::android_animation_Animator const& arg0) enter");
 
 	const char *methodName = "onAnimationEnd";
 	const char *methodSignature = "(Landroid/animation/Animator;)V";
@@ -220,8 +194,6 @@ void android_animation_Animator_AnimatorListener::onAnimationEnd(AndroidCXX::and
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_Animator_AnimatorListener cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -251,14 +223,12 @@ void android_animation_Animator_AnimatorListener::onAnimationEnd(AndroidCXX::and
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_Animator_AnimatorListener::onAnimationEnd(AndroidCXX::android_animation_Animator& arg0) exit");
+	LOGV("void android_animation_Animator_AnimatorListener::onAnimationEnd(AndroidCXX::android_animation_Animator const& arg0) exit");
 
 }
-void android_animation_Animator_AnimatorListener::onAnimationRepeat(AndroidCXX::android_animation_Animator& arg0)
+void android_animation_Animator_AnimatorListener::onAnimationRepeat(AndroidCXX::android_animation_Animator const& arg0)
 {
-	LOGV("void android_animation_Animator_AnimatorListener::onAnimationRepeat(AndroidCXX::android_animation_Animator& arg0) enter");
+	LOGV("void android_animation_Animator_AnimatorListener::onAnimationRepeat(AndroidCXX::android_animation_Animator const& arg0) enter");
 
 	const char *methodName = "onAnimationRepeat";
 	const char *methodSignature = "(Landroid/animation/Animator;)V";
@@ -269,8 +239,6 @@ void android_animation_Animator_AnimatorListener::onAnimationRepeat(AndroidCXX::
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_Animator_AnimatorListener cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -300,14 +268,12 @@ void android_animation_Animator_AnimatorListener::onAnimationRepeat(AndroidCXX::
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_Animator_AnimatorListener::onAnimationRepeat(AndroidCXX::android_animation_Animator& arg0) exit");
+	LOGV("void android_animation_Animator_AnimatorListener::onAnimationRepeat(AndroidCXX::android_animation_Animator const& arg0) exit");
 
 }
-void android_animation_Animator_AnimatorListener::onAnimationCancel(AndroidCXX::android_animation_Animator& arg0)
+void android_animation_Animator_AnimatorListener::onAnimationCancel(AndroidCXX::android_animation_Animator const& arg0)
 {
-	LOGV("void android_animation_Animator_AnimatorListener::onAnimationCancel(AndroidCXX::android_animation_Animator& arg0) enter");
+	LOGV("void android_animation_Animator_AnimatorListener::onAnimationCancel(AndroidCXX::android_animation_Animator const& arg0) enter");
 
 	const char *methodName = "onAnimationCancel";
 	const char *methodSignature = "(Landroid/animation/Animator;)V";
@@ -318,8 +284,6 @@ void android_animation_Animator_AnimatorListener::onAnimationCancel(AndroidCXX::
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_Animator_AnimatorListener cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -349,8 +313,6 @@ void android_animation_Animator_AnimatorListener::onAnimationCancel(AndroidCXX::
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_Animator_AnimatorListener::onAnimationCancel(AndroidCXX::android_animation_Animator& arg0) exit");
+	LOGV("void android_animation_Animator_AnimatorListener::onAnimationCancel(AndroidCXX::android_animation_Animator const& arg0) exit");
 
 }

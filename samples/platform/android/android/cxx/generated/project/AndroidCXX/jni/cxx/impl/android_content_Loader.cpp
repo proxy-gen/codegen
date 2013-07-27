@@ -116,7 +116,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_content_Loader::android_content_Loader(const android_content_Loader& cc)
 {
 	LOGV("android_content_Loader::android_content_Loader(const android_content_Loader& cc) enter");
@@ -140,9 +139,9 @@ android_content_Loader::android_content_Loader(const android_content_Loader& cc)
 
 	LOGV("android_content_Loader::android_content_Loader(const android_content_Loader& cc) exit");
 }
-android_content_Loader::android_content_Loader(void * proxy)
+android_content_Loader::android_content_Loader(Proxy proxy)
 {
-	LOGV("android_content_Loader::android_content_Loader(void * proxy) enter");
+	LOGV("android_content_Loader::android_content_Loader(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -152,55 +151,34 @@ android_content_Loader::android_content_Loader(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_content_Loader::android_content_Loader(void * proxy) exit");
+	LOGV("android_content_Loader::android_content_Loader(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_content_Loader::android_content_Loader()
-// {
-// 	LOGV("android_content_Loader::android_content_Loader() enter");	
+Proxy android_content_Loader::proxy() const
+{	
+	LOGV("android_content_Loader::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/content/Loader";
+	long cxxAddress = (long) this;
+	LOGV("android_content_Loader cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_content_Loader jni address %d", proxiedComponent);
 
-// 	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_content_Loader::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_content_Loader cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_content_Loader jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_content_Loader::android_content_Loader() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_content_Loader::android_content_Loader(AndroidCXX::android_content_Context& arg0)
+	return proxy;
+}
+android_content_Loader::android_content_Loader(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_content_Loader::android_content_Loader(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_content_Loader::android_content_Loader(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -253,7 +231,7 @@ android_content_Loader::android_content_Loader(AndroidCXX::android_content_Conte
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_Loader::android_content_Loader(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_content_Loader::android_content_Loader(AndroidCXX::android_content_Context const& arg0) exit");	
 }
 // Default Instance Destructor
 android_content_Loader::~android_content_Loader()
@@ -266,7 +244,7 @@ android_content_Loader::~android_content_Loader()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_content_Loader::~android_content_Loader() exit");
 }
 // Functions
@@ -282,8 +260,6 @@ AndroidCXX::java_lang_String android_content_Loader::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Loader cxx address %d", cxxAddress);
@@ -312,8 +288,6 @@ AndroidCXX::java_lang_String android_content_Loader::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_content_Loader::toString() exit");
 
 	return result;
@@ -330,8 +304,6 @@ AndroidCXX::android_content_Context android_content_Loader::getContext()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Loader cxx address %d", cxxAddress);
@@ -360,8 +332,6 @@ AndroidCXX::android_content_Context android_content_Loader::getContext()
 	AndroidCXX::android_content_Context result((AndroidCXX::android_content_Context) *((AndroidCXX::android_content_Context *) cxx_value));
 	delete ((AndroidCXX::android_content_Context *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_content_Context android_content_Loader::getContext() exit");
 
 	return result;
@@ -378,8 +348,6 @@ int android_content_Loader::getId()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Loader cxx address %d", cxxAddress);
@@ -408,8 +376,6 @@ int android_content_Loader::getId()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_content_Loader::getId() exit");
 
 	return result;
@@ -427,8 +393,6 @@ void android_content_Loader::reset()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Loader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -437,14 +401,12 @@ void android_content_Loader::reset()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_content_Loader::reset() exit");
 
 }
-void android_content_Loader::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<AndroidCXX::java_lang_String >& arg3)
+void android_content_Loader::dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3)
 {
-	LOGV("void android_content_Loader::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<AndroidCXX::java_lang_String >& arg3) enter");
+	LOGV("void android_content_Loader::dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3) enter");
 
 	const char *methodName = "dump";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V";
@@ -454,8 +416,6 @@ void android_content_Loader::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Loader cxx address %d", cxxAddress);
@@ -567,9 +527,7 @@ void android_content_Loader::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX:
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_Loader::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<AndroidCXX::java_lang_String >& arg3) exit");
+	LOGV("void android_content_Loader::dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3) exit");
 
 }
 void android_content_Loader::abandon()
@@ -585,8 +543,6 @@ void android_content_Loader::abandon()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Loader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -595,8 +551,6 @@ void android_content_Loader::abandon()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_content_Loader::abandon() exit");
 
 }
@@ -613,8 +567,6 @@ void android_content_Loader::onContentChanged()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Loader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -623,8 +575,6 @@ void android_content_Loader::onContentChanged()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_content_Loader::onContentChanged() exit");
 
 }
@@ -640,8 +590,6 @@ bool android_content_Loader::isStarted()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Loader cxx address %d", cxxAddress);
@@ -670,15 +618,13 @@ bool android_content_Loader::isStarted()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_content_Loader::isStarted() exit");
 
 	return result;
 }
-void android_content_Loader::deliverResult(AndroidCXX::java_lang_Object& arg0)
+void android_content_Loader::deliverResult(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("void android_content_Loader::deliverResult(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("void android_content_Loader::deliverResult(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "deliverResult";
 	const char *methodSignature = "(Ljava/lang/Object;)V";
@@ -688,8 +634,6 @@ void android_content_Loader::deliverResult(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Loader cxx address %d", cxxAddress);
@@ -720,14 +664,12 @@ void android_content_Loader::deliverResult(AndroidCXX::java_lang_Object& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_Loader::deliverResult(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("void android_content_Loader::deliverResult(AndroidCXX::java_lang_Object const& arg0) exit");
 
 }
-void android_content_Loader::registerListener(int& arg0,AndroidCXX::android_content_Loader_OnLoadCompleteListener& arg1)
+void android_content_Loader::registerListener(int const& arg0,AndroidCXX::android_content_Loader_OnLoadCompleteListener const& arg1)
 {
-	LOGV("void android_content_Loader::registerListener(int& arg0,AndroidCXX::android_content_Loader_OnLoadCompleteListener& arg1) enter");
+	LOGV("void android_content_Loader::registerListener(int const& arg0,AndroidCXX::android_content_Loader_OnLoadCompleteListener const& arg1) enter");
 
 	const char *methodName = "registerListener";
 	const char *methodSignature = "(ILandroid/content/Loader$OnLoadCompleteListener;)V";
@@ -737,8 +679,6 @@ void android_content_Loader::registerListener(int& arg0,AndroidCXX::android_cont
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Loader cxx address %d", cxxAddress);
@@ -808,14 +748,12 @@ void android_content_Loader::registerListener(int& arg0,AndroidCXX::android_cont
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_Loader::registerListener(int& arg0,AndroidCXX::android_content_Loader_OnLoadCompleteListener& arg1) exit");
+	LOGV("void android_content_Loader::registerListener(int const& arg0,AndroidCXX::android_content_Loader_OnLoadCompleteListener const& arg1) exit");
 
 }
-void android_content_Loader::unregisterListener(AndroidCXX::android_content_Loader_OnLoadCompleteListener& arg0)
+void android_content_Loader::unregisterListener(AndroidCXX::android_content_Loader_OnLoadCompleteListener const& arg0)
 {
-	LOGV("void android_content_Loader::unregisterListener(AndroidCXX::android_content_Loader_OnLoadCompleteListener& arg0) enter");
+	LOGV("void android_content_Loader::unregisterListener(AndroidCXX::android_content_Loader_OnLoadCompleteListener const& arg0) enter");
 
 	const char *methodName = "unregisterListener";
 	const char *methodSignature = "(Landroid/content/Loader$OnLoadCompleteListener;)V";
@@ -825,8 +763,6 @@ void android_content_Loader::unregisterListener(AndroidCXX::android_content_Load
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Loader cxx address %d", cxxAddress);
@@ -875,9 +811,7 @@ void android_content_Loader::unregisterListener(AndroidCXX::android_content_Load
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_Loader::unregisterListener(AndroidCXX::android_content_Loader_OnLoadCompleteListener& arg0) exit");
+	LOGV("void android_content_Loader::unregisterListener(AndroidCXX::android_content_Loader_OnLoadCompleteListener const& arg0) exit");
 
 }
 bool android_content_Loader::isAbandoned()
@@ -892,8 +826,6 @@ bool android_content_Loader::isAbandoned()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Loader cxx address %d", cxxAddress);
@@ -922,8 +854,6 @@ bool android_content_Loader::isAbandoned()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_content_Loader::isAbandoned() exit");
 
 	return result;
@@ -941,8 +871,6 @@ bool android_content_Loader::isReset()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Loader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -970,8 +898,6 @@ bool android_content_Loader::isReset()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_content_Loader::isReset() exit");
 
 	return result;
@@ -989,8 +915,6 @@ void android_content_Loader::startLoading()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Loader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -999,8 +923,6 @@ void android_content_Loader::startLoading()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_content_Loader::startLoading() exit");
 
 }
@@ -1017,8 +939,6 @@ void android_content_Loader::forceLoad()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Loader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1027,8 +947,6 @@ void android_content_Loader::forceLoad()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_content_Loader::forceLoad() exit");
 
 }
@@ -1045,8 +963,6 @@ void android_content_Loader::stopLoading()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Loader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1055,8 +971,6 @@ void android_content_Loader::stopLoading()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_content_Loader::stopLoading() exit");
 
 }
@@ -1072,8 +986,6 @@ bool android_content_Loader::takeContentChanged()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Loader cxx address %d", cxxAddress);
@@ -1102,15 +1014,13 @@ bool android_content_Loader::takeContentChanged()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_content_Loader::takeContentChanged() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_Loader::dataToString(AndroidCXX::java_lang_Object& arg0)
+AndroidCXX::java_lang_String android_content_Loader::dataToString(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_Loader::dataToString(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_Loader::dataToString(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "dataToString";
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/String;";
@@ -1120,8 +1030,6 @@ AndroidCXX::java_lang_String android_content_Loader::dataToString(AndroidCXX::ja
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Loader cxx address %d", cxxAddress);
@@ -1171,9 +1079,7 @@ AndroidCXX::java_lang_String android_content_Loader::dataToString(AndroidCXX::ja
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_content_Loader::dataToString(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_Loader::dataToString(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -1190,8 +1096,6 @@ void android_content_Loader::deliverCancellation()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Loader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1200,14 +1104,12 @@ void android_content_Loader::deliverCancellation()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_content_Loader::deliverCancellation() exit");
 
 }
-void android_content_Loader::registerOnLoadCanceledListener(AndroidCXX::android_content_Loader_OnLoadCanceledListener& arg0)
+void android_content_Loader::registerOnLoadCanceledListener(AndroidCXX::android_content_Loader_OnLoadCanceledListener const& arg0)
 {
-	LOGV("void android_content_Loader::registerOnLoadCanceledListener(AndroidCXX::android_content_Loader_OnLoadCanceledListener& arg0) enter");
+	LOGV("void android_content_Loader::registerOnLoadCanceledListener(AndroidCXX::android_content_Loader_OnLoadCanceledListener const& arg0) enter");
 
 	const char *methodName = "registerOnLoadCanceledListener";
 	const char *methodSignature = "(Landroid/content/Loader$OnLoadCanceledListener;)V";
@@ -1218,8 +1120,6 @@ void android_content_Loader::registerOnLoadCanceledListener(AndroidCXX::android_
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Loader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1267,14 +1167,12 @@ void android_content_Loader::registerOnLoadCanceledListener(AndroidCXX::android_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_Loader::registerOnLoadCanceledListener(AndroidCXX::android_content_Loader_OnLoadCanceledListener& arg0) exit");
+	LOGV("void android_content_Loader::registerOnLoadCanceledListener(AndroidCXX::android_content_Loader_OnLoadCanceledListener const& arg0) exit");
 
 }
-void android_content_Loader::unregisterOnLoadCanceledListener(AndroidCXX::android_content_Loader_OnLoadCanceledListener& arg0)
+void android_content_Loader::unregisterOnLoadCanceledListener(AndroidCXX::android_content_Loader_OnLoadCanceledListener const& arg0)
 {
-	LOGV("void android_content_Loader::unregisterOnLoadCanceledListener(AndroidCXX::android_content_Loader_OnLoadCanceledListener& arg0) enter");
+	LOGV("void android_content_Loader::unregisterOnLoadCanceledListener(AndroidCXX::android_content_Loader_OnLoadCanceledListener const& arg0) enter");
 
 	const char *methodName = "unregisterOnLoadCanceledListener";
 	const char *methodSignature = "(Landroid/content/Loader$OnLoadCanceledListener;)V";
@@ -1285,8 +1183,6 @@ void android_content_Loader::unregisterOnLoadCanceledListener(AndroidCXX::androi
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Loader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1334,9 +1230,7 @@ void android_content_Loader::unregisterOnLoadCanceledListener(AndroidCXX::androi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_Loader::unregisterOnLoadCanceledListener(AndroidCXX::android_content_Loader_OnLoadCanceledListener& arg0) exit");
+	LOGV("void android_content_Loader::unregisterOnLoadCanceledListener(AndroidCXX::android_content_Loader_OnLoadCanceledListener const& arg0) exit");
 
 }
 bool android_content_Loader::cancelLoad()
@@ -1351,8 +1245,6 @@ bool android_content_Loader::cancelLoad()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Loader cxx address %d", cxxAddress);
@@ -1381,8 +1273,6 @@ bool android_content_Loader::cancelLoad()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_content_Loader::cancelLoad() exit");
 
 	return result;

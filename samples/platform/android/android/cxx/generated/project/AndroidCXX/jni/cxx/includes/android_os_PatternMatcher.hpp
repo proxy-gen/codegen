@@ -67,23 +67,20 @@ class android_os_PatternMatcher
 public:
 
 	android_os_PatternMatcher(const android_os_PatternMatcher& cc);
-	android_os_PatternMatcher(void * proxy);
+	android_os_PatternMatcher(Proxy proxy);
 	// Public Constructors
-	android_os_PatternMatcher(AndroidCXX::java_lang_String& arg0,int& arg1);
-	android_os_PatternMatcher(AndroidCXX::android_os_Parcel& arg0);
-	// TODO: remove
-	// 
-	// android_os_PatternMatcher();
-	// 
+	android_os_PatternMatcher(AndroidCXX::java_lang_String const& arg0,int const& arg1);
+	android_os_PatternMatcher(AndroidCXX::android_os_Parcel const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_os_PatternMatcher();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
 	 int getType();
 	 AndroidCXX::java_lang_String getPath();
-	 bool match(AndroidCXX::java_lang_String& arg0);
+	 bool match(AndroidCXX::java_lang_String const& arg0);
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 };	
 
 } // namespace

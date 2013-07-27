@@ -45,12 +45,9 @@ class com_facebook_AuthorizationClient_AuthorizationRequest
 public:
 
 	com_facebook_AuthorizationClient_AuthorizationRequest(const com_facebook_AuthorizationClient_AuthorizationRequest& cc);
-	com_facebook_AuthorizationClient_AuthorizationRequest(void * proxy);
+	com_facebook_AuthorizationClient_AuthorizationRequest(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_AuthorizationClient_AuthorizationRequest();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_AuthorizationRequest();
 	// Functions

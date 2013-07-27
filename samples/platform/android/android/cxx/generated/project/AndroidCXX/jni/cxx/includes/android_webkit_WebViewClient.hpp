@@ -136,29 +136,28 @@ class android_webkit_WebViewClient
 public:
 
 	android_webkit_WebViewClient(const android_webkit_WebViewClient& cc);
-	android_webkit_WebViewClient(void * proxy);
+	android_webkit_WebViewClient(Proxy proxy);
 	// Public Constructors
 	android_webkit_WebViewClient();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebViewClient();
 	// Functions
-	 bool shouldOverrideUrlLoading(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1);
-	 void onPageStarted(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_graphics_Bitmap& arg2);
-	 void onPageFinished(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1);
-	 void onLoadResource(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1);
-	 AndroidCXX::android_webkit_WebResourceResponse shouldInterceptRequest(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1);
-	 void onTooManyRedirects(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_os_Message& arg1,AndroidCXX::android_os_Message& arg2);
-	 void onReceivedError(AndroidCXX::android_webkit_WebView& arg0,int& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3);
-	 void onFormResubmission(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_os_Message& arg1,AndroidCXX::android_os_Message& arg2);
-	 void doUpdateVisitedHistory(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2);
-	 void onReceivedSslError(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_webkit_SslErrorHandler& arg1,AndroidCXX::android_net_http_SslError& arg2);
-	 void onReceivedHttpAuthRequest(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_webkit_HttpAuthHandler& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3);
-	 bool shouldOverrideKeyEvent(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_view_KeyEvent& arg1);
-	 void onUnhandledKeyEvent(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_view_KeyEvent& arg1);
-	 void onScaleChanged(AndroidCXX::android_webkit_WebView& arg0,float& arg1,float& arg2);
-	 void onReceivedLoginRequest(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3);
+	 bool shouldOverrideUrlLoading(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 void onPageStarted(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_graphics_Bitmap const& arg2);
+	 void onPageFinished(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 void onLoadResource(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 AndroidCXX::android_webkit_WebResourceResponse shouldInterceptRequest(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 void onTooManyRedirects(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_os_Message const& arg1,AndroidCXX::android_os_Message const& arg2);
+	 void onReceivedError(AndroidCXX::android_webkit_WebView const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3);
+	 void onFormResubmission(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_os_Message const& arg1,AndroidCXX::android_os_Message const& arg2);
+	 void doUpdateVisitedHistory(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2);
+	 void onReceivedSslError(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_webkit_SslErrorHandler const& arg1,AndroidCXX::android_net_http_SslError const& arg2);
+	 void onReceivedHttpAuthRequest(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_webkit_HttpAuthHandler const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3);
+	 bool shouldOverrideKeyEvent(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
+	 void onUnhandledKeyEvent(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
+	 void onScaleChanged(AndroidCXX::android_webkit_WebView const& arg0,float const& arg1,float const& arg2);
+	 void onReceivedLoginRequest(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3);
 };	
 
 } // namespace

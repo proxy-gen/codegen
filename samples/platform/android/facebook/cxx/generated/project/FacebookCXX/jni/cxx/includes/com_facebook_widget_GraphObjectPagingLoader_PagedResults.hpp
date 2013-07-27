@@ -57,12 +57,9 @@ class com_facebook_widget_GraphObjectPagingLoader_PagedResults
 public:
 
 	com_facebook_widget_GraphObjectPagingLoader_PagedResults(const com_facebook_widget_GraphObjectPagingLoader_PagedResults& cc);
-	com_facebook_widget_GraphObjectPagingLoader_PagedResults(void * proxy);
+	com_facebook_widget_GraphObjectPagingLoader_PagedResults(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_widget_GraphObjectPagingLoader_PagedResults();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectPagingLoader_PagedResults();
 	// Functions

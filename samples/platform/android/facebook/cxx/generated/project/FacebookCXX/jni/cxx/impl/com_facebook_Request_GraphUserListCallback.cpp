@@ -56,7 +56,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCallback(const com_facebook_Request_GraphUserListCallback& cc)
 {
 	LOGV("com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCallback(const com_facebook_Request_GraphUserListCallback& cc) enter");
@@ -80,9 +79,9 @@ com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCa
 
 	LOGV("com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCallback(const com_facebook_Request_GraphUserListCallback& cc) exit");
 }
-com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCallback(void * proxy)
+com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCallback(Proxy proxy)
 {
-	LOGV("com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCallback(void * proxy) enter");
+	LOGV("com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCallback(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -92,52 +91,31 @@ com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCa
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCallback(void * proxy) exit");
+	LOGV("com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCallback(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCallback()
-// {
-// 	LOGV("com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCallback() enter");	
+Proxy com_facebook_Request_GraphUserListCallback::proxy() const
+{	
+	LOGV("com_facebook_Request_GraphUserListCallback::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "com/facebook/Request$GraphUserListCallback";
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_Request_GraphUserListCallback cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Request_GraphUserListCallback jni address %d", proxiedComponent);
 
-// 	LOGV("com_facebook_Request_GraphUserListCallback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("com_facebook_Request_GraphUserListCallback::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("com_facebook_Request_GraphUserListCallback cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("com_facebook_Request_GraphUserListCallback jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCallback() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 com_facebook_Request_GraphUserListCallback::~com_facebook_Request_GraphUserListCallback()
 {
@@ -149,13 +127,13 @@ com_facebook_Request_GraphUserListCallback::~com_facebook_Request_GraphUserListC
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_Request_GraphUserListCallback::~com_facebook_Request_GraphUserListCallback() exit");
 }
 // Functions
-void com_facebook_Request_GraphUserListCallback::onCompleted(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Response& arg1)
+void com_facebook_Request_GraphUserListCallback::onCompleted(AndroidCXX::java_util_List const& arg0,FacebookCXX::com_facebook_Response const& arg1)
 {
-	LOGV("void com_facebook_Request_GraphUserListCallback::onCompleted(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Response& arg1) enter");
+	LOGV("void com_facebook_Request_GraphUserListCallback::onCompleted(AndroidCXX::java_util_List const& arg0,FacebookCXX::com_facebook_Response const& arg1) enter");
 
 	const char *methodName = "onCompleted";
 	const char *methodSignature = "(Ljava/util/List;Lcom/facebook/Response;)V";
@@ -165,8 +143,6 @@ void com_facebook_Request_GraphUserListCallback::onCompleted(AndroidCXX::java_ut
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request_GraphUserListCallback cxx address %d", cxxAddress);
@@ -236,8 +212,6 @@ void com_facebook_Request_GraphUserListCallback::onCompleted(AndroidCXX::java_ut
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_Request_GraphUserListCallback::onCompleted(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Response& arg1) exit");
+	LOGV("void com_facebook_Request_GraphUserListCallback::onCompleted(AndroidCXX::java_util_List const& arg0,FacebookCXX::com_facebook_Response const& arg1) exit");
 
 }

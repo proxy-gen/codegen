@@ -5080,13 +5080,13 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$StatusCallback',
-			'tags' : ['_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy', '_callback'],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'call',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_callback'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',

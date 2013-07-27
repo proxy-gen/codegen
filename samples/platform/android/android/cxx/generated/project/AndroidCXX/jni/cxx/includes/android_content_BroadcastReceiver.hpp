@@ -100,31 +100,30 @@ class android_content_BroadcastReceiver
 public:
 
 	android_content_BroadcastReceiver(const android_content_BroadcastReceiver& cc);
-	android_content_BroadcastReceiver(void * proxy);
+	android_content_BroadcastReceiver(Proxy proxy);
 	// Public Constructors
 	android_content_BroadcastReceiver();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_BroadcastReceiver();
 	// Functions
-	 void setResult(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2);
-	 void onReceive(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_content_Intent& arg1);
+	 void setResult(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2);
+	 void onReceive(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_content_Intent const& arg1);
 	 AndroidCXX::android_content_BroadcastReceiver_PendingResult goAsync();
-	 AndroidCXX::android_os_IBinder peekService(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_content_Intent& arg1);
-	 void setResultCode(int& arg0);
+	 AndroidCXX::android_os_IBinder peekService(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_content_Intent const& arg1);
+	 void setResultCode(int const& arg0);
 	 int getResultCode();
-	 void setResultData(AndroidCXX::java_lang_String& arg0);
+	 void setResultData(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_lang_String getResultData();
-	 void setResultExtras(AndroidCXX::android_os_Bundle& arg0);
-	 AndroidCXX::android_os_Bundle getResultExtras(bool& arg0);
+	 void setResultExtras(AndroidCXX::android_os_Bundle const& arg0);
+	 AndroidCXX::android_os_Bundle getResultExtras(bool const& arg0);
 	 bool getAbortBroadcast();
 	 void abortBroadcast();
 	 void clearAbortBroadcast();
 	 bool isOrderedBroadcast();
 	 bool isInitialStickyBroadcast();
-	 void setOrderedHint(bool& arg0);
-	 void setDebugUnregister(bool& arg0);
+	 void setOrderedHint(bool const& arg0);
+	 void setDebugUnregister(bool const& arg0);
 	 bool getDebugUnregister();
 };	
 

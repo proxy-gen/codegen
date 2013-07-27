@@ -51,12 +51,9 @@ class com_facebook_widget_GraphObjectAdapter_ItemPicture
 public:
 
 	com_facebook_widget_GraphObjectAdapter_ItemPicture(const com_facebook_widget_GraphObjectAdapter_ItemPicture& cc);
-	com_facebook_widget_GraphObjectAdapter_ItemPicture(void * proxy);
+	com_facebook_widget_GraphObjectAdapter_ItemPicture(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_widget_GraphObjectAdapter_ItemPicture();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectAdapter_ItemPicture();
 	// Functions

@@ -102,7 +102,6 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_util_SortedMap::java_util_SortedMap(const java_util_SortedMap& cc)
 {
 	LOGV("java_util_SortedMap::java_util_SortedMap(const java_util_SortedMap& cc) enter");
@@ -126,9 +125,9 @@ java_util_SortedMap::java_util_SortedMap(const java_util_SortedMap& cc)
 
 	LOGV("java_util_SortedMap::java_util_SortedMap(const java_util_SortedMap& cc) exit");
 }
-java_util_SortedMap::java_util_SortedMap(void * proxy)
+java_util_SortedMap::java_util_SortedMap(Proxy proxy)
 {
-	LOGV("java_util_SortedMap::java_util_SortedMap(void * proxy) enter");
+	LOGV("java_util_SortedMap::java_util_SortedMap(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -138,52 +137,31 @@ java_util_SortedMap::java_util_SortedMap(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_util_SortedMap::java_util_SortedMap(void * proxy) exit");
+	LOGV("java_util_SortedMap::java_util_SortedMap(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_util_SortedMap::java_util_SortedMap()
-// {
-// 	LOGV("java_util_SortedMap::java_util_SortedMap() enter");	
+Proxy java_util_SortedMap::proxy() const
+{	
+	LOGV("java_util_SortedMap::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/util/SortedMap";
+	long cxxAddress = (long) this;
+	LOGV("java_util_SortedMap cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_util_SortedMap jni address %d", proxiedComponent);
 
-// 	LOGV("java_util_SortedMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_util_SortedMap::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_util_SortedMap cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_util_SortedMap jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_util_SortedMap::java_util_SortedMap() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_util_SortedMap::~java_util_SortedMap()
 {
@@ -195,7 +173,7 @@ java_util_SortedMap::~java_util_SortedMap()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_util_SortedMap::~java_util_SortedMap() exit");
 }
 // Functions
@@ -211,8 +189,6 @@ JDKCXX::java_util_Collection java_util_SortedMap::values()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_SortedMap cxx address %d", cxxAddress);
@@ -259,8 +235,6 @@ JDKCXX::java_util_Collection java_util_SortedMap::values()
 	JDKCXX::java_util_Collection result((JDKCXX::java_util_Collection) *((JDKCXX::java_util_Collection *) cxx_value));
 	delete ((JDKCXX::java_util_Collection *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_util_Collection java_util_SortedMap::values() exit");
 
 	return result;
@@ -277,8 +251,6 @@ JDKCXX::java_util_Set java_util_SortedMap::entrySet()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_SortedMap cxx address %d", cxxAddress);
@@ -358,8 +330,6 @@ JDKCXX::java_util_Set java_util_SortedMap::entrySet()
 	JDKCXX::java_util_Set result((JDKCXX::java_util_Set) *((JDKCXX::java_util_Set *) cxx_value));
 	delete ((JDKCXX::java_util_Set *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_util_Set java_util_SortedMap::entrySet() exit");
 
 	return result;
@@ -376,8 +346,6 @@ JDKCXX::java_util_Set java_util_SortedMap::keySet()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_SortedMap cxx address %d", cxxAddress);
@@ -424,8 +392,6 @@ JDKCXX::java_util_Set java_util_SortedMap::keySet()
 	JDKCXX::java_util_Set result((JDKCXX::java_util_Set) *((JDKCXX::java_util_Set *) cxx_value));
 	delete ((JDKCXX::java_util_Set *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_util_Set java_util_SortedMap::keySet() exit");
 
 	return result;
@@ -442,8 +408,6 @@ JDKCXX::java_util_Comparator java_util_SortedMap::comparator()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_SortedMap cxx address %d", cxxAddress);
@@ -490,15 +454,13 @@ JDKCXX::java_util_Comparator java_util_SortedMap::comparator()
 	JDKCXX::java_util_Comparator result((JDKCXX::java_util_Comparator) *((JDKCXX::java_util_Comparator *) cxx_value));
 	delete ((JDKCXX::java_util_Comparator *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_util_Comparator java_util_SortedMap::comparator() exit");
 
 	return result;
 }
-JDKCXX::java_util_SortedMap java_util_SortedMap::subMap(JDKCXX::java_lang_Object& arg0,JDKCXX::java_lang_Object& arg1)
+JDKCXX::java_util_SortedMap java_util_SortedMap::subMap(JDKCXX::java_lang_Object const& arg0,JDKCXX::java_lang_Object const& arg1)
 {
-	LOGV("JDKCXX::java_util_SortedMap java_util_SortedMap::subMap(JDKCXX::java_lang_Object& arg0,JDKCXX::java_lang_Object& arg1) enter");
+	LOGV("JDKCXX::java_util_SortedMap java_util_SortedMap::subMap(JDKCXX::java_lang_Object const& arg0,JDKCXX::java_lang_Object const& arg1) enter");
 
 	const char *methodName = "subMap";
 	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;";
@@ -508,8 +470,6 @@ JDKCXX::java_util_SortedMap java_util_SortedMap::subMap(JDKCXX::java_lang_Object
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_SortedMap cxx address %d", cxxAddress);
@@ -613,15 +573,13 @@ JDKCXX::java_util_SortedMap java_util_SortedMap::subMap(JDKCXX::java_lang_Object
 	JDKCXX::java_util_SortedMap result((JDKCXX::java_util_SortedMap) *((JDKCXX::java_util_SortedMap *) cxx_value));
 	delete ((JDKCXX::java_util_SortedMap *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_util_SortedMap java_util_SortedMap::subMap(JDKCXX::java_lang_Object& arg0,JDKCXX::java_lang_Object& arg1) exit");
+	LOGV("JDKCXX::java_util_SortedMap java_util_SortedMap::subMap(JDKCXX::java_lang_Object const& arg0,JDKCXX::java_lang_Object const& arg1) exit");
 
 	return result;
 }
-JDKCXX::java_util_SortedMap java_util_SortedMap::headMap(JDKCXX::java_lang_Object& arg0)
+JDKCXX::java_util_SortedMap java_util_SortedMap::headMap(JDKCXX::java_lang_Object const& arg0)
 {
-	LOGV("JDKCXX::java_util_SortedMap java_util_SortedMap::headMap(JDKCXX::java_lang_Object& arg0) enter");
+	LOGV("JDKCXX::java_util_SortedMap java_util_SortedMap::headMap(JDKCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "headMap";
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/util/SortedMap;";
@@ -632,8 +590,6 @@ JDKCXX::java_util_SortedMap java_util_SortedMap::headMap(JDKCXX::java_lang_Objec
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_SortedMap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -715,15 +671,13 @@ JDKCXX::java_util_SortedMap java_util_SortedMap::headMap(JDKCXX::java_lang_Objec
 	JDKCXX::java_util_SortedMap result((JDKCXX::java_util_SortedMap) *((JDKCXX::java_util_SortedMap *) cxx_value));
 	delete ((JDKCXX::java_util_SortedMap *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_util_SortedMap java_util_SortedMap::headMap(JDKCXX::java_lang_Object& arg0) exit");
+	LOGV("JDKCXX::java_util_SortedMap java_util_SortedMap::headMap(JDKCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_util_SortedMap java_util_SortedMap::tailMap(JDKCXX::java_lang_Object& arg0)
+JDKCXX::java_util_SortedMap java_util_SortedMap::tailMap(JDKCXX::java_lang_Object const& arg0)
 {
-	LOGV("JDKCXX::java_util_SortedMap java_util_SortedMap::tailMap(JDKCXX::java_lang_Object& arg0) enter");
+	LOGV("JDKCXX::java_util_SortedMap java_util_SortedMap::tailMap(JDKCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "tailMap";
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/util/SortedMap;";
@@ -734,8 +688,6 @@ JDKCXX::java_util_SortedMap java_util_SortedMap::tailMap(JDKCXX::java_lang_Objec
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_SortedMap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -817,9 +769,7 @@ JDKCXX::java_util_SortedMap java_util_SortedMap::tailMap(JDKCXX::java_lang_Objec
 	JDKCXX::java_util_SortedMap result((JDKCXX::java_util_SortedMap) *((JDKCXX::java_util_SortedMap *) cxx_value));
 	delete ((JDKCXX::java_util_SortedMap *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_util_SortedMap java_util_SortedMap::tailMap(JDKCXX::java_lang_Object& arg0) exit");
+	LOGV("JDKCXX::java_util_SortedMap java_util_SortedMap::tailMap(JDKCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -835,8 +785,6 @@ JDKCXX::java_lang_Object java_util_SortedMap::firstKey()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_SortedMap cxx address %d", cxxAddress);
@@ -865,8 +813,6 @@ JDKCXX::java_lang_Object java_util_SortedMap::firstKey()
 	JDKCXX::java_lang_Object result((JDKCXX::java_lang_Object) *((JDKCXX::java_lang_Object *) cxx_value));
 	delete ((JDKCXX::java_lang_Object *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_Object java_util_SortedMap::firstKey() exit");
 
 	return result;
@@ -884,8 +830,6 @@ JDKCXX::java_lang_Object java_util_SortedMap::lastKey()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_SortedMap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -913,8 +857,6 @@ JDKCXX::java_lang_Object java_util_SortedMap::lastKey()
 	JDKCXX::java_lang_Object result((JDKCXX::java_lang_Object) *((JDKCXX::java_lang_Object *) cxx_value));
 	delete ((JDKCXX::java_lang_Object *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_Object java_util_SortedMap::lastKey() exit");
 
 	return result;

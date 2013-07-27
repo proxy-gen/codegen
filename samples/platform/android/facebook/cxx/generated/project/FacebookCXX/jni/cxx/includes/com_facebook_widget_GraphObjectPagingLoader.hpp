@@ -90,25 +90,22 @@ class com_facebook_widget_GraphObjectPagingLoader
 public:
 
 	com_facebook_widget_GraphObjectPagingLoader(const com_facebook_widget_GraphObjectPagingLoader& cc);
-	com_facebook_widget_GraphObjectPagingLoader(void * proxy);
+	com_facebook_widget_GraphObjectPagingLoader(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_GraphObjectPagingLoader(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_Class& arg1);
-	// TODO: remove
-	// 
-	// com_facebook_widget_GraphObjectPagingLoader();
-	// 
+	com_facebook_widget_GraphObjectPagingLoader(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectPagingLoader();
 	// Functions
 	 bool isLoading();
 	 FacebookCXX::com_facebook_widget_GraphObjectPagingLoader_OnErrorListener getOnErrorListener();
-	 void setOnErrorListener(FacebookCXX::com_facebook_widget_GraphObjectPagingLoader_OnErrorListener& arg0);
+	 void setOnErrorListener(FacebookCXX::com_facebook_widget_GraphObjectPagingLoader_OnErrorListener const& arg0);
 	 FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor getCursor();
 	 void clearResults();
-	 void startLoading(FacebookCXX::com_facebook_Request& arg0,bool& arg1);
+	 void startLoading(FacebookCXX::com_facebook_Request const& arg0,bool const& arg1);
 	 void followNextLink();
-	 void refreshOriginalRequest(long& arg0);
-	 void deliverResult(FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor& arg0);
+	 void refreshOriginalRequest(long const& arg0);
+	 void deliverResult(FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor const& arg0);
 };	
 
 } // namespace

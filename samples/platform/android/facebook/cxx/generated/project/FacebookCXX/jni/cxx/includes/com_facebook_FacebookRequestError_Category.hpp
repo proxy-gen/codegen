@@ -30,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace COM_FACEBOOK_FACEBOOKREQUESTERROR_CATEGORY {
+namespace com_facebook_FacebookRequestError_Category {
 
 enum com_facebook_FacebookRequestError_Category
 {

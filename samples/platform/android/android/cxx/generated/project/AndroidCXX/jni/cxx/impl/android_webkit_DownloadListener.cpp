@@ -58,7 +58,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_webkit_DownloadListener::android_webkit_DownloadListener(const android_webkit_DownloadListener& cc)
 {
 	LOGV("android_webkit_DownloadListener::android_webkit_DownloadListener(const android_webkit_DownloadListener& cc) enter");
@@ -82,9 +81,9 @@ android_webkit_DownloadListener::android_webkit_DownloadListener(const android_w
 
 	LOGV("android_webkit_DownloadListener::android_webkit_DownloadListener(const android_webkit_DownloadListener& cc) exit");
 }
-android_webkit_DownloadListener::android_webkit_DownloadListener(void * proxy)
+android_webkit_DownloadListener::android_webkit_DownloadListener(Proxy proxy)
 {
-	LOGV("android_webkit_DownloadListener::android_webkit_DownloadListener(void * proxy) enter");
+	LOGV("android_webkit_DownloadListener::android_webkit_DownloadListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -94,52 +93,31 @@ android_webkit_DownloadListener::android_webkit_DownloadListener(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_webkit_DownloadListener::android_webkit_DownloadListener(void * proxy) exit");
+	LOGV("android_webkit_DownloadListener::android_webkit_DownloadListener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_webkit_DownloadListener::android_webkit_DownloadListener()
-// {
-// 	LOGV("android_webkit_DownloadListener::android_webkit_DownloadListener() enter");	
+Proxy android_webkit_DownloadListener::proxy() const
+{	
+	LOGV("android_webkit_DownloadListener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/webkit/DownloadListener";
+	long cxxAddress = (long) this;
+	LOGV("android_webkit_DownloadListener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_webkit_DownloadListener jni address %d", proxiedComponent);
 
-// 	LOGV("android_webkit_DownloadListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_webkit_DownloadListener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_webkit_DownloadListener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_webkit_DownloadListener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_webkit_DownloadListener::android_webkit_DownloadListener() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_webkit_DownloadListener::~android_webkit_DownloadListener()
 {
@@ -151,13 +129,13 @@ android_webkit_DownloadListener::~android_webkit_DownloadListener()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_webkit_DownloadListener::~android_webkit_DownloadListener() exit");
 }
 // Functions
-void android_webkit_DownloadListener::onDownloadStart(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3,long& arg4)
+void android_webkit_DownloadListener::onDownloadStart(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3,long const& arg4)
 {
-	LOGV("void android_webkit_DownloadListener::onDownloadStart(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3,long& arg4) enter");
+	LOGV("void android_webkit_DownloadListener::onDownloadStart(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3,long const& arg4) enter");
 
 	const char *methodName = "onDownloadStart";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V";
@@ -167,8 +145,6 @@ void android_webkit_DownloadListener::onDownloadStart(AndroidCXX::java_lang_Stri
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_DownloadListener cxx address %d", cxxAddress);
@@ -283,8 +259,6 @@ void android_webkit_DownloadListener::onDownloadStart(AndroidCXX::java_lang_Stri
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_DownloadListener::onDownloadStart(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3,long& arg4) exit");
+	LOGV("void android_webkit_DownloadListener::onDownloadStart(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3,long const& arg4) exit");
 
 }

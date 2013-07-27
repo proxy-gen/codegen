@@ -46,11 +46,10 @@ class android_view_KeyCharacterMap_KeyData
 public:
 
 	android_view_KeyCharacterMap_KeyData(const android_view_KeyCharacterMap_KeyData& cc);
-	android_view_KeyCharacterMap_KeyData(void * proxy);
+	android_view_KeyCharacterMap_KeyData(Proxy proxy);
 	// Public Constructors
 	android_view_KeyCharacterMap_KeyData();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_KeyCharacterMap_KeyData();
 	// Functions

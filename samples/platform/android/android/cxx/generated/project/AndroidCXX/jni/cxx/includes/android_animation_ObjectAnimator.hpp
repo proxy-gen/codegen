@@ -153,35 +153,34 @@ class android_animation_ObjectAnimator
 public:
 
 	android_animation_ObjectAnimator(const android_animation_ObjectAnimator& cc);
-	android_animation_ObjectAnimator(void * proxy);
+	android_animation_ObjectAnimator(Proxy proxy);
 	// Public Constructors
 	android_animation_ObjectAnimator();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_animation_ObjectAnimator();
 	// Functions
-	 void setProperty(AndroidCXX::android_util_Property& arg0);
+	 void setProperty(AndroidCXX::android_util_Property const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 AndroidCXX::android_animation_ObjectAnimator clone();
 	 void start();
-	 AndroidCXX::android_animation_ObjectAnimator setDuration(long& arg0);
-	 void setTarget(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::android_animation_ObjectAnimator setDuration(long const& arg0);
+	 void setTarget(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_Object getTarget();
 	 void setupStartValues();
 	 void setupEndValues();
-	 void setPropertyName(AndroidCXX::java_lang_String& arg0);
+	 void setPropertyName(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_lang_String getPropertyName();
-	static AndroidCXX::android_animation_ObjectAnimator ofInt(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_String& arg1,std::vector<int>& arg2);
-	static AndroidCXX::android_animation_ObjectAnimator ofInt(AndroidCXX::java_lang_Object& arg0,AndroidCXX::android_util_Property& arg1,std::vector<int>& arg2);
-	static AndroidCXX::android_animation_ObjectAnimator ofFloat(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_String& arg1,std::vector<float>& arg2);
-	static AndroidCXX::android_animation_ObjectAnimator ofFloat(AndroidCXX::java_lang_Object& arg0,AndroidCXX::android_util_Property& arg1,std::vector<float>& arg2);
-	static AndroidCXX::android_animation_ObjectAnimator ofObject(AndroidCXX::java_lang_Object& arg0,AndroidCXX::android_util_Property& arg1,AndroidCXX::android_animation_TypeEvaluator& arg2,std::vector<AndroidCXX::java_lang_Object >& arg3);
-	static AndroidCXX::android_animation_ObjectAnimator ofObject(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_animation_TypeEvaluator& arg2,std::vector<AndroidCXX::java_lang_Object >& arg3);
-	static AndroidCXX::android_animation_ObjectAnimator ofPropertyValuesHolder(AndroidCXX::java_lang_Object& arg0,std::vector<AndroidCXX::android_animation_PropertyValuesHolder >& arg1);
-	 void setIntValues(std::vector<int>& arg0);
-	 void setFloatValues(std::vector<float>& arg0);
-	 void setObjectValues(std::vector<AndroidCXX::java_lang_Object >& arg0);
+	static AndroidCXX::android_animation_ObjectAnimator ofInt(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<int> const& arg2);
+	static AndroidCXX::android_animation_ObjectAnimator ofInt(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::android_util_Property const& arg1,std::vector<int> const& arg2);
+	static AndroidCXX::android_animation_ObjectAnimator ofFloat(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<float> const& arg2);
+	static AndroidCXX::android_animation_ObjectAnimator ofFloat(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::android_util_Property const& arg1,std::vector<float> const& arg2);
+	static AndroidCXX::android_animation_ObjectAnimator ofObject(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::android_util_Property const& arg1,AndroidCXX::android_animation_TypeEvaluator const& arg2,std::vector<AndroidCXX::java_lang_Object > const& arg3);
+	static AndroidCXX::android_animation_ObjectAnimator ofObject(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_animation_TypeEvaluator const& arg2,std::vector<AndroidCXX::java_lang_Object > const& arg3);
+	static AndroidCXX::android_animation_ObjectAnimator ofPropertyValuesHolder(AndroidCXX::java_lang_Object const& arg0,std::vector<AndroidCXX::android_animation_PropertyValuesHolder > const& arg1);
+	 void setIntValues(std::vector<int> const& arg0);
+	 void setFloatValues(std::vector<float> const& arg0);
+	 void setObjectValues(std::vector<AndroidCXX::java_lang_Object > const& arg0);
 };	
 
 } // namespace

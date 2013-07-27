@@ -76,7 +76,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy(const com_facebook_model_GraphObject_Factory_GraphObjectProxy& cc)
 {
 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy(const com_facebook_model_GraphObject_Factory_GraphObjectProxy& cc) enter");
@@ -100,9 +99,9 @@ com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_Grap
 
 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy(const com_facebook_model_GraphObject_Factory_GraphObjectProxy& cc) exit");
 }
-com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy(void * proxy)
+com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy(Proxy proxy)
 {
-	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy(void * proxy) enter");
+	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -112,55 +111,34 @@ com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_Grap
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy(void * proxy) exit");
+	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy()
-// {
-// 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy() enter");	
+Proxy com_facebook_model_GraphObject_Factory_GraphObjectProxy::proxy() const
+{	
+	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "com/facebook/model/GraphObject$Factory$GraphObjectProxy";
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy jni address %d", proxiedComponent);
 
-// 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy() exit");	
-// }
-// 
-// 
-// Public Constructors
-com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy(AndroidCXX::org_json_JSONObject& arg0,AndroidCXX::java_lang_Class& arg1)
+	return proxy;
+}
+com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy(AndroidCXX::org_json_JSONObject const& arg0,AndroidCXX::java_lang_Class const& arg1)
 {
-	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy(AndroidCXX::org_json_JSONObject& arg0,AndroidCXX::java_lang_Class& arg1) enter");	
+	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy(AndroidCXX::org_json_JSONObject const& arg0,AndroidCXX::java_lang_Class const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Lorg/json/JSONObject;Ljava/lang/Class;)V";
@@ -252,7 +230,7 @@ com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_Grap
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy(AndroidCXX::org_json_JSONObject& arg0,AndroidCXX::java_lang_Class& arg1) exit");	
+	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy(AndroidCXX::org_json_JSONObject const& arg0,AndroidCXX::java_lang_Class const& arg1) exit");	
 }
 // Default Instance Destructor
 com_facebook_model_GraphObject_Factory_GraphObjectProxy::~com_facebook_model_GraphObject_Factory_GraphObjectProxy()
@@ -265,13 +243,13 @@ com_facebook_model_GraphObject_Factory_GraphObjectProxy::~com_facebook_model_Gra
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy::~com_facebook_model_GraphObject_Factory_GraphObjectProxy() exit");
 }
 // Functions
-AndroidCXX::java_lang_Object com_facebook_model_GraphObject_Factory_GraphObjectProxy::invoke(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_reflect_Method& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2)
+AndroidCXX::java_lang_Object com_facebook_model_GraphObject_Factory_GraphObjectProxy::invoke(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_reflect_Method const& arg1,std::vector<AndroidCXX::java_lang_Object > const& arg2)
 {
-	LOGV("AndroidCXX::java_lang_Object com_facebook_model_GraphObject_Factory_GraphObjectProxy::invoke(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_reflect_Method& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) enter");
+	LOGV("AndroidCXX::java_lang_Object com_facebook_model_GraphObject_Factory_GraphObjectProxy::invoke(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_reflect_Method const& arg1,std::vector<AndroidCXX::java_lang_Object > const& arg2) enter");
 
 	const char *methodName = "invoke";
 	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;";
@@ -281,8 +259,6 @@ AndroidCXX::java_lang_Object com_facebook_model_GraphObject_Factory_GraphObjectP
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy cxx address %d", cxxAddress);
@@ -392,9 +368,7 @@ AndroidCXX::java_lang_Object com_facebook_model_GraphObject_Factory_GraphObjectP
 	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
 	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_Object com_facebook_model_GraphObject_Factory_GraphObjectProxy::invoke(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_reflect_Method& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) exit");
+	LOGV("AndroidCXX::java_lang_Object com_facebook_model_GraphObject_Factory_GraphObjectProxy::invoke(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_reflect_Method const& arg1,std::vector<AndroidCXX::java_lang_Object > const& arg2) exit");
 
 	return result;
 }
@@ -410,8 +384,6 @@ AndroidCXX::java_lang_String com_facebook_model_GraphObject_Factory_GraphObjectP
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy cxx address %d", cxxAddress);
@@ -440,8 +412,6 @@ AndroidCXX::java_lang_String com_facebook_model_GraphObject_Factory_GraphObjectP
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphObject_Factory_GraphObjectProxy::toString() exit");
 
 	return result;

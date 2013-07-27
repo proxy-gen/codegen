@@ -39,7 +39,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_AuthHandler(const com_facebook_AuthorizationClient_AuthHandler& cc)
 {
 	LOGV("com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_AuthHandler(const com_facebook_AuthorizationClient_AuthHandler& cc) enter");
@@ -63,9 +62,9 @@ com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_A
 
 	LOGV("com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_AuthHandler(const com_facebook_AuthorizationClient_AuthHandler& cc) exit");
 }
-com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_AuthHandler(void * proxy)
+com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_AuthHandler(Proxy proxy)
 {
-	LOGV("com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_AuthHandler(void * proxy) enter");
+	LOGV("com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_AuthHandler(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -75,52 +74,31 @@ com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_A
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_AuthHandler(void * proxy) exit");
+	LOGV("com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_AuthHandler(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_AuthHandler()
-// {
-// 	LOGV("com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_AuthHandler() enter");	
+Proxy com_facebook_AuthorizationClient_AuthHandler::proxy() const
+{	
+	LOGV("com_facebook_AuthorizationClient_AuthHandler::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "com/facebook/AuthorizationClient$AuthHandler";
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_AuthorizationClient_AuthHandler cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_AuthorizationClient_AuthHandler jni address %d", proxiedComponent);
 
-// 	LOGV("com_facebook_AuthorizationClient_AuthHandler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("com_facebook_AuthorizationClient_AuthHandler::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("com_facebook_AuthorizationClient_AuthHandler cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("com_facebook_AuthorizationClient_AuthHandler jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_AuthHandler() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 com_facebook_AuthorizationClient_AuthHandler::~com_facebook_AuthorizationClient_AuthHandler()
 {
@@ -132,7 +110,7 @@ com_facebook_AuthorizationClient_AuthHandler::~com_facebook_AuthorizationClient_
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_AuthorizationClient_AuthHandler::~com_facebook_AuthorizationClient_AuthHandler() exit");
 }
 // Functions

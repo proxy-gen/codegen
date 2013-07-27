@@ -38,7 +38,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_io_Serializable::java_io_Serializable(const java_io_Serializable& cc)
 {
 	LOGV("java_io_Serializable::java_io_Serializable(const java_io_Serializable& cc) enter");
@@ -62,9 +61,9 @@ java_io_Serializable::java_io_Serializable(const java_io_Serializable& cc)
 
 	LOGV("java_io_Serializable::java_io_Serializable(const java_io_Serializable& cc) exit");
 }
-java_io_Serializable::java_io_Serializable(void * proxy)
+java_io_Serializable::java_io_Serializable(Proxy proxy)
 {
-	LOGV("java_io_Serializable::java_io_Serializable(void * proxy) enter");
+	LOGV("java_io_Serializable::java_io_Serializable(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -74,52 +73,31 @@ java_io_Serializable::java_io_Serializable(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_io_Serializable::java_io_Serializable(void * proxy) exit");
+	LOGV("java_io_Serializable::java_io_Serializable(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_io_Serializable::java_io_Serializable()
-// {
-// 	LOGV("java_io_Serializable::java_io_Serializable() enter");	
+Proxy java_io_Serializable::proxy() const
+{	
+	LOGV("java_io_Serializable::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/io/Serializable";
+	long cxxAddress = (long) this;
+	LOGV("java_io_Serializable cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_io_Serializable jni address %d", proxiedComponent);
 
-// 	LOGV("java_io_Serializable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_io_Serializable::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_io_Serializable cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_io_Serializable jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_io_Serializable::java_io_Serializable() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_io_Serializable::~java_io_Serializable()
 {
@@ -131,7 +109,7 @@ java_io_Serializable::~java_io_Serializable()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_io_Serializable::~java_io_Serializable() exit");
 }
 // Functions

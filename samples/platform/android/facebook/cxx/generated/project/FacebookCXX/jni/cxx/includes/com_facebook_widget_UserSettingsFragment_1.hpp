@@ -56,16 +56,13 @@ class com_facebook_widget_UserSettingsFragment_1
 public:
 
 	com_facebook_widget_UserSettingsFragment_1(const com_facebook_widget_UserSettingsFragment_1& cc);
-	com_facebook_widget_UserSettingsFragment_1(void * proxy);
+	com_facebook_widget_UserSettingsFragment_1(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_widget_UserSettingsFragment_1();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_UserSettingsFragment_1();
 	// Functions
-	 void onCompleted(FacebookCXX::com_facebook_model_GraphUser& arg0,FacebookCXX::com_facebook_Response& arg1);
+	 void onCompleted(FacebookCXX::com_facebook_model_GraphUser const& arg0,FacebookCXX::com_facebook_Response const& arg1);
 };	
 
 } // namespace

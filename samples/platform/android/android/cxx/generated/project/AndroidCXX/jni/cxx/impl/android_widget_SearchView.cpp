@@ -148,7 +148,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_SearchView::android_widget_SearchView(const android_widget_SearchView& cc)
 {
 	LOGV("android_widget_SearchView::android_widget_SearchView(const android_widget_SearchView& cc) enter");
@@ -172,9 +171,9 @@ android_widget_SearchView::android_widget_SearchView(const android_widget_Search
 
 	LOGV("android_widget_SearchView::android_widget_SearchView(const android_widget_SearchView& cc) exit");
 }
-android_widget_SearchView::android_widget_SearchView(void * proxy)
+android_widget_SearchView::android_widget_SearchView(Proxy proxy)
 {
-	LOGV("android_widget_SearchView::android_widget_SearchView(void * proxy) enter");
+	LOGV("android_widget_SearchView::android_widget_SearchView(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -184,55 +183,34 @@ android_widget_SearchView::android_widget_SearchView(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_SearchView::android_widget_SearchView(void * proxy) exit");
+	LOGV("android_widget_SearchView::android_widget_SearchView(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_SearchView::android_widget_SearchView()
-// {
-// 	LOGV("android_widget_SearchView::android_widget_SearchView() enter");	
+Proxy android_widget_SearchView::proxy() const
+{	
+	LOGV("android_widget_SearchView::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/SearchView";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_SearchView jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_SearchView::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_SearchView jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_SearchView::android_widget_SearchView() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_SearchView::android_widget_SearchView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+	return proxy;
+}
+android_widget_SearchView::android_widget_SearchView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_SearchView::android_widget_SearchView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_SearchView::android_widget_SearchView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -306,11 +284,11 @@ android_widget_SearchView::android_widget_SearchView(AndroidCXX::android_content
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_SearchView::android_widget_SearchView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_SearchView::android_widget_SearchView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_widget_SearchView::android_widget_SearchView(AndroidCXX::android_content_Context& arg0)
+android_widget_SearchView::android_widget_SearchView(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_SearchView::android_widget_SearchView(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_SearchView::android_widget_SearchView(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -363,7 +341,7 @@ android_widget_SearchView::android_widget_SearchView(AndroidCXX::android_content
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_SearchView::android_widget_SearchView(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_SearchView::android_widget_SearchView(AndroidCXX::android_content_Context const& arg0) exit");	
 }
 // Default Instance Destructor
 android_widget_SearchView::~android_widget_SearchView()
@@ -376,7 +354,7 @@ android_widget_SearchView::~android_widget_SearchView()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_SearchView::~android_widget_SearchView() exit");
 }
 // Functions
@@ -392,8 +370,6 @@ AndroidCXX::java_lang_CharSequence android_widget_SearchView::getQuery()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -422,15 +398,13 @@ AndroidCXX::java_lang_CharSequence android_widget_SearchView::getQuery()
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_widget_SearchView::getQuery() exit");
 
 	return result;
 }
-bool android_widget_SearchView::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1)
+bool android_widget_SearchView::onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1)
 {
-	LOGV("bool android_widget_SearchView::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) enter");
+	LOGV("bool android_widget_SearchView::onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) enter");
 
 	const char *methodName = "onKeyDown";
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
@@ -440,8 +414,6 @@ bool android_widget_SearchView::onKeyDown(int& arg0,AndroidCXX::android_view_Key
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -512,15 +484,13 @@ bool android_widget_SearchView::onKeyDown(int& arg0,AndroidCXX::android_view_Key
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_SearchView::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) exit");
+	LOGV("bool android_widget_SearchView::onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) exit");
 
 	return result;
 }
-void android_widget_SearchView::onWindowFocusChanged(bool& arg0)
+void android_widget_SearchView::onWindowFocusChanged(bool const& arg0)
 {
-	LOGV("void android_widget_SearchView::onWindowFocusChanged(bool& arg0) enter");
+	LOGV("void android_widget_SearchView::onWindowFocusChanged(bool const& arg0) enter");
 
 	const char *methodName = "onWindowFocusChanged";
 	const char *methodSignature = "(Z)V";
@@ -530,8 +500,6 @@ void android_widget_SearchView::onWindowFocusChanged(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -562,14 +530,12 @@ void android_widget_SearchView::onWindowFocusChanged(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SearchView::onWindowFocusChanged(bool& arg0) exit");
+	LOGV("void android_widget_SearchView::onWindowFocusChanged(bool const& arg0) exit");
 
 }
-void android_widget_SearchView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_SearchView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_SearchView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_SearchView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -579,8 +545,6 @@ void android_widget_SearchView::onInitializeAccessibilityEvent(AndroidCXX::andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -611,14 +575,12 @@ void android_widget_SearchView::onInitializeAccessibilityEvent(AndroidCXX::andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SearchView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_SearchView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_SearchView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0)
+void android_widget_SearchView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0)
 {
-	LOGV("void android_widget_SearchView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) enter");
+	LOGV("void android_widget_SearchView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityNodeInfo";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
@@ -628,8 +590,6 @@ void android_widget_SearchView::onInitializeAccessibilityNodeInfo(AndroidCXX::an
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -660,14 +620,12 @@ void android_widget_SearchView::onInitializeAccessibilityNodeInfo(AndroidCXX::an
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SearchView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) exit");
+	LOGV("void android_widget_SearchView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) exit");
 
 }
-void android_widget_SearchView::onRtlPropertiesChanged(int& arg0)
+void android_widget_SearchView::onRtlPropertiesChanged(int const& arg0)
 {
-	LOGV("void android_widget_SearchView::onRtlPropertiesChanged(int& arg0) enter");
+	LOGV("void android_widget_SearchView::onRtlPropertiesChanged(int const& arg0) enter");
 
 	const char *methodName = "onRtlPropertiesChanged";
 	const char *methodSignature = "(I)V";
@@ -678,8 +636,6 @@ void android_widget_SearchView::onRtlPropertiesChanged(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -709,14 +665,12 @@ void android_widget_SearchView::onRtlPropertiesChanged(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SearchView::onRtlPropertiesChanged(int& arg0) exit");
+	LOGV("void android_widget_SearchView::onRtlPropertiesChanged(int const& arg0) exit");
 
 }
-void android_widget_SearchView::setMaxWidth(int& arg0)
+void android_widget_SearchView::setMaxWidth(int const& arg0)
 {
-	LOGV("void android_widget_SearchView::setMaxWidth(int& arg0) enter");
+	LOGV("void android_widget_SearchView::setMaxWidth(int const& arg0) enter");
 
 	const char *methodName = "setMaxWidth";
 	const char *methodSignature = "(I)V";
@@ -727,8 +681,6 @@ void android_widget_SearchView::setMaxWidth(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -758,9 +710,7 @@ void android_widget_SearchView::setMaxWidth(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SearchView::setMaxWidth(int& arg0) exit");
+	LOGV("void android_widget_SearchView::setMaxWidth(int const& arg0) exit");
 
 }
 int android_widget_SearchView::getMaxWidth()
@@ -776,8 +726,6 @@ int android_widget_SearchView::getMaxWidth()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -805,15 +753,13 @@ int android_widget_SearchView::getMaxWidth()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_SearchView::getMaxWidth() exit");
 
 	return result;
 }
-void android_widget_SearchView::setInputType(int& arg0)
+void android_widget_SearchView::setInputType(int const& arg0)
 {
-	LOGV("void android_widget_SearchView::setInputType(int& arg0) enter");
+	LOGV("void android_widget_SearchView::setInputType(int const& arg0) enter");
 
 	const char *methodName = "setInputType";
 	const char *methodSignature = "(I)V";
@@ -823,8 +769,6 @@ void android_widget_SearchView::setInputType(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -855,9 +799,7 @@ void android_widget_SearchView::setInputType(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SearchView::setInputType(int& arg0) exit");
+	LOGV("void android_widget_SearchView::setInputType(int const& arg0) exit");
 
 }
 int android_widget_SearchView::getInputType()
@@ -873,8 +815,6 @@ int android_widget_SearchView::getInputType()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -902,15 +842,13 @@ int android_widget_SearchView::getInputType()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_SearchView::getInputType() exit");
 
 	return result;
 }
-void android_widget_SearchView::setImeOptions(int& arg0)
+void android_widget_SearchView::setImeOptions(int const& arg0)
 {
-	LOGV("void android_widget_SearchView::setImeOptions(int& arg0) enter");
+	LOGV("void android_widget_SearchView::setImeOptions(int const& arg0) enter");
 
 	const char *methodName = "setImeOptions";
 	const char *methodSignature = "(I)V";
@@ -920,8 +858,6 @@ void android_widget_SearchView::setImeOptions(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -952,9 +888,7 @@ void android_widget_SearchView::setImeOptions(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SearchView::setImeOptions(int& arg0) exit");
+	LOGV("void android_widget_SearchView::setImeOptions(int const& arg0) exit");
 
 }
 int android_widget_SearchView::getImeOptions()
@@ -969,8 +903,6 @@ int android_widget_SearchView::getImeOptions()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -999,15 +931,13 @@ int android_widget_SearchView::getImeOptions()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_SearchView::getImeOptions() exit");
 
 	return result;
 }
-void android_widget_SearchView::setSearchableInfo(AndroidCXX::android_app_SearchableInfo& arg0)
+void android_widget_SearchView::setSearchableInfo(AndroidCXX::android_app_SearchableInfo const& arg0)
 {
-	LOGV("void android_widget_SearchView::setSearchableInfo(AndroidCXX::android_app_SearchableInfo& arg0) enter");
+	LOGV("void android_widget_SearchView::setSearchableInfo(AndroidCXX::android_app_SearchableInfo const& arg0) enter");
 
 	const char *methodName = "setSearchableInfo";
 	const char *methodSignature = "(Landroid/app/SearchableInfo;)V";
@@ -1017,8 +947,6 @@ void android_widget_SearchView::setSearchableInfo(AndroidCXX::android_app_Search
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -1049,14 +977,12 @@ void android_widget_SearchView::setSearchableInfo(AndroidCXX::android_app_Search
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SearchView::setSearchableInfo(AndroidCXX::android_app_SearchableInfo& arg0) exit");
+	LOGV("void android_widget_SearchView::setSearchableInfo(AndroidCXX::android_app_SearchableInfo const& arg0) exit");
 
 }
-void android_widget_SearchView::setOnQueryTextListener(AndroidCXX::android_widget_SearchView_OnQueryTextListener& arg0)
+void android_widget_SearchView::setOnQueryTextListener(AndroidCXX::android_widget_SearchView_OnQueryTextListener const& arg0)
 {
-	LOGV("void android_widget_SearchView::setOnQueryTextListener(AndroidCXX::android_widget_SearchView_OnQueryTextListener& arg0) enter");
+	LOGV("void android_widget_SearchView::setOnQueryTextListener(AndroidCXX::android_widget_SearchView_OnQueryTextListener const& arg0) enter");
 
 	const char *methodName = "setOnQueryTextListener";
 	const char *methodSignature = "(Landroid/widget/SearchView$OnQueryTextListener;)V";
@@ -1066,8 +992,6 @@ void android_widget_SearchView::setOnQueryTextListener(AndroidCXX::android_widge
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -1098,14 +1022,12 @@ void android_widget_SearchView::setOnQueryTextListener(AndroidCXX::android_widge
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SearchView::setOnQueryTextListener(AndroidCXX::android_widget_SearchView_OnQueryTextListener& arg0) exit");
+	LOGV("void android_widget_SearchView::setOnQueryTextListener(AndroidCXX::android_widget_SearchView_OnQueryTextListener const& arg0) exit");
 
 }
-void android_widget_SearchView::setOnCloseListener(AndroidCXX::android_widget_SearchView_OnCloseListener& arg0)
+void android_widget_SearchView::setOnCloseListener(AndroidCXX::android_widget_SearchView_OnCloseListener const& arg0)
 {
-	LOGV("void android_widget_SearchView::setOnCloseListener(AndroidCXX::android_widget_SearchView_OnCloseListener& arg0) enter");
+	LOGV("void android_widget_SearchView::setOnCloseListener(AndroidCXX::android_widget_SearchView_OnCloseListener const& arg0) enter");
 
 	const char *methodName = "setOnCloseListener";
 	const char *methodSignature = "(Landroid/widget/SearchView$OnCloseListener;)V";
@@ -1115,8 +1037,6 @@ void android_widget_SearchView::setOnCloseListener(AndroidCXX::android_widget_Se
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -1147,14 +1067,12 @@ void android_widget_SearchView::setOnCloseListener(AndroidCXX::android_widget_Se
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SearchView::setOnCloseListener(AndroidCXX::android_widget_SearchView_OnCloseListener& arg0) exit");
+	LOGV("void android_widget_SearchView::setOnCloseListener(AndroidCXX::android_widget_SearchView_OnCloseListener const& arg0) exit");
 
 }
-void android_widget_SearchView::setOnQueryTextFocusChangeListener(AndroidCXX::android_view_View_OnFocusChangeListener& arg0)
+void android_widget_SearchView::setOnQueryTextFocusChangeListener(AndroidCXX::android_view_View_OnFocusChangeListener const& arg0)
 {
-	LOGV("void android_widget_SearchView::setOnQueryTextFocusChangeListener(AndroidCXX::android_view_View_OnFocusChangeListener& arg0) enter");
+	LOGV("void android_widget_SearchView::setOnQueryTextFocusChangeListener(AndroidCXX::android_view_View_OnFocusChangeListener const& arg0) enter");
 
 	const char *methodName = "setOnQueryTextFocusChangeListener";
 	const char *methodSignature = "(Landroid/view/View$OnFocusChangeListener;)V";
@@ -1164,8 +1082,6 @@ void android_widget_SearchView::setOnQueryTextFocusChangeListener(AndroidCXX::an
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -1196,14 +1112,12 @@ void android_widget_SearchView::setOnQueryTextFocusChangeListener(AndroidCXX::an
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SearchView::setOnQueryTextFocusChangeListener(AndroidCXX::android_view_View_OnFocusChangeListener& arg0) exit");
+	LOGV("void android_widget_SearchView::setOnQueryTextFocusChangeListener(AndroidCXX::android_view_View_OnFocusChangeListener const& arg0) exit");
 
 }
-void android_widget_SearchView::setOnSuggestionListener(AndroidCXX::android_widget_SearchView_OnSuggestionListener& arg0)
+void android_widget_SearchView::setOnSuggestionListener(AndroidCXX::android_widget_SearchView_OnSuggestionListener const& arg0)
 {
-	LOGV("void android_widget_SearchView::setOnSuggestionListener(AndroidCXX::android_widget_SearchView_OnSuggestionListener& arg0) enter");
+	LOGV("void android_widget_SearchView::setOnSuggestionListener(AndroidCXX::android_widget_SearchView_OnSuggestionListener const& arg0) enter");
 
 	const char *methodName = "setOnSuggestionListener";
 	const char *methodSignature = "(Landroid/widget/SearchView$OnSuggestionListener;)V";
@@ -1213,8 +1127,6 @@ void android_widget_SearchView::setOnSuggestionListener(AndroidCXX::android_widg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -1245,14 +1157,12 @@ void android_widget_SearchView::setOnSuggestionListener(AndroidCXX::android_widg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SearchView::setOnSuggestionListener(AndroidCXX::android_widget_SearchView_OnSuggestionListener& arg0) exit");
+	LOGV("void android_widget_SearchView::setOnSuggestionListener(AndroidCXX::android_widget_SearchView_OnSuggestionListener const& arg0) exit");
 
 }
-void android_widget_SearchView::setOnSearchClickListener(AndroidCXX::android_view_View_OnClickListener& arg0)
+void android_widget_SearchView::setOnSearchClickListener(AndroidCXX::android_view_View_OnClickListener const& arg0)
 {
-	LOGV("void android_widget_SearchView::setOnSearchClickListener(AndroidCXX::android_view_View_OnClickListener& arg0) enter");
+	LOGV("void android_widget_SearchView::setOnSearchClickListener(AndroidCXX::android_view_View_OnClickListener const& arg0) enter");
 
 	const char *methodName = "setOnSearchClickListener";
 	const char *methodSignature = "(Landroid/view/View$OnClickListener;)V";
@@ -1262,8 +1172,6 @@ void android_widget_SearchView::setOnSearchClickListener(AndroidCXX::android_vie
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -1294,14 +1202,12 @@ void android_widget_SearchView::setOnSearchClickListener(AndroidCXX::android_vie
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SearchView::setOnSearchClickListener(AndroidCXX::android_view_View_OnClickListener& arg0) exit");
+	LOGV("void android_widget_SearchView::setOnSearchClickListener(AndroidCXX::android_view_View_OnClickListener const& arg0) exit");
 
 }
-void android_widget_SearchView::setQuery(AndroidCXX::java_lang_CharSequence& arg0,bool& arg1)
+void android_widget_SearchView::setQuery(AndroidCXX::java_lang_CharSequence const& arg0,bool const& arg1)
 {
-	LOGV("void android_widget_SearchView::setQuery(AndroidCXX::java_lang_CharSequence& arg0,bool& arg1) enter");
+	LOGV("void android_widget_SearchView::setQuery(AndroidCXX::java_lang_CharSequence const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "setQuery";
 	const char *methodSignature = "(Ljava/lang/CharSequence;Z)V";
@@ -1311,8 +1217,6 @@ void android_widget_SearchView::setQuery(AndroidCXX::java_lang_CharSequence& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -1364,14 +1268,12 @@ void android_widget_SearchView::setQuery(AndroidCXX::java_lang_CharSequence& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SearchView::setQuery(AndroidCXX::java_lang_CharSequence& arg0,bool& arg1) exit");
+	LOGV("void android_widget_SearchView::setQuery(AndroidCXX::java_lang_CharSequence const& arg0,bool const& arg1) exit");
 
 }
-void android_widget_SearchView::setQueryHint(AndroidCXX::java_lang_CharSequence& arg0)
+void android_widget_SearchView::setQueryHint(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_widget_SearchView::setQueryHint(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_widget_SearchView::setQueryHint(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setQueryHint";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -1381,8 +1283,6 @@ void android_widget_SearchView::setQueryHint(AndroidCXX::java_lang_CharSequence&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -1413,9 +1313,7 @@ void android_widget_SearchView::setQueryHint(AndroidCXX::java_lang_CharSequence&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SearchView::setQueryHint(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_widget_SearchView::setQueryHint(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }
 AndroidCXX::java_lang_CharSequence android_widget_SearchView::getQueryHint()
@@ -1430,8 +1328,6 @@ AndroidCXX::java_lang_CharSequence android_widget_SearchView::getQueryHint()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -1460,15 +1356,13 @@ AndroidCXX::java_lang_CharSequence android_widget_SearchView::getQueryHint()
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_widget_SearchView::getQueryHint() exit");
 
 	return result;
 }
-void android_widget_SearchView::setIconifiedByDefault(bool& arg0)
+void android_widget_SearchView::setIconifiedByDefault(bool const& arg0)
 {
-	LOGV("void android_widget_SearchView::setIconifiedByDefault(bool& arg0) enter");
+	LOGV("void android_widget_SearchView::setIconifiedByDefault(bool const& arg0) enter");
 
 	const char *methodName = "setIconifiedByDefault";
 	const char *methodSignature = "(Z)V";
@@ -1478,8 +1372,6 @@ void android_widget_SearchView::setIconifiedByDefault(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -1510,9 +1402,7 @@ void android_widget_SearchView::setIconifiedByDefault(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SearchView::setIconifiedByDefault(bool& arg0) exit");
+	LOGV("void android_widget_SearchView::setIconifiedByDefault(bool const& arg0) exit");
 
 }
 bool android_widget_SearchView::isIconfiedByDefault()
@@ -1528,8 +1418,6 @@ bool android_widget_SearchView::isIconfiedByDefault()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1557,15 +1445,13 @@ bool android_widget_SearchView::isIconfiedByDefault()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_SearchView::isIconfiedByDefault() exit");
 
 	return result;
 }
-void android_widget_SearchView::setIconified(bool& arg0)
+void android_widget_SearchView::setIconified(bool const& arg0)
 {
-	LOGV("void android_widget_SearchView::setIconified(bool& arg0) enter");
+	LOGV("void android_widget_SearchView::setIconified(bool const& arg0) enter");
 
 	const char *methodName = "setIconified";
 	const char *methodSignature = "(Z)V";
@@ -1575,8 +1461,6 @@ void android_widget_SearchView::setIconified(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -1607,9 +1491,7 @@ void android_widget_SearchView::setIconified(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SearchView::setIconified(bool& arg0) exit");
+	LOGV("void android_widget_SearchView::setIconified(bool const& arg0) exit");
 
 }
 bool android_widget_SearchView::isIconified()
@@ -1625,8 +1507,6 @@ bool android_widget_SearchView::isIconified()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1654,15 +1534,13 @@ bool android_widget_SearchView::isIconified()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_SearchView::isIconified() exit");
 
 	return result;
 }
-void android_widget_SearchView::setSubmitButtonEnabled(bool& arg0)
+void android_widget_SearchView::setSubmitButtonEnabled(bool const& arg0)
 {
-	LOGV("void android_widget_SearchView::setSubmitButtonEnabled(bool& arg0) enter");
+	LOGV("void android_widget_SearchView::setSubmitButtonEnabled(bool const& arg0) enter");
 
 	const char *methodName = "setSubmitButtonEnabled";
 	const char *methodSignature = "(Z)V";
@@ -1672,8 +1550,6 @@ void android_widget_SearchView::setSubmitButtonEnabled(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -1704,9 +1580,7 @@ void android_widget_SearchView::setSubmitButtonEnabled(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SearchView::setSubmitButtonEnabled(bool& arg0) exit");
+	LOGV("void android_widget_SearchView::setSubmitButtonEnabled(bool const& arg0) exit");
 
 }
 bool android_widget_SearchView::isSubmitButtonEnabled()
@@ -1722,8 +1596,6 @@ bool android_widget_SearchView::isSubmitButtonEnabled()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1751,15 +1623,13 @@ bool android_widget_SearchView::isSubmitButtonEnabled()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_SearchView::isSubmitButtonEnabled() exit");
 
 	return result;
 }
-void android_widget_SearchView::setQueryRefinementEnabled(bool& arg0)
+void android_widget_SearchView::setQueryRefinementEnabled(bool const& arg0)
 {
-	LOGV("void android_widget_SearchView::setQueryRefinementEnabled(bool& arg0) enter");
+	LOGV("void android_widget_SearchView::setQueryRefinementEnabled(bool const& arg0) enter");
 
 	const char *methodName = "setQueryRefinementEnabled";
 	const char *methodSignature = "(Z)V";
@@ -1769,8 +1639,6 @@ void android_widget_SearchView::setQueryRefinementEnabled(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -1801,9 +1669,7 @@ void android_widget_SearchView::setQueryRefinementEnabled(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SearchView::setQueryRefinementEnabled(bool& arg0) exit");
+	LOGV("void android_widget_SearchView::setQueryRefinementEnabled(bool const& arg0) exit");
 
 }
 bool android_widget_SearchView::isQueryRefinementEnabled()
@@ -1818,8 +1684,6 @@ bool android_widget_SearchView::isQueryRefinementEnabled()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -1848,15 +1712,13 @@ bool android_widget_SearchView::isQueryRefinementEnabled()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_SearchView::isQueryRefinementEnabled() exit");
 
 	return result;
 }
-void android_widget_SearchView::setSuggestionsAdapter(AndroidCXX::android_widget_CursorAdapter& arg0)
+void android_widget_SearchView::setSuggestionsAdapter(AndroidCXX::android_widget_CursorAdapter const& arg0)
 {
-	LOGV("void android_widget_SearchView::setSuggestionsAdapter(AndroidCXX::android_widget_CursorAdapter& arg0) enter");
+	LOGV("void android_widget_SearchView::setSuggestionsAdapter(AndroidCXX::android_widget_CursorAdapter const& arg0) enter");
 
 	const char *methodName = "setSuggestionsAdapter";
 	const char *methodSignature = "(Landroid/widget/CursorAdapter;)V";
@@ -1866,8 +1728,6 @@ void android_widget_SearchView::setSuggestionsAdapter(AndroidCXX::android_widget
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -1898,9 +1758,7 @@ void android_widget_SearchView::setSuggestionsAdapter(AndroidCXX::android_widget
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SearchView::setSuggestionsAdapter(AndroidCXX::android_widget_CursorAdapter& arg0) exit");
+	LOGV("void android_widget_SearchView::setSuggestionsAdapter(AndroidCXX::android_widget_CursorAdapter const& arg0) exit");
 
 }
 AndroidCXX::android_widget_CursorAdapter android_widget_SearchView::getSuggestionsAdapter()
@@ -1915,8 +1773,6 @@ AndroidCXX::android_widget_CursorAdapter android_widget_SearchView::getSuggestio
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
@@ -1945,8 +1801,6 @@ AndroidCXX::android_widget_CursorAdapter android_widget_SearchView::getSuggestio
 	AndroidCXX::android_widget_CursorAdapter result((AndroidCXX::android_widget_CursorAdapter) *((AndroidCXX::android_widget_CursorAdapter *) cxx_value));
 	delete ((AndroidCXX::android_widget_CursorAdapter *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_widget_CursorAdapter android_widget_SearchView::getSuggestionsAdapter() exit");
 
 	return result;
@@ -1964,8 +1818,6 @@ void android_widget_SearchView::onActionViewCollapsed()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1974,8 +1826,6 @@ void android_widget_SearchView::onActionViewCollapsed()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_SearchView::onActionViewCollapsed() exit");
 
 }
@@ -1992,8 +1842,6 @@ void android_widget_SearchView::onActionViewExpanded()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SearchView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2002,8 +1850,6 @@ void android_widget_SearchView::onActionViewExpanded()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_SearchView::onActionViewExpanded() exit");
 
 }

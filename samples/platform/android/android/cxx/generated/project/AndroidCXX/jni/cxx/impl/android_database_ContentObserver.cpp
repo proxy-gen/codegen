@@ -59,7 +59,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_database_ContentObserver::android_database_ContentObserver(const android_database_ContentObserver& cc)
 {
 	LOGV("android_database_ContentObserver::android_database_ContentObserver(const android_database_ContentObserver& cc) enter");
@@ -83,9 +82,9 @@ android_database_ContentObserver::android_database_ContentObserver(const android
 
 	LOGV("android_database_ContentObserver::android_database_ContentObserver(const android_database_ContentObserver& cc) exit");
 }
-android_database_ContentObserver::android_database_ContentObserver(void * proxy)
+android_database_ContentObserver::android_database_ContentObserver(Proxy proxy)
 {
-	LOGV("android_database_ContentObserver::android_database_ContentObserver(void * proxy) enter");
+	LOGV("android_database_ContentObserver::android_database_ContentObserver(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -95,55 +94,34 @@ android_database_ContentObserver::android_database_ContentObserver(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_database_ContentObserver::android_database_ContentObserver(void * proxy) exit");
+	LOGV("android_database_ContentObserver::android_database_ContentObserver(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_database_ContentObserver::android_database_ContentObserver()
-// {
-// 	LOGV("android_database_ContentObserver::android_database_ContentObserver() enter");	
+Proxy android_database_ContentObserver::proxy() const
+{	
+	LOGV("android_database_ContentObserver::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/database/ContentObserver";
+	long cxxAddress = (long) this;
+	LOGV("android_database_ContentObserver cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_database_ContentObserver jni address %d", proxiedComponent);
 
-// 	LOGV("android_database_ContentObserver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_database_ContentObserver::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_database_ContentObserver cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_database_ContentObserver jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_database_ContentObserver::android_database_ContentObserver() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_database_ContentObserver::android_database_ContentObserver(AndroidCXX::android_os_Handler& arg0)
+	return proxy;
+}
+android_database_ContentObserver::android_database_ContentObserver(AndroidCXX::android_os_Handler const& arg0)
 {
-	LOGV("android_database_ContentObserver::android_database_ContentObserver(AndroidCXX::android_os_Handler& arg0) enter");	
+	LOGV("android_database_ContentObserver::android_database_ContentObserver(AndroidCXX::android_os_Handler const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/os/Handler;)V";
@@ -196,7 +174,7 @@ android_database_ContentObserver::android_database_ContentObserver(AndroidCXX::a
 
 	jni->popLocalFrame();
 
-	LOGV("android_database_ContentObserver::android_database_ContentObserver(AndroidCXX::android_os_Handler& arg0) exit");	
+	LOGV("android_database_ContentObserver::android_database_ContentObserver(AndroidCXX::android_os_Handler const& arg0) exit");	
 }
 // Default Instance Destructor
 android_database_ContentObserver::~android_database_ContentObserver()
@@ -209,7 +187,7 @@ android_database_ContentObserver::~android_database_ContentObserver()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_database_ContentObserver::~android_database_ContentObserver() exit");
 }
 // Functions
@@ -225,8 +203,6 @@ bool android_database_ContentObserver::deliverSelfNotifications()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_database_ContentObserver cxx address %d", cxxAddress);
@@ -255,15 +231,13 @@ bool android_database_ContentObserver::deliverSelfNotifications()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_database_ContentObserver::deliverSelfNotifications() exit");
 
 	return result;
 }
-void android_database_ContentObserver::onChange(bool& arg0)
+void android_database_ContentObserver::onChange(bool const& arg0)
 {
-	LOGV("void android_database_ContentObserver::onChange(bool& arg0) enter");
+	LOGV("void android_database_ContentObserver::onChange(bool const& arg0) enter");
 
 	const char *methodName = "onChange";
 	const char *methodSignature = "(Z)V";
@@ -273,8 +247,6 @@ void android_database_ContentObserver::onChange(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_database_ContentObserver cxx address %d", cxxAddress);
@@ -305,14 +277,12 @@ void android_database_ContentObserver::onChange(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_database_ContentObserver::onChange(bool& arg0) exit");
+	LOGV("void android_database_ContentObserver::onChange(bool const& arg0) exit");
 
 }
-void android_database_ContentObserver::onChange(bool& arg0,AndroidCXX::android_net_Uri& arg1)
+void android_database_ContentObserver::onChange(bool const& arg0,AndroidCXX::android_net_Uri const& arg1)
 {
-	LOGV("void android_database_ContentObserver::onChange(bool& arg0,AndroidCXX::android_net_Uri& arg1) enter");
+	LOGV("void android_database_ContentObserver::onChange(bool const& arg0,AndroidCXX::android_net_Uri const& arg1) enter");
 
 	const char *methodName = "onChange";
 	const char *methodSignature = "(ZLandroid/net/Uri;)V";
@@ -322,8 +292,6 @@ void android_database_ContentObserver::onChange(bool& arg0,AndroidCXX::android_n
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_database_ContentObserver cxx address %d", cxxAddress);
@@ -375,14 +343,12 @@ void android_database_ContentObserver::onChange(bool& arg0,AndroidCXX::android_n
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_database_ContentObserver::onChange(bool& arg0,AndroidCXX::android_net_Uri& arg1) exit");
+	LOGV("void android_database_ContentObserver::onChange(bool const& arg0,AndroidCXX::android_net_Uri const& arg1) exit");
 
 }
-void android_database_ContentObserver::dispatchChange(bool& arg0)
+void android_database_ContentObserver::dispatchChange(bool const& arg0)
 {
-	LOGV("void android_database_ContentObserver::dispatchChange(bool& arg0) enter");
+	LOGV("void android_database_ContentObserver::dispatchChange(bool const& arg0) enter");
 
 	const char *methodName = "dispatchChange";
 	const char *methodSignature = "(Z)V";
@@ -392,8 +358,6 @@ void android_database_ContentObserver::dispatchChange(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_database_ContentObserver cxx address %d", cxxAddress);
@@ -424,14 +388,12 @@ void android_database_ContentObserver::dispatchChange(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_database_ContentObserver::dispatchChange(bool& arg0) exit");
+	LOGV("void android_database_ContentObserver::dispatchChange(bool const& arg0) exit");
 
 }
-void android_database_ContentObserver::dispatchChange(bool& arg0,AndroidCXX::android_net_Uri& arg1)
+void android_database_ContentObserver::dispatchChange(bool const& arg0,AndroidCXX::android_net_Uri const& arg1)
 {
-	LOGV("void android_database_ContentObserver::dispatchChange(bool& arg0,AndroidCXX::android_net_Uri& arg1) enter");
+	LOGV("void android_database_ContentObserver::dispatchChange(bool const& arg0,AndroidCXX::android_net_Uri const& arg1) enter");
 
 	const char *methodName = "dispatchChange";
 	const char *methodSignature = "(ZLandroid/net/Uri;)V";
@@ -441,8 +403,6 @@ void android_database_ContentObserver::dispatchChange(bool& arg0,AndroidCXX::and
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_database_ContentObserver cxx address %d", cxxAddress);
@@ -494,8 +454,6 @@ void android_database_ContentObserver::dispatchChange(bool& arg0,AndroidCXX::and
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_database_ContentObserver::dispatchChange(bool& arg0,AndroidCXX::android_net_Uri& arg1) exit");
+	LOGV("void android_database_ContentObserver::dispatchChange(bool const& arg0,AndroidCXX::android_net_Uri const& arg1) exit");
 
 }

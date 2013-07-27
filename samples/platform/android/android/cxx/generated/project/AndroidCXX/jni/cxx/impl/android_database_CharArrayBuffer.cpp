@@ -41,7 +41,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_database_CharArrayBuffer::android_database_CharArrayBuffer(const android_database_CharArrayBuffer& cc)
 {
 	LOGV("android_database_CharArrayBuffer::android_database_CharArrayBuffer(const android_database_CharArrayBuffer& cc) enter");
@@ -65,9 +64,9 @@ android_database_CharArrayBuffer::android_database_CharArrayBuffer(const android
 
 	LOGV("android_database_CharArrayBuffer::android_database_CharArrayBuffer(const android_database_CharArrayBuffer& cc) exit");
 }
-android_database_CharArrayBuffer::android_database_CharArrayBuffer(void * proxy)
+android_database_CharArrayBuffer::android_database_CharArrayBuffer(Proxy proxy)
 {
-	LOGV("android_database_CharArrayBuffer::android_database_CharArrayBuffer(void * proxy) enter");
+	LOGV("android_database_CharArrayBuffer::android_database_CharArrayBuffer(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -77,55 +76,34 @@ android_database_CharArrayBuffer::android_database_CharArrayBuffer(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_database_CharArrayBuffer::android_database_CharArrayBuffer(void * proxy) exit");
+	LOGV("android_database_CharArrayBuffer::android_database_CharArrayBuffer(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_database_CharArrayBuffer::android_database_CharArrayBuffer()
-// {
-// 	LOGV("android_database_CharArrayBuffer::android_database_CharArrayBuffer() enter");	
+Proxy android_database_CharArrayBuffer::proxy() const
+{	
+	LOGV("android_database_CharArrayBuffer::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/database/CharArrayBuffer";
+	long cxxAddress = (long) this;
+	LOGV("android_database_CharArrayBuffer cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_database_CharArrayBuffer jni address %d", proxiedComponent);
 
-// 	LOGV("android_database_CharArrayBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_database_CharArrayBuffer::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_database_CharArrayBuffer cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_database_CharArrayBuffer jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_database_CharArrayBuffer::android_database_CharArrayBuffer() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_database_CharArrayBuffer::android_database_CharArrayBuffer(int& arg0)
+	return proxy;
+}
+android_database_CharArrayBuffer::android_database_CharArrayBuffer(int const& arg0)
 {
-	LOGV("android_database_CharArrayBuffer::android_database_CharArrayBuffer(int& arg0) enter");	
+	LOGV("android_database_CharArrayBuffer::android_database_CharArrayBuffer(int const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(I)V";
@@ -178,11 +156,11 @@ android_database_CharArrayBuffer::android_database_CharArrayBuffer(int& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("android_database_CharArrayBuffer::android_database_CharArrayBuffer(int& arg0) exit");	
+	LOGV("android_database_CharArrayBuffer::android_database_CharArrayBuffer(int const& arg0) exit");	
 }
-android_database_CharArrayBuffer::android_database_CharArrayBuffer(std::vector<char>& arg0)
+android_database_CharArrayBuffer::android_database_CharArrayBuffer(std::vector<char> const& arg0)
 {
-	LOGV("android_database_CharArrayBuffer::android_database_CharArrayBuffer(std::vector<char>& arg0) enter");	
+	LOGV("android_database_CharArrayBuffer::android_database_CharArrayBuffer(std::vector<char> const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "([C)V";
@@ -253,7 +231,7 @@ android_database_CharArrayBuffer::android_database_CharArrayBuffer(std::vector<c
 
 	jni->popLocalFrame();
 
-	LOGV("android_database_CharArrayBuffer::android_database_CharArrayBuffer(std::vector<char>& arg0) exit");	
+	LOGV("android_database_CharArrayBuffer::android_database_CharArrayBuffer(std::vector<char> const& arg0) exit");	
 }
 // Default Instance Destructor
 android_database_CharArrayBuffer::~android_database_CharArrayBuffer()
@@ -266,7 +244,7 @@ android_database_CharArrayBuffer::~android_database_CharArrayBuffer()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_database_CharArrayBuffer::~android_database_CharArrayBuffer() exit");
 }
 // Functions

@@ -65,18 +65,17 @@ class android_view_inputmethod_EditorInfo
 public:
 
 	android_view_inputmethod_EditorInfo(const android_view_inputmethod_EditorInfo& cc);
-	android_view_inputmethod_EditorInfo(void * proxy);
+	android_view_inputmethod_EditorInfo(Proxy proxy);
 	// Public Constructors
 	android_view_inputmethod_EditorInfo();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_inputmethod_EditorInfo();
 	// Functions
-	 void dump(AndroidCXX::android_util_Printer& arg0,AndroidCXX::java_lang_String& arg1);
+	 void dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1);
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
-	 void makeCompatible(int& arg0);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	 void makeCompatible(int const& arg0);
 };	
 
 } // namespace

@@ -39,7 +39,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_animation_LayoutAnimationController_AnimationParameters::android_view_animation_LayoutAnimationController_AnimationParameters(const android_view_animation_LayoutAnimationController_AnimationParameters& cc)
 {
 	LOGV("android_view_animation_LayoutAnimationController_AnimationParameters::android_view_animation_LayoutAnimationController_AnimationParameters(const android_view_animation_LayoutAnimationController_AnimationParameters& cc) enter");
@@ -63,9 +62,9 @@ android_view_animation_LayoutAnimationController_AnimationParameters::android_vi
 
 	LOGV("android_view_animation_LayoutAnimationController_AnimationParameters::android_view_animation_LayoutAnimationController_AnimationParameters(const android_view_animation_LayoutAnimationController_AnimationParameters& cc) exit");
 }
-android_view_animation_LayoutAnimationController_AnimationParameters::android_view_animation_LayoutAnimationController_AnimationParameters(void * proxy)
+android_view_animation_LayoutAnimationController_AnimationParameters::android_view_animation_LayoutAnimationController_AnimationParameters(Proxy proxy)
 {
-	LOGV("android_view_animation_LayoutAnimationController_AnimationParameters::android_view_animation_LayoutAnimationController_AnimationParameters(void * proxy) enter");
+	LOGV("android_view_animation_LayoutAnimationController_AnimationParameters::android_view_animation_LayoutAnimationController_AnimationParameters(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -75,17 +74,31 @@ android_view_animation_LayoutAnimationController_AnimationParameters::android_vi
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_animation_LayoutAnimationController_AnimationParameters::android_view_animation_LayoutAnimationController_AnimationParameters(void * proxy) exit");
+	LOGV("android_view_animation_LayoutAnimationController_AnimationParameters::android_view_animation_LayoutAnimationController_AnimationParameters(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy android_view_animation_LayoutAnimationController_AnimationParameters::proxy() const
+{	
+	LOGV("android_view_animation_LayoutAnimationController_AnimationParameters::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_view_animation_LayoutAnimationController_AnimationParameters cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_animation_LayoutAnimationController_AnimationParameters jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_view_animation_LayoutAnimationController_AnimationParameters::proxy() exit");	
+
+	return proxy;
+}
 android_view_animation_LayoutAnimationController_AnimationParameters::android_view_animation_LayoutAnimationController_AnimationParameters()
 {
 	LOGV("android_view_animation_LayoutAnimationController_AnimationParameters::android_view_animation_LayoutAnimationController_AnimationParameters() enter");	
@@ -133,7 +146,7 @@ android_view_animation_LayoutAnimationController_AnimationParameters::~android_v
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_animation_LayoutAnimationController_AnimationParameters::~android_view_animation_LayoutAnimationController_AnimationParameters() exit");
 }
 // Functions

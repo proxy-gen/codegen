@@ -55,7 +55,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_io_Reader::java_io_Reader(const java_io_Reader& cc)
 {
 	LOGV("java_io_Reader::java_io_Reader(const java_io_Reader& cc) enter");
@@ -79,9 +78,9 @@ java_io_Reader::java_io_Reader(const java_io_Reader& cc)
 
 	LOGV("java_io_Reader::java_io_Reader(const java_io_Reader& cc) exit");
 }
-java_io_Reader::java_io_Reader(void * proxy)
+java_io_Reader::java_io_Reader(Proxy proxy)
 {
-	LOGV("java_io_Reader::java_io_Reader(void * proxy) enter");
+	LOGV("java_io_Reader::java_io_Reader(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -91,52 +90,31 @@ java_io_Reader::java_io_Reader(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_io_Reader::java_io_Reader(void * proxy) exit");
+	LOGV("java_io_Reader::java_io_Reader(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_io_Reader::java_io_Reader()
-// {
-// 	LOGV("java_io_Reader::java_io_Reader() enter");	
+Proxy java_io_Reader::proxy() const
+{	
+	LOGV("java_io_Reader::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/io/Reader";
+	long cxxAddress = (long) this;
+	LOGV("java_io_Reader cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_io_Reader jni address %d", proxiedComponent);
 
-// 	LOGV("java_io_Reader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_io_Reader::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_io_Reader cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_io_Reader jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_io_Reader::java_io_Reader() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_io_Reader::~java_io_Reader()
 {
@@ -148,7 +126,7 @@ java_io_Reader::~java_io_Reader()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_io_Reader::~java_io_Reader() exit");
 }
 // Functions
@@ -165,8 +143,6 @@ void java_io_Reader::close()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_io_Reader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -175,14 +151,12 @@ void java_io_Reader::close()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_io_Reader::close() exit");
 
 }
-void java_io_Reader::mark(int& arg0)
+void java_io_Reader::mark(int const& arg0)
 {
-	LOGV("void java_io_Reader::mark(int& arg0) enter");
+	LOGV("void java_io_Reader::mark(int const& arg0) enter");
 
 	const char *methodName = "mark";
 	const char *methodSignature = "(I)V";
@@ -192,8 +166,6 @@ void java_io_Reader::mark(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_Reader cxx address %d", cxxAddress);
@@ -224,9 +196,7 @@ void java_io_Reader::mark(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_Reader::mark(int& arg0) exit");
+	LOGV("void java_io_Reader::mark(int const& arg0) exit");
 
 }
 void java_io_Reader::reset()
@@ -242,8 +212,6 @@ void java_io_Reader::reset()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_io_Reader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -252,14 +220,12 @@ void java_io_Reader::reset()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_io_Reader::reset() exit");
 
 }
-int java_io_Reader::read(std::vector<char>& arg0,int& arg1,int& arg2)
+int java_io_Reader::read(std::vector<char> const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("int java_io_Reader::read(std::vector<char>& arg0,int& arg1,int& arg2) enter");
+	LOGV("int java_io_Reader::read(std::vector<char> const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "read";
 	const char *methodSignature = "([CII)I";
@@ -269,8 +235,6 @@ int java_io_Reader::read(std::vector<char>& arg0,int& arg1,int& arg2)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_Reader cxx address %d", cxxAddress);
@@ -380,9 +344,7 @@ int java_io_Reader::read(std::vector<char>& arg0,int& arg1,int& arg2)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_io_Reader::read(std::vector<char>& arg0,int& arg1,int& arg2) exit");
+	LOGV("int java_io_Reader::read(std::vector<char> const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
@@ -398,8 +360,6 @@ int java_io_Reader::read()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_Reader cxx address %d", cxxAddress);
@@ -428,15 +388,13 @@ int java_io_Reader::read()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_io_Reader::read() exit");
 
 	return result;
 }
-int java_io_Reader::read(std::vector<char>& arg0)
+int java_io_Reader::read(std::vector<char> const& arg0)
 {
-	LOGV("int java_io_Reader::read(std::vector<char>& arg0) enter");
+	LOGV("int java_io_Reader::read(std::vector<char> const& arg0) enter");
 
 	const char *methodName = "read";
 	const char *methodSignature = "([C)I";
@@ -446,8 +404,6 @@ int java_io_Reader::read(std::vector<char>& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_Reader cxx address %d", cxxAddress);
@@ -515,15 +471,13 @@ int java_io_Reader::read(std::vector<char>& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_io_Reader::read(std::vector<char>& arg0) exit");
+	LOGV("int java_io_Reader::read(std::vector<char> const& arg0) exit");
 
 	return result;
 }
-int java_io_Reader::read(AndroidCXX::java_nio_CharBuffer& arg0)
+int java_io_Reader::read(AndroidCXX::java_nio_CharBuffer const& arg0)
 {
-	LOGV("int java_io_Reader::read(AndroidCXX::java_nio_CharBuffer& arg0) enter");
+	LOGV("int java_io_Reader::read(AndroidCXX::java_nio_CharBuffer const& arg0) enter");
 
 	const char *methodName = "read";
 	const char *methodSignature = "(Ljava/nio/CharBuffer;)I";
@@ -533,8 +487,6 @@ int java_io_Reader::read(AndroidCXX::java_nio_CharBuffer& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_Reader cxx address %d", cxxAddress);
@@ -584,15 +536,13 @@ int java_io_Reader::read(AndroidCXX::java_nio_CharBuffer& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_io_Reader::read(AndroidCXX::java_nio_CharBuffer& arg0) exit");
+	LOGV("int java_io_Reader::read(AndroidCXX::java_nio_CharBuffer const& arg0) exit");
 
 	return result;
 }
-long java_io_Reader::skip(long& arg0)
+long java_io_Reader::skip(long const& arg0)
 {
-	LOGV("long java_io_Reader::skip(long& arg0) enter");
+	LOGV("long java_io_Reader::skip(long const& arg0) enter");
 
 	const char *methodName = "skip";
 	const char *methodSignature = "(J)J";
@@ -602,8 +552,6 @@ long java_io_Reader::skip(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_Reader cxx address %d", cxxAddress);
@@ -653,9 +601,7 @@ long java_io_Reader::skip(long& arg0)
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long java_io_Reader::skip(long& arg0) exit");
+	LOGV("long java_io_Reader::skip(long const& arg0) exit");
 
 	return result;
 }
@@ -671,8 +617,6 @@ bool java_io_Reader::markSupported()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_Reader cxx address %d", cxxAddress);
@@ -701,8 +645,6 @@ bool java_io_Reader::markSupported()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_io_Reader::markSupported() exit");
 
 	return result;
@@ -720,8 +662,6 @@ bool java_io_Reader::ready()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_io_Reader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -749,8 +689,6 @@ bool java_io_Reader::ready()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_io_Reader::ready() exit");
 
 	return result;

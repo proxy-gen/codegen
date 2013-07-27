@@ -40,7 +40,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_graphics_BitmapFactory_Options::android_graphics_BitmapFactory_Options(const android_graphics_BitmapFactory_Options& cc)
 {
 	LOGV("android_graphics_BitmapFactory_Options::android_graphics_BitmapFactory_Options(const android_graphics_BitmapFactory_Options& cc) enter");
@@ -64,9 +63,9 @@ android_graphics_BitmapFactory_Options::android_graphics_BitmapFactory_Options(c
 
 	LOGV("android_graphics_BitmapFactory_Options::android_graphics_BitmapFactory_Options(const android_graphics_BitmapFactory_Options& cc) exit");
 }
-android_graphics_BitmapFactory_Options::android_graphics_BitmapFactory_Options(void * proxy)
+android_graphics_BitmapFactory_Options::android_graphics_BitmapFactory_Options(Proxy proxy)
 {
-	LOGV("android_graphics_BitmapFactory_Options::android_graphics_BitmapFactory_Options(void * proxy) enter");
+	LOGV("android_graphics_BitmapFactory_Options::android_graphics_BitmapFactory_Options(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -76,17 +75,31 @@ android_graphics_BitmapFactory_Options::android_graphics_BitmapFactory_Options(v
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_graphics_BitmapFactory_Options::android_graphics_BitmapFactory_Options(void * proxy) exit");
+	LOGV("android_graphics_BitmapFactory_Options::android_graphics_BitmapFactory_Options(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy android_graphics_BitmapFactory_Options::proxy() const
+{	
+	LOGV("android_graphics_BitmapFactory_Options::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_graphics_BitmapFactory_Options cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_graphics_BitmapFactory_Options jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_graphics_BitmapFactory_Options::proxy() exit");	
+
+	return proxy;
+}
 android_graphics_BitmapFactory_Options::android_graphics_BitmapFactory_Options()
 {
 	LOGV("android_graphics_BitmapFactory_Options::android_graphics_BitmapFactory_Options() enter");	
@@ -134,7 +147,7 @@ android_graphics_BitmapFactory_Options::~android_graphics_BitmapFactory_Options(
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_graphics_BitmapFactory_Options::~android_graphics_BitmapFactory_Options() exit");
 }
 // Functions
@@ -151,8 +164,6 @@ void android_graphics_BitmapFactory_Options::requestCancelDecode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_BitmapFactory_Options cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -161,8 +172,6 @@ void android_graphics_BitmapFactory_Options::requestCancelDecode()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_graphics_BitmapFactory_Options::requestCancelDecode() exit");
 
 }

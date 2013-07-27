@@ -90,7 +90,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_net_HttpURLConnection::java_net_HttpURLConnection(const java_net_HttpURLConnection& cc)
 {
 	LOGV("java_net_HttpURLConnection::java_net_HttpURLConnection(const java_net_HttpURLConnection& cc) enter");
@@ -114,9 +113,9 @@ java_net_HttpURLConnection::java_net_HttpURLConnection(const java_net_HttpURLCon
 
 	LOGV("java_net_HttpURLConnection::java_net_HttpURLConnection(const java_net_HttpURLConnection& cc) exit");
 }
-java_net_HttpURLConnection::java_net_HttpURLConnection(void * proxy)
+java_net_HttpURLConnection::java_net_HttpURLConnection(Proxy proxy)
 {
-	LOGV("java_net_HttpURLConnection::java_net_HttpURLConnection(void * proxy) enter");
+	LOGV("java_net_HttpURLConnection::java_net_HttpURLConnection(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -126,52 +125,31 @@ java_net_HttpURLConnection::java_net_HttpURLConnection(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_net_HttpURLConnection::java_net_HttpURLConnection(void * proxy) exit");
+	LOGV("java_net_HttpURLConnection::java_net_HttpURLConnection(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_net_HttpURLConnection::java_net_HttpURLConnection()
-// {
-// 	LOGV("java_net_HttpURLConnection::java_net_HttpURLConnection() enter");	
+Proxy java_net_HttpURLConnection::proxy() const
+{	
+	LOGV("java_net_HttpURLConnection::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/net/HttpURLConnection";
+	long cxxAddress = (long) this;
+	LOGV("java_net_HttpURLConnection cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_HttpURLConnection jni address %d", proxiedComponent);
 
-// 	LOGV("java_net_HttpURLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_net_HttpURLConnection::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_net_HttpURLConnection cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_net_HttpURLConnection jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_net_HttpURLConnection::java_net_HttpURLConnection() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_net_HttpURLConnection::~java_net_HttpURLConnection()
 {
@@ -183,7 +161,7 @@ java_net_HttpURLConnection::~java_net_HttpURLConnection()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_net_HttpURLConnection::~java_net_HttpURLConnection() exit");
 }
 // Functions
@@ -199,8 +177,6 @@ AndroidCXX::java_security_Permission java_net_HttpURLConnection::getPermission()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_HttpURLConnection cxx address %d", cxxAddress);
@@ -229,15 +205,13 @@ AndroidCXX::java_security_Permission java_net_HttpURLConnection::getPermission()
 	AndroidCXX::java_security_Permission result((AndroidCXX::java_security_Permission) *((AndroidCXX::java_security_Permission *) cxx_value));
 	delete ((AndroidCXX::java_security_Permission *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_security_Permission java_net_HttpURLConnection::getPermission() exit");
 
 	return result;
 }
-void java_net_HttpURLConnection::setRequestMethod(AndroidCXX::java_lang_String& arg0)
+void java_net_HttpURLConnection::setRequestMethod(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void java_net_HttpURLConnection::setRequestMethod(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void java_net_HttpURLConnection::setRequestMethod(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setRequestMethod";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -247,8 +221,6 @@ void java_net_HttpURLConnection::setRequestMethod(AndroidCXX::java_lang_String& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_HttpURLConnection cxx address %d", cxxAddress);
@@ -279,9 +251,7 @@ void java_net_HttpURLConnection::setRequestMethod(AndroidCXX::java_lang_String& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_net_HttpURLConnection::setRequestMethod(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void java_net_HttpURLConnection::setRequestMethod(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 int java_net_HttpURLConnection::getResponseCode()
@@ -296,8 +266,6 @@ int java_net_HttpURLConnection::getResponseCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_HttpURLConnection cxx address %d", cxxAddress);
@@ -326,15 +294,13 @@ int java_net_HttpURLConnection::getResponseCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_net_HttpURLConnection::getResponseCode() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String java_net_HttpURLConnection::getHeaderField(int& arg0)
+AndroidCXX::java_lang_String java_net_HttpURLConnection::getHeaderField(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String java_net_HttpURLConnection::getHeaderField(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String java_net_HttpURLConnection::getHeaderField(int const& arg0) enter");
 
 	const char *methodName = "getHeaderField";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -345,8 +311,6 @@ AndroidCXX::java_lang_String java_net_HttpURLConnection::getHeaderField(int& arg
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_HttpURLConnection cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -395,15 +359,13 @@ AndroidCXX::java_lang_String java_net_HttpURLConnection::getHeaderField(int& arg
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String java_net_HttpURLConnection::getHeaderField(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String java_net_HttpURLConnection::getHeaderField(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String java_net_HttpURLConnection::getHeaderFieldKey(int& arg0)
+AndroidCXX::java_lang_String java_net_HttpURLConnection::getHeaderFieldKey(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String java_net_HttpURLConnection::getHeaderFieldKey(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String java_net_HttpURLConnection::getHeaderFieldKey(int const& arg0) enter");
 
 	const char *methodName = "getHeaderFieldKey";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -414,8 +376,6 @@ AndroidCXX::java_lang_String java_net_HttpURLConnection::getHeaderFieldKey(int& 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_HttpURLConnection cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -464,15 +424,13 @@ AndroidCXX::java_lang_String java_net_HttpURLConnection::getHeaderFieldKey(int& 
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String java_net_HttpURLConnection::getHeaderFieldKey(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String java_net_HttpURLConnection::getHeaderFieldKey(int const& arg0) exit");
 
 	return result;
 }
-long java_net_HttpURLConnection::getHeaderFieldDate(AndroidCXX::java_lang_String& arg0,long& arg1)
+long java_net_HttpURLConnection::getHeaderFieldDate(AndroidCXX::java_lang_String const& arg0,long const& arg1)
 {
-	LOGV("long java_net_HttpURLConnection::getHeaderFieldDate(AndroidCXX::java_lang_String& arg0,long& arg1) enter");
+	LOGV("long java_net_HttpURLConnection::getHeaderFieldDate(AndroidCXX::java_lang_String const& arg0,long const& arg1) enter");
 
 	const char *methodName = "getHeaderFieldDate";
 	const char *methodSignature = "(Ljava/lang/String;J)J";
@@ -482,8 +440,6 @@ long java_net_HttpURLConnection::getHeaderFieldDate(AndroidCXX::java_lang_String
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_HttpURLConnection cxx address %d", cxxAddress);
@@ -554,15 +510,13 @@ long java_net_HttpURLConnection::getHeaderFieldDate(AndroidCXX::java_lang_String
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long java_net_HttpURLConnection::getHeaderFieldDate(AndroidCXX::java_lang_String& arg0,long& arg1) exit");
+	LOGV("long java_net_HttpURLConnection::getHeaderFieldDate(AndroidCXX::java_lang_String const& arg0,long const& arg1) exit");
 
 	return result;
 }
-void java_net_HttpURLConnection::setFixedLengthStreamingMode(int& arg0)
+void java_net_HttpURLConnection::setFixedLengthStreamingMode(int const& arg0)
 {
-	LOGV("void java_net_HttpURLConnection::setFixedLengthStreamingMode(int& arg0) enter");
+	LOGV("void java_net_HttpURLConnection::setFixedLengthStreamingMode(int const& arg0) enter");
 
 	const char *methodName = "setFixedLengthStreamingMode";
 	const char *methodSignature = "(I)V";
@@ -573,8 +527,6 @@ void java_net_HttpURLConnection::setFixedLengthStreamingMode(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_HttpURLConnection cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -604,14 +556,12 @@ void java_net_HttpURLConnection::setFixedLengthStreamingMode(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_net_HttpURLConnection::setFixedLengthStreamingMode(int& arg0) exit");
+	LOGV("void java_net_HttpURLConnection::setFixedLengthStreamingMode(int const& arg0) exit");
 
 }
-void java_net_HttpURLConnection::setChunkedStreamingMode(int& arg0)
+void java_net_HttpURLConnection::setChunkedStreamingMode(int const& arg0)
 {
-	LOGV("void java_net_HttpURLConnection::setChunkedStreamingMode(int& arg0) enter");
+	LOGV("void java_net_HttpURLConnection::setChunkedStreamingMode(int const& arg0) enter");
 
 	const char *methodName = "setChunkedStreamingMode";
 	const char *methodSignature = "(I)V";
@@ -622,8 +572,6 @@ void java_net_HttpURLConnection::setChunkedStreamingMode(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_HttpURLConnection cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -653,14 +601,12 @@ void java_net_HttpURLConnection::setChunkedStreamingMode(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_net_HttpURLConnection::setChunkedStreamingMode(int& arg0) exit");
+	LOGV("void java_net_HttpURLConnection::setChunkedStreamingMode(int const& arg0) exit");
 
 }
-void java_net_HttpURLConnection::setFollowRedirects(bool& arg0)
+void java_net_HttpURLConnection::setFollowRedirects(bool const& arg0)
 {
-	LOGV("void java_net_HttpURLConnection::setFollowRedirects(bool& arg0) enter");
+	LOGV("void java_net_HttpURLConnection::setFollowRedirects(bool const& arg0) enter");
 
 	const char *methodName = "setFollowRedirects";
 	const char *methodSignature = "(Z)V";
@@ -670,8 +616,6 @@ void java_net_HttpURLConnection::setFollowRedirects(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_net_HttpURLConnection cxx address %d", cxxAddress);
@@ -700,11 +644,9 @@ void java_net_HttpURLConnection::setFollowRedirects(bool& arg0)
 		jarg0 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_net_HttpURLConnection::setFollowRedirects(bool& arg0) exit");
+	LOGV("void java_net_HttpURLConnection::setFollowRedirects(bool const& arg0) exit");
 
 }
 bool java_net_HttpURLConnection::getFollowRedirects()
@@ -720,15 +662,13 @@ bool java_net_HttpURLConnection::getFollowRedirects()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_net_HttpURLConnection cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_HttpURLConnection jni address %d", javaObject);
 
 
-	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
+	jboolean jni_result = (jboolean) jni->invokeStaticBooleanMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
 	{
@@ -749,15 +689,13 @@ bool java_net_HttpURLConnection::getFollowRedirects()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_net_HttpURLConnection::getFollowRedirects() exit");
 
 	return result;
 }
-void java_net_HttpURLConnection::setInstanceFollowRedirects(bool& arg0)
+void java_net_HttpURLConnection::setInstanceFollowRedirects(bool const& arg0)
 {
-	LOGV("void java_net_HttpURLConnection::setInstanceFollowRedirects(bool& arg0) enter");
+	LOGV("void java_net_HttpURLConnection::setInstanceFollowRedirects(bool const& arg0) enter");
 
 	const char *methodName = "setInstanceFollowRedirects";
 	const char *methodSignature = "(Z)V";
@@ -767,8 +705,6 @@ void java_net_HttpURLConnection::setInstanceFollowRedirects(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_HttpURLConnection cxx address %d", cxxAddress);
@@ -799,9 +735,7 @@ void java_net_HttpURLConnection::setInstanceFollowRedirects(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_net_HttpURLConnection::setInstanceFollowRedirects(bool& arg0) exit");
+	LOGV("void java_net_HttpURLConnection::setInstanceFollowRedirects(bool const& arg0) exit");
 
 }
 bool java_net_HttpURLConnection::getInstanceFollowRedirects()
@@ -816,8 +750,6 @@ bool java_net_HttpURLConnection::getInstanceFollowRedirects()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_HttpURLConnection cxx address %d", cxxAddress);
@@ -846,8 +778,6 @@ bool java_net_HttpURLConnection::getInstanceFollowRedirects()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_net_HttpURLConnection::getInstanceFollowRedirects() exit");
 
 	return result;
@@ -865,8 +795,6 @@ AndroidCXX::java_lang_String java_net_HttpURLConnection::getRequestMethod()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_HttpURLConnection cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -894,8 +822,6 @@ AndroidCXX::java_lang_String java_net_HttpURLConnection::getRequestMethod()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_net_HttpURLConnection::getRequestMethod() exit");
 
 	return result;
@@ -913,8 +839,6 @@ AndroidCXX::java_lang_String java_net_HttpURLConnection::getResponseMessage()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_HttpURLConnection cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -942,8 +866,6 @@ AndroidCXX::java_lang_String java_net_HttpURLConnection::getResponseMessage()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_net_HttpURLConnection::getResponseMessage() exit");
 
 	return result;
@@ -961,8 +883,6 @@ void java_net_HttpURLConnection::disconnect()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_HttpURLConnection cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -971,8 +891,6 @@ void java_net_HttpURLConnection::disconnect()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_net_HttpURLConnection::disconnect() exit");
 
 }
@@ -988,8 +906,6 @@ bool java_net_HttpURLConnection::usingProxy()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_HttpURLConnection cxx address %d", cxxAddress);
@@ -1018,8 +934,6 @@ bool java_net_HttpURLConnection::usingProxy()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_net_HttpURLConnection::usingProxy() exit");
 
 	return result;
@@ -1036,8 +950,6 @@ AndroidCXX::java_io_InputStream java_net_HttpURLConnection::getErrorStream()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_HttpURLConnection cxx address %d", cxxAddress);
@@ -1066,8 +978,6 @@ AndroidCXX::java_io_InputStream java_net_HttpURLConnection::getErrorStream()
 	AndroidCXX::java_io_InputStream result((AndroidCXX::java_io_InputStream) *((AndroidCXX::java_io_InputStream *) cxx_value));
 	delete ((AndroidCXX::java_io_InputStream *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_io_InputStream java_net_HttpURLConnection::getErrorStream() exit");
 
 	return result;

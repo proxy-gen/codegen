@@ -68,14 +68,11 @@ class com_facebook_widget_WebDialog_Builder
 public:
 
 	com_facebook_widget_WebDialog_Builder(const com_facebook_widget_WebDialog_Builder& cc);
-	com_facebook_widget_WebDialog_Builder(void * proxy);
+	com_facebook_widget_WebDialog_Builder(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_WebDialog_Builder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_os_Bundle& arg3);
-	com_facebook_widget_WebDialog_Builder(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_os_Bundle& arg3);
-	// TODO: remove
-	// 
-	// com_facebook_widget_WebDialog_Builder();
-	// 
+	com_facebook_widget_WebDialog_Builder(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_Session const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_os_Bundle const& arg3);
+	com_facebook_widget_WebDialog_Builder(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_os_Bundle const& arg3);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog_Builder();
 	// Functions

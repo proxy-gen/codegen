@@ -61,7 +61,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_io_IOException::java_io_IOException(const java_io_IOException& cc)
 {
 	LOGV("java_io_IOException::java_io_IOException(const java_io_IOException& cc) enter");
@@ -85,9 +84,9 @@ java_io_IOException::java_io_IOException(const java_io_IOException& cc)
 
 	LOGV("java_io_IOException::java_io_IOException(const java_io_IOException& cc) exit");
 }
-java_io_IOException::java_io_IOException(void * proxy)
+java_io_IOException::java_io_IOException(Proxy proxy)
 {
-	LOGV("java_io_IOException::java_io_IOException(void * proxy) enter");
+	LOGV("java_io_IOException::java_io_IOException(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -97,17 +96,31 @@ java_io_IOException::java_io_IOException(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_io_IOException::java_io_IOException(void * proxy) exit");
+	LOGV("java_io_IOException::java_io_IOException(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy java_io_IOException::proxy() const
+{	
+	LOGV("java_io_IOException::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("java_io_IOException cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_io_IOException jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("java_io_IOException::proxy() exit");	
+
+	return proxy;
+}
 java_io_IOException::java_io_IOException()
 {
 	LOGV("java_io_IOException::java_io_IOException() enter");	
@@ -144,9 +157,9 @@ java_io_IOException::java_io_IOException()
 
 	LOGV("java_io_IOException::java_io_IOException() exit");	
 }
-java_io_IOException::java_io_IOException(AndroidCXX::java_lang_String& arg0)
+java_io_IOException::java_io_IOException(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("java_io_IOException::java_io_IOException(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("java_io_IOException::java_io_IOException(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -199,11 +212,11 @@ java_io_IOException::java_io_IOException(AndroidCXX::java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_io_IOException::java_io_IOException(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("java_io_IOException::java_io_IOException(AndroidCXX::java_lang_String const& arg0) exit");	
 }
-java_io_IOException::java_io_IOException(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1)
+java_io_IOException::java_io_IOException(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1)
 {
-	LOGV("java_io_IOException::java_io_IOException(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1) enter");	
+	LOGV("java_io_IOException::java_io_IOException(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/Throwable;)V";
@@ -277,11 +290,11 @@ java_io_IOException::java_io_IOException(AndroidCXX::java_lang_String& arg0,Andr
 
 	jni->popLocalFrame();
 
-	LOGV("java_io_IOException::java_io_IOException(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1) exit");	
+	LOGV("java_io_IOException::java_io_IOException(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1) exit");	
 }
-java_io_IOException::java_io_IOException(AndroidCXX::java_lang_Throwable& arg0)
+java_io_IOException::java_io_IOException(AndroidCXX::java_lang_Throwable const& arg0)
 {
-	LOGV("java_io_IOException::java_io_IOException(AndroidCXX::java_lang_Throwable& arg0) enter");	
+	LOGV("java_io_IOException::java_io_IOException(AndroidCXX::java_lang_Throwable const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/Throwable;)V";
@@ -334,7 +347,7 @@ java_io_IOException::java_io_IOException(AndroidCXX::java_lang_Throwable& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_io_IOException::java_io_IOException(AndroidCXX::java_lang_Throwable& arg0) exit");	
+	LOGV("java_io_IOException::java_io_IOException(AndroidCXX::java_lang_Throwable const& arg0) exit");	
 }
 // Default Instance Destructor
 java_io_IOException::~java_io_IOException()
@@ -347,7 +360,7 @@ java_io_IOException::~java_io_IOException()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_io_IOException::~java_io_IOException() exit");
 }
 // Functions

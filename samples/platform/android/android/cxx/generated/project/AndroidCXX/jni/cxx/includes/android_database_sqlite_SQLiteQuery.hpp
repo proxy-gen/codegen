@@ -51,12 +51,9 @@ class android_database_sqlite_SQLiteQuery
 public:
 
 	android_database_sqlite_SQLiteQuery(const android_database_sqlite_SQLiteQuery& cc);
-	android_database_sqlite_SQLiteQuery(void * proxy);
+	android_database_sqlite_SQLiteQuery(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_database_sqlite_SQLiteQuery();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteQuery();
 	// Functions

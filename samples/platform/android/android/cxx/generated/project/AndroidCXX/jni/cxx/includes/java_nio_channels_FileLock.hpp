@@ -63,12 +63,9 @@ class java_nio_channels_FileLock
 public:
 
 	java_nio_channels_FileLock(const java_nio_channels_FileLock& cc);
-	java_nio_channels_FileLock(void * proxy);
+	java_nio_channels_FileLock(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_nio_channels_FileLock();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_FileLock();
 	// Functions
@@ -79,7 +76,7 @@ public:
 	 AndroidCXX::java_nio_channels_FileChannel channel();
 	 bool isShared();
 	 bool isValid();
-	 bool overlaps(long& arg0,long& arg1);
+	 bool overlaps(long const& arg0,long const& arg1);
 };	
 
 } // namespace

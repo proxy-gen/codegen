@@ -84,7 +84,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_security_CodeSource::java_security_CodeSource(const java_security_CodeSource& cc)
 {
 	LOGV("java_security_CodeSource::java_security_CodeSource(const java_security_CodeSource& cc) enter");
@@ -108,9 +107,9 @@ java_security_CodeSource::java_security_CodeSource(const java_security_CodeSourc
 
 	LOGV("java_security_CodeSource::java_security_CodeSource(const java_security_CodeSource& cc) exit");
 }
-java_security_CodeSource::java_security_CodeSource(void * proxy)
+java_security_CodeSource::java_security_CodeSource(Proxy proxy)
 {
-	LOGV("java_security_CodeSource::java_security_CodeSource(void * proxy) enter");
+	LOGV("java_security_CodeSource::java_security_CodeSource(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -120,55 +119,34 @@ java_security_CodeSource::java_security_CodeSource(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_security_CodeSource::java_security_CodeSource(void * proxy) exit");
+	LOGV("java_security_CodeSource::java_security_CodeSource(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_security_CodeSource::java_security_CodeSource()
-// {
-// 	LOGV("java_security_CodeSource::java_security_CodeSource() enter");	
+Proxy java_security_CodeSource::proxy() const
+{	
+	LOGV("java_security_CodeSource::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/security/CodeSource";
+	long cxxAddress = (long) this;
+	LOGV("java_security_CodeSource cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_security_CodeSource jni address %d", proxiedComponent);
 
-// 	LOGV("java_security_CodeSource className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_security_CodeSource::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_security_CodeSource cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_security_CodeSource jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_security_CodeSource::java_security_CodeSource() exit");	
-// }
-// 
-// 
-// Public Constructors
-java_security_CodeSource::java_security_CodeSource(AndroidCXX::java_net_URL& arg0,std::vector<AndroidCXX::java_security_CodeSigner >& arg1)
+	return proxy;
+}
+java_security_CodeSource::java_security_CodeSource(AndroidCXX::java_net_URL const& arg0,std::vector<AndroidCXX::java_security_CodeSigner > const& arg1)
 {
-	LOGV("java_security_CodeSource::java_security_CodeSource(AndroidCXX::java_net_URL& arg0,std::vector<AndroidCXX::java_security_CodeSigner >& arg1) enter");	
+	LOGV("java_security_CodeSource::java_security_CodeSource(AndroidCXX::java_net_URL const& arg0,std::vector<AndroidCXX::java_security_CodeSigner > const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/net/URL;[Ljava/security/CodeSigner;)V";
@@ -260,11 +238,11 @@ java_security_CodeSource::java_security_CodeSource(AndroidCXX::java_net_URL& arg
 
 	jni->popLocalFrame();
 
-	LOGV("java_security_CodeSource::java_security_CodeSource(AndroidCXX::java_net_URL& arg0,std::vector<AndroidCXX::java_security_CodeSigner >& arg1) exit");	
+	LOGV("java_security_CodeSource::java_security_CodeSource(AndroidCXX::java_net_URL const& arg0,std::vector<AndroidCXX::java_security_CodeSigner > const& arg1) exit");	
 }
-java_security_CodeSource::java_security_CodeSource(AndroidCXX::java_net_URL& arg0,std::vector<AndroidCXX::java_security_cert_Certificate >& arg1)
+java_security_CodeSource::java_security_CodeSource(AndroidCXX::java_net_URL const& arg0,std::vector<AndroidCXX::java_security_cert_Certificate > const& arg1)
 {
-	LOGV("java_security_CodeSource::java_security_CodeSource(AndroidCXX::java_net_URL& arg0,std::vector<AndroidCXX::java_security_cert_Certificate >& arg1) enter");	
+	LOGV("java_security_CodeSource::java_security_CodeSource(AndroidCXX::java_net_URL const& arg0,std::vector<AndroidCXX::java_security_cert_Certificate > const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/net/URL;[Ljava/security/cert/Certificate;)V";
@@ -356,7 +334,7 @@ java_security_CodeSource::java_security_CodeSource(AndroidCXX::java_net_URL& arg
 
 	jni->popLocalFrame();
 
-	LOGV("java_security_CodeSource::java_security_CodeSource(AndroidCXX::java_net_URL& arg0,std::vector<AndroidCXX::java_security_cert_Certificate >& arg1) exit");	
+	LOGV("java_security_CodeSource::java_security_CodeSource(AndroidCXX::java_net_URL const& arg0,std::vector<AndroidCXX::java_security_cert_Certificate > const& arg1) exit");	
 }
 // Default Instance Destructor
 java_security_CodeSource::~java_security_CodeSource()
@@ -369,13 +347,13 @@ java_security_CodeSource::~java_security_CodeSource()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_security_CodeSource::~java_security_CodeSource() exit");
 }
 // Functions
-bool java_security_CodeSource::equals(AndroidCXX::java_lang_Object& arg0)
+bool java_security_CodeSource::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_security_CodeSource::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_security_CodeSource::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -385,8 +363,6 @@ bool java_security_CodeSource::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_CodeSource cxx address %d", cxxAddress);
@@ -436,9 +412,7 @@ bool java_security_CodeSource::equals(AndroidCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_security_CodeSource::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_security_CodeSource::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -454,8 +428,6 @@ AndroidCXX::java_lang_String java_security_CodeSource::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_CodeSource cxx address %d", cxxAddress);
@@ -484,8 +456,6 @@ AndroidCXX::java_lang_String java_security_CodeSource::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_security_CodeSource::toString() exit");
 
 	return result;
@@ -502,8 +472,6 @@ int java_security_CodeSource::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_CodeSource cxx address %d", cxxAddress);
@@ -532,8 +500,6 @@ int java_security_CodeSource::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_security_CodeSource::hashCode() exit");
 
 	return result;
@@ -550,8 +516,6 @@ AndroidCXX::java_net_URL java_security_CodeSource::getLocation()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_CodeSource cxx address %d", cxxAddress);
@@ -580,8 +544,6 @@ AndroidCXX::java_net_URL java_security_CodeSource::getLocation()
 	AndroidCXX::java_net_URL result((AndroidCXX::java_net_URL) *((AndroidCXX::java_net_URL *) cxx_value));
 	delete ((AndroidCXX::java_net_URL *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_net_URL java_security_CodeSource::getLocation() exit");
 
 	return result;
@@ -598,8 +560,6 @@ std::vector<AndroidCXX::java_security_cert_Certificate > java_security_CodeSourc
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_CodeSource cxx address %d", cxxAddress);
@@ -646,15 +606,13 @@ std::vector<AndroidCXX::java_security_cert_Certificate > java_security_CodeSourc
 	std::vector<AndroidCXX::java_security_cert_Certificate > result = (std::vector<AndroidCXX::java_security_cert_Certificate >) *((std::vector<AndroidCXX::java_security_cert_Certificate > *) cxx_value);
 	delete ((std::vector<AndroidCXX::java_security_cert_Certificate > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<AndroidCXX::java_security_cert_Certificate > java_security_CodeSource::getCertificates() exit");
 
 	return result;
 }
-bool java_security_CodeSource::implies(AndroidCXX::java_security_CodeSource& arg0)
+bool java_security_CodeSource::implies(AndroidCXX::java_security_CodeSource const& arg0)
 {
-	LOGV("bool java_security_CodeSource::implies(AndroidCXX::java_security_CodeSource& arg0) enter");
+	LOGV("bool java_security_CodeSource::implies(AndroidCXX::java_security_CodeSource const& arg0) enter");
 
 	const char *methodName = "implies";
 	const char *methodSignature = "(Ljava/security/CodeSource;)Z";
@@ -664,8 +622,6 @@ bool java_security_CodeSource::implies(AndroidCXX::java_security_CodeSource& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_CodeSource cxx address %d", cxxAddress);
@@ -715,9 +671,7 @@ bool java_security_CodeSource::implies(AndroidCXX::java_security_CodeSource& arg
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_security_CodeSource::implies(AndroidCXX::java_security_CodeSource& arg0) exit");
+	LOGV("bool java_security_CodeSource::implies(AndroidCXX::java_security_CodeSource const& arg0) exit");
 
 	return result;
 }
@@ -733,8 +687,6 @@ std::vector<AndroidCXX::java_security_CodeSigner > java_security_CodeSource::get
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_CodeSource cxx address %d", cxxAddress);
@@ -781,8 +733,6 @@ std::vector<AndroidCXX::java_security_CodeSigner > java_security_CodeSource::get
 	std::vector<AndroidCXX::java_security_CodeSigner > result = (std::vector<AndroidCXX::java_security_CodeSigner >) *((std::vector<AndroidCXX::java_security_CodeSigner > *) cxx_value);
 	delete ((std::vector<AndroidCXX::java_security_CodeSigner > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<AndroidCXX::java_security_CodeSigner > java_security_CodeSource::getCodeSigners() exit");
 
 	return result;

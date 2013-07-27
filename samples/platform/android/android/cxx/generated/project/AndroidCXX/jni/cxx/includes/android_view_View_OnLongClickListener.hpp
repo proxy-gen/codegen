@@ -51,16 +51,13 @@ class android_view_View_OnLongClickListener
 public:
 
 	android_view_View_OnLongClickListener(const android_view_View_OnLongClickListener& cc);
-	android_view_View_OnLongClickListener(void * proxy);
+	android_view_View_OnLongClickListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_view_View_OnLongClickListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnLongClickListener();
 	// Functions
-	 bool onLongClick(AndroidCXX::android_view_View& arg0);
+	 bool onLongClick(AndroidCXX::android_view_View const& arg0);
 };	
 
 } // namespace

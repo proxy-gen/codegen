@@ -138,7 +138,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_VideoView::android_widget_VideoView(const android_widget_VideoView& cc)
 {
 	LOGV("android_widget_VideoView::android_widget_VideoView(const android_widget_VideoView& cc) enter");
@@ -162,9 +161,9 @@ android_widget_VideoView::android_widget_VideoView(const android_widget_VideoVie
 
 	LOGV("android_widget_VideoView::android_widget_VideoView(const android_widget_VideoView& cc) exit");
 }
-android_widget_VideoView::android_widget_VideoView(void * proxy)
+android_widget_VideoView::android_widget_VideoView(Proxy proxy)
 {
-	LOGV("android_widget_VideoView::android_widget_VideoView(void * proxy) enter");
+	LOGV("android_widget_VideoView::android_widget_VideoView(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -174,55 +173,34 @@ android_widget_VideoView::android_widget_VideoView(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_VideoView::android_widget_VideoView(void * proxy) exit");
+	LOGV("android_widget_VideoView::android_widget_VideoView(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_VideoView::android_widget_VideoView()
-// {
-// 	LOGV("android_widget_VideoView::android_widget_VideoView() enter");	
+Proxy android_widget_VideoView::proxy() const
+{	
+	LOGV("android_widget_VideoView::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/VideoView";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_VideoView jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_VideoView::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_VideoView jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_VideoView::android_widget_VideoView() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+	return proxy;
+}
+android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -296,11 +274,11 @@ android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_C
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
+android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2)
 {
-	LOGV("android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) enter");	
+	LOGV("android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
@@ -395,11 +373,11 @@ android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_C
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) exit");	
+	LOGV("android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) exit");	
 }
-android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_Context& arg0)
+android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -452,7 +430,7 @@ android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_C
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_Context const& arg0) exit");	
 }
 // Default Instance Destructor
 android_widget_VideoView::~android_widget_VideoView()
@@ -465,7 +443,7 @@ android_widget_VideoView::~android_widget_VideoView()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_VideoView::~android_widget_VideoView() exit");
 }
 // Functions
@@ -482,8 +460,6 @@ void android_widget_VideoView::start()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -492,8 +468,6 @@ void android_widget_VideoView::start()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_VideoView::start() exit");
 
 }
@@ -510,8 +484,6 @@ void android_widget_VideoView::suspend()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -520,8 +492,6 @@ void android_widget_VideoView::suspend()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_VideoView::suspend() exit");
 
 }
@@ -538,8 +508,6 @@ void android_widget_VideoView::resume()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -548,14 +516,12 @@ void android_widget_VideoView::resume()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_VideoView::resume() exit");
 
 }
-bool android_widget_VideoView::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1)
+bool android_widget_VideoView::onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1)
 {
-	LOGV("bool android_widget_VideoView::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) enter");
+	LOGV("bool android_widget_VideoView::onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) enter");
 
 	const char *methodName = "onKeyDown";
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
@@ -565,8 +531,6 @@ bool android_widget_VideoView::onKeyDown(int& arg0,AndroidCXX::android_view_KeyE
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
@@ -637,15 +601,13 @@ bool android_widget_VideoView::onKeyDown(int& arg0,AndroidCXX::android_view_KeyE
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_VideoView::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) exit");
+	LOGV("bool android_widget_VideoView::onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) exit");
 
 	return result;
 }
-bool android_widget_VideoView::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_VideoView::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_VideoView::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_VideoView::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onTouchEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -656,8 +618,6 @@ bool android_widget_VideoView::onTouchEvent(AndroidCXX::android_view_MotionEvent
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -706,15 +666,13 @@ bool android_widget_VideoView::onTouchEvent(AndroidCXX::android_view_MotionEvent
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_VideoView::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	LOGV("bool android_widget_VideoView::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-bool android_widget_VideoView::onTrackballEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_VideoView::onTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_VideoView::onTrackballEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_VideoView::onTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onTrackballEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -725,8 +683,6 @@ bool android_widget_VideoView::onTrackballEvent(AndroidCXX::android_view_MotionE
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -775,9 +731,7 @@ bool android_widget_VideoView::onTrackballEvent(AndroidCXX::android_view_MotionE
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_VideoView::onTrackballEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	LOGV("bool android_widget_VideoView::onTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
@@ -793,8 +747,6 @@ int android_widget_VideoView::getDuration()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
@@ -823,15 +775,13 @@ int android_widget_VideoView::getDuration()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_VideoView::getDuration() exit");
 
 	return result;
 }
-void android_widget_VideoView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_VideoView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_VideoView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_VideoView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -841,8 +791,6 @@ void android_widget_VideoView::onInitializeAccessibilityEvent(AndroidCXX::androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
@@ -873,14 +821,12 @@ void android_widget_VideoView::onInitializeAccessibilityEvent(AndroidCXX::androi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_VideoView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_VideoView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_VideoView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0)
+void android_widget_VideoView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0)
 {
-	LOGV("void android_widget_VideoView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) enter");
+	LOGV("void android_widget_VideoView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityNodeInfo";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
@@ -890,8 +836,6 @@ void android_widget_VideoView::onInitializeAccessibilityNodeInfo(AndroidCXX::and
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
@@ -922,9 +866,7 @@ void android_widget_VideoView::onInitializeAccessibilityNodeInfo(AndroidCXX::and
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_VideoView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) exit");
+	LOGV("void android_widget_VideoView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) exit");
 
 }
 void android_widget_VideoView::pause()
@@ -940,8 +882,6 @@ void android_widget_VideoView::pause()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -950,8 +890,6 @@ void android_widget_VideoView::pause()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_VideoView::pause() exit");
 
 }
@@ -967,8 +905,6 @@ int android_widget_VideoView::getCurrentPosition()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
@@ -997,15 +933,13 @@ int android_widget_VideoView::getCurrentPosition()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_VideoView::getCurrentPosition() exit");
 
 	return result;
 }
-void android_widget_VideoView::seekTo(int& arg0)
+void android_widget_VideoView::seekTo(int const& arg0)
 {
-	LOGV("void android_widget_VideoView::seekTo(int& arg0) enter");
+	LOGV("void android_widget_VideoView::seekTo(int const& arg0) enter");
 
 	const char *methodName = "seekTo";
 	const char *methodSignature = "(I)V";
@@ -1015,8 +949,6 @@ void android_widget_VideoView::seekTo(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
@@ -1047,9 +979,7 @@ void android_widget_VideoView::seekTo(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_VideoView::seekTo(int& arg0) exit");
+	LOGV("void android_widget_VideoView::seekTo(int const& arg0) exit");
 
 }
 bool android_widget_VideoView::isPlaying()
@@ -1064,8 +994,6 @@ bool android_widget_VideoView::isPlaying()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
@@ -1094,8 +1022,6 @@ bool android_widget_VideoView::isPlaying()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_VideoView::isPlaying() exit");
 
 	return result;
@@ -1112,8 +1038,6 @@ int android_widget_VideoView::getBufferPercentage()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
@@ -1142,8 +1066,6 @@ int android_widget_VideoView::getBufferPercentage()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_VideoView::getBufferPercentage() exit");
 
 	return result;
@@ -1161,8 +1083,6 @@ bool android_widget_VideoView::canPause()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1190,8 +1110,6 @@ bool android_widget_VideoView::canPause()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_VideoView::canPause() exit");
 
 	return result;
@@ -1209,8 +1127,6 @@ bool android_widget_VideoView::canSeekBackward()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1238,8 +1154,6 @@ bool android_widget_VideoView::canSeekBackward()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_VideoView::canSeekBackward() exit");
 
 	return result;
@@ -1257,8 +1171,6 @@ bool android_widget_VideoView::canSeekForward()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1286,15 +1198,13 @@ bool android_widget_VideoView::canSeekForward()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_VideoView::canSeekForward() exit");
 
 	return result;
 }
-int android_widget_VideoView::resolveAdjustedSize(int& arg0,int& arg1)
+int android_widget_VideoView::resolveAdjustedSize(int const& arg0,int const& arg1)
 {
-	LOGV("int android_widget_VideoView::resolveAdjustedSize(int& arg0,int& arg1) enter");
+	LOGV("int android_widget_VideoView::resolveAdjustedSize(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "resolveAdjustedSize";
 	const char *methodSignature = "(II)I";
@@ -1304,8 +1214,6 @@ int android_widget_VideoView::resolveAdjustedSize(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
@@ -1376,15 +1284,13 @@ int android_widget_VideoView::resolveAdjustedSize(int& arg0,int& arg1)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_widget_VideoView::resolveAdjustedSize(int& arg0,int& arg1) exit");
+	LOGV("int android_widget_VideoView::resolveAdjustedSize(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-void android_widget_VideoView::setVideoPath(AndroidCXX::java_lang_String& arg0)
+void android_widget_VideoView::setVideoPath(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_widget_VideoView::setVideoPath(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_widget_VideoView::setVideoPath(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setVideoPath";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -1394,8 +1300,6 @@ void android_widget_VideoView::setVideoPath(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
@@ -1426,14 +1330,12 @@ void android_widget_VideoView::setVideoPath(AndroidCXX::java_lang_String& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_VideoView::setVideoPath(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_widget_VideoView::setVideoPath(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-void android_widget_VideoView::setVideoURI(AndroidCXX::android_net_Uri& arg0)
+void android_widget_VideoView::setVideoURI(AndroidCXX::android_net_Uri const& arg0)
 {
-	LOGV("void android_widget_VideoView::setVideoURI(AndroidCXX::android_net_Uri& arg0) enter");
+	LOGV("void android_widget_VideoView::setVideoURI(AndroidCXX::android_net_Uri const& arg0) enter");
 
 	const char *methodName = "setVideoURI";
 	const char *methodSignature = "(Landroid/net/Uri;)V";
@@ -1443,8 +1345,6 @@ void android_widget_VideoView::setVideoURI(AndroidCXX::android_net_Uri& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
@@ -1475,9 +1375,7 @@ void android_widget_VideoView::setVideoURI(AndroidCXX::android_net_Uri& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_VideoView::setVideoURI(AndroidCXX::android_net_Uri& arg0) exit");
+	LOGV("void android_widget_VideoView::setVideoURI(AndroidCXX::android_net_Uri const& arg0) exit");
 
 }
 void android_widget_VideoView::stopPlayback()
@@ -1493,8 +1391,6 @@ void android_widget_VideoView::stopPlayback()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1503,14 +1399,12 @@ void android_widget_VideoView::stopPlayback()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_VideoView::stopPlayback() exit");
 
 }
-void android_widget_VideoView::setMediaController(AndroidCXX::android_widget_MediaController& arg0)
+void android_widget_VideoView::setMediaController(AndroidCXX::android_widget_MediaController const& arg0)
 {
-	LOGV("void android_widget_VideoView::setMediaController(AndroidCXX::android_widget_MediaController& arg0) enter");
+	LOGV("void android_widget_VideoView::setMediaController(AndroidCXX::android_widget_MediaController const& arg0) enter");
 
 	const char *methodName = "setMediaController";
 	const char *methodSignature = "(Landroid/widget/MediaController;)V";
@@ -1520,8 +1414,6 @@ void android_widget_VideoView::setMediaController(AndroidCXX::android_widget_Med
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
@@ -1552,14 +1444,12 @@ void android_widget_VideoView::setMediaController(AndroidCXX::android_widget_Med
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_VideoView::setMediaController(AndroidCXX::android_widget_MediaController& arg0) exit");
+	LOGV("void android_widget_VideoView::setMediaController(AndroidCXX::android_widget_MediaController const& arg0) exit");
 
 }
-void android_widget_VideoView::setOnPreparedListener(AndroidCXX::android_media_MediaPlayer_OnPreparedListener& arg0)
+void android_widget_VideoView::setOnPreparedListener(AndroidCXX::android_media_MediaPlayer_OnPreparedListener const& arg0)
 {
-	LOGV("void android_widget_VideoView::setOnPreparedListener(AndroidCXX::android_media_MediaPlayer_OnPreparedListener& arg0) enter");
+	LOGV("void android_widget_VideoView::setOnPreparedListener(AndroidCXX::android_media_MediaPlayer_OnPreparedListener const& arg0) enter");
 
 	const char *methodName = "setOnPreparedListener";
 	const char *methodSignature = "(Landroid/media/MediaPlayer$OnPreparedListener;)V";
@@ -1569,8 +1459,6 @@ void android_widget_VideoView::setOnPreparedListener(AndroidCXX::android_media_M
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
@@ -1601,14 +1489,12 @@ void android_widget_VideoView::setOnPreparedListener(AndroidCXX::android_media_M
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_VideoView::setOnPreparedListener(AndroidCXX::android_media_MediaPlayer_OnPreparedListener& arg0) exit");
+	LOGV("void android_widget_VideoView::setOnPreparedListener(AndroidCXX::android_media_MediaPlayer_OnPreparedListener const& arg0) exit");
 
 }
-void android_widget_VideoView::setOnCompletionListener(AndroidCXX::android_media_MediaPlayer_OnCompletionListener& arg0)
+void android_widget_VideoView::setOnCompletionListener(AndroidCXX::android_media_MediaPlayer_OnCompletionListener const& arg0)
 {
-	LOGV("void android_widget_VideoView::setOnCompletionListener(AndroidCXX::android_media_MediaPlayer_OnCompletionListener& arg0) enter");
+	LOGV("void android_widget_VideoView::setOnCompletionListener(AndroidCXX::android_media_MediaPlayer_OnCompletionListener const& arg0) enter");
 
 	const char *methodName = "setOnCompletionListener";
 	const char *methodSignature = "(Landroid/media/MediaPlayer$OnCompletionListener;)V";
@@ -1618,8 +1504,6 @@ void android_widget_VideoView::setOnCompletionListener(AndroidCXX::android_media
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
@@ -1650,14 +1534,12 @@ void android_widget_VideoView::setOnCompletionListener(AndroidCXX::android_media
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_VideoView::setOnCompletionListener(AndroidCXX::android_media_MediaPlayer_OnCompletionListener& arg0) exit");
+	LOGV("void android_widget_VideoView::setOnCompletionListener(AndroidCXX::android_media_MediaPlayer_OnCompletionListener const& arg0) exit");
 
 }
-void android_widget_VideoView::setOnErrorListener(AndroidCXX::android_media_MediaPlayer_OnErrorListener& arg0)
+void android_widget_VideoView::setOnErrorListener(AndroidCXX::android_media_MediaPlayer_OnErrorListener const& arg0)
 {
-	LOGV("void android_widget_VideoView::setOnErrorListener(AndroidCXX::android_media_MediaPlayer_OnErrorListener& arg0) enter");
+	LOGV("void android_widget_VideoView::setOnErrorListener(AndroidCXX::android_media_MediaPlayer_OnErrorListener const& arg0) enter");
 
 	const char *methodName = "setOnErrorListener";
 	const char *methodSignature = "(Landroid/media/MediaPlayer$OnErrorListener;)V";
@@ -1667,8 +1549,6 @@ void android_widget_VideoView::setOnErrorListener(AndroidCXX::android_media_Medi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
@@ -1699,14 +1579,12 @@ void android_widget_VideoView::setOnErrorListener(AndroidCXX::android_media_Medi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_VideoView::setOnErrorListener(AndroidCXX::android_media_MediaPlayer_OnErrorListener& arg0) exit");
+	LOGV("void android_widget_VideoView::setOnErrorListener(AndroidCXX::android_media_MediaPlayer_OnErrorListener const& arg0) exit");
 
 }
-void android_widget_VideoView::setOnInfoListener(AndroidCXX::android_media_MediaPlayer_OnInfoListener& arg0)
+void android_widget_VideoView::setOnInfoListener(AndroidCXX::android_media_MediaPlayer_OnInfoListener const& arg0)
 {
-	LOGV("void android_widget_VideoView::setOnInfoListener(AndroidCXX::android_media_MediaPlayer_OnInfoListener& arg0) enter");
+	LOGV("void android_widget_VideoView::setOnInfoListener(AndroidCXX::android_media_MediaPlayer_OnInfoListener const& arg0) enter");
 
 	const char *methodName = "setOnInfoListener";
 	const char *methodSignature = "(Landroid/media/MediaPlayer$OnInfoListener;)V";
@@ -1716,8 +1594,6 @@ void android_widget_VideoView::setOnInfoListener(AndroidCXX::android_media_Media
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
@@ -1748,8 +1624,6 @@ void android_widget_VideoView::setOnInfoListener(AndroidCXX::android_media_Media
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_VideoView::setOnInfoListener(AndroidCXX::android_media_MediaPlayer_OnInfoListener& arg0) exit");
+	LOGV("void android_widget_VideoView::setOnInfoListener(AndroidCXX::android_media_MediaPlayer_OnInfoListener const& arg0) exit");
 
 }

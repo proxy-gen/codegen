@@ -46,7 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_nio_channels_FileChannel_MapMode::java_nio_channels_FileChannel_MapMode(const java_nio_channels_FileChannel_MapMode& cc)
 {
 	LOGV("java_nio_channels_FileChannel_MapMode::java_nio_channels_FileChannel_MapMode(const java_nio_channels_FileChannel_MapMode& cc) enter");
@@ -70,9 +69,9 @@ java_nio_channels_FileChannel_MapMode::java_nio_channels_FileChannel_MapMode(con
 
 	LOGV("java_nio_channels_FileChannel_MapMode::java_nio_channels_FileChannel_MapMode(const java_nio_channels_FileChannel_MapMode& cc) exit");
 }
-java_nio_channels_FileChannel_MapMode::java_nio_channels_FileChannel_MapMode(void * proxy)
+java_nio_channels_FileChannel_MapMode::java_nio_channels_FileChannel_MapMode(Proxy proxy)
 {
-	LOGV("java_nio_channels_FileChannel_MapMode::java_nio_channels_FileChannel_MapMode(void * proxy) enter");
+	LOGV("java_nio_channels_FileChannel_MapMode::java_nio_channels_FileChannel_MapMode(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -82,52 +81,31 @@ java_nio_channels_FileChannel_MapMode::java_nio_channels_FileChannel_MapMode(voi
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_nio_channels_FileChannel_MapMode::java_nio_channels_FileChannel_MapMode(void * proxy) exit");
+	LOGV("java_nio_channels_FileChannel_MapMode::java_nio_channels_FileChannel_MapMode(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_nio_channels_FileChannel_MapMode::java_nio_channels_FileChannel_MapMode()
-// {
-// 	LOGV("java_nio_channels_FileChannel_MapMode::java_nio_channels_FileChannel_MapMode() enter");	
+Proxy java_nio_channels_FileChannel_MapMode::proxy() const
+{	
+	LOGV("java_nio_channels_FileChannel_MapMode::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/nio/channels/FileChannel$MapMode";
+	long cxxAddress = (long) this;
+	LOGV("java_nio_channels_FileChannel_MapMode cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_channels_FileChannel_MapMode jni address %d", proxiedComponent);
 
-// 	LOGV("java_nio_channels_FileChannel_MapMode className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_nio_channels_FileChannel_MapMode::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_nio_channels_FileChannel_MapMode cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_nio_channels_FileChannel_MapMode jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_nio_channels_FileChannel_MapMode::java_nio_channels_FileChannel_MapMode() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_nio_channels_FileChannel_MapMode::~java_nio_channels_FileChannel_MapMode()
 {
@@ -139,7 +117,7 @@ java_nio_channels_FileChannel_MapMode::~java_nio_channels_FileChannel_MapMode()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_nio_channels_FileChannel_MapMode::~java_nio_channels_FileChannel_MapMode() exit");
 }
 // Functions
@@ -155,8 +133,6 @@ AndroidCXX::java_lang_String java_nio_channels_FileChannel_MapMode::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_FileChannel_MapMode cxx address %d", cxxAddress);
@@ -185,8 +161,6 @@ AndroidCXX::java_lang_String java_nio_channels_FileChannel_MapMode::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_nio_channels_FileChannel_MapMode::toString() exit");
 
 	return result;

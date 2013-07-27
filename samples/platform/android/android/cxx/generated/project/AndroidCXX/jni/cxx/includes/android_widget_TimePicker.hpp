@@ -105,32 +105,29 @@ class android_widget_TimePicker
 public:
 
 	android_widget_TimePicker(const android_widget_TimePicker& cc);
-	android_widget_TimePicker(void * proxy);
+	android_widget_TimePicker(Proxy proxy);
 	// Public Constructors
-	android_widget_TimePicker(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_TimePicker(AndroidCXX::android_content_Context& arg0);
-	android_widget_TimePicker(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	// TODO: remove
-	// 
-	// android_widget_TimePicker();
-	// 
+	android_widget_TimePicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_TimePicker(AndroidCXX::android_content_Context const& arg0);
+	android_widget_TimePicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TimePicker();
 	// Functions
 	 bool isEnabled();
-	 bool dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 void setEnabled(bool& arg0);
+	 bool dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 void setEnabled(bool const& arg0);
 	 int getBaseline();
-	 void setOnTimeChangedListener(AndroidCXX::android_widget_TimePicker_OnTimeChangedListener& arg0);
+	 void setOnTimeChangedListener(AndroidCXX::android_widget_TimePicker_OnTimeChangedListener const& arg0);
 	 AndroidCXX::java_lang_Integer getCurrentHour();
-	 void setCurrentHour(AndroidCXX::java_lang_Integer& arg0);
-	 void setIs24HourView(AndroidCXX::java_lang_Boolean& arg0);
+	 void setCurrentHour(AndroidCXX::java_lang_Integer const& arg0);
+	 void setIs24HourView(AndroidCXX::java_lang_Boolean const& arg0);
 	 bool is24HourView();
 	 AndroidCXX::java_lang_Integer getCurrentMinute();
-	 void setCurrentMinute(AndroidCXX::java_lang_Integer& arg0);
+	 void setCurrentMinute(AndroidCXX::java_lang_Integer const& arg0);
 };	
 
 } // namespace

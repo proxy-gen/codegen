@@ -86,26 +86,23 @@ class android_widget_CheckedTextView
 public:
 
 	android_widget_CheckedTextView(const android_widget_CheckedTextView& cc);
-	android_widget_CheckedTextView(void * proxy);
+	android_widget_CheckedTextView(Proxy proxy);
 	// Public Constructors
-	android_widget_CheckedTextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_CheckedTextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_CheckedTextView(AndroidCXX::android_content_Context& arg0);
-	// TODO: remove
-	// 
-	// android_widget_CheckedTextView();
-	// 
+	android_widget_CheckedTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_CheckedTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_CheckedTextView(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_CheckedTextView();
 	// Functions
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 void onRtlPropertiesChanged(int& arg0);
-	 void setChecked(bool& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 void onRtlPropertiesChanged(int const& arg0);
+	 void setChecked(bool const& arg0);
 	 bool isChecked();
 	 void toggle();
-	 void setCheckMarkDrawable(int& arg0);
-	 void setCheckMarkDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0);
+	 void setCheckMarkDrawable(int const& arg0);
+	 void setCheckMarkDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
 	 AndroidCXX::android_graphics_drawable_Drawable getCheckMarkDrawable();
 };	
 

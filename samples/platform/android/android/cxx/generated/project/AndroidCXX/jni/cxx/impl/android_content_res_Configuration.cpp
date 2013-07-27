@@ -108,33 +108,9 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
-android_content_res_Configuration::android_content_res_Configuration(const android_content_res_Configuration& cc)
+android_content_res_Configuration::android_content_res_Configuration(Proxy proxy)
 {
-	LOGV("android_content_res_Configuration::android_content_res_Configuration(const android_content_res_Configuration& cc) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	long ccaddress = (long) &cc;
-	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
-	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
-	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
-	long address = (long) this;
-	LOGV("registerProxyComponent address %ld", address);
-	jobject proxiedComponent = ctx->findProxyComponent(address);
-	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
-	if (proxiedComponent == 0)
-	{
-		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = proxiedCCComponent;
-		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
-		ctx->registerProxyComponent(address, proxiedComponent);
-	}
-
-	LOGV("android_content_res_Configuration::android_content_res_Configuration(const android_content_res_Configuration& cc) exit");
-}
-android_content_res_Configuration::android_content_res_Configuration(void * proxy)
-{
-	LOGV("android_content_res_Configuration::android_content_res_Configuration(void * proxy) enter");
+	LOGV("android_content_res_Configuration::android_content_res_Configuration(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -144,17 +120,31 @@ android_content_res_Configuration::android_content_res_Configuration(void * prox
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_content_res_Configuration::android_content_res_Configuration(void * proxy) exit");
+	LOGV("android_content_res_Configuration::android_content_res_Configuration(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy android_content_res_Configuration::proxy() const
+{	
+	LOGV("android_content_res_Configuration::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_content_res_Configuration cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_content_res_Configuration jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_content_res_Configuration::proxy() exit");	
+
+	return proxy;
+}
 android_content_res_Configuration::android_content_res_Configuration()
 {
 	LOGV("android_content_res_Configuration::android_content_res_Configuration() enter");	
@@ -191,9 +181,9 @@ android_content_res_Configuration::android_content_res_Configuration()
 
 	LOGV("android_content_res_Configuration::android_content_res_Configuration() exit");	
 }
-android_content_res_Configuration::android_content_res_Configuration(AndroidCXX::android_content_res_Configuration& arg0)
+android_content_res_Configuration::android_content_res_Configuration(AndroidCXX::android_content_res_Configuration const& arg0)
 {
-	LOGV("android_content_res_Configuration::android_content_res_Configuration(AndroidCXX::android_content_res_Configuration& arg0) enter");	
+	LOGV("android_content_res_Configuration::android_content_res_Configuration(AndroidCXX::android_content_res_Configuration const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/res/Configuration;)V";
@@ -246,7 +236,7 @@ android_content_res_Configuration::android_content_res_Configuration(AndroidCXX:
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_res_Configuration::android_content_res_Configuration(AndroidCXX::android_content_res_Configuration& arg0) exit");	
+	LOGV("android_content_res_Configuration::android_content_res_Configuration(AndroidCXX::android_content_res_Configuration const& arg0) exit");	
 }
 // Default Instance Destructor
 android_content_res_Configuration::~android_content_res_Configuration()
@@ -259,13 +249,13 @@ android_content_res_Configuration::~android_content_res_Configuration()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_content_res_Configuration::~android_content_res_Configuration() exit");
 }
 // Functions
-bool android_content_res_Configuration::equals(AndroidCXX::android_content_res_Configuration& arg0)
+bool android_content_res_Configuration::equals(AndroidCXX::android_content_res_Configuration const& arg0)
 {
-	LOGV("bool android_content_res_Configuration::equals(AndroidCXX::android_content_res_Configuration& arg0) enter");
+	LOGV("bool android_content_res_Configuration::equals(AndroidCXX::android_content_res_Configuration const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Landroid/content/res/Configuration;)Z";
@@ -275,8 +265,6 @@ bool android_content_res_Configuration::equals(AndroidCXX::android_content_res_C
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Configuration cxx address %d", cxxAddress);
@@ -326,15 +314,13 @@ bool android_content_res_Configuration::equals(AndroidCXX::android_content_res_C
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_content_res_Configuration::equals(AndroidCXX::android_content_res_Configuration& arg0) exit");
+	LOGV("bool android_content_res_Configuration::equals(AndroidCXX::android_content_res_Configuration const& arg0) exit");
 
 	return result;
 }
-bool android_content_res_Configuration::equals(AndroidCXX::java_lang_Object& arg0)
+bool android_content_res_Configuration::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool android_content_res_Configuration::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool android_content_res_Configuration::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -344,8 +330,6 @@ bool android_content_res_Configuration::equals(AndroidCXX::java_lang_Object& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Configuration cxx address %d", cxxAddress);
@@ -395,9 +379,7 @@ bool android_content_res_Configuration::equals(AndroidCXX::java_lang_Object& arg
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_content_res_Configuration::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool android_content_res_Configuration::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -413,8 +395,6 @@ AndroidCXX::java_lang_String android_content_res_Configuration::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Configuration cxx address %d", cxxAddress);
@@ -443,8 +423,6 @@ AndroidCXX::java_lang_String android_content_res_Configuration::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_content_res_Configuration::toString() exit");
 
 	return result;
@@ -461,8 +439,6 @@ int android_content_res_Configuration::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Configuration cxx address %d", cxxAddress);
@@ -491,15 +467,13 @@ int android_content_res_Configuration::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_content_res_Configuration::hashCode() exit");
 
 	return result;
 }
-int android_content_res_Configuration::compareTo(AndroidCXX::android_content_res_Configuration& arg0)
+int android_content_res_Configuration::compareTo(AndroidCXX::android_content_res_Configuration const& arg0)
 {
-	LOGV("int android_content_res_Configuration::compareTo(AndroidCXX::android_content_res_Configuration& arg0) enter");
+	LOGV("int android_content_res_Configuration::compareTo(AndroidCXX::android_content_res_Configuration const& arg0) enter");
 
 	const char *methodName = "compareTo";
 	const char *methodSignature = "(Landroid/content/res/Configuration;)I";
@@ -509,8 +483,6 @@ int android_content_res_Configuration::compareTo(AndroidCXX::android_content_res
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Configuration cxx address %d", cxxAddress);
@@ -560,15 +532,13 @@ int android_content_res_Configuration::compareTo(AndroidCXX::android_content_res
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_content_res_Configuration::compareTo(AndroidCXX::android_content_res_Configuration& arg0) exit");
+	LOGV("int android_content_res_Configuration::compareTo(AndroidCXX::android_content_res_Configuration const& arg0) exit");
 
 	return result;
 }
-void android_content_res_Configuration::setLocale(AndroidCXX::java_util_Locale& arg0)
+void android_content_res_Configuration::setLocale(AndroidCXX::java_util_Locale const& arg0)
 {
-	LOGV("void android_content_res_Configuration::setLocale(AndroidCXX::java_util_Locale& arg0) enter");
+	LOGV("void android_content_res_Configuration::setLocale(AndroidCXX::java_util_Locale const& arg0) enter");
 
 	const char *methodName = "setLocale";
 	const char *methodSignature = "(Ljava/util/Locale;)V";
@@ -578,8 +548,6 @@ void android_content_res_Configuration::setLocale(AndroidCXX::java_util_Locale& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Configuration cxx address %d", cxxAddress);
@@ -610,9 +578,7 @@ void android_content_res_Configuration::setLocale(AndroidCXX::java_util_Locale& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_res_Configuration::setLocale(AndroidCXX::java_util_Locale& arg0) exit");
+	LOGV("void android_content_res_Configuration::setLocale(AndroidCXX::java_util_Locale const& arg0) exit");
 
 }
 int android_content_res_Configuration::describeContents()
@@ -627,8 +593,6 @@ int android_content_res_Configuration::describeContents()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Configuration cxx address %d", cxxAddress);
@@ -657,15 +621,13 @@ int android_content_res_Configuration::describeContents()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_content_res_Configuration::describeContents() exit");
 
 	return result;
 }
-void android_content_res_Configuration::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_content_res_Configuration::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_content_res_Configuration::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_content_res_Configuration::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -675,8 +637,6 @@ void android_content_res_Configuration::writeToParcel(AndroidCXX::android_os_Par
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Configuration cxx address %d", cxxAddress);
@@ -728,14 +688,12 @@ void android_content_res_Configuration::writeToParcel(AndroidCXX::android_os_Par
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_res_Configuration::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_content_res_Configuration::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }
-void android_content_res_Configuration::readFromParcel(AndroidCXX::android_os_Parcel& arg0)
+void android_content_res_Configuration::readFromParcel(AndroidCXX::android_os_Parcel const& arg0)
 {
-	LOGV("void android_content_res_Configuration::readFromParcel(AndroidCXX::android_os_Parcel& arg0) enter");
+	LOGV("void android_content_res_Configuration::readFromParcel(AndroidCXX::android_os_Parcel const& arg0) enter");
 
 	const char *methodName = "readFromParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;)V";
@@ -745,8 +703,6 @@ void android_content_res_Configuration::readFromParcel(AndroidCXX::android_os_Pa
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Configuration cxx address %d", cxxAddress);
@@ -777,14 +733,12 @@ void android_content_res_Configuration::readFromParcel(AndroidCXX::android_os_Pa
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_res_Configuration::readFromParcel(AndroidCXX::android_os_Parcel& arg0) exit");
+	LOGV("void android_content_res_Configuration::readFromParcel(AndroidCXX::android_os_Parcel const& arg0) exit");
 
 }
-void android_content_res_Configuration::setLayoutDirection(AndroidCXX::java_util_Locale& arg0)
+void android_content_res_Configuration::setLayoutDirection(AndroidCXX::java_util_Locale const& arg0)
 {
-	LOGV("void android_content_res_Configuration::setLayoutDirection(AndroidCXX::java_util_Locale& arg0) enter");
+	LOGV("void android_content_res_Configuration::setLayoutDirection(AndroidCXX::java_util_Locale const& arg0) enter");
 
 	const char *methodName = "setLayoutDirection";
 	const char *methodSignature = "(Ljava/util/Locale;)V";
@@ -794,8 +748,6 @@ void android_content_res_Configuration::setLayoutDirection(AndroidCXX::java_util
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Configuration cxx address %d", cxxAddress);
@@ -826,9 +778,7 @@ void android_content_res_Configuration::setLayoutDirection(AndroidCXX::java_util
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_res_Configuration::setLayoutDirection(AndroidCXX::java_util_Locale& arg0) exit");
+	LOGV("void android_content_res_Configuration::setLayoutDirection(AndroidCXX::java_util_Locale const& arg0) exit");
 
 }
 int android_content_res_Configuration::getLayoutDirection()
@@ -843,8 +793,6 @@ int android_content_res_Configuration::getLayoutDirection()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Configuration cxx address %d", cxxAddress);
@@ -873,15 +821,13 @@ int android_content_res_Configuration::getLayoutDirection()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_content_res_Configuration::getLayoutDirection() exit");
 
 	return result;
 }
-bool android_content_res_Configuration::isLayoutSizeAtLeast(int& arg0)
+bool android_content_res_Configuration::isLayoutSizeAtLeast(int const& arg0)
 {
-	LOGV("bool android_content_res_Configuration::isLayoutSizeAtLeast(int& arg0) enter");
+	LOGV("bool android_content_res_Configuration::isLayoutSizeAtLeast(int const& arg0) enter");
 
 	const char *methodName = "isLayoutSizeAtLeast";
 	const char *methodSignature = "(I)Z";
@@ -891,8 +837,6 @@ bool android_content_res_Configuration::isLayoutSizeAtLeast(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Configuration cxx address %d", cxxAddress);
@@ -942,15 +886,13 @@ bool android_content_res_Configuration::isLayoutSizeAtLeast(int& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_content_res_Configuration::isLayoutSizeAtLeast(int& arg0) exit");
+	LOGV("bool android_content_res_Configuration::isLayoutSizeAtLeast(int const& arg0) exit");
 
 	return result;
 }
-void android_content_res_Configuration::setTo(AndroidCXX::android_content_res_Configuration& arg0)
+void android_content_res_Configuration::setTo(AndroidCXX::android_content_res_Configuration const& arg0)
 {
-	LOGV("void android_content_res_Configuration::setTo(AndroidCXX::android_content_res_Configuration& arg0) enter");
+	LOGV("void android_content_res_Configuration::setTo(AndroidCXX::android_content_res_Configuration const& arg0) enter");
 
 	const char *methodName = "setTo";
 	const char *methodSignature = "(Landroid/content/res/Configuration;)V";
@@ -960,8 +902,6 @@ void android_content_res_Configuration::setTo(AndroidCXX::android_content_res_Co
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Configuration cxx address %d", cxxAddress);
@@ -992,9 +932,7 @@ void android_content_res_Configuration::setTo(AndroidCXX::android_content_res_Co
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_res_Configuration::setTo(AndroidCXX::android_content_res_Configuration& arg0) exit");
+	LOGV("void android_content_res_Configuration::setTo(AndroidCXX::android_content_res_Configuration const& arg0) exit");
 
 }
 void android_content_res_Configuration::setToDefaults()
@@ -1010,8 +948,6 @@ void android_content_res_Configuration::setToDefaults()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Configuration cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1020,14 +956,12 @@ void android_content_res_Configuration::setToDefaults()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_content_res_Configuration::setToDefaults() exit");
 
 }
-int android_content_res_Configuration::updateFrom(AndroidCXX::android_content_res_Configuration& arg0)
+int android_content_res_Configuration::updateFrom(AndroidCXX::android_content_res_Configuration const& arg0)
 {
-	LOGV("int android_content_res_Configuration::updateFrom(AndroidCXX::android_content_res_Configuration& arg0) enter");
+	LOGV("int android_content_res_Configuration::updateFrom(AndroidCXX::android_content_res_Configuration const& arg0) enter");
 
 	const char *methodName = "updateFrom";
 	const char *methodSignature = "(Landroid/content/res/Configuration;)I";
@@ -1038,8 +972,6 @@ int android_content_res_Configuration::updateFrom(AndroidCXX::android_content_re
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Configuration cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1088,15 +1020,13 @@ int android_content_res_Configuration::updateFrom(AndroidCXX::android_content_re
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_content_res_Configuration::updateFrom(AndroidCXX::android_content_res_Configuration& arg0) exit");
+	LOGV("int android_content_res_Configuration::updateFrom(AndroidCXX::android_content_res_Configuration const& arg0) exit");
 
 	return result;
 }
-int android_content_res_Configuration::diff(AndroidCXX::android_content_res_Configuration& arg0)
+int android_content_res_Configuration::diff(AndroidCXX::android_content_res_Configuration const& arg0)
 {
-	LOGV("int android_content_res_Configuration::diff(AndroidCXX::android_content_res_Configuration& arg0) enter");
+	LOGV("int android_content_res_Configuration::diff(AndroidCXX::android_content_res_Configuration const& arg0) enter");
 
 	const char *methodName = "diff";
 	const char *methodSignature = "(Landroid/content/res/Configuration;)I";
@@ -1107,8 +1037,6 @@ int android_content_res_Configuration::diff(AndroidCXX::android_content_res_Conf
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Configuration cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1157,15 +1085,13 @@ int android_content_res_Configuration::diff(AndroidCXX::android_content_res_Conf
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_content_res_Configuration::diff(AndroidCXX::android_content_res_Configuration& arg0) exit");
+	LOGV("int android_content_res_Configuration::diff(AndroidCXX::android_content_res_Configuration const& arg0) exit");
 
 	return result;
 }
-bool android_content_res_Configuration::needNewResources(int& arg0,int& arg1)
+bool android_content_res_Configuration::needNewResources(int const& arg0,int const& arg1)
 {
-	LOGV("bool android_content_res_Configuration::needNewResources(int& arg0,int& arg1) enter");
+	LOGV("bool android_content_res_Configuration::needNewResources(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "needNewResources";
 	const char *methodSignature = "(II)Z";
@@ -1175,8 +1101,6 @@ bool android_content_res_Configuration::needNewResources(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_res_Configuration cxx address %d", cxxAddress);
@@ -1226,7 +1150,7 @@ bool android_content_res_Configuration::needNewResources(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jboolean jni_result = (jboolean) jni->invokeStaticBooleanMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
 	{
@@ -1247,9 +1171,7 @@ bool android_content_res_Configuration::needNewResources(int& arg0,int& arg1)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_content_res_Configuration::needNewResources(int& arg0,int& arg1) exit");
+	LOGV("bool android_content_res_Configuration::needNewResources(int const& arg0,int const& arg1) exit");
 
 	return result;
 }

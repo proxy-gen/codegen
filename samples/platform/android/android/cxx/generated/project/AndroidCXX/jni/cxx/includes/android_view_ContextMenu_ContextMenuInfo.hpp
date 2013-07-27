@@ -45,12 +45,9 @@ class android_view_ContextMenu_ContextMenuInfo
 public:
 
 	android_view_ContextMenu_ContextMenuInfo(const android_view_ContextMenu_ContextMenuInfo& cc);
-	android_view_ContextMenu_ContextMenuInfo(void * proxy);
+	android_view_ContextMenu_ContextMenuInfo(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_view_ContextMenu_ContextMenuInfo();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ContextMenu_ContextMenuInfo();
 	// Functions

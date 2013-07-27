@@ -62,16 +62,15 @@ class android_text_Editable_Factory
 public:
 
 	android_text_Editable_Factory(const android_text_Editable_Factory& cc);
-	android_text_Editable_Factory(void * proxy);
+	android_text_Editable_Factory(Proxy proxy);
 	// Public Constructors
 	android_text_Editable_Factory();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_text_Editable_Factory();
 	// Functions
 	static AndroidCXX::android_text_Editable_Factory getInstance();
-	 AndroidCXX::android_text_Editable newEditable(AndroidCXX::java_lang_CharSequence& arg0);
+	 AndroidCXX::android_text_Editable newEditable(AndroidCXX::java_lang_CharSequence const& arg0);
 };	
 
 } // namespace

@@ -46,11 +46,10 @@ class android_widget_Filter_FilterResults
 public:
 
 	android_widget_Filter_FilterResults(const android_widget_Filter_FilterResults& cc);
-	android_widget_Filter_FilterResults(void * proxy);
+	android_widget_Filter_FilterResults(Proxy proxy);
 	// Public Constructors
 	android_widget_Filter_FilterResults();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Filter_FilterResults();
 	// Functions

@@ -110,7 +110,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(const javax_security_auth_x500_X500Principal& cc)
 {
 	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(const javax_security_auth_x500_X500Principal& cc) enter");
@@ -134,9 +133,9 @@ javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(c
 
 	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(const javax_security_auth_x500_X500Principal& cc) exit");
 }
-javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(void * proxy)
+javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(Proxy proxy)
 {
-	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(void * proxy) enter");
+	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -146,55 +145,34 @@ javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(v
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(void * proxy) exit");
+	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal()
-// {
-// 	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal() enter");	
+Proxy javax_security_auth_x500_X500Principal::proxy() const
+{	
+	LOGV("javax_security_auth_x500_X500Principal::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "javax/security/auth/x500/X500Principal";
+	long cxxAddress = (long) this;
+	LOGV("javax_security_auth_x500_X500Principal cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("javax_security_auth_x500_X500Principal jni address %d", proxiedComponent);
 
-// 	LOGV("javax_security_auth_x500_X500Principal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("javax_security_auth_x500_X500Principal::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("javax_security_auth_x500_X500Principal cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("javax_security_auth_x500_X500Principal jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal() exit");	
-// }
-// 
-// 
-// Public Constructors
-javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(AndroidCXX::java_io_InputStream& arg0)
+	return proxy;
+}
+javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(AndroidCXX::java_io_InputStream const& arg0)
 {
-	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(AndroidCXX::java_io_InputStream& arg0) enter");	
+	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(AndroidCXX::java_io_InputStream const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/io/InputStream;)V";
@@ -247,11 +225,11 @@ javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(A
 
 	jni->popLocalFrame();
 
-	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(AndroidCXX::java_io_InputStream& arg0) exit");	
+	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(AndroidCXX::java_io_InputStream const& arg0) exit");	
 }
-javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String& arg0)
+javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -304,11 +282,11 @@ javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(A
 
 	jni->popLocalFrame();
 
-	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String const& arg0) exit");	
 }
-javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_Map& arg1)
+javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Map const& arg1)
 {
-	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_Map& arg1) enter");	
+	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Map const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/util/Map;)V";
@@ -415,11 +393,11 @@ javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(A
 
 	jni->popLocalFrame();
 
-	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_Map& arg1) exit");	
+	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Map const& arg1) exit");	
 }
-javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(std::vector<byte>& arg0)
+javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(std::vector<byte> const& arg0)
 {
-	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(std::vector<byte>& arg0) enter");	
+	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(std::vector<byte> const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "([B)V";
@@ -490,7 +468,7 @@ javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(s
 
 	jni->popLocalFrame();
 
-	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(std::vector<byte>& arg0) exit");	
+	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(std::vector<byte> const& arg0) exit");	
 }
 // Default Instance Destructor
 javax_security_auth_x500_X500Principal::~javax_security_auth_x500_X500Principal()
@@ -503,13 +481,13 @@ javax_security_auth_x500_X500Principal::~javax_security_auth_x500_X500Principal(
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("javax_security_auth_x500_X500Principal::~javax_security_auth_x500_X500Principal() exit");
 }
 // Functions
-bool javax_security_auth_x500_X500Principal::equals(AndroidCXX::java_lang_Object& arg0)
+bool javax_security_auth_x500_X500Principal::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool javax_security_auth_x500_X500Principal::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool javax_security_auth_x500_X500Principal::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -519,8 +497,6 @@ bool javax_security_auth_x500_X500Principal::equals(AndroidCXX::java_lang_Object
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("javax_security_auth_x500_X500Principal cxx address %d", cxxAddress);
@@ -570,9 +546,7 @@ bool javax_security_auth_x500_X500Principal::equals(AndroidCXX::java_lang_Object
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool javax_security_auth_x500_X500Principal::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool javax_security_auth_x500_X500Principal::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -588,8 +562,6 @@ AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("javax_security_auth_x500_X500Principal cxx address %d", cxxAddress);
@@ -618,8 +590,6 @@ AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::toString() exit");
 
 	return result;
@@ -636,8 +606,6 @@ int javax_security_auth_x500_X500Principal::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("javax_security_auth_x500_X500Principal cxx address %d", cxxAddress);
@@ -666,15 +634,13 @@ int javax_security_auth_x500_X500Principal::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int javax_security_auth_x500_X500Principal::hashCode() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_Map& arg1)
+AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Map const& arg1)
 {
-	LOGV("AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_Map& arg1) enter");
+	LOGV("AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Map const& arg1) enter");
 
 	const char *methodName = "getName";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;";
@@ -684,8 +650,6 @@ AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName(And
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("javax_security_auth_x500_X500Principal cxx address %d", cxxAddress);
@@ -789,9 +753,7 @@ AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName(And
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_Map& arg1) exit");
+	LOGV("AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Map const& arg1) exit");
 
 	return result;
 }
@@ -807,8 +769,6 @@ AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("javax_security_auth_x500_X500Principal cxx address %d", cxxAddress);
@@ -837,15 +797,13 @@ AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getName";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
@@ -855,8 +813,6 @@ AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName(And
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("javax_security_auth_x500_X500Principal cxx address %d", cxxAddress);
@@ -906,9 +862,7 @@ AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName(And
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
@@ -924,8 +878,6 @@ std::vector<byte> javax_security_auth_x500_X500Principal::getEncoded()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("javax_security_auth_x500_X500Principal cxx address %d", cxxAddress);
@@ -972,8 +924,6 @@ std::vector<byte> javax_security_auth_x500_X500Principal::getEncoded()
 	std::vector<byte> result = (std::vector<byte>) *((std::vector<byte> *) cxx_value);
 	delete ((std::vector<byte> *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<byte> javax_security_auth_x500_X500Principal::getEncoded() exit");
 
 	return result;

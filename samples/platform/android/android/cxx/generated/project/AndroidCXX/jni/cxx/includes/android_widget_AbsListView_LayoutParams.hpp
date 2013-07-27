@@ -64,16 +64,13 @@ class android_widget_AbsListView_LayoutParams
 public:
 
 	android_widget_AbsListView_LayoutParams(const android_widget_AbsListView_LayoutParams& cc);
-	android_widget_AbsListView_LayoutParams(void * proxy);
+	android_widget_AbsListView_LayoutParams(Proxy proxy);
 	// Public Constructors
-	android_widget_AbsListView_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_AbsListView_LayoutParams(int& arg0,int& arg1);
-	android_widget_AbsListView_LayoutParams(int& arg0,int& arg1,int& arg2);
-	android_widget_AbsListView_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0);
-	// TODO: remove
-	// 
-	// android_widget_AbsListView_LayoutParams();
-	// 
+	android_widget_AbsListView_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_AbsListView_LayoutParams(int const& arg0,int const& arg1);
+	android_widget_AbsListView_LayoutParams(int const& arg0,int const& arg1,int const& arg2);
+	android_widget_AbsListView_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AbsListView_LayoutParams();
 	// Functions

@@ -104,7 +104,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_graphics_Typeface::android_graphics_Typeface(const android_graphics_Typeface& cc)
 {
 	LOGV("android_graphics_Typeface::android_graphics_Typeface(const android_graphics_Typeface& cc) enter");
@@ -128,9 +127,9 @@ android_graphics_Typeface::android_graphics_Typeface(const android_graphics_Type
 
 	LOGV("android_graphics_Typeface::android_graphics_Typeface(const android_graphics_Typeface& cc) exit");
 }
-android_graphics_Typeface::android_graphics_Typeface(void * proxy)
+android_graphics_Typeface::android_graphics_Typeface(Proxy proxy)
 {
-	LOGV("android_graphics_Typeface::android_graphics_Typeface(void * proxy) enter");
+	LOGV("android_graphics_Typeface::android_graphics_Typeface(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -140,52 +139,31 @@ android_graphics_Typeface::android_graphics_Typeface(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_graphics_Typeface::android_graphics_Typeface(void * proxy) exit");
+	LOGV("android_graphics_Typeface::android_graphics_Typeface(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_graphics_Typeface::android_graphics_Typeface()
-// {
-// 	LOGV("android_graphics_Typeface::android_graphics_Typeface() enter");	
+Proxy android_graphics_Typeface::proxy() const
+{	
+	LOGV("android_graphics_Typeface::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/graphics/Typeface";
+	long cxxAddress = (long) this;
+	LOGV("android_graphics_Typeface cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_graphics_Typeface jni address %d", proxiedComponent);
 
-// 	LOGV("android_graphics_Typeface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_graphics_Typeface::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_graphics_Typeface cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_graphics_Typeface jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_graphics_Typeface::android_graphics_Typeface() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_graphics_Typeface::~android_graphics_Typeface()
 {
@@ -197,13 +175,13 @@ android_graphics_Typeface::~android_graphics_Typeface()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_graphics_Typeface::~android_graphics_Typeface() exit");
 }
 // Functions
-bool android_graphics_Typeface::equals(AndroidCXX::java_lang_Object& arg0)
+bool android_graphics_Typeface::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool android_graphics_Typeface::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool android_graphics_Typeface::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -213,8 +191,6 @@ bool android_graphics_Typeface::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Typeface cxx address %d", cxxAddress);
@@ -264,9 +240,7 @@ bool android_graphics_Typeface::equals(AndroidCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_graphics_Typeface::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool android_graphics_Typeface::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -282,8 +256,6 @@ int android_graphics_Typeface::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Typeface cxx address %d", cxxAddress);
@@ -312,15 +284,13 @@ int android_graphics_Typeface::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_graphics_Typeface::hashCode() exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Typeface android_graphics_Typeface::create(AndroidCXX::java_lang_String& arg0,int& arg1)
+AndroidCXX::android_graphics_Typeface android_graphics_Typeface::create(AndroidCXX::java_lang_String const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::create(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::create(AndroidCXX::java_lang_String const& arg0,int const& arg1) enter");
 
 	const char *methodName = "create";
 	const char *methodSignature = "(Ljava/lang/String;I)Landroid/graphics/Typeface;";
@@ -330,8 +300,6 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::create(AndroidC
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_graphics_Typeface cxx address %d", cxxAddress);
@@ -381,7 +349,7 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::create(AndroidC
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -402,15 +370,13 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::create(AndroidC
 	AndroidCXX::android_graphics_Typeface result((AndroidCXX::android_graphics_Typeface) *((AndroidCXX::android_graphics_Typeface *) cxx_value));
 	delete ((AndroidCXX::android_graphics_Typeface *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::create(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::create(AndroidCXX::java_lang_String const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Typeface android_graphics_Typeface::create(AndroidCXX::android_graphics_Typeface& arg0,int& arg1)
+AndroidCXX::android_graphics_Typeface android_graphics_Typeface::create(AndroidCXX::android_graphics_Typeface const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::create(AndroidCXX::android_graphics_Typeface& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::create(AndroidCXX::android_graphics_Typeface const& arg0,int const& arg1) enter");
 
 	const char *methodName = "create";
 	const char *methodSignature = "(Landroid/graphics/Typeface;I)Landroid/graphics/Typeface;";
@@ -420,8 +386,6 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::create(AndroidC
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_graphics_Typeface cxx address %d", cxxAddress);
@@ -471,7 +435,7 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::create(AndroidC
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -492,9 +456,7 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::create(AndroidC
 	AndroidCXX::android_graphics_Typeface result((AndroidCXX::android_graphics_Typeface) *((AndroidCXX::android_graphics_Typeface *) cxx_value));
 	delete ((AndroidCXX::android_graphics_Typeface *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::create(AndroidCXX::android_graphics_Typeface& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::create(AndroidCXX::android_graphics_Typeface const& arg0,int const& arg1) exit");
 
 	return result;
 }
@@ -510,8 +472,6 @@ int android_graphics_Typeface::getStyle()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Typeface cxx address %d", cxxAddress);
@@ -540,8 +500,6 @@ int android_graphics_Typeface::getStyle()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_graphics_Typeface::getStyle() exit");
 
 	return result;
@@ -559,8 +517,6 @@ bool android_graphics_Typeface::isBold()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Typeface cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -588,8 +544,6 @@ bool android_graphics_Typeface::isBold()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_graphics_Typeface::isBold() exit");
 
 	return result;
@@ -607,8 +561,6 @@ bool android_graphics_Typeface::isItalic()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Typeface cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -636,15 +588,13 @@ bool android_graphics_Typeface::isItalic()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_graphics_Typeface::isItalic() exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Typeface android_graphics_Typeface::defaultFromStyle(int& arg0)
+AndroidCXX::android_graphics_Typeface android_graphics_Typeface::defaultFromStyle(int const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::defaultFromStyle(int& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::defaultFromStyle(int const& arg0) enter");
 
 	const char *methodName = "defaultFromStyle";
 	const char *methodSignature = "(I)Landroid/graphics/Typeface;";
@@ -654,8 +604,6 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::defaultFromStyl
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_graphics_Typeface cxx address %d", cxxAddress);
@@ -684,7 +632,7 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::defaultFromStyl
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -705,15 +653,13 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::defaultFromStyl
 	AndroidCXX::android_graphics_Typeface result((AndroidCXX::android_graphics_Typeface) *((AndroidCXX::android_graphics_Typeface *) cxx_value));
 	delete ((AndroidCXX::android_graphics_Typeface *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::defaultFromStyle(int& arg0) exit");
+	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::defaultFromStyle(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromAsset(AndroidCXX::android_content_res_AssetManager& arg0,AndroidCXX::java_lang_String& arg1)
+AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromAsset(AndroidCXX::android_content_res_AssetManager const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromAsset(AndroidCXX::android_content_res_AssetManager& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromAsset(AndroidCXX::android_content_res_AssetManager const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "createFromAsset";
 	const char *methodSignature = "(Landroid/content/res/AssetManager;Ljava/lang/String;)Landroid/graphics/Typeface;";
@@ -723,8 +669,6 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromAsset
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_graphics_Typeface cxx address %d", cxxAddress);
@@ -774,7 +718,7 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromAsset
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -795,15 +739,13 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromAsset
 	AndroidCXX::android_graphics_Typeface result((AndroidCXX::android_graphics_Typeface) *((AndroidCXX::android_graphics_Typeface *) cxx_value));
 	delete ((AndroidCXX::android_graphics_Typeface *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromAsset(AndroidCXX::android_content_res_AssetManager& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromAsset(AndroidCXX::android_content_res_AssetManager const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromFile(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromFile(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromFile(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromFile(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "createFromFile";
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/graphics/Typeface;";
@@ -813,8 +755,6 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromFile(
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_graphics_Typeface cxx address %d", cxxAddress);
@@ -843,7 +783,7 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromFile(
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -864,15 +804,13 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromFile(
 	AndroidCXX::android_graphics_Typeface result((AndroidCXX::android_graphics_Typeface) *((AndroidCXX::android_graphics_Typeface *) cxx_value));
 	delete ((AndroidCXX::android_graphics_Typeface *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromFile(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromFile(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromFile(AndroidCXX::java_io_File& arg0)
+AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromFile(AndroidCXX::java_io_File const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromFile(AndroidCXX::java_io_File& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromFile(AndroidCXX::java_io_File const& arg0) enter");
 
 	const char *methodName = "createFromFile";
 	const char *methodSignature = "(Ljava/io/File;)Landroid/graphics/Typeface;";
@@ -882,8 +820,6 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromFile(
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_graphics_Typeface cxx address %d", cxxAddress);
@@ -912,7 +848,7 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromFile(
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -933,9 +869,7 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromFile(
 	AndroidCXX::android_graphics_Typeface result((AndroidCXX::android_graphics_Typeface) *((AndroidCXX::android_graphics_Typeface *) cxx_value));
 	delete ((AndroidCXX::android_graphics_Typeface *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromFile(AndroidCXX::java_io_File& arg0) exit");
+	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromFile(AndroidCXX::java_io_File const& arg0) exit");
 
 	return result;
 }

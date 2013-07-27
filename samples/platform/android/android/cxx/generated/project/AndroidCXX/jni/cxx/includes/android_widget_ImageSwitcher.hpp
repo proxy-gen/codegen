@@ -83,22 +83,19 @@ class android_widget_ImageSwitcher
 public:
 
 	android_widget_ImageSwitcher(const android_widget_ImageSwitcher& cc);
-	android_widget_ImageSwitcher(void * proxy);
+	android_widget_ImageSwitcher(Proxy proxy);
 	// Public Constructors
-	android_widget_ImageSwitcher(AndroidCXX::android_content_Context& arg0);
-	android_widget_ImageSwitcher(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	// TODO: remove
-	// 
-	// android_widget_ImageSwitcher();
-	// 
+	android_widget_ImageSwitcher(AndroidCXX::android_content_Context const& arg0);
+	android_widget_ImageSwitcher(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ImageSwitcher();
 	// Functions
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 void setImageResource(int& arg0);
-	 void setImageURI(AndroidCXX::android_net_Uri& arg0);
-	 void setImageDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 void setImageResource(int const& arg0);
+	 void setImageURI(AndroidCXX::android_net_Uri const& arg0);
+	 void setImageDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
 };	
 
 } // namespace

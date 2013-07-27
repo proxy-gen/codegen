@@ -113,26 +113,23 @@ class java_net_NetworkInterface
 public:
 
 	java_net_NetworkInterface(const java_net_NetworkInterface& cc);
-	java_net_NetworkInterface(void * proxy);
+	java_net_NetworkInterface(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_net_NetworkInterface();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_NetworkInterface();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 AndroidCXX::java_lang_String getName();
 	 AndroidCXX::java_net_NetworkInterface getParent();
 	 AndroidCXX::java_lang_String getDisplayName();
-	static AndroidCXX::java_net_NetworkInterface getByName(AndroidCXX::java_lang_String& arg0);
+	static AndroidCXX::java_net_NetworkInterface getByName(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_util_Enumeration getInetAddresses();
 	 AndroidCXX::java_util_List getInterfaceAddresses();
 	 AndroidCXX::java_util_Enumeration getSubInterfaces();
-	static AndroidCXX::java_net_NetworkInterface getByInetAddress(AndroidCXX::java_net_InetAddress& arg0);
+	static AndroidCXX::java_net_NetworkInterface getByInetAddress(AndroidCXX::java_net_InetAddress const& arg0);
 	static AndroidCXX::java_util_Enumeration getNetworkInterfaces();
 	 bool isUp();
 	 bool isLoopback();

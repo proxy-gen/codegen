@@ -30,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace ANDROID_WEBKIT_WEBSETTINGS_PLUGINSTATE {
+namespace android_webkit_WebSettings_PluginState {
 
 enum android_webkit_WebSettings_PluginState
 {

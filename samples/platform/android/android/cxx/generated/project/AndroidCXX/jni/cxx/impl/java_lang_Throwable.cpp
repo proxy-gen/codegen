@@ -108,33 +108,9 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
-java_lang_Throwable::java_lang_Throwable(const java_lang_Throwable& cc)
+java_lang_Throwable::java_lang_Throwable(Proxy proxy)
 {
-	LOGV("java_lang_Throwable::java_lang_Throwable(const java_lang_Throwable& cc) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	long ccaddress = (long) &cc;
-	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
-	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
-	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
-	long address = (long) this;
-	LOGV("registerProxyComponent address %ld", address);
-	jobject proxiedComponent = ctx->findProxyComponent(address);
-	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
-	if (proxiedComponent == 0)
-	{
-		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = proxiedCCComponent;
-		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
-		ctx->registerProxyComponent(address, proxiedComponent);
-	}
-
-	LOGV("java_lang_Throwable::java_lang_Throwable(const java_lang_Throwable& cc) exit");
-}
-java_lang_Throwable::java_lang_Throwable(void * proxy)
-{
-	LOGV("java_lang_Throwable::java_lang_Throwable(void * proxy) enter");
+	LOGV("java_lang_Throwable::java_lang_Throwable(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -144,17 +120,31 @@ java_lang_Throwable::java_lang_Throwable(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_lang_Throwable::java_lang_Throwable(void * proxy) exit");
+	LOGV("java_lang_Throwable::java_lang_Throwable(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy java_lang_Throwable::proxy() const
+{	
+	LOGV("java_lang_Throwable::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("java_lang_Throwable cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_Throwable jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("java_lang_Throwable::proxy() exit");	
+
+	return proxy;
+}
 java_lang_Throwable::java_lang_Throwable()
 {
 	LOGV("java_lang_Throwable::java_lang_Throwable() enter");	
@@ -191,9 +181,9 @@ java_lang_Throwable::java_lang_Throwable()
 
 	LOGV("java_lang_Throwable::java_lang_Throwable() exit");	
 }
-java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_String& arg0)
+java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -246,11 +236,11 @@ java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_String const& arg0) exit");	
 }
-java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1)
+java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1)
 {
-	LOGV("java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1) enter");	
+	LOGV("java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/Throwable;)V";
@@ -324,11 +314,11 @@ java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_String& arg0,Andr
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1) exit");	
+	LOGV("java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1) exit");	
 }
-java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_Throwable& arg0)
+java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_Throwable const& arg0)
 {
-	LOGV("java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_Throwable& arg0) enter");	
+	LOGV("java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_Throwable const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/Throwable;)V";
@@ -381,7 +371,7 @@ java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_Throwable& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_Throwable& arg0) exit");	
+	LOGV("java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_Throwable const& arg0) exit");	
 }
 // Default Instance Destructor
 java_lang_Throwable::~java_lang_Throwable()
@@ -394,13 +384,13 @@ java_lang_Throwable::~java_lang_Throwable()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_lang_Throwable::~java_lang_Throwable() exit");
 }
 // Functions
-void java_lang_Throwable::printStackTrace(AndroidCXX::java_io_PrintStream& arg0)
+void java_lang_Throwable::printStackTrace(AndroidCXX::java_io_PrintStream const& arg0)
 {
-	LOGV("void java_lang_Throwable::printStackTrace(AndroidCXX::java_io_PrintStream& arg0) enter");
+	LOGV("void java_lang_Throwable::printStackTrace(AndroidCXX::java_io_PrintStream const& arg0) enter");
 
 	const char *methodName = "printStackTrace";
 	const char *methodSignature = "(Ljava/io/PrintStream;)V";
@@ -410,8 +400,6 @@ void java_lang_Throwable::printStackTrace(AndroidCXX::java_io_PrintStream& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Throwable cxx address %d", cxxAddress);
@@ -442,9 +430,7 @@ void java_lang_Throwable::printStackTrace(AndroidCXX::java_io_PrintStream& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_Throwable::printStackTrace(AndroidCXX::java_io_PrintStream& arg0) exit");
+	LOGV("void java_lang_Throwable::printStackTrace(AndroidCXX::java_io_PrintStream const& arg0) exit");
 
 }
 void java_lang_Throwable::printStackTrace()
@@ -460,8 +446,6 @@ void java_lang_Throwable::printStackTrace()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Throwable cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -470,14 +454,12 @@ void java_lang_Throwable::printStackTrace()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_lang_Throwable::printStackTrace() exit");
 
 }
-void java_lang_Throwable::printStackTrace(AndroidCXX::java_io_PrintWriter& arg0)
+void java_lang_Throwable::printStackTrace(AndroidCXX::java_io_PrintWriter const& arg0)
 {
-	LOGV("void java_lang_Throwable::printStackTrace(AndroidCXX::java_io_PrintWriter& arg0) enter");
+	LOGV("void java_lang_Throwable::printStackTrace(AndroidCXX::java_io_PrintWriter const& arg0) enter");
 
 	const char *methodName = "printStackTrace";
 	const char *methodSignature = "(Ljava/io/PrintWriter;)V";
@@ -487,8 +469,6 @@ void java_lang_Throwable::printStackTrace(AndroidCXX::java_io_PrintWriter& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Throwable cxx address %d", cxxAddress);
@@ -519,9 +499,7 @@ void java_lang_Throwable::printStackTrace(AndroidCXX::java_io_PrintWriter& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_Throwable::printStackTrace(AndroidCXX::java_io_PrintWriter& arg0) exit");
+	LOGV("void java_lang_Throwable::printStackTrace(AndroidCXX::java_io_PrintWriter const& arg0) exit");
 
 }
 AndroidCXX::java_lang_Throwable java_lang_Throwable::fillInStackTrace()
@@ -536,8 +514,6 @@ AndroidCXX::java_lang_Throwable java_lang_Throwable::fillInStackTrace()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Throwable cxx address %d", cxxAddress);
@@ -566,8 +542,6 @@ AndroidCXX::java_lang_Throwable java_lang_Throwable::fillInStackTrace()
 	AndroidCXX::java_lang_Throwable result((AndroidCXX::java_lang_Throwable) *((AndroidCXX::java_lang_Throwable *) cxx_value));
 	delete ((AndroidCXX::java_lang_Throwable *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_Throwable java_lang_Throwable::fillInStackTrace() exit");
 
 	return result;
@@ -585,8 +559,6 @@ AndroidCXX::java_lang_Throwable java_lang_Throwable::getCause()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Throwable cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -614,15 +586,13 @@ AndroidCXX::java_lang_Throwable java_lang_Throwable::getCause()
 	AndroidCXX::java_lang_Throwable result((AndroidCXX::java_lang_Throwable) *((AndroidCXX::java_lang_Throwable *) cxx_value));
 	delete ((AndroidCXX::java_lang_Throwable *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_Throwable java_lang_Throwable::getCause() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_Throwable java_lang_Throwable::initCause(AndroidCXX::java_lang_Throwable& arg0)
+AndroidCXX::java_lang_Throwable java_lang_Throwable::initCause(AndroidCXX::java_lang_Throwable const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Throwable java_lang_Throwable::initCause(AndroidCXX::java_lang_Throwable& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Throwable java_lang_Throwable::initCause(AndroidCXX::java_lang_Throwable const& arg0) enter");
 
 	const char *methodName = "initCause";
 	const char *methodSignature = "(Ljava/lang/Throwable;)Ljava/lang/Throwable;";
@@ -632,8 +602,6 @@ AndroidCXX::java_lang_Throwable java_lang_Throwable::initCause(AndroidCXX::java_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Throwable cxx address %d", cxxAddress);
@@ -683,9 +651,7 @@ AndroidCXX::java_lang_Throwable java_lang_Throwable::initCause(AndroidCXX::java_
 	AndroidCXX::java_lang_Throwable result((AndroidCXX::java_lang_Throwable) *((AndroidCXX::java_lang_Throwable *) cxx_value));
 	delete ((AndroidCXX::java_lang_Throwable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_Throwable java_lang_Throwable::initCause(AndroidCXX::java_lang_Throwable& arg0) exit");
+	LOGV("AndroidCXX::java_lang_Throwable java_lang_Throwable::initCause(AndroidCXX::java_lang_Throwable const& arg0) exit");
 
 	return result;
 }
@@ -701,8 +667,6 @@ AndroidCXX::java_lang_String java_lang_Throwable::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Throwable cxx address %d", cxxAddress);
@@ -731,8 +695,6 @@ AndroidCXX::java_lang_String java_lang_Throwable::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_lang_Throwable::toString() exit");
 
 	return result;
@@ -750,8 +712,6 @@ AndroidCXX::java_lang_String java_lang_Throwable::getMessage()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Throwable cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -779,8 +739,6 @@ AndroidCXX::java_lang_String java_lang_Throwable::getMessage()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_lang_Throwable::getMessage() exit");
 
 	return result;
@@ -798,8 +756,6 @@ AndroidCXX::java_lang_String java_lang_Throwable::getLocalizedMessage()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Throwable cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -827,8 +783,6 @@ AndroidCXX::java_lang_String java_lang_Throwable::getLocalizedMessage()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_lang_Throwable::getLocalizedMessage() exit");
 
 	return result;
@@ -845,8 +799,6 @@ std::vector<AndroidCXX::java_lang_StackTraceElement > java_lang_Throwable::getSt
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Throwable cxx address %d", cxxAddress);
@@ -893,15 +845,13 @@ std::vector<AndroidCXX::java_lang_StackTraceElement > java_lang_Throwable::getSt
 	std::vector<AndroidCXX::java_lang_StackTraceElement > result = (std::vector<AndroidCXX::java_lang_StackTraceElement >) *((std::vector<AndroidCXX::java_lang_StackTraceElement > *) cxx_value);
 	delete ((std::vector<AndroidCXX::java_lang_StackTraceElement > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<AndroidCXX::java_lang_StackTraceElement > java_lang_Throwable::getStackTrace() exit");
 
 	return result;
 }
-void java_lang_Throwable::setStackTrace(std::vector<AndroidCXX::java_lang_StackTraceElement >& arg0)
+void java_lang_Throwable::setStackTrace(std::vector<AndroidCXX::java_lang_StackTraceElement > const& arg0)
 {
-	LOGV("void java_lang_Throwable::setStackTrace(std::vector<AndroidCXX::java_lang_StackTraceElement >& arg0) enter");
+	LOGV("void java_lang_Throwable::setStackTrace(std::vector<AndroidCXX::java_lang_StackTraceElement > const& arg0) enter");
 
 	const char *methodName = "setStackTrace";
 	const char *methodSignature = "([Ljava/lang/StackTraceElement;)V";
@@ -911,8 +861,6 @@ void java_lang_Throwable::setStackTrace(std::vector<AndroidCXX::java_lang_StackT
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Throwable cxx address %d", cxxAddress);
@@ -961,8 +909,6 @@ void java_lang_Throwable::setStackTrace(std::vector<AndroidCXX::java_lang_StackT
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_Throwable::setStackTrace(std::vector<AndroidCXX::java_lang_StackTraceElement >& arg0) exit");
+	LOGV("void java_lang_Throwable::setStackTrace(std::vector<AndroidCXX::java_lang_StackTraceElement > const& arg0) exit");
 
 }

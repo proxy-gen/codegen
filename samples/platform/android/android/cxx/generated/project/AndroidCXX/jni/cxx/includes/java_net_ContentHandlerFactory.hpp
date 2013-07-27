@@ -56,16 +56,13 @@ class java_net_ContentHandlerFactory
 public:
 
 	java_net_ContentHandlerFactory(const java_net_ContentHandlerFactory& cc);
-	java_net_ContentHandlerFactory(void * proxy);
+	java_net_ContentHandlerFactory(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_net_ContentHandlerFactory();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_ContentHandlerFactory();
 	// Functions
-	 AndroidCXX::java_net_ContentHandler createContentHandler(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_net_ContentHandler createContentHandler(AndroidCXX::java_lang_String const& arg0);
 };	
 
 } // namespace

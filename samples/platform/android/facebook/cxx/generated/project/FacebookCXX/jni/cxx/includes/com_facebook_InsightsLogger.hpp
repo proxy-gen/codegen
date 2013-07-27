@@ -91,21 +91,18 @@ class com_facebook_InsightsLogger
 public:
 
 	com_facebook_InsightsLogger(const com_facebook_InsightsLogger& cc);
-	com_facebook_InsightsLogger(void * proxy);
+	com_facebook_InsightsLogger(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_InsightsLogger();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_InsightsLogger();
 	// Functions
-	static FacebookCXX::com_facebook_InsightsLogger newLogger(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,FacebookCXX::com_facebook_Session& arg3);
-	static FacebookCXX::com_facebook_InsightsLogger newLogger(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1);
-	static FacebookCXX::com_facebook_InsightsLogger newLogger(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2);
-	 void logPurchase(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_util_Currency& arg1,AndroidCXX::android_os_Bundle& arg2);
-	 void logPurchase(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_util_Currency& arg1);
-	 void logConversionPixel(AndroidCXX::java_lang_String& arg0,double& arg1);
+	static FacebookCXX::com_facebook_InsightsLogger newLogger(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,FacebookCXX::com_facebook_Session const& arg3);
+	static FacebookCXX::com_facebook_InsightsLogger newLogger(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1);
+	static FacebookCXX::com_facebook_InsightsLogger newLogger(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2);
+	 void logPurchase(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_util_Currency const& arg1,AndroidCXX::android_os_Bundle const& arg2);
+	 void logPurchase(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_util_Currency const& arg1);
+	 void logConversionPixel(AndroidCXX::java_lang_String const& arg0,double const& arg1);
 };	
 
 } // namespace

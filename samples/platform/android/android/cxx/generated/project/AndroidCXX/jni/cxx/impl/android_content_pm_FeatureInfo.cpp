@@ -63,33 +63,9 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
-android_content_pm_FeatureInfo::android_content_pm_FeatureInfo(const android_content_pm_FeatureInfo& cc)
+android_content_pm_FeatureInfo::android_content_pm_FeatureInfo(Proxy proxy)
 {
-	LOGV("android_content_pm_FeatureInfo::android_content_pm_FeatureInfo(const android_content_pm_FeatureInfo& cc) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	long ccaddress = (long) &cc;
-	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
-	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
-	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
-	long address = (long) this;
-	LOGV("registerProxyComponent address %ld", address);
-	jobject proxiedComponent = ctx->findProxyComponent(address);
-	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
-	if (proxiedComponent == 0)
-	{
-		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = proxiedCCComponent;
-		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
-		ctx->registerProxyComponent(address, proxiedComponent);
-	}
-
-	LOGV("android_content_pm_FeatureInfo::android_content_pm_FeatureInfo(const android_content_pm_FeatureInfo& cc) exit");
-}
-android_content_pm_FeatureInfo::android_content_pm_FeatureInfo(void * proxy)
-{
-	LOGV("android_content_pm_FeatureInfo::android_content_pm_FeatureInfo(void * proxy) enter");
+	LOGV("android_content_pm_FeatureInfo::android_content_pm_FeatureInfo(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -99,17 +75,31 @@ android_content_pm_FeatureInfo::android_content_pm_FeatureInfo(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_content_pm_FeatureInfo::android_content_pm_FeatureInfo(void * proxy) exit");
+	LOGV("android_content_pm_FeatureInfo::android_content_pm_FeatureInfo(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy android_content_pm_FeatureInfo::proxy() const
+{	
+	LOGV("android_content_pm_FeatureInfo::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_content_pm_FeatureInfo cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_content_pm_FeatureInfo jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_content_pm_FeatureInfo::proxy() exit");	
+
+	return proxy;
+}
 android_content_pm_FeatureInfo::android_content_pm_FeatureInfo()
 {
 	LOGV("android_content_pm_FeatureInfo::android_content_pm_FeatureInfo() enter");	
@@ -146,9 +136,9 @@ android_content_pm_FeatureInfo::android_content_pm_FeatureInfo()
 
 	LOGV("android_content_pm_FeatureInfo::android_content_pm_FeatureInfo() exit");	
 }
-android_content_pm_FeatureInfo::android_content_pm_FeatureInfo(AndroidCXX::android_content_pm_FeatureInfo& arg0)
+android_content_pm_FeatureInfo::android_content_pm_FeatureInfo(AndroidCXX::android_content_pm_FeatureInfo const& arg0)
 {
-	LOGV("android_content_pm_FeatureInfo::android_content_pm_FeatureInfo(AndroidCXX::android_content_pm_FeatureInfo& arg0) enter");	
+	LOGV("android_content_pm_FeatureInfo::android_content_pm_FeatureInfo(AndroidCXX::android_content_pm_FeatureInfo const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/pm/FeatureInfo;)V";
@@ -201,7 +191,7 @@ android_content_pm_FeatureInfo::android_content_pm_FeatureInfo(AndroidCXX::andro
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_pm_FeatureInfo::android_content_pm_FeatureInfo(AndroidCXX::android_content_pm_FeatureInfo& arg0) exit");	
+	LOGV("android_content_pm_FeatureInfo::android_content_pm_FeatureInfo(AndroidCXX::android_content_pm_FeatureInfo const& arg0) exit");	
 }
 // Default Instance Destructor
 android_content_pm_FeatureInfo::~android_content_pm_FeatureInfo()
@@ -214,7 +204,7 @@ android_content_pm_FeatureInfo::~android_content_pm_FeatureInfo()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_content_pm_FeatureInfo::~android_content_pm_FeatureInfo() exit");
 }
 // Functions
@@ -230,8 +220,6 @@ AndroidCXX::java_lang_String android_content_pm_FeatureInfo::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_FeatureInfo cxx address %d", cxxAddress);
@@ -260,8 +248,6 @@ AndroidCXX::java_lang_String android_content_pm_FeatureInfo::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_content_pm_FeatureInfo::toString() exit");
 
 	return result;
@@ -278,8 +264,6 @@ int android_content_pm_FeatureInfo::describeContents()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_FeatureInfo cxx address %d", cxxAddress);
@@ -308,15 +292,13 @@ int android_content_pm_FeatureInfo::describeContents()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_content_pm_FeatureInfo::describeContents() exit");
 
 	return result;
 }
-void android_content_pm_FeatureInfo::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_content_pm_FeatureInfo::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_content_pm_FeatureInfo::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_content_pm_FeatureInfo::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -326,8 +308,6 @@ void android_content_pm_FeatureInfo::writeToParcel(AndroidCXX::android_os_Parcel
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_FeatureInfo cxx address %d", cxxAddress);
@@ -379,9 +359,7 @@ void android_content_pm_FeatureInfo::writeToParcel(AndroidCXX::android_os_Parcel
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_pm_FeatureInfo::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_content_pm_FeatureInfo::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }
 AndroidCXX::java_lang_String android_content_pm_FeatureInfo::getGlEsVersion()
@@ -396,8 +374,6 @@ AndroidCXX::java_lang_String android_content_pm_FeatureInfo::getGlEsVersion()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_FeatureInfo cxx address %d", cxxAddress);
@@ -426,8 +402,6 @@ AndroidCXX::java_lang_String android_content_pm_FeatureInfo::getGlEsVersion()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_content_pm_FeatureInfo::getGlEsVersion() exit");
 
 	return result;

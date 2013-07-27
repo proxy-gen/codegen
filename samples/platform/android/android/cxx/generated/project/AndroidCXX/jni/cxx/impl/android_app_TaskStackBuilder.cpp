@@ -122,7 +122,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_app_TaskStackBuilder::android_app_TaskStackBuilder(const android_app_TaskStackBuilder& cc)
 {
 	LOGV("android_app_TaskStackBuilder::android_app_TaskStackBuilder(const android_app_TaskStackBuilder& cc) enter");
@@ -146,9 +145,9 @@ android_app_TaskStackBuilder::android_app_TaskStackBuilder(const android_app_Tas
 
 	LOGV("android_app_TaskStackBuilder::android_app_TaskStackBuilder(const android_app_TaskStackBuilder& cc) exit");
 }
-android_app_TaskStackBuilder::android_app_TaskStackBuilder(void * proxy)
+android_app_TaskStackBuilder::android_app_TaskStackBuilder(Proxy proxy)
 {
-	LOGV("android_app_TaskStackBuilder::android_app_TaskStackBuilder(void * proxy) enter");
+	LOGV("android_app_TaskStackBuilder::android_app_TaskStackBuilder(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -158,52 +157,31 @@ android_app_TaskStackBuilder::android_app_TaskStackBuilder(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_app_TaskStackBuilder::android_app_TaskStackBuilder(void * proxy) exit");
+	LOGV("android_app_TaskStackBuilder::android_app_TaskStackBuilder(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_app_TaskStackBuilder::android_app_TaskStackBuilder()
-// {
-// 	LOGV("android_app_TaskStackBuilder::android_app_TaskStackBuilder() enter");	
+Proxy android_app_TaskStackBuilder::proxy() const
+{	
+	LOGV("android_app_TaskStackBuilder::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/app/TaskStackBuilder";
+	long cxxAddress = (long) this;
+	LOGV("android_app_TaskStackBuilder cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_TaskStackBuilder jni address %d", proxiedComponent);
 
-// 	LOGV("android_app_TaskStackBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_app_TaskStackBuilder::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_app_TaskStackBuilder cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_app_TaskStackBuilder jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_app_TaskStackBuilder::android_app_TaskStackBuilder() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_app_TaskStackBuilder::~android_app_TaskStackBuilder()
 {
@@ -215,13 +193,13 @@ android_app_TaskStackBuilder::~android_app_TaskStackBuilder()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_app_TaskStackBuilder::~android_app_TaskStackBuilder() exit");
 }
 // Functions
-AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::create(AndroidCXX::android_content_Context& arg0)
+AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::create(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::create(AndroidCXX::android_content_Context& arg0) enter");
+	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::create(AndroidCXX::android_content_Context const& arg0) enter");
 
 	const char *methodName = "create";
 	const char *methodSignature = "(Landroid/content/Context;)Landroid/app/TaskStackBuilder;";
@@ -231,8 +209,6 @@ AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::create(An
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_app_TaskStackBuilder cxx address %d", cxxAddress);
@@ -261,7 +237,7 @@ AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::create(An
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -282,9 +258,7 @@ AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::create(An
 	AndroidCXX::android_app_TaskStackBuilder result((AndroidCXX::android_app_TaskStackBuilder) *((AndroidCXX::android_app_TaskStackBuilder *) cxx_value));
 	delete ((AndroidCXX::android_app_TaskStackBuilder *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::create(AndroidCXX::android_content_Context& arg0) exit");
+	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::create(AndroidCXX::android_content_Context const& arg0) exit");
 
 	return result;
 }
@@ -301,8 +275,6 @@ void android_app_TaskStackBuilder::startActivities()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_TaskStackBuilder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -311,14 +283,12 @@ void android_app_TaskStackBuilder::startActivities()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_app_TaskStackBuilder::startActivities() exit");
 
 }
-void android_app_TaskStackBuilder::startActivities(AndroidCXX::android_os_Bundle& arg0)
+void android_app_TaskStackBuilder::startActivities(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("void android_app_TaskStackBuilder::startActivities(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("void android_app_TaskStackBuilder::startActivities(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "startActivities";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -328,8 +298,6 @@ void android_app_TaskStackBuilder::startActivities(AndroidCXX::android_os_Bundle
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_TaskStackBuilder cxx address %d", cxxAddress);
@@ -360,14 +328,12 @@ void android_app_TaskStackBuilder::startActivities(AndroidCXX::android_os_Bundle
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_app_TaskStackBuilder::startActivities(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("void android_app_TaskStackBuilder::startActivities(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 }
-AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addNextIntent(AndroidCXX::android_content_Intent& arg0)
+AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addNextIntent(AndroidCXX::android_content_Intent const& arg0)
 {
-	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addNextIntent(AndroidCXX::android_content_Intent& arg0) enter");
+	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addNextIntent(AndroidCXX::android_content_Intent const& arg0) enter");
 
 	const char *methodName = "addNextIntent";
 	const char *methodSignature = "(Landroid/content/Intent;)Landroid/app/TaskStackBuilder;";
@@ -378,8 +344,6 @@ AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addNextIn
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_TaskStackBuilder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -428,15 +392,13 @@ AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addNextIn
 	AndroidCXX::android_app_TaskStackBuilder result((AndroidCXX::android_app_TaskStackBuilder) *((AndroidCXX::android_app_TaskStackBuilder *) cxx_value));
 	delete ((AndroidCXX::android_app_TaskStackBuilder *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addNextIntent(AndroidCXX::android_content_Intent& arg0) exit");
+	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addNextIntent(AndroidCXX::android_content_Intent const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addNextIntentWithParentStack(AndroidCXX::android_content_Intent& arg0)
+AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addNextIntentWithParentStack(AndroidCXX::android_content_Intent const& arg0)
 {
-	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addNextIntentWithParentStack(AndroidCXX::android_content_Intent& arg0) enter");
+	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addNextIntentWithParentStack(AndroidCXX::android_content_Intent const& arg0) enter");
 
 	const char *methodName = "addNextIntentWithParentStack";
 	const char *methodSignature = "(Landroid/content/Intent;)Landroid/app/TaskStackBuilder;";
@@ -447,8 +409,6 @@ AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addNextIn
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_TaskStackBuilder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -497,15 +457,13 @@ AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addNextIn
 	AndroidCXX::android_app_TaskStackBuilder result((AndroidCXX::android_app_TaskStackBuilder) *((AndroidCXX::android_app_TaskStackBuilder *) cxx_value));
 	delete ((AndroidCXX::android_app_TaskStackBuilder *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addNextIntentWithParentStack(AndroidCXX::android_content_Intent& arg0) exit");
+	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addNextIntentWithParentStack(AndroidCXX::android_content_Intent const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParentStack(AndroidCXX::android_app_Activity& arg0)
+AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParentStack(AndroidCXX::android_app_Activity const& arg0)
 {
-	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParentStack(AndroidCXX::android_app_Activity& arg0) enter");
+	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParentStack(AndroidCXX::android_app_Activity const& arg0) enter");
 
 	const char *methodName = "addParentStack";
 	const char *methodSignature = "(Landroid/app/Activity;)Landroid/app/TaskStackBuilder;";
@@ -515,8 +473,6 @@ AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParent
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_TaskStackBuilder cxx address %d", cxxAddress);
@@ -566,15 +522,13 @@ AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParent
 	AndroidCXX::android_app_TaskStackBuilder result((AndroidCXX::android_app_TaskStackBuilder) *((AndroidCXX::android_app_TaskStackBuilder *) cxx_value));
 	delete ((AndroidCXX::android_app_TaskStackBuilder *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParentStack(AndroidCXX::android_app_Activity& arg0) exit");
+	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParentStack(AndroidCXX::android_app_Activity const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParentStack(AndroidCXX::java_lang_Class& arg0)
+AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParentStack(AndroidCXX::java_lang_Class const& arg0)
 {
-	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParentStack(AndroidCXX::java_lang_Class& arg0) enter");
+	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParentStack(AndroidCXX::java_lang_Class const& arg0) enter");
 
 	const char *methodName = "addParentStack";
 	const char *methodSignature = "(Ljava/lang/Class;)Landroid/app/TaskStackBuilder;";
@@ -584,8 +538,6 @@ AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParent
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_TaskStackBuilder cxx address %d", cxxAddress);
@@ -653,15 +605,13 @@ AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParent
 	AndroidCXX::android_app_TaskStackBuilder result((AndroidCXX::android_app_TaskStackBuilder) *((AndroidCXX::android_app_TaskStackBuilder *) cxx_value));
 	delete ((AndroidCXX::android_app_TaskStackBuilder *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParentStack(AndroidCXX::java_lang_Class& arg0) exit");
+	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParentStack(AndroidCXX::java_lang_Class const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParentStack(AndroidCXX::android_content_ComponentName& arg0)
+AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParentStack(AndroidCXX::android_content_ComponentName const& arg0)
 {
-	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParentStack(AndroidCXX::android_content_ComponentName& arg0) enter");
+	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParentStack(AndroidCXX::android_content_ComponentName const& arg0) enter");
 
 	const char *methodName = "addParentStack";
 	const char *methodSignature = "(Landroid/content/ComponentName;)Landroid/app/TaskStackBuilder;";
@@ -671,8 +621,6 @@ AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParent
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_TaskStackBuilder cxx address %d", cxxAddress);
@@ -722,9 +670,7 @@ AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParent
 	AndroidCXX::android_app_TaskStackBuilder result((AndroidCXX::android_app_TaskStackBuilder) *((AndroidCXX::android_app_TaskStackBuilder *) cxx_value));
 	delete ((AndroidCXX::android_app_TaskStackBuilder *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParentStack(AndroidCXX::android_content_ComponentName& arg0) exit");
+	LOGV("AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParentStack(AndroidCXX::android_content_ComponentName const& arg0) exit");
 
 	return result;
 }
@@ -740,8 +686,6 @@ int android_app_TaskStackBuilder::getIntentCount()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_TaskStackBuilder cxx address %d", cxxAddress);
@@ -770,15 +714,13 @@ int android_app_TaskStackBuilder::getIntentCount()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_app_TaskStackBuilder::getIntentCount() exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_app_TaskStackBuilder::editIntentAt(int& arg0)
+AndroidCXX::android_content_Intent android_app_TaskStackBuilder::editIntentAt(int const& arg0)
 {
-	LOGV("AndroidCXX::android_content_Intent android_app_TaskStackBuilder::editIntentAt(int& arg0) enter");
+	LOGV("AndroidCXX::android_content_Intent android_app_TaskStackBuilder::editIntentAt(int const& arg0) enter");
 
 	const char *methodName = "editIntentAt";
 	const char *methodSignature = "(I)Landroid/content/Intent;";
@@ -788,8 +730,6 @@ AndroidCXX::android_content_Intent android_app_TaskStackBuilder::editIntentAt(in
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_TaskStackBuilder cxx address %d", cxxAddress);
@@ -839,15 +779,13 @@ AndroidCXX::android_content_Intent android_app_TaskStackBuilder::editIntentAt(in
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_app_TaskStackBuilder::editIntentAt(int& arg0) exit");
+	LOGV("AndroidCXX::android_content_Intent android_app_TaskStackBuilder::editIntentAt(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_app_PendingIntent android_app_TaskStackBuilder::getPendingIntent(int& arg0,int& arg1)
+AndroidCXX::android_app_PendingIntent android_app_TaskStackBuilder::getPendingIntent(int const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_app_PendingIntent android_app_TaskStackBuilder::getPendingIntent(int& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_app_PendingIntent android_app_TaskStackBuilder::getPendingIntent(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getPendingIntent";
 	const char *methodSignature = "(II)Landroid/app/PendingIntent;";
@@ -857,8 +795,6 @@ AndroidCXX::android_app_PendingIntent android_app_TaskStackBuilder::getPendingIn
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_TaskStackBuilder cxx address %d", cxxAddress);
@@ -929,15 +865,13 @@ AndroidCXX::android_app_PendingIntent android_app_TaskStackBuilder::getPendingIn
 	AndroidCXX::android_app_PendingIntent result((AndroidCXX::android_app_PendingIntent) *((AndroidCXX::android_app_PendingIntent *) cxx_value));
 	delete ((AndroidCXX::android_app_PendingIntent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_PendingIntent android_app_TaskStackBuilder::getPendingIntent(int& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_app_PendingIntent android_app_TaskStackBuilder::getPendingIntent(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_app_PendingIntent android_app_TaskStackBuilder::getPendingIntent(int& arg0,int& arg1,AndroidCXX::android_os_Bundle& arg2)
+AndroidCXX::android_app_PendingIntent android_app_TaskStackBuilder::getPendingIntent(int const& arg0,int const& arg1,AndroidCXX::android_os_Bundle const& arg2)
 {
-	LOGV("AndroidCXX::android_app_PendingIntent android_app_TaskStackBuilder::getPendingIntent(int& arg0,int& arg1,AndroidCXX::android_os_Bundle& arg2) enter");
+	LOGV("AndroidCXX::android_app_PendingIntent android_app_TaskStackBuilder::getPendingIntent(int const& arg0,int const& arg1,AndroidCXX::android_os_Bundle const& arg2) enter");
 
 	const char *methodName = "getPendingIntent";
 	const char *methodSignature = "(IILandroid/os/Bundle;)Landroid/app/PendingIntent;";
@@ -947,8 +881,6 @@ AndroidCXX::android_app_PendingIntent android_app_TaskStackBuilder::getPendingIn
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_TaskStackBuilder cxx address %d", cxxAddress);
@@ -1040,9 +972,7 @@ AndroidCXX::android_app_PendingIntent android_app_TaskStackBuilder::getPendingIn
 	AndroidCXX::android_app_PendingIntent result((AndroidCXX::android_app_PendingIntent) *((AndroidCXX::android_app_PendingIntent *) cxx_value));
 	delete ((AndroidCXX::android_app_PendingIntent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_PendingIntent android_app_TaskStackBuilder::getPendingIntent(int& arg0,int& arg1,AndroidCXX::android_os_Bundle& arg2) exit");
+	LOGV("AndroidCXX::android_app_PendingIntent android_app_TaskStackBuilder::getPendingIntent(int const& arg0,int const& arg1,AndroidCXX::android_os_Bundle const& arg2) exit");
 
 	return result;
 }
@@ -1058,8 +988,6 @@ std::vector<AndroidCXX::android_content_Intent > android_app_TaskStackBuilder::g
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_TaskStackBuilder cxx address %d", cxxAddress);
@@ -1106,8 +1034,6 @@ std::vector<AndroidCXX::android_content_Intent > android_app_TaskStackBuilder::g
 	std::vector<AndroidCXX::android_content_Intent > result = (std::vector<AndroidCXX::android_content_Intent >) *((std::vector<AndroidCXX::android_content_Intent > *) cxx_value);
 	delete ((std::vector<AndroidCXX::android_content_Intent > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<AndroidCXX::android_content_Intent > android_app_TaskStackBuilder::getIntents() exit");
 
 	return result;

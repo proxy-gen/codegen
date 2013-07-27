@@ -46,12 +46,9 @@ class com_facebook_Session_3
 public:
 
 	com_facebook_Session_3(const com_facebook_Session_3& cc);
-	com_facebook_Session_3(void * proxy);
+	com_facebook_Session_3(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_Session_3();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_3();
 	// Functions

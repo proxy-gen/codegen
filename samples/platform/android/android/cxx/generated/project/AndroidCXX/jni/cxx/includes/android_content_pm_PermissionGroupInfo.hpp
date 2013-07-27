@@ -74,20 +74,18 @@ class android_content_pm_PermissionGroupInfo
 {
 public:
 
-	android_content_pm_PermissionGroupInfo(const android_content_pm_PermissionGroupInfo& cc);
-	android_content_pm_PermissionGroupInfo(void * proxy);
+	android_content_pm_PermissionGroupInfo(Proxy proxy);
 	// Public Constructors
 	android_content_pm_PermissionGroupInfo();
-	android_content_pm_PermissionGroupInfo(AndroidCXX::android_content_pm_PermissionGroupInfo& arg0);
-	// TODO: remove
-	// 
+	android_content_pm_PermissionGroupInfo(AndroidCXX::android_content_pm_PermissionGroupInfo const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_pm_PermissionGroupInfo();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
-	 AndroidCXX::java_lang_CharSequence loadDescription(AndroidCXX::android_content_pm_PackageManager& arg0);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	 AndroidCXX::java_lang_CharSequence loadDescription(AndroidCXX::android_content_pm_PackageManager const& arg0);
 };	
 
 } // namespace

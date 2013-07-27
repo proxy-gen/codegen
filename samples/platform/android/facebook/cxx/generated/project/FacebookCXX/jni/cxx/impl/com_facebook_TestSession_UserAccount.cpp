@@ -59,7 +59,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_TestSession_UserAccount::com_facebook_TestSession_UserAccount(const com_facebook_TestSession_UserAccount& cc)
 {
 	LOGV("com_facebook_TestSession_UserAccount::com_facebook_TestSession_UserAccount(const com_facebook_TestSession_UserAccount& cc) enter");
@@ -83,9 +82,9 @@ com_facebook_TestSession_UserAccount::com_facebook_TestSession_UserAccount(const
 
 	LOGV("com_facebook_TestSession_UserAccount::com_facebook_TestSession_UserAccount(const com_facebook_TestSession_UserAccount& cc) exit");
 }
-com_facebook_TestSession_UserAccount::com_facebook_TestSession_UserAccount(void * proxy)
+com_facebook_TestSession_UserAccount::com_facebook_TestSession_UserAccount(Proxy proxy)
 {
-	LOGV("com_facebook_TestSession_UserAccount::com_facebook_TestSession_UserAccount(void * proxy) enter");
+	LOGV("com_facebook_TestSession_UserAccount::com_facebook_TestSession_UserAccount(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -95,52 +94,31 @@ com_facebook_TestSession_UserAccount::com_facebook_TestSession_UserAccount(void 
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_TestSession_UserAccount::com_facebook_TestSession_UserAccount(void * proxy) exit");
+	LOGV("com_facebook_TestSession_UserAccount::com_facebook_TestSession_UserAccount(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// com_facebook_TestSession_UserAccount::com_facebook_TestSession_UserAccount()
-// {
-// 	LOGV("com_facebook_TestSession_UserAccount::com_facebook_TestSession_UserAccount() enter");	
+Proxy com_facebook_TestSession_UserAccount::proxy() const
+{	
+	LOGV("com_facebook_TestSession_UserAccount::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "com/facebook/TestSession$UserAccount";
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_TestSession_UserAccount cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_TestSession_UserAccount jni address %d", proxiedComponent);
 
-// 	LOGV("com_facebook_TestSession_UserAccount className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("com_facebook_TestSession_UserAccount::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("com_facebook_TestSession_UserAccount cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("com_facebook_TestSession_UserAccount jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("com_facebook_TestSession_UserAccount::com_facebook_TestSession_UserAccount() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 com_facebook_TestSession_UserAccount::~com_facebook_TestSession_UserAccount()
 {
@@ -152,7 +130,7 @@ com_facebook_TestSession_UserAccount::~com_facebook_TestSession_UserAccount()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_TestSession_UserAccount::~com_facebook_TestSession_UserAccount() exit");
 }
 // Functions
@@ -168,8 +146,6 @@ AndroidCXX::java_lang_String com_facebook_TestSession_UserAccount::getName()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_TestSession_UserAccount cxx address %d", cxxAddress);
@@ -198,15 +174,13 @@ AndroidCXX::java_lang_String com_facebook_TestSession_UserAccount::getName()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String com_facebook_TestSession_UserAccount::getName() exit");
 
 	return result;
 }
-void com_facebook_TestSession_UserAccount::setName(AndroidCXX::java_lang_String& arg0)
+void com_facebook_TestSession_UserAccount::setName(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void com_facebook_TestSession_UserAccount::setName(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_TestSession_UserAccount::setName(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setName";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -216,8 +190,6 @@ void com_facebook_TestSession_UserAccount::setName(AndroidCXX::java_lang_String&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_TestSession_UserAccount cxx address %d", cxxAddress);
@@ -248,9 +220,7 @@ void com_facebook_TestSession_UserAccount::setName(AndroidCXX::java_lang_String&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_TestSession_UserAccount::setName(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_TestSession_UserAccount::setName(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String com_facebook_TestSession_UserAccount::getUid()
@@ -265,8 +235,6 @@ AndroidCXX::java_lang_String com_facebook_TestSession_UserAccount::getUid()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_TestSession_UserAccount cxx address %d", cxxAddress);
@@ -295,8 +263,6 @@ AndroidCXX::java_lang_String com_facebook_TestSession_UserAccount::getUid()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String com_facebook_TestSession_UserAccount::getUid() exit");
 
 	return result;

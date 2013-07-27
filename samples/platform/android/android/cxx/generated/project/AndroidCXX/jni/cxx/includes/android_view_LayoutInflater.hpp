@@ -123,29 +123,26 @@ class android_view_LayoutInflater
 public:
 
 	android_view_LayoutInflater(const android_view_LayoutInflater& cc);
-	android_view_LayoutInflater(void * proxy);
+	android_view_LayoutInflater(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_view_LayoutInflater();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_LayoutInflater();
 	// Functions
-	static AndroidCXX::android_view_LayoutInflater from(AndroidCXX::android_content_Context& arg0);
+	static AndroidCXX::android_view_LayoutInflater from(AndroidCXX::android_content_Context const& arg0);
 	 AndroidCXX::android_view_LayoutInflater_Factory getFactory();
 	 AndroidCXX::android_content_Context getContext();
-	 AndroidCXX::android_view_View inflate(AndroidCXX::org_xmlpull_v1_XmlPullParser& arg0,AndroidCXX::android_view_ViewGroup& arg1);
-	 AndroidCXX::android_view_View inflate(AndroidCXX::org_xmlpull_v1_XmlPullParser& arg0,AndroidCXX::android_view_ViewGroup& arg1,bool& arg2);
-	 AndroidCXX::android_view_View inflate(int& arg0,AndroidCXX::android_view_ViewGroup& arg1);
-	 AndroidCXX::android_view_View inflate(int& arg0,AndroidCXX::android_view_ViewGroup& arg1,bool& arg2);
-	 void setFactory(AndroidCXX::android_view_LayoutInflater_Factory& arg0);
-	 AndroidCXX::android_view_LayoutInflater cloneInContext(AndroidCXX::android_content_Context& arg0);
+	 AndroidCXX::android_view_View inflate(AndroidCXX::org_xmlpull_v1_XmlPullParser const& arg0,AndroidCXX::android_view_ViewGroup const& arg1);
+	 AndroidCXX::android_view_View inflate(AndroidCXX::org_xmlpull_v1_XmlPullParser const& arg0,AndroidCXX::android_view_ViewGroup const& arg1,bool const& arg2);
+	 AndroidCXX::android_view_View inflate(int const& arg0,AndroidCXX::android_view_ViewGroup const& arg1);
+	 AndroidCXX::android_view_View inflate(int const& arg0,AndroidCXX::android_view_ViewGroup const& arg1,bool const& arg2);
+	 void setFactory(AndroidCXX::android_view_LayoutInflater_Factory const& arg0);
+	 AndroidCXX::android_view_LayoutInflater cloneInContext(AndroidCXX::android_content_Context const& arg0);
 	 AndroidCXX::android_view_LayoutInflater_Factory2 getFactory2();
-	 void setFactory2(AndroidCXX::android_view_LayoutInflater_Factory2& arg0);
+	 void setFactory2(AndroidCXX::android_view_LayoutInflater_Factory2 const& arg0);
 	 AndroidCXX::android_view_LayoutInflater_Filter getFilter();
-	 void setFilter(AndroidCXX::android_view_LayoutInflater_Filter& arg0);
-	 AndroidCXX::android_view_View createView(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_util_AttributeSet& arg2);
+	 void setFilter(AndroidCXX::android_view_LayoutInflater_Filter const& arg0);
+	 AndroidCXX::android_view_View createView(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_util_AttributeSet const& arg2);
 };	
 
 } // namespace

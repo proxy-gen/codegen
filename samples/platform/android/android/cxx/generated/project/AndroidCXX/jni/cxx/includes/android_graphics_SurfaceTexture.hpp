@@ -60,24 +60,21 @@ class android_graphics_SurfaceTexture
 public:
 
 	android_graphics_SurfaceTexture(const android_graphics_SurfaceTexture& cc);
-	android_graphics_SurfaceTexture(void * proxy);
+	android_graphics_SurfaceTexture(Proxy proxy);
 	// Public Constructors
-	android_graphics_SurfaceTexture(int& arg0);
-	// TODO: remove
-	// 
-	// android_graphics_SurfaceTexture();
-	// 
+	android_graphics_SurfaceTexture(int const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_SurfaceTexture();
 	// Functions
 	 void release();
 	 long getTimestamp();
-	 void setOnFrameAvailableListener(AndroidCXX::android_graphics_SurfaceTexture_OnFrameAvailableListener& arg0);
-	 void setDefaultBufferSize(int& arg0,int& arg1);
+	 void setOnFrameAvailableListener(AndroidCXX::android_graphics_SurfaceTexture_OnFrameAvailableListener const& arg0);
+	 void setDefaultBufferSize(int const& arg0,int const& arg1);
 	 void updateTexImage();
 	 void detachFromGLContext();
-	 void attachToGLContext(int& arg0);
-	 void getTransformMatrix(std::vector<float>& arg0);
+	 void attachToGLContext(int const& arg0);
+	 void getTransformMatrix(std::vector<float> const& arg0);
 };	
 
 } // namespace

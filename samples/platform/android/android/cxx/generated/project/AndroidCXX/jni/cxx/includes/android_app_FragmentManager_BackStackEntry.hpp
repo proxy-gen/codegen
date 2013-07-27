@@ -62,12 +62,9 @@ class android_app_FragmentManager_BackStackEntry
 public:
 
 	android_app_FragmentManager_BackStackEntry(const android_app_FragmentManager_BackStackEntry& cc);
-	android_app_FragmentManager_BackStackEntry(void * proxy);
+	android_app_FragmentManager_BackStackEntry(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_app_FragmentManager_BackStackEntry();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_FragmentManager_BackStackEntry();
 	// Functions

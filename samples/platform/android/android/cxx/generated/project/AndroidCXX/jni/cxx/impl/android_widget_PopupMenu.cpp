@@ -73,7 +73,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_PopupMenu::android_widget_PopupMenu(const android_widget_PopupMenu& cc)
 {
 	LOGV("android_widget_PopupMenu::android_widget_PopupMenu(const android_widget_PopupMenu& cc) enter");
@@ -97,9 +96,9 @@ android_widget_PopupMenu::android_widget_PopupMenu(const android_widget_PopupMen
 
 	LOGV("android_widget_PopupMenu::android_widget_PopupMenu(const android_widget_PopupMenu& cc) exit");
 }
-android_widget_PopupMenu::android_widget_PopupMenu(void * proxy)
+android_widget_PopupMenu::android_widget_PopupMenu(Proxy proxy)
 {
-	LOGV("android_widget_PopupMenu::android_widget_PopupMenu(void * proxy) enter");
+	LOGV("android_widget_PopupMenu::android_widget_PopupMenu(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -109,55 +108,34 @@ android_widget_PopupMenu::android_widget_PopupMenu(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_PopupMenu::android_widget_PopupMenu(void * proxy) exit");
+	LOGV("android_widget_PopupMenu::android_widget_PopupMenu(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_PopupMenu::android_widget_PopupMenu()
-// {
-// 	LOGV("android_widget_PopupMenu::android_widget_PopupMenu() enter");	
+Proxy android_widget_PopupMenu::proxy() const
+{	
+	LOGV("android_widget_PopupMenu::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/PopupMenu";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_PopupMenu cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_PopupMenu jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_PopupMenu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_PopupMenu::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_PopupMenu cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_PopupMenu jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_PopupMenu::android_widget_PopupMenu() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_PopupMenu::android_widget_PopupMenu(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_View& arg1)
+	return proxy;
+}
+android_widget_PopupMenu::android_widget_PopupMenu(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_View const& arg1)
 {
-	LOGV("android_widget_PopupMenu::android_widget_PopupMenu(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_View& arg1) enter");	
+	LOGV("android_widget_PopupMenu::android_widget_PopupMenu(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_View const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/view/View;)V";
@@ -231,7 +209,7 @@ android_widget_PopupMenu::android_widget_PopupMenu(AndroidCXX::android_content_C
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_PopupMenu::android_widget_PopupMenu(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_View& arg1) exit");	
+	LOGV("android_widget_PopupMenu::android_widget_PopupMenu(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_View const& arg1) exit");	
 }
 // Default Instance Destructor
 android_widget_PopupMenu::~android_widget_PopupMenu()
@@ -244,13 +222,13 @@ android_widget_PopupMenu::~android_widget_PopupMenu()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_PopupMenu::~android_widget_PopupMenu() exit");
 }
 // Functions
-void android_widget_PopupMenu::inflate(int& arg0)
+void android_widget_PopupMenu::inflate(int const& arg0)
 {
-	LOGV("void android_widget_PopupMenu::inflate(int& arg0) enter");
+	LOGV("void android_widget_PopupMenu::inflate(int const& arg0) enter");
 
 	const char *methodName = "inflate";
 	const char *methodSignature = "(I)V";
@@ -260,8 +238,6 @@ void android_widget_PopupMenu::inflate(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_PopupMenu cxx address %d", cxxAddress);
@@ -292,9 +268,7 @@ void android_widget_PopupMenu::inflate(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_PopupMenu::inflate(int& arg0) exit");
+	LOGV("void android_widget_PopupMenu::inflate(int const& arg0) exit");
 
 }
 void android_widget_PopupMenu::show()
@@ -310,8 +284,6 @@ void android_widget_PopupMenu::show()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_PopupMenu cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -320,8 +292,6 @@ void android_widget_PopupMenu::show()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_PopupMenu::show() exit");
 
 }
@@ -337,8 +307,6 @@ AndroidCXX::android_view_MenuInflater android_widget_PopupMenu::getMenuInflater(
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_PopupMenu cxx address %d", cxxAddress);
@@ -367,15 +335,13 @@ AndroidCXX::android_view_MenuInflater android_widget_PopupMenu::getMenuInflater(
 	AndroidCXX::android_view_MenuInflater result((AndroidCXX::android_view_MenuInflater) *((AndroidCXX::android_view_MenuInflater *) cxx_value));
 	delete ((AndroidCXX::android_view_MenuInflater *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_view_MenuInflater android_widget_PopupMenu::getMenuInflater() exit");
 
 	return result;
 }
-void android_widget_PopupMenu::setOnMenuItemClickListener(AndroidCXX::android_widget_PopupMenu_OnMenuItemClickListener& arg0)
+void android_widget_PopupMenu::setOnMenuItemClickListener(AndroidCXX::android_widget_PopupMenu_OnMenuItemClickListener const& arg0)
 {
-	LOGV("void android_widget_PopupMenu::setOnMenuItemClickListener(AndroidCXX::android_widget_PopupMenu_OnMenuItemClickListener& arg0) enter");
+	LOGV("void android_widget_PopupMenu::setOnMenuItemClickListener(AndroidCXX::android_widget_PopupMenu_OnMenuItemClickListener const& arg0) enter");
 
 	const char *methodName = "setOnMenuItemClickListener";
 	const char *methodSignature = "(Landroid/widget/PopupMenu$OnMenuItemClickListener;)V";
@@ -385,8 +351,6 @@ void android_widget_PopupMenu::setOnMenuItemClickListener(AndroidCXX::android_wi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_PopupMenu cxx address %d", cxxAddress);
@@ -417,9 +381,7 @@ void android_widget_PopupMenu::setOnMenuItemClickListener(AndroidCXX::android_wi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_PopupMenu::setOnMenuItemClickListener(AndroidCXX::android_widget_PopupMenu_OnMenuItemClickListener& arg0) exit");
+	LOGV("void android_widget_PopupMenu::setOnMenuItemClickListener(AndroidCXX::android_widget_PopupMenu_OnMenuItemClickListener const& arg0) exit");
 
 }
 AndroidCXX::android_view_Menu android_widget_PopupMenu::getMenu()
@@ -434,8 +396,6 @@ AndroidCXX::android_view_Menu android_widget_PopupMenu::getMenu()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_PopupMenu cxx address %d", cxxAddress);
@@ -464,8 +424,6 @@ AndroidCXX::android_view_Menu android_widget_PopupMenu::getMenu()
 	AndroidCXX::android_view_Menu result((AndroidCXX::android_view_Menu) *((AndroidCXX::android_view_Menu *) cxx_value));
 	delete ((AndroidCXX::android_view_Menu *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_view_Menu android_widget_PopupMenu::getMenu() exit");
 
 	return result;
@@ -483,8 +441,6 @@ void android_widget_PopupMenu::dismiss()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_PopupMenu cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -493,14 +449,12 @@ void android_widget_PopupMenu::dismiss()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_PopupMenu::dismiss() exit");
 
 }
-void android_widget_PopupMenu::setOnDismissListener(AndroidCXX::android_widget_PopupMenu_OnDismissListener& arg0)
+void android_widget_PopupMenu::setOnDismissListener(AndroidCXX::android_widget_PopupMenu_OnDismissListener const& arg0)
 {
-	LOGV("void android_widget_PopupMenu::setOnDismissListener(AndroidCXX::android_widget_PopupMenu_OnDismissListener& arg0) enter");
+	LOGV("void android_widget_PopupMenu::setOnDismissListener(AndroidCXX::android_widget_PopupMenu_OnDismissListener const& arg0) enter");
 
 	const char *methodName = "setOnDismissListener";
 	const char *methodSignature = "(Landroid/widget/PopupMenu$OnDismissListener;)V";
@@ -510,8 +464,6 @@ void android_widget_PopupMenu::setOnDismissListener(AndroidCXX::android_widget_P
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_PopupMenu cxx address %d", cxxAddress);
@@ -542,8 +494,6 @@ void android_widget_PopupMenu::setOnDismissListener(AndroidCXX::android_widget_P
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_PopupMenu::setOnDismissListener(AndroidCXX::android_widget_PopupMenu_OnDismissListener& arg0) exit");
+	LOGV("void android_widget_PopupMenu::setOnDismissListener(AndroidCXX::android_widget_PopupMenu_OnDismissListener const& arg0) exit");
 
 }

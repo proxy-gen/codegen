@@ -92,22 +92,19 @@ class android_widget_TabHost_TabSpec
 public:
 
 	android_widget_TabHost_TabSpec(const android_widget_TabHost_TabSpec& cc);
-	android_widget_TabHost_TabSpec(void * proxy);
+	android_widget_TabHost_TabSpec(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_TabHost_TabSpec();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TabHost_TabSpec();
 	// Functions
 	 AndroidCXX::java_lang_String getTag();
-	 AndroidCXX::android_widget_TabHost_TabSpec setIndicator(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_graphics_drawable_Drawable& arg1);
-	 AndroidCXX::android_widget_TabHost_TabSpec setIndicator(AndroidCXX::android_view_View& arg0);
-	 AndroidCXX::android_widget_TabHost_TabSpec setIndicator(AndroidCXX::java_lang_CharSequence& arg0);
-	 AndroidCXX::android_widget_TabHost_TabSpec setContent(int& arg0);
-	 AndroidCXX::android_widget_TabHost_TabSpec setContent(AndroidCXX::android_widget_TabHost_TabContentFactory& arg0);
-	 AndroidCXX::android_widget_TabHost_TabSpec setContent(AndroidCXX::android_content_Intent& arg0);
+	 AndroidCXX::android_widget_TabHost_TabSpec setIndicator(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1);
+	 AndroidCXX::android_widget_TabHost_TabSpec setIndicator(AndroidCXX::android_view_View const& arg0);
+	 AndroidCXX::android_widget_TabHost_TabSpec setIndicator(AndroidCXX::java_lang_CharSequence const& arg0);
+	 AndroidCXX::android_widget_TabHost_TabSpec setContent(int const& arg0);
+	 AndroidCXX::android_widget_TabHost_TabSpec setContent(AndroidCXX::android_widget_TabHost_TabContentFactory const& arg0);
+	 AndroidCXX::android_widget_TabHost_TabSpec setContent(AndroidCXX::android_content_Intent const& arg0);
 };	
 
 } // namespace

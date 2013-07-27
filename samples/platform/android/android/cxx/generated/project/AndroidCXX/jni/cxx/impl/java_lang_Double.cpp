@@ -106,7 +106,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_lang_Double::java_lang_Double(const java_lang_Double& cc)
 {
 	LOGV("java_lang_Double::java_lang_Double(const java_lang_Double& cc) enter");
@@ -130,9 +129,9 @@ java_lang_Double::java_lang_Double(const java_lang_Double& cc)
 
 	LOGV("java_lang_Double::java_lang_Double(const java_lang_Double& cc) exit");
 }
-java_lang_Double::java_lang_Double(void * proxy)
+java_lang_Double::java_lang_Double(Proxy proxy)
 {
-	LOGV("java_lang_Double::java_lang_Double(void * proxy) enter");
+	LOGV("java_lang_Double::java_lang_Double(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -142,55 +141,34 @@ java_lang_Double::java_lang_Double(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_lang_Double::java_lang_Double(void * proxy) exit");
+	LOGV("java_lang_Double::java_lang_Double(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_lang_Double::java_lang_Double()
-// {
-// 	LOGV("java_lang_Double::java_lang_Double() enter");	
+Proxy java_lang_Double::proxy() const
+{	
+	LOGV("java_lang_Double::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/lang/Double";
+	long cxxAddress = (long) this;
+	LOGV("java_lang_Double cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_Double jni address %d", proxiedComponent);
 
-// 	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_lang_Double::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_lang_Double cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_lang_Double jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_lang_Double::java_lang_Double() exit");	
-// }
-// 
-// 
-// Public Constructors
-java_lang_Double::java_lang_Double(double& arg0)
+	return proxy;
+}
+java_lang_Double::java_lang_Double(double const& arg0)
 {
-	LOGV("java_lang_Double::java_lang_Double(double& arg0) enter");	
+	LOGV("java_lang_Double::java_lang_Double(double const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(D)V";
@@ -243,11 +221,11 @@ java_lang_Double::java_lang_Double(double& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Double::java_lang_Double(double& arg0) exit");	
+	LOGV("java_lang_Double::java_lang_Double(double const& arg0) exit");	
 }
-java_lang_Double::java_lang_Double(AndroidCXX::java_lang_String& arg0)
+java_lang_Double::java_lang_Double(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("java_lang_Double::java_lang_Double(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("java_lang_Double::java_lang_Double(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -300,7 +278,7 @@ java_lang_Double::java_lang_Double(AndroidCXX::java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Double::java_lang_Double(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("java_lang_Double::java_lang_Double(AndroidCXX::java_lang_String const& arg0) exit");	
 }
 // Default Instance Destructor
 java_lang_Double::~java_lang_Double()
@@ -313,13 +291,13 @@ java_lang_Double::~java_lang_Double()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_lang_Double::~java_lang_Double() exit");
 }
 // Functions
-bool java_lang_Double::equals(AndroidCXX::java_lang_Object& arg0)
+bool java_lang_Double::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_lang_Double::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_lang_Double::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -329,8 +307,6 @@ bool java_lang_Double::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
@@ -380,15 +356,13 @@ bool java_lang_Double::equals(AndroidCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_lang_Double::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_lang_Double::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String java_lang_Double::toString(double& arg0)
+AndroidCXX::java_lang_String java_lang_Double::toString(double const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String java_lang_Double::toString(double& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String java_lang_Double::toString(double const& arg0) enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "(D)Ljava/lang/String;";
@@ -398,8 +372,6 @@ AndroidCXX::java_lang_String java_lang_Double::toString(double& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
@@ -428,7 +400,7 @@ AndroidCXX::java_lang_String java_lang_Double::toString(double& arg0)
 		jarg0 = convert_jni_double_to_jni(java_value);
 	}
 
-	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jstring jni_result = (jstring) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
 	{
@@ -449,9 +421,7 @@ AndroidCXX::java_lang_String java_lang_Double::toString(double& arg0)
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String java_lang_Double::toString(double& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String java_lang_Double::toString(double const& arg0) exit");
 
 	return result;
 }
@@ -467,8 +437,6 @@ AndroidCXX::java_lang_String java_lang_Double::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
@@ -497,8 +465,6 @@ AndroidCXX::java_lang_String java_lang_Double::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_lang_Double::toString() exit");
 
 	return result;
@@ -515,8 +481,6 @@ int java_lang_Double::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
@@ -545,15 +509,13 @@ int java_lang_Double::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_lang_Double::hashCode() exit");
 
 	return result;
 }
-long java_lang_Double::doubleToRawLongBits(double& arg0)
+long java_lang_Double::doubleToRawLongBits(double const& arg0)
 {
-	LOGV("long java_lang_Double::doubleToRawLongBits(double& arg0) enter");
+	LOGV("long java_lang_Double::doubleToRawLongBits(double const& arg0) enter");
 
 	const char *methodName = "doubleToRawLongBits";
 	const char *methodSignature = "(D)J";
@@ -564,8 +526,6 @@ long java_lang_Double::doubleToRawLongBits(double& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -593,7 +553,7 @@ long java_lang_Double::doubleToRawLongBits(double& arg0)
 		jarg0 = convert_jni_double_to_jni(java_value);
 	}
 
-	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jlong jni_result = (jlong) jni->invokeStaticLongMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
 	{
@@ -614,15 +574,13 @@ long java_lang_Double::doubleToRawLongBits(double& arg0)
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long java_lang_Double::doubleToRawLongBits(double& arg0) exit");
+	LOGV("long java_lang_Double::doubleToRawLongBits(double const& arg0) exit");
 
 	return result;
 }
-long java_lang_Double::doubleToLongBits(double& arg0)
+long java_lang_Double::doubleToLongBits(double const& arg0)
 {
-	LOGV("long java_lang_Double::doubleToLongBits(double& arg0) enter");
+	LOGV("long java_lang_Double::doubleToLongBits(double const& arg0) enter");
 
 	const char *methodName = "doubleToLongBits";
 	const char *methodSignature = "(D)J";
@@ -633,8 +591,6 @@ long java_lang_Double::doubleToLongBits(double& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -662,7 +618,7 @@ long java_lang_Double::doubleToLongBits(double& arg0)
 		jarg0 = convert_jni_double_to_jni(java_value);
 	}
 
-	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jlong jni_result = (jlong) jni->invokeStaticLongMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
 	{
@@ -683,15 +639,13 @@ long java_lang_Double::doubleToLongBits(double& arg0)
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long java_lang_Double::doubleToLongBits(double& arg0) exit");
+	LOGV("long java_lang_Double::doubleToLongBits(double const& arg0) exit");
 
 	return result;
 }
-double java_lang_Double::longBitsToDouble(long& arg0)
+double java_lang_Double::longBitsToDouble(long const& arg0)
 {
-	LOGV("double java_lang_Double::longBitsToDouble(long& arg0) enter");
+	LOGV("double java_lang_Double::longBitsToDouble(long const& arg0) enter");
 
 	const char *methodName = "longBitsToDouble";
 	const char *methodSignature = "(J)D";
@@ -701,8 +655,6 @@ double java_lang_Double::longBitsToDouble(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
@@ -731,7 +683,7 @@ double java_lang_Double::longBitsToDouble(long& arg0)
 		jarg0 = convert_jni_long_to_jni(java_value);
 	}
 
-	jdouble jni_result = (jdouble) jni->invokeDoubleMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jdouble jni_result = (jdouble) jni->invokeStaticDoubleMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_double_to_java(jni_result);
 	{
@@ -752,15 +704,13 @@ double java_lang_Double::longBitsToDouble(long& arg0)
 	double result = (double) *((double *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("double java_lang_Double::longBitsToDouble(long& arg0) exit");
+	LOGV("double java_lang_Double::longBitsToDouble(long const& arg0) exit");
 
 	return result;
 }
-int java_lang_Double::compareTo(AndroidCXX::java_lang_Double& arg0)
+int java_lang_Double::compareTo(AndroidCXX::java_lang_Double const& arg0)
 {
-	LOGV("int java_lang_Double::compareTo(AndroidCXX::java_lang_Double& arg0) enter");
+	LOGV("int java_lang_Double::compareTo(AndroidCXX::java_lang_Double const& arg0) enter");
 
 	const char *methodName = "compareTo";
 	const char *methodSignature = "(Ljava/lang/Double;)I";
@@ -770,8 +720,6 @@ int java_lang_Double::compareTo(AndroidCXX::java_lang_Double& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
@@ -821,9 +769,7 @@ int java_lang_Double::compareTo(AndroidCXX::java_lang_Double& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_lang_Double::compareTo(AndroidCXX::java_lang_Double& arg0) exit");
+	LOGV("int java_lang_Double::compareTo(AndroidCXX::java_lang_Double const& arg0) exit");
 
 	return result;
 }
@@ -839,8 +785,6 @@ byte java_lang_Double::byteValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
@@ -869,8 +813,6 @@ byte java_lang_Double::byteValue()
 	byte result = (byte) *((byte *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("byte java_lang_Double::byteValue() exit");
 
 	return result;
@@ -887,8 +829,6 @@ short java_lang_Double::shortValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
@@ -917,8 +857,6 @@ short java_lang_Double::shortValue()
 	short result = (short) *((short *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("short java_lang_Double::shortValue() exit");
 
 	return result;
@@ -935,8 +873,6 @@ int java_lang_Double::intValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
@@ -965,8 +901,6 @@ int java_lang_Double::intValue()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_lang_Double::intValue() exit");
 
 	return result;
@@ -983,8 +917,6 @@ long java_lang_Double::longValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
@@ -1013,8 +945,6 @@ long java_lang_Double::longValue()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long java_lang_Double::longValue() exit");
 
 	return result;
@@ -1031,8 +961,6 @@ float java_lang_Double::floatValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
@@ -1061,8 +989,6 @@ float java_lang_Double::floatValue()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float java_lang_Double::floatValue() exit");
 
 	return result;
@@ -1079,8 +1005,6 @@ double java_lang_Double::doubleValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
@@ -1109,15 +1033,13 @@ double java_lang_Double::doubleValue()
 	double result = (double) *((double *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("double java_lang_Double::doubleValue() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_Double java_lang_Double::valueOf(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_lang_Double java_lang_Double::valueOf(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Double java_lang_Double::valueOf(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Double java_lang_Double::valueOf(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "valueOf";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Double;";
@@ -1127,8 +1049,6 @@ AndroidCXX::java_lang_Double java_lang_Double::valueOf(AndroidCXX::java_lang_Str
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
@@ -1157,7 +1077,7 @@ AndroidCXX::java_lang_Double java_lang_Double::valueOf(AndroidCXX::java_lang_Str
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1178,15 +1098,13 @@ AndroidCXX::java_lang_Double java_lang_Double::valueOf(AndroidCXX::java_lang_Str
 	AndroidCXX::java_lang_Double result((AndroidCXX::java_lang_Double) *((AndroidCXX::java_lang_Double *) cxx_value));
 	delete ((AndroidCXX::java_lang_Double *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_Double java_lang_Double::valueOf(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_lang_Double java_lang_Double::valueOf(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_Double java_lang_Double::valueOf(double& arg0)
+AndroidCXX::java_lang_Double java_lang_Double::valueOf(double const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Double java_lang_Double::valueOf(double& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Double java_lang_Double::valueOf(double const& arg0) enter");
 
 	const char *methodName = "valueOf";
 	const char *methodSignature = "(D)Ljava/lang/Double;";
@@ -1197,8 +1115,6 @@ AndroidCXX::java_lang_Double java_lang_Double::valueOf(double& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1226,7 +1142,7 @@ AndroidCXX::java_lang_Double java_lang_Double::valueOf(double& arg0)
 		jarg0 = convert_jni_double_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1247,15 +1163,13 @@ AndroidCXX::java_lang_Double java_lang_Double::valueOf(double& arg0)
 	AndroidCXX::java_lang_Double result((AndroidCXX::java_lang_Double) *((AndroidCXX::java_lang_Double *) cxx_value));
 	delete ((AndroidCXX::java_lang_Double *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_Double java_lang_Double::valueOf(double& arg0) exit");
+	LOGV("AndroidCXX::java_lang_Double java_lang_Double::valueOf(double const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String java_lang_Double::toHexString(double& arg0)
+AndroidCXX::java_lang_String java_lang_Double::toHexString(double const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String java_lang_Double::toHexString(double& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String java_lang_Double::toHexString(double const& arg0) enter");
 
 	const char *methodName = "toHexString";
 	const char *methodSignature = "(D)Ljava/lang/String;";
@@ -1265,8 +1179,6 @@ AndroidCXX::java_lang_String java_lang_Double::toHexString(double& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
@@ -1295,7 +1207,7 @@ AndroidCXX::java_lang_String java_lang_Double::toHexString(double& arg0)
 		jarg0 = convert_jni_double_to_jni(java_value);
 	}
 
-	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jstring jni_result = (jstring) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
 	{
@@ -1316,15 +1228,13 @@ AndroidCXX::java_lang_String java_lang_Double::toHexString(double& arg0)
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String java_lang_Double::toHexString(double& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String java_lang_Double::toHexString(double const& arg0) exit");
 
 	return result;
 }
-int java_lang_Double::compare(double& arg0,double& arg1)
+int java_lang_Double::compare(double const& arg0,double const& arg1)
 {
-	LOGV("int java_lang_Double::compare(double& arg0,double& arg1) enter");
+	LOGV("int java_lang_Double::compare(double const& arg0,double const& arg1) enter");
 
 	const char *methodName = "compare";
 	const char *methodSignature = "(DD)I";
@@ -1334,8 +1244,6 @@ int java_lang_Double::compare(double& arg0,double& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
@@ -1385,7 +1293,7 @@ int java_lang_Double::compare(double& arg0,double& arg1)
 		jarg1 = convert_jni_double_to_jni(java_value);
 	}
 
-	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jint jni_result = (jint) jni->invokeStaticIntMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
 	{
@@ -1406,15 +1314,13 @@ int java_lang_Double::compare(double& arg0,double& arg1)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_lang_Double::compare(double& arg0,double& arg1) exit");
+	LOGV("int java_lang_Double::compare(double const& arg0,double const& arg1) exit");
 
 	return result;
 }
-bool java_lang_Double::isNaN(double& arg0)
+bool java_lang_Double::isNaN(double const& arg0)
 {
-	LOGV("bool java_lang_Double::isNaN(double& arg0) enter");
+	LOGV("bool java_lang_Double::isNaN(double const& arg0) enter");
 
 	const char *methodName = "isNaN";
 	const char *methodSignature = "(D)Z";
@@ -1424,8 +1330,6 @@ bool java_lang_Double::isNaN(double& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
@@ -1454,7 +1358,7 @@ bool java_lang_Double::isNaN(double& arg0)
 		jarg0 = convert_jni_double_to_jni(java_value);
 	}
 
-	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jboolean jni_result = (jboolean) jni->invokeStaticBooleanMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
 	{
@@ -1475,9 +1379,7 @@ bool java_lang_Double::isNaN(double& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_lang_Double::isNaN(double& arg0) exit");
+	LOGV("bool java_lang_Double::isNaN(double const& arg0) exit");
 
 	return result;
 }
@@ -1493,8 +1395,6 @@ bool java_lang_Double::isNaN()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
@@ -1523,8 +1423,6 @@ bool java_lang_Double::isNaN()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_lang_Double::isNaN() exit");
 
 	return result;
@@ -1542,8 +1440,6 @@ bool java_lang_Double::isInfinite()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1571,15 +1467,13 @@ bool java_lang_Double::isInfinite()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_lang_Double::isInfinite() exit");
 
 	return result;
 }
-bool java_lang_Double::isInfinite(double& arg0)
+bool java_lang_Double::isInfinite(double const& arg0)
 {
-	LOGV("bool java_lang_Double::isInfinite(double& arg0) enter");
+	LOGV("bool java_lang_Double::isInfinite(double const& arg0) enter");
 
 	const char *methodName = "isInfinite";
 	const char *methodSignature = "(D)Z";
@@ -1589,8 +1483,6 @@ bool java_lang_Double::isInfinite(double& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
@@ -1619,7 +1511,7 @@ bool java_lang_Double::isInfinite(double& arg0)
 		jarg0 = convert_jni_double_to_jni(java_value);
 	}
 
-	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jboolean jni_result = (jboolean) jni->invokeStaticBooleanMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
 	{
@@ -1640,15 +1532,13 @@ bool java_lang_Double::isInfinite(double& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_lang_Double::isInfinite(double& arg0) exit");
+	LOGV("bool java_lang_Double::isInfinite(double const& arg0) exit");
 
 	return result;
 }
-double java_lang_Double::parseDouble(AndroidCXX::java_lang_String& arg0)
+double java_lang_Double::parseDouble(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("double java_lang_Double::parseDouble(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("double java_lang_Double::parseDouble(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "parseDouble";
 	const char *methodSignature = "(Ljava/lang/String;)D";
@@ -1658,8 +1548,6 @@ double java_lang_Double::parseDouble(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Double cxx address %d", cxxAddress);
@@ -1688,7 +1576,7 @@ double java_lang_Double::parseDouble(AndroidCXX::java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	jdouble jni_result = (jdouble) jni->invokeDoubleMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jdouble jni_result = (jdouble) jni->invokeStaticDoubleMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_double_to_java(jni_result);
 	{
@@ -1709,9 +1597,7 @@ double java_lang_Double::parseDouble(AndroidCXX::java_lang_String& arg0)
 	double result = (double) *((double *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("double java_lang_Double::parseDouble(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("double java_lang_Double::parseDouble(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }

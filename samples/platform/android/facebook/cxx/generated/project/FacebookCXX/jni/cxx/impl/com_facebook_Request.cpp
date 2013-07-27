@@ -269,7 +269,7 @@ using namespace FacebookCXX;
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_HTTPMETHOD;
+// using namespace com_facebook_HttpMethod;
 // 
 // 
 // 
@@ -682,7 +682,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_Request::com_facebook_Request(const com_facebook_Request& cc)
 {
 	LOGV("com_facebook_Request::com_facebook_Request(const com_facebook_Request& cc) enter");
@@ -706,9 +705,9 @@ com_facebook_Request::com_facebook_Request(const com_facebook_Request& cc)
 
 	LOGV("com_facebook_Request::com_facebook_Request(const com_facebook_Request& cc) exit");
 }
-com_facebook_Request::com_facebook_Request(void * proxy)
+com_facebook_Request::com_facebook_Request(Proxy proxy)
 {
-	LOGV("com_facebook_Request::com_facebook_Request(void * proxy) enter");
+	LOGV("com_facebook_Request::com_facebook_Request(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -718,20 +717,34 @@ com_facebook_Request::com_facebook_Request(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_Request::com_facebook_Request(void * proxy) exit");
+	LOGV("com_facebook_Request::com_facebook_Request(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
-com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod& arg3,FacebookCXX::com_facebook_Request_Callback& arg4)
+Proxy com_facebook_Request::proxy() const
+{	
+	LOGV("com_facebook_Request::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_Request cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Request jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("com_facebook_Request::proxy() exit");	
+
+	return proxy;
+}
+com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,com_facebook_HttpMethod::com_facebook_HttpMethod const& arg3,FacebookCXX::com_facebook_Request_Callback const& arg4)
 {
-	LOGV("com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod& arg3,FacebookCXX::com_facebook_Request_Callback& arg4) enter");	
+	LOGV("com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,com_facebook_HttpMethod::com_facebook_HttpMethod const& arg3,FacebookCXX::com_facebook_Request_Callback const& arg4) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/HttpMethod;Lcom/facebook/Request$Callback;)V";
@@ -868,11 +881,11 @@ com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session& ar
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod& arg3,FacebookCXX::com_facebook_Request_Callback& arg4) exit");	
+	LOGV("com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,com_facebook_HttpMethod::com_facebook_HttpMethod const& arg3,FacebookCXX::com_facebook_Request_Callback const& arg4) exit");	
 }
-com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1)
+com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1) enter");	
+	LOGV("com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;)V";
@@ -946,11 +959,11 @@ com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session& ar
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1) exit");	
+	LOGV("com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1) exit");	
 }
-com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod& arg3)
+com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,com_facebook_HttpMethod::com_facebook_HttpMethod const& arg3)
 {
-	LOGV("com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod& arg3) enter");	
+	LOGV("com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,com_facebook_HttpMethod::com_facebook_HttpMethod const& arg3) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/HttpMethod;)V";
@@ -1066,7 +1079,7 @@ com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session& ar
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod& arg3) exit");	
+	LOGV("com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,com_facebook_HttpMethod::com_facebook_HttpMethod const& arg3) exit");	
 }
 com_facebook_Request::com_facebook_Request()
 {
@@ -1115,7 +1128,7 @@ com_facebook_Request::~com_facebook_Request()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_Request::~com_facebook_Request() exit");
 }
 // Functions
@@ -1131,8 +1144,6 @@ AndroidCXX::java_lang_String com_facebook_Request::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -1161,8 +1172,6 @@ AndroidCXX::java_lang_String com_facebook_Request::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String com_facebook_Request::toString() exit");
 
 	return result;
@@ -1179,8 +1188,6 @@ AndroidCXX::android_os_Bundle com_facebook_Request::getParameters()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -1209,8 +1216,6 @@ AndroidCXX::android_os_Bundle com_facebook_Request::getParameters()
 	AndroidCXX::android_os_Bundle result((AndroidCXX::android_os_Bundle) *((AndroidCXX::android_os_Bundle *) cxx_value));
 	delete ((AndroidCXX::android_os_Bundle *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_os_Bundle com_facebook_Request::getParameters() exit");
 
 	return result;
@@ -1227,8 +1232,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeAsync()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -1257,15 +1260,13 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeAsync()
 	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
 	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeAsync() exit");
 
 	return result;
 }
-void com_facebook_Request::setCallback(FacebookCXX::com_facebook_Request_Callback& arg0)
+void com_facebook_Request::setCallback(FacebookCXX::com_facebook_Request_Callback const& arg0)
 {
-	LOGV("void com_facebook_Request::setCallback(FacebookCXX::com_facebook_Request_Callback& arg0) enter");
+	LOGV("void com_facebook_Request::setCallback(FacebookCXX::com_facebook_Request_Callback const& arg0) enter");
 
 	const char *methodName = "setCallback";
 	const char *methodSignature = "(Lcom/facebook/Request$Callback;)V";
@@ -1275,8 +1276,6 @@ void com_facebook_Request::setCallback(FacebookCXX::com_facebook_Request_Callbac
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -1307,9 +1306,7 @@ void com_facebook_Request::setCallback(FacebookCXX::com_facebook_Request_Callbac
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_Request::setCallback(FacebookCXX::com_facebook_Request_Callback& arg0) exit");
+	LOGV("void com_facebook_Request::setCallback(FacebookCXX::com_facebook_Request_Callback const& arg0) exit");
 
 }
 FacebookCXX::com_facebook_model_GraphObject com_facebook_Request::getGraphObject()
@@ -1324,8 +1321,6 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_Request::getGraphObject
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -1354,8 +1349,6 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_Request::getGraphObject
 	FacebookCXX::com_facebook_model_GraphObject result((FacebookCXX::com_facebook_model_GraphObject) *((FacebookCXX::com_facebook_model_GraphObject *) cxx_value));
 	delete ((FacebookCXX::com_facebook_model_GraphObject *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("FacebookCXX::com_facebook_model_GraphObject com_facebook_Request::getGraphObject() exit");
 
 	return result;
@@ -1372,8 +1365,6 @@ FacebookCXX::com_facebook_Session com_facebook_Request::getSession()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -1402,15 +1393,13 @@ FacebookCXX::com_facebook_Session com_facebook_Request::getSession()
 	FacebookCXX::com_facebook_Session result((FacebookCXX::com_facebook_Session) *((FacebookCXX::com_facebook_Session *) cxx_value));
 	delete ((FacebookCXX::com_facebook_Session *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("FacebookCXX::com_facebook_Session com_facebook_Request::getSession() exit");
 
 	return result;
 }
-void com_facebook_Request::setHttpMethod(COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod& arg0)
+void com_facebook_Request::setHttpMethod(com_facebook_HttpMethod::com_facebook_HttpMethod const& arg0)
 {
-	LOGV("void com_facebook_Request::setHttpMethod(COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod& arg0) enter");
+	LOGV("void com_facebook_Request::setHttpMethod(com_facebook_HttpMethod::com_facebook_HttpMethod const& arg0) enter");
 
 	const char *methodName = "setHttpMethod";
 	const char *methodSignature = "(Lcom/facebook/HttpMethod;)V";
@@ -1420,8 +1409,6 @@ void com_facebook_Request::setHttpMethod(COM_FACEBOOK_HTTPMETHOD::com_facebook_H
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -1452,14 +1439,12 @@ void com_facebook_Request::setHttpMethod(COM_FACEBOOK_HTTPMETHOD::com_facebook_H
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_Request::setHttpMethod(COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod& arg0) exit");
+	LOGV("void com_facebook_Request::setHttpMethod(com_facebook_HttpMethod::com_facebook_HttpMethod const& arg0) exit");
 
 }
-FacebookCXX::com_facebook_Request com_facebook_Request::newPostRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_model_GraphObject& arg2,FacebookCXX::com_facebook_Request_Callback& arg3)
+FacebookCXX::com_facebook_Request com_facebook_Request::newPostRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_model_GraphObject const& arg2,FacebookCXX::com_facebook_Request_Callback const& arg3)
 {
-	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newPostRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_model_GraphObject& arg2,FacebookCXX::com_facebook_Request_Callback& arg3) enter");
+	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newPostRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_model_GraphObject const& arg2,FacebookCXX::com_facebook_Request_Callback const& arg3) enter");
 
 	const char *methodName = "newPostRequest";
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;Lcom/facebook/model/GraphObject;Lcom/facebook/Request$Callback;)Lcom/facebook/Request;";
@@ -1469,8 +1454,6 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newPostRequest(FacebookC
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -1562,7 +1545,7 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newPostRequest(FacebookC
 		jarg3 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1583,15 +1566,13 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newPostRequest(FacebookC
 	FacebookCXX::com_facebook_Request result((FacebookCXX::com_facebook_Request) *((FacebookCXX::com_facebook_Request *) cxx_value));
 	delete ((FacebookCXX::com_facebook_Request *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newPostRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_model_GraphObject& arg2,FacebookCXX::com_facebook_Request_Callback& arg3) exit");
+	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newPostRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_model_GraphObject const& arg2,FacebookCXX::com_facebook_Request_Callback const& arg3) exit");
 
 	return result;
 }
-void com_facebook_Request::setGraphObject(FacebookCXX::com_facebook_model_GraphObject& arg0)
+void com_facebook_Request::setGraphObject(FacebookCXX::com_facebook_model_GraphObject const& arg0)
 {
-	LOGV("void com_facebook_Request::setGraphObject(FacebookCXX::com_facebook_model_GraphObject& arg0) enter");
+	LOGV("void com_facebook_Request::setGraphObject(FacebookCXX::com_facebook_model_GraphObject const& arg0) enter");
 
 	const char *methodName = "setGraphObject";
 	const char *methodSignature = "(Lcom/facebook/model/GraphObject;)V";
@@ -1601,8 +1582,6 @@ void com_facebook_Request::setGraphObject(FacebookCXX::com_facebook_model_GraphO
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -1633,14 +1612,12 @@ void com_facebook_Request::setGraphObject(FacebookCXX::com_facebook_model_GraphO
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_Request::setGraphObject(FacebookCXX::com_facebook_model_GraphObject& arg0) exit");
+	LOGV("void com_facebook_Request::setGraphObject(FacebookCXX::com_facebook_model_GraphObject const& arg0) exit");
 
 }
-FacebookCXX::com_facebook_Request com_facebook_Request::newRestRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod& arg3)
+FacebookCXX::com_facebook_Request com_facebook_Request::newRestRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,com_facebook_HttpMethod::com_facebook_HttpMethod const& arg3)
 {
-	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newRestRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod& arg3) enter");
+	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newRestRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,com_facebook_HttpMethod::com_facebook_HttpMethod const& arg3) enter");
 
 	const char *methodName = "newRestRequest";
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/HttpMethod;)Lcom/facebook/Request;";
@@ -1650,8 +1627,6 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newRestRequest(FacebookC
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -1743,7 +1718,7 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newRestRequest(FacebookC
 		jarg3 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1764,15 +1739,13 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newRestRequest(FacebookC
 	FacebookCXX::com_facebook_Request result((FacebookCXX::com_facebook_Request) *((FacebookCXX::com_facebook_Request *) cxx_value));
 	delete ((FacebookCXX::com_facebook_Request *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newRestRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod& arg3) exit");
+	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newRestRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,com_facebook_HttpMethod::com_facebook_HttpMethod const& arg3) exit");
 
 	return result;
 }
-void com_facebook_Request::setRestMethod(AndroidCXX::java_lang_String& arg0)
+void com_facebook_Request::setRestMethod(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void com_facebook_Request::setRestMethod(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_Request::setRestMethod(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setRestMethod";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -1782,8 +1755,6 @@ void com_facebook_Request::setRestMethod(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -1814,14 +1785,12 @@ void com_facebook_Request::setRestMethod(AndroidCXX::java_lang_String& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_Request::setRestMethod(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_Request::setRestMethod(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-FacebookCXX::com_facebook_Request com_facebook_Request::newMeRequest(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::com_facebook_Request_GraphUserCallback& arg1)
+FacebookCXX::com_facebook_Request com_facebook_Request::newMeRequest(FacebookCXX::com_facebook_Session const& arg0,FacebookCXX::com_facebook_Request_GraphUserCallback const& arg1)
 {
-	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newMeRequest(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::com_facebook_Request_GraphUserCallback& arg1) enter");
+	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newMeRequest(FacebookCXX::com_facebook_Session const& arg0,FacebookCXX::com_facebook_Request_GraphUserCallback const& arg1) enter");
 
 	const char *methodName = "newMeRequest";
 	const char *methodSignature = "(Lcom/facebook/Session;Lcom/facebook/Request$GraphUserCallback;)Lcom/facebook/Request;";
@@ -1831,8 +1800,6 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newMeRequest(FacebookCXX
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -1882,7 +1849,7 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newMeRequest(FacebookCXX
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1903,15 +1870,13 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newMeRequest(FacebookCXX
 	FacebookCXX::com_facebook_Request result((FacebookCXX::com_facebook_Request) *((FacebookCXX::com_facebook_Request *) cxx_value));
 	delete ((FacebookCXX::com_facebook_Request *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newMeRequest(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::com_facebook_Request_GraphUserCallback& arg1) exit");
+	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newMeRequest(FacebookCXX::com_facebook_Session const& arg0,FacebookCXX::com_facebook_Request_GraphUserCallback const& arg1) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_Request com_facebook_Request::newMyFriendsRequest(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::com_facebook_Request_GraphUserListCallback& arg1)
+FacebookCXX::com_facebook_Request com_facebook_Request::newMyFriendsRequest(FacebookCXX::com_facebook_Session const& arg0,FacebookCXX::com_facebook_Request_GraphUserListCallback const& arg1)
 {
-	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newMyFriendsRequest(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::com_facebook_Request_GraphUserListCallback& arg1) enter");
+	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newMyFriendsRequest(FacebookCXX::com_facebook_Session const& arg0,FacebookCXX::com_facebook_Request_GraphUserListCallback const& arg1) enter");
 
 	const char *methodName = "newMyFriendsRequest";
 	const char *methodSignature = "(Lcom/facebook/Session;Lcom/facebook/Request$GraphUserListCallback;)Lcom/facebook/Request;";
@@ -1921,8 +1886,6 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newMyFriendsRequest(Face
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -1972,7 +1935,7 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newMyFriendsRequest(Face
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1993,15 +1956,13 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newMyFriendsRequest(Face
 	FacebookCXX::com_facebook_Request result((FacebookCXX::com_facebook_Request) *((FacebookCXX::com_facebook_Request *) cxx_value));
 	delete ((FacebookCXX::com_facebook_Request *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newMyFriendsRequest(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::com_facebook_Request_GraphUserListCallback& arg1) exit");
+	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newMyFriendsRequest(FacebookCXX::com_facebook_Session const& arg0,FacebookCXX::com_facebook_Request_GraphUserListCallback const& arg1) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_graphics_Bitmap& arg1,FacebookCXX::com_facebook_Request_Callback& arg2)
+FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_graphics_Bitmap const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2)
 {
-	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_graphics_Bitmap& arg1,FacebookCXX::com_facebook_Request_Callback& arg2) enter");
+	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_graphics_Bitmap const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) enter");
 
 	const char *methodName = "newUploadPhotoRequest";
 	const char *methodSignature = "(Lcom/facebook/Session;Landroid/graphics/Bitmap;Lcom/facebook/Request$Callback;)Lcom/facebook/Request;";
@@ -2011,8 +1972,6 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(Fa
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -2083,7 +2042,7 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(Fa
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -2104,15 +2063,13 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(Fa
 	FacebookCXX::com_facebook_Request result((FacebookCXX::com_facebook_Request) *((FacebookCXX::com_facebook_Request *) cxx_value));
 	delete ((FacebookCXX::com_facebook_Request *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_graphics_Bitmap& arg1,FacebookCXX::com_facebook_Request_Callback& arg2) exit");
+	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_graphics_Bitmap const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_io_File& arg1,FacebookCXX::com_facebook_Request_Callback& arg2)
+FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_io_File const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2)
 {
-	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_io_File& arg1,FacebookCXX::com_facebook_Request_Callback& arg2) enter");
+	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_io_File const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) enter");
 
 	const char *methodName = "newUploadPhotoRequest";
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/io/File;Lcom/facebook/Request$Callback;)Lcom/facebook/Request;";
@@ -2123,8 +2080,6 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(Fa
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2194,7 +2149,7 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(Fa
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -2215,15 +2170,13 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(Fa
 	FacebookCXX::com_facebook_Request result((FacebookCXX::com_facebook_Request) *((FacebookCXX::com_facebook_Request *) cxx_value));
 	delete ((FacebookCXX::com_facebook_Request *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_io_File& arg1,FacebookCXX::com_facebook_Request_Callback& arg2) exit");
+	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_io_File const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_Request com_facebook_Request::newUploadVideoRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_io_File& arg1,FacebookCXX::com_facebook_Request_Callback& arg2)
+FacebookCXX::com_facebook_Request com_facebook_Request::newUploadVideoRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_io_File const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2)
 {
-	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newUploadVideoRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_io_File& arg1,FacebookCXX::com_facebook_Request_Callback& arg2) enter");
+	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newUploadVideoRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_io_File const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) enter");
 
 	const char *methodName = "newUploadVideoRequest";
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/io/File;Lcom/facebook/Request$Callback;)Lcom/facebook/Request;";
@@ -2234,8 +2187,6 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newUploadVideoRequest(Fa
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2305,7 +2256,7 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newUploadVideoRequest(Fa
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -2326,15 +2277,13 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newUploadVideoRequest(Fa
 	FacebookCXX::com_facebook_Request result((FacebookCXX::com_facebook_Request) *((FacebookCXX::com_facebook_Request *) cxx_value));
 	delete ((FacebookCXX::com_facebook_Request *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newUploadVideoRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_io_File& arg1,FacebookCXX::com_facebook_Request_Callback& arg2) exit");
+	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newUploadVideoRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_io_File const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_Request com_facebook_Request::newGraphPathRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_Request_Callback& arg2)
+FacebookCXX::com_facebook_Request com_facebook_Request::newGraphPathRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2)
 {
-	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newGraphPathRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_Request_Callback& arg2) enter");
+	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newGraphPathRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) enter");
 
 	const char *methodName = "newGraphPathRequest";
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;Lcom/facebook/Request$Callback;)Lcom/facebook/Request;";
@@ -2344,8 +2293,6 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newGraphPathRequest(Face
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -2416,7 +2363,7 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newGraphPathRequest(Face
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -2437,15 +2384,13 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newGraphPathRequest(Face
 	FacebookCXX::com_facebook_Request result((FacebookCXX::com_facebook_Request) *((FacebookCXX::com_facebook_Request *) cxx_value));
 	delete ((FacebookCXX::com_facebook_Request *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newGraphPathRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_Request_Callback& arg2) exit");
+	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newGraphPathRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_Request com_facebook_Request::newPlacesSearchRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_location_Location& arg1,int& arg2,int& arg3,AndroidCXX::java_lang_String& arg4,FacebookCXX::com_facebook_Request_GraphPlaceListCallback& arg5)
+FacebookCXX::com_facebook_Request com_facebook_Request::newPlacesSearchRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_location_Location const& arg1,int const& arg2,int const& arg3,AndroidCXX::java_lang_String const& arg4,FacebookCXX::com_facebook_Request_GraphPlaceListCallback const& arg5)
 {
-	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newPlacesSearchRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_location_Location& arg1,int& arg2,int& arg3,AndroidCXX::java_lang_String& arg4,FacebookCXX::com_facebook_Request_GraphPlaceListCallback& arg5) enter");
+	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newPlacesSearchRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_location_Location const& arg1,int const& arg2,int const& arg3,AndroidCXX::java_lang_String const& arg4,FacebookCXX::com_facebook_Request_GraphPlaceListCallback const& arg5) enter");
 
 	const char *methodName = "newPlacesSearchRequest";
 	const char *methodSignature = "(Lcom/facebook/Session;Landroid/location/Location;IILjava/lang/String;Lcom/facebook/Request$GraphPlaceListCallback;)Lcom/facebook/Request;";
@@ -2455,8 +2400,6 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newPlacesSearchRequest(F
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -2590,7 +2533,7 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newPlacesSearchRequest(F
 		jarg5 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -2611,15 +2554,13 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newPlacesSearchRequest(F
 	FacebookCXX::com_facebook_Request result((FacebookCXX::com_facebook_Request) *((FacebookCXX::com_facebook_Request *) cxx_value));
 	delete ((FacebookCXX::com_facebook_Request *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newPlacesSearchRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_location_Location& arg1,int& arg2,int& arg3,AndroidCXX::java_lang_String& arg4,FacebookCXX::com_facebook_Request_GraphPlaceListCallback& arg5) exit");
+	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newPlacesSearchRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_location_Location const& arg1,int const& arg2,int const& arg3,AndroidCXX::java_lang_String const& arg4,FacebookCXX::com_facebook_Request_GraphPlaceListCallback const& arg5) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_Request com_facebook_Request::newStatusUpdateRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_Request_Callback& arg2)
+FacebookCXX::com_facebook_Request com_facebook_Request::newStatusUpdateRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2)
 {
-	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newStatusUpdateRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_Request_Callback& arg2) enter");
+	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newStatusUpdateRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) enter");
 
 	const char *methodName = "newStatusUpdateRequest";
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;Lcom/facebook/Request$Callback;)Lcom/facebook/Request;";
@@ -2629,8 +2570,6 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newStatusUpdateRequest(F
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -2701,7 +2640,7 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newStatusUpdateRequest(F
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -2722,9 +2661,7 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newStatusUpdateRequest(F
 	FacebookCXX::com_facebook_Request result((FacebookCXX::com_facebook_Request) *((FacebookCXX::com_facebook_Request *) cxx_value));
 	delete ((FacebookCXX::com_facebook_Request *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newStatusUpdateRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_Request_Callback& arg2) exit");
+	LOGV("FacebookCXX::com_facebook_Request com_facebook_Request::newStatusUpdateRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) exit");
 
 	return result;
 }
@@ -2740,8 +2677,6 @@ AndroidCXX::java_lang_String com_facebook_Request::getGraphPath()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -2770,15 +2705,13 @@ AndroidCXX::java_lang_String com_facebook_Request::getGraphPath()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String com_facebook_Request::getGraphPath() exit");
 
 	return result;
 }
-void com_facebook_Request::setGraphPath(AndroidCXX::java_lang_String& arg0)
+void com_facebook_Request::setGraphPath(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void com_facebook_Request::setGraphPath(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_Request::setGraphPath(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setGraphPath";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -2788,8 +2721,6 @@ void com_facebook_Request::setGraphPath(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -2820,14 +2751,12 @@ void com_facebook_Request::setGraphPath(AndroidCXX::java_lang_String& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_Request::setGraphPath(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_Request::setGraphPath(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod com_facebook_Request::getHttpMethod()
+com_facebook_HttpMethod::com_facebook_HttpMethod com_facebook_Request::getHttpMethod()
 {
-	LOGV("COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod com_facebook_Request::getHttpMethod() enter");
+	LOGV("com_facebook_HttpMethod::com_facebook_HttpMethod com_facebook_Request::getHttpMethod() enter");
 
 	const char *methodName = "getHttpMethod";
 	const char *methodSignature = "()Lcom/facebook/HttpMethod;";
@@ -2837,8 +2766,6 @@ COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod com_facebook_Request::getHttpMe
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -2864,18 +2791,16 @@ COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod com_facebook_Request::getHttpMe
 		convert_com_facebook_HttpMethod(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 
-	COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod result = (COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod) (cxx_value);
+	com_facebook_HttpMethod::com_facebook_HttpMethod result = (com_facebook_HttpMethod::com_facebook_HttpMethod) (cxx_value);
 	//
 		
-	jni->popLocalFrame();
-
-	LOGV("COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod com_facebook_Request::getHttpMethod() exit");
+	LOGV("com_facebook_HttpMethod::com_facebook_HttpMethod com_facebook_Request::getHttpMethod() exit");
 
 	return result;
 }
-void com_facebook_Request::setParameters(AndroidCXX::android_os_Bundle& arg0)
+void com_facebook_Request::setParameters(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("void com_facebook_Request::setParameters(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_Request::setParameters(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "setParameters";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -2885,8 +2810,6 @@ void com_facebook_Request::setParameters(AndroidCXX::android_os_Bundle& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -2917,9 +2840,7 @@ void com_facebook_Request::setParameters(AndroidCXX::android_os_Bundle& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_Request::setParameters(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_Request::setParameters(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String com_facebook_Request::getRestMethod()
@@ -2934,8 +2855,6 @@ AndroidCXX::java_lang_String com_facebook_Request::getRestMethod()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -2964,15 +2883,13 @@ AndroidCXX::java_lang_String com_facebook_Request::getRestMethod()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String com_facebook_Request::getRestMethod() exit");
 
 	return result;
 }
-void com_facebook_Request::setSession(FacebookCXX::com_facebook_Session& arg0)
+void com_facebook_Request::setSession(FacebookCXX::com_facebook_Session const& arg0)
 {
-	LOGV("void com_facebook_Request::setSession(FacebookCXX::com_facebook_Session& arg0) enter");
+	LOGV("void com_facebook_Request::setSession(FacebookCXX::com_facebook_Session const& arg0) enter");
 
 	const char *methodName = "setSession";
 	const char *methodSignature = "(Lcom/facebook/Session;)V";
@@ -2982,8 +2899,6 @@ void com_facebook_Request::setSession(FacebookCXX::com_facebook_Session& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -3014,9 +2929,7 @@ void com_facebook_Request::setSession(FacebookCXX::com_facebook_Session& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_Request::setSession(FacebookCXX::com_facebook_Session& arg0) exit");
+	LOGV("void com_facebook_Request::setSession(FacebookCXX::com_facebook_Session const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String com_facebook_Request::getBatchEntryName()
@@ -3032,8 +2945,6 @@ AndroidCXX::java_lang_String com_facebook_Request::getBatchEntryName()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3061,15 +2972,13 @@ AndroidCXX::java_lang_String com_facebook_Request::getBatchEntryName()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String com_facebook_Request::getBatchEntryName() exit");
 
 	return result;
 }
-void com_facebook_Request::setBatchEntryName(AndroidCXX::java_lang_String& arg0)
+void com_facebook_Request::setBatchEntryName(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void com_facebook_Request::setBatchEntryName(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_Request::setBatchEntryName(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setBatchEntryName";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -3079,8 +2988,6 @@ void com_facebook_Request::setBatchEntryName(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -3111,9 +3018,7 @@ void com_facebook_Request::setBatchEntryName(AndroidCXX::java_lang_String& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_Request::setBatchEntryName(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_Request::setBatchEntryName(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String com_facebook_Request::getBatchEntryDependsOn()
@@ -3129,8 +3034,6 @@ AndroidCXX::java_lang_String com_facebook_Request::getBatchEntryDependsOn()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3158,15 +3061,13 @@ AndroidCXX::java_lang_String com_facebook_Request::getBatchEntryDependsOn()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String com_facebook_Request::getBatchEntryDependsOn() exit");
 
 	return result;
 }
-void com_facebook_Request::setBatchEntryDependsOn(AndroidCXX::java_lang_String& arg0)
+void com_facebook_Request::setBatchEntryDependsOn(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void com_facebook_Request::setBatchEntryDependsOn(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_Request::setBatchEntryDependsOn(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setBatchEntryDependsOn";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -3176,8 +3077,6 @@ void com_facebook_Request::setBatchEntryDependsOn(AndroidCXX::java_lang_String& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -3208,9 +3107,7 @@ void com_facebook_Request::setBatchEntryDependsOn(AndroidCXX::java_lang_String& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_Request::setBatchEntryDependsOn(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_Request::setBatchEntryDependsOn(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 bool com_facebook_Request::getBatchEntryOmitResultOnSuccess()
@@ -3225,8 +3122,6 @@ bool com_facebook_Request::getBatchEntryOmitResultOnSuccess()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -3255,15 +3150,13 @@ bool com_facebook_Request::getBatchEntryOmitResultOnSuccess()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool com_facebook_Request::getBatchEntryOmitResultOnSuccess() exit");
 
 	return result;
 }
-void com_facebook_Request::setBatchEntryOmitResultOnSuccess(bool& arg0)
+void com_facebook_Request::setBatchEntryOmitResultOnSuccess(bool const& arg0)
 {
-	LOGV("void com_facebook_Request::setBatchEntryOmitResultOnSuccess(bool& arg0) enter");
+	LOGV("void com_facebook_Request::setBatchEntryOmitResultOnSuccess(bool const& arg0) enter");
 
 	const char *methodName = "setBatchEntryOmitResultOnSuccess";
 	const char *methodSignature = "(Z)V";
@@ -3273,8 +3166,6 @@ void com_facebook_Request::setBatchEntryOmitResultOnSuccess(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -3305,9 +3196,7 @@ void com_facebook_Request::setBatchEntryOmitResultOnSuccess(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_Request::setBatchEntryOmitResultOnSuccess(bool& arg0) exit");
+	LOGV("void com_facebook_Request::setBatchEntryOmitResultOnSuccess(bool const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String com_facebook_Request::getDefaultBatchApplicationId()
@@ -3323,15 +3212,13 @@ AndroidCXX::java_lang_String com_facebook_Request::getDefaultBatchApplicationId(
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_Request jni address %d", javaObject);
 
 
-	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jstring jni_result = (jstring) jni->invokeStaticObjectMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
 	{
@@ -3352,15 +3239,13 @@ AndroidCXX::java_lang_String com_facebook_Request::getDefaultBatchApplicationId(
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String com_facebook_Request::getDefaultBatchApplicationId() exit");
 
 	return result;
 }
-void com_facebook_Request::setDefaultBatchApplicationId(AndroidCXX::java_lang_String& arg0)
+void com_facebook_Request::setDefaultBatchApplicationId(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void com_facebook_Request::setDefaultBatchApplicationId(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_Request::setDefaultBatchApplicationId(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setDefaultBatchApplicationId";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -3370,8 +3255,6 @@ void com_facebook_Request::setDefaultBatchApplicationId(AndroidCXX::java_lang_St
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -3400,11 +3283,9 @@ void com_facebook_Request::setDefaultBatchApplicationId(AndroidCXX::java_lang_St
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_Request::setDefaultBatchApplicationId(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_Request::setDefaultBatchApplicationId(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 FacebookCXX::com_facebook_Request_Callback com_facebook_Request::getCallback()
@@ -3419,8 +3300,6 @@ FacebookCXX::com_facebook_Request_Callback com_facebook_Request::getCallback()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -3449,15 +3328,13 @@ FacebookCXX::com_facebook_Request_Callback com_facebook_Request::getCallback()
 	FacebookCXX::com_facebook_Request_Callback result((FacebookCXX::com_facebook_Request_Callback) *((FacebookCXX::com_facebook_Request_Callback *) cxx_value));
 	delete ((FacebookCXX::com_facebook_Request_Callback *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("FacebookCXX::com_facebook_Request_Callback com_facebook_Request::getCallback() exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePostRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_model_GraphObject& arg2,FacebookCXX::com_facebook_Request_Callback& arg3)
+FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePostRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_model_GraphObject const& arg2,FacebookCXX::com_facebook_Request_Callback const& arg3)
 {
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePostRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_model_GraphObject& arg2,FacebookCXX::com_facebook_Request_Callback& arg3) enter");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePostRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_model_GraphObject const& arg2,FacebookCXX::com_facebook_Request_Callback const& arg3) enter");
 
 	const char *methodName = "executePostRequestAsync";
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;Lcom/facebook/model/GraphObject;Lcom/facebook/Request$Callback;)Lcom/facebook/RequestAsyncTask;";
@@ -3467,8 +3344,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePostRequ
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -3560,7 +3435,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePostRequ
 		jarg3 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -3581,15 +3456,13 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePostRequ
 	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
 	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePostRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_model_GraphObject& arg2,FacebookCXX::com_facebook_Request_Callback& arg3) exit");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePostRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_model_GraphObject const& arg2,FacebookCXX::com_facebook_Request_Callback const& arg3) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeRestRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod& arg3)
+FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeRestRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,com_facebook_HttpMethod::com_facebook_HttpMethod const& arg3)
 {
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeRestRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod& arg3) enter");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeRestRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,com_facebook_HttpMethod::com_facebook_HttpMethod const& arg3) enter");
 
 	const char *methodName = "executeRestRequestAsync";
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/HttpMethod;)Lcom/facebook/RequestAsyncTask;";
@@ -3599,8 +3472,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeRestRequ
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -3692,7 +3563,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeRestRequ
 		jarg3 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -3713,15 +3584,13 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeRestRequ
 	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
 	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeRestRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod& arg3) exit");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeRestRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,com_facebook_HttpMethod::com_facebook_HttpMethod const& arg3) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMeRequestAsync(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::com_facebook_Request_GraphUserCallback& arg1)
+FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMeRequestAsync(FacebookCXX::com_facebook_Session const& arg0,FacebookCXX::com_facebook_Request_GraphUserCallback const& arg1)
 {
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMeRequestAsync(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::com_facebook_Request_GraphUserCallback& arg1) enter");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMeRequestAsync(FacebookCXX::com_facebook_Session const& arg0,FacebookCXX::com_facebook_Request_GraphUserCallback const& arg1) enter");
 
 	const char *methodName = "executeMeRequestAsync";
 	const char *methodSignature = "(Lcom/facebook/Session;Lcom/facebook/Request$GraphUserCallback;)Lcom/facebook/RequestAsyncTask;";
@@ -3731,8 +3600,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMeReques
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -3782,7 +3649,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMeReques
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -3803,15 +3670,13 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMeReques
 	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
 	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMeRequestAsync(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::com_facebook_Request_GraphUserCallback& arg1) exit");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMeRequestAsync(FacebookCXX::com_facebook_Session const& arg0,FacebookCXX::com_facebook_Request_GraphUserCallback const& arg1) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMyFriendsRequestAsync(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::com_facebook_Request_GraphUserListCallback& arg1)
+FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMyFriendsRequestAsync(FacebookCXX::com_facebook_Session const& arg0,FacebookCXX::com_facebook_Request_GraphUserListCallback const& arg1)
 {
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMyFriendsRequestAsync(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::com_facebook_Request_GraphUserListCallback& arg1) enter");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMyFriendsRequestAsync(FacebookCXX::com_facebook_Session const& arg0,FacebookCXX::com_facebook_Request_GraphUserListCallback const& arg1) enter");
 
 	const char *methodName = "executeMyFriendsRequestAsync";
 	const char *methodSignature = "(Lcom/facebook/Session;Lcom/facebook/Request$GraphUserListCallback;)Lcom/facebook/RequestAsyncTask;";
@@ -3821,8 +3686,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMyFriend
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -3872,7 +3735,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMyFriend
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -3893,15 +3756,13 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMyFriend
 	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
 	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMyFriendsRequestAsync(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::com_facebook_Request_GraphUserListCallback& arg1) exit");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMyFriendsRequestAsync(FacebookCXX::com_facebook_Session const& arg0,FacebookCXX::com_facebook_Request_GraphUserListCallback const& arg1) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPhotoRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_io_File& arg1,FacebookCXX::com_facebook_Request_Callback& arg2)
+FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPhotoRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_io_File const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2)
 {
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPhotoRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_io_File& arg1,FacebookCXX::com_facebook_Request_Callback& arg2) enter");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPhotoRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_io_File const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) enter");
 
 	const char *methodName = "executeUploadPhotoRequestAsync";
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/io/File;Lcom/facebook/Request$Callback;)Lcom/facebook/RequestAsyncTask;";
@@ -3911,8 +3772,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPh
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -3983,7 +3842,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPh
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -4004,15 +3863,13 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPh
 	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
 	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPhotoRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_io_File& arg1,FacebookCXX::com_facebook_Request_Callback& arg2) exit");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPhotoRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_io_File const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPhotoRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_graphics_Bitmap& arg1,FacebookCXX::com_facebook_Request_Callback& arg2)
+FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPhotoRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_graphics_Bitmap const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2)
 {
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPhotoRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_graphics_Bitmap& arg1,FacebookCXX::com_facebook_Request_Callback& arg2) enter");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPhotoRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_graphics_Bitmap const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) enter");
 
 	const char *methodName = "executeUploadPhotoRequestAsync";
 	const char *methodSignature = "(Lcom/facebook/Session;Landroid/graphics/Bitmap;Lcom/facebook/Request$Callback;)Lcom/facebook/RequestAsyncTask;";
@@ -4022,8 +3879,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPh
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -4094,7 +3949,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPh
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -4115,15 +3970,13 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPh
 	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
 	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPhotoRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_graphics_Bitmap& arg1,FacebookCXX::com_facebook_Request_Callback& arg2) exit");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPhotoRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_graphics_Bitmap const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeGraphPathRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_Request_Callback& arg2)
+FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeGraphPathRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2)
 {
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeGraphPathRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_Request_Callback& arg2) enter");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeGraphPathRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) enter");
 
 	const char *methodName = "executeGraphPathRequestAsync";
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;Lcom/facebook/Request$Callback;)Lcom/facebook/RequestAsyncTask;";
@@ -4133,8 +3986,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeGraphPat
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -4205,7 +4056,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeGraphPat
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -4226,15 +4077,13 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeGraphPat
 	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
 	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeGraphPathRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_Request_Callback& arg2) exit");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeGraphPathRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePlacesSearchRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_location_Location& arg1,int& arg2,int& arg3,AndroidCXX::java_lang_String& arg4,FacebookCXX::com_facebook_Request_GraphPlaceListCallback& arg5)
+FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePlacesSearchRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_location_Location const& arg1,int const& arg2,int const& arg3,AndroidCXX::java_lang_String const& arg4,FacebookCXX::com_facebook_Request_GraphPlaceListCallback const& arg5)
 {
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePlacesSearchRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_location_Location& arg1,int& arg2,int& arg3,AndroidCXX::java_lang_String& arg4,FacebookCXX::com_facebook_Request_GraphPlaceListCallback& arg5) enter");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePlacesSearchRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_location_Location const& arg1,int const& arg2,int const& arg3,AndroidCXX::java_lang_String const& arg4,FacebookCXX::com_facebook_Request_GraphPlaceListCallback const& arg5) enter");
 
 	const char *methodName = "executePlacesSearchRequestAsync";
 	const char *methodSignature = "(Lcom/facebook/Session;Landroid/location/Location;IILjava/lang/String;Lcom/facebook/Request$GraphPlaceListCallback;)Lcom/facebook/RequestAsyncTask;";
@@ -4244,8 +4093,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePlacesSe
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -4379,7 +4226,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePlacesSe
 		jarg5 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -4400,15 +4247,13 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePlacesSe
 	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
 	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePlacesSearchRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_location_Location& arg1,int& arg2,int& arg3,AndroidCXX::java_lang_String& arg4,FacebookCXX::com_facebook_Request_GraphPlaceListCallback& arg5) exit");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePlacesSearchRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_location_Location const& arg1,int const& arg2,int const& arg3,AndroidCXX::java_lang_String const& arg4,FacebookCXX::com_facebook_Request_GraphPlaceListCallback const& arg5) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeStatusUpdateRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_Request_Callback& arg2)
+FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeStatusUpdateRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2)
 {
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeStatusUpdateRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_Request_Callback& arg2) enter");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeStatusUpdateRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) enter");
 
 	const char *methodName = "executeStatusUpdateRequestAsync";
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;Lcom/facebook/Request$Callback;)Lcom/facebook/RequestAsyncTask;";
@@ -4418,8 +4263,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeStatusUp
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -4490,7 +4333,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeStatusUp
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -4511,15 +4354,13 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeStatusUp
 	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
 	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeStatusUpdateRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_Request_Callback& arg2) exit");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeStatusUpdateRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_Response com_facebook_Request::executeAndWait(FacebookCXX::com_facebook_Request& arg0)
+FacebookCXX::com_facebook_Response com_facebook_Request::executeAndWait(FacebookCXX::com_facebook_Request const& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_Response com_facebook_Request::executeAndWait(FacebookCXX::com_facebook_Request& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_Response com_facebook_Request::executeAndWait(FacebookCXX::com_facebook_Request const& arg0) enter");
 
 	const char *methodName = "executeAndWait";
 	const char *methodSignature = "(Lcom/facebook/Request;)Lcom/facebook/Response;";
@@ -4529,8 +4370,6 @@ FacebookCXX::com_facebook_Response com_facebook_Request::executeAndWait(Facebook
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -4559,7 +4398,7 @@ FacebookCXX::com_facebook_Response com_facebook_Request::executeAndWait(Facebook
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -4580,9 +4419,7 @@ FacebookCXX::com_facebook_Response com_facebook_Request::executeAndWait(Facebook
 	FacebookCXX::com_facebook_Response result((FacebookCXX::com_facebook_Response) *((FacebookCXX::com_facebook_Response *) cxx_value));
 	delete ((FacebookCXX::com_facebook_Response *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_Response com_facebook_Request::executeAndWait(FacebookCXX::com_facebook_Request& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_Response com_facebook_Request::executeAndWait(FacebookCXX::com_facebook_Request const& arg0) exit");
 
 	return result;
 }
@@ -4598,8 +4435,6 @@ FacebookCXX::com_facebook_Response com_facebook_Request::executeAndWait()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -4628,15 +4463,13 @@ FacebookCXX::com_facebook_Response com_facebook_Request::executeAndWait()
 	FacebookCXX::com_facebook_Response result((FacebookCXX::com_facebook_Response) *((FacebookCXX::com_facebook_Response *) cxx_value));
 	delete ((FacebookCXX::com_facebook_Response *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("FacebookCXX::com_facebook_Response com_facebook_Request::executeAndWait() exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsync(FacebookCXX::com_facebook_RequestBatch& arg0)
+FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsync(FacebookCXX::com_facebook_RequestBatch const& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsync(FacebookCXX::com_facebook_RequestBatch& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsync(FacebookCXX::com_facebook_RequestBatch const& arg0) enter");
 
 	const char *methodName = "executeBatchAsync";
 	const char *methodSignature = "(Lcom/facebook/RequestBatch;)Lcom/facebook/RequestAsyncTask;";
@@ -4647,8 +4480,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsy
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -4676,7 +4507,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsy
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -4697,15 +4528,13 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsy
 	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
 	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsync(FacebookCXX::com_facebook_RequestBatch& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsync(FacebookCXX::com_facebook_RequestBatch const& arg0) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsync(std::vector<FacebookCXX::com_facebook_Request >& arg0)
+FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsync(std::vector<FacebookCXX::com_facebook_Request > const& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsync(std::vector<FacebookCXX::com_facebook_Request >& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsync(std::vector<FacebookCXX::com_facebook_Request > const& arg0) enter");
 
 	const char *methodName = "executeBatchAsync";
 	const char *methodSignature = "([Lcom/facebook/Request;)Lcom/facebook/RequestAsyncTask;";
@@ -4716,8 +4545,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsy
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -4763,7 +4590,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsy
 		jarg0 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -4784,15 +4611,13 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsy
 	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
 	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsync(std::vector<FacebookCXX::com_facebook_Request >& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsync(std::vector<FacebookCXX::com_facebook_Request > const& arg0) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsync(AndroidCXX::java_util_Collection& arg0)
+FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsync(AndroidCXX::java_util_Collection const& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsync(AndroidCXX::java_util_Collection& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsync(AndroidCXX::java_util_Collection const& arg0) enter");
 
 	const char *methodName = "executeBatchAsync";
 	const char *methodSignature = "(Ljava/util/Collection;)Lcom/facebook/RequestAsyncTask;";
@@ -4803,8 +4628,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsy
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -4850,7 +4673,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsy
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -4871,15 +4694,13 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsy
 	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
 	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsync(AndroidCXX::java_util_Collection& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsync(AndroidCXX::java_util_Collection const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(FacebookCXX::com_facebook_RequestBatch& arg0)
+AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(FacebookCXX::com_facebook_RequestBatch const& arg0)
 {
-	LOGV("AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(FacebookCXX::com_facebook_RequestBatch& arg0) enter");
+	LOGV("AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(FacebookCXX::com_facebook_RequestBatch const& arg0) enter");
 
 	const char *methodName = "toHttpConnection";
 	const char *methodSignature = "(Lcom/facebook/RequestBatch;)Ljava/net/HttpURLConnection;";
@@ -4890,8 +4711,6 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(Fa
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -4919,7 +4738,7 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(Fa
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -4940,15 +4759,13 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(Fa
 	AndroidCXX::java_net_HttpURLConnection result((AndroidCXX::java_net_HttpURLConnection) *((AndroidCXX::java_net_HttpURLConnection *) cxx_value));
 	delete ((AndroidCXX::java_net_HttpURLConnection *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(FacebookCXX::com_facebook_RequestBatch& arg0) exit");
+	LOGV("AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(FacebookCXX::com_facebook_RequestBatch const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(AndroidCXX::java_util_Collection& arg0)
+AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(AndroidCXX::java_util_Collection const& arg0)
 {
-	LOGV("AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(AndroidCXX::java_util_Collection& arg0) enter");
+	LOGV("AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(AndroidCXX::java_util_Collection const& arg0) enter");
 
 	const char *methodName = "toHttpConnection";
 	const char *methodSignature = "(Ljava/util/Collection;)Ljava/net/HttpURLConnection;";
@@ -4959,8 +4776,6 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(An
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5006,7 +4821,7 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(An
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -5027,15 +4842,13 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(An
 	AndroidCXX::java_net_HttpURLConnection result((AndroidCXX::java_net_HttpURLConnection) *((AndroidCXX::java_net_HttpURLConnection *) cxx_value));
 	delete ((AndroidCXX::java_net_HttpURLConnection *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(AndroidCXX::java_util_Collection& arg0) exit");
+	LOGV("AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(AndroidCXX::java_util_Collection const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(std::vector<FacebookCXX::com_facebook_Request >& arg0)
+AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(std::vector<FacebookCXX::com_facebook_Request > const& arg0)
 {
-	LOGV("AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(std::vector<FacebookCXX::com_facebook_Request >& arg0) enter");
+	LOGV("AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(std::vector<FacebookCXX::com_facebook_Request > const& arg0) enter");
 
 	const char *methodName = "toHttpConnection";
 	const char *methodSignature = "([Lcom/facebook/Request;)Ljava/net/HttpURLConnection;";
@@ -5046,8 +4859,6 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(st
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5093,7 +4904,7 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(st
 		jarg0 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -5114,15 +4925,13 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(st
 	AndroidCXX::java_net_HttpURLConnection result((AndroidCXX::java_net_HttpURLConnection) *((AndroidCXX::java_net_HttpURLConnection *) cxx_value));
 	delete ((AndroidCXX::java_net_HttpURLConnection *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(std::vector<FacebookCXX::com_facebook_Request >& arg0) exit");
+	LOGV("AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(std::vector<FacebookCXX::com_facebook_Request > const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(std::vector<FacebookCXX::com_facebook_Request >& arg0)
+AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(std::vector<FacebookCXX::com_facebook_Request > const& arg0)
 {
-	LOGV("AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(std::vector<FacebookCXX::com_facebook_Request >& arg0) enter");
+	LOGV("AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(std::vector<FacebookCXX::com_facebook_Request > const& arg0) enter");
 
 	const char *methodName = "executeBatchAndWait";
 	const char *methodSignature = "([Lcom/facebook/Request;)Ljava/util/List;";
@@ -5132,8 +4941,6 @@ AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(std::vector
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -5180,7 +4987,7 @@ AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(std::vector
 		jarg0 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -5219,15 +5026,13 @@ AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(std::vector
 	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
 	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(std::vector<FacebookCXX::com_facebook_Request >& arg0) exit");
+	LOGV("AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(std::vector<FacebookCXX::com_facebook_Request > const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(FacebookCXX::com_facebook_RequestBatch& arg0)
+AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(FacebookCXX::com_facebook_RequestBatch const& arg0)
 {
-	LOGV("AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(FacebookCXX::com_facebook_RequestBatch& arg0) enter");
+	LOGV("AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(FacebookCXX::com_facebook_RequestBatch const& arg0) enter");
 
 	const char *methodName = "executeBatchAndWait";
 	const char *methodSignature = "(Lcom/facebook/RequestBatch;)Ljava/util/List;";
@@ -5238,8 +5043,6 @@ AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(FacebookCXX
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5267,7 +5070,7 @@ AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(FacebookCXX
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -5306,15 +5109,13 @@ AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(FacebookCXX
 	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
 	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(FacebookCXX::com_facebook_RequestBatch& arg0) exit");
+	LOGV("AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(FacebookCXX::com_facebook_RequestBatch const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(AndroidCXX::java_util_Collection& arg0)
+AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(AndroidCXX::java_util_Collection const& arg0)
 {
-	LOGV("AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(AndroidCXX::java_util_Collection& arg0) enter");
+	LOGV("AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(AndroidCXX::java_util_Collection const& arg0) enter");
 
 	const char *methodName = "executeBatchAndWait";
 	const char *methodSignature = "(Ljava/util/Collection;)Ljava/util/List;";
@@ -5325,8 +5126,6 @@ AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(AndroidCXX:
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5372,7 +5171,7 @@ AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(AndroidCXX:
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -5411,15 +5210,13 @@ AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(AndroidCXX:
 	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
 	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(AndroidCXX::java_util_Collection& arg0) exit");
+	LOGV("AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(AndroidCXX::java_util_Collection const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(AndroidCXX::java_net_HttpURLConnection& arg0,FacebookCXX::com_facebook_RequestBatch& arg1)
+AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(AndroidCXX::java_net_HttpURLConnection const& arg0,FacebookCXX::com_facebook_RequestBatch const& arg1)
 {
-	LOGV("AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(AndroidCXX::java_net_HttpURLConnection& arg0,FacebookCXX::com_facebook_RequestBatch& arg1) enter");
+	LOGV("AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(AndroidCXX::java_net_HttpURLConnection const& arg0,FacebookCXX::com_facebook_RequestBatch const& arg1) enter");
 
 	const char *methodName = "executeConnectionAndWait";
 	const char *methodSignature = "(Ljava/net/HttpURLConnection;Lcom/facebook/RequestBatch;)Ljava/util/List;";
@@ -5430,8 +5227,6 @@ AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(Androi
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5480,7 +5275,7 @@ AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(Androi
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -5519,15 +5314,13 @@ AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(Androi
 	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
 	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(AndroidCXX::java_net_HttpURLConnection& arg0,FacebookCXX::com_facebook_RequestBatch& arg1) exit");
+	LOGV("AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(AndroidCXX::java_net_HttpURLConnection const& arg0,FacebookCXX::com_facebook_RequestBatch const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(AndroidCXX::java_net_HttpURLConnection& arg0,AndroidCXX::java_util_Collection& arg1)
+AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(AndroidCXX::java_net_HttpURLConnection const& arg0,AndroidCXX::java_util_Collection const& arg1)
 {
-	LOGV("AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(AndroidCXX::java_net_HttpURLConnection& arg0,AndroidCXX::java_util_Collection& arg1) enter");
+	LOGV("AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(AndroidCXX::java_net_HttpURLConnection const& arg0,AndroidCXX::java_util_Collection const& arg1) enter");
 
 	const char *methodName = "executeConnectionAndWait";
 	const char *methodSignature = "(Ljava/net/HttpURLConnection;Ljava/util/Collection;)Ljava/util/List;";
@@ -5537,8 +5330,6 @@ AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(Androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -5606,7 +5397,7 @@ AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(Androi
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -5645,15 +5436,13 @@ AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(Androi
 	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
 	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(AndroidCXX::java_net_HttpURLConnection& arg0,AndroidCXX::java_util_Collection& arg1) exit");
+	LOGV("AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(AndroidCXX::java_net_HttpURLConnection const& arg0,AndroidCXX::java_util_Collection const& arg1) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnectionAsync(AndroidCXX::java_net_HttpURLConnection& arg0,FacebookCXX::com_facebook_RequestBatch& arg1)
+FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnectionAsync(AndroidCXX::java_net_HttpURLConnection const& arg0,FacebookCXX::com_facebook_RequestBatch const& arg1)
 {
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnectionAsync(AndroidCXX::java_net_HttpURLConnection& arg0,FacebookCXX::com_facebook_RequestBatch& arg1) enter");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnectionAsync(AndroidCXX::java_net_HttpURLConnection const& arg0,FacebookCXX::com_facebook_RequestBatch const& arg1) enter");
 
 	const char *methodName = "executeConnectionAsync";
 	const char *methodSignature = "(Ljava/net/HttpURLConnection;Lcom/facebook/RequestBatch;)Lcom/facebook/RequestAsyncTask;";
@@ -5663,8 +5452,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnecti
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -5714,7 +5501,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnecti
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -5735,15 +5522,13 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnecti
 	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
 	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnectionAsync(AndroidCXX::java_net_HttpURLConnection& arg0,FacebookCXX::com_facebook_RequestBatch& arg1) exit");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnectionAsync(AndroidCXX::java_net_HttpURLConnection const& arg0,FacebookCXX::com_facebook_RequestBatch const& arg1) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnectionAsync(AndroidCXX::android_os_Handler& arg0,AndroidCXX::java_net_HttpURLConnection& arg1,FacebookCXX::com_facebook_RequestBatch& arg2)
+FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnectionAsync(AndroidCXX::android_os_Handler const& arg0,AndroidCXX::java_net_HttpURLConnection const& arg1,FacebookCXX::com_facebook_RequestBatch const& arg2)
 {
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnectionAsync(AndroidCXX::android_os_Handler& arg0,AndroidCXX::java_net_HttpURLConnection& arg1,FacebookCXX::com_facebook_RequestBatch& arg2) enter");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnectionAsync(AndroidCXX::android_os_Handler const& arg0,AndroidCXX::java_net_HttpURLConnection const& arg1,FacebookCXX::com_facebook_RequestBatch const& arg2) enter");
 
 	const char *methodName = "executeConnectionAsync";
 	const char *methodSignature = "(Landroid/os/Handler;Ljava/net/HttpURLConnection;Lcom/facebook/RequestBatch;)Lcom/facebook/RequestAsyncTask;";
@@ -5753,8 +5538,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnecti
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_Request cxx address %d", cxxAddress);
@@ -5825,7 +5608,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnecti
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -5846,9 +5629,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnecti
 	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
 	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnectionAsync(AndroidCXX::android_os_Handler& arg0,AndroidCXX::java_net_HttpURLConnection& arg1,FacebookCXX::com_facebook_RequestBatch& arg2) exit");
+	LOGV("FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnectionAsync(AndroidCXX::android_os_Handler const& arg0,AndroidCXX::java_net_HttpURLConnection const& arg1,FacebookCXX::com_facebook_RequestBatch const& arg2) exit");
 
 	return result;
 }

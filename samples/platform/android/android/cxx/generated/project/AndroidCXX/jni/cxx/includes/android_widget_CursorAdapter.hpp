@@ -132,35 +132,32 @@ class android_widget_CursorAdapter
 public:
 
 	android_widget_CursorAdapter(const android_widget_CursorAdapter& cc);
-	android_widget_CursorAdapter(void * proxy);
+	android_widget_CursorAdapter(Proxy proxy);
 	// Public Constructors
-	android_widget_CursorAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,bool& arg2);
-	android_widget_CursorAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2);
-	android_widget_CursorAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1);
-	// TODO: remove
-	// 
-	// android_widget_CursorAdapter();
-	// 
+	android_widget_CursorAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,bool const& arg2);
+	android_widget_CursorAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,int const& arg2);
+	android_widget_CursorAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_CursorAdapter();
 	// Functions
-	 AndroidCXX::android_view_View getView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2);
+	 AndroidCXX::android_view_View getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
 	 AndroidCXX::android_widget_Filter getFilter();
-	 AndroidCXX::java_lang_Object getItem(int& arg0);
-	 long getItemId(int& arg0);
+	 AndroidCXX::java_lang_Object getItem(int const& arg0);
+	 long getItemId(int const& arg0);
 	 int getCount();
-	 AndroidCXX::android_view_View getDropDownView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2);
+	 AndroidCXX::android_view_View getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
 	 bool hasStableIds();
-	 AndroidCXX::java_lang_CharSequence convertToString(AndroidCXX::android_database_Cursor& arg0);
+	 AndroidCXX::java_lang_CharSequence convertToString(AndroidCXX::android_database_Cursor const& arg0);
 	 AndroidCXX::android_database_Cursor getCursor();
-	 AndroidCXX::android_view_View newView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,AndroidCXX::android_view_ViewGroup& arg2);
-	 AndroidCXX::android_view_View newDropDownView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,AndroidCXX::android_view_ViewGroup& arg2);
-	 void bindView(AndroidCXX::android_view_View& arg0,AndroidCXX::android_content_Context& arg1,AndroidCXX::android_database_Cursor& arg2);
-	 void changeCursor(AndroidCXX::android_database_Cursor& arg0);
-	 AndroidCXX::android_database_Cursor swapCursor(AndroidCXX::android_database_Cursor& arg0);
-	 AndroidCXX::android_database_Cursor runQueryOnBackgroundThread(AndroidCXX::java_lang_CharSequence& arg0);
+	 AndroidCXX::android_view_View newView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
+	 AndroidCXX::android_view_View newDropDownView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
+	 void bindView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_content_Context const& arg1,AndroidCXX::android_database_Cursor const& arg2);
+	 void changeCursor(AndroidCXX::android_database_Cursor const& arg0);
+	 AndroidCXX::android_database_Cursor swapCursor(AndroidCXX::android_database_Cursor const& arg0);
+	 AndroidCXX::android_database_Cursor runQueryOnBackgroundThread(AndroidCXX::java_lang_CharSequence const& arg0);
 	 AndroidCXX::android_widget_FilterQueryProvider getFilterQueryProvider();
-	 void setFilterQueryProvider(AndroidCXX::android_widget_FilterQueryProvider& arg0);
+	 void setFilterQueryProvider(AndroidCXX::android_widget_FilterQueryProvider const& arg0);
 };	
 
 } // namespace

@@ -64,7 +64,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_AnalogClock::android_widget_AnalogClock(const android_widget_AnalogClock& cc)
 {
 	LOGV("android_widget_AnalogClock::android_widget_AnalogClock(const android_widget_AnalogClock& cc) enter");
@@ -88,9 +87,9 @@ android_widget_AnalogClock::android_widget_AnalogClock(const android_widget_Anal
 
 	LOGV("android_widget_AnalogClock::android_widget_AnalogClock(const android_widget_AnalogClock& cc) exit");
 }
-android_widget_AnalogClock::android_widget_AnalogClock(void * proxy)
+android_widget_AnalogClock::android_widget_AnalogClock(Proxy proxy)
 {
-	LOGV("android_widget_AnalogClock::android_widget_AnalogClock(void * proxy) enter");
+	LOGV("android_widget_AnalogClock::android_widget_AnalogClock(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -100,55 +99,34 @@ android_widget_AnalogClock::android_widget_AnalogClock(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_AnalogClock::android_widget_AnalogClock(void * proxy) exit");
+	LOGV("android_widget_AnalogClock::android_widget_AnalogClock(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_AnalogClock::android_widget_AnalogClock()
-// {
-// 	LOGV("android_widget_AnalogClock::android_widget_AnalogClock() enter");	
+Proxy android_widget_AnalogClock::proxy() const
+{	
+	LOGV("android_widget_AnalogClock::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/AnalogClock";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_AnalogClock cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_AnalogClock jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_AnalogClock className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_AnalogClock::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_AnalogClock cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_AnalogClock jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_AnalogClock::android_widget_AnalogClock() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_AnalogClock::android_widget_AnalogClock(AndroidCXX::android_content_Context& arg0)
+	return proxy;
+}
+android_widget_AnalogClock::android_widget_AnalogClock(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_AnalogClock::android_widget_AnalogClock(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_AnalogClock::android_widget_AnalogClock(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -201,11 +179,11 @@ android_widget_AnalogClock::android_widget_AnalogClock(AndroidCXX::android_conte
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_AnalogClock::android_widget_AnalogClock(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_AnalogClock::android_widget_AnalogClock(AndroidCXX::android_content_Context const& arg0) exit");	
 }
-android_widget_AnalogClock::android_widget_AnalogClock(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+android_widget_AnalogClock::android_widget_AnalogClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_AnalogClock::android_widget_AnalogClock(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_AnalogClock::android_widget_AnalogClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -279,11 +257,11 @@ android_widget_AnalogClock::android_widget_AnalogClock(AndroidCXX::android_conte
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_AnalogClock::android_widget_AnalogClock(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_AnalogClock::android_widget_AnalogClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_widget_AnalogClock::android_widget_AnalogClock(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
+android_widget_AnalogClock::android_widget_AnalogClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2)
 {
-	LOGV("android_widget_AnalogClock::android_widget_AnalogClock(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) enter");	
+	LOGV("android_widget_AnalogClock::android_widget_AnalogClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
@@ -378,7 +356,7 @@ android_widget_AnalogClock::android_widget_AnalogClock(AndroidCXX::android_conte
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_AnalogClock::android_widget_AnalogClock(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) exit");	
+	LOGV("android_widget_AnalogClock::android_widget_AnalogClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) exit");	
 }
 // Default Instance Destructor
 android_widget_AnalogClock::~android_widget_AnalogClock()
@@ -391,7 +369,7 @@ android_widget_AnalogClock::~android_widget_AnalogClock()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_AnalogClock::~android_widget_AnalogClock() exit");
 }
 // Functions

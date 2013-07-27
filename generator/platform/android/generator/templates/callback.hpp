@@ -28,9 +28,10 @@
 #set $params = $function['params']
 #set $param_idx = 0
 #for $param in $params
+ 	#set $typeinfo = $param['deriveddata']['targetdata']['typeinfo']
  	#set $jnidata = $param['deriveddata']['jnidata']
 	#set $jni_param_str = $jni_param_str + $COMMA
- 	#set $jni_param_str = $jni_param_str + $jnidata['jnitypename'] + $REF
+ 	#set $jni_param_str = $jni_param_str + $jnidata['jnitypename']
  	#set $jni_param_str = $jni_param_str + $SPACE + "jarg" + str($param_idx)
 	#set $param_idx = $param_idx + 1
 #end for

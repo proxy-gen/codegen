@@ -143,7 +143,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_app_FragmentManager::android_app_FragmentManager(const android_app_FragmentManager& cc)
 {
 	LOGV("android_app_FragmentManager::android_app_FragmentManager(const android_app_FragmentManager& cc) enter");
@@ -167,9 +166,9 @@ android_app_FragmentManager::android_app_FragmentManager(const android_app_Fragm
 
 	LOGV("android_app_FragmentManager::android_app_FragmentManager(const android_app_FragmentManager& cc) exit");
 }
-android_app_FragmentManager::android_app_FragmentManager(void * proxy)
+android_app_FragmentManager::android_app_FragmentManager(Proxy proxy)
 {
-	LOGV("android_app_FragmentManager::android_app_FragmentManager(void * proxy) enter");
+	LOGV("android_app_FragmentManager::android_app_FragmentManager(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -179,17 +178,31 @@ android_app_FragmentManager::android_app_FragmentManager(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_app_FragmentManager::android_app_FragmentManager(void * proxy) exit");
+	LOGV("android_app_FragmentManager::android_app_FragmentManager(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy android_app_FragmentManager::proxy() const
+{	
+	LOGV("android_app_FragmentManager::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_FragmentManager cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_FragmentManager jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_app_FragmentManager::proxy() exit");	
+
+	return proxy;
+}
 android_app_FragmentManager::android_app_FragmentManager()
 {
 	LOGV("android_app_FragmentManager::android_app_FragmentManager() enter");	
@@ -237,7 +250,7 @@ android_app_FragmentManager::~android_app_FragmentManager()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_app_FragmentManager::~android_app_FragmentManager() exit");
 }
 // Functions
@@ -253,8 +266,6 @@ bool android_app_FragmentManager::isDestroyed()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager cxx address %d", cxxAddress);
@@ -283,15 +294,13 @@ bool android_app_FragmentManager::isDestroyed()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_app_FragmentManager::isDestroyed() exit");
 
 	return result;
 }
-AndroidCXX::android_app_Fragment android_app_FragmentManager::getFragment(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_lang_String& arg1)
+AndroidCXX::android_app_Fragment android_app_FragmentManager::getFragment(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("AndroidCXX::android_app_Fragment android_app_FragmentManager::getFragment(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("AndroidCXX::android_app_Fragment android_app_FragmentManager::getFragment(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "getFragment";
 	const char *methodSignature = "(Landroid/os/Bundle;Ljava/lang/String;)Landroid/app/Fragment;";
@@ -301,8 +310,6 @@ AndroidCXX::android_app_Fragment android_app_FragmentManager::getFragment(Androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager cxx address %d", cxxAddress);
@@ -373,15 +380,13 @@ AndroidCXX::android_app_Fragment android_app_FragmentManager::getFragment(Androi
 	AndroidCXX::android_app_Fragment result((AndroidCXX::android_app_Fragment) *((AndroidCXX::android_app_Fragment *) cxx_value));
 	delete ((AndroidCXX::android_app_Fragment *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_Fragment android_app_FragmentManager::getFragment(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("AndroidCXX::android_app_Fragment android_app_FragmentManager::getFragment(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-void android_app_FragmentManager::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<AndroidCXX::java_lang_String >& arg3)
+void android_app_FragmentManager::dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3)
 {
-	LOGV("void android_app_FragmentManager::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<AndroidCXX::java_lang_String >& arg3) enter");
+	LOGV("void android_app_FragmentManager::dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3) enter");
 
 	const char *methodName = "dump";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V";
@@ -391,8 +396,6 @@ void android_app_FragmentManager::dump(AndroidCXX::java_lang_String& arg0,Androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager cxx address %d", cxxAddress);
@@ -504,14 +507,12 @@ void android_app_FragmentManager::dump(AndroidCXX::java_lang_String& arg0,Androi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_app_FragmentManager::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<AndroidCXX::java_lang_String >& arg3) exit");
+	LOGV("void android_app_FragmentManager::dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3) exit");
 
 }
-void android_app_FragmentManager::enableDebugLogging(bool& arg0)
+void android_app_FragmentManager::enableDebugLogging(bool const& arg0)
 {
-	LOGV("void android_app_FragmentManager::enableDebugLogging(bool& arg0) enter");
+	LOGV("void android_app_FragmentManager::enableDebugLogging(bool const& arg0) enter");
 
 	const char *methodName = "enableDebugLogging";
 	const char *methodSignature = "(Z)V";
@@ -521,8 +522,6 @@ void android_app_FragmentManager::enableDebugLogging(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_app_FragmentManager cxx address %d", cxxAddress);
@@ -551,11 +550,9 @@ void android_app_FragmentManager::enableDebugLogging(bool& arg0)
 		jarg0 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_app_FragmentManager::enableDebugLogging(bool& arg0) exit");
+	LOGV("void android_app_FragmentManager::enableDebugLogging(bool const& arg0) exit");
 
 }
 AndroidCXX::android_app_FragmentTransaction android_app_FragmentManager::beginTransaction()
@@ -570,8 +567,6 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentManager::beginTr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager cxx address %d", cxxAddress);
@@ -600,8 +595,6 @@ AndroidCXX::android_app_FragmentTransaction android_app_FragmentManager::beginTr
 	AndroidCXX::android_app_FragmentTransaction result((AndroidCXX::android_app_FragmentTransaction) *((AndroidCXX::android_app_FragmentTransaction *) cxx_value));
 	delete ((AndroidCXX::android_app_FragmentTransaction *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_app_FragmentTransaction android_app_FragmentManager::beginTransaction() exit");
 
 	return result;
@@ -619,8 +612,6 @@ bool android_app_FragmentManager::executePendingTransactions()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -648,15 +639,13 @@ bool android_app_FragmentManager::executePendingTransactions()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_app_FragmentManager::executePendingTransactions() exit");
 
 	return result;
 }
-AndroidCXX::android_app_Fragment android_app_FragmentManager::findFragmentById(int& arg0)
+AndroidCXX::android_app_Fragment android_app_FragmentManager::findFragmentById(int const& arg0)
 {
-	LOGV("AndroidCXX::android_app_Fragment android_app_FragmentManager::findFragmentById(int& arg0) enter");
+	LOGV("AndroidCXX::android_app_Fragment android_app_FragmentManager::findFragmentById(int const& arg0) enter");
 
 	const char *methodName = "findFragmentById";
 	const char *methodSignature = "(I)Landroid/app/Fragment;";
@@ -667,8 +656,6 @@ AndroidCXX::android_app_Fragment android_app_FragmentManager::findFragmentById(i
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -717,15 +704,13 @@ AndroidCXX::android_app_Fragment android_app_FragmentManager::findFragmentById(i
 	AndroidCXX::android_app_Fragment result((AndroidCXX::android_app_Fragment) *((AndroidCXX::android_app_Fragment *) cxx_value));
 	delete ((AndroidCXX::android_app_Fragment *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_Fragment android_app_FragmentManager::findFragmentById(int& arg0) exit");
+	LOGV("AndroidCXX::android_app_Fragment android_app_FragmentManager::findFragmentById(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_app_Fragment android_app_FragmentManager::findFragmentByTag(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::android_app_Fragment android_app_FragmentManager::findFragmentByTag(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::android_app_Fragment android_app_FragmentManager::findFragmentByTag(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::android_app_Fragment android_app_FragmentManager::findFragmentByTag(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "findFragmentByTag";
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/app/Fragment;";
@@ -736,8 +721,6 @@ AndroidCXX::android_app_Fragment android_app_FragmentManager::findFragmentByTag(
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -786,15 +769,13 @@ AndroidCXX::android_app_Fragment android_app_FragmentManager::findFragmentByTag(
 	AndroidCXX::android_app_Fragment result((AndroidCXX::android_app_Fragment) *((AndroidCXX::android_app_Fragment *) cxx_value));
 	delete ((AndroidCXX::android_app_Fragment *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_Fragment android_app_FragmentManager::findFragmentByTag(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::android_app_Fragment android_app_FragmentManager::findFragmentByTag(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-void android_app_FragmentManager::popBackStack(int& arg0,int& arg1)
+void android_app_FragmentManager::popBackStack(int const& arg0,int const& arg1)
 {
-	LOGV("void android_app_FragmentManager::popBackStack(int& arg0,int& arg1) enter");
+	LOGV("void android_app_FragmentManager::popBackStack(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "popBackStack";
 	const char *methodSignature = "(II)V";
@@ -804,8 +785,6 @@ void android_app_FragmentManager::popBackStack(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager cxx address %d", cxxAddress);
@@ -857,14 +836,12 @@ void android_app_FragmentManager::popBackStack(int& arg0,int& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_app_FragmentManager::popBackStack(int& arg0,int& arg1) exit");
+	LOGV("void android_app_FragmentManager::popBackStack(int const& arg0,int const& arg1) exit");
 
 }
-void android_app_FragmentManager::popBackStack(AndroidCXX::java_lang_String& arg0,int& arg1)
+void android_app_FragmentManager::popBackStack(AndroidCXX::java_lang_String const& arg0,int const& arg1)
 {
-	LOGV("void android_app_FragmentManager::popBackStack(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
+	LOGV("void android_app_FragmentManager::popBackStack(AndroidCXX::java_lang_String const& arg0,int const& arg1) enter");
 
 	const char *methodName = "popBackStack";
 	const char *methodSignature = "(Ljava/lang/String;I)V";
@@ -874,8 +851,6 @@ void android_app_FragmentManager::popBackStack(AndroidCXX::java_lang_String& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager cxx address %d", cxxAddress);
@@ -927,9 +902,7 @@ void android_app_FragmentManager::popBackStack(AndroidCXX::java_lang_String& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_app_FragmentManager::popBackStack(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
+	LOGV("void android_app_FragmentManager::popBackStack(AndroidCXX::java_lang_String const& arg0,int const& arg1) exit");
 
 }
 void android_app_FragmentManager::popBackStack()
@@ -945,8 +918,6 @@ void android_app_FragmentManager::popBackStack()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -955,8 +926,6 @@ void android_app_FragmentManager::popBackStack()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_app_FragmentManager::popBackStack() exit");
 
 }
@@ -973,8 +942,6 @@ bool android_app_FragmentManager::popBackStackImmediate()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1002,15 +969,13 @@ bool android_app_FragmentManager::popBackStackImmediate()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_app_FragmentManager::popBackStackImmediate() exit");
 
 	return result;
 }
-bool android_app_FragmentManager::popBackStackImmediate(int& arg0,int& arg1)
+bool android_app_FragmentManager::popBackStackImmediate(int const& arg0,int const& arg1)
 {
-	LOGV("bool android_app_FragmentManager::popBackStackImmediate(int& arg0,int& arg1) enter");
+	LOGV("bool android_app_FragmentManager::popBackStackImmediate(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "popBackStackImmediate";
 	const char *methodSignature = "(II)Z";
@@ -1020,8 +985,6 @@ bool android_app_FragmentManager::popBackStackImmediate(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager cxx address %d", cxxAddress);
@@ -1092,15 +1055,13 @@ bool android_app_FragmentManager::popBackStackImmediate(int& arg0,int& arg1)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_app_FragmentManager::popBackStackImmediate(int& arg0,int& arg1) exit");
+	LOGV("bool android_app_FragmentManager::popBackStackImmediate(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-bool android_app_FragmentManager::popBackStackImmediate(AndroidCXX::java_lang_String& arg0,int& arg1)
+bool android_app_FragmentManager::popBackStackImmediate(AndroidCXX::java_lang_String const& arg0,int const& arg1)
 {
-	LOGV("bool android_app_FragmentManager::popBackStackImmediate(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
+	LOGV("bool android_app_FragmentManager::popBackStackImmediate(AndroidCXX::java_lang_String const& arg0,int const& arg1) enter");
 
 	const char *methodName = "popBackStackImmediate";
 	const char *methodSignature = "(Ljava/lang/String;I)Z";
@@ -1110,8 +1071,6 @@ bool android_app_FragmentManager::popBackStackImmediate(AndroidCXX::java_lang_St
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager cxx address %d", cxxAddress);
@@ -1182,9 +1141,7 @@ bool android_app_FragmentManager::popBackStackImmediate(AndroidCXX::java_lang_St
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_app_FragmentManager::popBackStackImmediate(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
+	LOGV("bool android_app_FragmentManager::popBackStackImmediate(AndroidCXX::java_lang_String const& arg0,int const& arg1) exit");
 
 	return result;
 }
@@ -1200,8 +1157,6 @@ int android_app_FragmentManager::getBackStackEntryCount()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager cxx address %d", cxxAddress);
@@ -1230,15 +1185,13 @@ int android_app_FragmentManager::getBackStackEntryCount()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_app_FragmentManager::getBackStackEntryCount() exit");
 
 	return result;
 }
-AndroidCXX::android_app_FragmentManager_BackStackEntry android_app_FragmentManager::getBackStackEntryAt(int& arg0)
+AndroidCXX::android_app_FragmentManager_BackStackEntry android_app_FragmentManager::getBackStackEntryAt(int const& arg0)
 {
-	LOGV("AndroidCXX::android_app_FragmentManager_BackStackEntry android_app_FragmentManager::getBackStackEntryAt(int& arg0) enter");
+	LOGV("AndroidCXX::android_app_FragmentManager_BackStackEntry android_app_FragmentManager::getBackStackEntryAt(int const& arg0) enter");
 
 	const char *methodName = "getBackStackEntryAt";
 	const char *methodSignature = "(I)Landroid/app/FragmentManager$BackStackEntry;";
@@ -1248,8 +1201,6 @@ AndroidCXX::android_app_FragmentManager_BackStackEntry android_app_FragmentManag
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager cxx address %d", cxxAddress);
@@ -1299,15 +1250,13 @@ AndroidCXX::android_app_FragmentManager_BackStackEntry android_app_FragmentManag
 	AndroidCXX::android_app_FragmentManager_BackStackEntry result((AndroidCXX::android_app_FragmentManager_BackStackEntry) *((AndroidCXX::android_app_FragmentManager_BackStackEntry *) cxx_value));
 	delete ((AndroidCXX::android_app_FragmentManager_BackStackEntry *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_FragmentManager_BackStackEntry android_app_FragmentManager::getBackStackEntryAt(int& arg0) exit");
+	LOGV("AndroidCXX::android_app_FragmentManager_BackStackEntry android_app_FragmentManager::getBackStackEntryAt(int const& arg0) exit");
 
 	return result;
 }
-void android_app_FragmentManager::addOnBackStackChangedListener(AndroidCXX::android_app_FragmentManager_OnBackStackChangedListener& arg0)
+void android_app_FragmentManager::addOnBackStackChangedListener(AndroidCXX::android_app_FragmentManager_OnBackStackChangedListener const& arg0)
 {
-	LOGV("void android_app_FragmentManager::addOnBackStackChangedListener(AndroidCXX::android_app_FragmentManager_OnBackStackChangedListener& arg0) enter");
+	LOGV("void android_app_FragmentManager::addOnBackStackChangedListener(AndroidCXX::android_app_FragmentManager_OnBackStackChangedListener const& arg0) enter");
 
 	const char *methodName = "addOnBackStackChangedListener";
 	const char *methodSignature = "(Landroid/app/FragmentManager$OnBackStackChangedListener;)V";
@@ -1318,8 +1267,6 @@ void android_app_FragmentManager::addOnBackStackChangedListener(AndroidCXX::andr
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1349,14 +1296,12 @@ void android_app_FragmentManager::addOnBackStackChangedListener(AndroidCXX::andr
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_app_FragmentManager::addOnBackStackChangedListener(AndroidCXX::android_app_FragmentManager_OnBackStackChangedListener& arg0) exit");
+	LOGV("void android_app_FragmentManager::addOnBackStackChangedListener(AndroidCXX::android_app_FragmentManager_OnBackStackChangedListener const& arg0) exit");
 
 }
-void android_app_FragmentManager::removeOnBackStackChangedListener(AndroidCXX::android_app_FragmentManager_OnBackStackChangedListener& arg0)
+void android_app_FragmentManager::removeOnBackStackChangedListener(AndroidCXX::android_app_FragmentManager_OnBackStackChangedListener const& arg0)
 {
-	LOGV("void android_app_FragmentManager::removeOnBackStackChangedListener(AndroidCXX::android_app_FragmentManager_OnBackStackChangedListener& arg0) enter");
+	LOGV("void android_app_FragmentManager::removeOnBackStackChangedListener(AndroidCXX::android_app_FragmentManager_OnBackStackChangedListener const& arg0) enter");
 
 	const char *methodName = "removeOnBackStackChangedListener";
 	const char *methodSignature = "(Landroid/app/FragmentManager$OnBackStackChangedListener;)V";
@@ -1367,8 +1312,6 @@ void android_app_FragmentManager::removeOnBackStackChangedListener(AndroidCXX::a
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1398,14 +1341,12 @@ void android_app_FragmentManager::removeOnBackStackChangedListener(AndroidCXX::a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_app_FragmentManager::removeOnBackStackChangedListener(AndroidCXX::android_app_FragmentManager_OnBackStackChangedListener& arg0) exit");
+	LOGV("void android_app_FragmentManager::removeOnBackStackChangedListener(AndroidCXX::android_app_FragmentManager_OnBackStackChangedListener const& arg0) exit");
 
 }
-void android_app_FragmentManager::putFragment(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_app_Fragment& arg2)
+void android_app_FragmentManager::putFragment(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_app_Fragment const& arg2)
 {
-	LOGV("void android_app_FragmentManager::putFragment(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_app_Fragment& arg2) enter");
+	LOGV("void android_app_FragmentManager::putFragment(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_app_Fragment const& arg2) enter");
 
 	const char *methodName = "putFragment";
 	const char *methodSignature = "(Landroid/os/Bundle;Ljava/lang/String;Landroid/app/Fragment;)V";
@@ -1415,8 +1356,6 @@ void android_app_FragmentManager::putFragment(AndroidCXX::android_os_Bundle& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager cxx address %d", cxxAddress);
@@ -1489,14 +1428,12 @@ void android_app_FragmentManager::putFragment(AndroidCXX::android_os_Bundle& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_app_FragmentManager::putFragment(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_app_Fragment& arg2) exit");
+	LOGV("void android_app_FragmentManager::putFragment(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_app_Fragment const& arg2) exit");
 
 }
-AndroidCXX::android_app_Fragment_SavedState android_app_FragmentManager::saveFragmentInstanceState(AndroidCXX::android_app_Fragment& arg0)
+AndroidCXX::android_app_Fragment_SavedState android_app_FragmentManager::saveFragmentInstanceState(AndroidCXX::android_app_Fragment const& arg0)
 {
-	LOGV("AndroidCXX::android_app_Fragment_SavedState android_app_FragmentManager::saveFragmentInstanceState(AndroidCXX::android_app_Fragment& arg0) enter");
+	LOGV("AndroidCXX::android_app_Fragment_SavedState android_app_FragmentManager::saveFragmentInstanceState(AndroidCXX::android_app_Fragment const& arg0) enter");
 
 	const char *methodName = "saveFragmentInstanceState";
 	const char *methodSignature = "(Landroid/app/Fragment;)Landroid/app/Fragment$SavedState;";
@@ -1506,8 +1443,6 @@ AndroidCXX::android_app_Fragment_SavedState android_app_FragmentManager::saveFra
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager cxx address %d", cxxAddress);
@@ -1557,9 +1492,7 @@ AndroidCXX::android_app_Fragment_SavedState android_app_FragmentManager::saveFra
 	AndroidCXX::android_app_Fragment_SavedState result((AndroidCXX::android_app_Fragment_SavedState) *((AndroidCXX::android_app_Fragment_SavedState *) cxx_value));
 	delete ((AndroidCXX::android_app_Fragment_SavedState *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_app_Fragment_SavedState android_app_FragmentManager::saveFragmentInstanceState(AndroidCXX::android_app_Fragment& arg0) exit");
+	LOGV("AndroidCXX::android_app_Fragment_SavedState android_app_FragmentManager::saveFragmentInstanceState(AndroidCXX::android_app_Fragment const& arg0) exit");
 
 	return result;
 }
@@ -1576,8 +1509,6 @@ void android_app_FragmentManager::invalidateOptionsMenu()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_FragmentManager cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1586,8 +1517,6 @@ void android_app_FragmentManager::invalidateOptionsMenu()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_app_FragmentManager::invalidateOptionsMenu() exit");
 
 }

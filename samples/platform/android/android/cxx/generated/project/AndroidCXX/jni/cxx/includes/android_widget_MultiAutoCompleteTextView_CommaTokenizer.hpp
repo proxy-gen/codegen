@@ -57,17 +57,16 @@ class android_widget_MultiAutoCompleteTextView_CommaTokenizer
 public:
 
 	android_widget_MultiAutoCompleteTextView_CommaTokenizer(const android_widget_MultiAutoCompleteTextView_CommaTokenizer& cc);
-	android_widget_MultiAutoCompleteTextView_CommaTokenizer(void * proxy);
+	android_widget_MultiAutoCompleteTextView_CommaTokenizer(Proxy proxy);
 	// Public Constructors
 	android_widget_MultiAutoCompleteTextView_CommaTokenizer();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_MultiAutoCompleteTextView_CommaTokenizer();
 	// Functions
-	 int findTokenStart(AndroidCXX::java_lang_CharSequence& arg0,int& arg1);
-	 int findTokenEnd(AndroidCXX::java_lang_CharSequence& arg0,int& arg1);
-	 AndroidCXX::java_lang_CharSequence terminateToken(AndroidCXX::java_lang_CharSequence& arg0);
+	 int findTokenStart(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1);
+	 int findTokenEnd(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1);
+	 AndroidCXX::java_lang_CharSequence terminateToken(AndroidCXX::java_lang_CharSequence const& arg0);
 };	
 
 } // namespace

@@ -12,6 +12,7 @@
 #include "com_zynga_sdk_cxx_CXXContext.h"
 #include "JNIContext.hpp"
 #include <map>
+#include <vector>
 
 #define LOG_TAG "CXXContext"
 #define LOGV(...) ((void)__android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__))
@@ -174,6 +175,22 @@ void CXXContext::deregisterProxyComponent(long contextAddress)
 		}
 	}
 	pthread_mutex_unlock(&proxyComponentMapMutex);
+}
+
+bool CXXContext::deleteProxyComponent(jobject externalObject)
+{
+	LOGV("deleteProxyComponent externalObject %ld", (long) externalObject);
+	JNIContext *jni = JNIContext::sharedInstance();
+	bool success = false;
+	jni->pushLocalFrame();
+	if (jni->newLocalRef(externalObject) != 0)
+	{
+		jobject globalRef = jni->newGlobalRef(externalObject);
+		jni->deleteGlobalRef(globalRef);
+		success = true;
+	}
+	jni->popLocalFrame();
+	return success;
 }
 
 jobject CXXContext::findProxyComponent(long contextAddress)

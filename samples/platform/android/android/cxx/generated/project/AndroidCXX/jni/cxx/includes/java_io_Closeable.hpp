@@ -46,12 +46,9 @@ class java_io_Closeable
 public:
 
 	java_io_Closeable(const java_io_Closeable& cc);
-	java_io_Closeable(void * proxy);
+	java_io_Closeable(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_io_Closeable();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_io_Closeable();
 	// Functions

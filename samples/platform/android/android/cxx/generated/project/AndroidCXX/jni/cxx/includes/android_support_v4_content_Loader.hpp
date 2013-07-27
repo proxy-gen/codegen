@@ -105,13 +105,10 @@ class android_support_v4_content_Loader
 public:
 
 	android_support_v4_content_Loader(const android_support_v4_content_Loader& cc);
-	android_support_v4_content_Loader(void * proxy);
+	android_support_v4_content_Loader(Proxy proxy);
 	// Public Constructors
-	android_support_v4_content_Loader(AndroidCXX::android_content_Context& arg0);
-	// TODO: remove
-	// 
-	// android_support_v4_content_Loader();
-	// 
+	android_support_v4_content_Loader(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_support_v4_content_Loader();
 	// Functions
@@ -119,20 +116,20 @@ public:
 	 AndroidCXX::android_content_Context getContext();
 	 int getId();
 	 void reset();
-	 void dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<AndroidCXX::java_lang_String >& arg3);
+	 void dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3);
 	 void abandon();
 	 void onContentChanged();
 	 bool isStarted();
-	 void deliverResult(AndroidCXX::java_lang_Object& arg0);
-	 void registerListener(int& arg0,AndroidCXX::android_support_v4_content_Loader_OnLoadCompleteListener& arg1);
-	 void unregisterListener(AndroidCXX::android_support_v4_content_Loader_OnLoadCompleteListener& arg0);
+	 void deliverResult(AndroidCXX::java_lang_Object const& arg0);
+	 void registerListener(int const& arg0,AndroidCXX::android_support_v4_content_Loader_OnLoadCompleteListener const& arg1);
+	 void unregisterListener(AndroidCXX::android_support_v4_content_Loader_OnLoadCompleteListener const& arg0);
 	 bool isAbandoned();
 	 bool isReset();
 	 void startLoading();
 	 void forceLoad();
 	 void stopLoading();
 	 bool takeContentChanged();
-	 AndroidCXX::java_lang_String dataToString(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String dataToString(AndroidCXX::java_lang_Object const& arg0);
 };	
 
 } // namespace

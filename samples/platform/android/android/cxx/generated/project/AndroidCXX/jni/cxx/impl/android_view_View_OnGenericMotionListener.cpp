@@ -50,7 +50,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_View_OnGenericMotionListener::android_view_View_OnGenericMotionListener(const android_view_View_OnGenericMotionListener& cc)
 {
 	LOGV("android_view_View_OnGenericMotionListener::android_view_View_OnGenericMotionListener(const android_view_View_OnGenericMotionListener& cc) enter");
@@ -74,9 +73,9 @@ android_view_View_OnGenericMotionListener::android_view_View_OnGenericMotionList
 
 	LOGV("android_view_View_OnGenericMotionListener::android_view_View_OnGenericMotionListener(const android_view_View_OnGenericMotionListener& cc) exit");
 }
-android_view_View_OnGenericMotionListener::android_view_View_OnGenericMotionListener(void * proxy)
+android_view_View_OnGenericMotionListener::android_view_View_OnGenericMotionListener(Proxy proxy)
 {
-	LOGV("android_view_View_OnGenericMotionListener::android_view_View_OnGenericMotionListener(void * proxy) enter");
+	LOGV("android_view_View_OnGenericMotionListener::android_view_View_OnGenericMotionListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -86,52 +85,31 @@ android_view_View_OnGenericMotionListener::android_view_View_OnGenericMotionList
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_View_OnGenericMotionListener::android_view_View_OnGenericMotionListener(void * proxy) exit");
+	LOGV("android_view_View_OnGenericMotionListener::android_view_View_OnGenericMotionListener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_view_View_OnGenericMotionListener::android_view_View_OnGenericMotionListener()
-// {
-// 	LOGV("android_view_View_OnGenericMotionListener::android_view_View_OnGenericMotionListener() enter");	
+Proxy android_view_View_OnGenericMotionListener::proxy() const
+{	
+	LOGV("android_view_View_OnGenericMotionListener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/view/View$OnGenericMotionListener";
+	long cxxAddress = (long) this;
+	LOGV("android_view_View_OnGenericMotionListener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_View_OnGenericMotionListener jni address %d", proxiedComponent);
 
-// 	LOGV("android_view_View_OnGenericMotionListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_view_View_OnGenericMotionListener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_view_View_OnGenericMotionListener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_view_View_OnGenericMotionListener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_view_View_OnGenericMotionListener::android_view_View_OnGenericMotionListener() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_view_View_OnGenericMotionListener::~android_view_View_OnGenericMotionListener()
 {
@@ -143,13 +121,13 @@ android_view_View_OnGenericMotionListener::~android_view_View_OnGenericMotionLis
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_View_OnGenericMotionListener::~android_view_View_OnGenericMotionListener() exit");
 }
 // Functions
-bool android_view_View_OnGenericMotionListener::onGenericMotion(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_MotionEvent& arg1)
+bool android_view_View_OnGenericMotionListener::onGenericMotion(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_MotionEvent const& arg1)
 {
-	LOGV("bool android_view_View_OnGenericMotionListener::onGenericMotion(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_MotionEvent& arg1) enter");
+	LOGV("bool android_view_View_OnGenericMotionListener::onGenericMotion(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_MotionEvent const& arg1) enter");
 
 	const char *methodName = "onGenericMotion";
 	const char *methodSignature = "(Landroid/view/View;Landroid/view/MotionEvent;)Z";
@@ -159,8 +137,6 @@ bool android_view_View_OnGenericMotionListener::onGenericMotion(AndroidCXX::andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_View_OnGenericMotionListener cxx address %d", cxxAddress);
@@ -231,9 +207,7 @@ bool android_view_View_OnGenericMotionListener::onGenericMotion(AndroidCXX::andr
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_View_OnGenericMotionListener::onGenericMotion(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_MotionEvent& arg1) exit");
+	LOGV("bool android_view_View_OnGenericMotionListener::onGenericMotion(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_MotionEvent const& arg1) exit");
 
 	return result;
 }

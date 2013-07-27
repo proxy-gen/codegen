@@ -57,19 +57,16 @@ class java_io_BufferedOutputStream
 public:
 
 	java_io_BufferedOutputStream(const java_io_BufferedOutputStream& cc);
-	java_io_BufferedOutputStream(void * proxy);
+	java_io_BufferedOutputStream(Proxy proxy);
 	// Public Constructors
-	java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream& arg0);
-	java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream& arg0,int& arg1);
-	// TODO: remove
-	// 
-	// java_io_BufferedOutputStream();
-	// 
+	java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream const& arg0);
+	java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream const& arg0,int const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_io_BufferedOutputStream();
 	// Functions
-	 void write(int& arg0);
-	 void write(std::vector<byte>& arg0,int& arg1,int& arg2);
+	 void write(int const& arg0);
+	 void write(std::vector<byte> const& arg0,int const& arg1,int const& arg2);
 	 void flush();
 };	
 

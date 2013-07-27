@@ -94,7 +94,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_Display::android_view_Display(const android_view_Display& cc)
 {
 	LOGV("android_view_Display::android_view_Display(const android_view_Display& cc) enter");
@@ -118,9 +117,9 @@ android_view_Display::android_view_Display(const android_view_Display& cc)
 
 	LOGV("android_view_Display::android_view_Display(const android_view_Display& cc) exit");
 }
-android_view_Display::android_view_Display(void * proxy)
+android_view_Display::android_view_Display(Proxy proxy)
 {
-	LOGV("android_view_Display::android_view_Display(void * proxy) enter");
+	LOGV("android_view_Display::android_view_Display(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -130,52 +129,31 @@ android_view_Display::android_view_Display(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_Display::android_view_Display(void * proxy) exit");
+	LOGV("android_view_Display::android_view_Display(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_view_Display::android_view_Display()
-// {
-// 	LOGV("android_view_Display::android_view_Display() enter");	
+Proxy android_view_Display::proxy() const
+{	
+	LOGV("android_view_Display::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/view/Display";
+	long cxxAddress = (long) this;
+	LOGV("android_view_Display cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_Display jni address %d", proxiedComponent);
 
-// 	LOGV("android_view_Display className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_view_Display::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_view_Display cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_view_Display jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_view_Display::android_view_Display() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_view_Display::~android_view_Display()
 {
@@ -187,7 +165,7 @@ android_view_Display::~android_view_Display()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_Display::~android_view_Display() exit");
 }
 // Functions
@@ -203,8 +181,6 @@ AndroidCXX::java_lang_String android_view_Display::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_Display cxx address %d", cxxAddress);
@@ -233,8 +209,6 @@ AndroidCXX::java_lang_String android_view_Display::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_view_Display::toString() exit");
 
 	return result;
@@ -252,8 +226,6 @@ AndroidCXX::java_lang_String android_view_Display::getName()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_Display cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -281,15 +253,13 @@ AndroidCXX::java_lang_String android_view_Display::getName()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_view_Display::getName() exit");
 
 	return result;
 }
-void android_view_Display::getSize(AndroidCXX::android_graphics_Point& arg0)
+void android_view_Display::getSize(AndroidCXX::android_graphics_Point const& arg0)
 {
-	LOGV("void android_view_Display::getSize(AndroidCXX::android_graphics_Point& arg0) enter");
+	LOGV("void android_view_Display::getSize(AndroidCXX::android_graphics_Point const& arg0) enter");
 
 	const char *methodName = "getSize";
 	const char *methodSignature = "(Landroid/graphics/Point;)V";
@@ -299,8 +269,6 @@ void android_view_Display::getSize(AndroidCXX::android_graphics_Point& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_Display cxx address %d", cxxAddress);
@@ -331,9 +299,7 @@ void android_view_Display::getSize(AndroidCXX::android_graphics_Point& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_Display::getSize(AndroidCXX::android_graphics_Point& arg0) exit");
+	LOGV("void android_view_Display::getSize(AndroidCXX::android_graphics_Point const& arg0) exit");
 
 }
 bool android_view_Display::isValid()
@@ -348,8 +314,6 @@ bool android_view_Display::isValid()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_Display cxx address %d", cxxAddress);
@@ -378,8 +342,6 @@ bool android_view_Display::isValid()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_Display::isValid() exit");
 
 	return result;
@@ -397,8 +359,6 @@ int android_view_Display::getFlags()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_Display cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -426,8 +386,6 @@ int android_view_Display::getFlags()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_Display::getFlags() exit");
 
 	return result;
@@ -445,8 +403,6 @@ int android_view_Display::getWidth()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_Display cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -474,8 +430,6 @@ int android_view_Display::getWidth()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_Display::getWidth() exit");
 
 	return result;
@@ -493,8 +447,6 @@ int android_view_Display::getHeight()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_Display cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -522,8 +474,6 @@ int android_view_Display::getHeight()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_Display::getHeight() exit");
 
 	return result;
@@ -541,8 +491,6 @@ int android_view_Display::getRotation()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_Display cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -570,8 +518,6 @@ int android_view_Display::getRotation()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_Display::getRotation() exit");
 
 	return result;
@@ -589,8 +535,6 @@ int android_view_Display::getDisplayId()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_Display cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -618,15 +562,13 @@ int android_view_Display::getDisplayId()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_Display::getDisplayId() exit");
 
 	return result;
 }
-void android_view_Display::getRectSize(AndroidCXX::android_graphics_Rect& arg0)
+void android_view_Display::getRectSize(AndroidCXX::android_graphics_Rect const& arg0)
 {
-	LOGV("void android_view_Display::getRectSize(AndroidCXX::android_graphics_Rect& arg0) enter");
+	LOGV("void android_view_Display::getRectSize(AndroidCXX::android_graphics_Rect const& arg0) enter");
 
 	const char *methodName = "getRectSize";
 	const char *methodSignature = "(Landroid/graphics/Rect;)V";
@@ -636,8 +578,6 @@ void android_view_Display::getRectSize(AndroidCXX::android_graphics_Rect& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_Display cxx address %d", cxxAddress);
@@ -668,14 +608,12 @@ void android_view_Display::getRectSize(AndroidCXX::android_graphics_Rect& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_Display::getRectSize(AndroidCXX::android_graphics_Rect& arg0) exit");
+	LOGV("void android_view_Display::getRectSize(AndroidCXX::android_graphics_Rect const& arg0) exit");
 
 }
-void android_view_Display::getCurrentSizeRange(AndroidCXX::android_graphics_Point& arg0,AndroidCXX::android_graphics_Point& arg1)
+void android_view_Display::getCurrentSizeRange(AndroidCXX::android_graphics_Point const& arg0,AndroidCXX::android_graphics_Point const& arg1)
 {
-	LOGV("void android_view_Display::getCurrentSizeRange(AndroidCXX::android_graphics_Point& arg0,AndroidCXX::android_graphics_Point& arg1) enter");
+	LOGV("void android_view_Display::getCurrentSizeRange(AndroidCXX::android_graphics_Point const& arg0,AndroidCXX::android_graphics_Point const& arg1) enter");
 
 	const char *methodName = "getCurrentSizeRange";
 	const char *methodSignature = "(Landroid/graphics/Point;Landroid/graphics/Point;)V";
@@ -685,8 +623,6 @@ void android_view_Display::getCurrentSizeRange(AndroidCXX::android_graphics_Poin
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_Display cxx address %d", cxxAddress);
@@ -738,9 +674,7 @@ void android_view_Display::getCurrentSizeRange(AndroidCXX::android_graphics_Poin
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_Display::getCurrentSizeRange(AndroidCXX::android_graphics_Point& arg0,AndroidCXX::android_graphics_Point& arg1) exit");
+	LOGV("void android_view_Display::getCurrentSizeRange(AndroidCXX::android_graphics_Point const& arg0,AndroidCXX::android_graphics_Point const& arg1) exit");
 
 }
 int android_view_Display::getOrientation()
@@ -755,8 +689,6 @@ int android_view_Display::getOrientation()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_Display cxx address %d", cxxAddress);
@@ -785,8 +717,6 @@ int android_view_Display::getOrientation()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_Display::getOrientation() exit");
 
 	return result;
@@ -804,8 +734,6 @@ int android_view_Display::getPixelFormat()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_Display cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -833,8 +761,6 @@ int android_view_Display::getPixelFormat()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_Display::getPixelFormat() exit");
 
 	return result;
@@ -851,8 +777,6 @@ float android_view_Display::getRefreshRate()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_Display cxx address %d", cxxAddress);
@@ -881,15 +805,13 @@ float android_view_Display::getRefreshRate()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float android_view_Display::getRefreshRate() exit");
 
 	return result;
 }
-void android_view_Display::getMetrics(AndroidCXX::android_util_DisplayMetrics& arg0)
+void android_view_Display::getMetrics(AndroidCXX::android_util_DisplayMetrics const& arg0)
 {
-	LOGV("void android_view_Display::getMetrics(AndroidCXX::android_util_DisplayMetrics& arg0) enter");
+	LOGV("void android_view_Display::getMetrics(AndroidCXX::android_util_DisplayMetrics const& arg0) enter");
 
 	const char *methodName = "getMetrics";
 	const char *methodSignature = "(Landroid/util/DisplayMetrics;)V";
@@ -899,8 +821,6 @@ void android_view_Display::getMetrics(AndroidCXX::android_util_DisplayMetrics& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_Display cxx address %d", cxxAddress);
@@ -931,14 +851,12 @@ void android_view_Display::getMetrics(AndroidCXX::android_util_DisplayMetrics& a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_Display::getMetrics(AndroidCXX::android_util_DisplayMetrics& arg0) exit");
+	LOGV("void android_view_Display::getMetrics(AndroidCXX::android_util_DisplayMetrics const& arg0) exit");
 
 }
-void android_view_Display::getRealSize(AndroidCXX::android_graphics_Point& arg0)
+void android_view_Display::getRealSize(AndroidCXX::android_graphics_Point const& arg0)
 {
-	LOGV("void android_view_Display::getRealSize(AndroidCXX::android_graphics_Point& arg0) enter");
+	LOGV("void android_view_Display::getRealSize(AndroidCXX::android_graphics_Point const& arg0) enter");
 
 	const char *methodName = "getRealSize";
 	const char *methodSignature = "(Landroid/graphics/Point;)V";
@@ -948,8 +866,6 @@ void android_view_Display::getRealSize(AndroidCXX::android_graphics_Point& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_Display cxx address %d", cxxAddress);
@@ -980,14 +896,12 @@ void android_view_Display::getRealSize(AndroidCXX::android_graphics_Point& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_Display::getRealSize(AndroidCXX::android_graphics_Point& arg0) exit");
+	LOGV("void android_view_Display::getRealSize(AndroidCXX::android_graphics_Point const& arg0) exit");
 
 }
-void android_view_Display::getRealMetrics(AndroidCXX::android_util_DisplayMetrics& arg0)
+void android_view_Display::getRealMetrics(AndroidCXX::android_util_DisplayMetrics const& arg0)
 {
-	LOGV("void android_view_Display::getRealMetrics(AndroidCXX::android_util_DisplayMetrics& arg0) enter");
+	LOGV("void android_view_Display::getRealMetrics(AndroidCXX::android_util_DisplayMetrics const& arg0) enter");
 
 	const char *methodName = "getRealMetrics";
 	const char *methodSignature = "(Landroid/util/DisplayMetrics;)V";
@@ -997,8 +911,6 @@ void android_view_Display::getRealMetrics(AndroidCXX::android_util_DisplayMetric
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_Display cxx address %d", cxxAddress);
@@ -1029,8 +941,6 @@ void android_view_Display::getRealMetrics(AndroidCXX::android_util_DisplayMetric
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_Display::getRealMetrics(AndroidCXX::android_util_DisplayMetrics& arg0) exit");
+	LOGV("void android_view_Display::getRealMetrics(AndroidCXX::android_util_DisplayMetrics const& arg0) exit");
 
 }

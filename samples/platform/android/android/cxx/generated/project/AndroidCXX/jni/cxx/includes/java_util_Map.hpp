@@ -104,29 +104,26 @@ class java_util_Map
 public:
 
 	java_util_Map(const java_util_Map& cc);
-	java_util_Map(void * proxy);
+	java_util_Map(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_util_Map();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Map();
 	// Functions
-	 AndroidCXX::java_lang_Object get(AndroidCXX::java_lang_Object& arg0);
-	 AndroidCXX::java_lang_Object put(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1);
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_Object get(AndroidCXX::java_lang_Object const& arg0);
+	 AndroidCXX::java_lang_Object put(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_util_Collection values();
 	 int hashCode();
 	 void clear();
 	 bool isEmpty();
 	 int size();
 	 AndroidCXX::java_util_Set entrySet();
-	 void putAll(AndroidCXX::java_util_Map& arg0);
-	 AndroidCXX::java_lang_Object remove(AndroidCXX::java_lang_Object& arg0);
+	 void putAll(AndroidCXX::java_util_Map const& arg0);
+	 AndroidCXX::java_lang_Object remove(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_util_Set keySet();
-	 bool containsValue(AndroidCXX::java_lang_Object& arg0);
-	 bool containsKey(AndroidCXX::java_lang_Object& arg0);
+	 bool containsValue(AndroidCXX::java_lang_Object const& arg0);
+	 bool containsKey(AndroidCXX::java_lang_Object const& arg0);
 };	
 
 } // namespace

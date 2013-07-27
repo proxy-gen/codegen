@@ -131,31 +131,28 @@ class java_nio_charset_Charset
 public:
 
 	java_nio_charset_Charset(const java_nio_charset_Charset& cc);
-	java_nio_charset_Charset(void * proxy);
+	java_nio_charset_Charset(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_nio_charset_Charset();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_charset_Charset();
 	// Functions
 	 AndroidCXX::java_lang_String name();
-	static AndroidCXX::java_nio_charset_Charset forName(AndroidCXX::java_lang_String& arg0);
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	static AndroidCXX::java_nio_charset_Charset forName(AndroidCXX::java_lang_String const& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 int compareTo(AndroidCXX::java_nio_charset_Charset& arg0);
-	 bool contains(AndroidCXX::java_nio_charset_Charset& arg0);
-	 AndroidCXX::java_nio_CharBuffer decode(AndroidCXX::java_nio_ByteBuffer& arg0);
-	 AndroidCXX::java_nio_ByteBuffer encode(AndroidCXX::java_nio_CharBuffer& arg0);
-	 AndroidCXX::java_nio_ByteBuffer encode(AndroidCXX::java_lang_String& arg0);
-	static bool isSupported(AndroidCXX::java_lang_String& arg0);
+	 int compareTo(AndroidCXX::java_nio_charset_Charset const& arg0);
+	 bool contains(AndroidCXX::java_nio_charset_Charset const& arg0);
+	 AndroidCXX::java_nio_CharBuffer decode(AndroidCXX::java_nio_ByteBuffer const& arg0);
+	 AndroidCXX::java_nio_ByteBuffer encode(AndroidCXX::java_nio_CharBuffer const& arg0);
+	 AndroidCXX::java_nio_ByteBuffer encode(AndroidCXX::java_lang_String const& arg0);
+	static bool isSupported(AndroidCXX::java_lang_String const& arg0);
 	static AndroidCXX::java_nio_charset_Charset defaultCharset();
 	 AndroidCXX::java_util_Set aliases();
 	static AndroidCXX::java_util_SortedMap availableCharsets();
 	 AndroidCXX::java_lang_String displayName();
-	 AndroidCXX::java_lang_String displayName(AndroidCXX::java_util_Locale& arg0);
+	 AndroidCXX::java_lang_String displayName(AndroidCXX::java_util_Locale const& arg0);
 	 bool isRegistered();
 	 AndroidCXX::java_nio_charset_CharsetDecoder newDecoder();
 	 AndroidCXX::java_nio_charset_CharsetEncoder newEncoder();

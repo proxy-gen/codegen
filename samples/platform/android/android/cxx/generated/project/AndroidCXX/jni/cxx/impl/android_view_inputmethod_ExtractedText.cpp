@@ -48,7 +48,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_inputmethod_ExtractedText::android_view_inputmethod_ExtractedText(const android_view_inputmethod_ExtractedText& cc)
 {
 	LOGV("android_view_inputmethod_ExtractedText::android_view_inputmethod_ExtractedText(const android_view_inputmethod_ExtractedText& cc) enter");
@@ -72,9 +71,9 @@ android_view_inputmethod_ExtractedText::android_view_inputmethod_ExtractedText(c
 
 	LOGV("android_view_inputmethod_ExtractedText::android_view_inputmethod_ExtractedText(const android_view_inputmethod_ExtractedText& cc) exit");
 }
-android_view_inputmethod_ExtractedText::android_view_inputmethod_ExtractedText(void * proxy)
+android_view_inputmethod_ExtractedText::android_view_inputmethod_ExtractedText(Proxy proxy)
 {
-	LOGV("android_view_inputmethod_ExtractedText::android_view_inputmethod_ExtractedText(void * proxy) enter");
+	LOGV("android_view_inputmethod_ExtractedText::android_view_inputmethod_ExtractedText(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -84,17 +83,31 @@ android_view_inputmethod_ExtractedText::android_view_inputmethod_ExtractedText(v
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_inputmethod_ExtractedText::android_view_inputmethod_ExtractedText(void * proxy) exit");
+	LOGV("android_view_inputmethod_ExtractedText::android_view_inputmethod_ExtractedText(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy android_view_inputmethod_ExtractedText::proxy() const
+{	
+	LOGV("android_view_inputmethod_ExtractedText::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_view_inputmethod_ExtractedText cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_inputmethod_ExtractedText jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_view_inputmethod_ExtractedText::proxy() exit");	
+
+	return proxy;
+}
 android_view_inputmethod_ExtractedText::android_view_inputmethod_ExtractedText()
 {
 	LOGV("android_view_inputmethod_ExtractedText::android_view_inputmethod_ExtractedText() enter");	
@@ -142,7 +155,7 @@ android_view_inputmethod_ExtractedText::~android_view_inputmethod_ExtractedText(
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_inputmethod_ExtractedText::~android_view_inputmethod_ExtractedText() exit");
 }
 // Functions
@@ -158,8 +171,6 @@ int android_view_inputmethod_ExtractedText::describeContents()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_ExtractedText cxx address %d", cxxAddress);
@@ -188,15 +199,13 @@ int android_view_inputmethod_ExtractedText::describeContents()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_inputmethod_ExtractedText::describeContents() exit");
 
 	return result;
 }
-void android_view_inputmethod_ExtractedText::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_view_inputmethod_ExtractedText::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_view_inputmethod_ExtractedText::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_view_inputmethod_ExtractedText::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -206,8 +215,6 @@ void android_view_inputmethod_ExtractedText::writeToParcel(AndroidCXX::android_o
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_ExtractedText cxx address %d", cxxAddress);
@@ -259,8 +266,6 @@ void android_view_inputmethod_ExtractedText::writeToParcel(AndroidCXX::android_o
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_inputmethod_ExtractedText::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_view_inputmethod_ExtractedText::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }

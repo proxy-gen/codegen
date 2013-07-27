@@ -83,23 +83,20 @@ class android_os_Looper
 public:
 
 	android_os_Looper(const android_os_Looper& cc);
-	android_os_Looper(void * proxy);
+	android_os_Looper(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_os_Looper();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_os_Looper();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
 	static void loop();
-	 void dump(AndroidCXX::android_util_Printer& arg0,AndroidCXX::java_lang_String& arg1);
+	 void dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1);
 	static AndroidCXX::android_os_Looper myLooper();
 	static AndroidCXX::android_os_Looper getMainLooper();
 	static void prepare();
 	static void prepareMainLooper();
-	 void setMessageLogging(AndroidCXX::android_util_Printer& arg0);
+	 void setMessageLogging(AndroidCXX::android_util_Printer const& arg0);
 	static AndroidCXX::android_os_MessageQueue myQueue();
 	 void quit();
 	 AndroidCXX::java_lang_Thread getThread();

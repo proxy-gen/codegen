@@ -52,17 +52,14 @@ class com_facebook_widget_PickerFragment_1
 public:
 
 	com_facebook_widget_PickerFragment_1(const com_facebook_widget_PickerFragment_1& cc);
-	com_facebook_widget_PickerFragment_1(void * proxy);
+	com_facebook_widget_PickerFragment_1(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_widget_PickerFragment_1();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_1();
 	// Functions
-	 void onScrollStateChanged(AndroidCXX::android_widget_AbsListView& arg0,int& arg1);
-	 void onScroll(AndroidCXX::android_widget_AbsListView& arg0,int& arg1,int& arg2,int& arg3);
+	 void onScrollStateChanged(AndroidCXX::android_widget_AbsListView const& arg0,int const& arg1);
+	 void onScroll(AndroidCXX::android_widget_AbsListView const& arg0,int const& arg1,int const& arg2,int const& arg3);
 };	
 
 } // namespace

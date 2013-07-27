@@ -100,29 +100,26 @@ class android_widget_AbsSpinner
 public:
 
 	android_widget_AbsSpinner(const android_widget_AbsSpinner& cc);
-	android_widget_AbsSpinner(void * proxy);
+	android_widget_AbsSpinner(Proxy proxy);
 	// Public Constructors
-	android_widget_AbsSpinner(AndroidCXX::android_content_Context& arg0);
-	android_widget_AbsSpinner(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_AbsSpinner(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	// TODO: remove
-	// 
-	// android_widget_AbsSpinner();
-	// 
+	android_widget_AbsSpinner(AndroidCXX::android_content_Context const& arg0);
+	android_widget_AbsSpinner(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_AbsSpinner(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AbsSpinner();
 	// Functions
 	 AndroidCXX::android_os_Parcelable onSaveInstanceState();
-	 void onRestoreInstanceState(AndroidCXX::android_os_Parcelable& arg0);
+	 void onRestoreInstanceState(AndroidCXX::android_os_Parcelable const& arg0);
 	 void requestLayout();
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
 	 int getCount();
-	 void setSelection(int& arg0);
-	 void setSelection(int& arg0,bool& arg1);
-	 void setAdapter(AndroidCXX::android_widget_SpinnerAdapter& arg0);
+	 void setSelection(int const& arg0);
+	 void setSelection(int const& arg0,bool const& arg1);
+	 void setAdapter(AndroidCXX::android_widget_SpinnerAdapter const& arg0);
 	 AndroidCXX::android_view_View getSelectedView();
-	 int pointToPosition(int& arg0,int& arg1);
+	 int pointToPosition(int const& arg0,int const& arg1);
 	 AndroidCXX::android_widget_SpinnerAdapter getAdapter();
 };	
 

@@ -56,16 +56,13 @@ class android_view_View_OnKeyListener
 public:
 
 	android_view_View_OnKeyListener(const android_view_View_OnKeyListener& cc);
-	android_view_View_OnKeyListener(void * proxy);
+	android_view_View_OnKeyListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_view_View_OnKeyListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnKeyListener();
 	// Functions
-	 bool onKey(AndroidCXX::android_view_View& arg0,int& arg1,AndroidCXX::android_view_KeyEvent& arg2);
+	 bool onKey(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2);
 };	
 
 } // namespace

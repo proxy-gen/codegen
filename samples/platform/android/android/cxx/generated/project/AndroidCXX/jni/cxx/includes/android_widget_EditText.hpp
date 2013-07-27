@@ -98,27 +98,24 @@ class android_widget_EditText
 public:
 
 	android_widget_EditText(const android_widget_EditText& cc);
-	android_widget_EditText(void * proxy);
+	android_widget_EditText(Proxy proxy);
 	// Public Constructors
-	android_widget_EditText(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_EditText(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_EditText(AndroidCXX::android_content_Context& arg0);
-	// TODO: remove
-	// 
-	// android_widget_EditText();
-	// 
+	android_widget_EditText(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_EditText(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_EditText(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_EditText();
 	// Functions
-	 void setText(AndroidCXX::java_lang_CharSequence& arg0,ANDROID_WIDGET_TEXTVIEW_BUFFERTYPE::android_widget_TextView_BufferType& arg1);
+	 void setText(AndroidCXX::java_lang_CharSequence const& arg0,android_widget_TextView_BufferType::android_widget_TextView_BufferType const& arg1);
 	 AndroidCXX::android_text_Editable getText();
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 void setSelection(int& arg0,int& arg1);
-	 void setSelection(int& arg0);
-	 void setEllipsize(ANDROID_TEXT_TEXTUTILS_TRUNCATEAT::android_text_TextUtils_TruncateAt& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 void setSelection(int const& arg0,int const& arg1);
+	 void setSelection(int const& arg0);
+	 void setEllipsize(android_text_TextUtils_TruncateAt::android_text_TextUtils_TruncateAt const& arg0);
 	 void selectAll();
-	 void extendSelection(int& arg0);
+	 void extendSelection(int const& arg0);
 };	
 
 } // namespace

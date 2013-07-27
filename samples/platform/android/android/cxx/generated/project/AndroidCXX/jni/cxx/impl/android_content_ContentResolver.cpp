@@ -475,7 +475,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_content_ContentResolver::android_content_ContentResolver(const android_content_ContentResolver& cc)
 {
 	LOGV("android_content_ContentResolver::android_content_ContentResolver(const android_content_ContentResolver& cc) enter");
@@ -499,9 +498,9 @@ android_content_ContentResolver::android_content_ContentResolver(const android_c
 
 	LOGV("android_content_ContentResolver::android_content_ContentResolver(const android_content_ContentResolver& cc) exit");
 }
-android_content_ContentResolver::android_content_ContentResolver(void * proxy)
+android_content_ContentResolver::android_content_ContentResolver(Proxy proxy)
 {
-	LOGV("android_content_ContentResolver::android_content_ContentResolver(void * proxy) enter");
+	LOGV("android_content_ContentResolver::android_content_ContentResolver(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -511,55 +510,34 @@ android_content_ContentResolver::android_content_ContentResolver(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_content_ContentResolver::android_content_ContentResolver(void * proxy) exit");
+	LOGV("android_content_ContentResolver::android_content_ContentResolver(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_content_ContentResolver::android_content_ContentResolver()
-// {
-// 	LOGV("android_content_ContentResolver::android_content_ContentResolver() enter");	
+Proxy android_content_ContentResolver::proxy() const
+{	
+	LOGV("android_content_ContentResolver::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/content/ContentResolver";
+	long cxxAddress = (long) this;
+	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_content_ContentResolver jni address %d", proxiedComponent);
 
-// 	LOGV("android_content_ContentResolver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_content_ContentResolver::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_content_ContentResolver jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_content_ContentResolver::android_content_ContentResolver() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_content_ContentResolver::android_content_ContentResolver(AndroidCXX::android_content_Context& arg0)
+	return proxy;
+}
+android_content_ContentResolver::android_content_ContentResolver(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_content_ContentResolver::android_content_ContentResolver(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_content_ContentResolver::android_content_ContentResolver(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -612,7 +590,7 @@ android_content_ContentResolver::android_content_ContentResolver(AndroidCXX::and
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_ContentResolver::android_content_ContentResolver(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_content_ContentResolver::android_content_ContentResolver(AndroidCXX::android_content_Context const& arg0) exit");	
 }
 // Default Instance Destructor
 android_content_ContentResolver::~android_content_ContentResolver()
@@ -625,13 +603,13 @@ android_content_ContentResolver::~android_content_ContentResolver()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_content_ContentResolver::~android_content_ContentResolver() exit");
 }
 // Functions
-AndroidCXX::java_lang_String android_content_ContentResolver::getType(AndroidCXX::android_net_Uri& arg0)
+AndroidCXX::java_lang_String android_content_ContentResolver::getType(AndroidCXX::android_net_Uri const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_ContentResolver::getType(AndroidCXX::android_net_Uri& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_ContentResolver::getType(AndroidCXX::android_net_Uri const& arg0) enter");
 
 	const char *methodName = "getType";
 	const char *methodSignature = "(Landroid/net/Uri;)Ljava/lang/String;";
@@ -641,8 +619,6 @@ AndroidCXX::java_lang_String android_content_ContentResolver::getType(AndroidCXX
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -692,15 +668,13 @@ AndroidCXX::java_lang_String android_content_ContentResolver::getType(AndroidCXX
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_content_ContentResolver::getType(AndroidCXX::android_net_Uri& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_ContentResolver::getType(AndroidCXX::android_net_Uri const& arg0) exit");
 
 	return result;
 }
-int android_content_ContentResolver::_delete(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2)
+int android_content_ContentResolver::_delete(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_String > const& arg2)
 {
-	LOGV("int android_content_ContentResolver::_delete(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2) enter");
+	LOGV("int android_content_ContentResolver::_delete(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_String > const& arg2) enter");
 
 	const char *methodName = "delete";
 	const char *methodSignature = "(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I";
@@ -710,8 +684,6 @@ int android_content_ContentResolver::_delete(AndroidCXX::android_net_Uri& arg0,A
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -821,15 +793,13 @@ int android_content_ContentResolver::_delete(AndroidCXX::android_net_Uri& arg0,A
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_content_ContentResolver::_delete(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2) exit");
+	LOGV("int android_content_ContentResolver::_delete(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_String > const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::android_net_Uri android_content_ContentResolver::insert(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_content_ContentValues& arg1)
+AndroidCXX::android_net_Uri android_content_ContentResolver::insert(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_content_ContentValues const& arg1)
 {
-	LOGV("AndroidCXX::android_net_Uri android_content_ContentResolver::insert(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_content_ContentValues& arg1) enter");
+	LOGV("AndroidCXX::android_net_Uri android_content_ContentResolver::insert(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_content_ContentValues const& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;";
@@ -839,8 +809,6 @@ AndroidCXX::android_net_Uri android_content_ContentResolver::insert(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -911,15 +879,13 @@ AndroidCXX::android_net_Uri android_content_ContentResolver::insert(AndroidCXX::
 	AndroidCXX::android_net_Uri result((AndroidCXX::android_net_Uri) *((AndroidCXX::android_net_Uri *) cxx_value));
 	delete ((AndroidCXX::android_net_Uri *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_net_Uri android_content_ContentResolver::insert(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_content_ContentValues& arg1) exit");
+	LOGV("AndroidCXX::android_net_Uri android_content_ContentResolver::insert(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_content_ContentValues const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_database_Cursor android_content_ContentResolver::query(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::android_os_CancellationSignal& arg5)
+AndroidCXX::android_database_Cursor android_content_ContentResolver::query(AndroidCXX::android_net_Uri const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,AndroidCXX::java_lang_String const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,AndroidCXX::java_lang_String const& arg4,AndroidCXX::android_os_CancellationSignal const& arg5)
 {
-	LOGV("AndroidCXX::android_database_Cursor android_content_ContentResolver::query(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::android_os_CancellationSignal& arg5) enter");
+	LOGV("AndroidCXX::android_database_Cursor android_content_ContentResolver::query(AndroidCXX::android_net_Uri const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,AndroidCXX::java_lang_String const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,AndroidCXX::java_lang_String const& arg4,AndroidCXX::android_os_CancellationSignal const& arg5) enter");
 
 	const char *methodName = "query";
 	const char *methodSignature = "(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;";
@@ -929,8 +895,6 @@ AndroidCXX::android_database_Cursor android_content_ContentResolver::query(Andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -1121,15 +1085,13 @@ AndroidCXX::android_database_Cursor android_content_ContentResolver::query(Andro
 	AndroidCXX::android_database_Cursor result((AndroidCXX::android_database_Cursor) *((AndroidCXX::android_database_Cursor *) cxx_value));
 	delete ((AndroidCXX::android_database_Cursor *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_database_Cursor android_content_ContentResolver::query(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::android_os_CancellationSignal& arg5) exit");
+	LOGV("AndroidCXX::android_database_Cursor android_content_ContentResolver::query(AndroidCXX::android_net_Uri const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,AndroidCXX::java_lang_String const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,AndroidCXX::java_lang_String const& arg4,AndroidCXX::android_os_CancellationSignal const& arg5) exit");
 
 	return result;
 }
-AndroidCXX::android_database_Cursor android_content_ContentResolver::query(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4)
+AndroidCXX::android_database_Cursor android_content_ContentResolver::query(AndroidCXX::android_net_Uri const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,AndroidCXX::java_lang_String const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,AndroidCXX::java_lang_String const& arg4)
 {
-	LOGV("AndroidCXX::android_database_Cursor android_content_ContentResolver::query(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4) enter");
+	LOGV("AndroidCXX::android_database_Cursor android_content_ContentResolver::query(AndroidCXX::android_net_Uri const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,AndroidCXX::java_lang_String const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,AndroidCXX::java_lang_String const& arg4) enter");
 
 	const char *methodName = "query";
 	const char *methodSignature = "(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;";
@@ -1139,8 +1101,6 @@ AndroidCXX::android_database_Cursor android_content_ContentResolver::query(Andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -1310,15 +1270,13 @@ AndroidCXX::android_database_Cursor android_content_ContentResolver::query(Andro
 	AndroidCXX::android_database_Cursor result((AndroidCXX::android_database_Cursor) *((AndroidCXX::android_database_Cursor *) cxx_value));
 	delete ((AndroidCXX::android_database_Cursor *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_database_Cursor android_content_ContentResolver::query(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4) exit");
+	LOGV("AndroidCXX::android_database_Cursor android_content_ContentResolver::query(AndroidCXX::android_net_Uri const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,AndroidCXX::java_lang_String const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,AndroidCXX::java_lang_String const& arg4) exit");
 
 	return result;
 }
-int android_content_ContentResolver::update(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3)
+int android_content_ContentResolver::update(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_content_ContentValues const& arg1,AndroidCXX::java_lang_String const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3)
 {
-	LOGV("int android_content_ContentResolver::update(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3) enter");
+	LOGV("int android_content_ContentResolver::update(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_content_ContentValues const& arg1,AndroidCXX::java_lang_String const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3) enter");
 
 	const char *methodName = "update";
 	const char *methodSignature = "(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I";
@@ -1328,8 +1286,6 @@ int android_content_ContentResolver::update(AndroidCXX::android_net_Uri& arg0,An
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -1460,15 +1416,13 @@ int android_content_ContentResolver::update(AndroidCXX::android_net_Uri& arg0,An
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_content_ContentResolver::update(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3) exit");
+	LOGV("int android_content_ContentResolver::update(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_content_ContentValues const& arg1,AndroidCXX::java_lang_String const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3) exit");
 
 	return result;
 }
-std::vector<AndroidCXX::java_lang_String > android_content_ContentResolver::getStreamTypes(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1)
+std::vector<AndroidCXX::java_lang_String > android_content_ContentResolver::getStreamTypes(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_ContentResolver::getStreamTypes(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_ContentResolver::getStreamTypes(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "getStreamTypes";
 	const char *methodSignature = "(Landroid/net/Uri;Ljava/lang/String;)[Ljava/lang/String;";
@@ -1478,8 +1432,6 @@ std::vector<AndroidCXX::java_lang_String > android_content_ContentResolver::getS
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -1568,15 +1520,13 @@ std::vector<AndroidCXX::java_lang_String > android_content_ContentResolver::getS
 	std::vector<AndroidCXX::java_lang_String > result = (std::vector<AndroidCXX::java_lang_String >) *((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 	delete ((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_ContentResolver::getStreamTypes(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_ContentResolver::getStreamTypes(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_io_InputStream android_content_ContentResolver::openInputStream(AndroidCXX::android_net_Uri& arg0)
+AndroidCXX::java_io_InputStream android_content_ContentResolver::openInputStream(AndroidCXX::android_net_Uri const& arg0)
 {
-	LOGV("AndroidCXX::java_io_InputStream android_content_ContentResolver::openInputStream(AndroidCXX::android_net_Uri& arg0) enter");
+	LOGV("AndroidCXX::java_io_InputStream android_content_ContentResolver::openInputStream(AndroidCXX::android_net_Uri const& arg0) enter");
 
 	const char *methodName = "openInputStream";
 	const char *methodSignature = "(Landroid/net/Uri;)Ljava/io/InputStream;";
@@ -1586,8 +1536,6 @@ AndroidCXX::java_io_InputStream android_content_ContentResolver::openInputStream
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -1637,15 +1585,13 @@ AndroidCXX::java_io_InputStream android_content_ContentResolver::openInputStream
 	AndroidCXX::java_io_InputStream result((AndroidCXX::java_io_InputStream) *((AndroidCXX::java_io_InputStream *) cxx_value));
 	delete ((AndroidCXX::java_io_InputStream *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_io_InputStream android_content_ContentResolver::openInputStream(AndroidCXX::android_net_Uri& arg0) exit");
+	LOGV("AndroidCXX::java_io_InputStream android_content_ContentResolver::openInputStream(AndroidCXX::android_net_Uri const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_io_OutputStream android_content_ContentResolver::openOutputStream(AndroidCXX::android_net_Uri& arg0)
+AndroidCXX::java_io_OutputStream android_content_ContentResolver::openOutputStream(AndroidCXX::android_net_Uri const& arg0)
 {
-	LOGV("AndroidCXX::java_io_OutputStream android_content_ContentResolver::openOutputStream(AndroidCXX::android_net_Uri& arg0) enter");
+	LOGV("AndroidCXX::java_io_OutputStream android_content_ContentResolver::openOutputStream(AndroidCXX::android_net_Uri const& arg0) enter");
 
 	const char *methodName = "openOutputStream";
 	const char *methodSignature = "(Landroid/net/Uri;)Ljava/io/OutputStream;";
@@ -1655,8 +1601,6 @@ AndroidCXX::java_io_OutputStream android_content_ContentResolver::openOutputStre
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -1706,15 +1650,13 @@ AndroidCXX::java_io_OutputStream android_content_ContentResolver::openOutputStre
 	AndroidCXX::java_io_OutputStream result((AndroidCXX::java_io_OutputStream) *((AndroidCXX::java_io_OutputStream *) cxx_value));
 	delete ((AndroidCXX::java_io_OutputStream *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_io_OutputStream android_content_ContentResolver::openOutputStream(AndroidCXX::android_net_Uri& arg0) exit");
+	LOGV("AndroidCXX::java_io_OutputStream android_content_ContentResolver::openOutputStream(AndroidCXX::android_net_Uri const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_io_OutputStream android_content_ContentResolver::openOutputStream(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1)
+AndroidCXX::java_io_OutputStream android_content_ContentResolver::openOutputStream(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("AndroidCXX::java_io_OutputStream android_content_ContentResolver::openOutputStream(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("AndroidCXX::java_io_OutputStream android_content_ContentResolver::openOutputStream(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "openOutputStream";
 	const char *methodSignature = "(Landroid/net/Uri;Ljava/lang/String;)Ljava/io/OutputStream;";
@@ -1724,8 +1666,6 @@ AndroidCXX::java_io_OutputStream android_content_ContentResolver::openOutputStre
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -1796,15 +1736,13 @@ AndroidCXX::java_io_OutputStream android_content_ContentResolver::openOutputStre
 	AndroidCXX::java_io_OutputStream result((AndroidCXX::java_io_OutputStream) *((AndroidCXX::java_io_OutputStream *) cxx_value));
 	delete ((AndroidCXX::java_io_OutputStream *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_io_OutputStream android_content_ContentResolver::openOutputStream(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("AndroidCXX::java_io_OutputStream android_content_ContentResolver::openOutputStream(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_os_ParcelFileDescriptor android_content_ContentResolver::openFileDescriptor(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1)
+AndroidCXX::android_os_ParcelFileDescriptor android_content_ContentResolver::openFileDescriptor(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_content_ContentResolver::openFileDescriptor(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_content_ContentResolver::openFileDescriptor(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "openFileDescriptor";
 	const char *methodSignature = "(Landroid/net/Uri;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;";
@@ -1814,8 +1752,6 @@ AndroidCXX::android_os_ParcelFileDescriptor android_content_ContentResolver::ope
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -1886,15 +1822,13 @@ AndroidCXX::android_os_ParcelFileDescriptor android_content_ContentResolver::ope
 	AndroidCXX::android_os_ParcelFileDescriptor result((AndroidCXX::android_os_ParcelFileDescriptor) *((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value));
 	delete ((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_content_ContentResolver::openFileDescriptor(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_content_ContentResolver::openFileDescriptor(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_res_AssetFileDescriptor android_content_ContentResolver::openAssetFileDescriptor(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1)
+AndroidCXX::android_content_res_AssetFileDescriptor android_content_ContentResolver::openAssetFileDescriptor(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("AndroidCXX::android_content_res_AssetFileDescriptor android_content_ContentResolver::openAssetFileDescriptor(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("AndroidCXX::android_content_res_AssetFileDescriptor android_content_ContentResolver::openAssetFileDescriptor(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "openAssetFileDescriptor";
 	const char *methodSignature = "(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/res/AssetFileDescriptor;";
@@ -1904,8 +1838,6 @@ AndroidCXX::android_content_res_AssetFileDescriptor android_content_ContentResol
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -1976,15 +1908,13 @@ AndroidCXX::android_content_res_AssetFileDescriptor android_content_ContentResol
 	AndroidCXX::android_content_res_AssetFileDescriptor result((AndroidCXX::android_content_res_AssetFileDescriptor) *((AndroidCXX::android_content_res_AssetFileDescriptor *) cxx_value));
 	delete ((AndroidCXX::android_content_res_AssetFileDescriptor *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_res_AssetFileDescriptor android_content_ContentResolver::openAssetFileDescriptor(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("AndroidCXX::android_content_res_AssetFileDescriptor android_content_ContentResolver::openAssetFileDescriptor(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_res_AssetFileDescriptor android_content_ContentResolver::openTypedAssetFileDescriptor(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2)
+AndroidCXX::android_content_res_AssetFileDescriptor android_content_ContentResolver::openTypedAssetFileDescriptor(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2)
 {
-	LOGV("AndroidCXX::android_content_res_AssetFileDescriptor android_content_ContentResolver::openTypedAssetFileDescriptor(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2) enter");
+	LOGV("AndroidCXX::android_content_res_AssetFileDescriptor android_content_ContentResolver::openTypedAssetFileDescriptor(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2) enter");
 
 	const char *methodName = "openTypedAssetFileDescriptor";
 	const char *methodSignature = "(Landroid/net/Uri;Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/res/AssetFileDescriptor;";
@@ -1994,8 +1924,6 @@ AndroidCXX::android_content_res_AssetFileDescriptor android_content_ContentResol
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -2087,15 +2015,13 @@ AndroidCXX::android_content_res_AssetFileDescriptor android_content_ContentResol
 	AndroidCXX::android_content_res_AssetFileDescriptor result((AndroidCXX::android_content_res_AssetFileDescriptor) *((AndroidCXX::android_content_res_AssetFileDescriptor *) cxx_value));
 	delete ((AndroidCXX::android_content_res_AssetFileDescriptor *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_res_AssetFileDescriptor android_content_ContentResolver::openTypedAssetFileDescriptor(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2) exit");
+	LOGV("AndroidCXX::android_content_res_AssetFileDescriptor android_content_ContentResolver::openTypedAssetFileDescriptor(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2) exit");
 
 	return result;
 }
-std::vector<AndroidCXX::android_content_ContentProviderResult > android_content_ContentResolver::applyBatch(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_ArrayList& arg1)
+std::vector<AndroidCXX::android_content_ContentProviderResult > android_content_ContentResolver::applyBatch(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1)
 {
-	LOGV("std::vector<AndroidCXX::android_content_ContentProviderResult > android_content_ContentResolver::applyBatch(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_ArrayList& arg1) enter");
+	LOGV("std::vector<AndroidCXX::android_content_ContentProviderResult > android_content_ContentResolver::applyBatch(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1) enter");
 
 	const char *methodName = "applyBatch";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/util/ArrayList;)[Landroid/content/ContentProviderResult;";
@@ -2105,8 +2031,6 @@ std::vector<AndroidCXX::android_content_ContentProviderResult > android_content_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -2213,15 +2137,13 @@ std::vector<AndroidCXX::android_content_ContentProviderResult > android_content_
 	std::vector<AndroidCXX::android_content_ContentProviderResult > result = (std::vector<AndroidCXX::android_content_ContentProviderResult >) *((std::vector<AndroidCXX::android_content_ContentProviderResult > *) cxx_value);
 	delete ((std::vector<AndroidCXX::android_content_ContentProviderResult > *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<AndroidCXX::android_content_ContentProviderResult > android_content_ContentResolver::applyBatch(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_ArrayList& arg1) exit");
+	LOGV("std::vector<AndroidCXX::android_content_ContentProviderResult > android_content_ContentResolver::applyBatch(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1) exit");
 
 	return result;
 }
-int android_content_ContentResolver::bulkInsert(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::android_content_ContentValues >& arg1)
+int android_content_ContentResolver::bulkInsert(AndroidCXX::android_net_Uri const& arg0,std::vector<AndroidCXX::android_content_ContentValues > const& arg1)
 {
-	LOGV("int android_content_ContentResolver::bulkInsert(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::android_content_ContentValues >& arg1) enter");
+	LOGV("int android_content_ContentResolver::bulkInsert(AndroidCXX::android_net_Uri const& arg0,std::vector<AndroidCXX::android_content_ContentValues > const& arg1) enter");
 
 	const char *methodName = "bulkInsert";
 	const char *methodSignature = "(Landroid/net/Uri;[Landroid/content/ContentValues;)I";
@@ -2231,8 +2153,6 @@ int android_content_ContentResolver::bulkInsert(AndroidCXX::android_net_Uri& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -2321,15 +2241,13 @@ int android_content_ContentResolver::bulkInsert(AndroidCXX::android_net_Uri& arg
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_content_ContentResolver::bulkInsert(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::android_content_ContentValues >& arg1) exit");
+	LOGV("int android_content_ContentResolver::bulkInsert(AndroidCXX::android_net_Uri const& arg0,std::vector<AndroidCXX::android_content_ContentValues > const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_os_Bundle android_content_ContentResolver::call(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_os_Bundle& arg3)
+AndroidCXX::android_os_Bundle android_content_ContentResolver::call(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_os_Bundle const& arg3)
 {
-	LOGV("AndroidCXX::android_os_Bundle android_content_ContentResolver::call(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_os_Bundle& arg3) enter");
+	LOGV("AndroidCXX::android_os_Bundle android_content_ContentResolver::call(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_os_Bundle const& arg3) enter");
 
 	const char *methodName = "call";
 	const char *methodSignature = "(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;";
@@ -2339,8 +2257,6 @@ AndroidCXX::android_os_Bundle android_content_ContentResolver::call(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -2453,15 +2369,13 @@ AndroidCXX::android_os_Bundle android_content_ContentResolver::call(AndroidCXX::
 	AndroidCXX::android_os_Bundle result((AndroidCXX::android_os_Bundle) *((AndroidCXX::android_os_Bundle *) cxx_value));
 	delete ((AndroidCXX::android_os_Bundle *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_os_Bundle android_content_ContentResolver::call(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_os_Bundle& arg3) exit");
+	LOGV("AndroidCXX::android_os_Bundle android_content_ContentResolver::call(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_os_Bundle const& arg3) exit");
 
 	return result;
 }
-AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireContentProviderClient(AndroidCXX::android_net_Uri& arg0)
+AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireContentProviderClient(AndroidCXX::android_net_Uri const& arg0)
 {
-	LOGV("AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireContentProviderClient(AndroidCXX::android_net_Uri& arg0) enter");
+	LOGV("AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireContentProviderClient(AndroidCXX::android_net_Uri const& arg0) enter");
 
 	const char *methodName = "acquireContentProviderClient";
 	const char *methodSignature = "(Landroid/net/Uri;)Landroid/content/ContentProviderClient;";
@@ -2471,8 +2385,6 @@ AndroidCXX::android_content_ContentProviderClient android_content_ContentResolve
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -2522,15 +2434,13 @@ AndroidCXX::android_content_ContentProviderClient android_content_ContentResolve
 	AndroidCXX::android_content_ContentProviderClient result((AndroidCXX::android_content_ContentProviderClient) *((AndroidCXX::android_content_ContentProviderClient *) cxx_value));
 	delete ((AndroidCXX::android_content_ContentProviderClient *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireContentProviderClient(AndroidCXX::android_net_Uri& arg0) exit");
+	LOGV("AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireContentProviderClient(AndroidCXX::android_net_Uri const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireContentProviderClient(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireContentProviderClient(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireContentProviderClient(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireContentProviderClient(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "acquireContentProviderClient";
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/content/ContentProviderClient;";
@@ -2540,8 +2450,6 @@ AndroidCXX::android_content_ContentProviderClient android_content_ContentResolve
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -2591,15 +2499,13 @@ AndroidCXX::android_content_ContentProviderClient android_content_ContentResolve
 	AndroidCXX::android_content_ContentProviderClient result((AndroidCXX::android_content_ContentProviderClient) *((AndroidCXX::android_content_ContentProviderClient *) cxx_value));
 	delete ((AndroidCXX::android_content_ContentProviderClient *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireContentProviderClient(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireContentProviderClient(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireUnstableContentProviderClient(AndroidCXX::android_net_Uri& arg0)
+AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireUnstableContentProviderClient(AndroidCXX::android_net_Uri const& arg0)
 {
-	LOGV("AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireUnstableContentProviderClient(AndroidCXX::android_net_Uri& arg0) enter");
+	LOGV("AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireUnstableContentProviderClient(AndroidCXX::android_net_Uri const& arg0) enter");
 
 	const char *methodName = "acquireUnstableContentProviderClient";
 	const char *methodSignature = "(Landroid/net/Uri;)Landroid/content/ContentProviderClient;";
@@ -2609,8 +2515,6 @@ AndroidCXX::android_content_ContentProviderClient android_content_ContentResolve
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -2660,15 +2564,13 @@ AndroidCXX::android_content_ContentProviderClient android_content_ContentResolve
 	AndroidCXX::android_content_ContentProviderClient result((AndroidCXX::android_content_ContentProviderClient) *((AndroidCXX::android_content_ContentProviderClient *) cxx_value));
 	delete ((AndroidCXX::android_content_ContentProviderClient *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireUnstableContentProviderClient(AndroidCXX::android_net_Uri& arg0) exit");
+	LOGV("AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireUnstableContentProviderClient(AndroidCXX::android_net_Uri const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireUnstableContentProviderClient(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireUnstableContentProviderClient(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireUnstableContentProviderClient(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireUnstableContentProviderClient(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "acquireUnstableContentProviderClient";
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/content/ContentProviderClient;";
@@ -2678,8 +2580,6 @@ AndroidCXX::android_content_ContentProviderClient android_content_ContentResolve
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -2729,15 +2629,13 @@ AndroidCXX::android_content_ContentProviderClient android_content_ContentResolve
 	AndroidCXX::android_content_ContentProviderClient result((AndroidCXX::android_content_ContentProviderClient) *((AndroidCXX::android_content_ContentProviderClient *) cxx_value));
 	delete ((AndroidCXX::android_content_ContentProviderClient *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireUnstableContentProviderClient(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::android_content_ContentProviderClient android_content_ContentResolver::acquireUnstableContentProviderClient(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-void android_content_ContentResolver::registerContentObserver(AndroidCXX::android_net_Uri& arg0,bool& arg1,AndroidCXX::android_database_ContentObserver& arg2)
+void android_content_ContentResolver::registerContentObserver(AndroidCXX::android_net_Uri const& arg0,bool const& arg1,AndroidCXX::android_database_ContentObserver const& arg2)
 {
-	LOGV("void android_content_ContentResolver::registerContentObserver(AndroidCXX::android_net_Uri& arg0,bool& arg1,AndroidCXX::android_database_ContentObserver& arg2) enter");
+	LOGV("void android_content_ContentResolver::registerContentObserver(AndroidCXX::android_net_Uri const& arg0,bool const& arg1,AndroidCXX::android_database_ContentObserver const& arg2) enter");
 
 	const char *methodName = "registerContentObserver";
 	const char *methodSignature = "(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V";
@@ -2747,8 +2645,6 @@ void android_content_ContentResolver::registerContentObserver(AndroidCXX::androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -2821,14 +2717,12 @@ void android_content_ContentResolver::registerContentObserver(AndroidCXX::androi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_ContentResolver::registerContentObserver(AndroidCXX::android_net_Uri& arg0,bool& arg1,AndroidCXX::android_database_ContentObserver& arg2) exit");
+	LOGV("void android_content_ContentResolver::registerContentObserver(AndroidCXX::android_net_Uri const& arg0,bool const& arg1,AndroidCXX::android_database_ContentObserver const& arg2) exit");
 
 }
-void android_content_ContentResolver::unregisterContentObserver(AndroidCXX::android_database_ContentObserver& arg0)
+void android_content_ContentResolver::unregisterContentObserver(AndroidCXX::android_database_ContentObserver const& arg0)
 {
-	LOGV("void android_content_ContentResolver::unregisterContentObserver(AndroidCXX::android_database_ContentObserver& arg0) enter");
+	LOGV("void android_content_ContentResolver::unregisterContentObserver(AndroidCXX::android_database_ContentObserver const& arg0) enter");
 
 	const char *methodName = "unregisterContentObserver";
 	const char *methodSignature = "(Landroid/database/ContentObserver;)V";
@@ -2838,8 +2732,6 @@ void android_content_ContentResolver::unregisterContentObserver(AndroidCXX::andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -2870,14 +2762,12 @@ void android_content_ContentResolver::unregisterContentObserver(AndroidCXX::andr
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_ContentResolver::unregisterContentObserver(AndroidCXX::android_database_ContentObserver& arg0) exit");
+	LOGV("void android_content_ContentResolver::unregisterContentObserver(AndroidCXX::android_database_ContentObserver const& arg0) exit");
 
 }
-void android_content_ContentResolver::notifyChange(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_database_ContentObserver& arg1)
+void android_content_ContentResolver::notifyChange(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_database_ContentObserver const& arg1)
 {
-	LOGV("void android_content_ContentResolver::notifyChange(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_database_ContentObserver& arg1) enter");
+	LOGV("void android_content_ContentResolver::notifyChange(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_database_ContentObserver const& arg1) enter");
 
 	const char *methodName = "notifyChange";
 	const char *methodSignature = "(Landroid/net/Uri;Landroid/database/ContentObserver;)V";
@@ -2887,8 +2777,6 @@ void android_content_ContentResolver::notifyChange(AndroidCXX::android_net_Uri& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -2940,14 +2828,12 @@ void android_content_ContentResolver::notifyChange(AndroidCXX::android_net_Uri& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_ContentResolver::notifyChange(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_database_ContentObserver& arg1) exit");
+	LOGV("void android_content_ContentResolver::notifyChange(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_database_ContentObserver const& arg1) exit");
 
 }
-void android_content_ContentResolver::notifyChange(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_database_ContentObserver& arg1,bool& arg2)
+void android_content_ContentResolver::notifyChange(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_database_ContentObserver const& arg1,bool const& arg2)
 {
-	LOGV("void android_content_ContentResolver::notifyChange(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_database_ContentObserver& arg1,bool& arg2) enter");
+	LOGV("void android_content_ContentResolver::notifyChange(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_database_ContentObserver const& arg1,bool const& arg2) enter");
 
 	const char *methodName = "notifyChange";
 	const char *methodSignature = "(Landroid/net/Uri;Landroid/database/ContentObserver;Z)V";
@@ -2957,8 +2843,6 @@ void android_content_ContentResolver::notifyChange(AndroidCXX::android_net_Uri& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -3031,14 +2915,12 @@ void android_content_ContentResolver::notifyChange(AndroidCXX::android_net_Uri& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_ContentResolver::notifyChange(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_database_ContentObserver& arg1,bool& arg2) exit");
+	LOGV("void android_content_ContentResolver::notifyChange(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_database_ContentObserver const& arg1,bool const& arg2) exit");
 
 }
-void android_content_ContentResolver::startSync(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_os_Bundle& arg1)
+void android_content_ContentResolver::startSync(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_os_Bundle const& arg1)
 {
-	LOGV("void android_content_ContentResolver::startSync(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_os_Bundle& arg1) enter");
+	LOGV("void android_content_ContentResolver::startSync(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_os_Bundle const& arg1) enter");
 
 	const char *methodName = "startSync";
 	const char *methodSignature = "(Landroid/net/Uri;Landroid/os/Bundle;)V";
@@ -3048,8 +2930,6 @@ void android_content_ContentResolver::startSync(AndroidCXX::android_net_Uri& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -3101,14 +2981,12 @@ void android_content_ContentResolver::startSync(AndroidCXX::android_net_Uri& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_ContentResolver::startSync(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_os_Bundle& arg1) exit");
+	LOGV("void android_content_ContentResolver::startSync(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_os_Bundle const& arg1) exit");
 
 }
-void android_content_ContentResolver::requestSync(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2)
+void android_content_ContentResolver::requestSync(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2)
 {
-	LOGV("void android_content_ContentResolver::requestSync(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2) enter");
+	LOGV("void android_content_ContentResolver::requestSync(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2) enter");
 
 	const char *methodName = "requestSync";
 	const char *methodSignature = "(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;)V";
@@ -3118,8 +2996,6 @@ void android_content_ContentResolver::requestSync(AndroidCXX::android_accounts_A
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -3190,16 +3066,14 @@ void android_content_ContentResolver::requestSync(AndroidCXX::android_accounts_A
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_ContentResolver::requestSync(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2) exit");
+	LOGV("void android_content_ContentResolver::requestSync(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2) exit");
 
 }
-void android_content_ContentResolver::validateSyncExtrasBundle(AndroidCXX::android_os_Bundle& arg0)
+void android_content_ContentResolver::validateSyncExtrasBundle(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("void android_content_ContentResolver::validateSyncExtrasBundle(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("void android_content_ContentResolver::validateSyncExtrasBundle(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "validateSyncExtrasBundle";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -3209,8 +3083,6 @@ void android_content_ContentResolver::validateSyncExtrasBundle(AndroidCXX::andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -3239,16 +3111,14 @@ void android_content_ContentResolver::validateSyncExtrasBundle(AndroidCXX::andro
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_ContentResolver::validateSyncExtrasBundle(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("void android_content_ContentResolver::validateSyncExtrasBundle(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 }
-void android_content_ContentResolver::cancelSync(AndroidCXX::android_net_Uri& arg0)
+void android_content_ContentResolver::cancelSync(AndroidCXX::android_net_Uri const& arg0)
 {
-	LOGV("void android_content_ContentResolver::cancelSync(AndroidCXX::android_net_Uri& arg0) enter");
+	LOGV("void android_content_ContentResolver::cancelSync(AndroidCXX::android_net_Uri const& arg0) enter");
 
 	const char *methodName = "cancelSync";
 	const char *methodSignature = "(Landroid/net/Uri;)V";
@@ -3258,8 +3128,6 @@ void android_content_ContentResolver::cancelSync(AndroidCXX::android_net_Uri& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -3290,14 +3158,12 @@ void android_content_ContentResolver::cancelSync(AndroidCXX::android_net_Uri& ar
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_ContentResolver::cancelSync(AndroidCXX::android_net_Uri& arg0) exit");
+	LOGV("void android_content_ContentResolver::cancelSync(AndroidCXX::android_net_Uri const& arg0) exit");
 
 }
-void android_content_ContentResolver::cancelSync(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1)
+void android_content_ContentResolver::cancelSync(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("void android_content_ContentResolver::cancelSync(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("void android_content_ContentResolver::cancelSync(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "cancelSync";
 	const char *methodSignature = "(Landroid/accounts/Account;Ljava/lang/String;)V";
@@ -3307,8 +3173,6 @@ void android_content_ContentResolver::cancelSync(AndroidCXX::android_accounts_Ac
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -3358,11 +3222,9 @@ void android_content_ContentResolver::cancelSync(AndroidCXX::android_accounts_Ac
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_ContentResolver::cancelSync(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("void android_content_ContentResolver::cancelSync(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 }
 std::vector<AndroidCXX::android_content_SyncAdapterType > android_content_ContentResolver::getSyncAdapterTypes()
@@ -3378,15 +3240,13 @@ std::vector<AndroidCXX::android_content_SyncAdapterType > android_content_Conten
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_ContentResolver jni address %d", javaObject);
 
 
-	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jobjectArray jni_result = (jobjectArray) jni->invokeStaticObjectMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
 	{
@@ -3425,15 +3285,13 @@ std::vector<AndroidCXX::android_content_SyncAdapterType > android_content_Conten
 	std::vector<AndroidCXX::android_content_SyncAdapterType > result = (std::vector<AndroidCXX::android_content_SyncAdapterType >) *((std::vector<AndroidCXX::android_content_SyncAdapterType > *) cxx_value);
 	delete ((std::vector<AndroidCXX::android_content_SyncAdapterType > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<AndroidCXX::android_content_SyncAdapterType > android_content_ContentResolver::getSyncAdapterTypes() exit");
 
 	return result;
 }
-bool android_content_ContentResolver::getSyncAutomatically(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1)
+bool android_content_ContentResolver::getSyncAutomatically(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("bool android_content_ContentResolver::getSyncAutomatically(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("bool android_content_ContentResolver::getSyncAutomatically(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "getSyncAutomatically";
 	const char *methodSignature = "(Landroid/accounts/Account;Ljava/lang/String;)Z";
@@ -3443,8 +3301,6 @@ bool android_content_ContentResolver::getSyncAutomatically(AndroidCXX::android_a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -3494,7 +3350,7 @@ bool android_content_ContentResolver::getSyncAutomatically(AndroidCXX::android_a
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jboolean jni_result = (jboolean) jni->invokeStaticBooleanMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
 	{
@@ -3515,15 +3371,13 @@ bool android_content_ContentResolver::getSyncAutomatically(AndroidCXX::android_a
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_content_ContentResolver::getSyncAutomatically(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("bool android_content_ContentResolver::getSyncAutomatically(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-void android_content_ContentResolver::setSyncAutomatically(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2)
+void android_content_ContentResolver::setSyncAutomatically(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2)
 {
-	LOGV("void android_content_ContentResolver::setSyncAutomatically(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2) enter");
+	LOGV("void android_content_ContentResolver::setSyncAutomatically(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2) enter");
 
 	const char *methodName = "setSyncAutomatically";
 	const char *methodSignature = "(Landroid/accounts/Account;Ljava/lang/String;Z)V";
@@ -3533,8 +3387,6 @@ void android_content_ContentResolver::setSyncAutomatically(AndroidCXX::android_a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -3605,16 +3457,14 @@ void android_content_ContentResolver::setSyncAutomatically(AndroidCXX::android_a
 		jarg2 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_ContentResolver::setSyncAutomatically(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2) exit");
+	LOGV("void android_content_ContentResolver::setSyncAutomatically(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2) exit");
 
 }
-void android_content_ContentResolver::addPeriodicSync(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,long& arg3)
+void android_content_ContentResolver::addPeriodicSync(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,long const& arg3)
 {
-	LOGV("void android_content_ContentResolver::addPeriodicSync(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,long& arg3) enter");
+	LOGV("void android_content_ContentResolver::addPeriodicSync(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,long const& arg3) enter");
 
 	const char *methodName = "addPeriodicSync";
 	const char *methodSignature = "(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;J)V";
@@ -3624,8 +3474,6 @@ void android_content_ContentResolver::addPeriodicSync(AndroidCXX::android_accoun
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -3717,16 +3565,14 @@ void android_content_ContentResolver::addPeriodicSync(AndroidCXX::android_accoun
 		jarg3 = convert_jni_long_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_ContentResolver::addPeriodicSync(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,long& arg3) exit");
+	LOGV("void android_content_ContentResolver::addPeriodicSync(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,long const& arg3) exit");
 
 }
-void android_content_ContentResolver::removePeriodicSync(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2)
+void android_content_ContentResolver::removePeriodicSync(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2)
 {
-	LOGV("void android_content_ContentResolver::removePeriodicSync(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2) enter");
+	LOGV("void android_content_ContentResolver::removePeriodicSync(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2) enter");
 
 	const char *methodName = "removePeriodicSync";
 	const char *methodSignature = "(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;)V";
@@ -3736,8 +3582,6 @@ void android_content_ContentResolver::removePeriodicSync(AndroidCXX::android_acc
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -3808,16 +3652,14 @@ void android_content_ContentResolver::removePeriodicSync(AndroidCXX::android_acc
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_ContentResolver::removePeriodicSync(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2) exit");
+	LOGV("void android_content_ContentResolver::removePeriodicSync(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2) exit");
 
 }
-AndroidCXX::java_util_List android_content_ContentResolver::getPeriodicSyncs(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1)
+AndroidCXX::java_util_List android_content_ContentResolver::getPeriodicSyncs(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("AndroidCXX::java_util_List android_content_ContentResolver::getPeriodicSyncs(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("AndroidCXX::java_util_List android_content_ContentResolver::getPeriodicSyncs(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "getPeriodicSyncs";
 	const char *methodSignature = "(Landroid/accounts/Account;Ljava/lang/String;)Ljava/util/List;";
@@ -3827,8 +3669,6 @@ AndroidCXX::java_util_List android_content_ContentResolver::getPeriodicSyncs(And
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -3878,7 +3718,7 @@ AndroidCXX::java_util_List android_content_ContentResolver::getPeriodicSyncs(And
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -3917,15 +3757,13 @@ AndroidCXX::java_util_List android_content_ContentResolver::getPeriodicSyncs(And
 	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
 	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_List android_content_ContentResolver::getPeriodicSyncs(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("AndroidCXX::java_util_List android_content_ContentResolver::getPeriodicSyncs(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-int android_content_ContentResolver::getIsSyncable(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1)
+int android_content_ContentResolver::getIsSyncable(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("int android_content_ContentResolver::getIsSyncable(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("int android_content_ContentResolver::getIsSyncable(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "getIsSyncable";
 	const char *methodSignature = "(Landroid/accounts/Account;Ljava/lang/String;)I";
@@ -3935,8 +3773,6 @@ int android_content_ContentResolver::getIsSyncable(AndroidCXX::android_accounts_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -3986,7 +3822,7 @@ int android_content_ContentResolver::getIsSyncable(AndroidCXX::android_accounts_
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jint jni_result = (jint) jni->invokeStaticIntMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
 	{
@@ -4007,15 +3843,13 @@ int android_content_ContentResolver::getIsSyncable(AndroidCXX::android_accounts_
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_content_ContentResolver::getIsSyncable(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("int android_content_ContentResolver::getIsSyncable(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-void android_content_ContentResolver::setIsSyncable(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,int& arg2)
+void android_content_ContentResolver::setIsSyncable(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2)
 {
-	LOGV("void android_content_ContentResolver::setIsSyncable(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,int& arg2) enter");
+	LOGV("void android_content_ContentResolver::setIsSyncable(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2) enter");
 
 	const char *methodName = "setIsSyncable";
 	const char *methodSignature = "(Landroid/accounts/Account;Ljava/lang/String;I)V";
@@ -4025,8 +3859,6 @@ void android_content_ContentResolver::setIsSyncable(AndroidCXX::android_accounts
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -4097,11 +3929,9 @@ void android_content_ContentResolver::setIsSyncable(AndroidCXX::android_accounts
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_ContentResolver::setIsSyncable(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,int& arg2) exit");
+	LOGV("void android_content_ContentResolver::setIsSyncable(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2) exit");
 
 }
 bool android_content_ContentResolver::getMasterSyncAutomatically()
@@ -4117,15 +3947,13 @@ bool android_content_ContentResolver::getMasterSyncAutomatically()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_ContentResolver jni address %d", javaObject);
 
 
-	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
+	jboolean jni_result = (jboolean) jni->invokeStaticBooleanMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
 	{
@@ -4146,15 +3974,13 @@ bool android_content_ContentResolver::getMasterSyncAutomatically()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_content_ContentResolver::getMasterSyncAutomatically() exit");
 
 	return result;
 }
-void android_content_ContentResolver::setMasterSyncAutomatically(bool& arg0)
+void android_content_ContentResolver::setMasterSyncAutomatically(bool const& arg0)
 {
-	LOGV("void android_content_ContentResolver::setMasterSyncAutomatically(bool& arg0) enter");
+	LOGV("void android_content_ContentResolver::setMasterSyncAutomatically(bool const& arg0) enter");
 
 	const char *methodName = "setMasterSyncAutomatically";
 	const char *methodSignature = "(Z)V";
@@ -4164,8 +3990,6 @@ void android_content_ContentResolver::setMasterSyncAutomatically(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -4194,16 +4018,14 @@ void android_content_ContentResolver::setMasterSyncAutomatically(bool& arg0)
 		jarg0 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_ContentResolver::setMasterSyncAutomatically(bool& arg0) exit");
+	LOGV("void android_content_ContentResolver::setMasterSyncAutomatically(bool const& arg0) exit");
 
 }
-bool android_content_ContentResolver::isSyncActive(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1)
+bool android_content_ContentResolver::isSyncActive(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("bool android_content_ContentResolver::isSyncActive(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("bool android_content_ContentResolver::isSyncActive(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "isSyncActive";
 	const char *methodSignature = "(Landroid/accounts/Account;Ljava/lang/String;)Z";
@@ -4213,8 +4035,6 @@ bool android_content_ContentResolver::isSyncActive(AndroidCXX::android_accounts_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -4264,7 +4084,7 @@ bool android_content_ContentResolver::isSyncActive(AndroidCXX::android_accounts_
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jboolean jni_result = (jboolean) jni->invokeStaticBooleanMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
 	{
@@ -4285,9 +4105,7 @@ bool android_content_ContentResolver::isSyncActive(AndroidCXX::android_accounts_
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_content_ContentResolver::isSyncActive(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("bool android_content_ContentResolver::isSyncActive(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
@@ -4304,15 +4122,13 @@ AndroidCXX::android_content_SyncInfo android_content_ContentResolver::getCurrent
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_ContentResolver jni address %d", javaObject);
 
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -4333,8 +4149,6 @@ AndroidCXX::android_content_SyncInfo android_content_ContentResolver::getCurrent
 	AndroidCXX::android_content_SyncInfo result((AndroidCXX::android_content_SyncInfo) *((AndroidCXX::android_content_SyncInfo *) cxx_value));
 	delete ((AndroidCXX::android_content_SyncInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_content_SyncInfo android_content_ContentResolver::getCurrentSync() exit");
 
 	return result;
@@ -4352,15 +4166,13 @@ AndroidCXX::java_util_List android_content_ContentResolver::getCurrentSyncs()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_ContentResolver jni address %d", javaObject);
 
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -4399,15 +4211,13 @@ AndroidCXX::java_util_List android_content_ContentResolver::getCurrentSyncs()
 	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
 	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_util_List android_content_ContentResolver::getCurrentSyncs() exit");
 
 	return result;
 }
-bool android_content_ContentResolver::isSyncPending(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1)
+bool android_content_ContentResolver::isSyncPending(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("bool android_content_ContentResolver::isSyncPending(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("bool android_content_ContentResolver::isSyncPending(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "isSyncPending";
 	const char *methodSignature = "(Landroid/accounts/Account;Ljava/lang/String;)Z";
@@ -4417,8 +4227,6 @@ bool android_content_ContentResolver::isSyncPending(AndroidCXX::android_accounts
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -4468,7 +4276,7 @@ bool android_content_ContentResolver::isSyncPending(AndroidCXX::android_accounts
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jboolean jni_result = (jboolean) jni->invokeStaticBooleanMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
 	{
@@ -4489,15 +4297,13 @@ bool android_content_ContentResolver::isSyncPending(AndroidCXX::android_accounts
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_content_ContentResolver::isSyncPending(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("bool android_content_ContentResolver::isSyncPending(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_Object android_content_ContentResolver::addStatusChangeListener(int& arg0,AndroidCXX::android_content_SyncStatusObserver& arg1)
+AndroidCXX::java_lang_Object android_content_ContentResolver::addStatusChangeListener(int const& arg0,AndroidCXX::android_content_SyncStatusObserver const& arg1)
 {
-	LOGV("AndroidCXX::java_lang_Object android_content_ContentResolver::addStatusChangeListener(int& arg0,AndroidCXX::android_content_SyncStatusObserver& arg1) enter");
+	LOGV("AndroidCXX::java_lang_Object android_content_ContentResolver::addStatusChangeListener(int const& arg0,AndroidCXX::android_content_SyncStatusObserver const& arg1) enter");
 
 	const char *methodName = "addStatusChangeListener";
 	const char *methodSignature = "(ILandroid/content/SyncStatusObserver;)Ljava/lang/Object;";
@@ -4507,8 +4313,6 @@ AndroidCXX::java_lang_Object android_content_ContentResolver::addStatusChangeLis
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -4558,7 +4362,7 @@ AndroidCXX::java_lang_Object android_content_ContentResolver::addStatusChangeLis
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -4579,15 +4383,13 @@ AndroidCXX::java_lang_Object android_content_ContentResolver::addStatusChangeLis
 	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
 	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_Object android_content_ContentResolver::addStatusChangeListener(int& arg0,AndroidCXX::android_content_SyncStatusObserver& arg1) exit");
+	LOGV("AndroidCXX::java_lang_Object android_content_ContentResolver::addStatusChangeListener(int const& arg0,AndroidCXX::android_content_SyncStatusObserver const& arg1) exit");
 
 	return result;
 }
-void android_content_ContentResolver::removeStatusChangeListener(AndroidCXX::java_lang_Object& arg0)
+void android_content_ContentResolver::removeStatusChangeListener(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("void android_content_ContentResolver::removeStatusChangeListener(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("void android_content_ContentResolver::removeStatusChangeListener(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "removeStatusChangeListener";
 	const char *methodSignature = "(Ljava/lang/Object;)V";
@@ -4597,8 +4399,6 @@ void android_content_ContentResolver::removeStatusChangeListener(AndroidCXX::jav
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_ContentResolver cxx address %d", cxxAddress);
@@ -4627,10 +4427,8 @@ void android_content_ContentResolver::removeStatusChangeListener(AndroidCXX::jav
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_ContentResolver::removeStatusChangeListener(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("void android_content_ContentResolver::removeStatusChangeListener(AndroidCXX::java_lang_Object const& arg0) exit");
 
 }

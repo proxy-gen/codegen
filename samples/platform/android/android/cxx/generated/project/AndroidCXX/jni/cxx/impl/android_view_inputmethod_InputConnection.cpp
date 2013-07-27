@@ -110,7 +110,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_inputmethod_InputConnection::android_view_inputmethod_InputConnection(const android_view_inputmethod_InputConnection& cc)
 {
 	LOGV("android_view_inputmethod_InputConnection::android_view_inputmethod_InputConnection(const android_view_inputmethod_InputConnection& cc) enter");
@@ -134,9 +133,9 @@ android_view_inputmethod_InputConnection::android_view_inputmethod_InputConnecti
 
 	LOGV("android_view_inputmethod_InputConnection::android_view_inputmethod_InputConnection(const android_view_inputmethod_InputConnection& cc) exit");
 }
-android_view_inputmethod_InputConnection::android_view_inputmethod_InputConnection(void * proxy)
+android_view_inputmethod_InputConnection::android_view_inputmethod_InputConnection(Proxy proxy)
 {
-	LOGV("android_view_inputmethod_InputConnection::android_view_inputmethod_InputConnection(void * proxy) enter");
+	LOGV("android_view_inputmethod_InputConnection::android_view_inputmethod_InputConnection(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -146,52 +145,31 @@ android_view_inputmethod_InputConnection::android_view_inputmethod_InputConnecti
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_inputmethod_InputConnection::android_view_inputmethod_InputConnection(void * proxy) exit");
+	LOGV("android_view_inputmethod_InputConnection::android_view_inputmethod_InputConnection(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_view_inputmethod_InputConnection::android_view_inputmethod_InputConnection()
-// {
-// 	LOGV("android_view_inputmethod_InputConnection::android_view_inputmethod_InputConnection() enter");	
+Proxy android_view_inputmethod_InputConnection::proxy() const
+{	
+	LOGV("android_view_inputmethod_InputConnection::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/view/inputmethod/InputConnection";
+	long cxxAddress = (long) this;
+	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_inputmethod_InputConnection jni address %d", proxiedComponent);
 
-// 	LOGV("android_view_inputmethod_InputConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_view_inputmethod_InputConnection::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_view_inputmethod_InputConnection jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_view_inputmethod_InputConnection::android_view_inputmethod_InputConnection() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_view_inputmethod_InputConnection::~android_view_inputmethod_InputConnection()
 {
@@ -203,13 +181,13 @@ android_view_inputmethod_InputConnection::~android_view_inputmethod_InputConnect
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_inputmethod_InputConnection::~android_view_inputmethod_InputConnection() exit");
 }
 // Functions
-AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::getTextBeforeCursor(int& arg0,int& arg1)
+AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::getTextBeforeCursor(int const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::getTextBeforeCursor(int& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::getTextBeforeCursor(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getTextBeforeCursor";
 	const char *methodSignature = "(II)Ljava/lang/CharSequence;";
@@ -220,8 +198,6 @@ AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::get
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -291,15 +267,13 @@ AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::get
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::getTextBeforeCursor(int& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::getTextBeforeCursor(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::getTextAfterCursor(int& arg0,int& arg1)
+AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::getTextAfterCursor(int const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::getTextAfterCursor(int& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::getTextAfterCursor(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getTextAfterCursor";
 	const char *methodSignature = "(II)Ljava/lang/CharSequence;";
@@ -310,8 +284,6 @@ AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::get
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -381,15 +353,13 @@ AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::get
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::getTextAfterCursor(int& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::getTextAfterCursor(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::getSelectedText(int& arg0)
+AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::getSelectedText(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::getSelectedText(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::getSelectedText(int const& arg0) enter");
 
 	const char *methodName = "getSelectedText";
 	const char *methodSignature = "(I)Ljava/lang/CharSequence;";
@@ -399,8 +369,6 @@ AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::get
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
@@ -450,15 +418,13 @@ AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::get
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::getSelectedText(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::getSelectedText(int const& arg0) exit");
 
 	return result;
 }
-int android_view_inputmethod_InputConnection::getCursorCapsMode(int& arg0)
+int android_view_inputmethod_InputConnection::getCursorCapsMode(int const& arg0)
 {
-	LOGV("int android_view_inputmethod_InputConnection::getCursorCapsMode(int& arg0) enter");
+	LOGV("int android_view_inputmethod_InputConnection::getCursorCapsMode(int const& arg0) enter");
 
 	const char *methodName = "getCursorCapsMode";
 	const char *methodSignature = "(I)I";
@@ -468,8 +434,6 @@ int android_view_inputmethod_InputConnection::getCursorCapsMode(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
@@ -519,15 +483,13 @@ int android_view_inputmethod_InputConnection::getCursorCapsMode(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_view_inputmethod_InputConnection::getCursorCapsMode(int& arg0) exit");
+	LOGV("int android_view_inputmethod_InputConnection::getCursorCapsMode(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_view_inputmethod_ExtractedText android_view_inputmethod_InputConnection::getExtractedText(AndroidCXX::android_view_inputmethod_ExtractedTextRequest& arg0,int& arg1)
+AndroidCXX::android_view_inputmethod_ExtractedText android_view_inputmethod_InputConnection::getExtractedText(AndroidCXX::android_view_inputmethod_ExtractedTextRequest const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_view_inputmethod_ExtractedText android_view_inputmethod_InputConnection::getExtractedText(AndroidCXX::android_view_inputmethod_ExtractedTextRequest& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_view_inputmethod_ExtractedText android_view_inputmethod_InputConnection::getExtractedText(AndroidCXX::android_view_inputmethod_ExtractedTextRequest const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getExtractedText";
 	const char *methodSignature = "(Landroid/view/inputmethod/ExtractedTextRequest;I)Landroid/view/inputmethod/ExtractedText;";
@@ -537,8 +499,6 @@ AndroidCXX::android_view_inputmethod_ExtractedText android_view_inputmethod_Inpu
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
@@ -609,15 +569,13 @@ AndroidCXX::android_view_inputmethod_ExtractedText android_view_inputmethod_Inpu
 	AndroidCXX::android_view_inputmethod_ExtractedText result((AndroidCXX::android_view_inputmethod_ExtractedText) *((AndroidCXX::android_view_inputmethod_ExtractedText *) cxx_value));
 	delete ((AndroidCXX::android_view_inputmethod_ExtractedText *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_inputmethod_ExtractedText android_view_inputmethod_InputConnection::getExtractedText(AndroidCXX::android_view_inputmethod_ExtractedTextRequest& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_view_inputmethod_ExtractedText android_view_inputmethod_InputConnection::getExtractedText(AndroidCXX::android_view_inputmethod_ExtractedTextRequest const& arg0,int const& arg1) exit");
 
 	return result;
 }
-bool android_view_inputmethod_InputConnection::deleteSurroundingText(int& arg0,int& arg1)
+bool android_view_inputmethod_InputConnection::deleteSurroundingText(int const& arg0,int const& arg1)
 {
-	LOGV("bool android_view_inputmethod_InputConnection::deleteSurroundingText(int& arg0,int& arg1) enter");
+	LOGV("bool android_view_inputmethod_InputConnection::deleteSurroundingText(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "deleteSurroundingText";
 	const char *methodSignature = "(II)Z";
@@ -627,8 +585,6 @@ bool android_view_inputmethod_InputConnection::deleteSurroundingText(int& arg0,i
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
@@ -699,15 +655,13 @@ bool android_view_inputmethod_InputConnection::deleteSurroundingText(int& arg0,i
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_inputmethod_InputConnection::deleteSurroundingText(int& arg0,int& arg1) exit");
+	LOGV("bool android_view_inputmethod_InputConnection::deleteSurroundingText(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-bool android_view_inputmethod_InputConnection::setComposingText(AndroidCXX::java_lang_CharSequence& arg0,int& arg1)
+bool android_view_inputmethod_InputConnection::setComposingText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1)
 {
-	LOGV("bool android_view_inputmethod_InputConnection::setComposingText(AndroidCXX::java_lang_CharSequence& arg0,int& arg1) enter");
+	LOGV("bool android_view_inputmethod_InputConnection::setComposingText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setComposingText";
 	const char *methodSignature = "(Ljava/lang/CharSequence;I)Z";
@@ -717,8 +671,6 @@ bool android_view_inputmethod_InputConnection::setComposingText(AndroidCXX::java
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
@@ -789,15 +741,13 @@ bool android_view_inputmethod_InputConnection::setComposingText(AndroidCXX::java
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_inputmethod_InputConnection::setComposingText(AndroidCXX::java_lang_CharSequence& arg0,int& arg1) exit");
+	LOGV("bool android_view_inputmethod_InputConnection::setComposingText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1) exit");
 
 	return result;
 }
-bool android_view_inputmethod_InputConnection::setComposingRegion(int& arg0,int& arg1)
+bool android_view_inputmethod_InputConnection::setComposingRegion(int const& arg0,int const& arg1)
 {
-	LOGV("bool android_view_inputmethod_InputConnection::setComposingRegion(int& arg0,int& arg1) enter");
+	LOGV("bool android_view_inputmethod_InputConnection::setComposingRegion(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setComposingRegion";
 	const char *methodSignature = "(II)Z";
@@ -807,8 +757,6 @@ bool android_view_inputmethod_InputConnection::setComposingRegion(int& arg0,int&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
@@ -879,9 +827,7 @@ bool android_view_inputmethod_InputConnection::setComposingRegion(int& arg0,int&
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_inputmethod_InputConnection::setComposingRegion(int& arg0,int& arg1) exit");
+	LOGV("bool android_view_inputmethod_InputConnection::setComposingRegion(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
@@ -897,8 +843,6 @@ bool android_view_inputmethod_InputConnection::finishComposingText()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
@@ -927,15 +871,13 @@ bool android_view_inputmethod_InputConnection::finishComposingText()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_inputmethod_InputConnection::finishComposingText() exit");
 
 	return result;
 }
-bool android_view_inputmethod_InputConnection::commitText(AndroidCXX::java_lang_CharSequence& arg0,int& arg1)
+bool android_view_inputmethod_InputConnection::commitText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1)
 {
-	LOGV("bool android_view_inputmethod_InputConnection::commitText(AndroidCXX::java_lang_CharSequence& arg0,int& arg1) enter");
+	LOGV("bool android_view_inputmethod_InputConnection::commitText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1) enter");
 
 	const char *methodName = "commitText";
 	const char *methodSignature = "(Ljava/lang/CharSequence;I)Z";
@@ -945,8 +887,6 @@ bool android_view_inputmethod_InputConnection::commitText(AndroidCXX::java_lang_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
@@ -1017,15 +957,13 @@ bool android_view_inputmethod_InputConnection::commitText(AndroidCXX::java_lang_
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_inputmethod_InputConnection::commitText(AndroidCXX::java_lang_CharSequence& arg0,int& arg1) exit");
+	LOGV("bool android_view_inputmethod_InputConnection::commitText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1) exit");
 
 	return result;
 }
-bool android_view_inputmethod_InputConnection::commitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo& arg0)
+bool android_view_inputmethod_InputConnection::commitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo const& arg0)
 {
-	LOGV("bool android_view_inputmethod_InputConnection::commitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo& arg0) enter");
+	LOGV("bool android_view_inputmethod_InputConnection::commitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo const& arg0) enter");
 
 	const char *methodName = "commitCompletion";
 	const char *methodSignature = "(Landroid/view/inputmethod/CompletionInfo;)Z";
@@ -1035,8 +973,6 @@ bool android_view_inputmethod_InputConnection::commitCompletion(AndroidCXX::andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
@@ -1086,15 +1022,13 @@ bool android_view_inputmethod_InputConnection::commitCompletion(AndroidCXX::andr
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_inputmethod_InputConnection::commitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo& arg0) exit");
+	LOGV("bool android_view_inputmethod_InputConnection::commitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo const& arg0) exit");
 
 	return result;
 }
-bool android_view_inputmethod_InputConnection::commitCorrection(AndroidCXX::android_view_inputmethod_CorrectionInfo& arg0)
+bool android_view_inputmethod_InputConnection::commitCorrection(AndroidCXX::android_view_inputmethod_CorrectionInfo const& arg0)
 {
-	LOGV("bool android_view_inputmethod_InputConnection::commitCorrection(AndroidCXX::android_view_inputmethod_CorrectionInfo& arg0) enter");
+	LOGV("bool android_view_inputmethod_InputConnection::commitCorrection(AndroidCXX::android_view_inputmethod_CorrectionInfo const& arg0) enter");
 
 	const char *methodName = "commitCorrection";
 	const char *methodSignature = "(Landroid/view/inputmethod/CorrectionInfo;)Z";
@@ -1104,8 +1038,6 @@ bool android_view_inputmethod_InputConnection::commitCorrection(AndroidCXX::andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
@@ -1155,15 +1087,13 @@ bool android_view_inputmethod_InputConnection::commitCorrection(AndroidCXX::andr
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_inputmethod_InputConnection::commitCorrection(AndroidCXX::android_view_inputmethod_CorrectionInfo& arg0) exit");
+	LOGV("bool android_view_inputmethod_InputConnection::commitCorrection(AndroidCXX::android_view_inputmethod_CorrectionInfo const& arg0) exit");
 
 	return result;
 }
-bool android_view_inputmethod_InputConnection::setSelection(int& arg0,int& arg1)
+bool android_view_inputmethod_InputConnection::setSelection(int const& arg0,int const& arg1)
 {
-	LOGV("bool android_view_inputmethod_InputConnection::setSelection(int& arg0,int& arg1) enter");
+	LOGV("bool android_view_inputmethod_InputConnection::setSelection(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setSelection";
 	const char *methodSignature = "(II)Z";
@@ -1173,8 +1103,6 @@ bool android_view_inputmethod_InputConnection::setSelection(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
@@ -1245,15 +1173,13 @@ bool android_view_inputmethod_InputConnection::setSelection(int& arg0,int& arg1)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_inputmethod_InputConnection::setSelection(int& arg0,int& arg1) exit");
+	LOGV("bool android_view_inputmethod_InputConnection::setSelection(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-bool android_view_inputmethod_InputConnection::performEditorAction(int& arg0)
+bool android_view_inputmethod_InputConnection::performEditorAction(int const& arg0)
 {
-	LOGV("bool android_view_inputmethod_InputConnection::performEditorAction(int& arg0) enter");
+	LOGV("bool android_view_inputmethod_InputConnection::performEditorAction(int const& arg0) enter");
 
 	const char *methodName = "performEditorAction";
 	const char *methodSignature = "(I)Z";
@@ -1264,8 +1190,6 @@ bool android_view_inputmethod_InputConnection::performEditorAction(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1314,15 +1238,13 @@ bool android_view_inputmethod_InputConnection::performEditorAction(int& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_inputmethod_InputConnection::performEditorAction(int& arg0) exit");
+	LOGV("bool android_view_inputmethod_InputConnection::performEditorAction(int const& arg0) exit");
 
 	return result;
 }
-bool android_view_inputmethod_InputConnection::performContextMenuAction(int& arg0)
+bool android_view_inputmethod_InputConnection::performContextMenuAction(int const& arg0)
 {
-	LOGV("bool android_view_inputmethod_InputConnection::performContextMenuAction(int& arg0) enter");
+	LOGV("bool android_view_inputmethod_InputConnection::performContextMenuAction(int const& arg0) enter");
 
 	const char *methodName = "performContextMenuAction";
 	const char *methodSignature = "(I)Z";
@@ -1333,8 +1255,6 @@ bool android_view_inputmethod_InputConnection::performContextMenuAction(int& arg
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1383,9 +1303,7 @@ bool android_view_inputmethod_InputConnection::performContextMenuAction(int& arg
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_inputmethod_InputConnection::performContextMenuAction(int& arg0) exit");
+	LOGV("bool android_view_inputmethod_InputConnection::performContextMenuAction(int const& arg0) exit");
 
 	return result;
 }
@@ -1401,8 +1319,6 @@ bool android_view_inputmethod_InputConnection::beginBatchEdit()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
@@ -1431,8 +1347,6 @@ bool android_view_inputmethod_InputConnection::beginBatchEdit()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_inputmethod_InputConnection::beginBatchEdit() exit");
 
 	return result;
@@ -1450,8 +1364,6 @@ bool android_view_inputmethod_InputConnection::endBatchEdit()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1479,15 +1391,13 @@ bool android_view_inputmethod_InputConnection::endBatchEdit()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_inputmethod_InputConnection::endBatchEdit() exit");
 
 	return result;
 }
-bool android_view_inputmethod_InputConnection::sendKeyEvent(AndroidCXX::android_view_KeyEvent& arg0)
+bool android_view_inputmethod_InputConnection::sendKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0)
 {
-	LOGV("bool android_view_inputmethod_InputConnection::sendKeyEvent(AndroidCXX::android_view_KeyEvent& arg0) enter");
+	LOGV("bool android_view_inputmethod_InputConnection::sendKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) enter");
 
 	const char *methodName = "sendKeyEvent";
 	const char *methodSignature = "(Landroid/view/KeyEvent;)Z";
@@ -1497,8 +1407,6 @@ bool android_view_inputmethod_InputConnection::sendKeyEvent(AndroidCXX::android_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
@@ -1548,15 +1456,13 @@ bool android_view_inputmethod_InputConnection::sendKeyEvent(AndroidCXX::android_
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_inputmethod_InputConnection::sendKeyEvent(AndroidCXX::android_view_KeyEvent& arg0) exit");
+	LOGV("bool android_view_inputmethod_InputConnection::sendKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) exit");
 
 	return result;
 }
-bool android_view_inputmethod_InputConnection::clearMetaKeyStates(int& arg0)
+bool android_view_inputmethod_InputConnection::clearMetaKeyStates(int const& arg0)
 {
-	LOGV("bool android_view_inputmethod_InputConnection::clearMetaKeyStates(int& arg0) enter");
+	LOGV("bool android_view_inputmethod_InputConnection::clearMetaKeyStates(int const& arg0) enter");
 
 	const char *methodName = "clearMetaKeyStates";
 	const char *methodSignature = "(I)Z";
@@ -1566,8 +1472,6 @@ bool android_view_inputmethod_InputConnection::clearMetaKeyStates(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
@@ -1617,15 +1521,13 @@ bool android_view_inputmethod_InputConnection::clearMetaKeyStates(int& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_inputmethod_InputConnection::clearMetaKeyStates(int& arg0) exit");
+	LOGV("bool android_view_inputmethod_InputConnection::clearMetaKeyStates(int const& arg0) exit");
 
 	return result;
 }
-bool android_view_inputmethod_InputConnection::reportFullscreenMode(bool& arg0)
+bool android_view_inputmethod_InputConnection::reportFullscreenMode(bool const& arg0)
 {
-	LOGV("bool android_view_inputmethod_InputConnection::reportFullscreenMode(bool& arg0) enter");
+	LOGV("bool android_view_inputmethod_InputConnection::reportFullscreenMode(bool const& arg0) enter");
 
 	const char *methodName = "reportFullscreenMode";
 	const char *methodSignature = "(Z)Z";
@@ -1635,8 +1537,6 @@ bool android_view_inputmethod_InputConnection::reportFullscreenMode(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
@@ -1686,15 +1586,13 @@ bool android_view_inputmethod_InputConnection::reportFullscreenMode(bool& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_inputmethod_InputConnection::reportFullscreenMode(bool& arg0) exit");
+	LOGV("bool android_view_inputmethod_InputConnection::reportFullscreenMode(bool const& arg0) exit");
 
 	return result;
 }
-bool android_view_inputmethod_InputConnection::performPrivateCommand(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1)
+bool android_view_inputmethod_InputConnection::performPrivateCommand(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1)
 {
-	LOGV("bool android_view_inputmethod_InputConnection::performPrivateCommand(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1) enter");
+	LOGV("bool android_view_inputmethod_InputConnection::performPrivateCommand(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1) enter");
 
 	const char *methodName = "performPrivateCommand";
 	const char *methodSignature = "(Ljava/lang/String;Landroid/os/Bundle;)Z";
@@ -1704,8 +1602,6 @@ bool android_view_inputmethod_InputConnection::performPrivateCommand(AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_InputConnection cxx address %d", cxxAddress);
@@ -1776,9 +1672,7 @@ bool android_view_inputmethod_InputConnection::performPrivateCommand(AndroidCXX:
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_inputmethod_InputConnection::performPrivateCommand(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1) exit");
+	LOGV("bool android_view_inputmethod_InputConnection::performPrivateCommand(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1) exit");
 
 	return result;
 }

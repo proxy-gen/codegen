@@ -30,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace ANDROID_WIDGET_TEXTVIEW_BUFFERTYPE {
+namespace android_widget_TextView_BufferType {
 
 enum android_widget_TextView_BufferType
 {

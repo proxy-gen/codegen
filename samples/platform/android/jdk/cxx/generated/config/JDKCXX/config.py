@@ -3016,7 +3016,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Object',
-			'tags' : ['_instance', '_proxy', '_callback'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -3086,7 +3086,7 @@ config = {
 				},
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_proxy', '_callback'],
+					'tags' : ['_instance', '_proxy'],
 					'params' : [
 					],
 					'returns' : [

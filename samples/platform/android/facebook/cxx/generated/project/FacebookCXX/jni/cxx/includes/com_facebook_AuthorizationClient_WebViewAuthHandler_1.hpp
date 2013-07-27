@@ -55,16 +55,13 @@ class com_facebook_AuthorizationClient_WebViewAuthHandler_1
 public:
 
 	com_facebook_AuthorizationClient_WebViewAuthHandler_1(const com_facebook_AuthorizationClient_WebViewAuthHandler_1& cc);
-	com_facebook_AuthorizationClient_WebViewAuthHandler_1(void * proxy);
+	com_facebook_AuthorizationClient_WebViewAuthHandler_1(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_AuthorizationClient_WebViewAuthHandler_1();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_WebViewAuthHandler_1();
 	// Functions
-	 void onComplete(AndroidCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_FacebookException& arg1);
+	 void onComplete(AndroidCXX::android_os_Bundle const& arg0,FacebookCXX::com_facebook_FacebookException const& arg1);
 };	
 
 } // namespace

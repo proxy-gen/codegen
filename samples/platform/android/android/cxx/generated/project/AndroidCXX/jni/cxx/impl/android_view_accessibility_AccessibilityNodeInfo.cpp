@@ -276,7 +276,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_accessibility_AccessibilityNodeInfo::android_view_accessibility_AccessibilityNodeInfo(const android_view_accessibility_AccessibilityNodeInfo& cc)
 {
 	LOGV("android_view_accessibility_AccessibilityNodeInfo::android_view_accessibility_AccessibilityNodeInfo(const android_view_accessibility_AccessibilityNodeInfo& cc) enter");
@@ -300,9 +299,9 @@ android_view_accessibility_AccessibilityNodeInfo::android_view_accessibility_Acc
 
 	LOGV("android_view_accessibility_AccessibilityNodeInfo::android_view_accessibility_AccessibilityNodeInfo(const android_view_accessibility_AccessibilityNodeInfo& cc) exit");
 }
-android_view_accessibility_AccessibilityNodeInfo::android_view_accessibility_AccessibilityNodeInfo(void * proxy)
+android_view_accessibility_AccessibilityNodeInfo::android_view_accessibility_AccessibilityNodeInfo(Proxy proxy)
 {
-	LOGV("android_view_accessibility_AccessibilityNodeInfo::android_view_accessibility_AccessibilityNodeInfo(void * proxy) enter");
+	LOGV("android_view_accessibility_AccessibilityNodeInfo::android_view_accessibility_AccessibilityNodeInfo(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -312,52 +311,31 @@ android_view_accessibility_AccessibilityNodeInfo::android_view_accessibility_Acc
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_accessibility_AccessibilityNodeInfo::android_view_accessibility_AccessibilityNodeInfo(void * proxy) exit");
+	LOGV("android_view_accessibility_AccessibilityNodeInfo::android_view_accessibility_AccessibilityNodeInfo(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_view_accessibility_AccessibilityNodeInfo::android_view_accessibility_AccessibilityNodeInfo()
-// {
-// 	LOGV("android_view_accessibility_AccessibilityNodeInfo::android_view_accessibility_AccessibilityNodeInfo() enter");	
+Proxy android_view_accessibility_AccessibilityNodeInfo::proxy() const
+{	
+	LOGV("android_view_accessibility_AccessibilityNodeInfo::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/view/accessibility/AccessibilityNodeInfo";
+	long cxxAddress = (long) this;
+	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_accessibility_AccessibilityNodeInfo jni address %d", proxiedComponent);
 
-// 	LOGV("android_view_accessibility_AccessibilityNodeInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_view_accessibility_AccessibilityNodeInfo::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_view_accessibility_AccessibilityNodeInfo jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_view_accessibility_AccessibilityNodeInfo::android_view_accessibility_AccessibilityNodeInfo() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_view_accessibility_AccessibilityNodeInfo::~android_view_accessibility_AccessibilityNodeInfo()
 {
@@ -369,13 +347,13 @@ android_view_accessibility_AccessibilityNodeInfo::~android_view_accessibility_Ac
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_accessibility_AccessibilityNodeInfo::~android_view_accessibility_AccessibilityNodeInfo() exit");
 }
 // Functions
-bool android_view_accessibility_AccessibilityNodeInfo::equals(AndroidCXX::java_lang_Object& arg0)
+bool android_view_accessibility_AccessibilityNodeInfo::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -385,8 +363,6 @@ bool android_view_accessibility_AccessibilityNodeInfo::equals(AndroidCXX::java_l
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -436,9 +412,7 @@ bool android_view_accessibility_AccessibilityNodeInfo::equals(AndroidCXX::java_l
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -454,8 +428,6 @@ AndroidCXX::java_lang_String android_view_accessibility_AccessibilityNodeInfo::t
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -484,8 +456,6 @@ AndroidCXX::java_lang_String android_view_accessibility_AccessibilityNodeInfo::t
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_view_accessibility_AccessibilityNodeInfo::toString() exit");
 
 	return result;
@@ -502,8 +472,6 @@ int android_view_accessibility_AccessibilityNodeInfo::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -532,8 +500,6 @@ int android_view_accessibility_AccessibilityNodeInfo::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_accessibility_AccessibilityNodeInfo::hashCode() exit");
 
 	return result;
@@ -550,8 +516,6 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -580,8 +544,6 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 	AndroidCXX::android_view_accessibility_AccessibilityNodeInfo result((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo) *((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value));
 	delete ((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::getParent() exit");
 
 	return result;
@@ -598,8 +560,6 @@ int android_view_accessibility_AccessibilityNodeInfo::getActions()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -628,8 +588,6 @@ int android_view_accessibility_AccessibilityNodeInfo::getActions()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_accessibility_AccessibilityNodeInfo::getActions() exit");
 
 	return result;
@@ -646,8 +604,6 @@ AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityNodeI
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -676,15 +632,13 @@ AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityNodeI
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityNodeInfo::getClassName() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityNodeInfo::setParent(AndroidCXX::android_view_View& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setParent(AndroidCXX::android_view_View const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setParent(AndroidCXX::android_view_View& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setParent(AndroidCXX::android_view_View const& arg0) enter");
 
 	const char *methodName = "setParent";
 	const char *methodSignature = "(Landroid/view/View;)V";
@@ -694,8 +648,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setParent(AndroidCXX::and
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -726,14 +678,12 @@ void android_view_accessibility_AccessibilityNodeInfo::setParent(AndroidCXX::and
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setParent(AndroidCXX::android_view_View& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setParent(AndroidCXX::android_view_View const& arg0) exit");
 
 }
-void android_view_accessibility_AccessibilityNodeInfo::setParent(AndroidCXX::android_view_View& arg0,int& arg1)
+void android_view_accessibility_AccessibilityNodeInfo::setParent(AndroidCXX::android_view_View const& arg0,int const& arg1)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setParent(AndroidCXX::android_view_View& arg0,int& arg1) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setParent(AndroidCXX::android_view_View const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setParent";
 	const char *methodSignature = "(Landroid/view/View;I)V";
@@ -743,8 +693,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setParent(AndroidCXX::and
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -796,9 +744,7 @@ void android_view_accessibility_AccessibilityNodeInfo::setParent(AndroidCXX::and
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setParent(AndroidCXX::android_view_View& arg0,int& arg1) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setParent(AndroidCXX::android_view_View const& arg0,int const& arg1) exit");
 
 }
 AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityNodeInfo::getPackageName()
@@ -813,8 +759,6 @@ AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityNodeI
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -843,15 +787,13 @@ AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityNodeI
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityNodeInfo::getPackageName() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityNodeInfo::setText(AndroidCXX::java_lang_CharSequence& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setText(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setText(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setText(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setText";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -861,8 +803,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setText(AndroidCXX::java_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -893,9 +833,7 @@ void android_view_accessibility_AccessibilityNodeInfo::setText(AndroidCXX::java_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setText(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setText(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }
 int android_view_accessibility_AccessibilityNodeInfo::describeContents()
@@ -910,8 +848,6 @@ int android_view_accessibility_AccessibilityNodeInfo::describeContents()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -940,15 +876,13 @@ int android_view_accessibility_AccessibilityNodeInfo::describeContents()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_accessibility_AccessibilityNodeInfo::describeContents() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityNodeInfo::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_view_accessibility_AccessibilityNodeInfo::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -958,8 +892,6 @@ void android_view_accessibility_AccessibilityNodeInfo::writeToParcel(AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -1011,14 +943,12 @@ void android_view_accessibility_AccessibilityNodeInfo::writeToParcel(AndroidCXX:
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }
-AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::obtain(AndroidCXX::android_view_View& arg0)
+AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::obtain(AndroidCXX::android_view_View const& arg0)
 {
-	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::obtain(AndroidCXX::android_view_View& arg0) enter");
+	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::obtain(AndroidCXX::android_view_View const& arg0) enter");
 
 	const char *methodName = "obtain";
 	const char *methodSignature = "(Landroid/view/View;)Landroid/view/accessibility/AccessibilityNodeInfo;";
@@ -1028,8 +958,6 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -1058,7 +986,7 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1079,15 +1007,13 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 	AndroidCXX::android_view_accessibility_AccessibilityNodeInfo result((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo) *((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value));
 	delete ((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::obtain(AndroidCXX::android_view_View& arg0) exit");
+	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::obtain(AndroidCXX::android_view_View const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::obtain(AndroidCXX::android_view_View& arg0,int& arg1)
+AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::obtain(AndroidCXX::android_view_View const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::obtain(AndroidCXX::android_view_View& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::obtain(AndroidCXX::android_view_View const& arg0,int const& arg1) enter");
 
 	const char *methodName = "obtain";
 	const char *methodSignature = "(Landroid/view/View;I)Landroid/view/accessibility/AccessibilityNodeInfo;";
@@ -1097,8 +1023,6 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -1148,7 +1072,7 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1169,9 +1093,7 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 	AndroidCXX::android_view_accessibility_AccessibilityNodeInfo result((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo) *((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value));
 	delete ((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::obtain(AndroidCXX::android_view_View& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::obtain(AndroidCXX::android_view_View const& arg0,int const& arg1) exit");
 
 	return result;
 }
@@ -1188,15 +1110,13 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_view_accessibility_AccessibilityNodeInfo jni address %d", javaObject);
 
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1217,15 +1137,13 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 	AndroidCXX::android_view_accessibility_AccessibilityNodeInfo result((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo) *((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value));
 	delete ((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::obtain() exit");
 
 	return result;
 }
-AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::obtain(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0)
+AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::obtain(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0)
 {
-	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::obtain(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) enter");
+	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::obtain(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) enter");
 
 	const char *methodName = "obtain";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)Landroid/view/accessibility/AccessibilityNodeInfo;";
@@ -1235,8 +1153,6 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -1265,7 +1181,7 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1286,9 +1202,7 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 	AndroidCXX::android_view_accessibility_AccessibilityNodeInfo result((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo) *((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value));
 	delete ((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::obtain(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) exit");
+	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::obtain(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) exit");
 
 	return result;
 }
@@ -1305,8 +1219,6 @@ void android_view_accessibility_AccessibilityNodeInfo::recycle()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1315,8 +1227,6 @@ void android_view_accessibility_AccessibilityNodeInfo::recycle()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_view_accessibility_AccessibilityNodeInfo::recycle() exit");
 
 }
@@ -1332,8 +1242,6 @@ AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityNodeI
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -1362,8 +1270,6 @@ AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityNodeI
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityNodeInfo::getText() exit");
 
 	return result;
@@ -1381,8 +1287,6 @@ bool android_view_accessibility_AccessibilityNodeInfo::isVisibleToUser()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1410,8 +1314,6 @@ bool android_view_accessibility_AccessibilityNodeInfo::isVisibleToUser()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::isVisibleToUser() exit");
 
 	return result;
@@ -1429,8 +1331,6 @@ bool android_view_accessibility_AccessibilityNodeInfo::isFocusable()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1458,8 +1358,6 @@ bool android_view_accessibility_AccessibilityNodeInfo::isFocusable()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::isFocusable() exit");
 
 	return result;
@@ -1477,8 +1375,6 @@ bool android_view_accessibility_AccessibilityNodeInfo::isEnabled()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1506,8 +1402,6 @@ bool android_view_accessibility_AccessibilityNodeInfo::isEnabled()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::isEnabled() exit");
 
 	return result;
@@ -1525,8 +1419,6 @@ bool android_view_accessibility_AccessibilityNodeInfo::isClickable()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1554,8 +1446,6 @@ bool android_view_accessibility_AccessibilityNodeInfo::isClickable()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::isClickable() exit");
 
 	return result;
@@ -1573,8 +1463,6 @@ bool android_view_accessibility_AccessibilityNodeInfo::isLongClickable()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1602,8 +1490,6 @@ bool android_view_accessibility_AccessibilityNodeInfo::isLongClickable()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::isLongClickable() exit");
 
 	return result;
@@ -1621,8 +1507,6 @@ bool android_view_accessibility_AccessibilityNodeInfo::isFocused()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1650,8 +1534,6 @@ bool android_view_accessibility_AccessibilityNodeInfo::isFocused()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::isFocused() exit");
 
 	return result;
@@ -1669,8 +1551,6 @@ bool android_view_accessibility_AccessibilityNodeInfo::isSelected()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1698,8 +1578,6 @@ bool android_view_accessibility_AccessibilityNodeInfo::isSelected()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::isSelected() exit");
 
 	return result;
@@ -1716,8 +1594,6 @@ int android_view_accessibility_AccessibilityNodeInfo::getChildCount()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -1746,15 +1622,13 @@ int android_view_accessibility_AccessibilityNodeInfo::getChildCount()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_accessibility_AccessibilityNodeInfo::getChildCount() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityNodeInfo::setClassName(AndroidCXX::java_lang_CharSequence& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setClassName(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setClassName(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setClassName(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setClassName";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -1764,8 +1638,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setClassName(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -1796,14 +1668,12 @@ void android_view_accessibility_AccessibilityNodeInfo::setClassName(AndroidCXX::
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setClassName(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setClassName(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }
-AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::focusSearch(int& arg0)
+AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::focusSearch(int const& arg0)
 {
-	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::focusSearch(int& arg0) enter");
+	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::focusSearch(int const& arg0) enter");
 
 	const char *methodName = "focusSearch";
 	const char *methodSignature = "(I)Landroid/view/accessibility/AccessibilityNodeInfo;";
@@ -1814,8 +1684,6 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1864,15 +1732,13 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 	AndroidCXX::android_view_accessibility_AccessibilityNodeInfo result((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo) *((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value));
 	delete ((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::focusSearch(int& arg0) exit");
+	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::focusSearch(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::findFocus(int& arg0)
+AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::findFocus(int const& arg0)
 {
-	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::findFocus(int& arg0) enter");
+	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::findFocus(int const& arg0) enter");
 
 	const char *methodName = "findFocus";
 	const char *methodSignature = "(I)Landroid/view/accessibility/AccessibilityNodeInfo;";
@@ -1883,8 +1749,6 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1933,9 +1797,7 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 	AndroidCXX::android_view_accessibility_AccessibilityNodeInfo result((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo) *((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value));
 	delete ((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::findFocus(int& arg0) exit");
+	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::findFocus(int const& arg0) exit");
 
 	return result;
 }
@@ -1951,8 +1813,6 @@ AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityNodeI
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -1981,15 +1841,13 @@ AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityNodeI
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityNodeInfo::getContentDescription() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityNodeInfo::setContentDescription(AndroidCXX::java_lang_CharSequence& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setContentDescription(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setContentDescription(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setContentDescription(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setContentDescription";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -1999,8 +1857,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setContentDescription(And
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -2031,9 +1887,7 @@ void android_view_accessibility_AccessibilityNodeInfo::setContentDescription(And
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setContentDescription(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setContentDescription(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }
 AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::getLabelFor()
@@ -2048,8 +1902,6 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -2078,15 +1930,13 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 	AndroidCXX::android_view_accessibility_AccessibilityNodeInfo result((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo) *((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value));
 	delete ((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::getLabelFor() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityNodeInfo::setLabelFor(AndroidCXX::android_view_View& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setLabelFor(AndroidCXX::android_view_View const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setLabelFor(AndroidCXX::android_view_View& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setLabelFor(AndroidCXX::android_view_View const& arg0) enter");
 
 	const char *methodName = "setLabelFor";
 	const char *methodSignature = "(Landroid/view/View;)V";
@@ -2096,8 +1946,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setLabelFor(AndroidCXX::a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -2128,14 +1976,12 @@ void android_view_accessibility_AccessibilityNodeInfo::setLabelFor(AndroidCXX::a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setLabelFor(AndroidCXX::android_view_View& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setLabelFor(AndroidCXX::android_view_View const& arg0) exit");
 
 }
-void android_view_accessibility_AccessibilityNodeInfo::setLabelFor(AndroidCXX::android_view_View& arg0,int& arg1)
+void android_view_accessibility_AccessibilityNodeInfo::setLabelFor(AndroidCXX::android_view_View const& arg0,int const& arg1)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setLabelFor(AndroidCXX::android_view_View& arg0,int& arg1) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setLabelFor(AndroidCXX::android_view_View const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setLabelFor";
 	const char *methodSignature = "(Landroid/view/View;I)V";
@@ -2145,8 +1991,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setLabelFor(AndroidCXX::a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -2198,14 +2042,12 @@ void android_view_accessibility_AccessibilityNodeInfo::setLabelFor(AndroidCXX::a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setLabelFor(AndroidCXX::android_view_View& arg0,int& arg1) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setLabelFor(AndroidCXX::android_view_View const& arg0,int const& arg1) exit");
 
 }
-void android_view_accessibility_AccessibilityNodeInfo::setEnabled(bool& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setEnabled(bool const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setEnabled(bool& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setEnabled(bool const& arg0) enter");
 
 	const char *methodName = "setEnabled";
 	const char *methodSignature = "(Z)V";
@@ -2216,8 +2058,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setEnabled(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2247,14 +2087,12 @@ void android_view_accessibility_AccessibilityNodeInfo::setEnabled(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setEnabled(bool& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setEnabled(bool const& arg0) exit");
 
 }
-void android_view_accessibility_AccessibilityNodeInfo::setFocusable(bool& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setFocusable(bool const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setFocusable(bool& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setFocusable(bool const& arg0) enter");
 
 	const char *methodName = "setFocusable";
 	const char *methodSignature = "(Z)V";
@@ -2265,8 +2103,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setFocusable(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2296,14 +2132,12 @@ void android_view_accessibility_AccessibilityNodeInfo::setFocusable(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setFocusable(bool& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setFocusable(bool const& arg0) exit");
 
 }
-void android_view_accessibility_AccessibilityNodeInfo::setClickable(bool& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setClickable(bool const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setClickable(bool& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setClickable(bool const& arg0) enter");
 
 	const char *methodName = "setClickable";
 	const char *methodSignature = "(Z)V";
@@ -2314,8 +2148,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setClickable(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2345,14 +2177,12 @@ void android_view_accessibility_AccessibilityNodeInfo::setClickable(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setClickable(bool& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setClickable(bool const& arg0) exit");
 
 }
-void android_view_accessibility_AccessibilityNodeInfo::setLongClickable(bool& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setLongClickable(bool const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setLongClickable(bool& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setLongClickable(bool const& arg0) enter");
 
 	const char *methodName = "setLongClickable";
 	const char *methodSignature = "(Z)V";
@@ -2363,8 +2193,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setLongClickable(bool& ar
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2394,14 +2222,12 @@ void android_view_accessibility_AccessibilityNodeInfo::setLongClickable(bool& ar
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setLongClickable(bool& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setLongClickable(bool const& arg0) exit");
 
 }
-void android_view_accessibility_AccessibilityNodeInfo::setSelected(bool& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setSelected(bool const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setSelected(bool& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setSelected(bool const& arg0) enter");
 
 	const char *methodName = "setSelected";
 	const char *methodSignature = "(Z)V";
@@ -2412,8 +2238,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setSelected(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2443,14 +2267,12 @@ void android_view_accessibility_AccessibilityNodeInfo::setSelected(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setSelected(bool& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setSelected(bool const& arg0) exit");
 
 }
-void android_view_accessibility_AccessibilityNodeInfo::setCheckable(bool& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setCheckable(bool const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setCheckable(bool& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setCheckable(bool const& arg0) enter");
 
 	const char *methodName = "setCheckable";
 	const char *methodSignature = "(Z)V";
@@ -2461,8 +2283,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setCheckable(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2492,9 +2312,7 @@ void android_view_accessibility_AccessibilityNodeInfo::setCheckable(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setCheckable(bool& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setCheckable(bool const& arg0) exit");
 
 }
 bool android_view_accessibility_AccessibilityNodeInfo::isCheckable()
@@ -2510,8 +2328,6 @@ bool android_view_accessibility_AccessibilityNodeInfo::isCheckable()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2539,15 +2355,13 @@ bool android_view_accessibility_AccessibilityNodeInfo::isCheckable()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::isCheckable() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityNodeInfo::setChecked(bool& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setChecked(bool const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setChecked(bool& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setChecked(bool const& arg0) enter");
 
 	const char *methodName = "setChecked";
 	const char *methodSignature = "(Z)V";
@@ -2557,8 +2371,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setChecked(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -2589,9 +2401,7 @@ void android_view_accessibility_AccessibilityNodeInfo::setChecked(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setChecked(bool& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setChecked(bool const& arg0) exit");
 
 }
 bool android_view_accessibility_AccessibilityNodeInfo::isChecked()
@@ -2606,8 +2416,6 @@ bool android_view_accessibility_AccessibilityNodeInfo::isChecked()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -2636,15 +2444,13 @@ bool android_view_accessibility_AccessibilityNodeInfo::isChecked()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::isChecked() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityNodeInfo::addAction(int& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::addAction(int const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::addAction(int& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::addAction(int const& arg0) enter");
 
 	const char *methodName = "addAction";
 	const char *methodSignature = "(I)V";
@@ -2654,8 +2460,6 @@ void android_view_accessibility_AccessibilityNodeInfo::addAction(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -2686,14 +2490,12 @@ void android_view_accessibility_AccessibilityNodeInfo::addAction(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::addAction(int& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::addAction(int const& arg0) exit");
 
 }
-void android_view_accessibility_AccessibilityNodeInfo::setSource(AndroidCXX::android_view_View& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setSource(AndroidCXX::android_view_View const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setSource(AndroidCXX::android_view_View& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setSource(AndroidCXX::android_view_View const& arg0) enter");
 
 	const char *methodName = "setSource";
 	const char *methodSignature = "(Landroid/view/View;)V";
@@ -2703,8 +2505,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setSource(AndroidCXX::and
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -2735,14 +2535,12 @@ void android_view_accessibility_AccessibilityNodeInfo::setSource(AndroidCXX::and
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setSource(AndroidCXX::android_view_View& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setSource(AndroidCXX::android_view_View const& arg0) exit");
 
 }
-void android_view_accessibility_AccessibilityNodeInfo::setSource(AndroidCXX::android_view_View& arg0,int& arg1)
+void android_view_accessibility_AccessibilityNodeInfo::setSource(AndroidCXX::android_view_View const& arg0,int const& arg1)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setSource(AndroidCXX::android_view_View& arg0,int& arg1) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setSource(AndroidCXX::android_view_View const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setSource";
 	const char *methodSignature = "(Landroid/view/View;I)V";
@@ -2752,8 +2550,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setSource(AndroidCXX::and
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -2805,14 +2601,12 @@ void android_view_accessibility_AccessibilityNodeInfo::setSource(AndroidCXX::and
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setSource(AndroidCXX::android_view_View& arg0,int& arg1) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setSource(AndroidCXX::android_view_View const& arg0,int const& arg1) exit");
 
 }
-void android_view_accessibility_AccessibilityNodeInfo::setPackageName(AndroidCXX::java_lang_CharSequence& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setPackageName(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setPackageName(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setPackageName(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setPackageName";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -2822,8 +2616,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setPackageName(AndroidCXX
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -2854,9 +2646,7 @@ void android_view_accessibility_AccessibilityNodeInfo::setPackageName(AndroidCXX
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setPackageName(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setPackageName(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }
 int android_view_accessibility_AccessibilityNodeInfo::getWindowId()
@@ -2871,8 +2661,6 @@ int android_view_accessibility_AccessibilityNodeInfo::getWindowId()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -2901,8 +2689,6 @@ int android_view_accessibility_AccessibilityNodeInfo::getWindowId()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_accessibility_AccessibilityNodeInfo::getWindowId() exit");
 
 	return result;
@@ -2920,8 +2706,6 @@ bool android_view_accessibility_AccessibilityNodeInfo::isPassword()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2949,15 +2733,13 @@ bool android_view_accessibility_AccessibilityNodeInfo::isPassword()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::isPassword() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityNodeInfo::setPassword(bool& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setPassword(bool const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setPassword(bool& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setPassword(bool const& arg0) enter");
 
 	const char *methodName = "setPassword";
 	const char *methodSignature = "(Z)V";
@@ -2967,8 +2749,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setPassword(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -2999,9 +2779,7 @@ void android_view_accessibility_AccessibilityNodeInfo::setPassword(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setPassword(bool& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setPassword(bool const& arg0) exit");
 
 }
 bool android_view_accessibility_AccessibilityNodeInfo::isScrollable()
@@ -3017,8 +2795,6 @@ bool android_view_accessibility_AccessibilityNodeInfo::isScrollable()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3046,15 +2822,13 @@ bool android_view_accessibility_AccessibilityNodeInfo::isScrollable()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::isScrollable() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityNodeInfo::setScrollable(bool& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setScrollable(bool const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setScrollable(bool& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setScrollable(bool const& arg0) enter");
 
 	const char *methodName = "setScrollable";
 	const char *methodSignature = "(Z)V";
@@ -3064,8 +2838,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setScrollable(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -3096,14 +2868,12 @@ void android_view_accessibility_AccessibilityNodeInfo::setScrollable(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setScrollable(bool& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setScrollable(bool const& arg0) exit");
 
 }
-AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::getChild(int& arg0)
+AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::getChild(int const& arg0)
 {
-	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::getChild(int& arg0) enter");
+	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::getChild(int const& arg0) enter");
 
 	const char *methodName = "getChild";
 	const char *methodSignature = "(I)Landroid/view/accessibility/AccessibilityNodeInfo;";
@@ -3113,8 +2883,6 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -3164,15 +2932,13 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 	AndroidCXX::android_view_accessibility_AccessibilityNodeInfo result((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo) *((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value));
 	delete ((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::getChild(int& arg0) exit");
+	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::getChild(int const& arg0) exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityNodeInfo::addChild(AndroidCXX::android_view_View& arg0,int& arg1)
+void android_view_accessibility_AccessibilityNodeInfo::addChild(AndroidCXX::android_view_View const& arg0,int const& arg1)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::addChild(AndroidCXX::android_view_View& arg0,int& arg1) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::addChild(AndroidCXX::android_view_View const& arg0,int const& arg1) enter");
 
 	const char *methodName = "addChild";
 	const char *methodSignature = "(Landroid/view/View;I)V";
@@ -3182,8 +2948,6 @@ void android_view_accessibility_AccessibilityNodeInfo::addChild(AndroidCXX::andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -3235,14 +2999,12 @@ void android_view_accessibility_AccessibilityNodeInfo::addChild(AndroidCXX::andr
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::addChild(AndroidCXX::android_view_View& arg0,int& arg1) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::addChild(AndroidCXX::android_view_View const& arg0,int const& arg1) exit");
 
 }
-void android_view_accessibility_AccessibilityNodeInfo::addChild(AndroidCXX::android_view_View& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::addChild(AndroidCXX::android_view_View const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::addChild(AndroidCXX::android_view_View& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::addChild(AndroidCXX::android_view_View const& arg0) enter");
 
 	const char *methodName = "addChild";
 	const char *methodSignature = "(Landroid/view/View;)V";
@@ -3252,8 +3014,6 @@ void android_view_accessibility_AccessibilityNodeInfo::addChild(AndroidCXX::andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -3284,14 +3044,12 @@ void android_view_accessibility_AccessibilityNodeInfo::addChild(AndroidCXX::andr
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::addChild(AndroidCXX::android_view_View& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::addChild(AndroidCXX::android_view_View const& arg0) exit");
 
 }
-void android_view_accessibility_AccessibilityNodeInfo::setMovementGranularities(int& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setMovementGranularities(int const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setMovementGranularities(int& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setMovementGranularities(int const& arg0) enter");
 
 	const char *methodName = "setMovementGranularities";
 	const char *methodSignature = "(I)V";
@@ -3301,8 +3059,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setMovementGranularities(
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -3333,9 +3089,7 @@ void android_view_accessibility_AccessibilityNodeInfo::setMovementGranularities(
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setMovementGranularities(int& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setMovementGranularities(int const& arg0) exit");
 
 }
 int android_view_accessibility_AccessibilityNodeInfo::getMovementGranularities()
@@ -3350,8 +3104,6 @@ int android_view_accessibility_AccessibilityNodeInfo::getMovementGranularities()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -3380,15 +3132,13 @@ int android_view_accessibility_AccessibilityNodeInfo::getMovementGranularities()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_accessibility_AccessibilityNodeInfo::getMovementGranularities() exit");
 
 	return result;
 }
-bool android_view_accessibility_AccessibilityNodeInfo::performAction(int& arg0,AndroidCXX::android_os_Bundle& arg1)
+bool android_view_accessibility_AccessibilityNodeInfo::performAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1)
 {
-	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::performAction(int& arg0,AndroidCXX::android_os_Bundle& arg1) enter");
+	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::performAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) enter");
 
 	const char *methodName = "performAction";
 	const char *methodSignature = "(ILandroid/os/Bundle;)Z";
@@ -3398,8 +3148,6 @@ bool android_view_accessibility_AccessibilityNodeInfo::performAction(int& arg0,A
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -3470,15 +3218,13 @@ bool android_view_accessibility_AccessibilityNodeInfo::performAction(int& arg0,A
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::performAction(int& arg0,AndroidCXX::android_os_Bundle& arg1) exit");
+	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::performAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) exit");
 
 	return result;
 }
-bool android_view_accessibility_AccessibilityNodeInfo::performAction(int& arg0)
+bool android_view_accessibility_AccessibilityNodeInfo::performAction(int const& arg0)
 {
-	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::performAction(int& arg0) enter");
+	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::performAction(int const& arg0) enter");
 
 	const char *methodName = "performAction";
 	const char *methodSignature = "(I)Z";
@@ -3488,8 +3234,6 @@ bool android_view_accessibility_AccessibilityNodeInfo::performAction(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -3539,15 +3283,13 @@ bool android_view_accessibility_AccessibilityNodeInfo::performAction(int& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::performAction(int& arg0) exit");
+	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::performAction(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_util_List android_view_accessibility_AccessibilityNodeInfo::findAccessibilityNodeInfosByText(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_util_List android_view_accessibility_AccessibilityNodeInfo::findAccessibilityNodeInfosByText(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_util_List android_view_accessibility_AccessibilityNodeInfo::findAccessibilityNodeInfosByText(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_util_List android_view_accessibility_AccessibilityNodeInfo::findAccessibilityNodeInfosByText(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "findAccessibilityNodeInfosByText";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/util/List;";
@@ -3557,8 +3299,6 @@ AndroidCXX::java_util_List android_view_accessibility_AccessibilityNodeInfo::fin
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -3626,15 +3366,13 @@ AndroidCXX::java_util_List android_view_accessibility_AccessibilityNodeInfo::fin
 	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
 	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_List android_view_accessibility_AccessibilityNodeInfo::findAccessibilityNodeInfosByText(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_util_List android_view_accessibility_AccessibilityNodeInfo::findAccessibilityNodeInfosByText(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityNodeInfo::getBoundsInParent(AndroidCXX::android_graphics_Rect& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::getBoundsInParent(AndroidCXX::android_graphics_Rect const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::getBoundsInParent(AndroidCXX::android_graphics_Rect& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::getBoundsInParent(AndroidCXX::android_graphics_Rect const& arg0) enter");
 
 	const char *methodName = "getBoundsInParent";
 	const char *methodSignature = "(Landroid/graphics/Rect;)V";
@@ -3645,8 +3383,6 @@ void android_view_accessibility_AccessibilityNodeInfo::getBoundsInParent(Android
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3676,14 +3412,12 @@ void android_view_accessibility_AccessibilityNodeInfo::getBoundsInParent(Android
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::getBoundsInParent(AndroidCXX::android_graphics_Rect& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::getBoundsInParent(AndroidCXX::android_graphics_Rect const& arg0) exit");
 
 }
-void android_view_accessibility_AccessibilityNodeInfo::setBoundsInParent(AndroidCXX::android_graphics_Rect& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setBoundsInParent(AndroidCXX::android_graphics_Rect const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setBoundsInParent(AndroidCXX::android_graphics_Rect& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setBoundsInParent(AndroidCXX::android_graphics_Rect const& arg0) enter");
 
 	const char *methodName = "setBoundsInParent";
 	const char *methodSignature = "(Landroid/graphics/Rect;)V";
@@ -3694,8 +3428,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setBoundsInParent(Android
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3725,14 +3457,12 @@ void android_view_accessibility_AccessibilityNodeInfo::setBoundsInParent(Android
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setBoundsInParent(AndroidCXX::android_graphics_Rect& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setBoundsInParent(AndroidCXX::android_graphics_Rect const& arg0) exit");
 
 }
-void android_view_accessibility_AccessibilityNodeInfo::getBoundsInScreen(AndroidCXX::android_graphics_Rect& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::getBoundsInScreen(AndroidCXX::android_graphics_Rect const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::getBoundsInScreen(AndroidCXX::android_graphics_Rect& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::getBoundsInScreen(AndroidCXX::android_graphics_Rect const& arg0) enter");
 
 	const char *methodName = "getBoundsInScreen";
 	const char *methodSignature = "(Landroid/graphics/Rect;)V";
@@ -3743,8 +3473,6 @@ void android_view_accessibility_AccessibilityNodeInfo::getBoundsInScreen(Android
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3774,14 +3502,12 @@ void android_view_accessibility_AccessibilityNodeInfo::getBoundsInScreen(Android
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::getBoundsInScreen(AndroidCXX::android_graphics_Rect& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::getBoundsInScreen(AndroidCXX::android_graphics_Rect const& arg0) exit");
 
 }
-void android_view_accessibility_AccessibilityNodeInfo::setBoundsInScreen(AndroidCXX::android_graphics_Rect& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setBoundsInScreen(AndroidCXX::android_graphics_Rect const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setBoundsInScreen(AndroidCXX::android_graphics_Rect& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setBoundsInScreen(AndroidCXX::android_graphics_Rect const& arg0) enter");
 
 	const char *methodName = "setBoundsInScreen";
 	const char *methodSignature = "(Landroid/graphics/Rect;)V";
@@ -3792,8 +3518,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setBoundsInScreen(Android
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3823,14 +3547,12 @@ void android_view_accessibility_AccessibilityNodeInfo::setBoundsInScreen(Android
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setBoundsInScreen(AndroidCXX::android_graphics_Rect& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setBoundsInScreen(AndroidCXX::android_graphics_Rect const& arg0) exit");
 
 }
-void android_view_accessibility_AccessibilityNodeInfo::setFocused(bool& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setFocused(bool const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setFocused(bool& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setFocused(bool const& arg0) enter");
 
 	const char *methodName = "setFocused";
 	const char *methodSignature = "(Z)V";
@@ -3841,8 +3563,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setFocused(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3872,14 +3592,12 @@ void android_view_accessibility_AccessibilityNodeInfo::setFocused(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setFocused(bool& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setFocused(bool const& arg0) exit");
 
 }
-void android_view_accessibility_AccessibilityNodeInfo::setVisibleToUser(bool& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setVisibleToUser(bool const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setVisibleToUser(bool& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setVisibleToUser(bool const& arg0) enter");
 
 	const char *methodName = "setVisibleToUser";
 	const char *methodSignature = "(Z)V";
@@ -3890,8 +3608,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setVisibleToUser(bool& ar
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3921,9 +3637,7 @@ void android_view_accessibility_AccessibilityNodeInfo::setVisibleToUser(bool& ar
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setVisibleToUser(bool& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setVisibleToUser(bool const& arg0) exit");
 
 }
 bool android_view_accessibility_AccessibilityNodeInfo::isAccessibilityFocused()
@@ -3938,8 +3652,6 @@ bool android_view_accessibility_AccessibilityNodeInfo::isAccessibilityFocused()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -3968,15 +3680,13 @@ bool android_view_accessibility_AccessibilityNodeInfo::isAccessibilityFocused()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_accessibility_AccessibilityNodeInfo::isAccessibilityFocused() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityNodeInfo::setAccessibilityFocused(bool& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setAccessibilityFocused(bool const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setAccessibilityFocused(bool& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setAccessibilityFocused(bool const& arg0) enter");
 
 	const char *methodName = "setAccessibilityFocused";
 	const char *methodSignature = "(Z)V";
@@ -3986,8 +3696,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setAccessibilityFocused(b
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -4018,14 +3726,12 @@ void android_view_accessibility_AccessibilityNodeInfo::setAccessibilityFocused(b
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setAccessibilityFocused(bool& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setAccessibilityFocused(bool const& arg0) exit");
 
 }
-void android_view_accessibility_AccessibilityNodeInfo::setLabeledBy(AndroidCXX::android_view_View& arg0)
+void android_view_accessibility_AccessibilityNodeInfo::setLabeledBy(AndroidCXX::android_view_View const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setLabeledBy(AndroidCXX::android_view_View& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setLabeledBy(AndroidCXX::android_view_View const& arg0) enter");
 
 	const char *methodName = "setLabeledBy";
 	const char *methodSignature = "(Landroid/view/View;)V";
@@ -4035,8 +3741,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setLabeledBy(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -4067,14 +3771,12 @@ void android_view_accessibility_AccessibilityNodeInfo::setLabeledBy(AndroidCXX::
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setLabeledBy(AndroidCXX::android_view_View& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setLabeledBy(AndroidCXX::android_view_View const& arg0) exit");
 
 }
-void android_view_accessibility_AccessibilityNodeInfo::setLabeledBy(AndroidCXX::android_view_View& arg0,int& arg1)
+void android_view_accessibility_AccessibilityNodeInfo::setLabeledBy(AndroidCXX::android_view_View const& arg0,int const& arg1)
 {
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setLabeledBy(AndroidCXX::android_view_View& arg0,int& arg1) enter");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setLabeledBy(AndroidCXX::android_view_View const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setLabeledBy";
 	const char *methodSignature = "(Landroid/view/View;I)V";
@@ -4084,8 +3786,6 @@ void android_view_accessibility_AccessibilityNodeInfo::setLabeledBy(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -4137,9 +3837,7 @@ void android_view_accessibility_AccessibilityNodeInfo::setLabeledBy(AndroidCXX::
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setLabeledBy(AndroidCXX::android_view_View& arg0,int& arg1) exit");
+	LOGV("void android_view_accessibility_AccessibilityNodeInfo::setLabeledBy(AndroidCXX::android_view_View const& arg0,int const& arg1) exit");
 
 }
 AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::getLabeledBy()
@@ -4154,8 +3852,6 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityNodeInfo cxx address %d", cxxAddress);
@@ -4184,8 +3880,6 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 	AndroidCXX::android_view_accessibility_AccessibilityNodeInfo result((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo) *((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value));
 	delete ((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityNodeInfo::getLabeledBy() exit");
 
 	return result;

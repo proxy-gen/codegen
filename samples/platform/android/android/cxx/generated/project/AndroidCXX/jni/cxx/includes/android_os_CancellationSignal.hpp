@@ -55,18 +55,17 @@ class android_os_CancellationSignal
 public:
 
 	android_os_CancellationSignal(const android_os_CancellationSignal& cc);
-	android_os_CancellationSignal(void * proxy);
+	android_os_CancellationSignal(Proxy proxy);
 	// Public Constructors
 	android_os_CancellationSignal();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_os_CancellationSignal();
 	// Functions
 	 void cancel();
 	 bool isCanceled();
 	 void throwIfCanceled();
-	 void setOnCancelListener(AndroidCXX::android_os_CancellationSignal_OnCancelListener& arg0);
+	 void setOnCancelListener(AndroidCXX::android_os_CancellationSignal_OnCancelListener const& arg0);
 };	
 
 } // namespace

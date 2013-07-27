@@ -51,16 +51,13 @@ class android_graphics_SurfaceTexture_OnFrameAvailableListener
 public:
 
 	android_graphics_SurfaceTexture_OnFrameAvailableListener(const android_graphics_SurfaceTexture_OnFrameAvailableListener& cc);
-	android_graphics_SurfaceTexture_OnFrameAvailableListener(void * proxy);
+	android_graphics_SurfaceTexture_OnFrameAvailableListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_graphics_SurfaceTexture_OnFrameAvailableListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_SurfaceTexture_OnFrameAvailableListener();
 	// Functions
-	 void onFrameAvailable(AndroidCXX::android_graphics_SurfaceTexture& arg0);
+	 void onFrameAvailable(AndroidCXX::android_graphics_SurfaceTexture const& arg0);
 };	
 
 } // namespace

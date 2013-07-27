@@ -61,7 +61,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_MultiAutoCompleteTextView_CommaTokenizer::android_widget_MultiAutoCompleteTextView_CommaTokenizer(const android_widget_MultiAutoCompleteTextView_CommaTokenizer& cc)
 {
 	LOGV("android_widget_MultiAutoCompleteTextView_CommaTokenizer::android_widget_MultiAutoCompleteTextView_CommaTokenizer(const android_widget_MultiAutoCompleteTextView_CommaTokenizer& cc) enter");
@@ -85,9 +84,9 @@ android_widget_MultiAutoCompleteTextView_CommaTokenizer::android_widget_MultiAut
 
 	LOGV("android_widget_MultiAutoCompleteTextView_CommaTokenizer::android_widget_MultiAutoCompleteTextView_CommaTokenizer(const android_widget_MultiAutoCompleteTextView_CommaTokenizer& cc) exit");
 }
-android_widget_MultiAutoCompleteTextView_CommaTokenizer::android_widget_MultiAutoCompleteTextView_CommaTokenizer(void * proxy)
+android_widget_MultiAutoCompleteTextView_CommaTokenizer::android_widget_MultiAutoCompleteTextView_CommaTokenizer(Proxy proxy)
 {
-	LOGV("android_widget_MultiAutoCompleteTextView_CommaTokenizer::android_widget_MultiAutoCompleteTextView_CommaTokenizer(void * proxy) enter");
+	LOGV("android_widget_MultiAutoCompleteTextView_CommaTokenizer::android_widget_MultiAutoCompleteTextView_CommaTokenizer(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -97,17 +96,31 @@ android_widget_MultiAutoCompleteTextView_CommaTokenizer::android_widget_MultiAut
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_MultiAutoCompleteTextView_CommaTokenizer::android_widget_MultiAutoCompleteTextView_CommaTokenizer(void * proxy) exit");
+	LOGV("android_widget_MultiAutoCompleteTextView_CommaTokenizer::android_widget_MultiAutoCompleteTextView_CommaTokenizer(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy android_widget_MultiAutoCompleteTextView_CommaTokenizer::proxy() const
+{	
+	LOGV("android_widget_MultiAutoCompleteTextView_CommaTokenizer::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_widget_MultiAutoCompleteTextView_CommaTokenizer cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_MultiAutoCompleteTextView_CommaTokenizer jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_widget_MultiAutoCompleteTextView_CommaTokenizer::proxy() exit");	
+
+	return proxy;
+}
 android_widget_MultiAutoCompleteTextView_CommaTokenizer::android_widget_MultiAutoCompleteTextView_CommaTokenizer()
 {
 	LOGV("android_widget_MultiAutoCompleteTextView_CommaTokenizer::android_widget_MultiAutoCompleteTextView_CommaTokenizer() enter");	
@@ -155,13 +168,13 @@ android_widget_MultiAutoCompleteTextView_CommaTokenizer::~android_widget_MultiAu
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_MultiAutoCompleteTextView_CommaTokenizer::~android_widget_MultiAutoCompleteTextView_CommaTokenizer() exit");
 }
 // Functions
-int android_widget_MultiAutoCompleteTextView_CommaTokenizer::findTokenStart(AndroidCXX::java_lang_CharSequence& arg0,int& arg1)
+int android_widget_MultiAutoCompleteTextView_CommaTokenizer::findTokenStart(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1)
 {
-	LOGV("int android_widget_MultiAutoCompleteTextView_CommaTokenizer::findTokenStart(AndroidCXX::java_lang_CharSequence& arg0,int& arg1) enter");
+	LOGV("int android_widget_MultiAutoCompleteTextView_CommaTokenizer::findTokenStart(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1) enter");
 
 	const char *methodName = "findTokenStart";
 	const char *methodSignature = "(Ljava/lang/CharSequence;I)I";
@@ -172,8 +185,6 @@ int android_widget_MultiAutoCompleteTextView_CommaTokenizer::findTokenStart(Andr
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_MultiAutoCompleteTextView_CommaTokenizer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -243,15 +254,13 @@ int android_widget_MultiAutoCompleteTextView_CommaTokenizer::findTokenStart(Andr
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_widget_MultiAutoCompleteTextView_CommaTokenizer::findTokenStart(AndroidCXX::java_lang_CharSequence& arg0,int& arg1) exit");
+	LOGV("int android_widget_MultiAutoCompleteTextView_CommaTokenizer::findTokenStart(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1) exit");
 
 	return result;
 }
-int android_widget_MultiAutoCompleteTextView_CommaTokenizer::findTokenEnd(AndroidCXX::java_lang_CharSequence& arg0,int& arg1)
+int android_widget_MultiAutoCompleteTextView_CommaTokenizer::findTokenEnd(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1)
 {
-	LOGV("int android_widget_MultiAutoCompleteTextView_CommaTokenizer::findTokenEnd(AndroidCXX::java_lang_CharSequence& arg0,int& arg1) enter");
+	LOGV("int android_widget_MultiAutoCompleteTextView_CommaTokenizer::findTokenEnd(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1) enter");
 
 	const char *methodName = "findTokenEnd";
 	const char *methodSignature = "(Ljava/lang/CharSequence;I)I";
@@ -262,8 +271,6 @@ int android_widget_MultiAutoCompleteTextView_CommaTokenizer::findTokenEnd(Androi
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_MultiAutoCompleteTextView_CommaTokenizer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -333,15 +340,13 @@ int android_widget_MultiAutoCompleteTextView_CommaTokenizer::findTokenEnd(Androi
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_widget_MultiAutoCompleteTextView_CommaTokenizer::findTokenEnd(AndroidCXX::java_lang_CharSequence& arg0,int& arg1) exit");
+	LOGV("int android_widget_MultiAutoCompleteTextView_CommaTokenizer::findTokenEnd(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_CharSequence android_widget_MultiAutoCompleteTextView_CommaTokenizer::terminateToken(AndroidCXX::java_lang_CharSequence& arg0)
+AndroidCXX::java_lang_CharSequence android_widget_MultiAutoCompleteTextView_CommaTokenizer::terminateToken(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_CharSequence android_widget_MultiAutoCompleteTextView_CommaTokenizer::terminateToken(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("AndroidCXX::java_lang_CharSequence android_widget_MultiAutoCompleteTextView_CommaTokenizer::terminateToken(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "terminateToken";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;";
@@ -351,8 +356,6 @@ AndroidCXX::java_lang_CharSequence android_widget_MultiAutoCompleteTextView_Comm
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_MultiAutoCompleteTextView_CommaTokenizer cxx address %d", cxxAddress);
@@ -402,9 +405,7 @@ AndroidCXX::java_lang_CharSequence android_widget_MultiAutoCompleteTextView_Comm
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_CharSequence android_widget_MultiAutoCompleteTextView_CommaTokenizer::terminateToken(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("AndroidCXX::java_lang_CharSequence android_widget_MultiAutoCompleteTextView_CommaTokenizer::terminateToken(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 	return result;
 }

@@ -57,33 +57,9 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
-android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(const android_view_ViewGroup_LayoutParams& cc)
+android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(Proxy proxy)
 {
-	LOGV("android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(const android_view_ViewGroup_LayoutParams& cc) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	long ccaddress = (long) &cc;
-	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
-	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
-	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
-	long address = (long) this;
-	LOGV("registerProxyComponent address %ld", address);
-	jobject proxiedComponent = ctx->findProxyComponent(address);
-	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
-	if (proxiedComponent == 0)
-	{
-		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = proxiedCCComponent;
-		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
-		ctx->registerProxyComponent(address, proxiedComponent);
-	}
-
-	LOGV("android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(const android_view_ViewGroup_LayoutParams& cc) exit");
-}
-android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(void * proxy)
-{
-	LOGV("android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(void * proxy) enter");
+	LOGV("android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -93,55 +69,34 @@ android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(void * 
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(void * proxy) exit");
+	LOGV("android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams()
-// {
-// 	LOGV("android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams() enter");	
+Proxy android_view_ViewGroup_LayoutParams::proxy() const
+{	
+	LOGV("android_view_ViewGroup_LayoutParams::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/view/ViewGroup$LayoutParams";
+	long cxxAddress = (long) this;
+	LOGV("android_view_ViewGroup_LayoutParams cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_ViewGroup_LayoutParams jni address %d", proxiedComponent);
 
-// 	LOGV("android_view_ViewGroup_LayoutParams className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_view_ViewGroup_LayoutParams::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_view_ViewGroup_LayoutParams cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_view_ViewGroup_LayoutParams jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+	return proxy;
+}
+android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -215,11 +170,11 @@ android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(Android
 
 	jni->popLocalFrame();
 
-	LOGV("android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(int& arg0,int& arg1)
+android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(int const& arg0,int const& arg1)
 {
-	LOGV("android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(int& arg0,int& arg1) enter");	
+	LOGV("android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(int const& arg0,int const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(II)V";
@@ -293,11 +248,11 @@ android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(int& ar
 
 	jni->popLocalFrame();
 
-	LOGV("android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(int& arg0,int& arg1) exit");	
+	LOGV("android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(int const& arg0,int const& arg1) exit");	
 }
-android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0)
+android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0)
 {
-	LOGV("android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0) enter");	
+	LOGV("android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/view/ViewGroup$LayoutParams;)V";
@@ -350,7 +305,7 @@ android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(Android
 
 	jni->popLocalFrame();
 
-	LOGV("android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0) exit");	
+	LOGV("android_view_ViewGroup_LayoutParams::android_view_ViewGroup_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0) exit");	
 }
 // Default Instance Destructor
 android_view_ViewGroup_LayoutParams::~android_view_ViewGroup_LayoutParams()
@@ -363,13 +318,13 @@ android_view_ViewGroup_LayoutParams::~android_view_ViewGroup_LayoutParams()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_ViewGroup_LayoutParams::~android_view_ViewGroup_LayoutParams() exit");
 }
 // Functions
-void android_view_ViewGroup_LayoutParams::resolveLayoutDirection(int& arg0)
+void android_view_ViewGroup_LayoutParams::resolveLayoutDirection(int const& arg0)
 {
-	LOGV("void android_view_ViewGroup_LayoutParams::resolveLayoutDirection(int& arg0) enter");
+	LOGV("void android_view_ViewGroup_LayoutParams::resolveLayoutDirection(int const& arg0) enter");
 
 	const char *methodName = "resolveLayoutDirection";
 	const char *methodSignature = "(I)V";
@@ -379,8 +334,6 @@ void android_view_ViewGroup_LayoutParams::resolveLayoutDirection(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_ViewGroup_LayoutParams cxx address %d", cxxAddress);
@@ -411,8 +364,6 @@ void android_view_ViewGroup_LayoutParams::resolveLayoutDirection(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_ViewGroup_LayoutParams::resolveLayoutDirection(int& arg0) exit");
+	LOGV("void android_view_ViewGroup_LayoutParams::resolveLayoutDirection(int const& arg0) exit");
 
 }

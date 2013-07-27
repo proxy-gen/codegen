@@ -55,7 +55,6 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_util_Comparator::java_util_Comparator(const java_util_Comparator& cc)
 {
 	LOGV("java_util_Comparator::java_util_Comparator(const java_util_Comparator& cc) enter");
@@ -79,9 +78,9 @@ java_util_Comparator::java_util_Comparator(const java_util_Comparator& cc)
 
 	LOGV("java_util_Comparator::java_util_Comparator(const java_util_Comparator& cc) exit");
 }
-java_util_Comparator::java_util_Comparator(void * proxy)
+java_util_Comparator::java_util_Comparator(Proxy proxy)
 {
-	LOGV("java_util_Comparator::java_util_Comparator(void * proxy) enter");
+	LOGV("java_util_Comparator::java_util_Comparator(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -91,52 +90,31 @@ java_util_Comparator::java_util_Comparator(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_util_Comparator::java_util_Comparator(void * proxy) exit");
+	LOGV("java_util_Comparator::java_util_Comparator(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_util_Comparator::java_util_Comparator()
-// {
-// 	LOGV("java_util_Comparator::java_util_Comparator() enter");	
+Proxy java_util_Comparator::proxy() const
+{	
+	LOGV("java_util_Comparator::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/util/Comparator";
+	long cxxAddress = (long) this;
+	LOGV("java_util_Comparator cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_util_Comparator jni address %d", proxiedComponent);
 
-// 	LOGV("java_util_Comparator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_util_Comparator::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_util_Comparator cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_util_Comparator jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_util_Comparator::java_util_Comparator() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_util_Comparator::~java_util_Comparator()
 {
@@ -148,13 +126,13 @@ java_util_Comparator::~java_util_Comparator()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_util_Comparator::~java_util_Comparator() exit");
 }
 // Functions
-bool java_util_Comparator::equals(JDKCXX::java_lang_Object& arg0)
+bool java_util_Comparator::equals(JDKCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_util_Comparator::equals(JDKCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_util_Comparator::equals(JDKCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -164,8 +142,6 @@ bool java_util_Comparator::equals(JDKCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Comparator cxx address %d", cxxAddress);
@@ -215,15 +191,13 @@ bool java_util_Comparator::equals(JDKCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_util_Comparator::equals(JDKCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_util_Comparator::equals(JDKCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-int java_util_Comparator::compare(JDKCXX::java_lang_Object& arg0,JDKCXX::java_lang_Object& arg1)
+int java_util_Comparator::compare(JDKCXX::java_lang_Object const& arg0,JDKCXX::java_lang_Object const& arg1)
 {
-	LOGV("int java_util_Comparator::compare(JDKCXX::java_lang_Object& arg0,JDKCXX::java_lang_Object& arg1) enter");
+	LOGV("int java_util_Comparator::compare(JDKCXX::java_lang_Object const& arg0,JDKCXX::java_lang_Object const& arg1) enter");
 
 	const char *methodName = "compare";
 	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/Object;)I";
@@ -233,8 +207,6 @@ int java_util_Comparator::compare(JDKCXX::java_lang_Object& arg0,JDKCXX::java_la
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Comparator cxx address %d", cxxAddress);
@@ -305,9 +277,7 @@ int java_util_Comparator::compare(JDKCXX::java_lang_Object& arg0,JDKCXX::java_la
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_util_Comparator::compare(JDKCXX::java_lang_Object& arg0,JDKCXX::java_lang_Object& arg1) exit");
+	LOGV("int java_util_Comparator::compare(JDKCXX::java_lang_Object const& arg0,JDKCXX::java_lang_Object const& arg1) exit");
 
 	return result;
 }

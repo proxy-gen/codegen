@@ -63,33 +63,9 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
-android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(const android_app_ActionBar_LayoutParams& cc)
+android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(Proxy proxy)
 {
-	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(const android_app_ActionBar_LayoutParams& cc) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	long ccaddress = (long) &cc;
-	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
-	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
-	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
-	long address = (long) this;
-	LOGV("registerProxyComponent address %ld", address);
-	jobject proxiedComponent = ctx->findProxyComponent(address);
-	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
-	if (proxiedComponent == 0)
-	{
-		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = proxiedCCComponent;
-		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
-		ctx->registerProxyComponent(address, proxiedComponent);
-	}
-
-	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(const android_app_ActionBar_LayoutParams& cc) exit");
-}
-android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(void * proxy)
-{
-	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(void * proxy) enter");
+	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -99,55 +75,34 @@ android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(void * pr
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(void * proxy) exit");
+	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams()
-// {
-// 	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams() enter");	
+Proxy android_app_ActionBar_LayoutParams::proxy() const
+{	
+	LOGV("android_app_ActionBar_LayoutParams::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/app/ActionBar$LayoutParams";
+	long cxxAddress = (long) this;
+	LOGV("android_app_ActionBar_LayoutParams cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_ActionBar_LayoutParams jni address %d", proxiedComponent);
 
-// 	LOGV("android_app_ActionBar_LayoutParams className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_app_ActionBar_LayoutParams::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_app_ActionBar_LayoutParams cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_app_ActionBar_LayoutParams jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+	return proxy;
+}
+android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -221,11 +176,11 @@ android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCX
 
 	jni->popLocalFrame();
 
-	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int& arg0,int& arg1)
+android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int const& arg0,int const& arg1)
 {
-	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int& arg0,int& arg1) enter");	
+	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int const& arg0,int const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(II)V";
@@ -299,11 +254,11 @@ android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int& arg0
 
 	jni->popLocalFrame();
 
-	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int& arg0,int& arg1) exit");	
+	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int const& arg0,int const& arg1) exit");	
 }
-android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int& arg0,int& arg1,int& arg2)
+android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int& arg0,int& arg1,int& arg2) enter");	
+	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int const& arg0,int const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(III)V";
@@ -398,11 +353,11 @@ android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int& arg0
 
 	jni->popLocalFrame();
 
-	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int& arg0,int& arg1,int& arg2) exit");	
+	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int const& arg0,int const& arg1,int const& arg2) exit");	
 }
-android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int& arg0)
+android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int const& arg0)
 {
-	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int& arg0) enter");	
+	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(I)V";
@@ -455,11 +410,11 @@ android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int& arg0
 
 	jni->popLocalFrame();
 
-	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int& arg0) exit");	
+	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int const& arg0) exit");	
 }
-android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCXX::android_app_ActionBar_LayoutParams& arg0)
+android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCXX::android_app_ActionBar_LayoutParams const& arg0)
 {
-	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCXX::android_app_ActionBar_LayoutParams& arg0) enter");	
+	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCXX::android_app_ActionBar_LayoutParams const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/app/ActionBar$LayoutParams;)V";
@@ -512,11 +467,11 @@ android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCX
 
 	jni->popLocalFrame();
 
-	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCXX::android_app_ActionBar_LayoutParams& arg0) exit");	
+	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCXX::android_app_ActionBar_LayoutParams const& arg0) exit");	
 }
-android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0)
+android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0)
 {
-	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0) enter");	
+	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/view/ViewGroup$LayoutParams;)V";
@@ -569,7 +524,7 @@ android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCX
 
 	jni->popLocalFrame();
 
-	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0) exit");	
+	LOGV("android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0) exit");	
 }
 // Default Instance Destructor
 android_app_ActionBar_LayoutParams::~android_app_ActionBar_LayoutParams()
@@ -582,7 +537,7 @@ android_app_ActionBar_LayoutParams::~android_app_ActionBar_LayoutParams()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_app_ActionBar_LayoutParams::~android_app_ActionBar_LayoutParams() exit");
 }
 // Functions

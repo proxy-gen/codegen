@@ -81,7 +81,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_content_res_AssetFileDescriptor::android_content_res_AssetFileDescriptor(const android_content_res_AssetFileDescriptor& cc)
 {
 	LOGV("android_content_res_AssetFileDescriptor::android_content_res_AssetFileDescriptor(const android_content_res_AssetFileDescriptor& cc) enter");
@@ -105,9 +104,9 @@ android_content_res_AssetFileDescriptor::android_content_res_AssetFileDescriptor
 
 	LOGV("android_content_res_AssetFileDescriptor::android_content_res_AssetFileDescriptor(const android_content_res_AssetFileDescriptor& cc) exit");
 }
-android_content_res_AssetFileDescriptor::android_content_res_AssetFileDescriptor(void * proxy)
+android_content_res_AssetFileDescriptor::android_content_res_AssetFileDescriptor(Proxy proxy)
 {
-	LOGV("android_content_res_AssetFileDescriptor::android_content_res_AssetFileDescriptor(void * proxy) enter");
+	LOGV("android_content_res_AssetFileDescriptor::android_content_res_AssetFileDescriptor(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -117,55 +116,34 @@ android_content_res_AssetFileDescriptor::android_content_res_AssetFileDescriptor
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_content_res_AssetFileDescriptor::android_content_res_AssetFileDescriptor(void * proxy) exit");
+	LOGV("android_content_res_AssetFileDescriptor::android_content_res_AssetFileDescriptor(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_content_res_AssetFileDescriptor::android_content_res_AssetFileDescriptor()
-// {
-// 	LOGV("android_content_res_AssetFileDescriptor::android_content_res_AssetFileDescriptor() enter");	
+Proxy android_content_res_AssetFileDescriptor::proxy() const
+{	
+	LOGV("android_content_res_AssetFileDescriptor::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/content/res/AssetFileDescriptor";
+	long cxxAddress = (long) this;
+	LOGV("android_content_res_AssetFileDescriptor cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_content_res_AssetFileDescriptor jni address %d", proxiedComponent);
 
-// 	LOGV("android_content_res_AssetFileDescriptor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_content_res_AssetFileDescriptor::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_content_res_AssetFileDescriptor cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_content_res_AssetFileDescriptor jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_content_res_AssetFileDescriptor::android_content_res_AssetFileDescriptor() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_content_res_AssetFileDescriptor::android_content_res_AssetFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor& arg0,long& arg1,long& arg2)
+	return proxy;
+}
+android_content_res_AssetFileDescriptor::android_content_res_AssetFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor const& arg0,long const& arg1,long const& arg2)
 {
-	LOGV("android_content_res_AssetFileDescriptor::android_content_res_AssetFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor& arg0,long& arg1,long& arg2) enter");	
+	LOGV("android_content_res_AssetFileDescriptor::android_content_res_AssetFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor const& arg0,long const& arg1,long const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/os/ParcelFileDescriptor;JJ)V";
@@ -260,7 +238,7 @@ android_content_res_AssetFileDescriptor::android_content_res_AssetFileDescriptor
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_res_AssetFileDescriptor::android_content_res_AssetFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor& arg0,long& arg1,long& arg2) exit");	
+	LOGV("android_content_res_AssetFileDescriptor::android_content_res_AssetFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor const& arg0,long const& arg1,long const& arg2) exit");	
 }
 // Default Instance Destructor
 android_content_res_AssetFileDescriptor::~android_content_res_AssetFileDescriptor()
@@ -273,7 +251,7 @@ android_content_res_AssetFileDescriptor::~android_content_res_AssetFileDescripto
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_content_res_AssetFileDescriptor::~android_content_res_AssetFileDescriptor() exit");
 }
 // Functions
@@ -289,8 +267,6 @@ AndroidCXX::java_lang_String android_content_res_AssetFileDescriptor::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_AssetFileDescriptor cxx address %d", cxxAddress);
@@ -319,8 +295,6 @@ AndroidCXX::java_lang_String android_content_res_AssetFileDescriptor::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_content_res_AssetFileDescriptor::toString() exit");
 
 	return result;
@@ -337,8 +311,6 @@ long android_content_res_AssetFileDescriptor::getLength()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_AssetFileDescriptor cxx address %d", cxxAddress);
@@ -367,8 +339,6 @@ long android_content_res_AssetFileDescriptor::getLength()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long android_content_res_AssetFileDescriptor::getLength() exit");
 
 	return result;
@@ -386,8 +356,6 @@ void android_content_res_AssetFileDescriptor::close()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_AssetFileDescriptor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -396,8 +364,6 @@ void android_content_res_AssetFileDescriptor::close()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_content_res_AssetFileDescriptor::close() exit");
 
 }
@@ -413,8 +379,6 @@ int android_content_res_AssetFileDescriptor::describeContents()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_AssetFileDescriptor cxx address %d", cxxAddress);
@@ -443,15 +407,13 @@ int android_content_res_AssetFileDescriptor::describeContents()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_content_res_AssetFileDescriptor::describeContents() exit");
 
 	return result;
 }
-void android_content_res_AssetFileDescriptor::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_content_res_AssetFileDescriptor::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_content_res_AssetFileDescriptor::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_content_res_AssetFileDescriptor::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -461,8 +423,6 @@ void android_content_res_AssetFileDescriptor::writeToParcel(AndroidCXX::android_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_AssetFileDescriptor cxx address %d", cxxAddress);
@@ -514,9 +474,7 @@ void android_content_res_AssetFileDescriptor::writeToParcel(AndroidCXX::android_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_res_AssetFileDescriptor::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_content_res_AssetFileDescriptor::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }
 AndroidCXX::java_io_FileDescriptor android_content_res_AssetFileDescriptor::getFileDescriptor()
@@ -531,8 +489,6 @@ AndroidCXX::java_io_FileDescriptor android_content_res_AssetFileDescriptor::getF
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_AssetFileDescriptor cxx address %d", cxxAddress);
@@ -561,8 +517,6 @@ AndroidCXX::java_io_FileDescriptor android_content_res_AssetFileDescriptor::getF
 	AndroidCXX::java_io_FileDescriptor result((AndroidCXX::java_io_FileDescriptor) *((AndroidCXX::java_io_FileDescriptor *) cxx_value));
 	delete ((AndroidCXX::java_io_FileDescriptor *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_io_FileDescriptor android_content_res_AssetFileDescriptor::getFileDescriptor() exit");
 
 	return result;
@@ -579,8 +533,6 @@ long android_content_res_AssetFileDescriptor::getStartOffset()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_AssetFileDescriptor cxx address %d", cxxAddress);
@@ -609,8 +561,6 @@ long android_content_res_AssetFileDescriptor::getStartOffset()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long android_content_res_AssetFileDescriptor::getStartOffset() exit");
 
 	return result;
@@ -627,8 +577,6 @@ AndroidCXX::android_os_ParcelFileDescriptor android_content_res_AssetFileDescrip
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_AssetFileDescriptor cxx address %d", cxxAddress);
@@ -657,8 +605,6 @@ AndroidCXX::android_os_ParcelFileDescriptor android_content_res_AssetFileDescrip
 	AndroidCXX::android_os_ParcelFileDescriptor result((AndroidCXX::android_os_ParcelFileDescriptor) *((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value));
 	delete ((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_content_res_AssetFileDescriptor::getParcelFileDescriptor() exit");
 
 	return result;
@@ -675,8 +621,6 @@ long android_content_res_AssetFileDescriptor::getDeclaredLength()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_AssetFileDescriptor cxx address %d", cxxAddress);
@@ -705,8 +649,6 @@ long android_content_res_AssetFileDescriptor::getDeclaredLength()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long android_content_res_AssetFileDescriptor::getDeclaredLength() exit");
 
 	return result;
@@ -723,8 +665,6 @@ AndroidCXX::java_io_FileInputStream android_content_res_AssetFileDescriptor::cre
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_AssetFileDescriptor cxx address %d", cxxAddress);
@@ -753,8 +693,6 @@ AndroidCXX::java_io_FileInputStream android_content_res_AssetFileDescriptor::cre
 	AndroidCXX::java_io_FileInputStream result((AndroidCXX::java_io_FileInputStream) *((AndroidCXX::java_io_FileInputStream *) cxx_value));
 	delete ((AndroidCXX::java_io_FileInputStream *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_io_FileInputStream android_content_res_AssetFileDescriptor::createInputStream() exit");
 
 	return result;
@@ -771,8 +709,6 @@ AndroidCXX::java_io_FileOutputStream android_content_res_AssetFileDescriptor::cr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_AssetFileDescriptor cxx address %d", cxxAddress);
@@ -801,8 +737,6 @@ AndroidCXX::java_io_FileOutputStream android_content_res_AssetFileDescriptor::cr
 	AndroidCXX::java_io_FileOutputStream result((AndroidCXX::java_io_FileOutputStream) *((AndroidCXX::java_io_FileOutputStream *) cxx_value));
 	delete ((AndroidCXX::java_io_FileOutputStream *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_io_FileOutputStream android_content_res_AssetFileDescriptor::createOutputStream() exit");
 
 	return result;

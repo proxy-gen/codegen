@@ -107,33 +107,30 @@ class java_lang_Package
 public:
 
 	java_lang_Package(const java_lang_Package& cc);
-	java_lang_Package(void * proxy);
+	java_lang_Package(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_lang_Package();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Package();
 	// Functions
 	 JDKCXX::java_lang_String toString();
 	 int hashCode();
 	 JDKCXX::java_lang_String getName();
-	static JDKCXX::java_lang_Package getPackage(JDKCXX::java_lang_String& arg0);
-	 JDKCXX::java_lang_annotation_Annotation getAnnotation(JDKCXX::java_lang_Class& arg0);
-	 bool isAnnotationPresent(JDKCXX::java_lang_Class& arg0);
+	static JDKCXX::java_lang_Package getPackage(JDKCXX::java_lang_String const& arg0);
+	 JDKCXX::java_lang_annotation_Annotation getAnnotation(JDKCXX::java_lang_Class const& arg0);
+	 bool isAnnotationPresent(JDKCXX::java_lang_Class const& arg0);
 	 std::vector<JDKCXX::java_lang_annotation_Annotation > getAnnotations();
 	 std::vector<JDKCXX::java_lang_annotation_Annotation > getDeclaredAnnotations();
 	static std::vector<JDKCXX::java_lang_Package > getPackages();
 	 bool isSealed();
-	 bool isSealed(JDKCXX::java_net_URL& arg0);
+	 bool isSealed(JDKCXX::java_net_URL const& arg0);
 	 JDKCXX::java_lang_String getSpecificationTitle();
 	 JDKCXX::java_lang_String getSpecificationVersion();
 	 JDKCXX::java_lang_String getSpecificationVendor();
 	 JDKCXX::java_lang_String getImplementationTitle();
 	 JDKCXX::java_lang_String getImplementationVersion();
 	 JDKCXX::java_lang_String getImplementationVendor();
-	 bool isCompatibleWith(JDKCXX::java_lang_String& arg0);
+	 bool isCompatibleWith(JDKCXX::java_lang_String const& arg0);
 };	
 
 } // namespace

@@ -46,7 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_CalendarView_OnDateChangeListener::android_widget_CalendarView_OnDateChangeListener(const android_widget_CalendarView_OnDateChangeListener& cc)
 {
 	LOGV("android_widget_CalendarView_OnDateChangeListener::android_widget_CalendarView_OnDateChangeListener(const android_widget_CalendarView_OnDateChangeListener& cc) enter");
@@ -70,9 +69,9 @@ android_widget_CalendarView_OnDateChangeListener::android_widget_CalendarView_On
 
 	LOGV("android_widget_CalendarView_OnDateChangeListener::android_widget_CalendarView_OnDateChangeListener(const android_widget_CalendarView_OnDateChangeListener& cc) exit");
 }
-android_widget_CalendarView_OnDateChangeListener::android_widget_CalendarView_OnDateChangeListener(void * proxy)
+android_widget_CalendarView_OnDateChangeListener::android_widget_CalendarView_OnDateChangeListener(Proxy proxy)
 {
-	LOGV("android_widget_CalendarView_OnDateChangeListener::android_widget_CalendarView_OnDateChangeListener(void * proxy) enter");
+	LOGV("android_widget_CalendarView_OnDateChangeListener::android_widget_CalendarView_OnDateChangeListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -82,52 +81,31 @@ android_widget_CalendarView_OnDateChangeListener::android_widget_CalendarView_On
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_CalendarView_OnDateChangeListener::android_widget_CalendarView_OnDateChangeListener(void * proxy) exit");
+	LOGV("android_widget_CalendarView_OnDateChangeListener::android_widget_CalendarView_OnDateChangeListener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_CalendarView_OnDateChangeListener::android_widget_CalendarView_OnDateChangeListener()
-// {
-// 	LOGV("android_widget_CalendarView_OnDateChangeListener::android_widget_CalendarView_OnDateChangeListener() enter");	
+Proxy android_widget_CalendarView_OnDateChangeListener::proxy() const
+{	
+	LOGV("android_widget_CalendarView_OnDateChangeListener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/CalendarView$OnDateChangeListener";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_CalendarView_OnDateChangeListener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_CalendarView_OnDateChangeListener jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_CalendarView_OnDateChangeListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_CalendarView_OnDateChangeListener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_CalendarView_OnDateChangeListener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_CalendarView_OnDateChangeListener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_CalendarView_OnDateChangeListener::android_widget_CalendarView_OnDateChangeListener() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_widget_CalendarView_OnDateChangeListener::~android_widget_CalendarView_OnDateChangeListener()
 {
@@ -139,13 +117,13 @@ android_widget_CalendarView_OnDateChangeListener::~android_widget_CalendarView_O
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_CalendarView_OnDateChangeListener::~android_widget_CalendarView_OnDateChangeListener() exit");
 }
 // Functions
-void android_widget_CalendarView_OnDateChangeListener::onSelectedDayChange(AndroidCXX::android_widget_CalendarView& arg0,int& arg1,int& arg2,int& arg3)
+void android_widget_CalendarView_OnDateChangeListener::onSelectedDayChange(AndroidCXX::android_widget_CalendarView const& arg0,int const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("void android_widget_CalendarView_OnDateChangeListener::onSelectedDayChange(AndroidCXX::android_widget_CalendarView& arg0,int& arg1,int& arg2,int& arg3) enter");
+	LOGV("void android_widget_CalendarView_OnDateChangeListener::onSelectedDayChange(AndroidCXX::android_widget_CalendarView const& arg0,int const& arg1,int const& arg2,int const& arg3) enter");
 
 	const char *methodName = "onSelectedDayChange";
 	const char *methodSignature = "(Landroid/widget/CalendarView;III)V";
@@ -155,8 +133,6 @@ void android_widget_CalendarView_OnDateChangeListener::onSelectedDayChange(Andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView_OnDateChangeListener cxx address %d", cxxAddress);
@@ -250,8 +226,6 @@ void android_widget_CalendarView_OnDateChangeListener::onSelectedDayChange(Andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CalendarView_OnDateChangeListener::onSelectedDayChange(AndroidCXX::android_widget_CalendarView& arg0,int& arg1,int& arg2,int& arg3) exit");
+	LOGV("void android_widget_CalendarView_OnDateChangeListener::onSelectedDayChange(AndroidCXX::android_widget_CalendarView const& arg0,int const& arg1,int const& arg2,int const& arg3) exit");
 
 }

@@ -143,44 +143,41 @@ class android_widget_VideoView
 public:
 
 	android_widget_VideoView(const android_widget_VideoView& cc);
-	android_widget_VideoView(void * proxy);
+	android_widget_VideoView(Proxy proxy);
 	// Public Constructors
-	android_widget_VideoView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_VideoView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_VideoView(AndroidCXX::android_content_Context& arg0);
-	// TODO: remove
-	// 
-	// android_widget_VideoView();
-	// 
+	android_widget_VideoView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_VideoView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_VideoView(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_VideoView();
 	// Functions
 	 void start();
 	 void suspend();
 	 void resume();
-	 bool onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1);
-	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0);
-	 bool onTrackballEvent(AndroidCXX::android_view_MotionEvent& arg0);
+	 bool onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
+	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0);
+	 bool onTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0);
 	 int getDuration();
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
 	 void pause();
 	 int getCurrentPosition();
-	 void seekTo(int& arg0);
+	 void seekTo(int const& arg0);
 	 bool isPlaying();
 	 int getBufferPercentage();
 	 bool canPause();
 	 bool canSeekBackward();
 	 bool canSeekForward();
-	 int resolveAdjustedSize(int& arg0,int& arg1);
-	 void setVideoPath(AndroidCXX::java_lang_String& arg0);
-	 void setVideoURI(AndroidCXX::android_net_Uri& arg0);
+	 int resolveAdjustedSize(int const& arg0,int const& arg1);
+	 void setVideoPath(AndroidCXX::java_lang_String const& arg0);
+	 void setVideoURI(AndroidCXX::android_net_Uri const& arg0);
 	 void stopPlayback();
-	 void setMediaController(AndroidCXX::android_widget_MediaController& arg0);
-	 void setOnPreparedListener(AndroidCXX::android_media_MediaPlayer_OnPreparedListener& arg0);
-	 void setOnCompletionListener(AndroidCXX::android_media_MediaPlayer_OnCompletionListener& arg0);
-	 void setOnErrorListener(AndroidCXX::android_media_MediaPlayer_OnErrorListener& arg0);
-	 void setOnInfoListener(AndroidCXX::android_media_MediaPlayer_OnInfoListener& arg0);
+	 void setMediaController(AndroidCXX::android_widget_MediaController const& arg0);
+	 void setOnPreparedListener(AndroidCXX::android_media_MediaPlayer_OnPreparedListener const& arg0);
+	 void setOnCompletionListener(AndroidCXX::android_media_MediaPlayer_OnCompletionListener const& arg0);
+	 void setOnErrorListener(AndroidCXX::android_media_MediaPlayer_OnErrorListener const& arg0);
+	 void setOnInfoListener(AndroidCXX::android_media_MediaPlayer_OnInfoListener const& arg0);
 };	
 
 } // namespace

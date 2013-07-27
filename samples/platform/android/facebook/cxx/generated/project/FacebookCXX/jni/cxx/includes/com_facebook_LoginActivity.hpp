@@ -55,17 +55,16 @@ class com_facebook_LoginActivity
 public:
 
 	com_facebook_LoginActivity(const com_facebook_LoginActivity& cc);
-	com_facebook_LoginActivity(void * proxy);
+	com_facebook_LoginActivity(Proxy proxy);
 	// Public Constructors
 	com_facebook_LoginActivity();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_LoginActivity();
 	// Functions
-	 void onCreate(AndroidCXX::android_os_Bundle& arg0);
+	 void onCreate(AndroidCXX::android_os_Bundle const& arg0);
 	 void onResume();
-	 void onSaveInstanceState(AndroidCXX::android_os_Bundle& arg0);
+	 void onSaveInstanceState(AndroidCXX::android_os_Bundle const& arg0);
 	 void onPause();
 };	
 

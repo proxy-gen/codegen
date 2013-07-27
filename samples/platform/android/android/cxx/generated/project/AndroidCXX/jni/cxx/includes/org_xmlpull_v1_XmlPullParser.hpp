@@ -132,50 +132,47 @@ class org_xmlpull_v1_XmlPullParser
 public:
 
 	org_xmlpull_v1_XmlPullParser(const org_xmlpull_v1_XmlPullParser& cc);
-	org_xmlpull_v1_XmlPullParser(void * proxy);
+	org_xmlpull_v1_XmlPullParser(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// org_xmlpull_v1_XmlPullParser();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~org_xmlpull_v1_XmlPullParser();
 	// Functions
-	 void setProperty(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Object& arg1);
-	 AndroidCXX::java_lang_Object getProperty(AndroidCXX::java_lang_String& arg0);
+	 void setProperty(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	 AndroidCXX::java_lang_Object getProperty(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_lang_String getName();
 	 int next();
 	 int getLineNumber();
 	 bool isWhitespace();
 	 int nextToken();
-	 void setInput(AndroidCXX::java_io_InputStream& arg0,AndroidCXX::java_lang_String& arg1);
-	 void setInput(AndroidCXX::java_io_Reader& arg0);
+	 void setInput(AndroidCXX::java_io_InputStream const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 void setInput(AndroidCXX::java_io_Reader const& arg0);
 	 AndroidCXX::java_lang_String getPrefix();
-	 AndroidCXX::java_lang_String getAttributeValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
-	 AndroidCXX::java_lang_String getAttributeValue(int& arg0);
+	 AndroidCXX::java_lang_String getAttributeValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 AndroidCXX::java_lang_String getAttributeValue(int const& arg0);
 	 AndroidCXX::java_lang_String getText();
 	 AndroidCXX::java_lang_String getPositionDescription();
 	 int getAttributeCount();
-	 AndroidCXX::java_lang_String getAttributeName(int& arg0);
-	 void setFeature(AndroidCXX::java_lang_String& arg0,bool& arg1);
-	 bool getFeature(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_lang_String getAttributeName(int const& arg0);
+	 void setFeature(AndroidCXX::java_lang_String const& arg0,bool const& arg1);
+	 bool getFeature(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_lang_String getInputEncoding();
-	 void defineEntityReplacementText(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
-	 int getNamespaceCount(int& arg0);
-	 AndroidCXX::java_lang_String getNamespacePrefix(int& arg0);
-	 AndroidCXX::java_lang_String getNamespaceUri(int& arg0);
-	 AndroidCXX::java_lang_String getNamespace(AndroidCXX::java_lang_String& arg0);
+	 void defineEntityReplacementText(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 int getNamespaceCount(int const& arg0);
+	 AndroidCXX::java_lang_String getNamespacePrefix(int const& arg0);
+	 AndroidCXX::java_lang_String getNamespaceUri(int const& arg0);
+	 AndroidCXX::java_lang_String getNamespace(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_lang_String getNamespace();
 	 int getDepth();
 	 int getColumnNumber();
-	 std::vector<char> getTextCharacters(std::vector<int>& arg0);
+	 std::vector<char> getTextCharacters(std::vector<int> const& arg0);
 	 bool isEmptyElementTag();
-	 AndroidCXX::java_lang_String getAttributeNamespace(int& arg0);
-	 AndroidCXX::java_lang_String getAttributePrefix(int& arg0);
-	 AndroidCXX::java_lang_String getAttributeType(int& arg0);
-	 bool isAttributeDefault(int& arg0);
+	 AndroidCXX::java_lang_String getAttributeNamespace(int const& arg0);
+	 AndroidCXX::java_lang_String getAttributePrefix(int const& arg0);
+	 AndroidCXX::java_lang_String getAttributeType(int const& arg0);
+	 bool isAttributeDefault(int const& arg0);
 	 int getEventType();
-	 void require(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2);
+	 void require(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2);
 	 AndroidCXX::java_lang_String nextText();
 	 int nextTag();
 };	

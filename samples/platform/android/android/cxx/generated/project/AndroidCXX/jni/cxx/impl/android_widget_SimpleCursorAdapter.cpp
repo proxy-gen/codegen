@@ -147,7 +147,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(const android_widget_SimpleCursorAdapter& cc)
 {
 	LOGV("android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(const android_widget_SimpleCursorAdapter& cc) enter");
@@ -171,9 +170,9 @@ android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(const and
 
 	LOGV("android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(const android_widget_SimpleCursorAdapter& cc) exit");
 }
-android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(void * proxy)
+android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(Proxy proxy)
 {
-	LOGV("android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(void * proxy) enter");
+	LOGV("android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -183,55 +182,34 @@ android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(void * pr
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(void * proxy) exit");
+	LOGV("android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter()
-// {
-// 	LOGV("android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter() enter");	
+Proxy android_widget_SimpleCursorAdapter::proxy() const
+{	
+	LOGV("android_widget_SimpleCursorAdapter::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/SimpleCursorAdapter";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_SimpleCursorAdapter cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_SimpleCursorAdapter jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_SimpleCursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_SimpleCursorAdapter::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_SimpleCursorAdapter cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_SimpleCursorAdapter jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,AndroidCXX::android_database_Cursor& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4)
+	return proxy;
+}
+android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_database_Cursor const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,std::vector<int> const& arg4)
 {
-	LOGV("android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,AndroidCXX::android_database_Cursor& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4) enter");	
+	LOGV("android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_database_Cursor const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,std::vector<int> const& arg4) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;ILandroid/database/Cursor;[Ljava/lang/String;[I)V";
@@ -404,11 +382,11 @@ android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(AndroidCX
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,AndroidCXX::android_database_Cursor& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4) exit");	
+	LOGV("android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_database_Cursor const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,std::vector<int> const& arg4) exit");	
 }
-android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,AndroidCXX::android_database_Cursor& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4,int& arg5)
+android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_database_Cursor const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,std::vector<int> const& arg4,int const& arg5)
 {
-	LOGV("android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,AndroidCXX::android_database_Cursor& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4,int& arg5) enter");	
+	LOGV("android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_database_Cursor const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,std::vector<int> const& arg4,int const& arg5) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;ILandroid/database/Cursor;[Ljava/lang/String;[II)V";
@@ -602,7 +580,7 @@ android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(AndroidCX
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,AndroidCXX::android_database_Cursor& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4,int& arg5) exit");	
+	LOGV("android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_database_Cursor const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,std::vector<int> const& arg4,int const& arg5) exit");	
 }
 // Default Instance Destructor
 android_widget_SimpleCursorAdapter::~android_widget_SimpleCursorAdapter()
@@ -615,13 +593,13 @@ android_widget_SimpleCursorAdapter::~android_widget_SimpleCursorAdapter()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_SimpleCursorAdapter::~android_widget_SimpleCursorAdapter() exit");
 }
 // Functions
-AndroidCXX::java_lang_CharSequence android_widget_SimpleCursorAdapter::convertToString(AndroidCXX::android_database_Cursor& arg0)
+AndroidCXX::java_lang_CharSequence android_widget_SimpleCursorAdapter::convertToString(AndroidCXX::android_database_Cursor const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_CharSequence android_widget_SimpleCursorAdapter::convertToString(AndroidCXX::android_database_Cursor& arg0) enter");
+	LOGV("AndroidCXX::java_lang_CharSequence android_widget_SimpleCursorAdapter::convertToString(AndroidCXX::android_database_Cursor const& arg0) enter");
 
 	const char *methodName = "convertToString";
 	const char *methodSignature = "(Landroid/database/Cursor;)Ljava/lang/CharSequence;";
@@ -631,8 +609,6 @@ AndroidCXX::java_lang_CharSequence android_widget_SimpleCursorAdapter::convertTo
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleCursorAdapter cxx address %d", cxxAddress);
@@ -682,15 +658,13 @@ AndroidCXX::java_lang_CharSequence android_widget_SimpleCursorAdapter::convertTo
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_CharSequence android_widget_SimpleCursorAdapter::convertToString(AndroidCXX::android_database_Cursor& arg0) exit");
+	LOGV("AndroidCXX::java_lang_CharSequence android_widget_SimpleCursorAdapter::convertToString(AndroidCXX::android_database_Cursor const& arg0) exit");
 
 	return result;
 }
-void android_widget_SimpleCursorAdapter::bindView(AndroidCXX::android_view_View& arg0,AndroidCXX::android_content_Context& arg1,AndroidCXX::android_database_Cursor& arg2)
+void android_widget_SimpleCursorAdapter::bindView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_content_Context const& arg1,AndroidCXX::android_database_Cursor const& arg2)
 {
-	LOGV("void android_widget_SimpleCursorAdapter::bindView(AndroidCXX::android_view_View& arg0,AndroidCXX::android_content_Context& arg1,AndroidCXX::android_database_Cursor& arg2) enter");
+	LOGV("void android_widget_SimpleCursorAdapter::bindView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_content_Context const& arg1,AndroidCXX::android_database_Cursor const& arg2) enter");
 
 	const char *methodName = "bindView";
 	const char *methodSignature = "(Landroid/view/View;Landroid/content/Context;Landroid/database/Cursor;)V";
@@ -700,8 +674,6 @@ void android_widget_SimpleCursorAdapter::bindView(AndroidCXX::android_view_View&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleCursorAdapter cxx address %d", cxxAddress);
@@ -774,14 +746,12 @@ void android_widget_SimpleCursorAdapter::bindView(AndroidCXX::android_view_View&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SimpleCursorAdapter::bindView(AndroidCXX::android_view_View& arg0,AndroidCXX::android_content_Context& arg1,AndroidCXX::android_database_Cursor& arg2) exit");
+	LOGV("void android_widget_SimpleCursorAdapter::bindView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_content_Context const& arg1,AndroidCXX::android_database_Cursor const& arg2) exit");
 
 }
-AndroidCXX::android_database_Cursor android_widget_SimpleCursorAdapter::swapCursor(AndroidCXX::android_database_Cursor& arg0)
+AndroidCXX::android_database_Cursor android_widget_SimpleCursorAdapter::swapCursor(AndroidCXX::android_database_Cursor const& arg0)
 {
-	LOGV("AndroidCXX::android_database_Cursor android_widget_SimpleCursorAdapter::swapCursor(AndroidCXX::android_database_Cursor& arg0) enter");
+	LOGV("AndroidCXX::android_database_Cursor android_widget_SimpleCursorAdapter::swapCursor(AndroidCXX::android_database_Cursor const& arg0) enter");
 
 	const char *methodName = "swapCursor";
 	const char *methodSignature = "(Landroid/database/Cursor;)Landroid/database/Cursor;";
@@ -791,8 +761,6 @@ AndroidCXX::android_database_Cursor android_widget_SimpleCursorAdapter::swapCurs
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleCursorAdapter cxx address %d", cxxAddress);
@@ -842,9 +810,7 @@ AndroidCXX::android_database_Cursor android_widget_SimpleCursorAdapter::swapCurs
 	AndroidCXX::android_database_Cursor result((AndroidCXX::android_database_Cursor) *((AndroidCXX::android_database_Cursor *) cxx_value));
 	delete ((AndroidCXX::android_database_Cursor *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_database_Cursor android_widget_SimpleCursorAdapter::swapCursor(AndroidCXX::android_database_Cursor& arg0) exit");
+	LOGV("AndroidCXX::android_database_Cursor android_widget_SimpleCursorAdapter::swapCursor(AndroidCXX::android_database_Cursor const& arg0) exit");
 
 	return result;
 }
@@ -860,8 +826,6 @@ AndroidCXX::android_widget_SimpleCursorAdapter_ViewBinder android_widget_SimpleC
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleCursorAdapter cxx address %d", cxxAddress);
@@ -890,15 +854,13 @@ AndroidCXX::android_widget_SimpleCursorAdapter_ViewBinder android_widget_SimpleC
 	AndroidCXX::android_widget_SimpleCursorAdapter_ViewBinder result((AndroidCXX::android_widget_SimpleCursorAdapter_ViewBinder) *((AndroidCXX::android_widget_SimpleCursorAdapter_ViewBinder *) cxx_value));
 	delete ((AndroidCXX::android_widget_SimpleCursorAdapter_ViewBinder *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_widget_SimpleCursorAdapter_ViewBinder android_widget_SimpleCursorAdapter::getViewBinder() exit");
 
 	return result;
 }
-void android_widget_SimpleCursorAdapter::setViewBinder(AndroidCXX::android_widget_SimpleCursorAdapter_ViewBinder& arg0)
+void android_widget_SimpleCursorAdapter::setViewBinder(AndroidCXX::android_widget_SimpleCursorAdapter_ViewBinder const& arg0)
 {
-	LOGV("void android_widget_SimpleCursorAdapter::setViewBinder(AndroidCXX::android_widget_SimpleCursorAdapter_ViewBinder& arg0) enter");
+	LOGV("void android_widget_SimpleCursorAdapter::setViewBinder(AndroidCXX::android_widget_SimpleCursorAdapter_ViewBinder const& arg0) enter");
 
 	const char *methodName = "setViewBinder";
 	const char *methodSignature = "(Landroid/widget/SimpleCursorAdapter$ViewBinder;)V";
@@ -908,8 +870,6 @@ void android_widget_SimpleCursorAdapter::setViewBinder(AndroidCXX::android_widge
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleCursorAdapter cxx address %d", cxxAddress);
@@ -940,14 +900,12 @@ void android_widget_SimpleCursorAdapter::setViewBinder(AndroidCXX::android_widge
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SimpleCursorAdapter::setViewBinder(AndroidCXX::android_widget_SimpleCursorAdapter_ViewBinder& arg0) exit");
+	LOGV("void android_widget_SimpleCursorAdapter::setViewBinder(AndroidCXX::android_widget_SimpleCursorAdapter_ViewBinder const& arg0) exit");
 
 }
-void android_widget_SimpleCursorAdapter::setViewImage(AndroidCXX::android_widget_ImageView& arg0,AndroidCXX::java_lang_String& arg1)
+void android_widget_SimpleCursorAdapter::setViewImage(AndroidCXX::android_widget_ImageView const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("void android_widget_SimpleCursorAdapter::setViewImage(AndroidCXX::android_widget_ImageView& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("void android_widget_SimpleCursorAdapter::setViewImage(AndroidCXX::android_widget_ImageView const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "setViewImage";
 	const char *methodSignature = "(Landroid/widget/ImageView;Ljava/lang/String;)V";
@@ -957,8 +915,6 @@ void android_widget_SimpleCursorAdapter::setViewImage(AndroidCXX::android_widget
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleCursorAdapter cxx address %d", cxxAddress);
@@ -1010,14 +966,12 @@ void android_widget_SimpleCursorAdapter::setViewImage(AndroidCXX::android_widget
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SimpleCursorAdapter::setViewImage(AndroidCXX::android_widget_ImageView& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("void android_widget_SimpleCursorAdapter::setViewImage(AndroidCXX::android_widget_ImageView const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 }
-void android_widget_SimpleCursorAdapter::setViewText(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::java_lang_String& arg1)
+void android_widget_SimpleCursorAdapter::setViewText(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("void android_widget_SimpleCursorAdapter::setViewText(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("void android_widget_SimpleCursorAdapter::setViewText(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "setViewText";
 	const char *methodSignature = "(Landroid/widget/TextView;Ljava/lang/String;)V";
@@ -1027,8 +981,6 @@ void android_widget_SimpleCursorAdapter::setViewText(AndroidCXX::android_widget_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleCursorAdapter cxx address %d", cxxAddress);
@@ -1080,9 +1032,7 @@ void android_widget_SimpleCursorAdapter::setViewText(AndroidCXX::android_widget_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SimpleCursorAdapter::setViewText(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("void android_widget_SimpleCursorAdapter::setViewText(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 }
 int android_widget_SimpleCursorAdapter::getStringConversionColumn()
@@ -1097,8 +1047,6 @@ int android_widget_SimpleCursorAdapter::getStringConversionColumn()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleCursorAdapter cxx address %d", cxxAddress);
@@ -1127,15 +1075,13 @@ int android_widget_SimpleCursorAdapter::getStringConversionColumn()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_SimpleCursorAdapter::getStringConversionColumn() exit");
 
 	return result;
 }
-void android_widget_SimpleCursorAdapter::setStringConversionColumn(int& arg0)
+void android_widget_SimpleCursorAdapter::setStringConversionColumn(int const& arg0)
 {
-	LOGV("void android_widget_SimpleCursorAdapter::setStringConversionColumn(int& arg0) enter");
+	LOGV("void android_widget_SimpleCursorAdapter::setStringConversionColumn(int const& arg0) enter");
 
 	const char *methodName = "setStringConversionColumn";
 	const char *methodSignature = "(I)V";
@@ -1145,8 +1091,6 @@ void android_widget_SimpleCursorAdapter::setStringConversionColumn(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleCursorAdapter cxx address %d", cxxAddress);
@@ -1177,9 +1121,7 @@ void android_widget_SimpleCursorAdapter::setStringConversionColumn(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SimpleCursorAdapter::setStringConversionColumn(int& arg0) exit");
+	LOGV("void android_widget_SimpleCursorAdapter::setStringConversionColumn(int const& arg0) exit");
 
 }
 AndroidCXX::android_widget_SimpleCursorAdapter_CursorToStringConverter android_widget_SimpleCursorAdapter::getCursorToStringConverter()
@@ -1194,8 +1136,6 @@ AndroidCXX::android_widget_SimpleCursorAdapter_CursorToStringConverter android_w
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleCursorAdapter cxx address %d", cxxAddress);
@@ -1224,15 +1164,13 @@ AndroidCXX::android_widget_SimpleCursorAdapter_CursorToStringConverter android_w
 	AndroidCXX::android_widget_SimpleCursorAdapter_CursorToStringConverter result((AndroidCXX::android_widget_SimpleCursorAdapter_CursorToStringConverter) *((AndroidCXX::android_widget_SimpleCursorAdapter_CursorToStringConverter *) cxx_value));
 	delete ((AndroidCXX::android_widget_SimpleCursorAdapter_CursorToStringConverter *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_widget_SimpleCursorAdapter_CursorToStringConverter android_widget_SimpleCursorAdapter::getCursorToStringConverter() exit");
 
 	return result;
 }
-void android_widget_SimpleCursorAdapter::setCursorToStringConverter(AndroidCXX::android_widget_SimpleCursorAdapter_CursorToStringConverter& arg0)
+void android_widget_SimpleCursorAdapter::setCursorToStringConverter(AndroidCXX::android_widget_SimpleCursorAdapter_CursorToStringConverter const& arg0)
 {
-	LOGV("void android_widget_SimpleCursorAdapter::setCursorToStringConverter(AndroidCXX::android_widget_SimpleCursorAdapter_CursorToStringConverter& arg0) enter");
+	LOGV("void android_widget_SimpleCursorAdapter::setCursorToStringConverter(AndroidCXX::android_widget_SimpleCursorAdapter_CursorToStringConverter const& arg0) enter");
 
 	const char *methodName = "setCursorToStringConverter";
 	const char *methodSignature = "(Landroid/widget/SimpleCursorAdapter$CursorToStringConverter;)V";
@@ -1242,8 +1180,6 @@ void android_widget_SimpleCursorAdapter::setCursorToStringConverter(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleCursorAdapter cxx address %d", cxxAddress);
@@ -1274,14 +1210,12 @@ void android_widget_SimpleCursorAdapter::setCursorToStringConverter(AndroidCXX::
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SimpleCursorAdapter::setCursorToStringConverter(AndroidCXX::android_widget_SimpleCursorAdapter_CursorToStringConverter& arg0) exit");
+	LOGV("void android_widget_SimpleCursorAdapter::setCursorToStringConverter(AndroidCXX::android_widget_SimpleCursorAdapter_CursorToStringConverter const& arg0) exit");
 
 }
-void android_widget_SimpleCursorAdapter::changeCursorAndColumns(AndroidCXX::android_database_Cursor& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,std::vector<int>& arg2)
+void android_widget_SimpleCursorAdapter::changeCursorAndColumns(AndroidCXX::android_database_Cursor const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,std::vector<int> const& arg2)
 {
-	LOGV("void android_widget_SimpleCursorAdapter::changeCursorAndColumns(AndroidCXX::android_database_Cursor& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,std::vector<int>& arg2) enter");
+	LOGV("void android_widget_SimpleCursorAdapter::changeCursorAndColumns(AndroidCXX::android_database_Cursor const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,std::vector<int> const& arg2) enter");
 
 	const char *methodName = "changeCursorAndColumns";
 	const char *methodSignature = "(Landroid/database/Cursor;[Ljava/lang/String;[I)V";
@@ -1291,8 +1225,6 @@ void android_widget_SimpleCursorAdapter::changeCursorAndColumns(AndroidCXX::andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleCursorAdapter cxx address %d", cxxAddress);
@@ -1401,8 +1333,6 @@ void android_widget_SimpleCursorAdapter::changeCursorAndColumns(AndroidCXX::andr
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SimpleCursorAdapter::changeCursorAndColumns(AndroidCXX::android_database_Cursor& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,std::vector<int>& arg2) exit");
+	LOGV("void android_widget_SimpleCursorAdapter::changeCursorAndColumns(AndroidCXX::android_database_Cursor const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,std::vector<int> const& arg2) exit");
 
 }

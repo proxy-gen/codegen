@@ -92,25 +92,22 @@ class android_widget_StackView
 public:
 
 	android_widget_StackView(const android_widget_StackView& cc);
-	android_widget_StackView(void * proxy);
+	android_widget_StackView(Proxy proxy);
 	// Public Constructors
-	android_widget_StackView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_StackView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_StackView(AndroidCXX::android_content_Context& arg0);
-	// TODO: remove
-	// 
-	// android_widget_StackView();
-	// 
+	android_widget_StackView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_StackView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_StackView(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_StackView();
 	// Functions
 	 void advance();
-	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0);
-	 bool onGenericMotionEvent(AndroidCXX::android_view_MotionEvent& arg0);
-	 bool onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent& arg0);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 bool performAccessibilityAction(int& arg0,AndroidCXX::android_os_Bundle& arg1);
+	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0);
+	 bool onGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0);
+	 bool onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 bool performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1);
 	 void showNext();
 	 void showPrevious();
 };	

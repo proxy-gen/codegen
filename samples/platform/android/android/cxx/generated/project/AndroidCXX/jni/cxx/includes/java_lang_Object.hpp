@@ -71,18 +71,17 @@ class java_lang_Object
 public:
 
 	java_lang_Object(const java_lang_Object& cc);
-	java_lang_Object(void * proxy);
+	java_lang_Object(Proxy proxy);
 	// Public Constructors
 	java_lang_Object();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Object();
 	// Functions
 	 void wait();
-	 void wait(long& arg0);
-	 void wait(long& arg0,int& arg1);
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 void wait(long const& arg0);
+	 void wait(long const& arg0,int const& arg1);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 AndroidCXX::java_lang_Class getClass();

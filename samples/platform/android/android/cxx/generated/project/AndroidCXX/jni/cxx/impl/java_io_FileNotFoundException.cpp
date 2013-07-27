@@ -47,7 +47,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_io_FileNotFoundException::java_io_FileNotFoundException(const java_io_FileNotFoundException& cc)
 {
 	LOGV("java_io_FileNotFoundException::java_io_FileNotFoundException(const java_io_FileNotFoundException& cc) enter");
@@ -71,9 +70,9 @@ java_io_FileNotFoundException::java_io_FileNotFoundException(const java_io_FileN
 
 	LOGV("java_io_FileNotFoundException::java_io_FileNotFoundException(const java_io_FileNotFoundException& cc) exit");
 }
-java_io_FileNotFoundException::java_io_FileNotFoundException(void * proxy)
+java_io_FileNotFoundException::java_io_FileNotFoundException(Proxy proxy)
 {
-	LOGV("java_io_FileNotFoundException::java_io_FileNotFoundException(void * proxy) enter");
+	LOGV("java_io_FileNotFoundException::java_io_FileNotFoundException(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -83,17 +82,31 @@ java_io_FileNotFoundException::java_io_FileNotFoundException(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_io_FileNotFoundException::java_io_FileNotFoundException(void * proxy) exit");
+	LOGV("java_io_FileNotFoundException::java_io_FileNotFoundException(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy java_io_FileNotFoundException::proxy() const
+{	
+	LOGV("java_io_FileNotFoundException::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("java_io_FileNotFoundException cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_io_FileNotFoundException jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("java_io_FileNotFoundException::proxy() exit");	
+
+	return proxy;
+}
 java_io_FileNotFoundException::java_io_FileNotFoundException()
 {
 	LOGV("java_io_FileNotFoundException::java_io_FileNotFoundException() enter");	
@@ -130,9 +143,9 @@ java_io_FileNotFoundException::java_io_FileNotFoundException()
 
 	LOGV("java_io_FileNotFoundException::java_io_FileNotFoundException() exit");	
 }
-java_io_FileNotFoundException::java_io_FileNotFoundException(AndroidCXX::java_lang_String& arg0)
+java_io_FileNotFoundException::java_io_FileNotFoundException(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("java_io_FileNotFoundException::java_io_FileNotFoundException(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("java_io_FileNotFoundException::java_io_FileNotFoundException(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -185,7 +198,7 @@ java_io_FileNotFoundException::java_io_FileNotFoundException(AndroidCXX::java_la
 
 	jni->popLocalFrame();
 
-	LOGV("java_io_FileNotFoundException::java_io_FileNotFoundException(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("java_io_FileNotFoundException::java_io_FileNotFoundException(AndroidCXX::java_lang_String const& arg0) exit");	
 }
 // Default Instance Destructor
 java_io_FileNotFoundException::~java_io_FileNotFoundException()
@@ -198,7 +211,7 @@ java_io_FileNotFoundException::~java_io_FileNotFoundException()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_io_FileNotFoundException::~java_io_FileNotFoundException() exit");
 }
 // Functions

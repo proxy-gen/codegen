@@ -1035,33 +1035,9 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
-android_content_Intent::android_content_Intent(const android_content_Intent& cc)
+android_content_Intent::android_content_Intent(Proxy proxy)
 {
-	LOGV("android_content_Intent::android_content_Intent(const android_content_Intent& cc) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	long ccaddress = (long) &cc;
-	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
-	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
-	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
-	long address = (long) this;
-	LOGV("registerProxyComponent address %ld", address);
-	jobject proxiedComponent = ctx->findProxyComponent(address);
-	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
-	if (proxiedComponent == 0)
-	{
-		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = proxiedCCComponent;
-		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
-		ctx->registerProxyComponent(address, proxiedComponent);
-	}
-
-	LOGV("android_content_Intent::android_content_Intent(const android_content_Intent& cc) exit");
-}
-android_content_Intent::android_content_Intent(void * proxy)
-{
-	LOGV("android_content_Intent::android_content_Intent(void * proxy) enter");
+	LOGV("android_content_Intent::android_content_Intent(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -1071,17 +1047,31 @@ android_content_Intent::android_content_Intent(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_content_Intent::android_content_Intent(void * proxy) exit");
+	LOGV("android_content_Intent::android_content_Intent(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy android_content_Intent::proxy() const
+{	
+	LOGV("android_content_Intent::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_content_Intent cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_content_Intent jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_content_Intent::proxy() exit");	
+
+	return proxy;
+}
 android_content_Intent::android_content_Intent()
 {
 	LOGV("android_content_Intent::android_content_Intent() enter");	
@@ -1118,9 +1108,9 @@ android_content_Intent::android_content_Intent()
 
 	LOGV("android_content_Intent::android_content_Intent() exit");	
 }
-android_content_Intent::android_content_Intent(AndroidCXX::android_content_Intent& arg0)
+android_content_Intent::android_content_Intent(AndroidCXX::android_content_Intent const& arg0)
 {
-	LOGV("android_content_Intent::android_content_Intent(AndroidCXX::android_content_Intent& arg0) enter");	
+	LOGV("android_content_Intent::android_content_Intent(AndroidCXX::android_content_Intent const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Intent;)V";
@@ -1173,11 +1163,11 @@ android_content_Intent::android_content_Intent(AndroidCXX::android_content_Inten
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_Intent::android_content_Intent(AndroidCXX::android_content_Intent& arg0) exit");	
+	LOGV("android_content_Intent::android_content_Intent(AndroidCXX::android_content_Intent const& arg0) exit");	
 }
-android_content_Intent::android_content_Intent(AndroidCXX::java_lang_String& arg0)
+android_content_Intent::android_content_Intent(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("android_content_Intent::android_content_Intent(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("android_content_Intent::android_content_Intent(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -1230,11 +1220,11 @@ android_content_Intent::android_content_Intent(AndroidCXX::java_lang_String& arg
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_Intent::android_content_Intent(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("android_content_Intent::android_content_Intent(AndroidCXX::java_lang_String const& arg0) exit");	
 }
-android_content_Intent::android_content_Intent(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_net_Uri& arg1)
+android_content_Intent::android_content_Intent(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_net_Uri const& arg1)
 {
-	LOGV("android_content_Intent::android_content_Intent(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_net_Uri& arg1) enter");	
+	LOGV("android_content_Intent::android_content_Intent(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_net_Uri const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Landroid/net/Uri;)V";
@@ -1308,11 +1298,11 @@ android_content_Intent::android_content_Intent(AndroidCXX::java_lang_String& arg
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_Intent::android_content_Intent(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_net_Uri& arg1) exit");	
+	LOGV("android_content_Intent::android_content_Intent(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_net_Uri const& arg1) exit");	
 }
-android_content_Intent::android_content_Intent(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_Class& arg1)
+android_content_Intent::android_content_Intent(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1)
 {
-	LOGV("android_content_Intent::android_content_Intent(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_Class& arg1) enter");	
+	LOGV("android_content_Intent::android_content_Intent(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/Class;)V";
@@ -1404,11 +1394,11 @@ android_content_Intent::android_content_Intent(AndroidCXX::android_content_Conte
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_Intent::android_content_Intent(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_Class& arg1) exit");	
+	LOGV("android_content_Intent::android_content_Intent(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1) exit");	
 }
-android_content_Intent::android_content_Intent(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_net_Uri& arg1,AndroidCXX::android_content_Context& arg2,AndroidCXX::java_lang_Class& arg3)
+android_content_Intent::android_content_Intent(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::android_content_Context const& arg2,AndroidCXX::java_lang_Class const& arg3)
 {
-	LOGV("android_content_Intent::android_content_Intent(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_net_Uri& arg1,AndroidCXX::android_content_Context& arg2,AndroidCXX::java_lang_Class& arg3) enter");	
+	LOGV("android_content_Intent::android_content_Intent(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::android_content_Context const& arg2,AndroidCXX::java_lang_Class const& arg3) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Landroid/net/Uri;Landroid/content/Context;Ljava/lang/Class;)V";
@@ -1542,7 +1532,7 @@ android_content_Intent::android_content_Intent(AndroidCXX::java_lang_String& arg
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_Intent::android_content_Intent(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_net_Uri& arg1,AndroidCXX::android_content_Context& arg2,AndroidCXX::java_lang_Class& arg3) exit");	
+	LOGV("android_content_Intent::android_content_Intent(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::android_content_Context const& arg2,AndroidCXX::java_lang_Class const& arg3) exit");	
 }
 // Default Instance Destructor
 android_content_Intent::~android_content_Intent()
@@ -1555,7 +1545,7 @@ android_content_Intent::~android_content_Intent()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_content_Intent::~android_content_Intent() exit");
 }
 // Functions
@@ -1571,8 +1561,6 @@ AndroidCXX::java_lang_String android_content_Intent::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -1601,8 +1589,6 @@ AndroidCXX::java_lang_String android_content_Intent::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_content_Intent::toString() exit");
 
 	return result;
@@ -1619,8 +1605,6 @@ AndroidCXX::java_lang_Object android_content_Intent::clone()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -1649,8 +1633,6 @@ AndroidCXX::java_lang_Object android_content_Intent::clone()
 	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
 	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_Object android_content_Intent::clone() exit");
 
 	return result;
@@ -1668,8 +1650,6 @@ AndroidCXX::java_lang_String android_content_Intent::getPackage()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1697,8 +1677,6 @@ AndroidCXX::java_lang_String android_content_Intent::getPackage()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_content_Intent::getPackage() exit");
 
 	return result;
@@ -1716,8 +1694,6 @@ AndroidCXX::java_lang_String android_content_Intent::getType()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1745,8 +1721,6 @@ AndroidCXX::java_lang_String android_content_Intent::getType()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_content_Intent::getType() exit");
 
 	return result;
@@ -1764,8 +1738,6 @@ AndroidCXX::java_lang_String android_content_Intent::toURI()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1793,8 +1765,6 @@ AndroidCXX::java_lang_String android_content_Intent::toURI()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_content_Intent::toURI() exit");
 
 	return result;
@@ -1812,8 +1782,6 @@ AndroidCXX::java_lang_String android_content_Intent::getScheme()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1841,8 +1809,6 @@ AndroidCXX::java_lang_String android_content_Intent::getScheme()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_content_Intent::getScheme() exit");
 
 	return result;
@@ -1859,8 +1825,6 @@ AndroidCXX::android_net_Uri android_content_Intent::getData()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -1889,8 +1853,6 @@ AndroidCXX::android_net_Uri android_content_Intent::getData()
 	AndroidCXX::android_net_Uri result((AndroidCXX::android_net_Uri) *((AndroidCXX::android_net_Uri *) cxx_value));
 	delete ((AndroidCXX::android_net_Uri *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_net_Uri android_content_Intent::getData() exit");
 
 	return result;
@@ -1907,8 +1869,6 @@ AndroidCXX::android_content_ComponentName android_content_Intent::getComponent()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -1937,8 +1897,6 @@ AndroidCXX::android_content_ComponentName android_content_Intent::getComponent()
 	AndroidCXX::android_content_ComponentName result((AndroidCXX::android_content_ComponentName) *((AndroidCXX::android_content_ComponentName *) cxx_value));
 	delete ((AndroidCXX::android_content_ComponentName *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_content_ComponentName android_content_Intent::getComponent() exit");
 
 	return result;
@@ -1955,8 +1913,6 @@ AndroidCXX::android_os_Bundle android_content_Intent::getExtras()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -1985,8 +1941,6 @@ AndroidCXX::android_os_Bundle android_content_Intent::getExtras()
 	AndroidCXX::android_os_Bundle result((AndroidCXX::android_os_Bundle) *((AndroidCXX::android_os_Bundle *) cxx_value));
 	delete ((AndroidCXX::android_os_Bundle *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_os_Bundle android_content_Intent::getExtras() exit");
 
 	return result;
@@ -2003,8 +1957,6 @@ int android_content_Intent::describeContents()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -2033,15 +1985,13 @@ int android_content_Intent::describeContents()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_content_Intent::describeContents() exit");
 
 	return result;
 }
-void android_content_Intent::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_content_Intent::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_content_Intent::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_content_Intent::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -2051,8 +2001,6 @@ void android_content_Intent::writeToParcel(AndroidCXX::android_os_Parcel& arg0,i
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -2104,9 +2052,7 @@ void android_content_Intent::writeToParcel(AndroidCXX::android_os_Parcel& arg0,i
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_Intent::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_content_Intent::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }
 bool android_content_Intent::hasFileDescriptors()
@@ -2121,8 +2067,6 @@ bool android_content_Intent::hasFileDescriptors()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -2151,15 +2095,13 @@ bool android_content_Intent::hasFileDescriptors()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_content_Intent::hasFileDescriptors() exit");
 
 	return result;
 }
-void android_content_Intent::readFromParcel(AndroidCXX::android_os_Parcel& arg0)
+void android_content_Intent::readFromParcel(AndroidCXX::android_os_Parcel const& arg0)
 {
-	LOGV("void android_content_Intent::readFromParcel(AndroidCXX::android_os_Parcel& arg0) enter");
+	LOGV("void android_content_Intent::readFromParcel(AndroidCXX::android_os_Parcel const& arg0) enter");
 
 	const char *methodName = "readFromParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;)V";
@@ -2169,8 +2111,6 @@ void android_content_Intent::readFromParcel(AndroidCXX::android_os_Parcel& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -2201,14 +2141,12 @@ void android_content_Intent::readFromParcel(AndroidCXX::android_os_Parcel& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_Intent::readFromParcel(AndroidCXX::android_os_Parcel& arg0) exit");
+	LOGV("void android_content_Intent::readFromParcel(AndroidCXX::android_os_Parcel const& arg0) exit");
 
 }
-AndroidCXX::android_content_Intent android_content_Intent::setData(AndroidCXX::android_net_Uri& arg0)
+AndroidCXX::android_content_Intent android_content_Intent::setData(AndroidCXX::android_net_Uri const& arg0)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setData(AndroidCXX::android_net_Uri& arg0) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setData(AndroidCXX::android_net_Uri const& arg0) enter");
 
 	const char *methodName = "setData";
 	const char *methodSignature = "(Landroid/net/Uri;)Landroid/content/Intent;";
@@ -2218,8 +2156,6 @@ AndroidCXX::android_content_Intent android_content_Intent::setData(AndroidCXX::a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -2269,15 +2205,13 @@ AndroidCXX::android_content_Intent android_content_Intent::setData(AndroidCXX::a
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setData(AndroidCXX::android_net_Uri& arg0) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setData(AndroidCXX::android_net_Uri const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::getIntent(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::android_content_Intent android_content_Intent::getIntent(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::getIntent(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::getIntent(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getIntent";
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/content/Intent;";
@@ -2287,8 +2221,6 @@ AndroidCXX::android_content_Intent android_content_Intent::getIntent(AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -2317,7 +2249,7 @@ AndroidCXX::android_content_Intent android_content_Intent::getIntent(AndroidCXX:
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -2338,15 +2270,13 @@ AndroidCXX::android_content_Intent android_content_Intent::getIntent(AndroidCXX:
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::getIntent(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::getIntent(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::createChooser(AndroidCXX::android_content_Intent& arg0,AndroidCXX::java_lang_CharSequence& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::createChooser(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::java_lang_CharSequence const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::createChooser(AndroidCXX::android_content_Intent& arg0,AndroidCXX::java_lang_CharSequence& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::createChooser(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) enter");
 
 	const char *methodName = "createChooser";
 	const char *methodSignature = "(Landroid/content/Intent;Ljava/lang/CharSequence;)Landroid/content/Intent;";
@@ -2356,8 +2286,6 @@ AndroidCXX::android_content_Intent android_content_Intent::createChooser(Android
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -2407,7 +2335,7 @@ AndroidCXX::android_content_Intent android_content_Intent::createChooser(Android
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -2428,9 +2356,7 @@ AndroidCXX::android_content_Intent android_content_Intent::createChooser(Android
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::createChooser(AndroidCXX::android_content_Intent& arg0,AndroidCXX::java_lang_CharSequence& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::createChooser(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) exit");
 
 	return result;
 }
@@ -2446,8 +2372,6 @@ AndroidCXX::android_content_Intent android_content_Intent::cloneFilter()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -2476,15 +2400,13 @@ AndroidCXX::android_content_Intent android_content_Intent::cloneFilter()
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_content_Intent android_content_Intent::cloneFilter() exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::makeMainActivity(AndroidCXX::android_content_ComponentName& arg0)
+AndroidCXX::android_content_Intent android_content_Intent::makeMainActivity(AndroidCXX::android_content_ComponentName const& arg0)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::makeMainActivity(AndroidCXX::android_content_ComponentName& arg0) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::makeMainActivity(AndroidCXX::android_content_ComponentName const& arg0) enter");
 
 	const char *methodName = "makeMainActivity";
 	const char *methodSignature = "(Landroid/content/ComponentName;)Landroid/content/Intent;";
@@ -2494,8 +2416,6 @@ AndroidCXX::android_content_Intent android_content_Intent::makeMainActivity(Andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -2524,7 +2444,7 @@ AndroidCXX::android_content_Intent android_content_Intent::makeMainActivity(Andr
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -2545,15 +2465,13 @@ AndroidCXX::android_content_Intent android_content_Intent::makeMainActivity(Andr
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::makeMainActivity(AndroidCXX::android_content_ComponentName& arg0) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::makeMainActivity(AndroidCXX::android_content_ComponentName const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::makeMainSelectorActivity(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::makeMainSelectorActivity(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::makeMainSelectorActivity(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::makeMainSelectorActivity(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "makeMainSelectorActivity";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;";
@@ -2563,8 +2481,6 @@ AndroidCXX::android_content_Intent android_content_Intent::makeMainSelectorActiv
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -2614,7 +2530,7 @@ AndroidCXX::android_content_Intent android_content_Intent::makeMainSelectorActiv
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -2635,15 +2551,13 @@ AndroidCXX::android_content_Intent android_content_Intent::makeMainSelectorActiv
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::makeMainSelectorActivity(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::makeMainSelectorActivity(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::makeRestartActivityTask(AndroidCXX::android_content_ComponentName& arg0)
+AndroidCXX::android_content_Intent android_content_Intent::makeRestartActivityTask(AndroidCXX::android_content_ComponentName const& arg0)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::makeRestartActivityTask(AndroidCXX::android_content_ComponentName& arg0) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::makeRestartActivityTask(AndroidCXX::android_content_ComponentName const& arg0) enter");
 
 	const char *methodName = "makeRestartActivityTask";
 	const char *methodSignature = "(Landroid/content/ComponentName;)Landroid/content/Intent;";
@@ -2653,8 +2567,6 @@ AndroidCXX::android_content_Intent android_content_Intent::makeRestartActivityTa
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -2683,7 +2595,7 @@ AndroidCXX::android_content_Intent android_content_Intent::makeRestartActivityTa
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -2704,15 +2616,13 @@ AndroidCXX::android_content_Intent android_content_Intent::makeRestartActivityTa
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::makeRestartActivityTask(AndroidCXX::android_content_ComponentName& arg0) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::makeRestartActivityTask(AndroidCXX::android_content_ComponentName const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::parseUri(AndroidCXX::java_lang_String& arg0,int& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::parseUri(AndroidCXX::java_lang_String const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::parseUri(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::parseUri(AndroidCXX::java_lang_String const& arg0,int const& arg1) enter");
 
 	const char *methodName = "parseUri";
 	const char *methodSignature = "(Ljava/lang/String;I)Landroid/content/Intent;";
@@ -2722,8 +2632,6 @@ AndroidCXX::android_content_Intent android_content_Intent::parseUri(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -2773,7 +2681,7 @@ AndroidCXX::android_content_Intent android_content_Intent::parseUri(AndroidCXX::
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -2794,15 +2702,13 @@ AndroidCXX::android_content_Intent android_content_Intent::parseUri(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::parseUri(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::parseUri(AndroidCXX::java_lang_String const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::getIntentOld(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::android_content_Intent android_content_Intent::getIntentOld(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::getIntentOld(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::getIntentOld(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getIntentOld";
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/content/Intent;";
@@ -2812,8 +2718,6 @@ AndroidCXX::android_content_Intent android_content_Intent::getIntentOld(AndroidC
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -2842,7 +2746,7 @@ AndroidCXX::android_content_Intent android_content_Intent::getIntentOld(AndroidC
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -2863,9 +2767,7 @@ AndroidCXX::android_content_Intent android_content_Intent::getIntentOld(AndroidC
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::getIntentOld(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::getIntentOld(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
@@ -2881,8 +2783,6 @@ AndroidCXX::java_lang_String android_content_Intent::getAction()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -2911,8 +2811,6 @@ AndroidCXX::java_lang_String android_content_Intent::getAction()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_content_Intent::getAction() exit");
 
 	return result;
@@ -2930,8 +2828,6 @@ AndroidCXX::java_lang_String android_content_Intent::getDataString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2959,15 +2855,13 @@ AndroidCXX::java_lang_String android_content_Intent::getDataString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_content_Intent::getDataString() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_Intent::resolveType(AndroidCXX::android_content_Context& arg0)
+AndroidCXX::java_lang_String android_content_Intent::resolveType(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_Intent::resolveType(AndroidCXX::android_content_Context& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_Intent::resolveType(AndroidCXX::android_content_Context const& arg0) enter");
 
 	const char *methodName = "resolveType";
 	const char *methodSignature = "(Landroid/content/Context;)Ljava/lang/String;";
@@ -2977,8 +2871,6 @@ AndroidCXX::java_lang_String android_content_Intent::resolveType(AndroidCXX::and
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -3028,15 +2920,13 @@ AndroidCXX::java_lang_String android_content_Intent::resolveType(AndroidCXX::and
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_content_Intent::resolveType(AndroidCXX::android_content_Context& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_Intent::resolveType(AndroidCXX::android_content_Context const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_Intent::resolveType(AndroidCXX::android_content_ContentResolver& arg0)
+AndroidCXX::java_lang_String android_content_Intent::resolveType(AndroidCXX::android_content_ContentResolver const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_Intent::resolveType(AndroidCXX::android_content_ContentResolver& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_Intent::resolveType(AndroidCXX::android_content_ContentResolver const& arg0) enter");
 
 	const char *methodName = "resolveType";
 	const char *methodSignature = "(Landroid/content/ContentResolver;)Ljava/lang/String;";
@@ -3047,8 +2937,6 @@ AndroidCXX::java_lang_String android_content_Intent::resolveType(AndroidCXX::and
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3097,15 +2985,13 @@ AndroidCXX::java_lang_String android_content_Intent::resolveType(AndroidCXX::and
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_content_Intent::resolveType(AndroidCXX::android_content_ContentResolver& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_Intent::resolveType(AndroidCXX::android_content_ContentResolver const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_Intent::resolveTypeIfNeeded(AndroidCXX::android_content_ContentResolver& arg0)
+AndroidCXX::java_lang_String android_content_Intent::resolveTypeIfNeeded(AndroidCXX::android_content_ContentResolver const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_Intent::resolveTypeIfNeeded(AndroidCXX::android_content_ContentResolver& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_Intent::resolveTypeIfNeeded(AndroidCXX::android_content_ContentResolver const& arg0) enter");
 
 	const char *methodName = "resolveTypeIfNeeded";
 	const char *methodSignature = "(Landroid/content/ContentResolver;)Ljava/lang/String;";
@@ -3116,8 +3002,6 @@ AndroidCXX::java_lang_String android_content_Intent::resolveTypeIfNeeded(Android
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3166,15 +3050,13 @@ AndroidCXX::java_lang_String android_content_Intent::resolveTypeIfNeeded(Android
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_content_Intent::resolveTypeIfNeeded(AndroidCXX::android_content_ContentResolver& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_Intent::resolveTypeIfNeeded(AndroidCXX::android_content_ContentResolver const& arg0) exit");
 
 	return result;
 }
-bool android_content_Intent::hasCategory(AndroidCXX::java_lang_String& arg0)
+bool android_content_Intent::hasCategory(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("bool android_content_Intent::hasCategory(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("bool android_content_Intent::hasCategory(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "hasCategory";
 	const char *methodSignature = "(Ljava/lang/String;)Z";
@@ -3184,8 +3066,6 @@ bool android_content_Intent::hasCategory(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -3235,9 +3115,7 @@ bool android_content_Intent::hasCategory(AndroidCXX::java_lang_String& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_content_Intent::hasCategory(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("bool android_content_Intent::hasCategory(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
@@ -3253,8 +3131,6 @@ AndroidCXX::java_util_Set android_content_Intent::getCategories()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -3301,8 +3177,6 @@ AndroidCXX::java_util_Set android_content_Intent::getCategories()
 	AndroidCXX::java_util_Set result((AndroidCXX::java_util_Set) *((AndroidCXX::java_util_Set *) cxx_value));
 	delete ((AndroidCXX::java_util_Set *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_util_Set android_content_Intent::getCategories() exit");
 
 	return result;
@@ -3319,8 +3193,6 @@ AndroidCXX::android_content_Intent android_content_Intent::getSelector()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -3349,8 +3221,6 @@ AndroidCXX::android_content_Intent android_content_Intent::getSelector()
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_content_Intent android_content_Intent::getSelector() exit");
 
 	return result;
@@ -3367,8 +3237,6 @@ AndroidCXX::android_content_ClipData android_content_Intent::getClipData()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -3397,15 +3265,13 @@ AndroidCXX::android_content_ClipData android_content_Intent::getClipData()
 	AndroidCXX::android_content_ClipData result((AndroidCXX::android_content_ClipData) *((AndroidCXX::android_content_ClipData *) cxx_value));
 	delete ((AndroidCXX::android_content_ClipData *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_content_ClipData android_content_Intent::getClipData() exit");
 
 	return result;
 }
-void android_content_Intent::setExtrasClassLoader(AndroidCXX::java_lang_ClassLoader& arg0)
+void android_content_Intent::setExtrasClassLoader(AndroidCXX::java_lang_ClassLoader const& arg0)
 {
-	LOGV("void android_content_Intent::setExtrasClassLoader(AndroidCXX::java_lang_ClassLoader& arg0) enter");
+	LOGV("void android_content_Intent::setExtrasClassLoader(AndroidCXX::java_lang_ClassLoader const& arg0) enter");
 
 	const char *methodName = "setExtrasClassLoader";
 	const char *methodSignature = "(Ljava/lang/ClassLoader;)V";
@@ -3415,8 +3281,6 @@ void android_content_Intent::setExtrasClassLoader(AndroidCXX::java_lang_ClassLoa
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -3447,14 +3311,12 @@ void android_content_Intent::setExtrasClassLoader(AndroidCXX::java_lang_ClassLoa
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_Intent::setExtrasClassLoader(AndroidCXX::java_lang_ClassLoader& arg0) exit");
+	LOGV("void android_content_Intent::setExtrasClassLoader(AndroidCXX::java_lang_ClassLoader const& arg0) exit");
 
 }
-bool android_content_Intent::hasExtra(AndroidCXX::java_lang_String& arg0)
+bool android_content_Intent::hasExtra(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("bool android_content_Intent::hasExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("bool android_content_Intent::hasExtra(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "hasExtra";
 	const char *methodSignature = "(Ljava/lang/String;)Z";
@@ -3464,8 +3326,6 @@ bool android_content_Intent::hasExtra(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -3515,15 +3375,13 @@ bool android_content_Intent::hasExtra(AndroidCXX::java_lang_String& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_content_Intent::hasExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("bool android_content_Intent::hasExtra(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-bool android_content_Intent::getBooleanExtra(AndroidCXX::java_lang_String& arg0,bool& arg1)
+bool android_content_Intent::getBooleanExtra(AndroidCXX::java_lang_String const& arg0,bool const& arg1)
 {
-	LOGV("bool android_content_Intent::getBooleanExtra(AndroidCXX::java_lang_String& arg0,bool& arg1) enter");
+	LOGV("bool android_content_Intent::getBooleanExtra(AndroidCXX::java_lang_String const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "getBooleanExtra";
 	const char *methodSignature = "(Ljava/lang/String;Z)Z";
@@ -3533,8 +3391,6 @@ bool android_content_Intent::getBooleanExtra(AndroidCXX::java_lang_String& arg0,
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -3605,15 +3461,13 @@ bool android_content_Intent::getBooleanExtra(AndroidCXX::java_lang_String& arg0,
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_content_Intent::getBooleanExtra(AndroidCXX::java_lang_String& arg0,bool& arg1) exit");
+	LOGV("bool android_content_Intent::getBooleanExtra(AndroidCXX::java_lang_String const& arg0,bool const& arg1) exit");
 
 	return result;
 }
-byte android_content_Intent::getByteExtra(AndroidCXX::java_lang_String& arg0,byte& arg1)
+byte android_content_Intent::getByteExtra(AndroidCXX::java_lang_String const& arg0,byte const& arg1)
 {
-	LOGV("byte android_content_Intent::getByteExtra(AndroidCXX::java_lang_String& arg0,byte& arg1) enter");
+	LOGV("byte android_content_Intent::getByteExtra(AndroidCXX::java_lang_String const& arg0,byte const& arg1) enter");
 
 	const char *methodName = "getByteExtra";
 	const char *methodSignature = "(Ljava/lang/String;B)B";
@@ -3623,8 +3477,6 @@ byte android_content_Intent::getByteExtra(AndroidCXX::java_lang_String& arg0,byt
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -3695,15 +3547,13 @@ byte android_content_Intent::getByteExtra(AndroidCXX::java_lang_String& arg0,byt
 	byte result = (byte) *((byte *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("byte android_content_Intent::getByteExtra(AndroidCXX::java_lang_String& arg0,byte& arg1) exit");
+	LOGV("byte android_content_Intent::getByteExtra(AndroidCXX::java_lang_String const& arg0,byte const& arg1) exit");
 
 	return result;
 }
-short android_content_Intent::getShortExtra(AndroidCXX::java_lang_String& arg0,short& arg1)
+short android_content_Intent::getShortExtra(AndroidCXX::java_lang_String const& arg0,short const& arg1)
 {
-	LOGV("short android_content_Intent::getShortExtra(AndroidCXX::java_lang_String& arg0,short& arg1) enter");
+	LOGV("short android_content_Intent::getShortExtra(AndroidCXX::java_lang_String const& arg0,short const& arg1) enter");
 
 	const char *methodName = "getShortExtra";
 	const char *methodSignature = "(Ljava/lang/String;S)S";
@@ -3713,8 +3563,6 @@ short android_content_Intent::getShortExtra(AndroidCXX::java_lang_String& arg0,s
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -3785,15 +3633,13 @@ short android_content_Intent::getShortExtra(AndroidCXX::java_lang_String& arg0,s
 	short result = (short) *((short *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("short android_content_Intent::getShortExtra(AndroidCXX::java_lang_String& arg0,short& arg1) exit");
+	LOGV("short android_content_Intent::getShortExtra(AndroidCXX::java_lang_String const& arg0,short const& arg1) exit");
 
 	return result;
 }
-char android_content_Intent::getCharExtra(AndroidCXX::java_lang_String& arg0,char& arg1)
+char android_content_Intent::getCharExtra(AndroidCXX::java_lang_String const& arg0,char const& arg1)
 {
-	LOGV("char android_content_Intent::getCharExtra(AndroidCXX::java_lang_String& arg0,char& arg1) enter");
+	LOGV("char android_content_Intent::getCharExtra(AndroidCXX::java_lang_String const& arg0,char const& arg1) enter");
 
 	const char *methodName = "getCharExtra";
 	const char *methodSignature = "(Ljava/lang/String;C)C";
@@ -3803,8 +3649,6 @@ char android_content_Intent::getCharExtra(AndroidCXX::java_lang_String& arg0,cha
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -3875,15 +3719,13 @@ char android_content_Intent::getCharExtra(AndroidCXX::java_lang_String& arg0,cha
 	char result = (char) *((char *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("char android_content_Intent::getCharExtra(AndroidCXX::java_lang_String& arg0,char& arg1) exit");
+	LOGV("char android_content_Intent::getCharExtra(AndroidCXX::java_lang_String const& arg0,char const& arg1) exit");
 
 	return result;
 }
-int android_content_Intent::getIntExtra(AndroidCXX::java_lang_String& arg0,int& arg1)
+int android_content_Intent::getIntExtra(AndroidCXX::java_lang_String const& arg0,int const& arg1)
 {
-	LOGV("int android_content_Intent::getIntExtra(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
+	LOGV("int android_content_Intent::getIntExtra(AndroidCXX::java_lang_String const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getIntExtra";
 	const char *methodSignature = "(Ljava/lang/String;I)I";
@@ -3893,8 +3735,6 @@ int android_content_Intent::getIntExtra(AndroidCXX::java_lang_String& arg0,int& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -3965,15 +3805,13 @@ int android_content_Intent::getIntExtra(AndroidCXX::java_lang_String& arg0,int& 
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_content_Intent::getIntExtra(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
+	LOGV("int android_content_Intent::getIntExtra(AndroidCXX::java_lang_String const& arg0,int const& arg1) exit");
 
 	return result;
 }
-long android_content_Intent::getLongExtra(AndroidCXX::java_lang_String& arg0,long& arg1)
+long android_content_Intent::getLongExtra(AndroidCXX::java_lang_String const& arg0,long const& arg1)
 {
-	LOGV("long android_content_Intent::getLongExtra(AndroidCXX::java_lang_String& arg0,long& arg1) enter");
+	LOGV("long android_content_Intent::getLongExtra(AndroidCXX::java_lang_String const& arg0,long const& arg1) enter");
 
 	const char *methodName = "getLongExtra";
 	const char *methodSignature = "(Ljava/lang/String;J)J";
@@ -3983,8 +3821,6 @@ long android_content_Intent::getLongExtra(AndroidCXX::java_lang_String& arg0,lon
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -4055,15 +3891,13 @@ long android_content_Intent::getLongExtra(AndroidCXX::java_lang_String& arg0,lon
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long android_content_Intent::getLongExtra(AndroidCXX::java_lang_String& arg0,long& arg1) exit");
+	LOGV("long android_content_Intent::getLongExtra(AndroidCXX::java_lang_String const& arg0,long const& arg1) exit");
 
 	return result;
 }
-float android_content_Intent::getFloatExtra(AndroidCXX::java_lang_String& arg0,float& arg1)
+float android_content_Intent::getFloatExtra(AndroidCXX::java_lang_String const& arg0,float const& arg1)
 {
-	LOGV("float android_content_Intent::getFloatExtra(AndroidCXX::java_lang_String& arg0,float& arg1) enter");
+	LOGV("float android_content_Intent::getFloatExtra(AndroidCXX::java_lang_String const& arg0,float const& arg1) enter");
 
 	const char *methodName = "getFloatExtra";
 	const char *methodSignature = "(Ljava/lang/String;F)F";
@@ -4073,8 +3907,6 @@ float android_content_Intent::getFloatExtra(AndroidCXX::java_lang_String& arg0,f
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -4145,15 +3977,13 @@ float android_content_Intent::getFloatExtra(AndroidCXX::java_lang_String& arg0,f
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("float android_content_Intent::getFloatExtra(AndroidCXX::java_lang_String& arg0,float& arg1) exit");
+	LOGV("float android_content_Intent::getFloatExtra(AndroidCXX::java_lang_String const& arg0,float const& arg1) exit");
 
 	return result;
 }
-double android_content_Intent::getDoubleExtra(AndroidCXX::java_lang_String& arg0,double& arg1)
+double android_content_Intent::getDoubleExtra(AndroidCXX::java_lang_String const& arg0,double const& arg1)
 {
-	LOGV("double android_content_Intent::getDoubleExtra(AndroidCXX::java_lang_String& arg0,double& arg1) enter");
+	LOGV("double android_content_Intent::getDoubleExtra(AndroidCXX::java_lang_String const& arg0,double const& arg1) enter");
 
 	const char *methodName = "getDoubleExtra";
 	const char *methodSignature = "(Ljava/lang/String;D)D";
@@ -4163,8 +3993,6 @@ double android_content_Intent::getDoubleExtra(AndroidCXX::java_lang_String& arg0
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -4235,15 +4063,13 @@ double android_content_Intent::getDoubleExtra(AndroidCXX::java_lang_String& arg0
 	double result = (double) *((double *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("double android_content_Intent::getDoubleExtra(AndroidCXX::java_lang_String& arg0,double& arg1) exit");
+	LOGV("double android_content_Intent::getDoubleExtra(AndroidCXX::java_lang_String const& arg0,double const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_Intent::getStringExtra(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_lang_String android_content_Intent::getStringExtra(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_Intent::getStringExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_Intent::getStringExtra(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getStringExtra";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
@@ -4253,8 +4079,6 @@ AndroidCXX::java_lang_String android_content_Intent::getStringExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -4304,15 +4128,13 @@ AndroidCXX::java_lang_String android_content_Intent::getStringExtra(AndroidCXX::
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_content_Intent::getStringExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_Intent::getStringExtra(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_CharSequence android_content_Intent::getCharSequenceExtra(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_lang_CharSequence android_content_Intent::getCharSequenceExtra(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_CharSequence android_content_Intent::getCharSequenceExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_lang_CharSequence android_content_Intent::getCharSequenceExtra(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getCharSequenceExtra";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/CharSequence;";
@@ -4322,8 +4144,6 @@ AndroidCXX::java_lang_CharSequence android_content_Intent::getCharSequenceExtra(
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -4373,15 +4193,13 @@ AndroidCXX::java_lang_CharSequence android_content_Intent::getCharSequenceExtra(
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_CharSequence android_content_Intent::getCharSequenceExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_lang_CharSequence android_content_Intent::getCharSequenceExtra(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_os_Parcelable android_content_Intent::getParcelableExtra(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::android_os_Parcelable android_content_Intent::getParcelableExtra(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::android_os_Parcelable android_content_Intent::getParcelableExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::android_os_Parcelable android_content_Intent::getParcelableExtra(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getParcelableExtra";
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/os/Parcelable;";
@@ -4391,8 +4209,6 @@ AndroidCXX::android_os_Parcelable android_content_Intent::getParcelableExtra(And
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -4442,15 +4258,13 @@ AndroidCXX::android_os_Parcelable android_content_Intent::getParcelableExtra(And
 	AndroidCXX::android_os_Parcelable result((AndroidCXX::android_os_Parcelable) *((AndroidCXX::android_os_Parcelable *) cxx_value));
 	delete ((AndroidCXX::android_os_Parcelable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_os_Parcelable android_content_Intent::getParcelableExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::android_os_Parcelable android_content_Intent::getParcelableExtra(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-std::vector<AndroidCXX::android_os_Parcelable > android_content_Intent::getParcelableArrayExtra(AndroidCXX::java_lang_String& arg0)
+std::vector<AndroidCXX::android_os_Parcelable > android_content_Intent::getParcelableArrayExtra(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("std::vector<AndroidCXX::android_os_Parcelable > android_content_Intent::getParcelableArrayExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("std::vector<AndroidCXX::android_os_Parcelable > android_content_Intent::getParcelableArrayExtra(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getParcelableArrayExtra";
 	const char *methodSignature = "(Ljava/lang/String;)[Landroid/os/Parcelable;";
@@ -4460,8 +4274,6 @@ std::vector<AndroidCXX::android_os_Parcelable > android_content_Intent::getParce
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -4529,15 +4341,13 @@ std::vector<AndroidCXX::android_os_Parcelable > android_content_Intent::getParce
 	std::vector<AndroidCXX::android_os_Parcelable > result = (std::vector<AndroidCXX::android_os_Parcelable >) *((std::vector<AndroidCXX::android_os_Parcelable > *) cxx_value);
 	delete ((std::vector<AndroidCXX::android_os_Parcelable > *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<AndroidCXX::android_os_Parcelable > android_content_Intent::getParcelableArrayExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("std::vector<AndroidCXX::android_os_Parcelable > android_content_Intent::getParcelableArrayExtra(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_util_ArrayList android_content_Intent::getParcelableArrayListExtra(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_util_ArrayList android_content_Intent::getParcelableArrayListExtra(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_util_ArrayList android_content_Intent::getParcelableArrayListExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_util_ArrayList android_content_Intent::getParcelableArrayListExtra(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getParcelableArrayListExtra";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/util/ArrayList;";
@@ -4547,8 +4357,6 @@ AndroidCXX::java_util_ArrayList android_content_Intent::getParcelableArrayListEx
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -4616,15 +4424,13 @@ AndroidCXX::java_util_ArrayList android_content_Intent::getParcelableArrayListEx
 	AndroidCXX::java_util_ArrayList result((AndroidCXX::java_util_ArrayList) *((AndroidCXX::java_util_ArrayList *) cxx_value));
 	delete ((AndroidCXX::java_util_ArrayList *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_ArrayList android_content_Intent::getParcelableArrayListExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_util_ArrayList android_content_Intent::getParcelableArrayListExtra(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_io_Serializable android_content_Intent::getSerializableExtra(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_io_Serializable android_content_Intent::getSerializableExtra(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_io_Serializable android_content_Intent::getSerializableExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_io_Serializable android_content_Intent::getSerializableExtra(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getSerializableExtra";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/io/Serializable;";
@@ -4634,8 +4440,6 @@ AndroidCXX::java_io_Serializable android_content_Intent::getSerializableExtra(An
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -4685,15 +4489,13 @@ AndroidCXX::java_io_Serializable android_content_Intent::getSerializableExtra(An
 	AndroidCXX::java_io_Serializable result((AndroidCXX::java_io_Serializable) *((AndroidCXX::java_io_Serializable *) cxx_value));
 	delete ((AndroidCXX::java_io_Serializable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_io_Serializable android_content_Intent::getSerializableExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_io_Serializable android_content_Intent::getSerializableExtra(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_util_ArrayList android_content_Intent::getIntegerArrayListExtra(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_util_ArrayList android_content_Intent::getIntegerArrayListExtra(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_util_ArrayList android_content_Intent::getIntegerArrayListExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_util_ArrayList android_content_Intent::getIntegerArrayListExtra(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getIntegerArrayListExtra";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/util/ArrayList;";
@@ -4703,8 +4505,6 @@ AndroidCXX::java_util_ArrayList android_content_Intent::getIntegerArrayListExtra
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -4772,15 +4572,13 @@ AndroidCXX::java_util_ArrayList android_content_Intent::getIntegerArrayListExtra
 	AndroidCXX::java_util_ArrayList result((AndroidCXX::java_util_ArrayList) *((AndroidCXX::java_util_ArrayList *) cxx_value));
 	delete ((AndroidCXX::java_util_ArrayList *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_ArrayList android_content_Intent::getIntegerArrayListExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_util_ArrayList android_content_Intent::getIntegerArrayListExtra(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_util_ArrayList android_content_Intent::getStringArrayListExtra(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_util_ArrayList android_content_Intent::getStringArrayListExtra(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_util_ArrayList android_content_Intent::getStringArrayListExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_util_ArrayList android_content_Intent::getStringArrayListExtra(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getStringArrayListExtra";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/util/ArrayList;";
@@ -4790,8 +4588,6 @@ AndroidCXX::java_util_ArrayList android_content_Intent::getStringArrayListExtra(
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -4859,15 +4655,13 @@ AndroidCXX::java_util_ArrayList android_content_Intent::getStringArrayListExtra(
 	AndroidCXX::java_util_ArrayList result((AndroidCXX::java_util_ArrayList) *((AndroidCXX::java_util_ArrayList *) cxx_value));
 	delete ((AndroidCXX::java_util_ArrayList *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_ArrayList android_content_Intent::getStringArrayListExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_util_ArrayList android_content_Intent::getStringArrayListExtra(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_util_ArrayList android_content_Intent::getCharSequenceArrayListExtra(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_util_ArrayList android_content_Intent::getCharSequenceArrayListExtra(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_util_ArrayList android_content_Intent::getCharSequenceArrayListExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_util_ArrayList android_content_Intent::getCharSequenceArrayListExtra(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getCharSequenceArrayListExtra";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/util/ArrayList;";
@@ -4877,8 +4671,6 @@ AndroidCXX::java_util_ArrayList android_content_Intent::getCharSequenceArrayList
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -4946,15 +4738,13 @@ AndroidCXX::java_util_ArrayList android_content_Intent::getCharSequenceArrayList
 	AndroidCXX::java_util_ArrayList result((AndroidCXX::java_util_ArrayList) *((AndroidCXX::java_util_ArrayList *) cxx_value));
 	delete ((AndroidCXX::java_util_ArrayList *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_ArrayList android_content_Intent::getCharSequenceArrayListExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_util_ArrayList android_content_Intent::getCharSequenceArrayListExtra(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-std::vector<bool> android_content_Intent::getBooleanArrayExtra(AndroidCXX::java_lang_String& arg0)
+std::vector<bool> android_content_Intent::getBooleanArrayExtra(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("std::vector<bool> android_content_Intent::getBooleanArrayExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("std::vector<bool> android_content_Intent::getBooleanArrayExtra(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getBooleanArrayExtra";
 	const char *methodSignature = "(Ljava/lang/String;)[Z";
@@ -4964,8 +4754,6 @@ std::vector<bool> android_content_Intent::getBooleanArrayExtra(AndroidCXX::java_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -5033,15 +4821,13 @@ std::vector<bool> android_content_Intent::getBooleanArrayExtra(AndroidCXX::java_
 	std::vector<bool> result = (std::vector<bool>) *((std::vector<bool> *) cxx_value);
 	delete ((std::vector<bool> *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<bool> android_content_Intent::getBooleanArrayExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("std::vector<bool> android_content_Intent::getBooleanArrayExtra(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-std::vector<byte> android_content_Intent::getByteArrayExtra(AndroidCXX::java_lang_String& arg0)
+std::vector<byte> android_content_Intent::getByteArrayExtra(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("std::vector<byte> android_content_Intent::getByteArrayExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("std::vector<byte> android_content_Intent::getByteArrayExtra(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getByteArrayExtra";
 	const char *methodSignature = "(Ljava/lang/String;)[B";
@@ -5051,8 +4837,6 @@ std::vector<byte> android_content_Intent::getByteArrayExtra(AndroidCXX::java_lan
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -5120,15 +4904,13 @@ std::vector<byte> android_content_Intent::getByteArrayExtra(AndroidCXX::java_lan
 	std::vector<byte> result = (std::vector<byte>) *((std::vector<byte> *) cxx_value);
 	delete ((std::vector<byte> *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<byte> android_content_Intent::getByteArrayExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("std::vector<byte> android_content_Intent::getByteArrayExtra(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-std::vector<short> android_content_Intent::getShortArrayExtra(AndroidCXX::java_lang_String& arg0)
+std::vector<short> android_content_Intent::getShortArrayExtra(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("std::vector<short> android_content_Intent::getShortArrayExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("std::vector<short> android_content_Intent::getShortArrayExtra(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getShortArrayExtra";
 	const char *methodSignature = "(Ljava/lang/String;)[S";
@@ -5138,8 +4920,6 @@ std::vector<short> android_content_Intent::getShortArrayExtra(AndroidCXX::java_l
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -5207,15 +4987,13 @@ std::vector<short> android_content_Intent::getShortArrayExtra(AndroidCXX::java_l
 	std::vector<short> result = (std::vector<short>) *((std::vector<short> *) cxx_value);
 	delete ((std::vector<short> *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<short> android_content_Intent::getShortArrayExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("std::vector<short> android_content_Intent::getShortArrayExtra(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-std::vector<char> android_content_Intent::getCharArrayExtra(AndroidCXX::java_lang_String& arg0)
+std::vector<char> android_content_Intent::getCharArrayExtra(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("std::vector<char> android_content_Intent::getCharArrayExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("std::vector<char> android_content_Intent::getCharArrayExtra(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getCharArrayExtra";
 	const char *methodSignature = "(Ljava/lang/String;)[C";
@@ -5225,8 +5003,6 @@ std::vector<char> android_content_Intent::getCharArrayExtra(AndroidCXX::java_lan
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -5294,15 +5070,13 @@ std::vector<char> android_content_Intent::getCharArrayExtra(AndroidCXX::java_lan
 	std::vector<char> result = (std::vector<char>) *((std::vector<char> *) cxx_value);
 	delete ((std::vector<char> *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<char> android_content_Intent::getCharArrayExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("std::vector<char> android_content_Intent::getCharArrayExtra(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-std::vector<int> android_content_Intent::getIntArrayExtra(AndroidCXX::java_lang_String& arg0)
+std::vector<int> android_content_Intent::getIntArrayExtra(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("std::vector<int> android_content_Intent::getIntArrayExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("std::vector<int> android_content_Intent::getIntArrayExtra(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getIntArrayExtra";
 	const char *methodSignature = "(Ljava/lang/String;)[I";
@@ -5312,8 +5086,6 @@ std::vector<int> android_content_Intent::getIntArrayExtra(AndroidCXX::java_lang_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -5381,15 +5153,13 @@ std::vector<int> android_content_Intent::getIntArrayExtra(AndroidCXX::java_lang_
 	std::vector<int> result = (std::vector<int>) *((std::vector<int> *) cxx_value);
 	delete ((std::vector<int> *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<int> android_content_Intent::getIntArrayExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("std::vector<int> android_content_Intent::getIntArrayExtra(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-std::vector<long> android_content_Intent::getLongArrayExtra(AndroidCXX::java_lang_String& arg0)
+std::vector<long> android_content_Intent::getLongArrayExtra(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("std::vector<long> android_content_Intent::getLongArrayExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("std::vector<long> android_content_Intent::getLongArrayExtra(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getLongArrayExtra";
 	const char *methodSignature = "(Ljava/lang/String;)[J";
@@ -5399,8 +5169,6 @@ std::vector<long> android_content_Intent::getLongArrayExtra(AndroidCXX::java_lan
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -5468,15 +5236,13 @@ std::vector<long> android_content_Intent::getLongArrayExtra(AndroidCXX::java_lan
 	std::vector<long> result = (std::vector<long>) *((std::vector<long> *) cxx_value);
 	delete ((std::vector<long> *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<long> android_content_Intent::getLongArrayExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("std::vector<long> android_content_Intent::getLongArrayExtra(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-std::vector<float> android_content_Intent::getFloatArrayExtra(AndroidCXX::java_lang_String& arg0)
+std::vector<float> android_content_Intent::getFloatArrayExtra(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("std::vector<float> android_content_Intent::getFloatArrayExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("std::vector<float> android_content_Intent::getFloatArrayExtra(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getFloatArrayExtra";
 	const char *methodSignature = "(Ljava/lang/String;)[F";
@@ -5486,8 +5252,6 @@ std::vector<float> android_content_Intent::getFloatArrayExtra(AndroidCXX::java_l
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -5555,15 +5319,13 @@ std::vector<float> android_content_Intent::getFloatArrayExtra(AndroidCXX::java_l
 	std::vector<float> result = (std::vector<float>) *((std::vector<float> *) cxx_value);
 	delete ((std::vector<float> *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<float> android_content_Intent::getFloatArrayExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("std::vector<float> android_content_Intent::getFloatArrayExtra(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-std::vector<double> android_content_Intent::getDoubleArrayExtra(AndroidCXX::java_lang_String& arg0)
+std::vector<double> android_content_Intent::getDoubleArrayExtra(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("std::vector<double> android_content_Intent::getDoubleArrayExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("std::vector<double> android_content_Intent::getDoubleArrayExtra(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getDoubleArrayExtra";
 	const char *methodSignature = "(Ljava/lang/String;)[D";
@@ -5573,8 +5335,6 @@ std::vector<double> android_content_Intent::getDoubleArrayExtra(AndroidCXX::java
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -5642,15 +5402,13 @@ std::vector<double> android_content_Intent::getDoubleArrayExtra(AndroidCXX::java
 	std::vector<double> result = (std::vector<double>) *((std::vector<double> *) cxx_value);
 	delete ((std::vector<double> *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<double> android_content_Intent::getDoubleArrayExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("std::vector<double> android_content_Intent::getDoubleArrayExtra(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-std::vector<AndroidCXX::java_lang_String > android_content_Intent::getStringArrayExtra(AndroidCXX::java_lang_String& arg0)
+std::vector<AndroidCXX::java_lang_String > android_content_Intent::getStringArrayExtra(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_Intent::getStringArrayExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_Intent::getStringArrayExtra(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getStringArrayExtra";
 	const char *methodSignature = "(Ljava/lang/String;)[Ljava/lang/String;";
@@ -5660,8 +5418,6 @@ std::vector<AndroidCXX::java_lang_String > android_content_Intent::getStringArra
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -5729,15 +5485,13 @@ std::vector<AndroidCXX::java_lang_String > android_content_Intent::getStringArra
 	std::vector<AndroidCXX::java_lang_String > result = (std::vector<AndroidCXX::java_lang_String >) *((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 	delete ((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_Intent::getStringArrayExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_Intent::getStringArrayExtra(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-std::vector<AndroidCXX::java_lang_CharSequence > android_content_Intent::getCharSequenceArrayExtra(AndroidCXX::java_lang_String& arg0)
+std::vector<AndroidCXX::java_lang_CharSequence > android_content_Intent::getCharSequenceArrayExtra(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("std::vector<AndroidCXX::java_lang_CharSequence > android_content_Intent::getCharSequenceArrayExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_CharSequence > android_content_Intent::getCharSequenceArrayExtra(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getCharSequenceArrayExtra";
 	const char *methodSignature = "(Ljava/lang/String;)[Ljava/lang/CharSequence;";
@@ -5747,8 +5501,6 @@ std::vector<AndroidCXX::java_lang_CharSequence > android_content_Intent::getChar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -5816,15 +5568,13 @@ std::vector<AndroidCXX::java_lang_CharSequence > android_content_Intent::getChar
 	std::vector<AndroidCXX::java_lang_CharSequence > result = (std::vector<AndroidCXX::java_lang_CharSequence >) *((std::vector<AndroidCXX::java_lang_CharSequence > *) cxx_value);
 	delete ((std::vector<AndroidCXX::java_lang_CharSequence > *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<AndroidCXX::java_lang_CharSequence > android_content_Intent::getCharSequenceArrayExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_CharSequence > android_content_Intent::getCharSequenceArrayExtra(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_os_Bundle android_content_Intent::getBundleExtra(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::android_os_Bundle android_content_Intent::getBundleExtra(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::android_os_Bundle android_content_Intent::getBundleExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::android_os_Bundle android_content_Intent::getBundleExtra(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getBundleExtra";
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/os/Bundle;";
@@ -5834,8 +5584,6 @@ AndroidCXX::android_os_Bundle android_content_Intent::getBundleExtra(AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -5885,9 +5633,7 @@ AndroidCXX::android_os_Bundle android_content_Intent::getBundleExtra(AndroidCXX:
 	AndroidCXX::android_os_Bundle result((AndroidCXX::android_os_Bundle) *((AndroidCXX::android_os_Bundle *) cxx_value));
 	delete ((AndroidCXX::android_os_Bundle *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_os_Bundle android_content_Intent::getBundleExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::android_os_Bundle android_content_Intent::getBundleExtra(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
@@ -5903,8 +5649,6 @@ int android_content_Intent::getFlags()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -5933,8 +5677,6 @@ int android_content_Intent::getFlags()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_content_Intent::getFlags() exit");
 
 	return result;
@@ -5951,8 +5693,6 @@ AndroidCXX::android_graphics_Rect android_content_Intent::getSourceBounds()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -5981,15 +5721,13 @@ AndroidCXX::android_graphics_Rect android_content_Intent::getSourceBounds()
 	AndroidCXX::android_graphics_Rect result((AndroidCXX::android_graphics_Rect) *((AndroidCXX::android_graphics_Rect *) cxx_value));
 	delete ((AndroidCXX::android_graphics_Rect *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_graphics_Rect android_content_Intent::getSourceBounds() exit");
 
 	return result;
 }
-AndroidCXX::android_content_ComponentName android_content_Intent::resolveActivity(AndroidCXX::android_content_pm_PackageManager& arg0)
+AndroidCXX::android_content_ComponentName android_content_Intent::resolveActivity(AndroidCXX::android_content_pm_PackageManager const& arg0)
 {
-	LOGV("AndroidCXX::android_content_ComponentName android_content_Intent::resolveActivity(AndroidCXX::android_content_pm_PackageManager& arg0) enter");
+	LOGV("AndroidCXX::android_content_ComponentName android_content_Intent::resolveActivity(AndroidCXX::android_content_pm_PackageManager const& arg0) enter");
 
 	const char *methodName = "resolveActivity";
 	const char *methodSignature = "(Landroid/content/pm/PackageManager;)Landroid/content/ComponentName;";
@@ -5999,8 +5737,6 @@ AndroidCXX::android_content_ComponentName android_content_Intent::resolveActivit
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -6050,15 +5786,13 @@ AndroidCXX::android_content_ComponentName android_content_Intent::resolveActivit
 	AndroidCXX::android_content_ComponentName result((AndroidCXX::android_content_ComponentName) *((AndroidCXX::android_content_ComponentName *) cxx_value));
 	delete ((AndroidCXX::android_content_ComponentName *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_ComponentName android_content_Intent::resolveActivity(AndroidCXX::android_content_pm_PackageManager& arg0) exit");
+	LOGV("AndroidCXX::android_content_ComponentName android_content_Intent::resolveActivity(AndroidCXX::android_content_pm_PackageManager const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_pm_ActivityInfo android_content_Intent::resolveActivityInfo(AndroidCXX::android_content_pm_PackageManager& arg0,int& arg1)
+AndroidCXX::android_content_pm_ActivityInfo android_content_Intent::resolveActivityInfo(AndroidCXX::android_content_pm_PackageManager const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_content_pm_ActivityInfo android_content_Intent::resolveActivityInfo(AndroidCXX::android_content_pm_PackageManager& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_content_pm_ActivityInfo android_content_Intent::resolveActivityInfo(AndroidCXX::android_content_pm_PackageManager const& arg0,int const& arg1) enter");
 
 	const char *methodName = "resolveActivityInfo";
 	const char *methodSignature = "(Landroid/content/pm/PackageManager;I)Landroid/content/pm/ActivityInfo;";
@@ -6068,8 +5802,6 @@ AndroidCXX::android_content_pm_ActivityInfo android_content_Intent::resolveActiv
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -6140,15 +5872,13 @@ AndroidCXX::android_content_pm_ActivityInfo android_content_Intent::resolveActiv
 	AndroidCXX::android_content_pm_ActivityInfo result((AndroidCXX::android_content_pm_ActivityInfo) *((AndroidCXX::android_content_pm_ActivityInfo *) cxx_value));
 	delete ((AndroidCXX::android_content_pm_ActivityInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_pm_ActivityInfo android_content_Intent::resolveActivityInfo(AndroidCXX::android_content_pm_PackageManager& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_content_pm_ActivityInfo android_content_Intent::resolveActivityInfo(AndroidCXX::android_content_pm_PackageManager const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::setAction(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::android_content_Intent android_content_Intent::setAction(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setAction(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setAction(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setAction";
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/content/Intent;";
@@ -6159,8 +5889,6 @@ AndroidCXX::android_content_Intent android_content_Intent::setAction(AndroidCXX:
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -6209,15 +5937,13 @@ AndroidCXX::android_content_Intent android_content_Intent::setAction(AndroidCXX:
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setAction(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setAction(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::setDataAndNormalize(AndroidCXX::android_net_Uri& arg0)
+AndroidCXX::android_content_Intent android_content_Intent::setDataAndNormalize(AndroidCXX::android_net_Uri const& arg0)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setDataAndNormalize(AndroidCXX::android_net_Uri& arg0) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setDataAndNormalize(AndroidCXX::android_net_Uri const& arg0) enter");
 
 	const char *methodName = "setDataAndNormalize";
 	const char *methodSignature = "(Landroid/net/Uri;)Landroid/content/Intent;";
@@ -6228,8 +5954,6 @@ AndroidCXX::android_content_Intent android_content_Intent::setDataAndNormalize(A
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -6278,15 +6002,13 @@ AndroidCXX::android_content_Intent android_content_Intent::setDataAndNormalize(A
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setDataAndNormalize(AndroidCXX::android_net_Uri& arg0) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setDataAndNormalize(AndroidCXX::android_net_Uri const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::setType(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::android_content_Intent android_content_Intent::setType(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setType(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setType(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setType";
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/content/Intent;";
@@ -6297,8 +6019,6 @@ AndroidCXX::android_content_Intent android_content_Intent::setType(AndroidCXX::j
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -6347,15 +6067,13 @@ AndroidCXX::android_content_Intent android_content_Intent::setType(AndroidCXX::j
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setType(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setType(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::setTypeAndNormalize(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::android_content_Intent android_content_Intent::setTypeAndNormalize(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setTypeAndNormalize(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setTypeAndNormalize(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setTypeAndNormalize";
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/content/Intent;";
@@ -6366,8 +6084,6 @@ AndroidCXX::android_content_Intent android_content_Intent::setTypeAndNormalize(A
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -6416,15 +6132,13 @@ AndroidCXX::android_content_Intent android_content_Intent::setTypeAndNormalize(A
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setTypeAndNormalize(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setTypeAndNormalize(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::setDataAndType(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::setDataAndType(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setDataAndType(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setDataAndType(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "setDataAndType";
 	const char *methodSignature = "(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;";
@@ -6435,8 +6149,6 @@ AndroidCXX::android_content_Intent android_content_Intent::setDataAndType(Androi
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -6506,15 +6218,13 @@ AndroidCXX::android_content_Intent android_content_Intent::setDataAndType(Androi
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setDataAndType(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setDataAndType(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::setDataAndTypeAndNormalize(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::setDataAndTypeAndNormalize(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setDataAndTypeAndNormalize(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setDataAndTypeAndNormalize(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "setDataAndTypeAndNormalize";
 	const char *methodSignature = "(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;";
@@ -6525,8 +6235,6 @@ AndroidCXX::android_content_Intent android_content_Intent::setDataAndTypeAndNorm
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -6596,15 +6304,13 @@ AndroidCXX::android_content_Intent android_content_Intent::setDataAndTypeAndNorm
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setDataAndTypeAndNormalize(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setDataAndTypeAndNormalize(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::addCategory(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::android_content_Intent android_content_Intent::addCategory(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::addCategory(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::addCategory(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "addCategory";
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/content/Intent;";
@@ -6614,8 +6320,6 @@ AndroidCXX::android_content_Intent android_content_Intent::addCategory(AndroidCX
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -6665,15 +6369,13 @@ AndroidCXX::android_content_Intent android_content_Intent::addCategory(AndroidCX
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::addCategory(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::addCategory(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-void android_content_Intent::removeCategory(AndroidCXX::java_lang_String& arg0)
+void android_content_Intent::removeCategory(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_content_Intent::removeCategory(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_content_Intent::removeCategory(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "removeCategory";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -6683,8 +6385,6 @@ void android_content_Intent::removeCategory(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -6715,14 +6415,12 @@ void android_content_Intent::removeCategory(AndroidCXX::java_lang_String& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_Intent::removeCategory(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_content_Intent::removeCategory(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-void android_content_Intent::setSelector(AndroidCXX::android_content_Intent& arg0)
+void android_content_Intent::setSelector(AndroidCXX::android_content_Intent const& arg0)
 {
-	LOGV("void android_content_Intent::setSelector(AndroidCXX::android_content_Intent& arg0) enter");
+	LOGV("void android_content_Intent::setSelector(AndroidCXX::android_content_Intent const& arg0) enter");
 
 	const char *methodName = "setSelector";
 	const char *methodSignature = "(Landroid/content/Intent;)V";
@@ -6732,8 +6430,6 @@ void android_content_Intent::setSelector(AndroidCXX::android_content_Intent& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -6764,14 +6460,12 @@ void android_content_Intent::setSelector(AndroidCXX::android_content_Intent& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_Intent::setSelector(AndroidCXX::android_content_Intent& arg0) exit");
+	LOGV("void android_content_Intent::setSelector(AndroidCXX::android_content_Intent const& arg0) exit");
 
 }
-void android_content_Intent::setClipData(AndroidCXX::android_content_ClipData& arg0)
+void android_content_Intent::setClipData(AndroidCXX::android_content_ClipData const& arg0)
 {
-	LOGV("void android_content_Intent::setClipData(AndroidCXX::android_content_ClipData& arg0) enter");
+	LOGV("void android_content_Intent::setClipData(AndroidCXX::android_content_ClipData const& arg0) enter");
 
 	const char *methodName = "setClipData";
 	const char *methodSignature = "(Landroid/content/ClipData;)V";
@@ -6781,8 +6475,6 @@ void android_content_Intent::setClipData(AndroidCXX::android_content_ClipData& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -6813,14 +6505,12 @@ void android_content_Intent::setClipData(AndroidCXX::android_content_ClipData& a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_Intent::setClipData(AndroidCXX::android_content_ClipData& arg0) exit");
+	LOGV("void android_content_Intent::setClipData(AndroidCXX::android_content_ClipData const& arg0) exit");
 
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_CharSequence& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_CharSequence const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_CharSequence& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;";
@@ -6830,8 +6520,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -6902,15 +6590,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_CharSequence& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Parcelable& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Parcelable const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Parcelable& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Parcelable const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;";
@@ -6920,8 +6606,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -6992,15 +6676,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Parcelable& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Parcelable const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::android_os_Parcelable >& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::android_os_Parcelable > const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::android_os_Parcelable >& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::android_os_Parcelable > const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;[Landroid/os/Parcelable;)Landroid/content/Intent;";
@@ -7010,8 +6692,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -7100,15 +6780,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::android_os_Parcelable >& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::android_os_Parcelable > const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_Serializable& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_Serializable const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_Serializable& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_Serializable const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;";
@@ -7118,8 +6796,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -7190,15 +6866,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_Serializable& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_Serializable const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<byte>& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<byte> const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<byte>& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<byte> const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;[B)Landroid/content/Intent;";
@@ -7208,8 +6882,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -7298,15 +6970,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<byte>& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<byte> const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<short>& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<short> const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<short>& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<short> const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;[S)Landroid/content/Intent;";
@@ -7316,8 +6986,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -7406,15 +7074,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<short>& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<short> const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<char>& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<char> const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<char>& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<char> const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;[C)Landroid/content/Intent;";
@@ -7424,8 +7090,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -7514,15 +7178,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<char>& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<char> const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<int>& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<int> const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<int>& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<int> const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;[I)Landroid/content/Intent;";
@@ -7532,8 +7194,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -7622,15 +7282,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<int>& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<int> const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<long>& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<long> const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<long>& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<long> const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;[J)Landroid/content/Intent;";
@@ -7640,8 +7298,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -7730,15 +7386,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<long>& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<long> const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<float>& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<float> const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<float>& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<float> const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;[F)Landroid/content/Intent;";
@@ -7748,8 +7402,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -7838,15 +7490,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<float>& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<float> const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<double>& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<double> const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<double>& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<double> const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;[D)Landroid/content/Intent;";
@@ -7856,8 +7506,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -7946,15 +7594,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<double>& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<double> const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/Intent;";
@@ -7964,8 +7610,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -8054,15 +7698,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_CharSequence >& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_CharSequence > const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_CharSequence >& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_CharSequence > const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/CharSequence;)Landroid/content/Intent;";
@@ -8072,8 +7714,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -8162,15 +7802,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_CharSequence >& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_CharSequence > const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;";
@@ -8180,8 +7818,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -8252,15 +7888,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<bool>& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<bool> const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<bool>& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<bool> const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;[Z)Landroid/content/Intent;";
@@ -8270,8 +7904,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -8360,15 +7992,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<bool>& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<bool> const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,bool& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,bool const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,bool& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;Z)Landroid/content/Intent;";
@@ -8378,8 +8008,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -8450,15 +8078,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,bool& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,bool const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,byte& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,byte const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,byte& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,byte const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;B)Landroid/content/Intent;";
@@ -8468,8 +8094,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -8540,15 +8164,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,byte& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,byte const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,char& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,char const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,char& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,char const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;C)Landroid/content/Intent;";
@@ -8558,8 +8180,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -8630,15 +8250,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,char& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,char const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,short& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,short const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,short& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,short const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;S)Landroid/content/Intent;";
@@ -8648,8 +8266,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -8720,15 +8336,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,short& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,short const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,int& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,int const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;I)Landroid/content/Intent;";
@@ -8738,8 +8352,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -8810,15 +8422,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,long& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,long const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,long& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,long const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;J)Landroid/content/Intent;";
@@ -8828,8 +8438,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -8900,15 +8508,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,long& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,long const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,float& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,float const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,float& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,float const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;F)Landroid/content/Intent;";
@@ -8918,8 +8524,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -8990,15 +8594,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,float& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,float const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,double& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,double const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,double& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,double const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;D)Landroid/content/Intent;";
@@ -9008,8 +8610,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -9080,15 +8680,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,double& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,double const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;";
@@ -9098,8 +8696,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -9170,15 +8766,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putParcelableArrayListExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_ArrayList& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putParcelableArrayListExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putParcelableArrayListExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_ArrayList& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putParcelableArrayListExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1) enter");
 
 	const char *methodName = "putParcelableArrayListExtra";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/util/ArrayList;)Landroid/content/Intent;";
@@ -9188,8 +8782,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putParcelableArrayLis
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -9278,15 +8870,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putParcelableArrayLis
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putParcelableArrayListExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_ArrayList& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putParcelableArrayListExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putIntegerArrayListExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_ArrayList& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putIntegerArrayListExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putIntegerArrayListExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_ArrayList& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putIntegerArrayListExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1) enter");
 
 	const char *methodName = "putIntegerArrayListExtra";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/util/ArrayList;)Landroid/content/Intent;";
@@ -9296,8 +8886,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putIntegerArrayListEx
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -9386,15 +8974,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putIntegerArrayListEx
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putIntegerArrayListExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_ArrayList& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putIntegerArrayListExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putStringArrayListExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_ArrayList& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putStringArrayListExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putStringArrayListExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_ArrayList& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putStringArrayListExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1) enter");
 
 	const char *methodName = "putStringArrayListExtra";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/util/ArrayList;)Landroid/content/Intent;";
@@ -9404,8 +8990,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putStringArrayListExt
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -9494,15 +9078,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putStringArrayListExt
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putStringArrayListExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_ArrayList& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putStringArrayListExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putCharSequenceArrayListExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_ArrayList& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putCharSequenceArrayListExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putCharSequenceArrayListExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_ArrayList& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putCharSequenceArrayListExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1) enter");
 
 	const char *methodName = "putCharSequenceArrayListExtra";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/util/ArrayList;)Landroid/content/Intent;";
@@ -9512,8 +9094,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putCharSequenceArrayL
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -9602,15 +9182,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putCharSequenceArrayL
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putCharSequenceArrayListExtra(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_ArrayList& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putCharSequenceArrayListExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtras(AndroidCXX::android_content_Intent& arg0)
+AndroidCXX::android_content_Intent android_content_Intent::putExtras(AndroidCXX::android_content_Intent const& arg0)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtras(AndroidCXX::android_content_Intent& arg0) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtras(AndroidCXX::android_content_Intent const& arg0) enter");
 
 	const char *methodName = "putExtras";
 	const char *methodSignature = "(Landroid/content/Intent;)Landroid/content/Intent;";
@@ -9620,8 +9198,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtras(AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -9671,15 +9247,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtras(AndroidCXX:
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtras(AndroidCXX::android_content_Intent& arg0) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtras(AndroidCXX::android_content_Intent const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtras(AndroidCXX::android_os_Bundle& arg0)
+AndroidCXX::android_content_Intent android_content_Intent::putExtras(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtras(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtras(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "putExtras";
 	const char *methodSignature = "(Landroid/os/Bundle;)Landroid/content/Intent;";
@@ -9689,8 +9263,6 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtras(AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -9740,15 +9312,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtras(AndroidCXX:
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtras(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtras(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::replaceExtras(AndroidCXX::android_content_Intent& arg0)
+AndroidCXX::android_content_Intent android_content_Intent::replaceExtras(AndroidCXX::android_content_Intent const& arg0)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::replaceExtras(AndroidCXX::android_content_Intent& arg0) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::replaceExtras(AndroidCXX::android_content_Intent const& arg0) enter");
 
 	const char *methodName = "replaceExtras";
 	const char *methodSignature = "(Landroid/content/Intent;)Landroid/content/Intent;";
@@ -9758,8 +9328,6 @@ AndroidCXX::android_content_Intent android_content_Intent::replaceExtras(Android
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -9809,15 +9377,13 @@ AndroidCXX::android_content_Intent android_content_Intent::replaceExtras(Android
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::replaceExtras(AndroidCXX::android_content_Intent& arg0) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::replaceExtras(AndroidCXX::android_content_Intent const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::replaceExtras(AndroidCXX::android_os_Bundle& arg0)
+AndroidCXX::android_content_Intent android_content_Intent::replaceExtras(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::replaceExtras(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::replaceExtras(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "replaceExtras";
 	const char *methodSignature = "(Landroid/os/Bundle;)Landroid/content/Intent;";
@@ -9827,8 +9393,6 @@ AndroidCXX::android_content_Intent android_content_Intent::replaceExtras(Android
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -9878,15 +9442,13 @@ AndroidCXX::android_content_Intent android_content_Intent::replaceExtras(Android
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::replaceExtras(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::replaceExtras(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 	return result;
 }
-void android_content_Intent::removeExtra(AndroidCXX::java_lang_String& arg0)
+void android_content_Intent::removeExtra(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_content_Intent::removeExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_content_Intent::removeExtra(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "removeExtra";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -9896,8 +9458,6 @@ void android_content_Intent::removeExtra(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -9928,14 +9488,12 @@ void android_content_Intent::removeExtra(AndroidCXX::java_lang_String& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_Intent::removeExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_content_Intent::removeExtra(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-AndroidCXX::android_content_Intent android_content_Intent::setFlags(int& arg0)
+AndroidCXX::android_content_Intent android_content_Intent::setFlags(int const& arg0)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setFlags(int& arg0) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setFlags(int const& arg0) enter");
 
 	const char *methodName = "setFlags";
 	const char *methodSignature = "(I)Landroid/content/Intent;";
@@ -9946,8 +9504,6 @@ AndroidCXX::android_content_Intent android_content_Intent::setFlags(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -9996,15 +9552,13 @@ AndroidCXX::android_content_Intent android_content_Intent::setFlags(int& arg0)
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setFlags(int& arg0) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setFlags(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::addFlags(int& arg0)
+AndroidCXX::android_content_Intent android_content_Intent::addFlags(int const& arg0)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::addFlags(int& arg0) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::addFlags(int const& arg0) enter");
 
 	const char *methodName = "addFlags";
 	const char *methodSignature = "(I)Landroid/content/Intent;";
@@ -10015,8 +9569,6 @@ AndroidCXX::android_content_Intent android_content_Intent::addFlags(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -10065,15 +9617,13 @@ AndroidCXX::android_content_Intent android_content_Intent::addFlags(int& arg0)
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::addFlags(int& arg0) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::addFlags(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::setPackage(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::android_content_Intent android_content_Intent::setPackage(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setPackage(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setPackage(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setPackage";
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/content/Intent;";
@@ -10083,8 +9633,6 @@ AndroidCXX::android_content_Intent android_content_Intent::setPackage(AndroidCXX
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -10134,15 +9682,13 @@ AndroidCXX::android_content_Intent android_content_Intent::setPackage(AndroidCXX
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setPackage(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setPackage(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::setComponent(AndroidCXX::android_content_ComponentName& arg0)
+AndroidCXX::android_content_Intent android_content_Intent::setComponent(AndroidCXX::android_content_ComponentName const& arg0)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setComponent(AndroidCXX::android_content_ComponentName& arg0) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setComponent(AndroidCXX::android_content_ComponentName const& arg0) enter");
 
 	const char *methodName = "setComponent";
 	const char *methodSignature = "(Landroid/content/ComponentName;)Landroid/content/Intent;";
@@ -10152,8 +9698,6 @@ AndroidCXX::android_content_Intent android_content_Intent::setComponent(AndroidC
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -10203,15 +9747,13 @@ AndroidCXX::android_content_Intent android_content_Intent::setComponent(AndroidC
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setComponent(AndroidCXX::android_content_ComponentName& arg0) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setComponent(AndroidCXX::android_content_ComponentName const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::setClassName(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::setClassName(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setClassName(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setClassName(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "setClassName";
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;";
@@ -10221,8 +9763,6 @@ AndroidCXX::android_content_Intent android_content_Intent::setClassName(AndroidC
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -10293,15 +9833,13 @@ AndroidCXX::android_content_Intent android_content_Intent::setClassName(AndroidC
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setClassName(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setClassName(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::setClassName(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::setClassName(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setClassName(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setClassName(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "setClassName";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;";
@@ -10311,8 +9849,6 @@ AndroidCXX::android_content_Intent android_content_Intent::setClassName(AndroidC
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -10383,15 +9919,13 @@ AndroidCXX::android_content_Intent android_content_Intent::setClassName(AndroidC
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setClassName(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setClassName(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::setClass(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_Class& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::setClass(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setClass(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_Class& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setClass(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1) enter");
 
 	const char *methodName = "setClass";
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;";
@@ -10401,8 +9935,6 @@ AndroidCXX::android_content_Intent android_content_Intent::setClass(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -10491,15 +10023,13 @@ AndroidCXX::android_content_Intent android_content_Intent::setClass(AndroidCXX::
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setClass(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_Class& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::setClass(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1) exit");
 
 	return result;
 }
-void android_content_Intent::setSourceBounds(AndroidCXX::android_graphics_Rect& arg0)
+void android_content_Intent::setSourceBounds(AndroidCXX::android_graphics_Rect const& arg0)
 {
-	LOGV("void android_content_Intent::setSourceBounds(AndroidCXX::android_graphics_Rect& arg0) enter");
+	LOGV("void android_content_Intent::setSourceBounds(AndroidCXX::android_graphics_Rect const& arg0) enter");
 
 	const char *methodName = "setSourceBounds";
 	const char *methodSignature = "(Landroid/graphics/Rect;)V";
@@ -10509,8 +10039,6 @@ void android_content_Intent::setSourceBounds(AndroidCXX::android_graphics_Rect& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -10541,14 +10069,12 @@ void android_content_Intent::setSourceBounds(AndroidCXX::android_graphics_Rect& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_Intent::setSourceBounds(AndroidCXX::android_graphics_Rect& arg0) exit");
+	LOGV("void android_content_Intent::setSourceBounds(AndroidCXX::android_graphics_Rect const& arg0) exit");
 
 }
-int android_content_Intent::fillIn(AndroidCXX::android_content_Intent& arg0,int& arg1)
+int android_content_Intent::fillIn(AndroidCXX::android_content_Intent const& arg0,int const& arg1)
 {
-	LOGV("int android_content_Intent::fillIn(AndroidCXX::android_content_Intent& arg0,int& arg1) enter");
+	LOGV("int android_content_Intent::fillIn(AndroidCXX::android_content_Intent const& arg0,int const& arg1) enter");
 
 	const char *methodName = "fillIn";
 	const char *methodSignature = "(Landroid/content/Intent;I)I";
@@ -10558,8 +10084,6 @@ int android_content_Intent::fillIn(AndroidCXX::android_content_Intent& arg0,int&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -10630,15 +10154,13 @@ int android_content_Intent::fillIn(AndroidCXX::android_content_Intent& arg0,int&
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_content_Intent::fillIn(AndroidCXX::android_content_Intent& arg0,int& arg1) exit");
+	LOGV("int android_content_Intent::fillIn(AndroidCXX::android_content_Intent const& arg0,int const& arg1) exit");
 
 	return result;
 }
-bool android_content_Intent::filterEquals(AndroidCXX::android_content_Intent& arg0)
+bool android_content_Intent::filterEquals(AndroidCXX::android_content_Intent const& arg0)
 {
-	LOGV("bool android_content_Intent::filterEquals(AndroidCXX::android_content_Intent& arg0) enter");
+	LOGV("bool android_content_Intent::filterEquals(AndroidCXX::android_content_Intent const& arg0) enter");
 
 	const char *methodName = "filterEquals";
 	const char *methodSignature = "(Landroid/content/Intent;)Z";
@@ -10648,8 +10170,6 @@ bool android_content_Intent::filterEquals(AndroidCXX::android_content_Intent& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -10699,9 +10219,7 @@ bool android_content_Intent::filterEquals(AndroidCXX::android_content_Intent& ar
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_content_Intent::filterEquals(AndroidCXX::android_content_Intent& arg0) exit");
+	LOGV("bool android_content_Intent::filterEquals(AndroidCXX::android_content_Intent const& arg0) exit");
 
 	return result;
 }
@@ -10717,8 +10235,6 @@ int android_content_Intent::filterHashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -10747,15 +10263,13 @@ int android_content_Intent::filterHashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_content_Intent::filterHashCode() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_Intent::toUri(int& arg0)
+AndroidCXX::java_lang_String android_content_Intent::toUri(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_Intent::toUri(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_Intent::toUri(int const& arg0) enter");
 
 	const char *methodName = "toUri";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -10765,8 +10279,6 @@ AndroidCXX::java_lang_String android_content_Intent::toUri(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -10816,15 +10328,13 @@ AndroidCXX::java_lang_String android_content_Intent::toUri(int& arg0)
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_content_Intent::toUri(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_Intent::toUri(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::parseIntent(AndroidCXX::android_content_res_Resources& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser& arg1,AndroidCXX::android_util_AttributeSet& arg2)
+AndroidCXX::android_content_Intent android_content_Intent::parseIntent(AndroidCXX::android_content_res_Resources const& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser const& arg1,AndroidCXX::android_util_AttributeSet const& arg2)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::parseIntent(AndroidCXX::android_content_res_Resources& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser& arg1,AndroidCXX::android_util_AttributeSet& arg2) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::parseIntent(AndroidCXX::android_content_res_Resources const& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser const& arg1,AndroidCXX::android_util_AttributeSet const& arg2) enter");
 
 	const char *methodName = "parseIntent";
 	const char *methodSignature = "(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)Landroid/content/Intent;";
@@ -10834,8 +10344,6 @@ AndroidCXX::android_content_Intent android_content_Intent::parseIntent(AndroidCX
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -10906,7 +10414,7 @@ AndroidCXX::android_content_Intent android_content_Intent::parseIntent(AndroidCX
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -10927,15 +10435,13 @@ AndroidCXX::android_content_Intent android_content_Intent::parseIntent(AndroidCX
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::parseIntent(AndroidCXX::android_content_res_Resources& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser& arg1,AndroidCXX::android_util_AttributeSet& arg2) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::parseIntent(AndroidCXX::android_content_res_Resources const& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser const& arg1,AndroidCXX::android_util_AttributeSet const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_Intent::normalizeMimeType(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_lang_String android_content_Intent::normalizeMimeType(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_Intent::normalizeMimeType(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_Intent::normalizeMimeType(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "normalizeMimeType";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
@@ -10945,8 +10451,6 @@ AndroidCXX::java_lang_String android_content_Intent::normalizeMimeType(AndroidCX
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_Intent cxx address %d", cxxAddress);
@@ -10975,7 +10479,7 @@ AndroidCXX::java_lang_String android_content_Intent::normalizeMimeType(AndroidCX
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jstring jni_result = (jstring) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
 	{
@@ -10996,9 +10500,7 @@ AndroidCXX::java_lang_String android_content_Intent::normalizeMimeType(AndroidCX
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_content_Intent::normalizeMimeType(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_Intent::normalizeMimeType(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }

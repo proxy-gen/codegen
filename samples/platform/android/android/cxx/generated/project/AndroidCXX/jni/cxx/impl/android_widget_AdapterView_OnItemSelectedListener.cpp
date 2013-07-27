@@ -55,7 +55,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_AdapterView_OnItemSelectedListener::android_widget_AdapterView_OnItemSelectedListener(const android_widget_AdapterView_OnItemSelectedListener& cc)
 {
 	LOGV("android_widget_AdapterView_OnItemSelectedListener::android_widget_AdapterView_OnItemSelectedListener(const android_widget_AdapterView_OnItemSelectedListener& cc) enter");
@@ -79,9 +78,9 @@ android_widget_AdapterView_OnItemSelectedListener::android_widget_AdapterView_On
 
 	LOGV("android_widget_AdapterView_OnItemSelectedListener::android_widget_AdapterView_OnItemSelectedListener(const android_widget_AdapterView_OnItemSelectedListener& cc) exit");
 }
-android_widget_AdapterView_OnItemSelectedListener::android_widget_AdapterView_OnItemSelectedListener(void * proxy)
+android_widget_AdapterView_OnItemSelectedListener::android_widget_AdapterView_OnItemSelectedListener(Proxy proxy)
 {
-	LOGV("android_widget_AdapterView_OnItemSelectedListener::android_widget_AdapterView_OnItemSelectedListener(void * proxy) enter");
+	LOGV("android_widget_AdapterView_OnItemSelectedListener::android_widget_AdapterView_OnItemSelectedListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -91,52 +90,31 @@ android_widget_AdapterView_OnItemSelectedListener::android_widget_AdapterView_On
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_AdapterView_OnItemSelectedListener::android_widget_AdapterView_OnItemSelectedListener(void * proxy) exit");
+	LOGV("android_widget_AdapterView_OnItemSelectedListener::android_widget_AdapterView_OnItemSelectedListener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_AdapterView_OnItemSelectedListener::android_widget_AdapterView_OnItemSelectedListener()
-// {
-// 	LOGV("android_widget_AdapterView_OnItemSelectedListener::android_widget_AdapterView_OnItemSelectedListener() enter");	
+Proxy android_widget_AdapterView_OnItemSelectedListener::proxy() const
+{	
+	LOGV("android_widget_AdapterView_OnItemSelectedListener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/AdapterView$OnItemSelectedListener";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_AdapterView_OnItemSelectedListener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_AdapterView_OnItemSelectedListener jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_AdapterView_OnItemSelectedListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_AdapterView_OnItemSelectedListener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_AdapterView_OnItemSelectedListener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_AdapterView_OnItemSelectedListener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_AdapterView_OnItemSelectedListener::android_widget_AdapterView_OnItemSelectedListener() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_widget_AdapterView_OnItemSelectedListener::~android_widget_AdapterView_OnItemSelectedListener()
 {
@@ -148,13 +126,13 @@ android_widget_AdapterView_OnItemSelectedListener::~android_widget_AdapterView_O
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_AdapterView_OnItemSelectedListener::~android_widget_AdapterView_OnItemSelectedListener() exit");
 }
 // Functions
-void android_widget_AdapterView_OnItemSelectedListener::onItemSelected(AndroidCXX::android_widget_AdapterView& arg0,AndroidCXX::android_view_View& arg1,int& arg2,long& arg3)
+void android_widget_AdapterView_OnItemSelectedListener::onItemSelected(AndroidCXX::android_widget_AdapterView const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2,long const& arg3)
 {
-	LOGV("void android_widget_AdapterView_OnItemSelectedListener::onItemSelected(AndroidCXX::android_widget_AdapterView& arg0,AndroidCXX::android_view_View& arg1,int& arg2,long& arg3) enter");
+	LOGV("void android_widget_AdapterView_OnItemSelectedListener::onItemSelected(AndroidCXX::android_widget_AdapterView const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2,long const& arg3) enter");
 
 	const char *methodName = "onItemSelected";
 	const char *methodSignature = "(Landroid/widget/AdapterView;Landroid/view/View;IJ)V";
@@ -164,8 +142,6 @@ void android_widget_AdapterView_OnItemSelectedListener::onItemSelected(AndroidCX
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AdapterView_OnItemSelectedListener cxx address %d", cxxAddress);
@@ -277,14 +253,12 @@ void android_widget_AdapterView_OnItemSelectedListener::onItemSelected(AndroidCX
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_AdapterView_OnItemSelectedListener::onItemSelected(AndroidCXX::android_widget_AdapterView& arg0,AndroidCXX::android_view_View& arg1,int& arg2,long& arg3) exit");
+	LOGV("void android_widget_AdapterView_OnItemSelectedListener::onItemSelected(AndroidCXX::android_widget_AdapterView const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2,long const& arg3) exit");
 
 }
-void android_widget_AdapterView_OnItemSelectedListener::onNothingSelected(AndroidCXX::android_widget_AdapterView& arg0)
+void android_widget_AdapterView_OnItemSelectedListener::onNothingSelected(AndroidCXX::android_widget_AdapterView const& arg0)
 {
-	LOGV("void android_widget_AdapterView_OnItemSelectedListener::onNothingSelected(AndroidCXX::android_widget_AdapterView& arg0) enter");
+	LOGV("void android_widget_AdapterView_OnItemSelectedListener::onNothingSelected(AndroidCXX::android_widget_AdapterView const& arg0) enter");
 
 	const char *methodName = "onNothingSelected";
 	const char *methodSignature = "(Landroid/widget/AdapterView;)V";
@@ -294,8 +268,6 @@ void android_widget_AdapterView_OnItemSelectedListener::onNothingSelected(Androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AdapterView_OnItemSelectedListener cxx address %d", cxxAddress);
@@ -344,8 +316,6 @@ void android_widget_AdapterView_OnItemSelectedListener::onNothingSelected(Androi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_AdapterView_OnItemSelectedListener::onNothingSelected(AndroidCXX::android_widget_AdapterView& arg0) exit");
+	LOGV("void android_widget_AdapterView_OnItemSelectedListener::onNothingSelected(AndroidCXX::android_widget_AdapterView const& arg0) exit");
 
 }

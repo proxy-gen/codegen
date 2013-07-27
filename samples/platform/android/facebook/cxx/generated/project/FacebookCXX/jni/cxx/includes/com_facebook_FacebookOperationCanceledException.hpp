@@ -59,14 +59,13 @@ class com_facebook_FacebookOperationCanceledException
 public:
 
 	com_facebook_FacebookOperationCanceledException(const com_facebook_FacebookOperationCanceledException& cc);
-	com_facebook_FacebookOperationCanceledException(void * proxy);
+	com_facebook_FacebookOperationCanceledException(Proxy proxy);
 	// Public Constructors
 	com_facebook_FacebookOperationCanceledException();
-	com_facebook_FacebookOperationCanceledException(AndroidCXX::java_lang_String& arg0);
-	com_facebook_FacebookOperationCanceledException(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1);
-	com_facebook_FacebookOperationCanceledException(AndroidCXX::java_lang_Throwable& arg0);
-	// TODO: remove
-	// 
+	com_facebook_FacebookOperationCanceledException(AndroidCXX::java_lang_String const& arg0);
+	com_facebook_FacebookOperationCanceledException(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1);
+	com_facebook_FacebookOperationCanceledException(AndroidCXX::java_lang_Throwable const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_FacebookOperationCanceledException();
 	// Functions

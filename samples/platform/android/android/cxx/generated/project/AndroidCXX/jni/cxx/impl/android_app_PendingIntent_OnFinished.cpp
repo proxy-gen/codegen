@@ -58,7 +58,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_app_PendingIntent_OnFinished::android_app_PendingIntent_OnFinished(const android_app_PendingIntent_OnFinished& cc)
 {
 	LOGV("android_app_PendingIntent_OnFinished::android_app_PendingIntent_OnFinished(const android_app_PendingIntent_OnFinished& cc) enter");
@@ -82,9 +81,9 @@ android_app_PendingIntent_OnFinished::android_app_PendingIntent_OnFinished(const
 
 	LOGV("android_app_PendingIntent_OnFinished::android_app_PendingIntent_OnFinished(const android_app_PendingIntent_OnFinished& cc) exit");
 }
-android_app_PendingIntent_OnFinished::android_app_PendingIntent_OnFinished(void * proxy)
+android_app_PendingIntent_OnFinished::android_app_PendingIntent_OnFinished(Proxy proxy)
 {
-	LOGV("android_app_PendingIntent_OnFinished::android_app_PendingIntent_OnFinished(void * proxy) enter");
+	LOGV("android_app_PendingIntent_OnFinished::android_app_PendingIntent_OnFinished(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -94,52 +93,31 @@ android_app_PendingIntent_OnFinished::android_app_PendingIntent_OnFinished(void 
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_app_PendingIntent_OnFinished::android_app_PendingIntent_OnFinished(void * proxy) exit");
+	LOGV("android_app_PendingIntent_OnFinished::android_app_PendingIntent_OnFinished(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_app_PendingIntent_OnFinished::android_app_PendingIntent_OnFinished()
-// {
-// 	LOGV("android_app_PendingIntent_OnFinished::android_app_PendingIntent_OnFinished() enter");	
+Proxy android_app_PendingIntent_OnFinished::proxy() const
+{	
+	LOGV("android_app_PendingIntent_OnFinished::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/app/PendingIntent$OnFinished";
+	long cxxAddress = (long) this;
+	LOGV("android_app_PendingIntent_OnFinished cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_PendingIntent_OnFinished jni address %d", proxiedComponent);
 
-// 	LOGV("android_app_PendingIntent_OnFinished className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_app_PendingIntent_OnFinished::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_app_PendingIntent_OnFinished cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_app_PendingIntent_OnFinished jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_app_PendingIntent_OnFinished::android_app_PendingIntent_OnFinished() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_app_PendingIntent_OnFinished::~android_app_PendingIntent_OnFinished()
 {
@@ -151,13 +129,13 @@ android_app_PendingIntent_OnFinished::~android_app_PendingIntent_OnFinished()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_app_PendingIntent_OnFinished::~android_app_PendingIntent_OnFinished() exit");
 }
 // Functions
-void android_app_PendingIntent_OnFinished::onSendFinished(AndroidCXX::android_app_PendingIntent& arg0,AndroidCXX::android_content_Intent& arg1,int& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::android_os_Bundle& arg4)
+void android_app_PendingIntent_OnFinished::onSendFinished(AndroidCXX::android_app_PendingIntent const& arg0,AndroidCXX::android_content_Intent const& arg1,int const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::android_os_Bundle const& arg4)
 {
-	LOGV("void android_app_PendingIntent_OnFinished::onSendFinished(AndroidCXX::android_app_PendingIntent& arg0,AndroidCXX::android_content_Intent& arg1,int& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::android_os_Bundle& arg4) enter");
+	LOGV("void android_app_PendingIntent_OnFinished::onSendFinished(AndroidCXX::android_app_PendingIntent const& arg0,AndroidCXX::android_content_Intent const& arg1,int const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::android_os_Bundle const& arg4) enter");
 
 	const char *methodName = "onSendFinished";
 	const char *methodSignature = "(Landroid/app/PendingIntent;Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;)V";
@@ -167,8 +145,6 @@ void android_app_PendingIntent_OnFinished::onSendFinished(AndroidCXX::android_ap
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_PendingIntent_OnFinished cxx address %d", cxxAddress);
@@ -283,8 +259,6 @@ void android_app_PendingIntent_OnFinished::onSendFinished(AndroidCXX::android_ap
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_app_PendingIntent_OnFinished::onSendFinished(AndroidCXX::android_app_PendingIntent& arg0,AndroidCXX::android_content_Intent& arg1,int& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::android_os_Bundle& arg4) exit");
+	LOGV("void android_app_PendingIntent_OnFinished::onSendFinished(AndroidCXX::android_app_PendingIntent const& arg0,AndroidCXX::android_content_Intent const& arg1,int const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::android_os_Bundle const& arg4) exit");
 
 }

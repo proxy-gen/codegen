@@ -66,16 +66,13 @@ class android_app_PendingIntent_OnFinished
 public:
 
 	android_app_PendingIntent_OnFinished(const android_app_PendingIntent_OnFinished& cc);
-	android_app_PendingIntent_OnFinished(void * proxy);
+	android_app_PendingIntent_OnFinished(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_app_PendingIntent_OnFinished();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_PendingIntent_OnFinished();
 	// Functions
-	 void onSendFinished(AndroidCXX::android_app_PendingIntent& arg0,AndroidCXX::android_content_Intent& arg1,int& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::android_os_Bundle& arg4);
+	 void onSendFinished(AndroidCXX::android_app_PendingIntent const& arg0,AndroidCXX::android_content_Intent const& arg1,int const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::android_os_Bundle const& arg4);
 };	
 
 } // namespace

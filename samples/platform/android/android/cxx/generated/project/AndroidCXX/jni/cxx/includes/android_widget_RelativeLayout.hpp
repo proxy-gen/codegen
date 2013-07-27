@@ -90,30 +90,27 @@ class android_widget_RelativeLayout
 public:
 
 	android_widget_RelativeLayout(const android_widget_RelativeLayout& cc);
-	android_widget_RelativeLayout(void * proxy);
+	android_widget_RelativeLayout(Proxy proxy);
 	// Public Constructors
-	android_widget_RelativeLayout(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_RelativeLayout(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_RelativeLayout(AndroidCXX::android_content_Context& arg0);
-	// TODO: remove
-	// 
-	// android_widget_RelativeLayout();
-	// 
+	android_widget_RelativeLayout(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_RelativeLayout(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_RelativeLayout(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RelativeLayout();
 	// Functions
-	 bool dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 AndroidCXX::android_widget_RelativeLayout_LayoutParams generateLayoutParams(AndroidCXX::android_util_AttributeSet& arg0);
+	 bool dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 AndroidCXX::android_widget_RelativeLayout_LayoutParams generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0);
 	 bool shouldDelayChildPressedState();
 	 void requestLayout();
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
 	 int getBaseline();
-	 void setGravity(int& arg0);
+	 void setGravity(int const& arg0);
 	 int getGravity();
-	 void setHorizontalGravity(int& arg0);
-	 void setVerticalGravity(int& arg0);
-	 void setIgnoreGravity(int& arg0);
+	 void setHorizontalGravity(int const& arg0);
+	 void setVerticalGravity(int const& arg0);
+	 void setIgnoreGravity(int const& arg0);
 };	
 
 } // namespace

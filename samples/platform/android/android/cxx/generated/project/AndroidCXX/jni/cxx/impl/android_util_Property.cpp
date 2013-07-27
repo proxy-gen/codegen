@@ -101,7 +101,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_util_Property::android_util_Property(const android_util_Property& cc)
 {
 	LOGV("android_util_Property::android_util_Property(const android_util_Property& cc) enter");
@@ -125,9 +124,9 @@ android_util_Property::android_util_Property(const android_util_Property& cc)
 
 	LOGV("android_util_Property::android_util_Property(const android_util_Property& cc) exit");
 }
-android_util_Property::android_util_Property(void * proxy)
+android_util_Property::android_util_Property(Proxy proxy)
 {
-	LOGV("android_util_Property::android_util_Property(void * proxy) enter");
+	LOGV("android_util_Property::android_util_Property(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -137,55 +136,34 @@ android_util_Property::android_util_Property(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_util_Property::android_util_Property(void * proxy) exit");
+	LOGV("android_util_Property::android_util_Property(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_util_Property::android_util_Property()
-// {
-// 	LOGV("android_util_Property::android_util_Property() enter");	
+Proxy android_util_Property::proxy() const
+{	
+	LOGV("android_util_Property::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/util/Property";
+	long cxxAddress = (long) this;
+	LOGV("android_util_Property cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_util_Property jni address %d", proxiedComponent);
 
-// 	LOGV("android_util_Property className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_util_Property::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_util_Property cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_util_Property jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_util_Property::android_util_Property() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_util_Property::android_util_Property(AndroidCXX::java_lang_Class& arg0,AndroidCXX::java_lang_String& arg1)
+	return proxy;
+}
+android_util_Property::android_util_Property(AndroidCXX::java_lang_Class const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("android_util_Property::android_util_Property(AndroidCXX::java_lang_Class& arg0,AndroidCXX::java_lang_String& arg1) enter");	
+	LOGV("android_util_Property::android_util_Property(AndroidCXX::java_lang_Class const& arg0,AndroidCXX::java_lang_String const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/Class;Ljava/lang/String;)V";
@@ -277,7 +255,7 @@ android_util_Property::android_util_Property(AndroidCXX::java_lang_Class& arg0,A
 
 	jni->popLocalFrame();
 
-	LOGV("android_util_Property::android_util_Property(AndroidCXX::java_lang_Class& arg0,AndroidCXX::java_lang_String& arg1) exit");	
+	LOGV("android_util_Property::android_util_Property(AndroidCXX::java_lang_Class const& arg0,AndroidCXX::java_lang_String const& arg1) exit");	
 }
 // Default Instance Destructor
 android_util_Property::~android_util_Property()
@@ -290,13 +268,13 @@ android_util_Property::~android_util_Property()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_util_Property::~android_util_Property() exit");
 }
 // Functions
-AndroidCXX::java_lang_Object android_util_Property::get(AndroidCXX::java_lang_Object& arg0)
+AndroidCXX::java_lang_Object android_util_Property::get(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Object android_util_Property::get(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Object android_util_Property::get(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "get";
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/Object;";
@@ -306,8 +284,6 @@ AndroidCXX::java_lang_Object android_util_Property::get(AndroidCXX::java_lang_Ob
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_Property cxx address %d", cxxAddress);
@@ -357,9 +333,7 @@ AndroidCXX::java_lang_Object android_util_Property::get(AndroidCXX::java_lang_Ob
 	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
 	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_Object android_util_Property::get(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("AndroidCXX::java_lang_Object android_util_Property::get(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -375,8 +349,6 @@ AndroidCXX::java_lang_String android_util_Property::getName()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_Property cxx address %d", cxxAddress);
@@ -405,8 +377,6 @@ AndroidCXX::java_lang_String android_util_Property::getName()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_util_Property::getName() exit");
 
 	return result;
@@ -423,8 +393,6 @@ AndroidCXX::java_lang_Class android_util_Property::getType()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_Property cxx address %d", cxxAddress);
@@ -471,15 +439,13 @@ AndroidCXX::java_lang_Class android_util_Property::getType()
 	AndroidCXX::java_lang_Class result((AndroidCXX::java_lang_Class) *((AndroidCXX::java_lang_Class *) cxx_value));
 	delete ((AndroidCXX::java_lang_Class *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_Class android_util_Property::getType() exit");
 
 	return result;
 }
-void android_util_Property::set(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1)
+void android_util_Property::set(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1)
 {
-	LOGV("void android_util_Property::set(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1) enter");
+	LOGV("void android_util_Property::set(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1) enter");
 
 	const char *methodName = "set";
 	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/Object;)V";
@@ -489,8 +455,6 @@ void android_util_Property::set(AndroidCXX::java_lang_Object& arg0,AndroidCXX::j
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_Property cxx address %d", cxxAddress);
@@ -542,9 +506,7 @@ void android_util_Property::set(AndroidCXX::java_lang_Object& arg0,AndroidCXX::j
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_util_Property::set(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1) exit");
+	LOGV("void android_util_Property::set(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1) exit");
 
 }
 bool android_util_Property::isReadOnly()
@@ -559,8 +521,6 @@ bool android_util_Property::isReadOnly()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_Property cxx address %d", cxxAddress);
@@ -589,15 +549,13 @@ bool android_util_Property::isReadOnly()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_util_Property::isReadOnly() exit");
 
 	return result;
 }
-AndroidCXX::android_util_Property android_util_Property::of(AndroidCXX::java_lang_Class& arg0,AndroidCXX::java_lang_Class& arg1,AndroidCXX::java_lang_String& arg2)
+AndroidCXX::android_util_Property android_util_Property::of(AndroidCXX::java_lang_Class const& arg0,AndroidCXX::java_lang_Class const& arg1,AndroidCXX::java_lang_String const& arg2)
 {
-	LOGV("AndroidCXX::android_util_Property android_util_Property::of(AndroidCXX::java_lang_Class& arg0,AndroidCXX::java_lang_Class& arg1,AndroidCXX::java_lang_String& arg2) enter");
+	LOGV("AndroidCXX::android_util_Property android_util_Property::of(AndroidCXX::java_lang_Class const& arg0,AndroidCXX::java_lang_Class const& arg1,AndroidCXX::java_lang_String const& arg2) enter");
 
 	const char *methodName = "of";
 	const char *methodSignature = "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)Landroid/util/Property;";
@@ -607,8 +565,6 @@ AndroidCXX::android_util_Property android_util_Property::of(AndroidCXX::java_lan
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_util_Property cxx address %d", cxxAddress);
@@ -715,7 +671,7 @@ AndroidCXX::android_util_Property android_util_Property::of(AndroidCXX::java_lan
 		jarg2 = convert_jni_string_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -769,9 +725,7 @@ AndroidCXX::android_util_Property android_util_Property::of(AndroidCXX::java_lan
 	AndroidCXX::android_util_Property result((AndroidCXX::android_util_Property) *((AndroidCXX::android_util_Property *) cxx_value));
 	delete ((AndroidCXX::android_util_Property *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_util_Property android_util_Property::of(AndroidCXX::java_lang_Class& arg0,AndroidCXX::java_lang_Class& arg1,AndroidCXX::java_lang_String& arg2) exit");
+	LOGV("AndroidCXX::android_util_Property android_util_Property::of(AndroidCXX::java_lang_Class const& arg0,AndroidCXX::java_lang_Class const& arg1,AndroidCXX::java_lang_String const& arg2) exit");
 
 	return result;
 }

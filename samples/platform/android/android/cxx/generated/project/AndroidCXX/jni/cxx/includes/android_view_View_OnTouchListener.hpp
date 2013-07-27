@@ -56,16 +56,13 @@ class android_view_View_OnTouchListener
 public:
 
 	android_view_View_OnTouchListener(const android_view_View_OnTouchListener& cc);
-	android_view_View_OnTouchListener(void * proxy);
+	android_view_View_OnTouchListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_view_View_OnTouchListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnTouchListener();
 	// Functions
-	 bool onTouch(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_MotionEvent& arg1);
+	 bool onTouch(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_MotionEvent const& arg1);
 };	
 
 } // namespace

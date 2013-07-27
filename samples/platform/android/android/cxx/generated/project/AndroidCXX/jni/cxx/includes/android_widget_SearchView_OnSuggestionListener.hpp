@@ -47,17 +47,14 @@ class android_widget_SearchView_OnSuggestionListener
 public:
 
 	android_widget_SearchView_OnSuggestionListener(const android_widget_SearchView_OnSuggestionListener& cc);
-	android_widget_SearchView_OnSuggestionListener(void * proxy);
+	android_widget_SearchView_OnSuggestionListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_SearchView_OnSuggestionListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SearchView_OnSuggestionListener();
 	// Functions
-	 bool onSuggestionSelect(int& arg0);
-	 bool onSuggestionClick(int& arg0);
+	 bool onSuggestionSelect(int const& arg0);
+	 bool onSuggestionClick(int const& arg0);
 };	
 
 } // namespace

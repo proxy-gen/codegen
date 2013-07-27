@@ -39,7 +39,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_ViewTreeObserver_OnTouchModeChangeListener::android_view_ViewTreeObserver_OnTouchModeChangeListener(const android_view_ViewTreeObserver_OnTouchModeChangeListener& cc)
 {
 	LOGV("android_view_ViewTreeObserver_OnTouchModeChangeListener::android_view_ViewTreeObserver_OnTouchModeChangeListener(const android_view_ViewTreeObserver_OnTouchModeChangeListener& cc) enter");
@@ -63,9 +62,9 @@ android_view_ViewTreeObserver_OnTouchModeChangeListener::android_view_ViewTreeOb
 
 	LOGV("android_view_ViewTreeObserver_OnTouchModeChangeListener::android_view_ViewTreeObserver_OnTouchModeChangeListener(const android_view_ViewTreeObserver_OnTouchModeChangeListener& cc) exit");
 }
-android_view_ViewTreeObserver_OnTouchModeChangeListener::android_view_ViewTreeObserver_OnTouchModeChangeListener(void * proxy)
+android_view_ViewTreeObserver_OnTouchModeChangeListener::android_view_ViewTreeObserver_OnTouchModeChangeListener(Proxy proxy)
 {
-	LOGV("android_view_ViewTreeObserver_OnTouchModeChangeListener::android_view_ViewTreeObserver_OnTouchModeChangeListener(void * proxy) enter");
+	LOGV("android_view_ViewTreeObserver_OnTouchModeChangeListener::android_view_ViewTreeObserver_OnTouchModeChangeListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -75,52 +74,31 @@ android_view_ViewTreeObserver_OnTouchModeChangeListener::android_view_ViewTreeOb
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_ViewTreeObserver_OnTouchModeChangeListener::android_view_ViewTreeObserver_OnTouchModeChangeListener(void * proxy) exit");
+	LOGV("android_view_ViewTreeObserver_OnTouchModeChangeListener::android_view_ViewTreeObserver_OnTouchModeChangeListener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_view_ViewTreeObserver_OnTouchModeChangeListener::android_view_ViewTreeObserver_OnTouchModeChangeListener()
-// {
-// 	LOGV("android_view_ViewTreeObserver_OnTouchModeChangeListener::android_view_ViewTreeObserver_OnTouchModeChangeListener() enter");	
+Proxy android_view_ViewTreeObserver_OnTouchModeChangeListener::proxy() const
+{	
+	LOGV("android_view_ViewTreeObserver_OnTouchModeChangeListener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/view/ViewTreeObserver$OnTouchModeChangeListener";
+	long cxxAddress = (long) this;
+	LOGV("android_view_ViewTreeObserver_OnTouchModeChangeListener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_ViewTreeObserver_OnTouchModeChangeListener jni address %d", proxiedComponent);
 
-// 	LOGV("android_view_ViewTreeObserver_OnTouchModeChangeListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_view_ViewTreeObserver_OnTouchModeChangeListener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_view_ViewTreeObserver_OnTouchModeChangeListener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_view_ViewTreeObserver_OnTouchModeChangeListener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_view_ViewTreeObserver_OnTouchModeChangeListener::android_view_ViewTreeObserver_OnTouchModeChangeListener() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_view_ViewTreeObserver_OnTouchModeChangeListener::~android_view_ViewTreeObserver_OnTouchModeChangeListener()
 {
@@ -132,13 +110,13 @@ android_view_ViewTreeObserver_OnTouchModeChangeListener::~android_view_ViewTreeO
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_ViewTreeObserver_OnTouchModeChangeListener::~android_view_ViewTreeObserver_OnTouchModeChangeListener() exit");
 }
 // Functions
-void android_view_ViewTreeObserver_OnTouchModeChangeListener::onTouchModeChanged(bool& arg0)
+void android_view_ViewTreeObserver_OnTouchModeChangeListener::onTouchModeChanged(bool const& arg0)
 {
-	LOGV("void android_view_ViewTreeObserver_OnTouchModeChangeListener::onTouchModeChanged(bool& arg0) enter");
+	LOGV("void android_view_ViewTreeObserver_OnTouchModeChangeListener::onTouchModeChanged(bool const& arg0) enter");
 
 	const char *methodName = "onTouchModeChanged";
 	const char *methodSignature = "(Z)V";
@@ -148,8 +126,6 @@ void android_view_ViewTreeObserver_OnTouchModeChangeListener::onTouchModeChanged
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_ViewTreeObserver_OnTouchModeChangeListener cxx address %d", cxxAddress);
@@ -180,8 +156,6 @@ void android_view_ViewTreeObserver_OnTouchModeChangeListener::onTouchModeChanged
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_ViewTreeObserver_OnTouchModeChangeListener::onTouchModeChanged(bool& arg0) exit");
+	LOGV("void android_view_ViewTreeObserver_OnTouchModeChangeListener::onTouchModeChanged(bool const& arg0) exit");
 
 }

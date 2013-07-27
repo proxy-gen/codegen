@@ -61,16 +61,13 @@ class com_facebook_widget_GraphObjectAdapter_OnErrorListener
 public:
 
 	com_facebook_widget_GraphObjectAdapter_OnErrorListener(const com_facebook_widget_GraphObjectAdapter_OnErrorListener& cc);
-	com_facebook_widget_GraphObjectAdapter_OnErrorListener(void * proxy);
+	com_facebook_widget_GraphObjectAdapter_OnErrorListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_widget_GraphObjectAdapter_OnErrorListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectAdapter_OnErrorListener();
 	// Functions
-	 void onError(FacebookCXX::com_facebook_widget_GraphObjectAdapter& arg0,FacebookCXX::com_facebook_FacebookException& arg1);
+	 void onError(FacebookCXX::com_facebook_widget_GraphObjectAdapter const& arg0,FacebookCXX::com_facebook_FacebookException const& arg1);
 };	
 
 } // namespace

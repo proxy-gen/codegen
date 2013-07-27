@@ -111,35 +111,32 @@ class java_nio_LongBuffer
 public:
 
 	java_nio_LongBuffer(const java_nio_LongBuffer& cc);
-	java_nio_LongBuffer(void * proxy);
+	java_nio_LongBuffer(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_nio_LongBuffer();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_LongBuffer();
 	// Functions
 	 long get();
-	 JDKCXX::java_nio_LongBuffer get(std::vector<long>& arg0);
-	 JDKCXX::java_nio_LongBuffer get(std::vector<long>& arg0,int& arg1,int& arg2);
-	 long get(int& arg0);
-	 JDKCXX::java_nio_LongBuffer put(JDKCXX::java_nio_LongBuffer& arg0);
-	 JDKCXX::java_nio_LongBuffer put(long& arg0);
-	 JDKCXX::java_nio_LongBuffer put(int& arg0,long& arg1);
-	 JDKCXX::java_nio_LongBuffer put(std::vector<long>& arg0,int& arg1,int& arg2);
-	 JDKCXX::java_nio_LongBuffer put(std::vector<long>& arg0);
-	 bool equals(JDKCXX::java_lang_Object& arg0);
+	 JDKCXX::java_nio_LongBuffer get(std::vector<long> const& arg0);
+	 JDKCXX::java_nio_LongBuffer get(std::vector<long> const& arg0,int const& arg1,int const& arg2);
+	 long get(int const& arg0);
+	 JDKCXX::java_nio_LongBuffer put(JDKCXX::java_nio_LongBuffer const& arg0);
+	 JDKCXX::java_nio_LongBuffer put(long const& arg0);
+	 JDKCXX::java_nio_LongBuffer put(int const& arg0,long const& arg1);
+	 JDKCXX::java_nio_LongBuffer put(std::vector<long> const& arg0,int const& arg1,int const& arg2);
+	 JDKCXX::java_nio_LongBuffer put(std::vector<long> const& arg0);
+	 bool equals(JDKCXX::java_lang_Object const& arg0);
 	 JDKCXX::java_lang_String toString();
 	 int hashCode();
-	 int compareTo(JDKCXX::java_nio_LongBuffer& arg0);
+	 int compareTo(JDKCXX::java_nio_LongBuffer const& arg0);
 	 bool isDirect();
 	 bool hasArray();
 	 std::vector<long> array();
 	 int arrayOffset();
-	static JDKCXX::java_nio_LongBuffer wrap(std::vector<long>& arg0,int& arg1,int& arg2);
-	static JDKCXX::java_nio_LongBuffer wrap(std::vector<long>& arg0);
-	static JDKCXX::java_nio_LongBuffer allocate(int& arg0);
+	static JDKCXX::java_nio_LongBuffer wrap(std::vector<long> const& arg0,int const& arg1,int const& arg2);
+	static JDKCXX::java_nio_LongBuffer wrap(std::vector<long> const& arg0);
+	static JDKCXX::java_nio_LongBuffer allocate(int const& arg0);
 	 JDKCXX::java_nio_LongBuffer duplicate();
 	 JDKCXX::java_nio_LongBuffer slice();
 	 JDKCXX::java_nio_LongBuffer asReadOnlyBuffer();

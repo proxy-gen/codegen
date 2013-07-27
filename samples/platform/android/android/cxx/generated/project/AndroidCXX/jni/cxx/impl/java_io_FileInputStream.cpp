@@ -72,7 +72,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_io_FileInputStream::java_io_FileInputStream(const java_io_FileInputStream& cc)
 {
 	LOGV("java_io_FileInputStream::java_io_FileInputStream(const java_io_FileInputStream& cc) enter");
@@ -96,9 +95,9 @@ java_io_FileInputStream::java_io_FileInputStream(const java_io_FileInputStream& 
 
 	LOGV("java_io_FileInputStream::java_io_FileInputStream(const java_io_FileInputStream& cc) exit");
 }
-java_io_FileInputStream::java_io_FileInputStream(void * proxy)
+java_io_FileInputStream::java_io_FileInputStream(Proxy proxy)
 {
-	LOGV("java_io_FileInputStream::java_io_FileInputStream(void * proxy) enter");
+	LOGV("java_io_FileInputStream::java_io_FileInputStream(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -108,55 +107,34 @@ java_io_FileInputStream::java_io_FileInputStream(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_io_FileInputStream::java_io_FileInputStream(void * proxy) exit");
+	LOGV("java_io_FileInputStream::java_io_FileInputStream(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_io_FileInputStream::java_io_FileInputStream()
-// {
-// 	LOGV("java_io_FileInputStream::java_io_FileInputStream() enter");	
+Proxy java_io_FileInputStream::proxy() const
+{	
+	LOGV("java_io_FileInputStream::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/io/FileInputStream";
+	long cxxAddress = (long) this;
+	LOGV("java_io_FileInputStream cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_io_FileInputStream jni address %d", proxiedComponent);
 
-// 	LOGV("java_io_FileInputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_io_FileInputStream::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_io_FileInputStream cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_io_FileInputStream jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_io_FileInputStream::java_io_FileInputStream() exit");	
-// }
-// 
-// 
-// Public Constructors
-java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_lang_String& arg0)
+	return proxy;
+}
+java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -209,11 +187,11 @@ java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_lang_String& a
 
 	jni->popLocalFrame();
 
-	LOGV("java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_lang_String const& arg0) exit");	
 }
-java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_io_File& arg0)
+java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_io_File const& arg0)
 {
-	LOGV("java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_io_File& arg0) enter");	
+	LOGV("java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_io_File const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/io/File;)V";
@@ -266,11 +244,11 @@ java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_io_File& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_io_File& arg0) exit");	
+	LOGV("java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_io_File const& arg0) exit");	
 }
-java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_io_FileDescriptor& arg0)
+java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_io_FileDescriptor const& arg0)
 {
-	LOGV("java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_io_FileDescriptor& arg0) enter");	
+	LOGV("java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_io_FileDescriptor const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/io/FileDescriptor;)V";
@@ -323,7 +301,7 @@ java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_io_FileDescrip
 
 	jni->popLocalFrame();
 
-	LOGV("java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_io_FileDescriptor& arg0) exit");	
+	LOGV("java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_io_FileDescriptor const& arg0) exit");	
 }
 // Default Instance Destructor
 java_io_FileInputStream::~java_io_FileInputStream()
@@ -336,7 +314,7 @@ java_io_FileInputStream::~java_io_FileInputStream()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_io_FileInputStream::~java_io_FileInputStream() exit");
 }
 // Functions
@@ -353,8 +331,6 @@ void java_io_FileInputStream::close()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_io_FileInputStream cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -363,14 +339,12 @@ void java_io_FileInputStream::close()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_io_FileInputStream::close() exit");
 
 }
-int java_io_FileInputStream::read(std::vector<byte>& arg0)
+int java_io_FileInputStream::read(std::vector<byte> const& arg0)
 {
-	LOGV("int java_io_FileInputStream::read(std::vector<byte>& arg0) enter");
+	LOGV("int java_io_FileInputStream::read(std::vector<byte> const& arg0) enter");
 
 	const char *methodName = "read";
 	const char *methodSignature = "([B)I";
@@ -380,8 +354,6 @@ int java_io_FileInputStream::read(std::vector<byte>& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_FileInputStream cxx address %d", cxxAddress);
@@ -449,15 +421,13 @@ int java_io_FileInputStream::read(std::vector<byte>& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_io_FileInputStream::read(std::vector<byte>& arg0) exit");
+	LOGV("int java_io_FileInputStream::read(std::vector<byte> const& arg0) exit");
 
 	return result;
 }
-int java_io_FileInputStream::read(std::vector<byte>& arg0,int& arg1,int& arg2)
+int java_io_FileInputStream::read(std::vector<byte> const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("int java_io_FileInputStream::read(std::vector<byte>& arg0,int& arg1,int& arg2) enter");
+	LOGV("int java_io_FileInputStream::read(std::vector<byte> const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "read";
 	const char *methodSignature = "([BII)I";
@@ -467,8 +437,6 @@ int java_io_FileInputStream::read(std::vector<byte>& arg0,int& arg1,int& arg2)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_FileInputStream cxx address %d", cxxAddress);
@@ -578,9 +546,7 @@ int java_io_FileInputStream::read(std::vector<byte>& arg0,int& arg1,int& arg2)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_io_FileInputStream::read(std::vector<byte>& arg0,int& arg1,int& arg2) exit");
+	LOGV("int java_io_FileInputStream::read(std::vector<byte> const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
@@ -596,8 +562,6 @@ int java_io_FileInputStream::read()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_FileInputStream cxx address %d", cxxAddress);
@@ -626,15 +590,13 @@ int java_io_FileInputStream::read()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_io_FileInputStream::read() exit");
 
 	return result;
 }
-long java_io_FileInputStream::skip(long& arg0)
+long java_io_FileInputStream::skip(long const& arg0)
 {
-	LOGV("long java_io_FileInputStream::skip(long& arg0) enter");
+	LOGV("long java_io_FileInputStream::skip(long const& arg0) enter");
 
 	const char *methodName = "skip";
 	const char *methodSignature = "(J)J";
@@ -644,8 +606,6 @@ long java_io_FileInputStream::skip(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_FileInputStream cxx address %d", cxxAddress);
@@ -695,9 +655,7 @@ long java_io_FileInputStream::skip(long& arg0)
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long java_io_FileInputStream::skip(long& arg0) exit");
+	LOGV("long java_io_FileInputStream::skip(long const& arg0) exit");
 
 	return result;
 }
@@ -713,8 +671,6 @@ int java_io_FileInputStream::available()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_FileInputStream cxx address %d", cxxAddress);
@@ -743,8 +699,6 @@ int java_io_FileInputStream::available()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_io_FileInputStream::available() exit");
 
 	return result;
@@ -761,8 +715,6 @@ AndroidCXX::java_io_FileDescriptor java_io_FileInputStream::getFD()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_FileInputStream cxx address %d", cxxAddress);
@@ -791,8 +743,6 @@ AndroidCXX::java_io_FileDescriptor java_io_FileInputStream::getFD()
 	AndroidCXX::java_io_FileDescriptor result((AndroidCXX::java_io_FileDescriptor) *((AndroidCXX::java_io_FileDescriptor *) cxx_value));
 	delete ((AndroidCXX::java_io_FileDescriptor *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_io_FileDescriptor java_io_FileInputStream::getFD() exit");
 
 	return result;
@@ -809,8 +759,6 @@ AndroidCXX::java_nio_channels_FileChannel java_io_FileInputStream::getChannel()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_FileInputStream cxx address %d", cxxAddress);
@@ -839,8 +787,6 @@ AndroidCXX::java_nio_channels_FileChannel java_io_FileInputStream::getChannel()
 	AndroidCXX::java_nio_channels_FileChannel result((AndroidCXX::java_nio_channels_FileChannel) *((AndroidCXX::java_nio_channels_FileChannel *) cxx_value));
 	delete ((AndroidCXX::java_nio_channels_FileChannel *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_nio_channels_FileChannel java_io_FileInputStream::getChannel() exit");
 
 	return result;

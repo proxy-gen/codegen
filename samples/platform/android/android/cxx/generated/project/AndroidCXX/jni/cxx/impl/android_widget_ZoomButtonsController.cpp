@@ -78,7 +78,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_ZoomButtonsController::android_widget_ZoomButtonsController(const android_widget_ZoomButtonsController& cc)
 {
 	LOGV("android_widget_ZoomButtonsController::android_widget_ZoomButtonsController(const android_widget_ZoomButtonsController& cc) enter");
@@ -102,9 +101,9 @@ android_widget_ZoomButtonsController::android_widget_ZoomButtonsController(const
 
 	LOGV("android_widget_ZoomButtonsController::android_widget_ZoomButtonsController(const android_widget_ZoomButtonsController& cc) exit");
 }
-android_widget_ZoomButtonsController::android_widget_ZoomButtonsController(void * proxy)
+android_widget_ZoomButtonsController::android_widget_ZoomButtonsController(Proxy proxy)
 {
-	LOGV("android_widget_ZoomButtonsController::android_widget_ZoomButtonsController(void * proxy) enter");
+	LOGV("android_widget_ZoomButtonsController::android_widget_ZoomButtonsController(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -114,55 +113,34 @@ android_widget_ZoomButtonsController::android_widget_ZoomButtonsController(void 
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_ZoomButtonsController::android_widget_ZoomButtonsController(void * proxy) exit");
+	LOGV("android_widget_ZoomButtonsController::android_widget_ZoomButtonsController(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_ZoomButtonsController::android_widget_ZoomButtonsController()
-// {
-// 	LOGV("android_widget_ZoomButtonsController::android_widget_ZoomButtonsController() enter");	
+Proxy android_widget_ZoomButtonsController::proxy() const
+{	
+	LOGV("android_widget_ZoomButtonsController::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/ZoomButtonsController";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_ZoomButtonsController cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_ZoomButtonsController jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_ZoomButtonsController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_ZoomButtonsController::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_ZoomButtonsController cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_ZoomButtonsController jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_ZoomButtonsController::android_widget_ZoomButtonsController() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_ZoomButtonsController::android_widget_ZoomButtonsController(AndroidCXX::android_view_View& arg0)
+	return proxy;
+}
+android_widget_ZoomButtonsController::android_widget_ZoomButtonsController(AndroidCXX::android_view_View const& arg0)
 {
-	LOGV("android_widget_ZoomButtonsController::android_widget_ZoomButtonsController(AndroidCXX::android_view_View& arg0) enter");	
+	LOGV("android_widget_ZoomButtonsController::android_widget_ZoomButtonsController(AndroidCXX::android_view_View const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/view/View;)V";
@@ -215,7 +193,7 @@ android_widget_ZoomButtonsController::android_widget_ZoomButtonsController(Andro
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_ZoomButtonsController::android_widget_ZoomButtonsController(AndroidCXX::android_view_View& arg0) exit");	
+	LOGV("android_widget_ZoomButtonsController::android_widget_ZoomButtonsController(AndroidCXX::android_view_View const& arg0) exit");	
 }
 // Default Instance Destructor
 android_widget_ZoomButtonsController::~android_widget_ZoomButtonsController()
@@ -228,7 +206,7 @@ android_widget_ZoomButtonsController::~android_widget_ZoomButtonsController()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_ZoomButtonsController::~android_widget_ZoomButtonsController() exit");
 }
 // Functions
@@ -244,8 +222,6 @@ bool android_widget_ZoomButtonsController::isVisible()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ZoomButtonsController cxx address %d", cxxAddress);
@@ -274,15 +250,13 @@ bool android_widget_ZoomButtonsController::isVisible()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_ZoomButtonsController::isVisible() exit");
 
 	return result;
 }
-void android_widget_ZoomButtonsController::setVisible(bool& arg0)
+void android_widget_ZoomButtonsController::setVisible(bool const& arg0)
 {
-	LOGV("void android_widget_ZoomButtonsController::setVisible(bool& arg0) enter");
+	LOGV("void android_widget_ZoomButtonsController::setVisible(bool const& arg0) enter");
 
 	const char *methodName = "setVisible";
 	const char *methodSignature = "(Z)V";
@@ -293,8 +267,6 @@ void android_widget_ZoomButtonsController::setVisible(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ZoomButtonsController cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -324,14 +296,12 @@ void android_widget_ZoomButtonsController::setVisible(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ZoomButtonsController::setVisible(bool& arg0) exit");
+	LOGV("void android_widget_ZoomButtonsController::setVisible(bool const& arg0) exit");
 
 }
-void android_widget_ZoomButtonsController::setFocusable(bool& arg0)
+void android_widget_ZoomButtonsController::setFocusable(bool const& arg0)
 {
-	LOGV("void android_widget_ZoomButtonsController::setFocusable(bool& arg0) enter");
+	LOGV("void android_widget_ZoomButtonsController::setFocusable(bool const& arg0) enter");
 
 	const char *methodName = "setFocusable";
 	const char *methodSignature = "(Z)V";
@@ -342,8 +312,6 @@ void android_widget_ZoomButtonsController::setFocusable(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ZoomButtonsController cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -373,14 +341,12 @@ void android_widget_ZoomButtonsController::setFocusable(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ZoomButtonsController::setFocusable(bool& arg0) exit");
+	LOGV("void android_widget_ZoomButtonsController::setFocusable(bool const& arg0) exit");
 
 }
-bool android_widget_ZoomButtonsController::onTouch(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_MotionEvent& arg1)
+bool android_widget_ZoomButtonsController::onTouch(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_MotionEvent const& arg1)
 {
-	LOGV("bool android_widget_ZoomButtonsController::onTouch(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_MotionEvent& arg1) enter");
+	LOGV("bool android_widget_ZoomButtonsController::onTouch(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_MotionEvent const& arg1) enter");
 
 	const char *methodName = "onTouch";
 	const char *methodSignature = "(Landroid/view/View;Landroid/view/MotionEvent;)Z";
@@ -390,8 +356,6 @@ bool android_widget_ZoomButtonsController::onTouch(AndroidCXX::android_view_View
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ZoomButtonsController cxx address %d", cxxAddress);
@@ -462,9 +426,7 @@ bool android_widget_ZoomButtonsController::onTouch(AndroidCXX::android_view_View
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_ZoomButtonsController::onTouch(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_MotionEvent& arg1) exit");
+	LOGV("bool android_widget_ZoomButtonsController::onTouch(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_MotionEvent const& arg1) exit");
 
 	return result;
 }
@@ -480,8 +442,6 @@ AndroidCXX::android_view_ViewGroup android_widget_ZoomButtonsController::getCont
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ZoomButtonsController cxx address %d", cxxAddress);
@@ -510,15 +470,13 @@ AndroidCXX::android_view_ViewGroup android_widget_ZoomButtonsController::getCont
 	AndroidCXX::android_view_ViewGroup result((AndroidCXX::android_view_ViewGroup) *((AndroidCXX::android_view_ViewGroup *) cxx_value));
 	delete ((AndroidCXX::android_view_ViewGroup *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_view_ViewGroup android_widget_ZoomButtonsController::getContainer() exit");
 
 	return result;
 }
-void android_widget_ZoomButtonsController::setZoomSpeed(long& arg0)
+void android_widget_ZoomButtonsController::setZoomSpeed(long const& arg0)
 {
-	LOGV("void android_widget_ZoomButtonsController::setZoomSpeed(long& arg0) enter");
+	LOGV("void android_widget_ZoomButtonsController::setZoomSpeed(long const& arg0) enter");
 
 	const char *methodName = "setZoomSpeed";
 	const char *methodSignature = "(J)V";
@@ -528,8 +486,6 @@ void android_widget_ZoomButtonsController::setZoomSpeed(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ZoomButtonsController cxx address %d", cxxAddress);
@@ -560,14 +516,12 @@ void android_widget_ZoomButtonsController::setZoomSpeed(long& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ZoomButtonsController::setZoomSpeed(long& arg0) exit");
+	LOGV("void android_widget_ZoomButtonsController::setZoomSpeed(long const& arg0) exit");
 
 }
-void android_widget_ZoomButtonsController::setZoomInEnabled(bool& arg0)
+void android_widget_ZoomButtonsController::setZoomInEnabled(bool const& arg0)
 {
-	LOGV("void android_widget_ZoomButtonsController::setZoomInEnabled(bool& arg0) enter");
+	LOGV("void android_widget_ZoomButtonsController::setZoomInEnabled(bool const& arg0) enter");
 
 	const char *methodName = "setZoomInEnabled";
 	const char *methodSignature = "(Z)V";
@@ -578,8 +532,6 @@ void android_widget_ZoomButtonsController::setZoomInEnabled(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ZoomButtonsController cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -609,14 +561,12 @@ void android_widget_ZoomButtonsController::setZoomInEnabled(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ZoomButtonsController::setZoomInEnabled(bool& arg0) exit");
+	LOGV("void android_widget_ZoomButtonsController::setZoomInEnabled(bool const& arg0) exit");
 
 }
-void android_widget_ZoomButtonsController::setZoomOutEnabled(bool& arg0)
+void android_widget_ZoomButtonsController::setZoomOutEnabled(bool const& arg0)
 {
-	LOGV("void android_widget_ZoomButtonsController::setZoomOutEnabled(bool& arg0) enter");
+	LOGV("void android_widget_ZoomButtonsController::setZoomOutEnabled(bool const& arg0) enter");
 
 	const char *methodName = "setZoomOutEnabled";
 	const char *methodSignature = "(Z)V";
@@ -627,8 +577,6 @@ void android_widget_ZoomButtonsController::setZoomOutEnabled(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ZoomButtonsController cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -658,14 +606,12 @@ void android_widget_ZoomButtonsController::setZoomOutEnabled(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ZoomButtonsController::setZoomOutEnabled(bool& arg0) exit");
+	LOGV("void android_widget_ZoomButtonsController::setZoomOutEnabled(bool const& arg0) exit");
 
 }
-void android_widget_ZoomButtonsController::setOnZoomListener(AndroidCXX::android_widget_ZoomButtonsController_OnZoomListener& arg0)
+void android_widget_ZoomButtonsController::setOnZoomListener(AndroidCXX::android_widget_ZoomButtonsController_OnZoomListener const& arg0)
 {
-	LOGV("void android_widget_ZoomButtonsController::setOnZoomListener(AndroidCXX::android_widget_ZoomButtonsController_OnZoomListener& arg0) enter");
+	LOGV("void android_widget_ZoomButtonsController::setOnZoomListener(AndroidCXX::android_widget_ZoomButtonsController_OnZoomListener const& arg0) enter");
 
 	const char *methodName = "setOnZoomListener";
 	const char *methodSignature = "(Landroid/widget/ZoomButtonsController$OnZoomListener;)V";
@@ -675,8 +621,6 @@ void android_widget_ZoomButtonsController::setOnZoomListener(AndroidCXX::android
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ZoomButtonsController cxx address %d", cxxAddress);
@@ -707,9 +651,7 @@ void android_widget_ZoomButtonsController::setOnZoomListener(AndroidCXX::android
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ZoomButtonsController::setOnZoomListener(AndroidCXX::android_widget_ZoomButtonsController_OnZoomListener& arg0) exit");
+	LOGV("void android_widget_ZoomButtonsController::setOnZoomListener(AndroidCXX::android_widget_ZoomButtonsController_OnZoomListener const& arg0) exit");
 
 }
 bool android_widget_ZoomButtonsController::isAutoDismissed()
@@ -724,8 +666,6 @@ bool android_widget_ZoomButtonsController::isAutoDismissed()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ZoomButtonsController cxx address %d", cxxAddress);
@@ -754,15 +694,13 @@ bool android_widget_ZoomButtonsController::isAutoDismissed()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_ZoomButtonsController::isAutoDismissed() exit");
 
 	return result;
 }
-void android_widget_ZoomButtonsController::setAutoDismissed(bool& arg0)
+void android_widget_ZoomButtonsController::setAutoDismissed(bool const& arg0)
 {
-	LOGV("void android_widget_ZoomButtonsController::setAutoDismissed(bool& arg0) enter");
+	LOGV("void android_widget_ZoomButtonsController::setAutoDismissed(bool const& arg0) enter");
 
 	const char *methodName = "setAutoDismissed";
 	const char *methodSignature = "(Z)V";
@@ -772,8 +710,6 @@ void android_widget_ZoomButtonsController::setAutoDismissed(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ZoomButtonsController cxx address %d", cxxAddress);
@@ -804,9 +740,7 @@ void android_widget_ZoomButtonsController::setAutoDismissed(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ZoomButtonsController::setAutoDismissed(bool& arg0) exit");
+	LOGV("void android_widget_ZoomButtonsController::setAutoDismissed(bool const& arg0) exit");
 
 }
 AndroidCXX::android_view_View android_widget_ZoomButtonsController::getZoomControls()
@@ -821,8 +755,6 @@ AndroidCXX::android_view_View android_widget_ZoomButtonsController::getZoomContr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ZoomButtonsController cxx address %d", cxxAddress);
@@ -851,8 +783,6 @@ AndroidCXX::android_view_View android_widget_ZoomButtonsController::getZoomContr
 	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
 	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_view_View android_widget_ZoomButtonsController::getZoomControls() exit");
 
 	return result;

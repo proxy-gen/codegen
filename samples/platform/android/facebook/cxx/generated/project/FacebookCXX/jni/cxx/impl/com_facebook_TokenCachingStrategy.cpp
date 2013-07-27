@@ -111,7 +111,7 @@ using namespace FacebookCXX;
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_ACCESSTOKENSOURCE;
+// using namespace com_facebook_AccessTokenSource;
 // 
 // 
 // 
@@ -176,7 +176,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_TokenCachingStrategy::com_facebook_TokenCachingStrategy(const com_facebook_TokenCachingStrategy& cc)
 {
 	LOGV("com_facebook_TokenCachingStrategy::com_facebook_TokenCachingStrategy(const com_facebook_TokenCachingStrategy& cc) enter");
@@ -200,9 +199,9 @@ com_facebook_TokenCachingStrategy::com_facebook_TokenCachingStrategy(const com_f
 
 	LOGV("com_facebook_TokenCachingStrategy::com_facebook_TokenCachingStrategy(const com_facebook_TokenCachingStrategy& cc) exit");
 }
-com_facebook_TokenCachingStrategy::com_facebook_TokenCachingStrategy(void * proxy)
+com_facebook_TokenCachingStrategy::com_facebook_TokenCachingStrategy(Proxy proxy)
 {
-	LOGV("com_facebook_TokenCachingStrategy::com_facebook_TokenCachingStrategy(void * proxy) enter");
+	LOGV("com_facebook_TokenCachingStrategy::com_facebook_TokenCachingStrategy(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -212,17 +211,31 @@ com_facebook_TokenCachingStrategy::com_facebook_TokenCachingStrategy(void * prox
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_TokenCachingStrategy::com_facebook_TokenCachingStrategy(void * proxy) exit");
+	LOGV("com_facebook_TokenCachingStrategy::com_facebook_TokenCachingStrategy(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy com_facebook_TokenCachingStrategy::proxy() const
+{	
+	LOGV("com_facebook_TokenCachingStrategy::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_TokenCachingStrategy cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_TokenCachingStrategy jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("com_facebook_TokenCachingStrategy::proxy() exit");	
+
+	return proxy;
+}
 com_facebook_TokenCachingStrategy::com_facebook_TokenCachingStrategy()
 {
 	LOGV("com_facebook_TokenCachingStrategy::com_facebook_TokenCachingStrategy() enter");	
@@ -270,7 +283,7 @@ com_facebook_TokenCachingStrategy::~com_facebook_TokenCachingStrategy()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_TokenCachingStrategy::~com_facebook_TokenCachingStrategy() exit");
 }
 // Functions
@@ -287,8 +300,6 @@ void com_facebook_TokenCachingStrategy::clear()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_TokenCachingStrategy cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -297,8 +308,6 @@ void com_facebook_TokenCachingStrategy::clear()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void com_facebook_TokenCachingStrategy::clear() exit");
 
 }
@@ -314,8 +323,6 @@ AndroidCXX::android_os_Bundle com_facebook_TokenCachingStrategy::load()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_TokenCachingStrategy cxx address %d", cxxAddress);
@@ -344,15 +351,13 @@ AndroidCXX::android_os_Bundle com_facebook_TokenCachingStrategy::load()
 	AndroidCXX::android_os_Bundle result((AndroidCXX::android_os_Bundle) *((AndroidCXX::android_os_Bundle *) cxx_value));
 	delete ((AndroidCXX::android_os_Bundle *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_os_Bundle com_facebook_TokenCachingStrategy::load() exit");
 
 	return result;
 }
-AndroidCXX::java_util_List com_facebook_TokenCachingStrategy::getPermissions(AndroidCXX::android_os_Bundle& arg0)
+AndroidCXX::java_util_List com_facebook_TokenCachingStrategy::getPermissions(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("AndroidCXX::java_util_List com_facebook_TokenCachingStrategy::getPermissions(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("AndroidCXX::java_util_List com_facebook_TokenCachingStrategy::getPermissions(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "getPermissions";
 	const char *methodSignature = "(Landroid/os/Bundle;)Ljava/util/List;";
@@ -362,8 +367,6 @@ AndroidCXX::java_util_List com_facebook_TokenCachingStrategy::getPermissions(And
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_TokenCachingStrategy cxx address %d", cxxAddress);
@@ -392,7 +395,7 @@ AndroidCXX::java_util_List com_facebook_TokenCachingStrategy::getPermissions(And
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -431,15 +434,13 @@ AndroidCXX::java_util_List com_facebook_TokenCachingStrategy::getPermissions(And
 	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
 	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_List com_facebook_TokenCachingStrategy::getPermissions(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("AndroidCXX::java_util_List com_facebook_TokenCachingStrategy::getPermissions(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 	return result;
 }
-void com_facebook_TokenCachingStrategy::save(AndroidCXX::android_os_Bundle& arg0)
+void com_facebook_TokenCachingStrategy::save(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("void com_facebook_TokenCachingStrategy::save(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_TokenCachingStrategy::save(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "save";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -449,8 +450,6 @@ void com_facebook_TokenCachingStrategy::save(AndroidCXX::android_os_Bundle& arg0
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_TokenCachingStrategy cxx address %d", cxxAddress);
@@ -481,14 +480,12 @@ void com_facebook_TokenCachingStrategy::save(AndroidCXX::android_os_Bundle& arg0
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_TokenCachingStrategy::save(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_TokenCachingStrategy::save(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 }
-AndroidCXX::java_lang_String com_facebook_TokenCachingStrategy::getToken(AndroidCXX::android_os_Bundle& arg0)
+AndroidCXX::java_lang_String com_facebook_TokenCachingStrategy::getToken(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String com_facebook_TokenCachingStrategy::getToken(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_TokenCachingStrategy::getToken(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "getToken";
 	const char *methodSignature = "(Landroid/os/Bundle;)Ljava/lang/String;";
@@ -498,8 +495,6 @@ AndroidCXX::java_lang_String com_facebook_TokenCachingStrategy::getToken(Android
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_TokenCachingStrategy cxx address %d", cxxAddress);
@@ -528,7 +523,7 @@ AndroidCXX::java_lang_String com_facebook_TokenCachingStrategy::getToken(Android
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jstring jni_result = (jstring) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
 	{
@@ -549,15 +544,13 @@ AndroidCXX::java_lang_String com_facebook_TokenCachingStrategy::getToken(Android
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String com_facebook_TokenCachingStrategy::getToken(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_TokenCachingStrategy::getToken(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 	return result;
 }
-COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource com_facebook_TokenCachingStrategy::getSource(AndroidCXX::android_os_Bundle& arg0)
+com_facebook_AccessTokenSource::com_facebook_AccessTokenSource com_facebook_TokenCachingStrategy::getSource(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource com_facebook_TokenCachingStrategy::getSource(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("com_facebook_AccessTokenSource::com_facebook_AccessTokenSource com_facebook_TokenCachingStrategy::getSource(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "getSource";
 	const char *methodSignature = "(Landroid/os/Bundle;)Lcom/facebook/AccessTokenSource;";
@@ -567,8 +560,6 @@ COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource com_facebook_Toke
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_TokenCachingStrategy cxx address %d", cxxAddress);
@@ -597,7 +588,7 @@ COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource com_facebook_Toke
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -615,18 +606,16 @@ COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource com_facebook_Toke
 		convert_com_facebook_AccessTokenSource(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 
-	COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource result = (COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource) (cxx_value);
+	com_facebook_AccessTokenSource::com_facebook_AccessTokenSource result = (com_facebook_AccessTokenSource::com_facebook_AccessTokenSource) (cxx_value);
 	//
 		
-	jni->popLocalFrame();
-
-	LOGV("COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource com_facebook_TokenCachingStrategy::getSource(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("com_facebook_AccessTokenSource::com_facebook_AccessTokenSource com_facebook_TokenCachingStrategy::getSource(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 	return result;
 }
-bool com_facebook_TokenCachingStrategy::hasTokenInformation(AndroidCXX::android_os_Bundle& arg0)
+bool com_facebook_TokenCachingStrategy::hasTokenInformation(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("bool com_facebook_TokenCachingStrategy::hasTokenInformation(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("bool com_facebook_TokenCachingStrategy::hasTokenInformation(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "hasTokenInformation";
 	const char *methodSignature = "(Landroid/os/Bundle;)Z";
@@ -636,8 +625,6 @@ bool com_facebook_TokenCachingStrategy::hasTokenInformation(AndroidCXX::android_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_TokenCachingStrategy cxx address %d", cxxAddress);
@@ -666,7 +653,7 @@ bool com_facebook_TokenCachingStrategy::hasTokenInformation(AndroidCXX::android_
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jboolean jni_result = (jboolean) jni->invokeStaticBooleanMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
 	{
@@ -687,15 +674,13 @@ bool com_facebook_TokenCachingStrategy::hasTokenInformation(AndroidCXX::android_
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool com_facebook_TokenCachingStrategy::hasTokenInformation(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("bool com_facebook_TokenCachingStrategy::hasTokenInformation(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getExpirationDate(AndroidCXX::android_os_Bundle& arg0)
+AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getExpirationDate(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getExpirationDate(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getExpirationDate(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "getExpirationDate";
 	const char *methodSignature = "(Landroid/os/Bundle;)Ljava/util/Date;";
@@ -705,8 +690,6 @@ AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getExpirationDate(
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_TokenCachingStrategy cxx address %d", cxxAddress);
@@ -735,7 +718,7 @@ AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getExpirationDate(
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -756,15 +739,13 @@ AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getExpirationDate(
 	AndroidCXX::java_util_Date result((AndroidCXX::java_util_Date) *((AndroidCXX::java_util_Date *) cxx_value));
 	delete ((AndroidCXX::java_util_Date *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getExpirationDate(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getExpirationDate(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 	return result;
 }
-void com_facebook_TokenCachingStrategy::putToken(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_lang_String& arg1)
+void com_facebook_TokenCachingStrategy::putToken(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("void com_facebook_TokenCachingStrategy::putToken(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("void com_facebook_TokenCachingStrategy::putToken(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "putToken";
 	const char *methodSignature = "(Landroid/os/Bundle;Ljava/lang/String;)V";
@@ -774,8 +755,6 @@ void com_facebook_TokenCachingStrategy::putToken(AndroidCXX::android_os_Bundle& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_TokenCachingStrategy cxx address %d", cxxAddress);
@@ -825,16 +804,14 @@ void com_facebook_TokenCachingStrategy::putToken(AndroidCXX::android_os_Bundle& 
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_TokenCachingStrategy::putToken(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("void com_facebook_TokenCachingStrategy::putToken(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 }
-void com_facebook_TokenCachingStrategy::putExpirationDate(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_util_Date& arg1)
+void com_facebook_TokenCachingStrategy::putExpirationDate(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_util_Date const& arg1)
 {
-	LOGV("void com_facebook_TokenCachingStrategy::putExpirationDate(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_util_Date& arg1) enter");
+	LOGV("void com_facebook_TokenCachingStrategy::putExpirationDate(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_util_Date const& arg1) enter");
 
 	const char *methodName = "putExpirationDate";
 	const char *methodSignature = "(Landroid/os/Bundle;Ljava/util/Date;)V";
@@ -844,8 +821,6 @@ void com_facebook_TokenCachingStrategy::putExpirationDate(AndroidCXX::android_os
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_TokenCachingStrategy cxx address %d", cxxAddress);
@@ -895,16 +870,14 @@ void com_facebook_TokenCachingStrategy::putExpirationDate(AndroidCXX::android_os
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_TokenCachingStrategy::putExpirationDate(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_util_Date& arg1) exit");
+	LOGV("void com_facebook_TokenCachingStrategy::putExpirationDate(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_util_Date const& arg1) exit");
 
 }
-long com_facebook_TokenCachingStrategy::getExpirationMilliseconds(AndroidCXX::android_os_Bundle& arg0)
+long com_facebook_TokenCachingStrategy::getExpirationMilliseconds(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("long com_facebook_TokenCachingStrategy::getExpirationMilliseconds(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("long com_facebook_TokenCachingStrategy::getExpirationMilliseconds(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "getExpirationMilliseconds";
 	const char *methodSignature = "(Landroid/os/Bundle;)J";
@@ -914,8 +887,6 @@ long com_facebook_TokenCachingStrategy::getExpirationMilliseconds(AndroidCXX::an
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_TokenCachingStrategy cxx address %d", cxxAddress);
@@ -944,7 +915,7 @@ long com_facebook_TokenCachingStrategy::getExpirationMilliseconds(AndroidCXX::an
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jlong jni_result = (jlong) jni->invokeStaticLongMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
 	{
@@ -965,15 +936,13 @@ long com_facebook_TokenCachingStrategy::getExpirationMilliseconds(AndroidCXX::an
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long com_facebook_TokenCachingStrategy::getExpirationMilliseconds(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("long com_facebook_TokenCachingStrategy::getExpirationMilliseconds(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 	return result;
 }
-void com_facebook_TokenCachingStrategy::putExpirationMilliseconds(AndroidCXX::android_os_Bundle& arg0,long& arg1)
+void com_facebook_TokenCachingStrategy::putExpirationMilliseconds(AndroidCXX::android_os_Bundle const& arg0,long const& arg1)
 {
-	LOGV("void com_facebook_TokenCachingStrategy::putExpirationMilliseconds(AndroidCXX::android_os_Bundle& arg0,long& arg1) enter");
+	LOGV("void com_facebook_TokenCachingStrategy::putExpirationMilliseconds(AndroidCXX::android_os_Bundle const& arg0,long const& arg1) enter");
 
 	const char *methodName = "putExpirationMilliseconds";
 	const char *methodSignature = "(Landroid/os/Bundle;J)V";
@@ -983,8 +952,6 @@ void com_facebook_TokenCachingStrategy::putExpirationMilliseconds(AndroidCXX::an
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_TokenCachingStrategy cxx address %d", cxxAddress);
@@ -1034,16 +1001,14 @@ void com_facebook_TokenCachingStrategy::putExpirationMilliseconds(AndroidCXX::an
 		jarg1 = convert_jni_long_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_TokenCachingStrategy::putExpirationMilliseconds(AndroidCXX::android_os_Bundle& arg0,long& arg1) exit");
+	LOGV("void com_facebook_TokenCachingStrategy::putExpirationMilliseconds(AndroidCXX::android_os_Bundle const& arg0,long const& arg1) exit");
 
 }
-void com_facebook_TokenCachingStrategy::putPermissions(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_util_List& arg1)
+void com_facebook_TokenCachingStrategy::putPermissions(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_util_List const& arg1)
 {
-	LOGV("void com_facebook_TokenCachingStrategy::putPermissions(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_util_List& arg1) enter");
+	LOGV("void com_facebook_TokenCachingStrategy::putPermissions(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_util_List const& arg1) enter");
 
 	const char *methodName = "putPermissions";
 	const char *methodSignature = "(Landroid/os/Bundle;Ljava/util/List;)V";
@@ -1053,8 +1018,6 @@ void com_facebook_TokenCachingStrategy::putPermissions(AndroidCXX::android_os_Bu
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_TokenCachingStrategy cxx address %d", cxxAddress);
@@ -1122,16 +1085,14 @@ void com_facebook_TokenCachingStrategy::putPermissions(AndroidCXX::android_os_Bu
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_TokenCachingStrategy::putPermissions(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_util_List& arg1) exit");
+	LOGV("void com_facebook_TokenCachingStrategy::putPermissions(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_util_List const& arg1) exit");
 
 }
-void com_facebook_TokenCachingStrategy::putSource(AndroidCXX::android_os_Bundle& arg0,COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource& arg1)
+void com_facebook_TokenCachingStrategy::putSource(AndroidCXX::android_os_Bundle const& arg0,com_facebook_AccessTokenSource::com_facebook_AccessTokenSource const& arg1)
 {
-	LOGV("void com_facebook_TokenCachingStrategy::putSource(AndroidCXX::android_os_Bundle& arg0,COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource& arg1) enter");
+	LOGV("void com_facebook_TokenCachingStrategy::putSource(AndroidCXX::android_os_Bundle const& arg0,com_facebook_AccessTokenSource::com_facebook_AccessTokenSource const& arg1) enter");
 
 	const char *methodName = "putSource";
 	const char *methodSignature = "(Landroid/os/Bundle;Lcom/facebook/AccessTokenSource;)V";
@@ -1141,8 +1102,6 @@ void com_facebook_TokenCachingStrategy::putSource(AndroidCXX::android_os_Bundle&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_TokenCachingStrategy cxx address %d", cxxAddress);
@@ -1192,16 +1151,14 @@ void com_facebook_TokenCachingStrategy::putSource(AndroidCXX::android_os_Bundle&
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_TokenCachingStrategy::putSource(AndroidCXX::android_os_Bundle& arg0,COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource& arg1) exit");
+	LOGV("void com_facebook_TokenCachingStrategy::putSource(AndroidCXX::android_os_Bundle const& arg0,com_facebook_AccessTokenSource::com_facebook_AccessTokenSource const& arg1) exit");
 
 }
-AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getLastRefreshDate(AndroidCXX::android_os_Bundle& arg0)
+AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getLastRefreshDate(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getLastRefreshDate(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getLastRefreshDate(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "getLastRefreshDate";
 	const char *methodSignature = "(Landroid/os/Bundle;)Ljava/util/Date;";
@@ -1211,8 +1168,6 @@ AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getLastRefreshDate
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_TokenCachingStrategy cxx address %d", cxxAddress);
@@ -1241,7 +1196,7 @@ AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getLastRefreshDate
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1262,15 +1217,13 @@ AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getLastRefreshDate
 	AndroidCXX::java_util_Date result((AndroidCXX::java_util_Date) *((AndroidCXX::java_util_Date *) cxx_value));
 	delete ((AndroidCXX::java_util_Date *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getLastRefreshDate(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getLastRefreshDate(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 	return result;
 }
-void com_facebook_TokenCachingStrategy::putLastRefreshDate(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_util_Date& arg1)
+void com_facebook_TokenCachingStrategy::putLastRefreshDate(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_util_Date const& arg1)
 {
-	LOGV("void com_facebook_TokenCachingStrategy::putLastRefreshDate(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_util_Date& arg1) enter");
+	LOGV("void com_facebook_TokenCachingStrategy::putLastRefreshDate(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_util_Date const& arg1) enter");
 
 	const char *methodName = "putLastRefreshDate";
 	const char *methodSignature = "(Landroid/os/Bundle;Ljava/util/Date;)V";
@@ -1280,8 +1233,6 @@ void com_facebook_TokenCachingStrategy::putLastRefreshDate(AndroidCXX::android_o
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_TokenCachingStrategy cxx address %d", cxxAddress);
@@ -1331,16 +1282,14 @@ void com_facebook_TokenCachingStrategy::putLastRefreshDate(AndroidCXX::android_o
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_TokenCachingStrategy::putLastRefreshDate(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_util_Date& arg1) exit");
+	LOGV("void com_facebook_TokenCachingStrategy::putLastRefreshDate(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_util_Date const& arg1) exit");
 
 }
-long com_facebook_TokenCachingStrategy::getLastRefreshMilliseconds(AndroidCXX::android_os_Bundle& arg0)
+long com_facebook_TokenCachingStrategy::getLastRefreshMilliseconds(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("long com_facebook_TokenCachingStrategy::getLastRefreshMilliseconds(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("long com_facebook_TokenCachingStrategy::getLastRefreshMilliseconds(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "getLastRefreshMilliseconds";
 	const char *methodSignature = "(Landroid/os/Bundle;)J";
@@ -1350,8 +1299,6 @@ long com_facebook_TokenCachingStrategy::getLastRefreshMilliseconds(AndroidCXX::a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_TokenCachingStrategy cxx address %d", cxxAddress);
@@ -1380,7 +1327,7 @@ long com_facebook_TokenCachingStrategy::getLastRefreshMilliseconds(AndroidCXX::a
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jlong jni_result = (jlong) jni->invokeStaticLongMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
 	{
@@ -1401,15 +1348,13 @@ long com_facebook_TokenCachingStrategy::getLastRefreshMilliseconds(AndroidCXX::a
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long com_facebook_TokenCachingStrategy::getLastRefreshMilliseconds(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("long com_facebook_TokenCachingStrategy::getLastRefreshMilliseconds(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 	return result;
 }
-void com_facebook_TokenCachingStrategy::putLastRefreshMilliseconds(AndroidCXX::android_os_Bundle& arg0,long& arg1)
+void com_facebook_TokenCachingStrategy::putLastRefreshMilliseconds(AndroidCXX::android_os_Bundle const& arg0,long const& arg1)
 {
-	LOGV("void com_facebook_TokenCachingStrategy::putLastRefreshMilliseconds(AndroidCXX::android_os_Bundle& arg0,long& arg1) enter");
+	LOGV("void com_facebook_TokenCachingStrategy::putLastRefreshMilliseconds(AndroidCXX::android_os_Bundle const& arg0,long const& arg1) enter");
 
 	const char *methodName = "putLastRefreshMilliseconds";
 	const char *methodSignature = "(Landroid/os/Bundle;J)V";
@@ -1419,8 +1364,6 @@ void com_facebook_TokenCachingStrategy::putLastRefreshMilliseconds(AndroidCXX::a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_TokenCachingStrategy cxx address %d", cxxAddress);
@@ -1470,10 +1413,8 @@ void com_facebook_TokenCachingStrategy::putLastRefreshMilliseconds(AndroidCXX::a
 		jarg1 = convert_jni_long_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_TokenCachingStrategy::putLastRefreshMilliseconds(AndroidCXX::android_os_Bundle& arg0,long& arg1) exit");
+	LOGV("void com_facebook_TokenCachingStrategy::putLastRefreshMilliseconds(AndroidCXX::android_os_Bundle const& arg0,long const& arg1) exit");
 
 }

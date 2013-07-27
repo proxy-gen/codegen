@@ -51,16 +51,13 @@ class android_widget_AbsListView_RecyclerListener
 public:
 
 	android_widget_AbsListView_RecyclerListener(const android_widget_AbsListView_RecyclerListener& cc);
-	android_widget_AbsListView_RecyclerListener(void * proxy);
+	android_widget_AbsListView_RecyclerListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_AbsListView_RecyclerListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AbsListView_RecyclerListener();
 	// Functions
-	 void onMovedToScrapHeap(AndroidCXX::android_view_View& arg0);
+	 void onMovedToScrapHeap(AndroidCXX::android_view_View const& arg0);
 };	
 
 } // namespace

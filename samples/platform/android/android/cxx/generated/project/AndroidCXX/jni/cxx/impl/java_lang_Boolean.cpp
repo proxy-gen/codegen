@@ -93,7 +93,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_lang_Boolean::java_lang_Boolean(const java_lang_Boolean& cc)
 {
 	LOGV("java_lang_Boolean::java_lang_Boolean(const java_lang_Boolean& cc) enter");
@@ -117,9 +116,9 @@ java_lang_Boolean::java_lang_Boolean(const java_lang_Boolean& cc)
 
 	LOGV("java_lang_Boolean::java_lang_Boolean(const java_lang_Boolean& cc) exit");
 }
-java_lang_Boolean::java_lang_Boolean(void * proxy)
+java_lang_Boolean::java_lang_Boolean(Proxy proxy)
 {
-	LOGV("java_lang_Boolean::java_lang_Boolean(void * proxy) enter");
+	LOGV("java_lang_Boolean::java_lang_Boolean(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -129,55 +128,34 @@ java_lang_Boolean::java_lang_Boolean(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_lang_Boolean::java_lang_Boolean(void * proxy) exit");
+	LOGV("java_lang_Boolean::java_lang_Boolean(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_lang_Boolean::java_lang_Boolean()
-// {
-// 	LOGV("java_lang_Boolean::java_lang_Boolean() enter");	
+Proxy java_lang_Boolean::proxy() const
+{	
+	LOGV("java_lang_Boolean::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/lang/Boolean";
+	long cxxAddress = (long) this;
+	LOGV("java_lang_Boolean cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_Boolean jni address %d", proxiedComponent);
 
-// 	LOGV("java_lang_Boolean className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_lang_Boolean::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_lang_Boolean cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_lang_Boolean jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_lang_Boolean::java_lang_Boolean() exit");	
-// }
-// 
-// 
-// Public Constructors
-java_lang_Boolean::java_lang_Boolean(bool& arg0)
+	return proxy;
+}
+java_lang_Boolean::java_lang_Boolean(bool const& arg0)
 {
-	LOGV("java_lang_Boolean::java_lang_Boolean(bool& arg0) enter");	
+	LOGV("java_lang_Boolean::java_lang_Boolean(bool const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Z)V";
@@ -230,11 +208,11 @@ java_lang_Boolean::java_lang_Boolean(bool& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Boolean::java_lang_Boolean(bool& arg0) exit");	
+	LOGV("java_lang_Boolean::java_lang_Boolean(bool const& arg0) exit");	
 }
-java_lang_Boolean::java_lang_Boolean(AndroidCXX::java_lang_String& arg0)
+java_lang_Boolean::java_lang_Boolean(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("java_lang_Boolean::java_lang_Boolean(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("java_lang_Boolean::java_lang_Boolean(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -287,7 +265,7 @@ java_lang_Boolean::java_lang_Boolean(AndroidCXX::java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Boolean::java_lang_Boolean(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("java_lang_Boolean::java_lang_Boolean(AndroidCXX::java_lang_String const& arg0) exit");	
 }
 // Default Instance Destructor
 java_lang_Boolean::~java_lang_Boolean()
@@ -300,13 +278,13 @@ java_lang_Boolean::~java_lang_Boolean()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_lang_Boolean::~java_lang_Boolean() exit");
 }
 // Functions
-bool java_lang_Boolean::equals(AndroidCXX::java_lang_Object& arg0)
+bool java_lang_Boolean::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_lang_Boolean::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_lang_Boolean::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -316,8 +294,6 @@ bool java_lang_Boolean::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Boolean cxx address %d", cxxAddress);
@@ -367,15 +343,13 @@ bool java_lang_Boolean::equals(AndroidCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_lang_Boolean::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_lang_Boolean::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String java_lang_Boolean::toString(bool& arg0)
+AndroidCXX::java_lang_String java_lang_Boolean::toString(bool const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String java_lang_Boolean::toString(bool& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String java_lang_Boolean::toString(bool const& arg0) enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "(Z)Ljava/lang/String;";
@@ -385,8 +359,6 @@ AndroidCXX::java_lang_String java_lang_Boolean::toString(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Boolean cxx address %d", cxxAddress);
@@ -415,7 +387,7 @@ AndroidCXX::java_lang_String java_lang_Boolean::toString(bool& arg0)
 		jarg0 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jstring jni_result = (jstring) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
 	{
@@ -436,9 +408,7 @@ AndroidCXX::java_lang_String java_lang_Boolean::toString(bool& arg0)
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String java_lang_Boolean::toString(bool& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String java_lang_Boolean::toString(bool const& arg0) exit");
 
 	return result;
 }
@@ -454,8 +424,6 @@ AndroidCXX::java_lang_String java_lang_Boolean::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Boolean cxx address %d", cxxAddress);
@@ -484,8 +452,6 @@ AndroidCXX::java_lang_String java_lang_Boolean::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_lang_Boolean::toString() exit");
 
 	return result;
@@ -502,8 +468,6 @@ int java_lang_Boolean::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Boolean cxx address %d", cxxAddress);
@@ -532,15 +496,13 @@ int java_lang_Boolean::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_lang_Boolean::hashCode() exit");
 
 	return result;
 }
-int java_lang_Boolean::compareTo(AndroidCXX::java_lang_Boolean& arg0)
+int java_lang_Boolean::compareTo(AndroidCXX::java_lang_Boolean const& arg0)
 {
-	LOGV("int java_lang_Boolean::compareTo(AndroidCXX::java_lang_Boolean& arg0) enter");
+	LOGV("int java_lang_Boolean::compareTo(AndroidCXX::java_lang_Boolean const& arg0) enter");
 
 	const char *methodName = "compareTo";
 	const char *methodSignature = "(Ljava/lang/Boolean;)I";
@@ -550,8 +512,6 @@ int java_lang_Boolean::compareTo(AndroidCXX::java_lang_Boolean& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Boolean cxx address %d", cxxAddress);
@@ -601,15 +561,13 @@ int java_lang_Boolean::compareTo(AndroidCXX::java_lang_Boolean& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_lang_Boolean::compareTo(AndroidCXX::java_lang_Boolean& arg0) exit");
+	LOGV("int java_lang_Boolean::compareTo(AndroidCXX::java_lang_Boolean const& arg0) exit");
 
 	return result;
 }
-bool java_lang_Boolean::getBoolean(AndroidCXX::java_lang_String& arg0)
+bool java_lang_Boolean::getBoolean(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("bool java_lang_Boolean::getBoolean(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("bool java_lang_Boolean::getBoolean(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getBoolean";
 	const char *methodSignature = "(Ljava/lang/String;)Z";
@@ -619,8 +577,6 @@ bool java_lang_Boolean::getBoolean(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Boolean cxx address %d", cxxAddress);
@@ -649,7 +605,7 @@ bool java_lang_Boolean::getBoolean(AndroidCXX::java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jboolean jni_result = (jboolean) jni->invokeStaticBooleanMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
 	{
@@ -670,9 +626,7 @@ bool java_lang_Boolean::getBoolean(AndroidCXX::java_lang_String& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_lang_Boolean::getBoolean(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("bool java_lang_Boolean::getBoolean(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
@@ -688,8 +642,6 @@ bool java_lang_Boolean::booleanValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Boolean cxx address %d", cxxAddress);
@@ -718,15 +670,13 @@ bool java_lang_Boolean::booleanValue()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_lang_Boolean::booleanValue() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_Boolean java_lang_Boolean::valueOf(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_lang_Boolean java_lang_Boolean::valueOf(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Boolean java_lang_Boolean::valueOf(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Boolean java_lang_Boolean::valueOf(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "valueOf";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Boolean;";
@@ -736,8 +686,6 @@ AndroidCXX::java_lang_Boolean java_lang_Boolean::valueOf(AndroidCXX::java_lang_S
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Boolean cxx address %d", cxxAddress);
@@ -766,7 +714,7 @@ AndroidCXX::java_lang_Boolean java_lang_Boolean::valueOf(AndroidCXX::java_lang_S
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -787,15 +735,13 @@ AndroidCXX::java_lang_Boolean java_lang_Boolean::valueOf(AndroidCXX::java_lang_S
 	AndroidCXX::java_lang_Boolean result((AndroidCXX::java_lang_Boolean) *((AndroidCXX::java_lang_Boolean *) cxx_value));
 	delete ((AndroidCXX::java_lang_Boolean *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_Boolean java_lang_Boolean::valueOf(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_lang_Boolean java_lang_Boolean::valueOf(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_Boolean java_lang_Boolean::valueOf(bool& arg0)
+AndroidCXX::java_lang_Boolean java_lang_Boolean::valueOf(bool const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Boolean java_lang_Boolean::valueOf(bool& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Boolean java_lang_Boolean::valueOf(bool const& arg0) enter");
 
 	const char *methodName = "valueOf";
 	const char *methodSignature = "(Z)Ljava/lang/Boolean;";
@@ -805,8 +751,6 @@ AndroidCXX::java_lang_Boolean java_lang_Boolean::valueOf(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Boolean cxx address %d", cxxAddress);
@@ -835,7 +779,7 @@ AndroidCXX::java_lang_Boolean java_lang_Boolean::valueOf(bool& arg0)
 		jarg0 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -856,15 +800,13 @@ AndroidCXX::java_lang_Boolean java_lang_Boolean::valueOf(bool& arg0)
 	AndroidCXX::java_lang_Boolean result((AndroidCXX::java_lang_Boolean) *((AndroidCXX::java_lang_Boolean *) cxx_value));
 	delete ((AndroidCXX::java_lang_Boolean *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_Boolean java_lang_Boolean::valueOf(bool& arg0) exit");
+	LOGV("AndroidCXX::java_lang_Boolean java_lang_Boolean::valueOf(bool const& arg0) exit");
 
 	return result;
 }
-bool java_lang_Boolean::parseBoolean(AndroidCXX::java_lang_String& arg0)
+bool java_lang_Boolean::parseBoolean(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("bool java_lang_Boolean::parseBoolean(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("bool java_lang_Boolean::parseBoolean(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "parseBoolean";
 	const char *methodSignature = "(Ljava/lang/String;)Z";
@@ -874,8 +816,6 @@ bool java_lang_Boolean::parseBoolean(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Boolean cxx address %d", cxxAddress);
@@ -904,7 +844,7 @@ bool java_lang_Boolean::parseBoolean(AndroidCXX::java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jboolean jni_result = (jboolean) jni->invokeStaticBooleanMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
 	{
@@ -925,9 +865,7 @@ bool java_lang_Boolean::parseBoolean(AndroidCXX::java_lang_String& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_lang_Boolean::parseBoolean(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("bool java_lang_Boolean::parseBoolean(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }

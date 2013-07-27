@@ -52,7 +52,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_Response_PagedResults::com_facebook_Response_PagedResults(const com_facebook_Response_PagedResults& cc)
 {
 	LOGV("com_facebook_Response_PagedResults::com_facebook_Response_PagedResults(const com_facebook_Response_PagedResults& cc) enter");
@@ -76,9 +75,9 @@ com_facebook_Response_PagedResults::com_facebook_Response_PagedResults(const com
 
 	LOGV("com_facebook_Response_PagedResults::com_facebook_Response_PagedResults(const com_facebook_Response_PagedResults& cc) exit");
 }
-com_facebook_Response_PagedResults::com_facebook_Response_PagedResults(void * proxy)
+com_facebook_Response_PagedResults::com_facebook_Response_PagedResults(Proxy proxy)
 {
-	LOGV("com_facebook_Response_PagedResults::com_facebook_Response_PagedResults(void * proxy) enter");
+	LOGV("com_facebook_Response_PagedResults::com_facebook_Response_PagedResults(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -88,52 +87,31 @@ com_facebook_Response_PagedResults::com_facebook_Response_PagedResults(void * pr
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_Response_PagedResults::com_facebook_Response_PagedResults(void * proxy) exit");
+	LOGV("com_facebook_Response_PagedResults::com_facebook_Response_PagedResults(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// com_facebook_Response_PagedResults::com_facebook_Response_PagedResults()
-// {
-// 	LOGV("com_facebook_Response_PagedResults::com_facebook_Response_PagedResults() enter");	
+Proxy com_facebook_Response_PagedResults::proxy() const
+{	
+	LOGV("com_facebook_Response_PagedResults::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "com/facebook/Response$PagedResults";
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_Response_PagedResults cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Response_PagedResults jni address %d", proxiedComponent);
 
-// 	LOGV("com_facebook_Response_PagedResults className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("com_facebook_Response_PagedResults::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("com_facebook_Response_PagedResults cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("com_facebook_Response_PagedResults jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("com_facebook_Response_PagedResults::com_facebook_Response_PagedResults() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 com_facebook_Response_PagedResults::~com_facebook_Response_PagedResults()
 {
@@ -145,7 +123,7 @@ com_facebook_Response_PagedResults::~com_facebook_Response_PagedResults()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_Response_PagedResults::~com_facebook_Response_PagedResults() exit");
 }
 // Functions
@@ -161,8 +139,6 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response_PagedResul
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Response_PagedResults cxx address %d", cxxAddress);
@@ -209,8 +185,6 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response_PagedResul
 	FacebookCXX::com_facebook_model_GraphObjectList result((FacebookCXX::com_facebook_model_GraphObjectList) *((FacebookCXX::com_facebook_model_GraphObjectList *) cxx_value));
 	delete ((FacebookCXX::com_facebook_model_GraphObjectList *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response_PagedResults::getData() exit");
 
 	return result;
@@ -227,8 +201,6 @@ FacebookCXX::com_facebook_Response_PagingInfo com_facebook_Response_PagedResults
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Response_PagedResults cxx address %d", cxxAddress);
@@ -257,8 +229,6 @@ FacebookCXX::com_facebook_Response_PagingInfo com_facebook_Response_PagedResults
 	FacebookCXX::com_facebook_Response_PagingInfo result((FacebookCXX::com_facebook_Response_PagingInfo) *((FacebookCXX::com_facebook_Response_PagingInfo *) cxx_value));
 	delete ((FacebookCXX::com_facebook_Response_PagingInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("FacebookCXX::com_facebook_Response_PagingInfo com_facebook_Response_PagedResults::getPaging() exit");
 
 	return result;

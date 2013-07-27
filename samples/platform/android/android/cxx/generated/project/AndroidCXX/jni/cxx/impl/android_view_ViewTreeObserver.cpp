@@ -110,7 +110,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_ViewTreeObserver::android_view_ViewTreeObserver(const android_view_ViewTreeObserver& cc)
 {
 	LOGV("android_view_ViewTreeObserver::android_view_ViewTreeObserver(const android_view_ViewTreeObserver& cc) enter");
@@ -134,9 +133,9 @@ android_view_ViewTreeObserver::android_view_ViewTreeObserver(const android_view_
 
 	LOGV("android_view_ViewTreeObserver::android_view_ViewTreeObserver(const android_view_ViewTreeObserver& cc) exit");
 }
-android_view_ViewTreeObserver::android_view_ViewTreeObserver(void * proxy)
+android_view_ViewTreeObserver::android_view_ViewTreeObserver(Proxy proxy)
 {
-	LOGV("android_view_ViewTreeObserver::android_view_ViewTreeObserver(void * proxy) enter");
+	LOGV("android_view_ViewTreeObserver::android_view_ViewTreeObserver(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -146,52 +145,31 @@ android_view_ViewTreeObserver::android_view_ViewTreeObserver(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_ViewTreeObserver::android_view_ViewTreeObserver(void * proxy) exit");
+	LOGV("android_view_ViewTreeObserver::android_view_ViewTreeObserver(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_view_ViewTreeObserver::android_view_ViewTreeObserver()
-// {
-// 	LOGV("android_view_ViewTreeObserver::android_view_ViewTreeObserver() enter");	
+Proxy android_view_ViewTreeObserver::proxy() const
+{	
+	LOGV("android_view_ViewTreeObserver::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/view/ViewTreeObserver";
+	long cxxAddress = (long) this;
+	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_ViewTreeObserver jni address %d", proxiedComponent);
 
-// 	LOGV("android_view_ViewTreeObserver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_view_ViewTreeObserver::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_view_ViewTreeObserver jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_view_ViewTreeObserver::android_view_ViewTreeObserver() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_view_ViewTreeObserver::~android_view_ViewTreeObserver()
 {
@@ -203,7 +181,7 @@ android_view_ViewTreeObserver::~android_view_ViewTreeObserver()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_ViewTreeObserver::~android_view_ViewTreeObserver() exit");
 }
 // Functions
@@ -220,8 +198,6 @@ bool android_view_ViewTreeObserver::isAlive()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -249,15 +225,13 @@ bool android_view_ViewTreeObserver::isAlive()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_ViewTreeObserver::isAlive() exit");
 
 	return result;
 }
-void android_view_ViewTreeObserver::addOnGlobalFocusChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalFocusChangeListener& arg0)
+void android_view_ViewTreeObserver::addOnGlobalFocusChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalFocusChangeListener const& arg0)
 {
-	LOGV("void android_view_ViewTreeObserver::addOnGlobalFocusChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalFocusChangeListener& arg0) enter");
+	LOGV("void android_view_ViewTreeObserver::addOnGlobalFocusChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalFocusChangeListener const& arg0) enter");
 
 	const char *methodName = "addOnGlobalFocusChangeListener";
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnGlobalFocusChangeListener;)V";
@@ -268,8 +242,6 @@ void android_view_ViewTreeObserver::addOnGlobalFocusChangeListener(AndroidCXX::a
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -299,14 +271,12 @@ void android_view_ViewTreeObserver::addOnGlobalFocusChangeListener(AndroidCXX::a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_ViewTreeObserver::addOnGlobalFocusChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalFocusChangeListener& arg0) exit");
+	LOGV("void android_view_ViewTreeObserver::addOnGlobalFocusChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalFocusChangeListener const& arg0) exit");
 
 }
-void android_view_ViewTreeObserver::removeOnGlobalFocusChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalFocusChangeListener& arg0)
+void android_view_ViewTreeObserver::removeOnGlobalFocusChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalFocusChangeListener const& arg0)
 {
-	LOGV("void android_view_ViewTreeObserver::removeOnGlobalFocusChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalFocusChangeListener& arg0) enter");
+	LOGV("void android_view_ViewTreeObserver::removeOnGlobalFocusChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalFocusChangeListener const& arg0) enter");
 
 	const char *methodName = "removeOnGlobalFocusChangeListener";
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnGlobalFocusChangeListener;)V";
@@ -317,8 +287,6 @@ void android_view_ViewTreeObserver::removeOnGlobalFocusChangeListener(AndroidCXX
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -348,14 +316,12 @@ void android_view_ViewTreeObserver::removeOnGlobalFocusChangeListener(AndroidCXX
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_ViewTreeObserver::removeOnGlobalFocusChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalFocusChangeListener& arg0) exit");
+	LOGV("void android_view_ViewTreeObserver::removeOnGlobalFocusChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalFocusChangeListener const& arg0) exit");
 
 }
-void android_view_ViewTreeObserver::addOnGlobalLayoutListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalLayoutListener& arg0)
+void android_view_ViewTreeObserver::addOnGlobalLayoutListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalLayoutListener const& arg0)
 {
-	LOGV("void android_view_ViewTreeObserver::addOnGlobalLayoutListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalLayoutListener& arg0) enter");
+	LOGV("void android_view_ViewTreeObserver::addOnGlobalLayoutListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalLayoutListener const& arg0) enter");
 
 	const char *methodName = "addOnGlobalLayoutListener";
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V";
@@ -366,8 +332,6 @@ void android_view_ViewTreeObserver::addOnGlobalLayoutListener(AndroidCXX::androi
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -397,14 +361,12 @@ void android_view_ViewTreeObserver::addOnGlobalLayoutListener(AndroidCXX::androi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_ViewTreeObserver::addOnGlobalLayoutListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalLayoutListener& arg0) exit");
+	LOGV("void android_view_ViewTreeObserver::addOnGlobalLayoutListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalLayoutListener const& arg0) exit");
 
 }
-void android_view_ViewTreeObserver::removeGlobalOnLayoutListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalLayoutListener& arg0)
+void android_view_ViewTreeObserver::removeGlobalOnLayoutListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalLayoutListener const& arg0)
 {
-	LOGV("void android_view_ViewTreeObserver::removeGlobalOnLayoutListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalLayoutListener& arg0) enter");
+	LOGV("void android_view_ViewTreeObserver::removeGlobalOnLayoutListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalLayoutListener const& arg0) enter");
 
 	const char *methodName = "removeGlobalOnLayoutListener";
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V";
@@ -415,8 +377,6 @@ void android_view_ViewTreeObserver::removeGlobalOnLayoutListener(AndroidCXX::and
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -446,14 +406,12 @@ void android_view_ViewTreeObserver::removeGlobalOnLayoutListener(AndroidCXX::and
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_ViewTreeObserver::removeGlobalOnLayoutListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalLayoutListener& arg0) exit");
+	LOGV("void android_view_ViewTreeObserver::removeGlobalOnLayoutListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalLayoutListener const& arg0) exit");
 
 }
-void android_view_ViewTreeObserver::removeOnGlobalLayoutListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalLayoutListener& arg0)
+void android_view_ViewTreeObserver::removeOnGlobalLayoutListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalLayoutListener const& arg0)
 {
-	LOGV("void android_view_ViewTreeObserver::removeOnGlobalLayoutListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalLayoutListener& arg0) enter");
+	LOGV("void android_view_ViewTreeObserver::removeOnGlobalLayoutListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalLayoutListener const& arg0) enter");
 
 	const char *methodName = "removeOnGlobalLayoutListener";
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V";
@@ -464,8 +422,6 @@ void android_view_ViewTreeObserver::removeOnGlobalLayoutListener(AndroidCXX::and
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -495,14 +451,12 @@ void android_view_ViewTreeObserver::removeOnGlobalLayoutListener(AndroidCXX::and
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_ViewTreeObserver::removeOnGlobalLayoutListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalLayoutListener& arg0) exit");
+	LOGV("void android_view_ViewTreeObserver::removeOnGlobalLayoutListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalLayoutListener const& arg0) exit");
 
 }
-void android_view_ViewTreeObserver::addOnPreDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnPreDrawListener& arg0)
+void android_view_ViewTreeObserver::addOnPreDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnPreDrawListener const& arg0)
 {
-	LOGV("void android_view_ViewTreeObserver::addOnPreDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnPreDrawListener& arg0) enter");
+	LOGV("void android_view_ViewTreeObserver::addOnPreDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnPreDrawListener const& arg0) enter");
 
 	const char *methodName = "addOnPreDrawListener";
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V";
@@ -513,8 +467,6 @@ void android_view_ViewTreeObserver::addOnPreDrawListener(AndroidCXX::android_vie
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -544,14 +496,12 @@ void android_view_ViewTreeObserver::addOnPreDrawListener(AndroidCXX::android_vie
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_ViewTreeObserver::addOnPreDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnPreDrawListener& arg0) exit");
+	LOGV("void android_view_ViewTreeObserver::addOnPreDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnPreDrawListener const& arg0) exit");
 
 }
-void android_view_ViewTreeObserver::removeOnPreDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnPreDrawListener& arg0)
+void android_view_ViewTreeObserver::removeOnPreDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnPreDrawListener const& arg0)
 {
-	LOGV("void android_view_ViewTreeObserver::removeOnPreDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnPreDrawListener& arg0) enter");
+	LOGV("void android_view_ViewTreeObserver::removeOnPreDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnPreDrawListener const& arg0) enter");
 
 	const char *methodName = "removeOnPreDrawListener";
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V";
@@ -562,8 +512,6 @@ void android_view_ViewTreeObserver::removeOnPreDrawListener(AndroidCXX::android_
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -593,14 +541,12 @@ void android_view_ViewTreeObserver::removeOnPreDrawListener(AndroidCXX::android_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_ViewTreeObserver::removeOnPreDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnPreDrawListener& arg0) exit");
+	LOGV("void android_view_ViewTreeObserver::removeOnPreDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnPreDrawListener const& arg0) exit");
 
 }
-void android_view_ViewTreeObserver::addOnDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnDrawListener& arg0)
+void android_view_ViewTreeObserver::addOnDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnDrawListener const& arg0)
 {
-	LOGV("void android_view_ViewTreeObserver::addOnDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnDrawListener& arg0) enter");
+	LOGV("void android_view_ViewTreeObserver::addOnDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnDrawListener const& arg0) enter");
 
 	const char *methodName = "addOnDrawListener";
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnDrawListener;)V";
@@ -611,8 +557,6 @@ void android_view_ViewTreeObserver::addOnDrawListener(AndroidCXX::android_view_V
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -642,14 +586,12 @@ void android_view_ViewTreeObserver::addOnDrawListener(AndroidCXX::android_view_V
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_ViewTreeObserver::addOnDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnDrawListener& arg0) exit");
+	LOGV("void android_view_ViewTreeObserver::addOnDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnDrawListener const& arg0) exit");
 
 }
-void android_view_ViewTreeObserver::removeOnDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnDrawListener& arg0)
+void android_view_ViewTreeObserver::removeOnDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnDrawListener const& arg0)
 {
-	LOGV("void android_view_ViewTreeObserver::removeOnDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnDrawListener& arg0) enter");
+	LOGV("void android_view_ViewTreeObserver::removeOnDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnDrawListener const& arg0) enter");
 
 	const char *methodName = "removeOnDrawListener";
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnDrawListener;)V";
@@ -660,8 +602,6 @@ void android_view_ViewTreeObserver::removeOnDrawListener(AndroidCXX::android_vie
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -691,14 +631,12 @@ void android_view_ViewTreeObserver::removeOnDrawListener(AndroidCXX::android_vie
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_ViewTreeObserver::removeOnDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnDrawListener& arg0) exit");
+	LOGV("void android_view_ViewTreeObserver::removeOnDrawListener(AndroidCXX::android_view_ViewTreeObserver_OnDrawListener const& arg0) exit");
 
 }
-void android_view_ViewTreeObserver::addOnScrollChangedListener(AndroidCXX::android_view_ViewTreeObserver_OnScrollChangedListener& arg0)
+void android_view_ViewTreeObserver::addOnScrollChangedListener(AndroidCXX::android_view_ViewTreeObserver_OnScrollChangedListener const& arg0)
 {
-	LOGV("void android_view_ViewTreeObserver::addOnScrollChangedListener(AndroidCXX::android_view_ViewTreeObserver_OnScrollChangedListener& arg0) enter");
+	LOGV("void android_view_ViewTreeObserver::addOnScrollChangedListener(AndroidCXX::android_view_ViewTreeObserver_OnScrollChangedListener const& arg0) enter");
 
 	const char *methodName = "addOnScrollChangedListener";
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnScrollChangedListener;)V";
@@ -709,8 +647,6 @@ void android_view_ViewTreeObserver::addOnScrollChangedListener(AndroidCXX::andro
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -740,14 +676,12 @@ void android_view_ViewTreeObserver::addOnScrollChangedListener(AndroidCXX::andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_ViewTreeObserver::addOnScrollChangedListener(AndroidCXX::android_view_ViewTreeObserver_OnScrollChangedListener& arg0) exit");
+	LOGV("void android_view_ViewTreeObserver::addOnScrollChangedListener(AndroidCXX::android_view_ViewTreeObserver_OnScrollChangedListener const& arg0) exit");
 
 }
-void android_view_ViewTreeObserver::removeOnScrollChangedListener(AndroidCXX::android_view_ViewTreeObserver_OnScrollChangedListener& arg0)
+void android_view_ViewTreeObserver::removeOnScrollChangedListener(AndroidCXX::android_view_ViewTreeObserver_OnScrollChangedListener const& arg0)
 {
-	LOGV("void android_view_ViewTreeObserver::removeOnScrollChangedListener(AndroidCXX::android_view_ViewTreeObserver_OnScrollChangedListener& arg0) enter");
+	LOGV("void android_view_ViewTreeObserver::removeOnScrollChangedListener(AndroidCXX::android_view_ViewTreeObserver_OnScrollChangedListener const& arg0) enter");
 
 	const char *methodName = "removeOnScrollChangedListener";
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnScrollChangedListener;)V";
@@ -758,8 +692,6 @@ void android_view_ViewTreeObserver::removeOnScrollChangedListener(AndroidCXX::an
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -789,14 +721,12 @@ void android_view_ViewTreeObserver::removeOnScrollChangedListener(AndroidCXX::an
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_ViewTreeObserver::removeOnScrollChangedListener(AndroidCXX::android_view_ViewTreeObserver_OnScrollChangedListener& arg0) exit");
+	LOGV("void android_view_ViewTreeObserver::removeOnScrollChangedListener(AndroidCXX::android_view_ViewTreeObserver_OnScrollChangedListener const& arg0) exit");
 
 }
-void android_view_ViewTreeObserver::addOnTouchModeChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnTouchModeChangeListener& arg0)
+void android_view_ViewTreeObserver::addOnTouchModeChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnTouchModeChangeListener const& arg0)
 {
-	LOGV("void android_view_ViewTreeObserver::addOnTouchModeChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnTouchModeChangeListener& arg0) enter");
+	LOGV("void android_view_ViewTreeObserver::addOnTouchModeChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnTouchModeChangeListener const& arg0) enter");
 
 	const char *methodName = "addOnTouchModeChangeListener";
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnTouchModeChangeListener;)V";
@@ -807,8 +737,6 @@ void android_view_ViewTreeObserver::addOnTouchModeChangeListener(AndroidCXX::and
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -838,14 +766,12 @@ void android_view_ViewTreeObserver::addOnTouchModeChangeListener(AndroidCXX::and
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_ViewTreeObserver::addOnTouchModeChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnTouchModeChangeListener& arg0) exit");
+	LOGV("void android_view_ViewTreeObserver::addOnTouchModeChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnTouchModeChangeListener const& arg0) exit");
 
 }
-void android_view_ViewTreeObserver::removeOnTouchModeChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnTouchModeChangeListener& arg0)
+void android_view_ViewTreeObserver::removeOnTouchModeChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnTouchModeChangeListener const& arg0)
 {
-	LOGV("void android_view_ViewTreeObserver::removeOnTouchModeChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnTouchModeChangeListener& arg0) enter");
+	LOGV("void android_view_ViewTreeObserver::removeOnTouchModeChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnTouchModeChangeListener const& arg0) enter");
 
 	const char *methodName = "removeOnTouchModeChangeListener";
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnTouchModeChangeListener;)V";
@@ -856,8 +782,6 @@ void android_view_ViewTreeObserver::removeOnTouchModeChangeListener(AndroidCXX::
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -887,9 +811,7 @@ void android_view_ViewTreeObserver::removeOnTouchModeChangeListener(AndroidCXX::
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_ViewTreeObserver::removeOnTouchModeChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnTouchModeChangeListener& arg0) exit");
+	LOGV("void android_view_ViewTreeObserver::removeOnTouchModeChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnTouchModeChangeListener const& arg0) exit");
 
 }
 void android_view_ViewTreeObserver::dispatchOnGlobalLayout()
@@ -905,8 +827,6 @@ void android_view_ViewTreeObserver::dispatchOnGlobalLayout()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -915,8 +835,6 @@ void android_view_ViewTreeObserver::dispatchOnGlobalLayout()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_view_ViewTreeObserver::dispatchOnGlobalLayout() exit");
 
 }
@@ -933,8 +851,6 @@ bool android_view_ViewTreeObserver::dispatchOnPreDraw()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -962,8 +878,6 @@ bool android_view_ViewTreeObserver::dispatchOnPreDraw()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_ViewTreeObserver::dispatchOnPreDraw() exit");
 
 	return result;
@@ -981,8 +895,6 @@ void android_view_ViewTreeObserver::dispatchOnDraw()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -991,8 +903,6 @@ void android_view_ViewTreeObserver::dispatchOnDraw()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_view_ViewTreeObserver::dispatchOnDraw() exit");
 
 }

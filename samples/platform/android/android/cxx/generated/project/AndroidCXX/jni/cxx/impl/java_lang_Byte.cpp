@@ -116,7 +116,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_lang_Byte::java_lang_Byte(const java_lang_Byte& cc)
 {
 	LOGV("java_lang_Byte::java_lang_Byte(const java_lang_Byte& cc) enter");
@@ -140,9 +139,9 @@ java_lang_Byte::java_lang_Byte(const java_lang_Byte& cc)
 
 	LOGV("java_lang_Byte::java_lang_Byte(const java_lang_Byte& cc) exit");
 }
-java_lang_Byte::java_lang_Byte(void * proxy)
+java_lang_Byte::java_lang_Byte(Proxy proxy)
 {
-	LOGV("java_lang_Byte::java_lang_Byte(void * proxy) enter");
+	LOGV("java_lang_Byte::java_lang_Byte(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -152,55 +151,34 @@ java_lang_Byte::java_lang_Byte(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_lang_Byte::java_lang_Byte(void * proxy) exit");
+	LOGV("java_lang_Byte::java_lang_Byte(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_lang_Byte::java_lang_Byte()
-// {
-// 	LOGV("java_lang_Byte::java_lang_Byte() enter");	
+Proxy java_lang_Byte::proxy() const
+{	
+	LOGV("java_lang_Byte::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/lang/Byte";
+	long cxxAddress = (long) this;
+	LOGV("java_lang_Byte cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_Byte jni address %d", proxiedComponent);
 
-// 	LOGV("java_lang_Byte className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_lang_Byte::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_lang_Byte cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_lang_Byte jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_lang_Byte::java_lang_Byte() exit");	
-// }
-// 
-// 
-// Public Constructors
-java_lang_Byte::java_lang_Byte(byte& arg0)
+	return proxy;
+}
+java_lang_Byte::java_lang_Byte(byte const& arg0)
 {
-	LOGV("java_lang_Byte::java_lang_Byte(byte& arg0) enter");	
+	LOGV("java_lang_Byte::java_lang_Byte(byte const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(B)V";
@@ -253,11 +231,11 @@ java_lang_Byte::java_lang_Byte(byte& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Byte::java_lang_Byte(byte& arg0) exit");	
+	LOGV("java_lang_Byte::java_lang_Byte(byte const& arg0) exit");	
 }
-java_lang_Byte::java_lang_Byte(AndroidCXX::java_lang_String& arg0)
+java_lang_Byte::java_lang_Byte(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("java_lang_Byte::java_lang_Byte(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("java_lang_Byte::java_lang_Byte(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -310,7 +288,7 @@ java_lang_Byte::java_lang_Byte(AndroidCXX::java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Byte::java_lang_Byte(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("java_lang_Byte::java_lang_Byte(AndroidCXX::java_lang_String const& arg0) exit");	
 }
 // Default Instance Destructor
 java_lang_Byte::~java_lang_Byte()
@@ -323,13 +301,13 @@ java_lang_Byte::~java_lang_Byte()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_lang_Byte::~java_lang_Byte() exit");
 }
 // Functions
-bool java_lang_Byte::equals(AndroidCXX::java_lang_Object& arg0)
+bool java_lang_Byte::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_lang_Byte::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_lang_Byte::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -339,8 +317,6 @@ bool java_lang_Byte::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Byte cxx address %d", cxxAddress);
@@ -390,15 +366,13 @@ bool java_lang_Byte::equals(AndroidCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_lang_Byte::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_lang_Byte::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String java_lang_Byte::toString(byte& arg0)
+AndroidCXX::java_lang_String java_lang_Byte::toString(byte const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String java_lang_Byte::toString(byte& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String java_lang_Byte::toString(byte const& arg0) enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "(B)Ljava/lang/String;";
@@ -408,8 +382,6 @@ AndroidCXX::java_lang_String java_lang_Byte::toString(byte& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Byte cxx address %d", cxxAddress);
@@ -438,7 +410,7 @@ AndroidCXX::java_lang_String java_lang_Byte::toString(byte& arg0)
 		jarg0 = convert_jni_byte_to_jni(java_value);
 	}
 
-	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jstring jni_result = (jstring) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
 	{
@@ -459,9 +431,7 @@ AndroidCXX::java_lang_String java_lang_Byte::toString(byte& arg0)
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String java_lang_Byte::toString(byte& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String java_lang_Byte::toString(byte const& arg0) exit");
 
 	return result;
 }
@@ -477,8 +447,6 @@ AndroidCXX::java_lang_String java_lang_Byte::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Byte cxx address %d", cxxAddress);
@@ -507,8 +475,6 @@ AndroidCXX::java_lang_String java_lang_Byte::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_lang_Byte::toString() exit");
 
 	return result;
@@ -525,8 +491,6 @@ int java_lang_Byte::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Byte cxx address %d", cxxAddress);
@@ -555,15 +519,13 @@ int java_lang_Byte::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_lang_Byte::hashCode() exit");
 
 	return result;
 }
-int java_lang_Byte::compareTo(AndroidCXX::java_lang_Byte& arg0)
+int java_lang_Byte::compareTo(AndroidCXX::java_lang_Byte const& arg0)
 {
-	LOGV("int java_lang_Byte::compareTo(AndroidCXX::java_lang_Byte& arg0) enter");
+	LOGV("int java_lang_Byte::compareTo(AndroidCXX::java_lang_Byte const& arg0) enter");
 
 	const char *methodName = "compareTo";
 	const char *methodSignature = "(Ljava/lang/Byte;)I";
@@ -573,8 +535,6 @@ int java_lang_Byte::compareTo(AndroidCXX::java_lang_Byte& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Byte cxx address %d", cxxAddress);
@@ -624,9 +584,7 @@ int java_lang_Byte::compareTo(AndroidCXX::java_lang_Byte& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_lang_Byte::compareTo(AndroidCXX::java_lang_Byte& arg0) exit");
+	LOGV("int java_lang_Byte::compareTo(AndroidCXX::java_lang_Byte const& arg0) exit");
 
 	return result;
 }
@@ -642,8 +600,6 @@ byte java_lang_Byte::byteValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Byte cxx address %d", cxxAddress);
@@ -672,8 +628,6 @@ byte java_lang_Byte::byteValue()
 	byte result = (byte) *((byte *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("byte java_lang_Byte::byteValue() exit");
 
 	return result;
@@ -690,8 +644,6 @@ short java_lang_Byte::shortValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Byte cxx address %d", cxxAddress);
@@ -720,8 +672,6 @@ short java_lang_Byte::shortValue()
 	short result = (short) *((short *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("short java_lang_Byte::shortValue() exit");
 
 	return result;
@@ -738,8 +688,6 @@ int java_lang_Byte::intValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Byte cxx address %d", cxxAddress);
@@ -768,8 +716,6 @@ int java_lang_Byte::intValue()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_lang_Byte::intValue() exit");
 
 	return result;
@@ -786,8 +732,6 @@ long java_lang_Byte::longValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Byte cxx address %d", cxxAddress);
@@ -816,8 +760,6 @@ long java_lang_Byte::longValue()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long java_lang_Byte::longValue() exit");
 
 	return result;
@@ -834,8 +776,6 @@ float java_lang_Byte::floatValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Byte cxx address %d", cxxAddress);
@@ -864,8 +804,6 @@ float java_lang_Byte::floatValue()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float java_lang_Byte::floatValue() exit");
 
 	return result;
@@ -882,8 +820,6 @@ double java_lang_Byte::doubleValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Byte cxx address %d", cxxAddress);
@@ -912,15 +848,13 @@ double java_lang_Byte::doubleValue()
 	double result = (double) *((double *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("double java_lang_Byte::doubleValue() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "valueOf";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Byte;";
@@ -930,8 +864,6 @@ AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(AndroidCXX::java_lang_String&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Byte cxx address %d", cxxAddress);
@@ -960,7 +892,7 @@ AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(AndroidCXX::java_lang_String&
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -981,15 +913,13 @@ AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(AndroidCXX::java_lang_String&
 	AndroidCXX::java_lang_Byte result((AndroidCXX::java_lang_Byte) *((AndroidCXX::java_lang_Byte *) cxx_value));
 	delete ((AndroidCXX::java_lang_Byte *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(AndroidCXX::java_lang_String& arg0,int& arg1)
+AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(AndroidCXX::java_lang_String const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(AndroidCXX::java_lang_String const& arg0,int const& arg1) enter");
 
 	const char *methodName = "valueOf";
 	const char *methodSignature = "(Ljava/lang/String;I)Ljava/lang/Byte;";
@@ -999,8 +929,6 @@ AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(AndroidCXX::java_lang_String&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Byte cxx address %d", cxxAddress);
@@ -1050,7 +978,7 @@ AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(AndroidCXX::java_lang_String&
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1071,15 +999,13 @@ AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(AndroidCXX::java_lang_String&
 	AndroidCXX::java_lang_Byte result((AndroidCXX::java_lang_Byte) *((AndroidCXX::java_lang_Byte *) cxx_value));
 	delete ((AndroidCXX::java_lang_Byte *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(AndroidCXX::java_lang_String const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(byte& arg0)
+AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(byte const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(byte& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(byte const& arg0) enter");
 
 	const char *methodName = "valueOf";
 	const char *methodSignature = "(B)Ljava/lang/Byte;";
@@ -1089,8 +1015,6 @@ AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(byte& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Byte cxx address %d", cxxAddress);
@@ -1119,7 +1043,7 @@ AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(byte& arg0)
 		jarg0 = convert_jni_byte_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1140,15 +1064,13 @@ AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(byte& arg0)
 	AndroidCXX::java_lang_Byte result((AndroidCXX::java_lang_Byte) *((AndroidCXX::java_lang_Byte *) cxx_value));
 	delete ((AndroidCXX::java_lang_Byte *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(byte& arg0) exit");
+	LOGV("AndroidCXX::java_lang_Byte java_lang_Byte::valueOf(byte const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_Byte java_lang_Byte::decode(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_lang_Byte java_lang_Byte::decode(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Byte java_lang_Byte::decode(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Byte java_lang_Byte::decode(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "decode";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Byte;";
@@ -1159,8 +1081,6 @@ AndroidCXX::java_lang_Byte java_lang_Byte::decode(AndroidCXX::java_lang_String& 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Byte cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1188,7 +1108,7 @@ AndroidCXX::java_lang_Byte java_lang_Byte::decode(AndroidCXX::java_lang_String& 
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1209,15 +1129,13 @@ AndroidCXX::java_lang_Byte java_lang_Byte::decode(AndroidCXX::java_lang_String& 
 	AndroidCXX::java_lang_Byte result((AndroidCXX::java_lang_Byte) *((AndroidCXX::java_lang_Byte *) cxx_value));
 	delete ((AndroidCXX::java_lang_Byte *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_Byte java_lang_Byte::decode(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_lang_Byte java_lang_Byte::decode(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-byte java_lang_Byte::parseByte(AndroidCXX::java_lang_String& arg0)
+byte java_lang_Byte::parseByte(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("byte java_lang_Byte::parseByte(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("byte java_lang_Byte::parseByte(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "parseByte";
 	const char *methodSignature = "(Ljava/lang/String;)B";
@@ -1227,8 +1145,6 @@ byte java_lang_Byte::parseByte(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Byte cxx address %d", cxxAddress);
@@ -1257,7 +1173,7 @@ byte java_lang_Byte::parseByte(AndroidCXX::java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	jbyte jni_result = (jbyte) jni->invokeByteMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jbyte jni_result = (jbyte) jni->invokeStaticByteMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_byte_to_java(jni_result);
 	{
@@ -1278,15 +1194,13 @@ byte java_lang_Byte::parseByte(AndroidCXX::java_lang_String& arg0)
 	byte result = (byte) *((byte *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("byte java_lang_Byte::parseByte(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("byte java_lang_Byte::parseByte(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-byte java_lang_Byte::parseByte(AndroidCXX::java_lang_String& arg0,int& arg1)
+byte java_lang_Byte::parseByte(AndroidCXX::java_lang_String const& arg0,int const& arg1)
 {
-	LOGV("byte java_lang_Byte::parseByte(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
+	LOGV("byte java_lang_Byte::parseByte(AndroidCXX::java_lang_String const& arg0,int const& arg1) enter");
 
 	const char *methodName = "parseByte";
 	const char *methodSignature = "(Ljava/lang/String;I)B";
@@ -1296,8 +1210,6 @@ byte java_lang_Byte::parseByte(AndroidCXX::java_lang_String& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Byte cxx address %d", cxxAddress);
@@ -1347,7 +1259,7 @@ byte java_lang_Byte::parseByte(AndroidCXX::java_lang_String& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	jbyte jni_result = (jbyte) jni->invokeByteMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jbyte jni_result = (jbyte) jni->invokeStaticByteMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_byte_to_java(jni_result);
 	{
@@ -1368,9 +1280,7 @@ byte java_lang_Byte::parseByte(AndroidCXX::java_lang_String& arg0,int& arg1)
 	byte result = (byte) *((byte *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("byte java_lang_Byte::parseByte(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
+	LOGV("byte java_lang_Byte::parseByte(AndroidCXX::java_lang_String const& arg0,int const& arg1) exit");
 
 	return result;
 }

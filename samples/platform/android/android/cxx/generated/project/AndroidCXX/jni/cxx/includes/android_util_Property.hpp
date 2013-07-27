@@ -90,22 +90,19 @@ class android_util_Property
 public:
 
 	android_util_Property(const android_util_Property& cc);
-	android_util_Property(void * proxy);
+	android_util_Property(Proxy proxy);
 	// Public Constructors
-	android_util_Property(AndroidCXX::java_lang_Class& arg0,AndroidCXX::java_lang_String& arg1);
-	// TODO: remove
-	// 
-	// android_util_Property();
-	// 
+	android_util_Property(AndroidCXX::java_lang_Class const& arg0,AndroidCXX::java_lang_String const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_util_Property();
 	// Functions
-	 AndroidCXX::java_lang_Object get(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_Object get(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String getName();
 	 AndroidCXX::java_lang_Class getType();
-	 void set(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1);
+	 void set(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1);
 	 bool isReadOnly();
-	static AndroidCXX::android_util_Property of(AndroidCXX::java_lang_Class& arg0,AndroidCXX::java_lang_Class& arg1,AndroidCXX::java_lang_String& arg2);
+	static AndroidCXX::android_util_Property of(AndroidCXX::java_lang_Class const& arg0,AndroidCXX::java_lang_Class const& arg1,AndroidCXX::java_lang_String const& arg2);
 };	
 
 } // namespace

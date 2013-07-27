@@ -46,16 +46,13 @@ class android_app_ActionBar_OnNavigationListener
 public:
 
 	android_app_ActionBar_OnNavigationListener(const android_app_ActionBar_OnNavigationListener& cc);
-	android_app_ActionBar_OnNavigationListener(void * proxy);
+	android_app_ActionBar_OnNavigationListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_app_ActionBar_OnNavigationListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_ActionBar_OnNavigationListener();
 	// Functions
-	 bool onNavigationItemSelected(int& arg0,long& arg1);
+	 bool onNavigationItemSelected(int const& arg0,long const& arg1);
 };	
 
 } // namespace

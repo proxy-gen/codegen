@@ -195,7 +195,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_io_PrintStream::java_io_PrintStream(const java_io_PrintStream& cc)
 {
 	LOGV("java_io_PrintStream::java_io_PrintStream(const java_io_PrintStream& cc) enter");
@@ -219,9 +218,9 @@ java_io_PrintStream::java_io_PrintStream(const java_io_PrintStream& cc)
 
 	LOGV("java_io_PrintStream::java_io_PrintStream(const java_io_PrintStream& cc) exit");
 }
-java_io_PrintStream::java_io_PrintStream(void * proxy)
+java_io_PrintStream::java_io_PrintStream(Proxy proxy)
 {
-	LOGV("java_io_PrintStream::java_io_PrintStream(void * proxy) enter");
+	LOGV("java_io_PrintStream::java_io_PrintStream(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -231,55 +230,34 @@ java_io_PrintStream::java_io_PrintStream(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_io_PrintStream::java_io_PrintStream(void * proxy) exit");
+	LOGV("java_io_PrintStream::java_io_PrintStream(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_io_PrintStream::java_io_PrintStream()
-// {
-// 	LOGV("java_io_PrintStream::java_io_PrintStream() enter");	
+Proxy java_io_PrintStream::proxy() const
+{	
+	LOGV("java_io_PrintStream::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/io/PrintStream";
+	long cxxAddress = (long) this;
+	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_io_PrintStream jni address %d", proxiedComponent);
 
-// 	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_io_PrintStream::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_io_PrintStream jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_io_PrintStream::java_io_PrintStream() exit");	
-// }
-// 
-// 
-// Public Constructors
-java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream& arg0,bool& arg1)
+	return proxy;
+}
+java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream const& arg0,bool const& arg1)
 {
-	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream& arg0,bool& arg1) enter");	
+	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream const& arg0,bool const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/io/OutputStream;Z)V";
@@ -353,11 +331,11 @@ java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream& arg0,
 
 	jni->popLocalFrame();
 
-	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream& arg0,bool& arg1) exit");	
+	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream const& arg0,bool const& arg1) exit");	
 }
-java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream& arg0,bool& arg1,AndroidCXX::java_lang_String& arg2)
+java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream const& arg0,bool const& arg1,AndroidCXX::java_lang_String const& arg2)
 {
-	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream& arg0,bool& arg1,AndroidCXX::java_lang_String& arg2) enter");	
+	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream const& arg0,bool const& arg1,AndroidCXX::java_lang_String const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/io/OutputStream;ZLjava/lang/String;)V";
@@ -452,11 +430,11 @@ java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream& arg0,
 
 	jni->popLocalFrame();
 
-	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream& arg0,bool& arg1,AndroidCXX::java_lang_String& arg2) exit");	
+	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream const& arg0,bool const& arg1,AndroidCXX::java_lang_String const& arg2) exit");	
 }
-java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_lang_String& arg0)
+java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -509,11 +487,11 @@ java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_lang_String const& arg0) exit");	
 }
-java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
+java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");	
+	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
@@ -587,11 +565,11 @@ java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_lang_String& arg0,Andr
 
 	jni->popLocalFrame();
 
-	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");	
+	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) exit");	
 }
-java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_File& arg0)
+java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_File const& arg0)
 {
-	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_File& arg0) enter");	
+	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_File const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/io/File;)V";
@@ -644,11 +622,11 @@ java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_File& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_File& arg0) exit");	
+	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_File const& arg0) exit");	
 }
-java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_File& arg0,AndroidCXX::java_lang_String& arg1)
+java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_File const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_File& arg0,AndroidCXX::java_lang_String& arg1) enter");	
+	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_File const& arg0,AndroidCXX::java_lang_String const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/io/File;Ljava/lang/String;)V";
@@ -722,11 +700,11 @@ java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_File& arg0,AndroidC
 
 	jni->popLocalFrame();
 
-	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_File& arg0,AndroidCXX::java_lang_String& arg1) exit");	
+	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_File const& arg0,AndroidCXX::java_lang_String const& arg1) exit");	
 }
-java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream& arg0)
+java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream const& arg0)
 {
-	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream& arg0) enter");	
+	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/io/OutputStream;)V";
@@ -779,7 +757,7 @@ java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream& arg0) exit");	
+	LOGV("java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream const& arg0) exit");	
 }
 // Default Instance Destructor
 java_io_PrintStream::~java_io_PrintStream()
@@ -792,13 +770,13 @@ java_io_PrintStream::~java_io_PrintStream()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_io_PrintStream::~java_io_PrintStream() exit");
 }
 // Functions
-void java_io_PrintStream::println(char& arg0)
+void java_io_PrintStream::println(char const& arg0)
 {
-	LOGV("void java_io_PrintStream::println(char& arg0) enter");
+	LOGV("void java_io_PrintStream::println(char const& arg0) enter");
 
 	const char *methodName = "println";
 	const char *methodSignature = "(C)V";
@@ -808,8 +786,6 @@ void java_io_PrintStream::println(char& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -840,9 +816,7 @@ void java_io_PrintStream::println(char& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_PrintStream::println(char& arg0) exit");
+	LOGV("void java_io_PrintStream::println(char const& arg0) exit");
 
 }
 void java_io_PrintStream::println()
@@ -858,8 +832,6 @@ void java_io_PrintStream::println()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -868,14 +840,12 @@ void java_io_PrintStream::println()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_io_PrintStream::println() exit");
 
 }
-void java_io_PrintStream::println(bool& arg0)
+void java_io_PrintStream::println(bool const& arg0)
 {
-	LOGV("void java_io_PrintStream::println(bool& arg0) enter");
+	LOGV("void java_io_PrintStream::println(bool const& arg0) enter");
 
 	const char *methodName = "println";
 	const char *methodSignature = "(Z)V";
@@ -885,8 +855,6 @@ void java_io_PrintStream::println(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -917,14 +885,12 @@ void java_io_PrintStream::println(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_PrintStream::println(bool& arg0) exit");
+	LOGV("void java_io_PrintStream::println(bool const& arg0) exit");
 
 }
-void java_io_PrintStream::println(AndroidCXX::java_lang_Object& arg0)
+void java_io_PrintStream::println(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("void java_io_PrintStream::println(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("void java_io_PrintStream::println(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "println";
 	const char *methodSignature = "(Ljava/lang/Object;)V";
@@ -934,8 +900,6 @@ void java_io_PrintStream::println(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -966,14 +930,12 @@ void java_io_PrintStream::println(AndroidCXX::java_lang_Object& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_PrintStream::println(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("void java_io_PrintStream::println(AndroidCXX::java_lang_Object const& arg0) exit");
 
 }
-void java_io_PrintStream::println(AndroidCXX::java_lang_String& arg0)
+void java_io_PrintStream::println(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void java_io_PrintStream::println(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void java_io_PrintStream::println(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "println";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -983,8 +945,6 @@ void java_io_PrintStream::println(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -1015,14 +975,12 @@ void java_io_PrintStream::println(AndroidCXX::java_lang_String& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_PrintStream::println(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void java_io_PrintStream::println(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-void java_io_PrintStream::println(std::vector<char>& arg0)
+void java_io_PrintStream::println(std::vector<char> const& arg0)
 {
-	LOGV("void java_io_PrintStream::println(std::vector<char>& arg0) enter");
+	LOGV("void java_io_PrintStream::println(std::vector<char> const& arg0) enter");
 
 	const char *methodName = "println";
 	const char *methodSignature = "([C)V";
@@ -1032,8 +990,6 @@ void java_io_PrintStream::println(std::vector<char>& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -1082,14 +1038,12 @@ void java_io_PrintStream::println(std::vector<char>& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_PrintStream::println(std::vector<char>& arg0) exit");
+	LOGV("void java_io_PrintStream::println(std::vector<char> const& arg0) exit");
 
 }
-void java_io_PrintStream::println(double& arg0)
+void java_io_PrintStream::println(double const& arg0)
 {
-	LOGV("void java_io_PrintStream::println(double& arg0) enter");
+	LOGV("void java_io_PrintStream::println(double const& arg0) enter");
 
 	const char *methodName = "println";
 	const char *methodSignature = "(D)V";
@@ -1099,8 +1053,6 @@ void java_io_PrintStream::println(double& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -1131,14 +1083,12 @@ void java_io_PrintStream::println(double& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_PrintStream::println(double& arg0) exit");
+	LOGV("void java_io_PrintStream::println(double const& arg0) exit");
 
 }
-void java_io_PrintStream::println(float& arg0)
+void java_io_PrintStream::println(float const& arg0)
 {
-	LOGV("void java_io_PrintStream::println(float& arg0) enter");
+	LOGV("void java_io_PrintStream::println(float const& arg0) enter");
 
 	const char *methodName = "println";
 	const char *methodSignature = "(F)V";
@@ -1148,8 +1098,6 @@ void java_io_PrintStream::println(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -1180,14 +1128,12 @@ void java_io_PrintStream::println(float& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_PrintStream::println(float& arg0) exit");
+	LOGV("void java_io_PrintStream::println(float const& arg0) exit");
 
 }
-void java_io_PrintStream::println(long& arg0)
+void java_io_PrintStream::println(long const& arg0)
 {
-	LOGV("void java_io_PrintStream::println(long& arg0) enter");
+	LOGV("void java_io_PrintStream::println(long const& arg0) enter");
 
 	const char *methodName = "println";
 	const char *methodSignature = "(J)V";
@@ -1197,8 +1143,6 @@ void java_io_PrintStream::println(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -1229,14 +1173,12 @@ void java_io_PrintStream::println(long& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_PrintStream::println(long& arg0) exit");
+	LOGV("void java_io_PrintStream::println(long const& arg0) exit");
 
 }
-void java_io_PrintStream::println(int& arg0)
+void java_io_PrintStream::println(int const& arg0)
 {
-	LOGV("void java_io_PrintStream::println(int& arg0) enter");
+	LOGV("void java_io_PrintStream::println(int const& arg0) enter");
 
 	const char *methodName = "println";
 	const char *methodSignature = "(I)V";
@@ -1246,8 +1188,6 @@ void java_io_PrintStream::println(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -1278,14 +1218,12 @@ void java_io_PrintStream::println(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_PrintStream::println(int& arg0) exit");
+	LOGV("void java_io_PrintStream::println(int const& arg0) exit");
 
 }
-AndroidCXX::java_io_PrintStream java_io_PrintStream::append(AndroidCXX::java_lang_CharSequence& arg0)
+AndroidCXX::java_io_PrintStream java_io_PrintStream::append(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::append(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::append(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Ljava/io/PrintStream;";
@@ -1295,8 +1233,6 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::append(AndroidCXX::java_lan
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -1346,15 +1282,13 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::append(AndroidCXX::java_lan
 	AndroidCXX::java_io_PrintStream result((AndroidCXX::java_io_PrintStream) *((AndroidCXX::java_io_PrintStream *) cxx_value));
 	delete ((AndroidCXX::java_io_PrintStream *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::append(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::append(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_io_PrintStream java_io_PrintStream::append(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2)
+AndroidCXX::java_io_PrintStream java_io_PrintStream::append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::append(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2) enter");
+	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/CharSequence;II)Ljava/io/PrintStream;";
@@ -1364,8 +1298,6 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::append(AndroidCXX::java_lan
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -1457,15 +1389,13 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::append(AndroidCXX::java_lan
 	AndroidCXX::java_io_PrintStream result((AndroidCXX::java_io_PrintStream) *((AndroidCXX::java_io_PrintStream *) cxx_value));
 	delete ((AndroidCXX::java_io_PrintStream *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::append(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2) exit");
+	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::java_io_PrintStream java_io_PrintStream::append(char& arg0)
+AndroidCXX::java_io_PrintStream java_io_PrintStream::append(char const& arg0)
 {
-	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::append(char& arg0) enter");
+	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::append(char const& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(C)Ljava/io/PrintStream;";
@@ -1475,8 +1405,6 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::append(char& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -1526,15 +1454,13 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::append(char& arg0)
 	AndroidCXX::java_io_PrintStream result((AndroidCXX::java_io_PrintStream) *((AndroidCXX::java_io_PrintStream *) cxx_value));
 	delete ((AndroidCXX::java_io_PrintStream *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::append(char& arg0) exit");
+	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::append(char const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2)
+AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_util_Locale const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_Object > const& arg2)
 {
-	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) enter");
+	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_util_Locale const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_Object > const& arg2) enter");
 
 	const char *methodName = "format";
 	const char *methodSignature = "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;";
@@ -1544,8 +1470,6 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_uti
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -1655,15 +1579,13 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_uti
 	AndroidCXX::java_io_PrintStream result((AndroidCXX::java_io_PrintStream) *((AndroidCXX::java_io_PrintStream *) cxx_value));
 	delete ((AndroidCXX::java_io_PrintStream *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) exit");
+	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_util_Locale const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_Object > const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1)
+AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_Object > const& arg1)
 {
-	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1) enter");
+	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_Object > const& arg1) enter");
 
 	const char *methodName = "format";
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;";
@@ -1673,8 +1595,6 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_lan
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -1763,15 +1683,13 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_lan
 	AndroidCXX::java_io_PrintStream result((AndroidCXX::java_io_PrintStream) *((AndroidCXX::java_io_PrintStream *) cxx_value));
 	delete ((AndroidCXX::java_io_PrintStream *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1) exit");
+	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_Object > const& arg1) exit");
 
 	return result;
 }
-void java_io_PrintStream::write(std::vector<byte>& arg0,int& arg1,int& arg2)
+void java_io_PrintStream::write(std::vector<byte> const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("void java_io_PrintStream::write(std::vector<byte>& arg0,int& arg1,int& arg2) enter");
+	LOGV("void java_io_PrintStream::write(std::vector<byte> const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "write";
 	const char *methodSignature = "([BII)V";
@@ -1781,8 +1699,6 @@ void java_io_PrintStream::write(std::vector<byte>& arg0,int& arg1,int& arg2)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -1873,14 +1789,12 @@ void java_io_PrintStream::write(std::vector<byte>& arg0,int& arg1,int& arg2)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_PrintStream::write(std::vector<byte>& arg0,int& arg1,int& arg2) exit");
+	LOGV("void java_io_PrintStream::write(std::vector<byte> const& arg0,int const& arg1,int const& arg2) exit");
 
 }
-void java_io_PrintStream::write(int& arg0)
+void java_io_PrintStream::write(int const& arg0)
 {
-	LOGV("void java_io_PrintStream::write(int& arg0) enter");
+	LOGV("void java_io_PrintStream::write(int const& arg0) enter");
 
 	const char *methodName = "write";
 	const char *methodSignature = "(I)V";
@@ -1890,8 +1804,6 @@ void java_io_PrintStream::write(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -1922,14 +1834,12 @@ void java_io_PrintStream::write(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_PrintStream::write(int& arg0) exit");
+	LOGV("void java_io_PrintStream::write(int const& arg0) exit");
 
 }
-void java_io_PrintStream::print(float& arg0)
+void java_io_PrintStream::print(float const& arg0)
 {
-	LOGV("void java_io_PrintStream::print(float& arg0) enter");
+	LOGV("void java_io_PrintStream::print(float const& arg0) enter");
 
 	const char *methodName = "print";
 	const char *methodSignature = "(F)V";
@@ -1939,8 +1849,6 @@ void java_io_PrintStream::print(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -1971,14 +1879,12 @@ void java_io_PrintStream::print(float& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_PrintStream::print(float& arg0) exit");
+	LOGV("void java_io_PrintStream::print(float const& arg0) exit");
 
 }
-void java_io_PrintStream::print(double& arg0)
+void java_io_PrintStream::print(double const& arg0)
 {
-	LOGV("void java_io_PrintStream::print(double& arg0) enter");
+	LOGV("void java_io_PrintStream::print(double const& arg0) enter");
 
 	const char *methodName = "print";
 	const char *methodSignature = "(D)V";
@@ -1988,8 +1894,6 @@ void java_io_PrintStream::print(double& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -2020,14 +1924,12 @@ void java_io_PrintStream::print(double& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_PrintStream::print(double& arg0) exit");
+	LOGV("void java_io_PrintStream::print(double const& arg0) exit");
 
 }
-void java_io_PrintStream::print(std::vector<char>& arg0)
+void java_io_PrintStream::print(std::vector<char> const& arg0)
 {
-	LOGV("void java_io_PrintStream::print(std::vector<char>& arg0) enter");
+	LOGV("void java_io_PrintStream::print(std::vector<char> const& arg0) enter");
 
 	const char *methodName = "print";
 	const char *methodSignature = "([C)V";
@@ -2037,8 +1939,6 @@ void java_io_PrintStream::print(std::vector<char>& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -2087,14 +1987,12 @@ void java_io_PrintStream::print(std::vector<char>& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_PrintStream::print(std::vector<char>& arg0) exit");
+	LOGV("void java_io_PrintStream::print(std::vector<char> const& arg0) exit");
 
 }
-void java_io_PrintStream::print(AndroidCXX::java_lang_String& arg0)
+void java_io_PrintStream::print(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void java_io_PrintStream::print(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void java_io_PrintStream::print(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "print";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -2104,8 +2002,6 @@ void java_io_PrintStream::print(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -2136,14 +2032,12 @@ void java_io_PrintStream::print(AndroidCXX::java_lang_String& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_PrintStream::print(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void java_io_PrintStream::print(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-void java_io_PrintStream::print(AndroidCXX::java_lang_Object& arg0)
+void java_io_PrintStream::print(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("void java_io_PrintStream::print(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("void java_io_PrintStream::print(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "print";
 	const char *methodSignature = "(Ljava/lang/Object;)V";
@@ -2153,8 +2047,6 @@ void java_io_PrintStream::print(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -2185,14 +2077,12 @@ void java_io_PrintStream::print(AndroidCXX::java_lang_Object& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_PrintStream::print(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("void java_io_PrintStream::print(AndroidCXX::java_lang_Object const& arg0) exit");
 
 }
-void java_io_PrintStream::print(bool& arg0)
+void java_io_PrintStream::print(bool const& arg0)
 {
-	LOGV("void java_io_PrintStream::print(bool& arg0) enter");
+	LOGV("void java_io_PrintStream::print(bool const& arg0) enter");
 
 	const char *methodName = "print";
 	const char *methodSignature = "(Z)V";
@@ -2202,8 +2092,6 @@ void java_io_PrintStream::print(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -2234,14 +2122,12 @@ void java_io_PrintStream::print(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_PrintStream::print(bool& arg0) exit");
+	LOGV("void java_io_PrintStream::print(bool const& arg0) exit");
 
 }
-void java_io_PrintStream::print(char& arg0)
+void java_io_PrintStream::print(char const& arg0)
 {
-	LOGV("void java_io_PrintStream::print(char& arg0) enter");
+	LOGV("void java_io_PrintStream::print(char const& arg0) enter");
 
 	const char *methodName = "print";
 	const char *methodSignature = "(C)V";
@@ -2251,8 +2137,6 @@ void java_io_PrintStream::print(char& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -2283,14 +2167,12 @@ void java_io_PrintStream::print(char& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_PrintStream::print(char& arg0) exit");
+	LOGV("void java_io_PrintStream::print(char const& arg0) exit");
 
 }
-void java_io_PrintStream::print(int& arg0)
+void java_io_PrintStream::print(int const& arg0)
 {
-	LOGV("void java_io_PrintStream::print(int& arg0) enter");
+	LOGV("void java_io_PrintStream::print(int const& arg0) enter");
 
 	const char *methodName = "print";
 	const char *methodSignature = "(I)V";
@@ -2300,8 +2182,6 @@ void java_io_PrintStream::print(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -2332,14 +2212,12 @@ void java_io_PrintStream::print(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_PrintStream::print(int& arg0) exit");
+	LOGV("void java_io_PrintStream::print(int const& arg0) exit");
 
 }
-void java_io_PrintStream::print(long& arg0)
+void java_io_PrintStream::print(long const& arg0)
 {
-	LOGV("void java_io_PrintStream::print(long& arg0) enter");
+	LOGV("void java_io_PrintStream::print(long const& arg0) enter");
 
 	const char *methodName = "print";
 	const char *methodSignature = "(J)V";
@@ -2349,8 +2227,6 @@ void java_io_PrintStream::print(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -2381,9 +2257,7 @@ void java_io_PrintStream::print(long& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_PrintStream::print(long& arg0) exit");
+	LOGV("void java_io_PrintStream::print(long const& arg0) exit");
 
 }
 void java_io_PrintStream::flush()
@@ -2399,8 +2273,6 @@ void java_io_PrintStream::flush()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2409,8 +2281,6 @@ void java_io_PrintStream::flush()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_io_PrintStream::flush() exit");
 
 }
@@ -2427,8 +2297,6 @@ void java_io_PrintStream::close()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2437,8 +2305,6 @@ void java_io_PrintStream::close()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_io_PrintStream::close() exit");
 
 }
@@ -2454,8 +2320,6 @@ bool java_io_PrintStream::checkError()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -2484,15 +2348,13 @@ bool java_io_PrintStream::checkError()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_io_PrintStream::checkError() exit");
 
 	return result;
 }
-AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1)
+AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_Object > const& arg1)
 {
-	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1) enter");
+	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_Object > const& arg1) enter");
 
 	const char *methodName = "printf";
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;";
@@ -2502,8 +2364,6 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_lan
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -2592,15 +2452,13 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_lan
 	AndroidCXX::java_io_PrintStream result((AndroidCXX::java_io_PrintStream) *((AndroidCXX::java_io_PrintStream *) cxx_value));
 	delete ((AndroidCXX::java_io_PrintStream *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1) exit");
+	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_Object > const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2)
+AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_util_Locale const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_Object > const& arg2)
 {
-	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) enter");
+	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_util_Locale const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_Object > const& arg2) enter");
 
 	const char *methodName = "printf";
 	const char *methodSignature = "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;";
@@ -2610,8 +2468,6 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_uti
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_PrintStream cxx address %d", cxxAddress);
@@ -2721,9 +2577,7 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_uti
 	AndroidCXX::java_io_PrintStream result((AndroidCXX::java_io_PrintStream) *((AndroidCXX::java_io_PrintStream *) cxx_value));
 	delete ((AndroidCXX::java_io_PrintStream *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) exit");
+	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_util_Locale const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_Object > const& arg2) exit");
 
 	return result;
 }

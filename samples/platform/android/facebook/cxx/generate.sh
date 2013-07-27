@@ -18,6 +18,8 @@ facebook_sdk_dir=$my_parent_dir/java/facebook-android-sdk-3.0.1/facebook
 
 $android_dir/setup.py -s $sdk_dir -n $ndk_dir
 
+echo ...
+
 # Bump up the max stack size to 64MB ()
 ulimit -s 65532 #kB
 
@@ -26,11 +28,11 @@ export CXX_JVM_CLASSPATH=$android_generator_runtime_dir/bin:$sdk_dir/platforms/a
 # Generate Config
 #LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $my_dir/config/config.py --platform android --generate-config --namespace FacebookCXX --output-dir $my_dir/generated --include-config-path $samples_dir --package FacebookCXX --file FacebookCXX --include-package AndroidCXX_static --include-package-rel-path ../../../android/cxx/generated/project/AndroidCXX/jni --wrapper-file FacebookWrapperCXX --log info
 # Generate Code
-#LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $my_dir/generated/config/FacebookCXX/config.py --platform android --generate-code --namespace FacebookCXX --output-dir $my_dir/generated --include-config-path $samples_dir --package FacebookCXX --file FacebookCXX --include-package AndroidCXX_static --include-package-rel-path ../../../android/cxx/generated/project/AndroidCXX/jni --wrapper-file FacebookWrapperCXX --log info
+LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $my_dir/generated/config/FacebookCXX/config.py --platform android --generate-code --namespace FacebookCXX --output-dir $my_dir/generated --include-config-path $samples_dir --package FacebookCXX --file FacebookCXX --include-package AndroidCXX --include-package-rel-path ../../../android/cxx/generated/project/exported/cxx/AndroidCXX --wrapper-file FacebookWrapperCXX --log info
 # Generate Projects
-LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $my_dir/generated/config/FacebookCXX/config.py --platform android --generate-projects --namespace FacebookCXX --output-dir $my_dir/generated --include-config-path $samples_dir --package FacebookCXX --file FacebookCXX --include-package AndroidCXX_static --include-package-rel-path ../../../android/cxx/generated/project/AndroidCXX/jni --wrapper-file FacebookWrapperCXX --log info
+LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $my_dir/generated/config/FacebookCXX/config.py --platform android --generate-projects --namespace FacebookCXX --output-dir $my_dir/generated --include-config-path $samples_dir --package FacebookCXX --file FacebookCXX --include-package AndroidCXX --include-package-rel-path ../../../android/cxx/generated/project/exported/cxx/AndroidCXX --wrapper-file FacebookWrapperCXX --log info
 
-echo "Generated CXX Bindings"
+echo "facebook cxx generation complete"
 
 
 

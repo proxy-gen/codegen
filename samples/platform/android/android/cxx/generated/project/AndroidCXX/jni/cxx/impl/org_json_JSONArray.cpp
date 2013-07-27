@@ -212,7 +212,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 org_json_JSONArray::org_json_JSONArray(const org_json_JSONArray& cc)
 {
 	LOGV("org_json_JSONArray::org_json_JSONArray(const org_json_JSONArray& cc) enter");
@@ -236,9 +235,9 @@ org_json_JSONArray::org_json_JSONArray(const org_json_JSONArray& cc)
 
 	LOGV("org_json_JSONArray::org_json_JSONArray(const org_json_JSONArray& cc) exit");
 }
-org_json_JSONArray::org_json_JSONArray(void * proxy)
+org_json_JSONArray::org_json_JSONArray(Proxy proxy)
 {
-	LOGV("org_json_JSONArray::org_json_JSONArray(void * proxy) enter");
+	LOGV("org_json_JSONArray::org_json_JSONArray(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -248,20 +247,34 @@ org_json_JSONArray::org_json_JSONArray(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("org_json_JSONArray::org_json_JSONArray(void * proxy) exit");
+	LOGV("org_json_JSONArray::org_json_JSONArray(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
-org_json_JSONArray::org_json_JSONArray(AndroidCXX::org_json_JSONTokener& arg0)
+Proxy org_json_JSONArray::proxy() const
+{	
+	LOGV("org_json_JSONArray::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("org_json_JSONArray::proxy() exit");	
+
+	return proxy;
+}
+org_json_JSONArray::org_json_JSONArray(AndroidCXX::org_json_JSONTokener const& arg0)
 {
-	LOGV("org_json_JSONArray::org_json_JSONArray(AndroidCXX::org_json_JSONTokener& arg0) enter");	
+	LOGV("org_json_JSONArray::org_json_JSONArray(AndroidCXX::org_json_JSONTokener const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Lorg/json/JSONTokener;)V";
@@ -314,11 +327,11 @@ org_json_JSONArray::org_json_JSONArray(AndroidCXX::org_json_JSONTokener& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("org_json_JSONArray::org_json_JSONArray(AndroidCXX::org_json_JSONTokener& arg0) exit");	
+	LOGV("org_json_JSONArray::org_json_JSONArray(AndroidCXX::org_json_JSONTokener const& arg0) exit");	
 }
-org_json_JSONArray::org_json_JSONArray(AndroidCXX::java_lang_String& arg0)
+org_json_JSONArray::org_json_JSONArray(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("org_json_JSONArray::org_json_JSONArray(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("org_json_JSONArray::org_json_JSONArray(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -371,7 +384,7 @@ org_json_JSONArray::org_json_JSONArray(AndroidCXX::java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("org_json_JSONArray::org_json_JSONArray(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("org_json_JSONArray::org_json_JSONArray(AndroidCXX::java_lang_String const& arg0) exit");	
 }
 org_json_JSONArray::org_json_JSONArray()
 {
@@ -409,9 +422,9 @@ org_json_JSONArray::org_json_JSONArray()
 
 	LOGV("org_json_JSONArray::org_json_JSONArray() exit");	
 }
-org_json_JSONArray::org_json_JSONArray(AndroidCXX::java_util_Collection& arg0)
+org_json_JSONArray::org_json_JSONArray(AndroidCXX::java_util_Collection const& arg0)
 {
-	LOGV("org_json_JSONArray::org_json_JSONArray(AndroidCXX::java_util_Collection& arg0) enter");	
+	LOGV("org_json_JSONArray::org_json_JSONArray(AndroidCXX::java_util_Collection const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/util/Collection;)V";
@@ -464,7 +477,7 @@ org_json_JSONArray::org_json_JSONArray(AndroidCXX::java_util_Collection& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("org_json_JSONArray::org_json_JSONArray(AndroidCXX::java_util_Collection& arg0) exit");	
+	LOGV("org_json_JSONArray::org_json_JSONArray(AndroidCXX::java_util_Collection const& arg0) exit");	
 }
 // Default Instance Destructor
 org_json_JSONArray::~org_json_JSONArray()
@@ -477,13 +490,13 @@ org_json_JSONArray::~org_json_JSONArray()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("org_json_JSONArray::~org_json_JSONArray() exit");
 }
 // Functions
-AndroidCXX::java_lang_Object org_json_JSONArray::get(int& arg0)
+AndroidCXX::java_lang_Object org_json_JSONArray::get(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Object org_json_JSONArray::get(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Object org_json_JSONArray::get(int const& arg0) enter");
 
 	const char *methodName = "get";
 	const char *methodSignature = "(I)Ljava/lang/Object;";
@@ -493,8 +506,6 @@ AndroidCXX::java_lang_Object org_json_JSONArray::get(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -544,15 +555,13 @@ AndroidCXX::java_lang_Object org_json_JSONArray::get(int& arg0)
 	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
 	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_Object org_json_JSONArray::get(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_Object org_json_JSONArray::get(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::org_json_JSONArray org_json_JSONArray::put(AndroidCXX::java_lang_Object& arg0)
+AndroidCXX::org_json_JSONArray org_json_JSONArray::put(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(Ljava/lang/Object;)Lorg/json/JSONArray;";
@@ -562,8 +571,6 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::put(AndroidCXX::java_lang_Obj
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -613,15 +620,13 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::put(AndroidCXX::java_lang_Obj
 	AndroidCXX::org_json_JSONArray result((AndroidCXX::org_json_JSONArray) *((AndroidCXX::org_json_JSONArray *) cxx_value));
 	delete ((AndroidCXX::org_json_JSONArray *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,bool& arg1)
+AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int const& arg0,bool const& arg1)
 {
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,bool& arg1) enter");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(IZ)Lorg/json/JSONArray;";
@@ -631,8 +636,6 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,bool& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -703,15 +706,13 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,bool& arg1)
 	AndroidCXX::org_json_JSONArray result((AndroidCXX::org_json_JSONArray) *((AndroidCXX::org_json_JSONArray *) cxx_value));
 	delete ((AndroidCXX::org_json_JSONArray *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,bool& arg1) exit");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int const& arg0,bool const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,int& arg1)
+AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(II)Lorg/json/JSONArray;";
@@ -721,8 +722,6 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -793,15 +792,13 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,int& arg1)
 	AndroidCXX::org_json_JSONArray result((AndroidCXX::org_json_JSONArray) *((AndroidCXX::org_json_JSONArray *) cxx_value));
 	delete ((AndroidCXX::org_json_JSONArray *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,long& arg1)
+AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int const& arg0,long const& arg1)
 {
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,long& arg1) enter");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int const& arg0,long const& arg1) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(IJ)Lorg/json/JSONArray;";
@@ -811,8 +808,6 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,long& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -883,15 +878,13 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,long& arg1)
 	AndroidCXX::org_json_JSONArray result((AndroidCXX::org_json_JSONArray) *((AndroidCXX::org_json_JSONArray *) cxx_value));
 	delete ((AndroidCXX::org_json_JSONArray *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,long& arg1) exit");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int const& arg0,long const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,AndroidCXX::java_lang_Object& arg1)
+AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int const& arg0,AndroidCXX::java_lang_Object const& arg1)
 {
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,AndroidCXX::java_lang_Object& arg1) enter");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int const& arg0,AndroidCXX::java_lang_Object const& arg1) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(ILjava/lang/Object;)Lorg/json/JSONArray;";
@@ -901,8 +894,6 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,AndroidCXX::jav
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -973,15 +964,13 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,AndroidCXX::jav
 	AndroidCXX::org_json_JSONArray result((AndroidCXX::org_json_JSONArray) *((AndroidCXX::org_json_JSONArray *) cxx_value));
 	delete ((AndroidCXX::org_json_JSONArray *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,AndroidCXX::java_lang_Object& arg1) exit");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int const& arg0,AndroidCXX::java_lang_Object const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,double& arg1)
+AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int const& arg0,double const& arg1)
 {
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,double& arg1) enter");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int const& arg0,double const& arg1) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(ID)Lorg/json/JSONArray;";
@@ -991,8 +980,6 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,double& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -1063,15 +1050,13 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,double& arg1)
 	AndroidCXX::org_json_JSONArray result((AndroidCXX::org_json_JSONArray) *((AndroidCXX::org_json_JSONArray *) cxx_value));
 	delete ((AndroidCXX::org_json_JSONArray *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0,double& arg1) exit");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int const& arg0,double const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::org_json_JSONArray org_json_JSONArray::put(bool& arg0)
+AndroidCXX::org_json_JSONArray org_json_JSONArray::put(bool const& arg0)
 {
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(bool& arg0) enter");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(bool const& arg0) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(Z)Lorg/json/JSONArray;";
@@ -1081,8 +1066,6 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::put(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -1132,15 +1115,13 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::put(bool& arg0)
 	AndroidCXX::org_json_JSONArray result((AndroidCXX::org_json_JSONArray) *((AndroidCXX::org_json_JSONArray *) cxx_value));
 	delete ((AndroidCXX::org_json_JSONArray *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(bool& arg0) exit");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(bool const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::org_json_JSONArray org_json_JSONArray::put(double& arg0)
+AndroidCXX::org_json_JSONArray org_json_JSONArray::put(double const& arg0)
 {
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(double& arg0) enter");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(double const& arg0) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(D)Lorg/json/JSONArray;";
@@ -1150,8 +1131,6 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::put(double& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -1201,15 +1180,13 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::put(double& arg0)
 	AndroidCXX::org_json_JSONArray result((AndroidCXX::org_json_JSONArray) *((AndroidCXX::org_json_JSONArray *) cxx_value));
 	delete ((AndroidCXX::org_json_JSONArray *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(double& arg0) exit");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(double const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0)
+AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int const& arg0)
 {
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0) enter");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int const& arg0) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(I)Lorg/json/JSONArray;";
@@ -1219,8 +1196,6 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -1270,15 +1245,13 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0)
 	AndroidCXX::org_json_JSONArray result((AndroidCXX::org_json_JSONArray) *((AndroidCXX::org_json_JSONArray *) cxx_value));
 	delete ((AndroidCXX::org_json_JSONArray *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int& arg0) exit");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::org_json_JSONArray org_json_JSONArray::put(long& arg0)
+AndroidCXX::org_json_JSONArray org_json_JSONArray::put(long const& arg0)
 {
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(long& arg0) enter");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(long const& arg0) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(J)Lorg/json/JSONArray;";
@@ -1288,8 +1261,6 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::put(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -1339,15 +1310,13 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::put(long& arg0)
 	AndroidCXX::org_json_JSONArray result((AndroidCXX::org_json_JSONArray) *((AndroidCXX::org_json_JSONArray *) cxx_value));
 	delete ((AndroidCXX::org_json_JSONArray *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(long& arg0) exit");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::put(long const& arg0) exit");
 
 	return result;
 }
-bool org_json_JSONArray::equals(AndroidCXX::java_lang_Object& arg0)
+bool org_json_JSONArray::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool org_json_JSONArray::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool org_json_JSONArray::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -1357,8 +1326,6 @@ bool org_json_JSONArray::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -1408,9 +1375,7 @@ bool org_json_JSONArray::equals(AndroidCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool org_json_JSONArray::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool org_json_JSONArray::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -1426,8 +1391,6 @@ AndroidCXX::java_lang_String org_json_JSONArray::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -1456,15 +1419,13 @@ AndroidCXX::java_lang_String org_json_JSONArray::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String org_json_JSONArray::toString() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String org_json_JSONArray::toString(int& arg0)
+AndroidCXX::java_lang_String org_json_JSONArray::toString(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String org_json_JSONArray::toString(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String org_json_JSONArray::toString(int const& arg0) enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -1474,8 +1435,6 @@ AndroidCXX::java_lang_String org_json_JSONArray::toString(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -1525,9 +1484,7 @@ AndroidCXX::java_lang_String org_json_JSONArray::toString(int& arg0)
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String org_json_JSONArray::toString(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String org_json_JSONArray::toString(int const& arg0) exit");
 
 	return result;
 }
@@ -1543,8 +1500,6 @@ int org_json_JSONArray::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -1573,15 +1528,13 @@ int org_json_JSONArray::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int org_json_JSONArray::hashCode() exit");
 
 	return result;
 }
-bool org_json_JSONArray::getBoolean(int& arg0)
+bool org_json_JSONArray::getBoolean(int const& arg0)
 {
-	LOGV("bool org_json_JSONArray::getBoolean(int& arg0) enter");
+	LOGV("bool org_json_JSONArray::getBoolean(int const& arg0) enter");
 
 	const char *methodName = "getBoolean";
 	const char *methodSignature = "(I)Z";
@@ -1591,8 +1544,6 @@ bool org_json_JSONArray::getBoolean(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -1642,15 +1593,13 @@ bool org_json_JSONArray::getBoolean(int& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool org_json_JSONArray::getBoolean(int& arg0) exit");
+	LOGV("bool org_json_JSONArray::getBoolean(int const& arg0) exit");
 
 	return result;
 }
-int org_json_JSONArray::getInt(int& arg0)
+int org_json_JSONArray::getInt(int const& arg0)
 {
-	LOGV("int org_json_JSONArray::getInt(int& arg0) enter");
+	LOGV("int org_json_JSONArray::getInt(int const& arg0) enter");
 
 	const char *methodName = "getInt";
 	const char *methodSignature = "(I)I";
@@ -1660,8 +1609,6 @@ int org_json_JSONArray::getInt(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -1711,15 +1658,13 @@ int org_json_JSONArray::getInt(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int org_json_JSONArray::getInt(int& arg0) exit");
+	LOGV("int org_json_JSONArray::getInt(int const& arg0) exit");
 
 	return result;
 }
-long org_json_JSONArray::getLong(int& arg0)
+long org_json_JSONArray::getLong(int const& arg0)
 {
-	LOGV("long org_json_JSONArray::getLong(int& arg0) enter");
+	LOGV("long org_json_JSONArray::getLong(int const& arg0) enter");
 
 	const char *methodName = "getLong";
 	const char *methodSignature = "(I)J";
@@ -1729,8 +1674,6 @@ long org_json_JSONArray::getLong(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -1780,15 +1723,13 @@ long org_json_JSONArray::getLong(int& arg0)
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long org_json_JSONArray::getLong(int& arg0) exit");
+	LOGV("long org_json_JSONArray::getLong(int const& arg0) exit");
 
 	return result;
 }
-double org_json_JSONArray::getDouble(int& arg0)
+double org_json_JSONArray::getDouble(int const& arg0)
 {
-	LOGV("double org_json_JSONArray::getDouble(int& arg0) enter");
+	LOGV("double org_json_JSONArray::getDouble(int const& arg0) enter");
 
 	const char *methodName = "getDouble";
 	const char *methodSignature = "(I)D";
@@ -1798,8 +1739,6 @@ double org_json_JSONArray::getDouble(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -1849,9 +1788,7 @@ double org_json_JSONArray::getDouble(int& arg0)
 	double result = (double) *((double *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("double org_json_JSONArray::getDouble(int& arg0) exit");
+	LOGV("double org_json_JSONArray::getDouble(int const& arg0) exit");
 
 	return result;
 }
@@ -1867,8 +1804,6 @@ int org_json_JSONArray::length()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -1897,15 +1832,13 @@ int org_json_JSONArray::length()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int org_json_JSONArray::length() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String org_json_JSONArray::join(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_lang_String org_json_JSONArray::join(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String org_json_JSONArray::join(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String org_json_JSONArray::join(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "join";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
@@ -1915,8 +1848,6 @@ AndroidCXX::java_lang_String org_json_JSONArray::join(AndroidCXX::java_lang_Stri
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -1966,15 +1897,13 @@ AndroidCXX::java_lang_String org_json_JSONArray::join(AndroidCXX::java_lang_Stri
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String org_json_JSONArray::join(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String org_json_JSONArray::join(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String org_json_JSONArray::getString(int& arg0)
+AndroidCXX::java_lang_String org_json_JSONArray::getString(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String org_json_JSONArray::getString(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String org_json_JSONArray::getString(int const& arg0) enter");
 
 	const char *methodName = "getString";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -1984,8 +1913,6 @@ AndroidCXX::java_lang_String org_json_JSONArray::getString(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -2035,15 +1962,13 @@ AndroidCXX::java_lang_String org_json_JSONArray::getString(int& arg0)
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String org_json_JSONArray::getString(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String org_json_JSONArray::getString(int const& arg0) exit");
 
 	return result;
 }
-bool org_json_JSONArray::isNull(int& arg0)
+bool org_json_JSONArray::isNull(int const& arg0)
 {
-	LOGV("bool org_json_JSONArray::isNull(int& arg0) enter");
+	LOGV("bool org_json_JSONArray::isNull(int const& arg0) enter");
 
 	const char *methodName = "isNull";
 	const char *methodSignature = "(I)Z";
@@ -2053,8 +1978,6 @@ bool org_json_JSONArray::isNull(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -2104,15 +2027,13 @@ bool org_json_JSONArray::isNull(int& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool org_json_JSONArray::isNull(int& arg0) exit");
+	LOGV("bool org_json_JSONArray::isNull(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_Object org_json_JSONArray::opt(int& arg0)
+AndroidCXX::java_lang_Object org_json_JSONArray::opt(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Object org_json_JSONArray::opt(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Object org_json_JSONArray::opt(int const& arg0) enter");
 
 	const char *methodName = "opt";
 	const char *methodSignature = "(I)Ljava/lang/Object;";
@@ -2122,8 +2043,6 @@ AndroidCXX::java_lang_Object org_json_JSONArray::opt(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -2173,15 +2092,13 @@ AndroidCXX::java_lang_Object org_json_JSONArray::opt(int& arg0)
 	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
 	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_Object org_json_JSONArray::opt(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_Object org_json_JSONArray::opt(int const& arg0) exit");
 
 	return result;
 }
-bool org_json_JSONArray::optBoolean(int& arg0,bool& arg1)
+bool org_json_JSONArray::optBoolean(int const& arg0,bool const& arg1)
 {
-	LOGV("bool org_json_JSONArray::optBoolean(int& arg0,bool& arg1) enter");
+	LOGV("bool org_json_JSONArray::optBoolean(int const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "optBoolean";
 	const char *methodSignature = "(IZ)Z";
@@ -2191,8 +2108,6 @@ bool org_json_JSONArray::optBoolean(int& arg0,bool& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -2263,15 +2178,13 @@ bool org_json_JSONArray::optBoolean(int& arg0,bool& arg1)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool org_json_JSONArray::optBoolean(int& arg0,bool& arg1) exit");
+	LOGV("bool org_json_JSONArray::optBoolean(int const& arg0,bool const& arg1) exit");
 
 	return result;
 }
-bool org_json_JSONArray::optBoolean(int& arg0)
+bool org_json_JSONArray::optBoolean(int const& arg0)
 {
-	LOGV("bool org_json_JSONArray::optBoolean(int& arg0) enter");
+	LOGV("bool org_json_JSONArray::optBoolean(int const& arg0) enter");
 
 	const char *methodName = "optBoolean";
 	const char *methodSignature = "(I)Z";
@@ -2281,8 +2194,6 @@ bool org_json_JSONArray::optBoolean(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -2332,15 +2243,13 @@ bool org_json_JSONArray::optBoolean(int& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool org_json_JSONArray::optBoolean(int& arg0) exit");
+	LOGV("bool org_json_JSONArray::optBoolean(int const& arg0) exit");
 
 	return result;
 }
-double org_json_JSONArray::optDouble(int& arg0,double& arg1)
+double org_json_JSONArray::optDouble(int const& arg0,double const& arg1)
 {
-	LOGV("double org_json_JSONArray::optDouble(int& arg0,double& arg1) enter");
+	LOGV("double org_json_JSONArray::optDouble(int const& arg0,double const& arg1) enter");
 
 	const char *methodName = "optDouble";
 	const char *methodSignature = "(ID)D";
@@ -2350,8 +2259,6 @@ double org_json_JSONArray::optDouble(int& arg0,double& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -2422,15 +2329,13 @@ double org_json_JSONArray::optDouble(int& arg0,double& arg1)
 	double result = (double) *((double *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("double org_json_JSONArray::optDouble(int& arg0,double& arg1) exit");
+	LOGV("double org_json_JSONArray::optDouble(int const& arg0,double const& arg1) exit");
 
 	return result;
 }
-double org_json_JSONArray::optDouble(int& arg0)
+double org_json_JSONArray::optDouble(int const& arg0)
 {
-	LOGV("double org_json_JSONArray::optDouble(int& arg0) enter");
+	LOGV("double org_json_JSONArray::optDouble(int const& arg0) enter");
 
 	const char *methodName = "optDouble";
 	const char *methodSignature = "(I)D";
@@ -2440,8 +2345,6 @@ double org_json_JSONArray::optDouble(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -2491,15 +2394,13 @@ double org_json_JSONArray::optDouble(int& arg0)
 	double result = (double) *((double *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("double org_json_JSONArray::optDouble(int& arg0) exit");
+	LOGV("double org_json_JSONArray::optDouble(int const& arg0) exit");
 
 	return result;
 }
-int org_json_JSONArray::optInt(int& arg0)
+int org_json_JSONArray::optInt(int const& arg0)
 {
-	LOGV("int org_json_JSONArray::optInt(int& arg0) enter");
+	LOGV("int org_json_JSONArray::optInt(int const& arg0) enter");
 
 	const char *methodName = "optInt";
 	const char *methodSignature = "(I)I";
@@ -2509,8 +2410,6 @@ int org_json_JSONArray::optInt(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -2560,15 +2459,13 @@ int org_json_JSONArray::optInt(int& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int org_json_JSONArray::optInt(int& arg0) exit");
+	LOGV("int org_json_JSONArray::optInt(int const& arg0) exit");
 
 	return result;
 }
-int org_json_JSONArray::optInt(int& arg0,int& arg1)
+int org_json_JSONArray::optInt(int const& arg0,int const& arg1)
 {
-	LOGV("int org_json_JSONArray::optInt(int& arg0,int& arg1) enter");
+	LOGV("int org_json_JSONArray::optInt(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "optInt";
 	const char *methodSignature = "(II)I";
@@ -2578,8 +2475,6 @@ int org_json_JSONArray::optInt(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -2650,15 +2545,13 @@ int org_json_JSONArray::optInt(int& arg0,int& arg1)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int org_json_JSONArray::optInt(int& arg0,int& arg1) exit");
+	LOGV("int org_json_JSONArray::optInt(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-long org_json_JSONArray::optLong(int& arg0,long& arg1)
+long org_json_JSONArray::optLong(int const& arg0,long const& arg1)
 {
-	LOGV("long org_json_JSONArray::optLong(int& arg0,long& arg1) enter");
+	LOGV("long org_json_JSONArray::optLong(int const& arg0,long const& arg1) enter");
 
 	const char *methodName = "optLong";
 	const char *methodSignature = "(IJ)J";
@@ -2668,8 +2561,6 @@ long org_json_JSONArray::optLong(int& arg0,long& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -2740,15 +2631,13 @@ long org_json_JSONArray::optLong(int& arg0,long& arg1)
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long org_json_JSONArray::optLong(int& arg0,long& arg1) exit");
+	LOGV("long org_json_JSONArray::optLong(int const& arg0,long const& arg1) exit");
 
 	return result;
 }
-long org_json_JSONArray::optLong(int& arg0)
+long org_json_JSONArray::optLong(int const& arg0)
 {
-	LOGV("long org_json_JSONArray::optLong(int& arg0) enter");
+	LOGV("long org_json_JSONArray::optLong(int const& arg0) enter");
 
 	const char *methodName = "optLong";
 	const char *methodSignature = "(I)J";
@@ -2758,8 +2647,6 @@ long org_json_JSONArray::optLong(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -2809,15 +2696,13 @@ long org_json_JSONArray::optLong(int& arg0)
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long org_json_JSONArray::optLong(int& arg0) exit");
+	LOGV("long org_json_JSONArray::optLong(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String org_json_JSONArray::optString(int& arg0,AndroidCXX::java_lang_String& arg1)
+AndroidCXX::java_lang_String org_json_JSONArray::optString(int const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("AndroidCXX::java_lang_String org_json_JSONArray::optString(int& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("AndroidCXX::java_lang_String org_json_JSONArray::optString(int const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "optString";
 	const char *methodSignature = "(ILjava/lang/String;)Ljava/lang/String;";
@@ -2827,8 +2712,6 @@ AndroidCXX::java_lang_String org_json_JSONArray::optString(int& arg0,AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -2899,15 +2782,13 @@ AndroidCXX::java_lang_String org_json_JSONArray::optString(int& arg0,AndroidCXX:
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String org_json_JSONArray::optString(int& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("AndroidCXX::java_lang_String org_json_JSONArray::optString(int const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String org_json_JSONArray::optString(int& arg0)
+AndroidCXX::java_lang_String org_json_JSONArray::optString(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String org_json_JSONArray::optString(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String org_json_JSONArray::optString(int const& arg0) enter");
 
 	const char *methodName = "optString";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -2917,8 +2798,6 @@ AndroidCXX::java_lang_String org_json_JSONArray::optString(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -2968,15 +2847,13 @@ AndroidCXX::java_lang_String org_json_JSONArray::optString(int& arg0)
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String org_json_JSONArray::optString(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String org_json_JSONArray::optString(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::org_json_JSONArray org_json_JSONArray::getJSONArray(int& arg0)
+AndroidCXX::org_json_JSONArray org_json_JSONArray::getJSONArray(int const& arg0)
 {
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::getJSONArray(int& arg0) enter");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::getJSONArray(int const& arg0) enter");
 
 	const char *methodName = "getJSONArray";
 	const char *methodSignature = "(I)Lorg/json/JSONArray;";
@@ -2987,8 +2864,6 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::getJSONArray(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3037,15 +2912,13 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::getJSONArray(int& arg0)
 	AndroidCXX::org_json_JSONArray result((AndroidCXX::org_json_JSONArray) *((AndroidCXX::org_json_JSONArray *) cxx_value));
 	delete ((AndroidCXX::org_json_JSONArray *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::getJSONArray(int& arg0) exit");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::getJSONArray(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::org_json_JSONArray org_json_JSONArray::optJSONArray(int& arg0)
+AndroidCXX::org_json_JSONArray org_json_JSONArray::optJSONArray(int const& arg0)
 {
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::optJSONArray(int& arg0) enter");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::optJSONArray(int const& arg0) enter");
 
 	const char *methodName = "optJSONArray";
 	const char *methodSignature = "(I)Lorg/json/JSONArray;";
@@ -3056,8 +2929,6 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::optJSONArray(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3106,15 +2977,13 @@ AndroidCXX::org_json_JSONArray org_json_JSONArray::optJSONArray(int& arg0)
 	AndroidCXX::org_json_JSONArray result((AndroidCXX::org_json_JSONArray) *((AndroidCXX::org_json_JSONArray *) cxx_value));
 	delete ((AndroidCXX::org_json_JSONArray *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::optJSONArray(int& arg0) exit");
+	LOGV("AndroidCXX::org_json_JSONArray org_json_JSONArray::optJSONArray(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::org_json_JSONObject org_json_JSONArray::getJSONObject(int& arg0)
+AndroidCXX::org_json_JSONObject org_json_JSONArray::getJSONObject(int const& arg0)
 {
-	LOGV("AndroidCXX::org_json_JSONObject org_json_JSONArray::getJSONObject(int& arg0) enter");
+	LOGV("AndroidCXX::org_json_JSONObject org_json_JSONArray::getJSONObject(int const& arg0) enter");
 
 	const char *methodName = "getJSONObject";
 	const char *methodSignature = "(I)Lorg/json/JSONObject;";
@@ -3125,8 +2994,6 @@ AndroidCXX::org_json_JSONObject org_json_JSONArray::getJSONObject(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3175,15 +3042,13 @@ AndroidCXX::org_json_JSONObject org_json_JSONArray::getJSONObject(int& arg0)
 	AndroidCXX::org_json_JSONObject result((AndroidCXX::org_json_JSONObject) *((AndroidCXX::org_json_JSONObject *) cxx_value));
 	delete ((AndroidCXX::org_json_JSONObject *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::org_json_JSONObject org_json_JSONArray::getJSONObject(int& arg0) exit");
+	LOGV("AndroidCXX::org_json_JSONObject org_json_JSONArray::getJSONObject(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::org_json_JSONObject org_json_JSONArray::optJSONObject(int& arg0)
+AndroidCXX::org_json_JSONObject org_json_JSONArray::optJSONObject(int const& arg0)
 {
-	LOGV("AndroidCXX::org_json_JSONObject org_json_JSONArray::optJSONObject(int& arg0) enter");
+	LOGV("AndroidCXX::org_json_JSONObject org_json_JSONArray::optJSONObject(int const& arg0) enter");
 
 	const char *methodName = "optJSONObject";
 	const char *methodSignature = "(I)Lorg/json/JSONObject;";
@@ -3194,8 +3059,6 @@ AndroidCXX::org_json_JSONObject org_json_JSONArray::optJSONObject(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3244,15 +3107,13 @@ AndroidCXX::org_json_JSONObject org_json_JSONArray::optJSONObject(int& arg0)
 	AndroidCXX::org_json_JSONObject result((AndroidCXX::org_json_JSONObject) *((AndroidCXX::org_json_JSONObject *) cxx_value));
 	delete ((AndroidCXX::org_json_JSONObject *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::org_json_JSONObject org_json_JSONArray::optJSONObject(int& arg0) exit");
+	LOGV("AndroidCXX::org_json_JSONObject org_json_JSONArray::optJSONObject(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::org_json_JSONObject org_json_JSONArray::toJSONObject(AndroidCXX::org_json_JSONArray& arg0)
+AndroidCXX::org_json_JSONObject org_json_JSONArray::toJSONObject(AndroidCXX::org_json_JSONArray const& arg0)
 {
-	LOGV("AndroidCXX::org_json_JSONObject org_json_JSONArray::toJSONObject(AndroidCXX::org_json_JSONArray& arg0) enter");
+	LOGV("AndroidCXX::org_json_JSONObject org_json_JSONArray::toJSONObject(AndroidCXX::org_json_JSONArray const& arg0) enter");
 
 	const char *methodName = "toJSONObject";
 	const char *methodSignature = "(Lorg/json/JSONArray;)Lorg/json/JSONObject;";
@@ -3262,8 +3123,6 @@ AndroidCXX::org_json_JSONObject org_json_JSONArray::toJSONObject(AndroidCXX::org
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
@@ -3313,9 +3172,7 @@ AndroidCXX::org_json_JSONObject org_json_JSONArray::toJSONObject(AndroidCXX::org
 	AndroidCXX::org_json_JSONObject result((AndroidCXX::org_json_JSONObject) *((AndroidCXX::org_json_JSONObject *) cxx_value));
 	delete ((AndroidCXX::org_json_JSONObject *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::org_json_JSONObject org_json_JSONArray::toJSONObject(AndroidCXX::org_json_JSONArray& arg0) exit");
+	LOGV("AndroidCXX::org_json_JSONObject org_json_JSONArray::toJSONObject(AndroidCXX::org_json_JSONArray const& arg0) exit");
 
 	return result;
 }

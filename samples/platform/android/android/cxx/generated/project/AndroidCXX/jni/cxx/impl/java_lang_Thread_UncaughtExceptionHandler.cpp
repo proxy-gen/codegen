@@ -50,7 +50,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_lang_Thread_UncaughtExceptionHandler::java_lang_Thread_UncaughtExceptionHandler(const java_lang_Thread_UncaughtExceptionHandler& cc)
 {
 	LOGV("java_lang_Thread_UncaughtExceptionHandler::java_lang_Thread_UncaughtExceptionHandler(const java_lang_Thread_UncaughtExceptionHandler& cc) enter");
@@ -74,9 +73,9 @@ java_lang_Thread_UncaughtExceptionHandler::java_lang_Thread_UncaughtExceptionHan
 
 	LOGV("java_lang_Thread_UncaughtExceptionHandler::java_lang_Thread_UncaughtExceptionHandler(const java_lang_Thread_UncaughtExceptionHandler& cc) exit");
 }
-java_lang_Thread_UncaughtExceptionHandler::java_lang_Thread_UncaughtExceptionHandler(void * proxy)
+java_lang_Thread_UncaughtExceptionHandler::java_lang_Thread_UncaughtExceptionHandler(Proxy proxy)
 {
-	LOGV("java_lang_Thread_UncaughtExceptionHandler::java_lang_Thread_UncaughtExceptionHandler(void * proxy) enter");
+	LOGV("java_lang_Thread_UncaughtExceptionHandler::java_lang_Thread_UncaughtExceptionHandler(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -86,52 +85,31 @@ java_lang_Thread_UncaughtExceptionHandler::java_lang_Thread_UncaughtExceptionHan
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_lang_Thread_UncaughtExceptionHandler::java_lang_Thread_UncaughtExceptionHandler(void * proxy) exit");
+	LOGV("java_lang_Thread_UncaughtExceptionHandler::java_lang_Thread_UncaughtExceptionHandler(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_lang_Thread_UncaughtExceptionHandler::java_lang_Thread_UncaughtExceptionHandler()
-// {
-// 	LOGV("java_lang_Thread_UncaughtExceptionHandler::java_lang_Thread_UncaughtExceptionHandler() enter");	
+Proxy java_lang_Thread_UncaughtExceptionHandler::proxy() const
+{	
+	LOGV("java_lang_Thread_UncaughtExceptionHandler::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/lang/Thread$UncaughtExceptionHandler";
+	long cxxAddress = (long) this;
+	LOGV("java_lang_Thread_UncaughtExceptionHandler cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_Thread_UncaughtExceptionHandler jni address %d", proxiedComponent);
 
-// 	LOGV("java_lang_Thread_UncaughtExceptionHandler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_lang_Thread_UncaughtExceptionHandler::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_lang_Thread_UncaughtExceptionHandler cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_lang_Thread_UncaughtExceptionHandler jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_lang_Thread_UncaughtExceptionHandler::java_lang_Thread_UncaughtExceptionHandler() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_lang_Thread_UncaughtExceptionHandler::~java_lang_Thread_UncaughtExceptionHandler()
 {
@@ -143,13 +121,13 @@ java_lang_Thread_UncaughtExceptionHandler::~java_lang_Thread_UncaughtExceptionHa
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_lang_Thread_UncaughtExceptionHandler::~java_lang_Thread_UncaughtExceptionHandler() exit");
 }
 // Functions
-void java_lang_Thread_UncaughtExceptionHandler::uncaughtException(AndroidCXX::java_lang_Thread& arg0,AndroidCXX::java_lang_Throwable& arg1)
+void java_lang_Thread_UncaughtExceptionHandler::uncaughtException(AndroidCXX::java_lang_Thread const& arg0,AndroidCXX::java_lang_Throwable const& arg1)
 {
-	LOGV("void java_lang_Thread_UncaughtExceptionHandler::uncaughtException(AndroidCXX::java_lang_Thread& arg0,AndroidCXX::java_lang_Throwable& arg1) enter");
+	LOGV("void java_lang_Thread_UncaughtExceptionHandler::uncaughtException(AndroidCXX::java_lang_Thread const& arg0,AndroidCXX::java_lang_Throwable const& arg1) enter");
 
 	const char *methodName = "uncaughtException";
 	const char *methodSignature = "(Ljava/lang/Thread;Ljava/lang/Throwable;)V";
@@ -159,8 +137,6 @@ void java_lang_Thread_UncaughtExceptionHandler::uncaughtException(AndroidCXX::ja
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Thread_UncaughtExceptionHandler cxx address %d", cxxAddress);
@@ -212,8 +188,6 @@ void java_lang_Thread_UncaughtExceptionHandler::uncaughtException(AndroidCXX::ja
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_Thread_UncaughtExceptionHandler::uncaughtException(AndroidCXX::java_lang_Thread& arg0,AndroidCXX::java_lang_Throwable& arg1) exit");
+	LOGV("void java_lang_Thread_UncaughtExceptionHandler::uncaughtException(AndroidCXX::java_lang_Thread const& arg0,AndroidCXX::java_lang_Throwable const& arg1) exit");
 
 }

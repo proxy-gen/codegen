@@ -66,24 +66,23 @@ class android_widget_BaseExpandableListAdapter
 public:
 
 	android_widget_BaseExpandableListAdapter(const android_widget_BaseExpandableListAdapter& cc);
-	android_widget_BaseExpandableListAdapter(void * proxy);
+	android_widget_BaseExpandableListAdapter(Proxy proxy);
 	// Public Constructors
 	android_widget_BaseExpandableListAdapter();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_BaseExpandableListAdapter();
 	// Functions
 	 bool isEmpty();
-	 void registerDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0);
-	 void unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0);
+	 void registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0);
+	 void unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0);
 	 bool areAllItemsEnabled();
-	 void onGroupExpanded(int& arg0);
-	 void onGroupCollapsed(int& arg0);
-	 long getCombinedChildId(long& arg0,long& arg1);
-	 long getCombinedGroupId(long& arg0);
-	 int getGroupType(int& arg0);
-	 int getChildType(int& arg0,int& arg1);
+	 void onGroupExpanded(int const& arg0);
+	 void onGroupCollapsed(int const& arg0);
+	 long getCombinedChildId(long const& arg0,long const& arg1);
+	 long getCombinedGroupId(long const& arg0);
+	 int getGroupType(int const& arg0);
+	 int getChildType(int const& arg0,int const& arg1);
 	 int getGroupTypeCount();
 	 int getChildTypeCount();
 	 void notifyDataSetChanged();

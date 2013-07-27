@@ -90,24 +90,21 @@ class android_content_res_AssetManager
 public:
 
 	android_content_res_AssetManager(const android_content_res_AssetManager& cc);
-	android_content_res_AssetManager(void * proxy);
+	android_content_res_AssetManager(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_content_res_AssetManager();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_res_AssetManager();
 	// Functions
-	 std::vector<AndroidCXX::java_lang_String > list(AndroidCXX::java_lang_String& arg0);
+	 std::vector<AndroidCXX::java_lang_String > list(AndroidCXX::java_lang_String const& arg0);
 	 void close();
-	 AndroidCXX::java_io_InputStream open(AndroidCXX::java_lang_String& arg0,int& arg1);
-	 AndroidCXX::java_io_InputStream open(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::android_content_res_AssetFileDescriptor openFd(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::android_content_res_AssetFileDescriptor openNonAssetFd(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::android_content_res_AssetFileDescriptor openNonAssetFd(int& arg0,AndroidCXX::java_lang_String& arg1);
-	 AndroidCXX::android_content_res_XmlResourceParser openXmlResourceParser(int& arg0,AndroidCXX::java_lang_String& arg1);
-	 AndroidCXX::android_content_res_XmlResourceParser openXmlResourceParser(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_io_InputStream open(AndroidCXX::java_lang_String const& arg0,int const& arg1);
+	 AndroidCXX::java_io_InputStream open(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::android_content_res_AssetFileDescriptor openFd(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::android_content_res_AssetFileDescriptor openNonAssetFd(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::android_content_res_AssetFileDescriptor openNonAssetFd(int const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 AndroidCXX::android_content_res_XmlResourceParser openXmlResourceParser(int const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 AndroidCXX::android_content_res_XmlResourceParser openXmlResourceParser(AndroidCXX::java_lang_String const& arg0);
 	 std::vector<AndroidCXX::java_lang_String > getLocales();
 };	
 

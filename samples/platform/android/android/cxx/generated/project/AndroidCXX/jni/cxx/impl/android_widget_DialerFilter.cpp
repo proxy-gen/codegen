@@ -109,7 +109,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_DialerFilter::android_widget_DialerFilter(const android_widget_DialerFilter& cc)
 {
 	LOGV("android_widget_DialerFilter::android_widget_DialerFilter(const android_widget_DialerFilter& cc) enter");
@@ -133,9 +132,9 @@ android_widget_DialerFilter::android_widget_DialerFilter(const android_widget_Di
 
 	LOGV("android_widget_DialerFilter::android_widget_DialerFilter(const android_widget_DialerFilter& cc) exit");
 }
-android_widget_DialerFilter::android_widget_DialerFilter(void * proxy)
+android_widget_DialerFilter::android_widget_DialerFilter(Proxy proxy)
 {
-	LOGV("android_widget_DialerFilter::android_widget_DialerFilter(void * proxy) enter");
+	LOGV("android_widget_DialerFilter::android_widget_DialerFilter(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -145,55 +144,34 @@ android_widget_DialerFilter::android_widget_DialerFilter(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_DialerFilter::android_widget_DialerFilter(void * proxy) exit");
+	LOGV("android_widget_DialerFilter::android_widget_DialerFilter(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_DialerFilter::android_widget_DialerFilter()
-// {
-// 	LOGV("android_widget_DialerFilter::android_widget_DialerFilter() enter");	
+Proxy android_widget_DialerFilter::proxy() const
+{	
+	LOGV("android_widget_DialerFilter::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/DialerFilter";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_DialerFilter cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_DialerFilter jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_DialerFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_DialerFilter::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_DialerFilter cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_DialerFilter jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_DialerFilter::android_widget_DialerFilter() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_DialerFilter::android_widget_DialerFilter(AndroidCXX::android_content_Context& arg0)
+	return proxy;
+}
+android_widget_DialerFilter::android_widget_DialerFilter(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_DialerFilter::android_widget_DialerFilter(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_DialerFilter::android_widget_DialerFilter(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -246,11 +224,11 @@ android_widget_DialerFilter::android_widget_DialerFilter(AndroidCXX::android_con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_DialerFilter::android_widget_DialerFilter(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_DialerFilter::android_widget_DialerFilter(AndroidCXX::android_content_Context const& arg0) exit");	
 }
-android_widget_DialerFilter::android_widget_DialerFilter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+android_widget_DialerFilter::android_widget_DialerFilter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_DialerFilter::android_widget_DialerFilter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_DialerFilter::android_widget_DialerFilter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -324,7 +302,7 @@ android_widget_DialerFilter::android_widget_DialerFilter(AndroidCXX::android_con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_DialerFilter::android_widget_DialerFilter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_DialerFilter::android_widget_DialerFilter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
 // Default Instance Destructor
 android_widget_DialerFilter::~android_widget_DialerFilter()
@@ -337,13 +315,13 @@ android_widget_DialerFilter::~android_widget_DialerFilter()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_DialerFilter::~android_widget_DialerFilter() exit");
 }
 // Functions
-void android_widget_DialerFilter::append(AndroidCXX::java_lang_String& arg0)
+void android_widget_DialerFilter::append(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_widget_DialerFilter::append(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_widget_DialerFilter::append(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -353,8 +331,6 @@ void android_widget_DialerFilter::append(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DialerFilter cxx address %d", cxxAddress);
@@ -385,14 +361,12 @@ void android_widget_DialerFilter::append(AndroidCXX::java_lang_String& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_DialerFilter::append(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_widget_DialerFilter::append(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-void android_widget_DialerFilter::setMode(int& arg0)
+void android_widget_DialerFilter::setMode(int const& arg0)
 {
-	LOGV("void android_widget_DialerFilter::setMode(int& arg0) enter");
+	LOGV("void android_widget_DialerFilter::setMode(int const& arg0) enter");
 
 	const char *methodName = "setMode";
 	const char *methodSignature = "(I)V";
@@ -402,8 +376,6 @@ void android_widget_DialerFilter::setMode(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DialerFilter cxx address %d", cxxAddress);
@@ -434,9 +406,7 @@ void android_widget_DialerFilter::setMode(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_DialerFilter::setMode(int& arg0) exit");
+	LOGV("void android_widget_DialerFilter::setMode(int const& arg0) exit");
 
 }
 int android_widget_DialerFilter::getMode()
@@ -451,8 +421,6 @@ int android_widget_DialerFilter::getMode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DialerFilter cxx address %d", cxxAddress);
@@ -481,15 +449,13 @@ int android_widget_DialerFilter::getMode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_DialerFilter::getMode() exit");
 
 	return result;
 }
-bool android_widget_DialerFilter::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1)
+bool android_widget_DialerFilter::onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1)
 {
-	LOGV("bool android_widget_DialerFilter::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) enter");
+	LOGV("bool android_widget_DialerFilter::onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) enter");
 
 	const char *methodName = "onKeyDown";
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
@@ -500,8 +466,6 @@ bool android_widget_DialerFilter::onKeyDown(int& arg0,AndroidCXX::android_view_K
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DialerFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -571,15 +535,13 @@ bool android_widget_DialerFilter::onKeyDown(int& arg0,AndroidCXX::android_view_K
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_DialerFilter::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) exit");
+	LOGV("bool android_widget_DialerFilter::onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) exit");
 
 	return result;
 }
-bool android_widget_DialerFilter::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1)
+bool android_widget_DialerFilter::onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1)
 {
-	LOGV("bool android_widget_DialerFilter::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) enter");
+	LOGV("bool android_widget_DialerFilter::onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) enter");
 
 	const char *methodName = "onKeyUp";
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
@@ -590,8 +552,6 @@ bool android_widget_DialerFilter::onKeyUp(int& arg0,AndroidCXX::android_view_Key
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DialerFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -661,9 +621,7 @@ bool android_widget_DialerFilter::onKeyUp(int& arg0,AndroidCXX::android_view_Key
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_DialerFilter::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) exit");
+	LOGV("bool android_widget_DialerFilter::onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) exit");
 
 	return result;
 }
@@ -679,8 +637,6 @@ bool android_widget_DialerFilter::isQwertyKeyboard()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DialerFilter cxx address %d", cxxAddress);
@@ -709,8 +665,6 @@ bool android_widget_DialerFilter::isQwertyKeyboard()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_DialerFilter::isQwertyKeyboard() exit");
 
 	return result;
@@ -728,8 +682,6 @@ AndroidCXX::java_lang_CharSequence android_widget_DialerFilter::getLetters()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DialerFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -757,8 +709,6 @@ AndroidCXX::java_lang_CharSequence android_widget_DialerFilter::getLetters()
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_widget_DialerFilter::getLetters() exit");
 
 	return result;
@@ -776,8 +726,6 @@ AndroidCXX::java_lang_CharSequence android_widget_DialerFilter::getDigits()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DialerFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -805,8 +753,6 @@ AndroidCXX::java_lang_CharSequence android_widget_DialerFilter::getDigits()
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_widget_DialerFilter::getDigits() exit");
 
 	return result;
@@ -824,8 +770,6 @@ AndroidCXX::java_lang_CharSequence android_widget_DialerFilter::getFilterText()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DialerFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -853,8 +797,6 @@ AndroidCXX::java_lang_CharSequence android_widget_DialerFilter::getFilterText()
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_widget_DialerFilter::getFilterText() exit");
 
 	return result;
@@ -872,8 +814,6 @@ void android_widget_DialerFilter::clearText()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DialerFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -882,14 +822,12 @@ void android_widget_DialerFilter::clearText()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_DialerFilter::clearText() exit");
 
 }
-void android_widget_DialerFilter::setLettersWatcher(AndroidCXX::android_text_TextWatcher& arg0)
+void android_widget_DialerFilter::setLettersWatcher(AndroidCXX::android_text_TextWatcher const& arg0)
 {
-	LOGV("void android_widget_DialerFilter::setLettersWatcher(AndroidCXX::android_text_TextWatcher& arg0) enter");
+	LOGV("void android_widget_DialerFilter::setLettersWatcher(AndroidCXX::android_text_TextWatcher const& arg0) enter");
 
 	const char *methodName = "setLettersWatcher";
 	const char *methodSignature = "(Landroid/text/TextWatcher;)V";
@@ -900,8 +838,6 @@ void android_widget_DialerFilter::setLettersWatcher(AndroidCXX::android_text_Tex
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DialerFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -931,14 +867,12 @@ void android_widget_DialerFilter::setLettersWatcher(AndroidCXX::android_text_Tex
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_DialerFilter::setLettersWatcher(AndroidCXX::android_text_TextWatcher& arg0) exit");
+	LOGV("void android_widget_DialerFilter::setLettersWatcher(AndroidCXX::android_text_TextWatcher const& arg0) exit");
 
 }
-void android_widget_DialerFilter::setDigitsWatcher(AndroidCXX::android_text_TextWatcher& arg0)
+void android_widget_DialerFilter::setDigitsWatcher(AndroidCXX::android_text_TextWatcher const& arg0)
 {
-	LOGV("void android_widget_DialerFilter::setDigitsWatcher(AndroidCXX::android_text_TextWatcher& arg0) enter");
+	LOGV("void android_widget_DialerFilter::setDigitsWatcher(AndroidCXX::android_text_TextWatcher const& arg0) enter");
 
 	const char *methodName = "setDigitsWatcher";
 	const char *methodSignature = "(Landroid/text/TextWatcher;)V";
@@ -949,8 +883,6 @@ void android_widget_DialerFilter::setDigitsWatcher(AndroidCXX::android_text_Text
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DialerFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -980,14 +912,12 @@ void android_widget_DialerFilter::setDigitsWatcher(AndroidCXX::android_text_Text
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_DialerFilter::setDigitsWatcher(AndroidCXX::android_text_TextWatcher& arg0) exit");
+	LOGV("void android_widget_DialerFilter::setDigitsWatcher(AndroidCXX::android_text_TextWatcher const& arg0) exit");
 
 }
-void android_widget_DialerFilter::setFilterWatcher(AndroidCXX::android_text_TextWatcher& arg0)
+void android_widget_DialerFilter::setFilterWatcher(AndroidCXX::android_text_TextWatcher const& arg0)
 {
-	LOGV("void android_widget_DialerFilter::setFilterWatcher(AndroidCXX::android_text_TextWatcher& arg0) enter");
+	LOGV("void android_widget_DialerFilter::setFilterWatcher(AndroidCXX::android_text_TextWatcher const& arg0) enter");
 
 	const char *methodName = "setFilterWatcher";
 	const char *methodSignature = "(Landroid/text/TextWatcher;)V";
@@ -998,8 +928,6 @@ void android_widget_DialerFilter::setFilterWatcher(AndroidCXX::android_text_Text
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DialerFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1029,14 +957,12 @@ void android_widget_DialerFilter::setFilterWatcher(AndroidCXX::android_text_Text
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_DialerFilter::setFilterWatcher(AndroidCXX::android_text_TextWatcher& arg0) exit");
+	LOGV("void android_widget_DialerFilter::setFilterWatcher(AndroidCXX::android_text_TextWatcher const& arg0) exit");
 
 }
-void android_widget_DialerFilter::removeFilterWatcher(AndroidCXX::android_text_TextWatcher& arg0)
+void android_widget_DialerFilter::removeFilterWatcher(AndroidCXX::android_text_TextWatcher const& arg0)
 {
-	LOGV("void android_widget_DialerFilter::removeFilterWatcher(AndroidCXX::android_text_TextWatcher& arg0) enter");
+	LOGV("void android_widget_DialerFilter::removeFilterWatcher(AndroidCXX::android_text_TextWatcher const& arg0) enter");
 
 	const char *methodName = "removeFilterWatcher";
 	const char *methodSignature = "(Landroid/text/TextWatcher;)V";
@@ -1047,8 +973,6 @@ void android_widget_DialerFilter::removeFilterWatcher(AndroidCXX::android_text_T
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DialerFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1078,8 +1002,6 @@ void android_widget_DialerFilter::removeFilterWatcher(AndroidCXX::android_text_T
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_DialerFilter::removeFilterWatcher(AndroidCXX::android_text_TextWatcher& arg0) exit");
+	LOGV("void android_widget_DialerFilter::removeFilterWatcher(AndroidCXX::android_text_TextWatcher const& arg0) exit");
 
 }

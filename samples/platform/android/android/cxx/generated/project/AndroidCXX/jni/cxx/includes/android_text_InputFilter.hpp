@@ -57,16 +57,13 @@ class android_text_InputFilter
 public:
 
 	android_text_InputFilter(const android_text_InputFilter& cc);
-	android_text_InputFilter(void * proxy);
+	android_text_InputFilter(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_text_InputFilter();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_text_InputFilter();
 	// Functions
-	 AndroidCXX::java_lang_CharSequence filter(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,AndroidCXX::android_text_Spanned& arg3,int& arg4,int& arg5);
+	 AndroidCXX::java_lang_CharSequence filter(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_text_Spanned const& arg3,int const& arg4,int const& arg5);
 };	
 
 } // namespace

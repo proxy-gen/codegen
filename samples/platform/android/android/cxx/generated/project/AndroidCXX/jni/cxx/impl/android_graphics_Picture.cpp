@@ -74,33 +74,9 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
-android_graphics_Picture::android_graphics_Picture(const android_graphics_Picture& cc)
+android_graphics_Picture::android_graphics_Picture(Proxy proxy)
 {
-	LOGV("android_graphics_Picture::android_graphics_Picture(const android_graphics_Picture& cc) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	long ccaddress = (long) &cc;
-	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
-	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
-	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
-	long address = (long) this;
-	LOGV("registerProxyComponent address %ld", address);
-	jobject proxiedComponent = ctx->findProxyComponent(address);
-	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
-	if (proxiedComponent == 0)
-	{
-		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = proxiedCCComponent;
-		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
-		ctx->registerProxyComponent(address, proxiedComponent);
-	}
-
-	LOGV("android_graphics_Picture::android_graphics_Picture(const android_graphics_Picture& cc) exit");
-}
-android_graphics_Picture::android_graphics_Picture(void * proxy)
-{
-	LOGV("android_graphics_Picture::android_graphics_Picture(void * proxy) enter");
+	LOGV("android_graphics_Picture::android_graphics_Picture(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -110,17 +86,31 @@ android_graphics_Picture::android_graphics_Picture(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_graphics_Picture::android_graphics_Picture(void * proxy) exit");
+	LOGV("android_graphics_Picture::android_graphics_Picture(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy android_graphics_Picture::proxy() const
+{	
+	LOGV("android_graphics_Picture::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_graphics_Picture cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_graphics_Picture jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_graphics_Picture::proxy() exit");	
+
+	return proxy;
+}
 android_graphics_Picture::android_graphics_Picture()
 {
 	LOGV("android_graphics_Picture::android_graphics_Picture() enter");	
@@ -157,9 +147,9 @@ android_graphics_Picture::android_graphics_Picture()
 
 	LOGV("android_graphics_Picture::android_graphics_Picture() exit");	
 }
-android_graphics_Picture::android_graphics_Picture(AndroidCXX::android_graphics_Picture& arg0)
+android_graphics_Picture::android_graphics_Picture(AndroidCXX::android_graphics_Picture const& arg0)
 {
-	LOGV("android_graphics_Picture::android_graphics_Picture(AndroidCXX::android_graphics_Picture& arg0) enter");	
+	LOGV("android_graphics_Picture::android_graphics_Picture(AndroidCXX::android_graphics_Picture const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/graphics/Picture;)V";
@@ -212,7 +202,7 @@ android_graphics_Picture::android_graphics_Picture(AndroidCXX::android_graphics_
 
 	jni->popLocalFrame();
 
-	LOGV("android_graphics_Picture::android_graphics_Picture(AndroidCXX::android_graphics_Picture& arg0) exit");	
+	LOGV("android_graphics_Picture::android_graphics_Picture(AndroidCXX::android_graphics_Picture const& arg0) exit");	
 }
 // Default Instance Destructor
 android_graphics_Picture::~android_graphics_Picture()
@@ -225,7 +215,7 @@ android_graphics_Picture::~android_graphics_Picture()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_graphics_Picture::~android_graphics_Picture() exit");
 }
 // Functions
@@ -241,8 +231,6 @@ int android_graphics_Picture::getWidth()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Picture cxx address %d", cxxAddress);
@@ -271,8 +259,6 @@ int android_graphics_Picture::getWidth()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_graphics_Picture::getWidth() exit");
 
 	return result;
@@ -290,8 +276,6 @@ int android_graphics_Picture::getHeight()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Picture cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -319,15 +303,13 @@ int android_graphics_Picture::getHeight()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_graphics_Picture::getHeight() exit");
 
 	return result;
 }
-void android_graphics_Picture::draw(AndroidCXX::android_graphics_Canvas& arg0)
+void android_graphics_Picture::draw(AndroidCXX::android_graphics_Canvas const& arg0)
 {
-	LOGV("void android_graphics_Picture::draw(AndroidCXX::android_graphics_Canvas& arg0) enter");
+	LOGV("void android_graphics_Picture::draw(AndroidCXX::android_graphics_Canvas const& arg0) enter");
 
 	const char *methodName = "draw";
 	const char *methodSignature = "(Landroid/graphics/Canvas;)V";
@@ -337,8 +319,6 @@ void android_graphics_Picture::draw(AndroidCXX::android_graphics_Canvas& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Picture cxx address %d", cxxAddress);
@@ -369,14 +349,12 @@ void android_graphics_Picture::draw(AndroidCXX::android_graphics_Canvas& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Picture::draw(AndroidCXX::android_graphics_Canvas& arg0) exit");
+	LOGV("void android_graphics_Picture::draw(AndroidCXX::android_graphics_Canvas const& arg0) exit");
 
 }
-AndroidCXX::android_graphics_Picture android_graphics_Picture::createFromStream(AndroidCXX::java_io_InputStream& arg0)
+AndroidCXX::android_graphics_Picture android_graphics_Picture::createFromStream(AndroidCXX::java_io_InputStream const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_Picture android_graphics_Picture::createFromStream(AndroidCXX::java_io_InputStream& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_Picture android_graphics_Picture::createFromStream(AndroidCXX::java_io_InputStream const& arg0) enter");
 
 	const char *methodName = "createFromStream";
 	const char *methodSignature = "(Ljava/io/InputStream;)Landroid/graphics/Picture;";
@@ -386,8 +364,6 @@ AndroidCXX::android_graphics_Picture android_graphics_Picture::createFromStream(
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_graphics_Picture cxx address %d", cxxAddress);
@@ -416,7 +392,7 @@ AndroidCXX::android_graphics_Picture android_graphics_Picture::createFromStream(
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -437,15 +413,13 @@ AndroidCXX::android_graphics_Picture android_graphics_Picture::createFromStream(
 	AndroidCXX::android_graphics_Picture result((AndroidCXX::android_graphics_Picture) *((AndroidCXX::android_graphics_Picture *) cxx_value));
 	delete ((AndroidCXX::android_graphics_Picture *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_graphics_Picture android_graphics_Picture::createFromStream(AndroidCXX::java_io_InputStream& arg0) exit");
+	LOGV("AndroidCXX::android_graphics_Picture android_graphics_Picture::createFromStream(AndroidCXX::java_io_InputStream const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Canvas android_graphics_Picture::beginRecording(int& arg0,int& arg1)
+AndroidCXX::android_graphics_Canvas android_graphics_Picture::beginRecording(int const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_graphics_Canvas android_graphics_Picture::beginRecording(int& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_graphics_Canvas android_graphics_Picture::beginRecording(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "beginRecording";
 	const char *methodSignature = "(II)Landroid/graphics/Canvas;";
@@ -455,8 +429,6 @@ AndroidCXX::android_graphics_Canvas android_graphics_Picture::beginRecording(int
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Picture cxx address %d", cxxAddress);
@@ -527,9 +499,7 @@ AndroidCXX::android_graphics_Canvas android_graphics_Picture::beginRecording(int
 	AndroidCXX::android_graphics_Canvas result((AndroidCXX::android_graphics_Canvas) *((AndroidCXX::android_graphics_Canvas *) cxx_value));
 	delete ((AndroidCXX::android_graphics_Canvas *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_graphics_Canvas android_graphics_Picture::beginRecording(int& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_graphics_Canvas android_graphics_Picture::beginRecording(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
@@ -546,8 +516,6 @@ void android_graphics_Picture::endRecording()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Picture cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -556,14 +524,12 @@ void android_graphics_Picture::endRecording()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_graphics_Picture::endRecording() exit");
 
 }
-void android_graphics_Picture::writeToStream(AndroidCXX::java_io_OutputStream& arg0)
+void android_graphics_Picture::writeToStream(AndroidCXX::java_io_OutputStream const& arg0)
 {
-	LOGV("void android_graphics_Picture::writeToStream(AndroidCXX::java_io_OutputStream& arg0) enter");
+	LOGV("void android_graphics_Picture::writeToStream(AndroidCXX::java_io_OutputStream const& arg0) enter");
 
 	const char *methodName = "writeToStream";
 	const char *methodSignature = "(Ljava/io/OutputStream;)V";
@@ -573,8 +539,6 @@ void android_graphics_Picture::writeToStream(AndroidCXX::java_io_OutputStream& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Picture cxx address %d", cxxAddress);
@@ -605,8 +569,6 @@ void android_graphics_Picture::writeToStream(AndroidCXX::java_io_OutputStream& a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Picture::writeToStream(AndroidCXX::java_io_OutputStream& arg0) exit");
+	LOGV("void android_graphics_Picture::writeToStream(AndroidCXX::java_io_OutputStream const& arg0) exit");
 
 }

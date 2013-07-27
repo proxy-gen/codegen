@@ -165,54 +165,51 @@ class android_widget_AdapterView
 public:
 
 	android_widget_AdapterView(const android_widget_AdapterView& cc);
-	android_widget_AdapterView(void * proxy);
+	android_widget_AdapterView(Proxy proxy);
 	// Public Constructors
-	android_widget_AdapterView(AndroidCXX::android_content_Context& arg0);
-	android_widget_AdapterView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_AdapterView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	// TODO: remove
-	// 
-	// android_widget_AdapterView();
-	// 
+	android_widget_AdapterView(AndroidCXX::android_content_Context const& arg0);
+	android_widget_AdapterView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_AdapterView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AdapterView();
 	// Functions
-	 void addView(AndroidCXX::android_view_View& arg0,int& arg1);
-	 void addView(AndroidCXX::android_view_View& arg0,int& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams& arg2);
-	 void addView(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams& arg1);
-	 void addView(AndroidCXX::android_view_View& arg0);
-	 void removeView(AndroidCXX::android_view_View& arg0);
-	 bool dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 bool onRequestSendAccessibilityEvent(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_accessibility_AccessibilityEvent& arg1);
-	 void removeViewAt(int& arg0);
+	 void addView(AndroidCXX::android_view_View const& arg0,int const& arg1);
+	 void addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2);
+	 void addView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg1);
+	 void addView(AndroidCXX::android_view_View const& arg0);
+	 void removeView(AndroidCXX::android_view_View const& arg0);
+	 bool dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 bool onRequestSendAccessibilityEvent(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg1);
+	 void removeViewAt(int const& arg0);
 	 void removeAllViews();
-	 void setOnClickListener(AndroidCXX::android_view_View_OnClickListener& arg0);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 void setFocusable(bool& arg0);
-	 void setFocusableInTouchMode(bool& arg0);
+	 void setOnClickListener(AndroidCXX::android_view_View_OnClickListener const& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 void setFocusable(bool const& arg0);
+	 void setFocusableInTouchMode(bool const& arg0);
 	 int getCount();
-	 void setSelection(int& arg0);
-	 void setAdapter(AndroidCXX::android_widget_Adapter& arg0);
-	 bool performItemClick(AndroidCXX::android_view_View& arg0,int& arg1,long& arg2);
+	 void setSelection(int const& arg0);
+	 void setAdapter(AndroidCXX::android_widget_Adapter const& arg0);
+	 bool performItemClick(AndroidCXX::android_view_View const& arg0,int const& arg1,long const& arg2);
 	 AndroidCXX::android_view_View getSelectedView();
-	 void setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener& arg0);
+	 void setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener const& arg0);
 	 AndroidCXX::android_widget_AdapterView_OnItemClickListener getOnItemClickListener();
-	 void setOnItemLongClickListener(AndroidCXX::android_widget_AdapterView_OnItemLongClickListener& arg0);
+	 void setOnItemLongClickListener(AndroidCXX::android_widget_AdapterView_OnItemLongClickListener const& arg0);
 	 AndroidCXX::android_widget_AdapterView_OnItemLongClickListener getOnItemLongClickListener();
-	 void setOnItemSelectedListener(AndroidCXX::android_widget_AdapterView_OnItemSelectedListener& arg0);
+	 void setOnItemSelectedListener(AndroidCXX::android_widget_AdapterView_OnItemSelectedListener const& arg0);
 	 AndroidCXX::android_widget_AdapterView_OnItemSelectedListener getOnItemSelectedListener();
 	 AndroidCXX::android_widget_Adapter getAdapter();
 	 int getSelectedItemPosition();
 	 long getSelectedItemId();
 	 AndroidCXX::java_lang_Object getSelectedItem();
-	 int getPositionForView(AndroidCXX::android_view_View& arg0);
+	 int getPositionForView(AndroidCXX::android_view_View const& arg0);
 	 int getFirstVisiblePosition();
 	 int getLastVisiblePosition();
-	 void setEmptyView(AndroidCXX::android_view_View& arg0);
+	 void setEmptyView(AndroidCXX::android_view_View const& arg0);
 	 AndroidCXX::android_view_View getEmptyView();
-	 AndroidCXX::java_lang_Object getItemAtPosition(int& arg0);
-	 long getItemIdAtPosition(int& arg0);
+	 AndroidCXX::java_lang_Object getItemAtPosition(int const& arg0);
+	 long getItemIdAtPosition(int const& arg0);
 };	
 
 } // namespace

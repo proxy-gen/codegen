@@ -47,12 +47,9 @@ class android_widget_Advanceable
 public:
 
 	android_widget_Advanceable(const android_widget_Advanceable& cc);
-	android_widget_Advanceable(void * proxy);
+	android_widget_Advanceable(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_Advanceable();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Advanceable();
 	// Functions

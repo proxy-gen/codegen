@@ -167,30 +167,27 @@ class java_io_File
 public:
 
 	java_io_File(const java_io_File& cc);
-	java_io_File(void * proxy);
+	java_io_File(Proxy proxy);
 	// Public Constructors
-	java_io_File(AndroidCXX::java_net_URI& arg0);
-	java_io_File(AndroidCXX::java_lang_String& arg0);
-	java_io_File(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
-	java_io_File(AndroidCXX::java_io_File& arg0,AndroidCXX::java_lang_String& arg1);
-	// TODO: remove
-	// 
-	// java_io_File();
-	// 
+	java_io_File(AndroidCXX::java_net_URI const& arg0);
+	java_io_File(AndroidCXX::java_lang_String const& arg0);
+	java_io_File(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
+	java_io_File(AndroidCXX::java_io_File const& arg0,AndroidCXX::java_lang_String const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_io_File();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 int compareTo(AndroidCXX::java_io_File& arg0);
+	 int compareTo(AndroidCXX::java_io_File const& arg0);
 	 AndroidCXX::java_lang_String getName();
 	 long length();
 	 AndroidCXX::java_lang_String getParent();
 	 bool isAbsolute();
 	 AndroidCXX::java_lang_String getCanonicalPath();
 	 bool setReadOnly();
-	 std::vector<AndroidCXX::java_lang_String > list(AndroidCXX::java_io_FilenameFilter& arg0);
+	 std::vector<AndroidCXX::java_lang_String > list(AndroidCXX::java_io_FilenameFilter const& arg0);
 	 std::vector<AndroidCXX::java_lang_String > list();
 	 bool _delete();
 	 bool exists();
@@ -209,26 +206,26 @@ public:
 	 long lastModified();
 	 bool createNewFile();
 	 void deleteOnExit();
-	 std::vector<AndroidCXX::java_io_File > listFiles(AndroidCXX::java_io_FileFilter& arg0);
+	 std::vector<AndroidCXX::java_io_File > listFiles(AndroidCXX::java_io_FileFilter const& arg0);
 	 std::vector<AndroidCXX::java_io_File > listFiles();
-	 std::vector<AndroidCXX::java_io_File > listFiles(AndroidCXX::java_io_FilenameFilter& arg0);
+	 std::vector<AndroidCXX::java_io_File > listFiles(AndroidCXX::java_io_FilenameFilter const& arg0);
 	 bool mkdir();
 	 bool mkdirs();
-	 bool renameTo(AndroidCXX::java_io_File& arg0);
-	 bool setLastModified(long& arg0);
-	 bool setWritable(bool& arg0,bool& arg1);
-	 bool setWritable(bool& arg0);
-	 bool setReadable(bool& arg0,bool& arg1);
-	 bool setReadable(bool& arg0);
-	 bool setExecutable(bool& arg0,bool& arg1);
-	 bool setExecutable(bool& arg0);
+	 bool renameTo(AndroidCXX::java_io_File const& arg0);
+	 bool setLastModified(long const& arg0);
+	 bool setWritable(bool const& arg0,bool const& arg1);
+	 bool setWritable(bool const& arg0);
+	 bool setReadable(bool const& arg0,bool const& arg1);
+	 bool setReadable(bool const& arg0);
+	 bool setExecutable(bool const& arg0,bool const& arg1);
+	 bool setExecutable(bool const& arg0);
 	 bool canExecute();
 	static std::vector<AndroidCXX::java_io_File > listRoots();
 	 long getTotalSpace();
 	 long getFreeSpace();
 	 long getUsableSpace();
-	static AndroidCXX::java_io_File createTempFile(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
-	static AndroidCXX::java_io_File createTempFile(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_io_File& arg2);
+	static AndroidCXX::java_io_File createTempFile(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
+	static AndroidCXX::java_io_File createTempFile(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_io_File const& arg2);
 };	
 
 } // namespace

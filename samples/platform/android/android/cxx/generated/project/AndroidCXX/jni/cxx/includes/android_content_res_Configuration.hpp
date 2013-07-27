@@ -94,33 +94,31 @@ class android_content_res_Configuration
 {
 public:
 
-	android_content_res_Configuration(const android_content_res_Configuration& cc);
-	android_content_res_Configuration(void * proxy);
+	android_content_res_Configuration(Proxy proxy);
 	// Public Constructors
 	android_content_res_Configuration();
-	android_content_res_Configuration(AndroidCXX::android_content_res_Configuration& arg0);
-	// TODO: remove
-	// 
+	android_content_res_Configuration(AndroidCXX::android_content_res_Configuration const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_res_Configuration();
 	// Functions
-	 bool equals(AndroidCXX::android_content_res_Configuration& arg0);
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::android_content_res_Configuration const& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 int compareTo(AndroidCXX::android_content_res_Configuration& arg0);
-	 void setLocale(AndroidCXX::java_util_Locale& arg0);
+	 int compareTo(AndroidCXX::android_content_res_Configuration const& arg0);
+	 void setLocale(AndroidCXX::java_util_Locale const& arg0);
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
-	 void readFromParcel(AndroidCXX::android_os_Parcel& arg0);
-	 void setLayoutDirection(AndroidCXX::java_util_Locale& arg0);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	 void readFromParcel(AndroidCXX::android_os_Parcel const& arg0);
+	 void setLayoutDirection(AndroidCXX::java_util_Locale const& arg0);
 	 int getLayoutDirection();
-	 bool isLayoutSizeAtLeast(int& arg0);
-	 void setTo(AndroidCXX::android_content_res_Configuration& arg0);
+	 bool isLayoutSizeAtLeast(int const& arg0);
+	 void setTo(AndroidCXX::android_content_res_Configuration const& arg0);
 	 void setToDefaults();
-	 int updateFrom(AndroidCXX::android_content_res_Configuration& arg0);
-	 int diff(AndroidCXX::android_content_res_Configuration& arg0);
-	static bool needNewResources(int& arg0,int& arg1);
+	 int updateFrom(AndroidCXX::android_content_res_Configuration const& arg0);
+	 int diff(AndroidCXX::android_content_res_Configuration const& arg0);
+	static bool needNewResources(int const& arg0,int const& arg1);
 };	
 
 } // namespace

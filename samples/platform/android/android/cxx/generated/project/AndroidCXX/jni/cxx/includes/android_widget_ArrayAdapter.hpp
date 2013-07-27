@@ -150,40 +150,37 @@ class android_widget_ArrayAdapter
 public:
 
 	android_widget_ArrayAdapter(const android_widget_ArrayAdapter& cc);
-	android_widget_ArrayAdapter(void * proxy);
+	android_widget_ArrayAdapter(Proxy proxy);
 	// Public Constructors
-	android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1);
-	android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,int& arg2);
-	android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2);
-	android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,int& arg2,std::vector<AndroidCXX::java_lang_Object >& arg3);
-	android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,AndroidCXX::java_util_List& arg2);
-	android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,int& arg2,AndroidCXX::java_util_List& arg3);
-	// TODO: remove
-	// 
-	// android_widget_ArrayAdapter();
-	// 
+	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1);
+	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2);
+	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,std::vector<AndroidCXX::java_lang_Object > const& arg2);
+	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2,std::vector<AndroidCXX::java_lang_Object > const& arg3);
+	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::java_util_List const& arg2);
+	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_util_List const& arg3);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ArrayAdapter();
 	// Functions
-	 void add(AndroidCXX::java_lang_Object& arg0);
+	 void add(AndroidCXX::java_lang_Object const& arg0);
 	 void clear();
-	 void addAll(AndroidCXX::java_util_Collection& arg0);
-	 void addAll(std::vector<AndroidCXX::java_lang_Object >& arg0);
-	 void remove(AndroidCXX::java_lang_Object& arg0);
+	 void addAll(AndroidCXX::java_util_Collection const& arg0);
+	 void addAll(std::vector<AndroidCXX::java_lang_Object > const& arg0);
+	 void remove(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::android_content_Context getContext();
-	 void insert(AndroidCXX::java_lang_Object& arg0,int& arg1);
-	 void sort(AndroidCXX::java_util_Comparator& arg0);
-	 int getPosition(AndroidCXX::java_lang_Object& arg0);
-	 AndroidCXX::android_view_View getView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2);
+	 void insert(AndroidCXX::java_lang_Object const& arg0,int const& arg1);
+	 void sort(AndroidCXX::java_util_Comparator const& arg0);
+	 int getPosition(AndroidCXX::java_lang_Object const& arg0);
+	 AndroidCXX::android_view_View getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
 	 AndroidCXX::android_widget_Filter getFilter();
-	 AndroidCXX::java_lang_Object getItem(int& arg0);
-	 long getItemId(int& arg0);
+	 AndroidCXX::java_lang_Object getItem(int const& arg0);
+	 long getItemId(int const& arg0);
 	 int getCount();
-	 AndroidCXX::android_view_View getDropDownView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2);
+	 AndroidCXX::android_view_View getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
 	 void notifyDataSetChanged();
-	 void setNotifyOnChange(bool& arg0);
-	 void setDropDownViewResource(int& arg0);
-	static AndroidCXX::android_widget_ArrayAdapter createFromResource(AndroidCXX::android_content_Context& arg0,int& arg1,int& arg2);
+	 void setNotifyOnChange(bool const& arg0);
+	 void setDropDownViewResource(int const& arg0);
+	static AndroidCXX::android_widget_ArrayAdapter createFromResource(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2);
 };	
 
 } // namespace

@@ -50,16 +50,13 @@ class com_facebook_GetTokenClient_1
 public:
 
 	com_facebook_GetTokenClient_1(const com_facebook_GetTokenClient_1& cc);
-	com_facebook_GetTokenClient_1(void * proxy);
+	com_facebook_GetTokenClient_1(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_GetTokenClient_1();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_GetTokenClient_1();
 	// Functions
-	 void handleMessage(AndroidCXX::android_os_Message& arg0);
+	 void handleMessage(AndroidCXX::android_os_Message const& arg0);
 };	
 
 } // namespace

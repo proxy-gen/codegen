@@ -653,7 +653,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace JAVA_NET_PROXY_TYPE;
+// using namespace java_net_Proxy_Type;
 // 
 // 
 // 
@@ -1387,13 +1387,13 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_WIDGET_IMAGEVIEW_SCALETYPE;
+// using namespace android_widget_ImageView_ScaleType;
 // 
 // 
 // 
 // 
 // 
-// using namespace ANDROID_WIDGET_TEXTVIEW_BUFFERTYPE;
+// using namespace android_widget_TextView_BufferType;
 // 
 // 
 // 
@@ -1407,7 +1407,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace JAVA_MATH_ROUNDINGMODE;
+// using namespace java_math_RoundingMode;
 // 
 // 
 // 
@@ -1937,7 +1937,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_BITMAP_CONFIG;
+// using namespace android_graphics_Bitmap_Config;
 // 
 // 
 // 
@@ -1955,13 +1955,13 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_MATRIX_SCALETOFIT;
+// using namespace android_graphics_Matrix_ScaleToFit;
 // 
 // 
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_BITMAP_COMPRESSFORMAT;
+// using namespace android_graphics_Bitmap_CompressFormat;
 // 
 // 
 // 
@@ -1975,19 +1975,19 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_PAINT_STYLE;
+// using namespace android_graphics_Paint_Style;
 // 
 // 
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_PAINT_CAP;
+// using namespace android_graphics_Paint_Cap;
 // 
 // 
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_PAINT_JOIN;
+// using namespace android_graphics_Paint_Join;
 // 
 // 
 // 
@@ -1997,13 +1997,13 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_PATH_FILLTYPE;
+// using namespace android_graphics_Path_FillType;
 // 
 // 
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_PATH_DIRECTION;
+// using namespace android_graphics_Path_Direction;
 // 
 // 
 // 
@@ -2033,7 +2033,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_PAINT_ALIGN;
+// using namespace android_graphics_Paint_Align;
 // 
 // 
 // 
@@ -2047,7 +2047,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_REGION_OP;
+// using namespace android_graphics_Region_Op;
 // 
 // 
 // 
@@ -2061,19 +2061,19 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_CANVAS_EDGETYPE;
+// using namespace android_graphics_Canvas_EdgeType;
 // 
 // 
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_PORTERDUFF_MODE;
+// using namespace android_graphics_PorterDuff_Mode;
 // 
 // 
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_CANVAS_VERTEXMODE;
+// using namespace android_graphics_Canvas_VertexMode;
 // 
 // 
 // 
@@ -2191,7 +2191,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace JAVA_LANG_THREAD_STATE;
+// using namespace java_lang_Thread_State;
 // 
 // 
 // 
@@ -2977,7 +2977,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_WEBKIT_CONSOLEMESSAGE_MESSAGELEVEL;
+// using namespace android_webkit_ConsoleMessage_MessageLevel;
 // 
 // 
 // 
@@ -2991,31 +2991,31 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_WEBKIT_WEBSETTINGS_TEXTSIZE;
+// using namespace android_webkit_WebSettings_TextSize;
 // 
 // 
 // 
 // 
 // 
-// using namespace ANDROID_WEBKIT_WEBSETTINGS_ZOOMDENSITY;
+// using namespace android_webkit_WebSettings_ZoomDensity;
 // 
 // 
 // 
 // 
 // 
-// using namespace ANDROID_WEBKIT_WEBSETTINGS_LAYOUTALGORITHM;
+// using namespace android_webkit_WebSettings_LayoutAlgorithm;
 // 
 // 
 // 
 // 
 // 
-// using namespace ANDROID_WEBKIT_WEBSETTINGS_PLUGINSTATE;
+// using namespace android_webkit_WebSettings_PluginState;
 // 
 // 
 // 
 // 
 // 
-// using namespace ANDROID_WEBKIT_WEBSETTINGS_RENDERPRIORITY;
+// using namespace android_webkit_WebSettings_RenderPriority;
 // 
 // 
 // 
@@ -3045,7 +3045,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_TEXT_LAYOUT_ALIGNMENT;
+// using namespace android_text_Layout_Alignment;
 // 
 // 
 // 
@@ -3083,7 +3083,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_TEXT_TEXTUTILS_TRUNCATEAT;
+// using namespace android_text_TextUtils_TruncateAt;
 // 
 // 
 // 

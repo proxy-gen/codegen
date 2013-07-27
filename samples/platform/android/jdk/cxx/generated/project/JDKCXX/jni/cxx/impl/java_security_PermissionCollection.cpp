@@ -64,7 +64,6 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_security_PermissionCollection::java_security_PermissionCollection(const java_security_PermissionCollection& cc)
 {
 	LOGV("java_security_PermissionCollection::java_security_PermissionCollection(const java_security_PermissionCollection& cc) enter");
@@ -88,9 +87,9 @@ java_security_PermissionCollection::java_security_PermissionCollection(const jav
 
 	LOGV("java_security_PermissionCollection::java_security_PermissionCollection(const java_security_PermissionCollection& cc) exit");
 }
-java_security_PermissionCollection::java_security_PermissionCollection(void * proxy)
+java_security_PermissionCollection::java_security_PermissionCollection(Proxy proxy)
 {
-	LOGV("java_security_PermissionCollection::java_security_PermissionCollection(void * proxy) enter");
+	LOGV("java_security_PermissionCollection::java_security_PermissionCollection(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -100,17 +99,31 @@ java_security_PermissionCollection::java_security_PermissionCollection(void * pr
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_security_PermissionCollection::java_security_PermissionCollection(void * proxy) exit");
+	LOGV("java_security_PermissionCollection::java_security_PermissionCollection(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy java_security_PermissionCollection::proxy() const
+{	
+	LOGV("java_security_PermissionCollection::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("java_security_PermissionCollection cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_security_PermissionCollection jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("java_security_PermissionCollection::proxy() exit");	
+
+	return proxy;
+}
 java_security_PermissionCollection::java_security_PermissionCollection()
 {
 	LOGV("java_security_PermissionCollection::java_security_PermissionCollection() enter");	
@@ -158,13 +171,13 @@ java_security_PermissionCollection::~java_security_PermissionCollection()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_security_PermissionCollection::~java_security_PermissionCollection() exit");
 }
 // Functions
-void java_security_PermissionCollection::add(JDKCXX::java_security_Permission& arg0)
+void java_security_PermissionCollection::add(JDKCXX::java_security_Permission const& arg0)
 {
-	LOGV("void java_security_PermissionCollection::add(JDKCXX::java_security_Permission& arg0) enter");
+	LOGV("void java_security_PermissionCollection::add(JDKCXX::java_security_Permission const& arg0) enter");
 
 	const char *methodName = "add";
 	const char *methodSignature = "(Ljava/security/Permission;)V";
@@ -174,8 +187,6 @@ void java_security_PermissionCollection::add(JDKCXX::java_security_Permission& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_PermissionCollection cxx address %d", cxxAddress);
@@ -206,9 +217,7 @@ void java_security_PermissionCollection::add(JDKCXX::java_security_Permission& a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_security_PermissionCollection::add(JDKCXX::java_security_Permission& arg0) exit");
+	LOGV("void java_security_PermissionCollection::add(JDKCXX::java_security_Permission const& arg0) exit");
 
 }
 JDKCXX::java_lang_String java_security_PermissionCollection::toString()
@@ -223,8 +232,6 @@ JDKCXX::java_lang_String java_security_PermissionCollection::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_PermissionCollection cxx address %d", cxxAddress);
@@ -253,15 +260,13 @@ JDKCXX::java_lang_String java_security_PermissionCollection::toString()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_security_PermissionCollection::toString() exit");
 
 	return result;
 }
-bool java_security_PermissionCollection::implies(JDKCXX::java_security_Permission& arg0)
+bool java_security_PermissionCollection::implies(JDKCXX::java_security_Permission const& arg0)
 {
-	LOGV("bool java_security_PermissionCollection::implies(JDKCXX::java_security_Permission& arg0) enter");
+	LOGV("bool java_security_PermissionCollection::implies(JDKCXX::java_security_Permission const& arg0) enter");
 
 	const char *methodName = "implies";
 	const char *methodSignature = "(Ljava/security/Permission;)Z";
@@ -271,8 +276,6 @@ bool java_security_PermissionCollection::implies(JDKCXX::java_security_Permissio
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_PermissionCollection cxx address %d", cxxAddress);
@@ -322,9 +325,7 @@ bool java_security_PermissionCollection::implies(JDKCXX::java_security_Permissio
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_security_PermissionCollection::implies(JDKCXX::java_security_Permission& arg0) exit");
+	LOGV("bool java_security_PermissionCollection::implies(JDKCXX::java_security_Permission const& arg0) exit");
 
 	return result;
 }
@@ -341,8 +342,6 @@ void java_security_PermissionCollection::setReadOnly()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_security_PermissionCollection cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -351,8 +350,6 @@ void java_security_PermissionCollection::setReadOnly()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_security_PermissionCollection::setReadOnly() exit");
 
 }
@@ -368,8 +365,6 @@ JDKCXX::java_util_Enumeration java_security_PermissionCollection::elements()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_PermissionCollection cxx address %d", cxxAddress);
@@ -416,8 +411,6 @@ JDKCXX::java_util_Enumeration java_security_PermissionCollection::elements()
 	JDKCXX::java_util_Enumeration result((JDKCXX::java_util_Enumeration) *((JDKCXX::java_util_Enumeration *) cxx_value));
 	delete ((JDKCXX::java_util_Enumeration *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_util_Enumeration java_security_PermissionCollection::elements() exit");
 
 	return result;
@@ -434,8 +427,6 @@ bool java_security_PermissionCollection::isReadOnly()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_PermissionCollection cxx address %d", cxxAddress);
@@ -464,8 +455,6 @@ bool java_security_PermissionCollection::isReadOnly()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_security_PermissionCollection::isReadOnly() exit");
 
 	return result;

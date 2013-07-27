@@ -103,24 +103,21 @@ class com_facebook_Response
 public:
 
 	com_facebook_Response(const com_facebook_Response& cc);
-	com_facebook_Response(void * proxy);
+	com_facebook_Response(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_Response();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Response();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
-	 FacebookCXX::com_facebook_model_GraphObject getGraphObjectAs(AndroidCXX::java_lang_Class& arg0);
+	 FacebookCXX::com_facebook_model_GraphObject getGraphObjectAs(AndroidCXX::java_lang_Class const& arg0);
 	 FacebookCXX::com_facebook_FacebookRequestError getError();
 	 FacebookCXX::com_facebook_model_GraphObject getGraphObject();
 	 FacebookCXX::com_facebook_model_GraphObjectList getGraphObjectList();
-	 FacebookCXX::com_facebook_model_GraphObjectList getGraphObjectListAs(AndroidCXX::java_lang_Class& arg0);
+	 FacebookCXX::com_facebook_model_GraphObjectList getGraphObjectListAs(AndroidCXX::java_lang_Class const& arg0);
 	 AndroidCXX::java_net_HttpURLConnection getConnection();
 	 FacebookCXX::com_facebook_Request getRequest();
-	 FacebookCXX::com_facebook_Request getRequestForPagedResults(COM_FACEBOOK_RESPONSE_PAGINGDIRECTION::com_facebook_Response_PagingDirection& arg0);
+	 FacebookCXX::com_facebook_Request getRequestForPagedResults(com_facebook_Response_PagingDirection::com_facebook_Response_PagingDirection const& arg0);
 	 bool getIsFromCache();
 };	
 

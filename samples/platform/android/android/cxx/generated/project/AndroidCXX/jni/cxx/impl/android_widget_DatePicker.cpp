@@ -108,7 +108,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_DatePicker::android_widget_DatePicker(const android_widget_DatePicker& cc)
 {
 	LOGV("android_widget_DatePicker::android_widget_DatePicker(const android_widget_DatePicker& cc) enter");
@@ -132,9 +131,9 @@ android_widget_DatePicker::android_widget_DatePicker(const android_widget_DatePi
 
 	LOGV("android_widget_DatePicker::android_widget_DatePicker(const android_widget_DatePicker& cc) exit");
 }
-android_widget_DatePicker::android_widget_DatePicker(void * proxy)
+android_widget_DatePicker::android_widget_DatePicker(Proxy proxy)
 {
-	LOGV("android_widget_DatePicker::android_widget_DatePicker(void * proxy) enter");
+	LOGV("android_widget_DatePicker::android_widget_DatePicker(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -144,55 +143,34 @@ android_widget_DatePicker::android_widget_DatePicker(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_DatePicker::android_widget_DatePicker(void * proxy) exit");
+	LOGV("android_widget_DatePicker::android_widget_DatePicker(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_DatePicker::android_widget_DatePicker()
-// {
-// 	LOGV("android_widget_DatePicker::android_widget_DatePicker() enter");	
+Proxy android_widget_DatePicker::proxy() const
+{	
+	LOGV("android_widget_DatePicker::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/DatePicker";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_DatePicker cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_DatePicker jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_DatePicker::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_DatePicker cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_DatePicker jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_DatePicker::android_widget_DatePicker() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+	return proxy;
+}
+android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -266,11 +244,11 @@ android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
+android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2)
 {
-	LOGV("android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) enter");	
+	LOGV("android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
@@ -365,11 +343,11 @@ android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) exit");	
+	LOGV("android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) exit");	
 }
-android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content_Context& arg0)
+android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -422,7 +400,7 @@ android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content_Context const& arg0) exit");	
 }
 // Default Instance Destructor
 android_widget_DatePicker::~android_widget_DatePicker()
@@ -435,13 +413,13 @@ android_widget_DatePicker::~android_widget_DatePicker()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_DatePicker::~android_widget_DatePicker() exit");
 }
 // Functions
-void android_widget_DatePicker::init(int& arg0,int& arg1,int& arg2,AndroidCXX::android_widget_DatePicker_OnDateChangedListener& arg3)
+void android_widget_DatePicker::init(int const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_widget_DatePicker_OnDateChangedListener const& arg3)
 {
-	LOGV("void android_widget_DatePicker::init(int& arg0,int& arg1,int& arg2,AndroidCXX::android_widget_DatePicker_OnDateChangedListener& arg3) enter");
+	LOGV("void android_widget_DatePicker::init(int const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_widget_DatePicker_OnDateChangedListener const& arg3) enter");
 
 	const char *methodName = "init";
 	const char *methodSignature = "(IIILandroid/widget/DatePicker$OnDateChangedListener;)V";
@@ -451,8 +429,6 @@ void android_widget_DatePicker::init(int& arg0,int& arg1,int& arg2,AndroidCXX::a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DatePicker cxx address %d", cxxAddress);
@@ -546,9 +522,7 @@ void android_widget_DatePicker::init(int& arg0,int& arg1,int& arg2,AndroidCXX::a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_DatePicker::init(int& arg0,int& arg1,int& arg2,AndroidCXX::android_widget_DatePicker_OnDateChangedListener& arg3) exit");
+	LOGV("void android_widget_DatePicker::init(int const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_widget_DatePicker_OnDateChangedListener const& arg3) exit");
 
 }
 int android_widget_DatePicker::getYear()
@@ -563,8 +537,6 @@ int android_widget_DatePicker::getYear()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DatePicker cxx address %d", cxxAddress);
@@ -593,8 +565,6 @@ int android_widget_DatePicker::getYear()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_DatePicker::getYear() exit");
 
 	return result;
@@ -612,8 +582,6 @@ int android_widget_DatePicker::getMonth()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DatePicker cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -641,8 +609,6 @@ int android_widget_DatePicker::getMonth()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_DatePicker::getMonth() exit");
 
 	return result;
@@ -660,8 +626,6 @@ int android_widget_DatePicker::getDayOfMonth()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DatePicker cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -689,8 +653,6 @@ int android_widget_DatePicker::getDayOfMonth()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_DatePicker::getDayOfMonth() exit");
 
 	return result;
@@ -707,8 +669,6 @@ bool android_widget_DatePicker::isEnabled()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DatePicker cxx address %d", cxxAddress);
@@ -737,15 +697,13 @@ bool android_widget_DatePicker::isEnabled()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_DatePicker::isEnabled() exit");
 
 	return result;
 }
-bool android_widget_DatePicker::dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+bool android_widget_DatePicker::dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("bool android_widget_DatePicker::dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("bool android_widget_DatePicker::dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "dispatchPopulateAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)Z";
@@ -755,8 +713,6 @@ bool android_widget_DatePicker::dispatchPopulateAccessibilityEvent(AndroidCXX::a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DatePicker cxx address %d", cxxAddress);
@@ -806,15 +762,13 @@ bool android_widget_DatePicker::dispatchPopulateAccessibilityEvent(AndroidCXX::a
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_DatePicker::dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("bool android_widget_DatePicker::dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 	return result;
 }
-void android_widget_DatePicker::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_DatePicker::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_DatePicker::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_DatePicker::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onPopulateAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -825,8 +779,6 @@ void android_widget_DatePicker::onPopulateAccessibilityEvent(AndroidCXX::android
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DatePicker cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -856,14 +808,12 @@ void android_widget_DatePicker::onPopulateAccessibilityEvent(AndroidCXX::android
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_DatePicker::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_DatePicker::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_DatePicker::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_DatePicker::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_DatePicker::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_DatePicker::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -874,8 +824,6 @@ void android_widget_DatePicker::onInitializeAccessibilityEvent(AndroidCXX::andro
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DatePicker cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -905,14 +853,12 @@ void android_widget_DatePicker::onInitializeAccessibilityEvent(AndroidCXX::andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_DatePicker::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_DatePicker::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_DatePicker::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0)
+void android_widget_DatePicker::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0)
 {
-	LOGV("void android_widget_DatePicker::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) enter");
+	LOGV("void android_widget_DatePicker::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityNodeInfo";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
@@ -922,8 +868,6 @@ void android_widget_DatePicker::onInitializeAccessibilityNodeInfo(AndroidCXX::an
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DatePicker cxx address %d", cxxAddress);
@@ -954,14 +898,12 @@ void android_widget_DatePicker::onInitializeAccessibilityNodeInfo(AndroidCXX::an
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_DatePicker::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) exit");
+	LOGV("void android_widget_DatePicker::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) exit");
 
 }
-void android_widget_DatePicker::setEnabled(bool& arg0)
+void android_widget_DatePicker::setEnabled(bool const& arg0)
 {
-	LOGV("void android_widget_DatePicker::setEnabled(bool& arg0) enter");
+	LOGV("void android_widget_DatePicker::setEnabled(bool const& arg0) enter");
 
 	const char *methodName = "setEnabled";
 	const char *methodSignature = "(Z)V";
@@ -971,8 +913,6 @@ void android_widget_DatePicker::setEnabled(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DatePicker cxx address %d", cxxAddress);
@@ -1003,9 +943,7 @@ void android_widget_DatePicker::setEnabled(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_DatePicker::setEnabled(bool& arg0) exit");
+	LOGV("void android_widget_DatePicker::setEnabled(bool const& arg0) exit");
 
 }
 long android_widget_DatePicker::getMinDate()
@@ -1021,8 +959,6 @@ long android_widget_DatePicker::getMinDate()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DatePicker cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1050,15 +986,13 @@ long android_widget_DatePicker::getMinDate()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long android_widget_DatePicker::getMinDate() exit");
 
 	return result;
 }
-void android_widget_DatePicker::setMinDate(long& arg0)
+void android_widget_DatePicker::setMinDate(long const& arg0)
 {
-	LOGV("void android_widget_DatePicker::setMinDate(long& arg0) enter");
+	LOGV("void android_widget_DatePicker::setMinDate(long const& arg0) enter");
 
 	const char *methodName = "setMinDate";
 	const char *methodSignature = "(J)V";
@@ -1068,8 +1002,6 @@ void android_widget_DatePicker::setMinDate(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DatePicker cxx address %d", cxxAddress);
@@ -1100,9 +1032,7 @@ void android_widget_DatePicker::setMinDate(long& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_DatePicker::setMinDate(long& arg0) exit");
+	LOGV("void android_widget_DatePicker::setMinDate(long const& arg0) exit");
 
 }
 long android_widget_DatePicker::getMaxDate()
@@ -1118,8 +1048,6 @@ long android_widget_DatePicker::getMaxDate()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DatePicker cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1147,15 +1075,13 @@ long android_widget_DatePicker::getMaxDate()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long android_widget_DatePicker::getMaxDate() exit");
 
 	return result;
 }
-void android_widget_DatePicker::setMaxDate(long& arg0)
+void android_widget_DatePicker::setMaxDate(long const& arg0)
 {
-	LOGV("void android_widget_DatePicker::setMaxDate(long& arg0) enter");
+	LOGV("void android_widget_DatePicker::setMaxDate(long const& arg0) enter");
 
 	const char *methodName = "setMaxDate";
 	const char *methodSignature = "(J)V";
@@ -1165,8 +1091,6 @@ void android_widget_DatePicker::setMaxDate(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DatePicker cxx address %d", cxxAddress);
@@ -1197,9 +1121,7 @@ void android_widget_DatePicker::setMaxDate(long& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_DatePicker::setMaxDate(long& arg0) exit");
+	LOGV("void android_widget_DatePicker::setMaxDate(long const& arg0) exit");
 
 }
 bool android_widget_DatePicker::getCalendarViewShown()
@@ -1214,8 +1136,6 @@ bool android_widget_DatePicker::getCalendarViewShown()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DatePicker cxx address %d", cxxAddress);
@@ -1244,8 +1164,6 @@ bool android_widget_DatePicker::getCalendarViewShown()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_DatePicker::getCalendarViewShown() exit");
 
 	return result;
@@ -1262,8 +1180,6 @@ AndroidCXX::android_widget_CalendarView android_widget_DatePicker::getCalendarVi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DatePicker cxx address %d", cxxAddress);
@@ -1292,15 +1208,13 @@ AndroidCXX::android_widget_CalendarView android_widget_DatePicker::getCalendarVi
 	AndroidCXX::android_widget_CalendarView result((AndroidCXX::android_widget_CalendarView) *((AndroidCXX::android_widget_CalendarView *) cxx_value));
 	delete ((AndroidCXX::android_widget_CalendarView *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_widget_CalendarView android_widget_DatePicker::getCalendarView() exit");
 
 	return result;
 }
-void android_widget_DatePicker::setCalendarViewShown(bool& arg0)
+void android_widget_DatePicker::setCalendarViewShown(bool const& arg0)
 {
-	LOGV("void android_widget_DatePicker::setCalendarViewShown(bool& arg0) enter");
+	LOGV("void android_widget_DatePicker::setCalendarViewShown(bool const& arg0) enter");
 
 	const char *methodName = "setCalendarViewShown";
 	const char *methodSignature = "(Z)V";
@@ -1310,8 +1224,6 @@ void android_widget_DatePicker::setCalendarViewShown(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DatePicker cxx address %d", cxxAddress);
@@ -1342,9 +1254,7 @@ void android_widget_DatePicker::setCalendarViewShown(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_DatePicker::setCalendarViewShown(bool& arg0) exit");
+	LOGV("void android_widget_DatePicker::setCalendarViewShown(bool const& arg0) exit");
 
 }
 bool android_widget_DatePicker::getSpinnersShown()
@@ -1359,8 +1269,6 @@ bool android_widget_DatePicker::getSpinnersShown()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DatePicker cxx address %d", cxxAddress);
@@ -1389,15 +1297,13 @@ bool android_widget_DatePicker::getSpinnersShown()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_DatePicker::getSpinnersShown() exit");
 
 	return result;
 }
-void android_widget_DatePicker::setSpinnersShown(bool& arg0)
+void android_widget_DatePicker::setSpinnersShown(bool const& arg0)
 {
-	LOGV("void android_widget_DatePicker::setSpinnersShown(bool& arg0) enter");
+	LOGV("void android_widget_DatePicker::setSpinnersShown(bool const& arg0) enter");
 
 	const char *methodName = "setSpinnersShown";
 	const char *methodSignature = "(Z)V";
@@ -1407,8 +1313,6 @@ void android_widget_DatePicker::setSpinnersShown(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DatePicker cxx address %d", cxxAddress);
@@ -1439,14 +1343,12 @@ void android_widget_DatePicker::setSpinnersShown(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_DatePicker::setSpinnersShown(bool& arg0) exit");
+	LOGV("void android_widget_DatePicker::setSpinnersShown(bool const& arg0) exit");
 
 }
-void android_widget_DatePicker::updateDate(int& arg0,int& arg1,int& arg2)
+void android_widget_DatePicker::updateDate(int const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("void android_widget_DatePicker::updateDate(int& arg0,int& arg1,int& arg2) enter");
+	LOGV("void android_widget_DatePicker::updateDate(int const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "updateDate";
 	const char *methodSignature = "(III)V";
@@ -1456,8 +1358,6 @@ void android_widget_DatePicker::updateDate(int& arg0,int& arg1,int& arg2)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_DatePicker cxx address %d", cxxAddress);
@@ -1530,8 +1430,6 @@ void android_widget_DatePicker::updateDate(int& arg0,int& arg1,int& arg2)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_DatePicker::updateDate(int& arg0,int& arg1,int& arg2) exit");
+	LOGV("void android_widget_DatePicker::updateDate(int const& arg0,int const& arg1,int const& arg2) exit");
 
 }

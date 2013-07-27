@@ -125,7 +125,6 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_nio_charset_CharsetEncoder::java_nio_charset_CharsetEncoder(const java_nio_charset_CharsetEncoder& cc)
 {
 	LOGV("java_nio_charset_CharsetEncoder::java_nio_charset_CharsetEncoder(const java_nio_charset_CharsetEncoder& cc) enter");
@@ -149,9 +148,9 @@ java_nio_charset_CharsetEncoder::java_nio_charset_CharsetEncoder(const java_nio_
 
 	LOGV("java_nio_charset_CharsetEncoder::java_nio_charset_CharsetEncoder(const java_nio_charset_CharsetEncoder& cc) exit");
 }
-java_nio_charset_CharsetEncoder::java_nio_charset_CharsetEncoder(void * proxy)
+java_nio_charset_CharsetEncoder::java_nio_charset_CharsetEncoder(Proxy proxy)
 {
-	LOGV("java_nio_charset_CharsetEncoder::java_nio_charset_CharsetEncoder(void * proxy) enter");
+	LOGV("java_nio_charset_CharsetEncoder::java_nio_charset_CharsetEncoder(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -161,52 +160,31 @@ java_nio_charset_CharsetEncoder::java_nio_charset_CharsetEncoder(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_nio_charset_CharsetEncoder::java_nio_charset_CharsetEncoder(void * proxy) exit");
+	LOGV("java_nio_charset_CharsetEncoder::java_nio_charset_CharsetEncoder(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_nio_charset_CharsetEncoder::java_nio_charset_CharsetEncoder()
-// {
-// 	LOGV("java_nio_charset_CharsetEncoder::java_nio_charset_CharsetEncoder() enter");	
+Proxy java_nio_charset_CharsetEncoder::proxy() const
+{	
+	LOGV("java_nio_charset_CharsetEncoder::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/nio/charset/CharsetEncoder";
+	long cxxAddress = (long) this;
+	LOGV("java_nio_charset_CharsetEncoder cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_charset_CharsetEncoder jni address %d", proxiedComponent);
 
-// 	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_nio_charset_CharsetEncoder::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_nio_charset_CharsetEncoder cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_nio_charset_CharsetEncoder jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_nio_charset_CharsetEncoder::java_nio_charset_CharsetEncoder() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_nio_charset_CharsetEncoder::~java_nio_charset_CharsetEncoder()
 {
@@ -218,7 +196,7 @@ java_nio_charset_CharsetEncoder::~java_nio_charset_CharsetEncoder()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_nio_charset_CharsetEncoder::~java_nio_charset_CharsetEncoder() exit");
 }
 // Functions
@@ -234,8 +212,6 @@ JDKCXX::java_nio_charset_Charset java_nio_charset_CharsetEncoder::charset()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetEncoder cxx address %d", cxxAddress);
@@ -264,15 +240,13 @@ JDKCXX::java_nio_charset_Charset java_nio_charset_CharsetEncoder::charset()
 	JDKCXX::java_nio_charset_Charset result((JDKCXX::java_nio_charset_Charset) *((JDKCXX::java_nio_charset_Charset *) cxx_value));
 	delete ((JDKCXX::java_nio_charset_Charset *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_nio_charset_Charset java_nio_charset_CharsetEncoder::charset() exit");
 
 	return result;
 }
-JDKCXX::java_nio_charset_CoderResult java_nio_charset_CharsetEncoder::encode(JDKCXX::java_nio_CharBuffer& arg0,JDKCXX::java_nio_ByteBuffer& arg1,bool& arg2)
+JDKCXX::java_nio_charset_CoderResult java_nio_charset_CharsetEncoder::encode(JDKCXX::java_nio_CharBuffer const& arg0,JDKCXX::java_nio_ByteBuffer const& arg1,bool const& arg2)
 {
-	LOGV("JDKCXX::java_nio_charset_CoderResult java_nio_charset_CharsetEncoder::encode(JDKCXX::java_nio_CharBuffer& arg0,JDKCXX::java_nio_ByteBuffer& arg1,bool& arg2) enter");
+	LOGV("JDKCXX::java_nio_charset_CoderResult java_nio_charset_CharsetEncoder::encode(JDKCXX::java_nio_CharBuffer const& arg0,JDKCXX::java_nio_ByteBuffer const& arg1,bool const& arg2) enter");
 
 	const char *methodName = "encode";
 	const char *methodSignature = "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;Z)Ljava/nio/charset/CoderResult;";
@@ -282,8 +256,6 @@ JDKCXX::java_nio_charset_CoderResult java_nio_charset_CharsetEncoder::encode(JDK
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetEncoder cxx address %d", cxxAddress);
@@ -375,15 +347,13 @@ JDKCXX::java_nio_charset_CoderResult java_nio_charset_CharsetEncoder::encode(JDK
 	JDKCXX::java_nio_charset_CoderResult result((JDKCXX::java_nio_charset_CoderResult) *((JDKCXX::java_nio_charset_CoderResult *) cxx_value));
 	delete ((JDKCXX::java_nio_charset_CoderResult *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_nio_charset_CoderResult java_nio_charset_CharsetEncoder::encode(JDKCXX::java_nio_CharBuffer& arg0,JDKCXX::java_nio_ByteBuffer& arg1,bool& arg2) exit");
+	LOGV("JDKCXX::java_nio_charset_CoderResult java_nio_charset_CharsetEncoder::encode(JDKCXX::java_nio_CharBuffer const& arg0,JDKCXX::java_nio_ByteBuffer const& arg1,bool const& arg2) exit");
 
 	return result;
 }
-JDKCXX::java_nio_ByteBuffer java_nio_charset_CharsetEncoder::encode(JDKCXX::java_nio_CharBuffer& arg0)
+JDKCXX::java_nio_ByteBuffer java_nio_charset_CharsetEncoder::encode(JDKCXX::java_nio_CharBuffer const& arg0)
 {
-	LOGV("JDKCXX::java_nio_ByteBuffer java_nio_charset_CharsetEncoder::encode(JDKCXX::java_nio_CharBuffer& arg0) enter");
+	LOGV("JDKCXX::java_nio_ByteBuffer java_nio_charset_CharsetEncoder::encode(JDKCXX::java_nio_CharBuffer const& arg0) enter");
 
 	const char *methodName = "encode";
 	const char *methodSignature = "(Ljava/nio/CharBuffer;)Ljava/nio/ByteBuffer;";
@@ -393,8 +363,6 @@ JDKCXX::java_nio_ByteBuffer java_nio_charset_CharsetEncoder::encode(JDKCXX::java
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetEncoder cxx address %d", cxxAddress);
@@ -444,15 +412,13 @@ JDKCXX::java_nio_ByteBuffer java_nio_charset_CharsetEncoder::encode(JDKCXX::java
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
 	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_nio_ByteBuffer java_nio_charset_CharsetEncoder::encode(JDKCXX::java_nio_CharBuffer& arg0) exit");
+	LOGV("JDKCXX::java_nio_ByteBuffer java_nio_charset_CharsetEncoder::encode(JDKCXX::java_nio_CharBuffer const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_nio_charset_CoderResult java_nio_charset_CharsetEncoder::flush(JDKCXX::java_nio_ByteBuffer& arg0)
+JDKCXX::java_nio_charset_CoderResult java_nio_charset_CharsetEncoder::flush(JDKCXX::java_nio_ByteBuffer const& arg0)
 {
-	LOGV("JDKCXX::java_nio_charset_CoderResult java_nio_charset_CharsetEncoder::flush(JDKCXX::java_nio_ByteBuffer& arg0) enter");
+	LOGV("JDKCXX::java_nio_charset_CoderResult java_nio_charset_CharsetEncoder::flush(JDKCXX::java_nio_ByteBuffer const& arg0) enter");
 
 	const char *methodName = "flush";
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;";
@@ -462,8 +428,6 @@ JDKCXX::java_nio_charset_CoderResult java_nio_charset_CharsetEncoder::flush(JDKC
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetEncoder cxx address %d", cxxAddress);
@@ -513,9 +477,7 @@ JDKCXX::java_nio_charset_CoderResult java_nio_charset_CharsetEncoder::flush(JDKC
 	JDKCXX::java_nio_charset_CoderResult result((JDKCXX::java_nio_charset_CoderResult) *((JDKCXX::java_nio_charset_CoderResult *) cxx_value));
 	delete ((JDKCXX::java_nio_charset_CoderResult *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_nio_charset_CoderResult java_nio_charset_CharsetEncoder::flush(JDKCXX::java_nio_ByteBuffer& arg0) exit");
+	LOGV("JDKCXX::java_nio_charset_CoderResult java_nio_charset_CharsetEncoder::flush(JDKCXX::java_nio_ByteBuffer const& arg0) exit");
 
 	return result;
 }
@@ -531,8 +493,6 @@ JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::reset()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetEncoder cxx address %d", cxxAddress);
@@ -561,15 +521,13 @@ JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::reset()
 	JDKCXX::java_nio_charset_CharsetEncoder result((JDKCXX::java_nio_charset_CharsetEncoder) *((JDKCXX::java_nio_charset_CharsetEncoder *) cxx_value));
 	delete ((JDKCXX::java_nio_charset_CharsetEncoder *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::reset() exit");
 
 	return result;
 }
-bool java_nio_charset_CharsetEncoder::canEncode(char& arg0)
+bool java_nio_charset_CharsetEncoder::canEncode(char const& arg0)
 {
-	LOGV("bool java_nio_charset_CharsetEncoder::canEncode(char& arg0) enter");
+	LOGV("bool java_nio_charset_CharsetEncoder::canEncode(char const& arg0) enter");
 
 	const char *methodName = "canEncode";
 	const char *methodSignature = "(C)Z";
@@ -579,8 +537,6 @@ bool java_nio_charset_CharsetEncoder::canEncode(char& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetEncoder cxx address %d", cxxAddress);
@@ -630,15 +586,13 @@ bool java_nio_charset_CharsetEncoder::canEncode(char& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_nio_charset_CharsetEncoder::canEncode(char& arg0) exit");
+	LOGV("bool java_nio_charset_CharsetEncoder::canEncode(char const& arg0) exit");
 
 	return result;
 }
-bool java_nio_charset_CharsetEncoder::canEncode(JDKCXX::java_lang_CharSequence& arg0)
+bool java_nio_charset_CharsetEncoder::canEncode(JDKCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("bool java_nio_charset_CharsetEncoder::canEncode(JDKCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("bool java_nio_charset_CharsetEncoder::canEncode(JDKCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "canEncode";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Z";
@@ -648,8 +602,6 @@ bool java_nio_charset_CharsetEncoder::canEncode(JDKCXX::java_lang_CharSequence& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetEncoder cxx address %d", cxxAddress);
@@ -699,15 +651,13 @@ bool java_nio_charset_CharsetEncoder::canEncode(JDKCXX::java_lang_CharSequence& 
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_nio_charset_CharsetEncoder::canEncode(JDKCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("bool java_nio_charset_CharsetEncoder::canEncode(JDKCXX::java_lang_CharSequence const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::onMalformedInput(JDKCXX::java_nio_charset_CodingErrorAction& arg0)
+JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::onMalformedInput(JDKCXX::java_nio_charset_CodingErrorAction const& arg0)
 {
-	LOGV("JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::onMalformedInput(JDKCXX::java_nio_charset_CodingErrorAction& arg0) enter");
+	LOGV("JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::onMalformedInput(JDKCXX::java_nio_charset_CodingErrorAction const& arg0) enter");
 
 	const char *methodName = "onMalformedInput";
 	const char *methodSignature = "(Ljava/nio/charset/CodingErrorAction;)Ljava/nio/charset/CharsetEncoder;";
@@ -718,8 +668,6 @@ JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::onMalfo
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetEncoder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -768,15 +716,13 @@ JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::onMalfo
 	JDKCXX::java_nio_charset_CharsetEncoder result((JDKCXX::java_nio_charset_CharsetEncoder) *((JDKCXX::java_nio_charset_CharsetEncoder *) cxx_value));
 	delete ((JDKCXX::java_nio_charset_CharsetEncoder *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::onMalformedInput(JDKCXX::java_nio_charset_CodingErrorAction& arg0) exit");
+	LOGV("JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::onMalformedInput(JDKCXX::java_nio_charset_CodingErrorAction const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::onUnmappableCharacter(JDKCXX::java_nio_charset_CodingErrorAction& arg0)
+JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::onUnmappableCharacter(JDKCXX::java_nio_charset_CodingErrorAction const& arg0)
 {
-	LOGV("JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::onUnmappableCharacter(JDKCXX::java_nio_charset_CodingErrorAction& arg0) enter");
+	LOGV("JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::onUnmappableCharacter(JDKCXX::java_nio_charset_CodingErrorAction const& arg0) enter");
 
 	const char *methodName = "onUnmappableCharacter";
 	const char *methodSignature = "(Ljava/nio/charset/CodingErrorAction;)Ljava/nio/charset/CharsetEncoder;";
@@ -787,8 +733,6 @@ JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::onUnmap
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetEncoder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -837,9 +781,7 @@ JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::onUnmap
 	JDKCXX::java_nio_charset_CharsetEncoder result((JDKCXX::java_nio_charset_CharsetEncoder) *((JDKCXX::java_nio_charset_CharsetEncoder *) cxx_value));
 	delete ((JDKCXX::java_nio_charset_CharsetEncoder *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::onUnmappableCharacter(JDKCXX::java_nio_charset_CodingErrorAction& arg0) exit");
+	LOGV("JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::onUnmappableCharacter(JDKCXX::java_nio_charset_CodingErrorAction const& arg0) exit");
 
 	return result;
 }
@@ -855,8 +797,6 @@ float java_nio_charset_CharsetEncoder::maxBytesPerChar()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetEncoder cxx address %d", cxxAddress);
@@ -885,15 +825,13 @@ float java_nio_charset_CharsetEncoder::maxBytesPerChar()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float java_nio_charset_CharsetEncoder::maxBytesPerChar() exit");
 
 	return result;
 }
-bool java_nio_charset_CharsetEncoder::isLegalReplacement(std::vector<byte>& arg0)
+bool java_nio_charset_CharsetEncoder::isLegalReplacement(std::vector<byte> const& arg0)
 {
-	LOGV("bool java_nio_charset_CharsetEncoder::isLegalReplacement(std::vector<byte>& arg0) enter");
+	LOGV("bool java_nio_charset_CharsetEncoder::isLegalReplacement(std::vector<byte> const& arg0) enter");
 
 	const char *methodName = "isLegalReplacement";
 	const char *methodSignature = "([B)Z";
@@ -903,8 +841,6 @@ bool java_nio_charset_CharsetEncoder::isLegalReplacement(std::vector<byte>& arg0
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetEncoder cxx address %d", cxxAddress);
@@ -972,9 +908,7 @@ bool java_nio_charset_CharsetEncoder::isLegalReplacement(std::vector<byte>& arg0
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_nio_charset_CharsetEncoder::isLegalReplacement(std::vector<byte>& arg0) exit");
+	LOGV("bool java_nio_charset_CharsetEncoder::isLegalReplacement(std::vector<byte> const& arg0) exit");
 
 	return result;
 }
@@ -990,8 +924,6 @@ float java_nio_charset_CharsetEncoder::averageBytesPerChar()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetEncoder cxx address %d", cxxAddress);
@@ -1020,8 +952,6 @@ float java_nio_charset_CharsetEncoder::averageBytesPerChar()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float java_nio_charset_CharsetEncoder::averageBytesPerChar() exit");
 
 	return result;
@@ -1038,8 +968,6 @@ std::vector<byte> java_nio_charset_CharsetEncoder::replacement()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetEncoder cxx address %d", cxxAddress);
@@ -1086,8 +1014,6 @@ std::vector<byte> java_nio_charset_CharsetEncoder::replacement()
 	std::vector<byte> result = (std::vector<byte>) *((std::vector<byte> *) cxx_value);
 	delete ((std::vector<byte> *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<byte> java_nio_charset_CharsetEncoder::replacement() exit");
 
 	return result;
@@ -1105,8 +1031,6 @@ JDKCXX::java_nio_charset_CodingErrorAction java_nio_charset_CharsetEncoder::malf
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetEncoder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1134,8 +1058,6 @@ JDKCXX::java_nio_charset_CodingErrorAction java_nio_charset_CharsetEncoder::malf
 	JDKCXX::java_nio_charset_CodingErrorAction result((JDKCXX::java_nio_charset_CodingErrorAction) *((JDKCXX::java_nio_charset_CodingErrorAction *) cxx_value));
 	delete ((JDKCXX::java_nio_charset_CodingErrorAction *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_nio_charset_CodingErrorAction java_nio_charset_CharsetEncoder::malformedInputAction() exit");
 
 	return result;
@@ -1153,8 +1075,6 @@ JDKCXX::java_nio_charset_CodingErrorAction java_nio_charset_CharsetEncoder::unma
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetEncoder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1182,15 +1102,13 @@ JDKCXX::java_nio_charset_CodingErrorAction java_nio_charset_CharsetEncoder::unma
 	JDKCXX::java_nio_charset_CodingErrorAction result((JDKCXX::java_nio_charset_CodingErrorAction) *((JDKCXX::java_nio_charset_CodingErrorAction *) cxx_value));
 	delete ((JDKCXX::java_nio_charset_CodingErrorAction *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_nio_charset_CodingErrorAction java_nio_charset_CharsetEncoder::unmappableCharacterAction() exit");
 
 	return result;
 }
-JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::replaceWith(std::vector<byte>& arg0)
+JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::replaceWith(std::vector<byte> const& arg0)
 {
-	LOGV("JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::replaceWith(std::vector<byte>& arg0) enter");
+	LOGV("JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::replaceWith(std::vector<byte> const& arg0) enter");
 
 	const char *methodName = "replaceWith";
 	const char *methodSignature = "([B)Ljava/nio/charset/CharsetEncoder;";
@@ -1200,8 +1118,6 @@ JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::replace
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetEncoder cxx address %d", cxxAddress);
@@ -1269,9 +1185,7 @@ JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::replace
 	JDKCXX::java_nio_charset_CharsetEncoder result((JDKCXX::java_nio_charset_CharsetEncoder) *((JDKCXX::java_nio_charset_CharsetEncoder *) cxx_value));
 	delete ((JDKCXX::java_nio_charset_CharsetEncoder *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::replaceWith(std::vector<byte>& arg0) exit");
+	LOGV("JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::replaceWith(std::vector<byte> const& arg0) exit");
 
 	return result;
 }

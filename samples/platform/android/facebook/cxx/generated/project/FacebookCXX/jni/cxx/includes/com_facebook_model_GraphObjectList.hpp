@@ -67,16 +67,13 @@ class com_facebook_model_GraphObjectList
 public:
 
 	com_facebook_model_GraphObjectList(const com_facebook_model_GraphObjectList& cc);
-	com_facebook_model_GraphObjectList(void * proxy);
+	com_facebook_model_GraphObjectList(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_model_GraphObjectList();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphObjectList();
 	// Functions
-	 FacebookCXX::com_facebook_model_GraphObjectList castToListOf(AndroidCXX::java_lang_Class& arg0);
+	 FacebookCXX::com_facebook_model_GraphObjectList castToListOf(AndroidCXX::java_lang_Class const& arg0);
 	 AndroidCXX::org_json_JSONArray getInnerJSONArray();
 };	
 

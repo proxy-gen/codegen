@@ -61,19 +61,16 @@ class android_content_IntentFilter_AuthorityEntry
 public:
 
 	android_content_IntentFilter_AuthorityEntry(const android_content_IntentFilter_AuthorityEntry& cc);
-	android_content_IntentFilter_AuthorityEntry(void * proxy);
+	android_content_IntentFilter_AuthorityEntry(Proxy proxy);
 	// Public Constructors
-	android_content_IntentFilter_AuthorityEntry(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
-	// TODO: remove
-	// 
-	// android_content_IntentFilter_AuthorityEntry();
-	// 
+	android_content_IntentFilter_AuthorityEntry(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_IntentFilter_AuthorityEntry();
 	// Functions
 	 int getPort();
 	 AndroidCXX::java_lang_String getHost();
-	 int match(AndroidCXX::android_net_Uri& arg0);
+	 int match(AndroidCXX::android_net_Uri const& arg0);
 };	
 
 } // namespace

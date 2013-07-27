@@ -65,17 +65,14 @@ class android_text_method_TransformationMethod
 public:
 
 	android_text_method_TransformationMethod(const android_text_method_TransformationMethod& cc);
-	android_text_method_TransformationMethod(void * proxy);
+	android_text_method_TransformationMethod(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_text_method_TransformationMethod();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_text_method_TransformationMethod();
 	// Functions
-	 AndroidCXX::java_lang_CharSequence getTransformation(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_view_View& arg1);
-	 void onFocusChanged(AndroidCXX::android_view_View& arg0,AndroidCXX::java_lang_CharSequence& arg1,bool& arg2,int& arg3,AndroidCXX::android_graphics_Rect& arg4);
+	 AndroidCXX::java_lang_CharSequence getTransformation(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_view_View const& arg1);
+	 void onFocusChanged(AndroidCXX::android_view_View const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,bool const& arg2,int const& arg3,AndroidCXX::android_graphics_Rect const& arg4);
 };	
 
 } // namespace

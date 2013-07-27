@@ -55,16 +55,13 @@ class com_facebook_AuthorizationClient_StartActivityDelegate
 public:
 
 	com_facebook_AuthorizationClient_StartActivityDelegate(const com_facebook_AuthorizationClient_StartActivityDelegate& cc);
-	com_facebook_AuthorizationClient_StartActivityDelegate(void * proxy);
+	com_facebook_AuthorizationClient_StartActivityDelegate(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_AuthorizationClient_StartActivityDelegate();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_StartActivityDelegate();
 	// Functions
-	 void startActivityForResult(AndroidCXX::android_content_Intent& arg0,int& arg1);
+	 void startActivityForResult(AndroidCXX::android_content_Intent const& arg0,int const& arg1);
 	 AndroidCXX::android_app_Activity getActivityContext();
 };	
 

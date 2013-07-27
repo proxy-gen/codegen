@@ -73,22 +73,19 @@ class java_security_cert_Certificate
 public:
 
 	java_security_cert_Certificate(const java_security_cert_Certificate& cc);
-	java_security_cert_Certificate(void * proxy);
+	java_security_cert_Certificate(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_security_cert_Certificate();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_security_cert_Certificate();
 	// Functions
-	 bool equals(JDKCXX::java_lang_Object& arg0);
+	 bool equals(JDKCXX::java_lang_Object const& arg0);
 	 JDKCXX::java_lang_String toString();
 	 int hashCode();
 	 JDKCXX::java_lang_String getType();
 	 std::vector<byte> getEncoded();
-	 void verify(JDKCXX::java_security_PublicKey& arg0);
-	 void verify(JDKCXX::java_security_PublicKey& arg0,JDKCXX::java_lang_String& arg1);
+	 void verify(JDKCXX::java_security_PublicKey const& arg0);
+	 void verify(JDKCXX::java_security_PublicKey const& arg0,JDKCXX::java_lang_String const& arg1);
 	 JDKCXX::java_security_PublicKey getPublicKey();
 };	
 

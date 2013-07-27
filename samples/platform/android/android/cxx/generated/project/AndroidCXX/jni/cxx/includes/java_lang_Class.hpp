@@ -288,20 +288,17 @@ class java_lang_Class
 public:
 
 	java_lang_Class(const java_lang_Class& cc);
-	java_lang_Class(void * proxy);
+	java_lang_Class(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_lang_Class();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Class();
 	// Functions
-	static AndroidCXX::java_lang_Class forName(AndroidCXX::java_lang_String& arg0);
-	static AndroidCXX::java_lang_Class forName(AndroidCXX::java_lang_String& arg0,bool& arg1,AndroidCXX::java_lang_ClassLoader& arg2);
+	static AndroidCXX::java_lang_Class forName(AndroidCXX::java_lang_String const& arg0);
+	static AndroidCXX::java_lang_Class forName(AndroidCXX::java_lang_String const& arg0,bool const& arg1,AndroidCXX::java_lang_ClassLoader const& arg2);
 	 AndroidCXX::java_lang_String toString();
-	 bool isAssignableFrom(AndroidCXX::java_lang_Class& arg0);
-	 bool isInstance(AndroidCXX::java_lang_Object& arg0);
+	 bool isAssignableFrom(AndroidCXX::java_lang_Class const& arg0);
+	 bool isInstance(AndroidCXX::java_lang_Object const& arg0);
 	 int getModifiers();
 	 bool isInterface();
 	 bool isArray();
@@ -332,26 +329,26 @@ public:
 	 std::vector<AndroidCXX::java_lang_reflect_Field > getFields();
 	 std::vector<AndroidCXX::java_lang_reflect_Method > getMethods();
 	 std::vector<AndroidCXX::java_lang_reflect_Constructor > getConstructors();
-	 AndroidCXX::java_lang_reflect_Field getField(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::java_lang_reflect_Method getMethod(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Class >& arg1);
-	 AndroidCXX::java_lang_reflect_Constructor getConstructor(std::vector<AndroidCXX::java_lang_Class >& arg0);
+	 AndroidCXX::java_lang_reflect_Field getField(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::java_lang_reflect_Method getMethod(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_Class > const& arg1);
+	 AndroidCXX::java_lang_reflect_Constructor getConstructor(std::vector<AndroidCXX::java_lang_Class > const& arg0);
 	 std::vector<AndroidCXX::java_lang_Class > getDeclaredClasses();
 	 std::vector<AndroidCXX::java_lang_reflect_Field > getDeclaredFields();
 	 std::vector<AndroidCXX::java_lang_reflect_Method > getDeclaredMethods();
 	 std::vector<AndroidCXX::java_lang_reflect_Constructor > getDeclaredConstructors();
-	 AndroidCXX::java_lang_reflect_Field getDeclaredField(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::java_lang_reflect_Method getDeclaredMethod(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Class >& arg1);
-	 AndroidCXX::java_lang_reflect_Constructor getDeclaredConstructor(std::vector<AndroidCXX::java_lang_Class >& arg0);
-	 AndroidCXX::java_io_InputStream getResourceAsStream(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::java_net_URL getResource(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_lang_reflect_Field getDeclaredField(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::java_lang_reflect_Method getDeclaredMethod(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_Class > const& arg1);
+	 AndroidCXX::java_lang_reflect_Constructor getDeclaredConstructor(std::vector<AndroidCXX::java_lang_Class > const& arg0);
+	 AndroidCXX::java_io_InputStream getResourceAsStream(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::java_net_URL getResource(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_security_ProtectionDomain getProtectionDomain();
 	 bool desiredAssertionStatus();
 	 bool isEnum();
 	 std::vector<AndroidCXX::java_lang_Object > getEnumConstants();
-	 AndroidCXX::java_lang_Object cast(AndroidCXX::java_lang_Object& arg0);
-	 AndroidCXX::java_lang_Class asSubclass(AndroidCXX::java_lang_Class& arg0);
-	 AndroidCXX::java_lang_annotation_Annotation getAnnotation(AndroidCXX::java_lang_Class& arg0);
-	 bool isAnnotationPresent(AndroidCXX::java_lang_Class& arg0);
+	 AndroidCXX::java_lang_Object cast(AndroidCXX::java_lang_Object const& arg0);
+	 AndroidCXX::java_lang_Class asSubclass(AndroidCXX::java_lang_Class const& arg0);
+	 AndroidCXX::java_lang_annotation_Annotation getAnnotation(AndroidCXX::java_lang_Class const& arg0);
+	 bool isAnnotationPresent(AndroidCXX::java_lang_Class const& arg0);
 	 std::vector<AndroidCXX::java_lang_annotation_Annotation > getAnnotations();
 	 std::vector<AndroidCXX::java_lang_annotation_Annotation > getDeclaredAnnotations();
 };	

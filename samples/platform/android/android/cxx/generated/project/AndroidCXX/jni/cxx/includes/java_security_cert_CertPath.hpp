@@ -85,22 +85,19 @@ class java_security_cert_CertPath
 public:
 
 	java_security_cert_CertPath(const java_security_cert_CertPath& cc);
-	java_security_cert_CertPath(void * proxy);
+	java_security_cert_CertPath(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_security_cert_CertPath();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_security_cert_CertPath();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 AndroidCXX::java_util_List getCertificates();
 	 AndroidCXX::java_lang_String getType();
 	 std::vector<byte> getEncoded();
-	 std::vector<byte> getEncoded(AndroidCXX::java_lang_String& arg0);
+	 std::vector<byte> getEncoded(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_util_Iterator getEncodings();
 };	
 

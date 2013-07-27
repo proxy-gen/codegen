@@ -47,7 +47,6 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_util_Enumeration::java_util_Enumeration(const java_util_Enumeration& cc)
 {
 	LOGV("java_util_Enumeration::java_util_Enumeration(const java_util_Enumeration& cc) enter");
@@ -71,9 +70,9 @@ java_util_Enumeration::java_util_Enumeration(const java_util_Enumeration& cc)
 
 	LOGV("java_util_Enumeration::java_util_Enumeration(const java_util_Enumeration& cc) exit");
 }
-java_util_Enumeration::java_util_Enumeration(void * proxy)
+java_util_Enumeration::java_util_Enumeration(Proxy proxy)
 {
-	LOGV("java_util_Enumeration::java_util_Enumeration(void * proxy) enter");
+	LOGV("java_util_Enumeration::java_util_Enumeration(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -83,52 +82,31 @@ java_util_Enumeration::java_util_Enumeration(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_util_Enumeration::java_util_Enumeration(void * proxy) exit");
+	LOGV("java_util_Enumeration::java_util_Enumeration(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_util_Enumeration::java_util_Enumeration()
-// {
-// 	LOGV("java_util_Enumeration::java_util_Enumeration() enter");	
+Proxy java_util_Enumeration::proxy() const
+{	
+	LOGV("java_util_Enumeration::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/util/Enumeration";
+	long cxxAddress = (long) this;
+	LOGV("java_util_Enumeration cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_util_Enumeration jni address %d", proxiedComponent);
 
-// 	LOGV("java_util_Enumeration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_util_Enumeration::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_util_Enumeration cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_util_Enumeration jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_util_Enumeration::java_util_Enumeration() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_util_Enumeration::~java_util_Enumeration()
 {
@@ -140,7 +118,7 @@ java_util_Enumeration::~java_util_Enumeration()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_util_Enumeration::~java_util_Enumeration() exit");
 }
 // Functions
@@ -156,8 +134,6 @@ bool java_util_Enumeration::hasMoreElements()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Enumeration cxx address %d", cxxAddress);
@@ -186,8 +162,6 @@ bool java_util_Enumeration::hasMoreElements()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_util_Enumeration::hasMoreElements() exit");
 
 	return result;
@@ -204,8 +178,6 @@ JDKCXX::java_lang_Object java_util_Enumeration::nextElement()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Enumeration cxx address %d", cxxAddress);
@@ -234,8 +206,6 @@ JDKCXX::java_lang_Object java_util_Enumeration::nextElement()
 	JDKCXX::java_lang_Object result((JDKCXX::java_lang_Object) *((JDKCXX::java_lang_Object *) cxx_value));
 	delete ((JDKCXX::java_lang_Object *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_Object java_util_Enumeration::nextElement() exit");
 
 	return result;

@@ -71,16 +71,13 @@ class android_content_ContentProvider_PipeDataWriter
 public:
 
 	android_content_ContentProvider_PipeDataWriter(const android_content_ContentProvider_PipeDataWriter& cc);
-	android_content_ContentProvider_PipeDataWriter(void * proxy);
+	android_content_ContentProvider_PipeDataWriter(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_content_ContentProvider_PipeDataWriter();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ContentProvider_PipeDataWriter();
 	// Functions
-	 void writeDataToPipe(AndroidCXX::android_os_ParcelFileDescriptor& arg0,AndroidCXX::android_net_Uri& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_os_Bundle& arg3,AndroidCXX::java_lang_Object& arg4);
+	 void writeDataToPipe(AndroidCXX::android_os_ParcelFileDescriptor const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_os_Bundle const& arg3,AndroidCXX::java_lang_Object const& arg4);
 };	
 
 } // namespace

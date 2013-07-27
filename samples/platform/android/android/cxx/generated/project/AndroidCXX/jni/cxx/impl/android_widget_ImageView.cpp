@@ -119,7 +119,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_PORTERDUFF_MODE;
+// using namespace android_graphics_PorterDuff_Mode;
 // 
 // 
 // 
@@ -142,7 +142,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_WIDGET_IMAGEVIEW_SCALETYPE;
+// using namespace android_widget_ImageView_ScaleType;
 // 
 // 
 // 
@@ -174,7 +174,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_ImageView::android_widget_ImageView(const android_widget_ImageView& cc)
 {
 	LOGV("android_widget_ImageView::android_widget_ImageView(const android_widget_ImageView& cc) enter");
@@ -198,9 +197,9 @@ android_widget_ImageView::android_widget_ImageView(const android_widget_ImageVie
 
 	LOGV("android_widget_ImageView::android_widget_ImageView(const android_widget_ImageView& cc) exit");
 }
-android_widget_ImageView::android_widget_ImageView(void * proxy)
+android_widget_ImageView::android_widget_ImageView(Proxy proxy)
 {
-	LOGV("android_widget_ImageView::android_widget_ImageView(void * proxy) enter");
+	LOGV("android_widget_ImageView::android_widget_ImageView(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -210,55 +209,34 @@ android_widget_ImageView::android_widget_ImageView(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_ImageView::android_widget_ImageView(void * proxy) exit");
+	LOGV("android_widget_ImageView::android_widget_ImageView(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_ImageView::android_widget_ImageView()
-// {
-// 	LOGV("android_widget_ImageView::android_widget_ImageView() enter");	
+Proxy android_widget_ImageView::proxy() const
+{	
+	LOGV("android_widget_ImageView::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/ImageView";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_ImageView jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_ImageView::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_ImageView jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_ImageView::android_widget_ImageView() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+	return proxy;
+}
+android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -332,11 +310,11 @@ android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_C
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
+android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2)
 {
-	LOGV("android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) enter");	
+	LOGV("android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
@@ -431,11 +409,11 @@ android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_C
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) exit");	
+	LOGV("android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) exit");	
 }
-android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_Context& arg0)
+android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -488,7 +466,7 @@ android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_C
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_Context const& arg0) exit");	
 }
 // Default Instance Destructor
 android_widget_ImageView::~android_widget_ImageView()
@@ -501,13 +479,13 @@ android_widget_ImageView::~android_widget_ImageView()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_ImageView::~android_widget_ImageView() exit");
 }
 // Functions
-void android_widget_ImageView::setVisibility(int& arg0)
+void android_widget_ImageView::setVisibility(int const& arg0)
 {
-	LOGV("void android_widget_ImageView::setVisibility(int& arg0) enter");
+	LOGV("void android_widget_ImageView::setVisibility(int const& arg0) enter");
 
 	const char *methodName = "setVisibility";
 	const char *methodSignature = "(I)V";
@@ -517,8 +495,6 @@ void android_widget_ImageView::setVisibility(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -549,9 +525,7 @@ void android_widget_ImageView::setVisibility(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::setVisibility(int& arg0) exit");
+	LOGV("void android_widget_ImageView::setVisibility(int const& arg0) exit");
 
 }
 AndroidCXX::android_graphics_drawable_Drawable android_widget_ImageView::getDrawable()
@@ -566,8 +540,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_ImageView::getDraw
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -596,8 +568,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_ImageView::getDraw
 	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
 	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_widget_ImageView::getDrawable() exit");
 
 	return result;
@@ -615,8 +585,6 @@ void android_widget_ImageView::jumpDrawablesToCurrentState()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -625,14 +593,12 @@ void android_widget_ImageView::jumpDrawablesToCurrentState()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_ImageView::jumpDrawablesToCurrentState() exit");
 
 }
-std::vector<int> android_widget_ImageView::onCreateDrawableState(int& arg0)
+std::vector<int> android_widget_ImageView::onCreateDrawableState(int const& arg0)
 {
-	LOGV("std::vector<int> android_widget_ImageView::onCreateDrawableState(int& arg0) enter");
+	LOGV("std::vector<int> android_widget_ImageView::onCreateDrawableState(int const& arg0) enter");
 
 	const char *methodName = "onCreateDrawableState";
 	const char *methodSignature = "(I)[I";
@@ -642,8 +608,6 @@ std::vector<int> android_widget_ImageView::onCreateDrawableState(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -711,15 +675,13 @@ std::vector<int> android_widget_ImageView::onCreateDrawableState(int& arg0)
 	std::vector<int> result = (std::vector<int>) *((std::vector<int> *) cxx_value);
 	delete ((std::vector<int> *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<int> android_widget_ImageView::onCreateDrawableState(int& arg0) exit");
+	LOGV("std::vector<int> android_widget_ImageView::onCreateDrawableState(int const& arg0) exit");
 
 	return result;
 }
-void android_widget_ImageView::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_ImageView::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_ImageView::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_ImageView::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onPopulateAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -730,8 +692,6 @@ void android_widget_ImageView::onPopulateAccessibilityEvent(AndroidCXX::android_
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -761,14 +721,12 @@ void android_widget_ImageView::onPopulateAccessibilityEvent(AndroidCXX::android_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_ImageView::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_ImageView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_ImageView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_ImageView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_ImageView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -779,8 +737,6 @@ void android_widget_ImageView::onInitializeAccessibilityEvent(AndroidCXX::androi
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -810,14 +766,12 @@ void android_widget_ImageView::onInitializeAccessibilityEvent(AndroidCXX::androi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_ImageView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_ImageView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0)
+void android_widget_ImageView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0)
 {
-	LOGV("void android_widget_ImageView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) enter");
+	LOGV("void android_widget_ImageView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityNodeInfo";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
@@ -827,8 +781,6 @@ void android_widget_ImageView::onInitializeAccessibilityNodeInfo(AndroidCXX::and
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -859,9 +811,7 @@ void android_widget_ImageView::onInitializeAccessibilityNodeInfo(AndroidCXX::and
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) exit");
+	LOGV("void android_widget_ImageView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) exit");
 
 }
 bool android_widget_ImageView::hasOverlappingRendering()
@@ -876,8 +826,6 @@ bool android_widget_ImageView::hasOverlappingRendering()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -906,15 +854,13 @@ bool android_widget_ImageView::hasOverlappingRendering()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_ImageView::hasOverlappingRendering() exit");
 
 	return result;
 }
-void android_widget_ImageView::setAlpha(int& arg0)
+void android_widget_ImageView::setAlpha(int const& arg0)
 {
-	LOGV("void android_widget_ImageView::setAlpha(int& arg0) enter");
+	LOGV("void android_widget_ImageView::setAlpha(int const& arg0) enter");
 
 	const char *methodName = "setAlpha";
 	const char *methodSignature = "(I)V";
@@ -924,8 +870,6 @@ void android_widget_ImageView::setAlpha(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -956,14 +900,12 @@ void android_widget_ImageView::setAlpha(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::setAlpha(int& arg0) exit");
+	LOGV("void android_widget_ImageView::setAlpha(int const& arg0) exit");
 
 }
-void android_widget_ImageView::invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0)
+void android_widget_ImageView::invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0)
 {
-	LOGV("void android_widget_ImageView::invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0) enter");
+	LOGV("void android_widget_ImageView::invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) enter");
 
 	const char *methodName = "invalidateDrawable";
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
@@ -973,8 +915,6 @@ void android_widget_ImageView::invalidateDrawable(AndroidCXX::android_graphics_d
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -1005,14 +945,12 @@ void android_widget_ImageView::invalidateDrawable(AndroidCXX::android_graphics_d
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0) exit");
+	LOGV("void android_widget_ImageView::invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) exit");
 
 }
-void android_widget_ImageView::setSelected(bool& arg0)
+void android_widget_ImageView::setSelected(bool const& arg0)
 {
-	LOGV("void android_widget_ImageView::setSelected(bool& arg0) enter");
+	LOGV("void android_widget_ImageView::setSelected(bool const& arg0) enter");
 
 	const char *methodName = "setSelected";
 	const char *methodSignature = "(Z)V";
@@ -1022,8 +960,6 @@ void android_widget_ImageView::setSelected(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -1054,9 +990,7 @@ void android_widget_ImageView::setSelected(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::setSelected(bool& arg0) exit");
+	LOGV("void android_widget_ImageView::setSelected(bool const& arg0) exit");
 
 }
 int android_widget_ImageView::getBaseline()
@@ -1071,8 +1005,6 @@ int android_widget_ImageView::getBaseline()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -1101,15 +1033,13 @@ int android_widget_ImageView::getBaseline()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_ImageView::getBaseline() exit");
 
 	return result;
 }
-void android_widget_ImageView::setColorFilter(int& arg0,ANDROID_GRAPHICS_PORTERDUFF_MODE::android_graphics_PorterDuff_Mode& arg1)
+void android_widget_ImageView::setColorFilter(int const& arg0,android_graphics_PorterDuff_Mode::android_graphics_PorterDuff_Mode const& arg1)
 {
-	LOGV("void android_widget_ImageView::setColorFilter(int& arg0,ANDROID_GRAPHICS_PORTERDUFF_MODE::android_graphics_PorterDuff_Mode& arg1) enter");
+	LOGV("void android_widget_ImageView::setColorFilter(int const& arg0,android_graphics_PorterDuff_Mode::android_graphics_PorterDuff_Mode const& arg1) enter");
 
 	const char *methodName = "setColorFilter";
 	const char *methodSignature = "(ILandroid/graphics/PorterDuff$Mode;)V";
@@ -1119,8 +1049,6 @@ void android_widget_ImageView::setColorFilter(int& arg0,ANDROID_GRAPHICS_PORTERD
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -1172,14 +1100,12 @@ void android_widget_ImageView::setColorFilter(int& arg0,ANDROID_GRAPHICS_PORTERD
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::setColorFilter(int& arg0,ANDROID_GRAPHICS_PORTERDUFF_MODE::android_graphics_PorterDuff_Mode& arg1) exit");
+	LOGV("void android_widget_ImageView::setColorFilter(int const& arg0,android_graphics_PorterDuff_Mode::android_graphics_PorterDuff_Mode const& arg1) exit");
 
 }
-void android_widget_ImageView::setColorFilter(int& arg0)
+void android_widget_ImageView::setColorFilter(int const& arg0)
 {
-	LOGV("void android_widget_ImageView::setColorFilter(int& arg0) enter");
+	LOGV("void android_widget_ImageView::setColorFilter(int const& arg0) enter");
 
 	const char *methodName = "setColorFilter";
 	const char *methodSignature = "(I)V";
@@ -1189,8 +1115,6 @@ void android_widget_ImageView::setColorFilter(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -1221,14 +1145,12 @@ void android_widget_ImageView::setColorFilter(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::setColorFilter(int& arg0) exit");
+	LOGV("void android_widget_ImageView::setColorFilter(int const& arg0) exit");
 
 }
-void android_widget_ImageView::setColorFilter(AndroidCXX::android_graphics_ColorFilter& arg0)
+void android_widget_ImageView::setColorFilter(AndroidCXX::android_graphics_ColorFilter const& arg0)
 {
-	LOGV("void android_widget_ImageView::setColorFilter(AndroidCXX::android_graphics_ColorFilter& arg0) enter");
+	LOGV("void android_widget_ImageView::setColorFilter(AndroidCXX::android_graphics_ColorFilter const& arg0) enter");
 
 	const char *methodName = "setColorFilter";
 	const char *methodSignature = "(Landroid/graphics/ColorFilter;)V";
@@ -1238,8 +1160,6 @@ void android_widget_ImageView::setColorFilter(AndroidCXX::android_graphics_Color
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -1270,9 +1190,7 @@ void android_widget_ImageView::setColorFilter(AndroidCXX::android_graphics_Color
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::setColorFilter(AndroidCXX::android_graphics_ColorFilter& arg0) exit");
+	LOGV("void android_widget_ImageView::setColorFilter(AndroidCXX::android_graphics_ColorFilter const& arg0) exit");
 
 }
 void android_widget_ImageView::clearColorFilter()
@@ -1288,8 +1206,6 @@ void android_widget_ImageView::clearColorFilter()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1298,8 +1214,6 @@ void android_widget_ImageView::clearColorFilter()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_ImageView::clearColorFilter() exit");
 
 }
@@ -1315,8 +1229,6 @@ AndroidCXX::android_graphics_ColorFilter android_widget_ImageView::getColorFilte
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -1345,15 +1257,13 @@ AndroidCXX::android_graphics_ColorFilter android_widget_ImageView::getColorFilte
 	AndroidCXX::android_graphics_ColorFilter result((AndroidCXX::android_graphics_ColorFilter) *((AndroidCXX::android_graphics_ColorFilter *) cxx_value));
 	delete ((AndroidCXX::android_graphics_ColorFilter *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_graphics_ColorFilter android_widget_ImageView::getColorFilter() exit");
 
 	return result;
 }
-void android_widget_ImageView::setMaxHeight(int& arg0)
+void android_widget_ImageView::setMaxHeight(int const& arg0)
 {
-	LOGV("void android_widget_ImageView::setMaxHeight(int& arg0) enter");
+	LOGV("void android_widget_ImageView::setMaxHeight(int const& arg0) enter");
 
 	const char *methodName = "setMaxHeight";
 	const char *methodSignature = "(I)V";
@@ -1363,8 +1273,6 @@ void android_widget_ImageView::setMaxHeight(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -1395,9 +1303,7 @@ void android_widget_ImageView::setMaxHeight(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::setMaxHeight(int& arg0) exit");
+	LOGV("void android_widget_ImageView::setMaxHeight(int const& arg0) exit");
 
 }
 int android_widget_ImageView::getMaxHeight()
@@ -1413,8 +1319,6 @@ int android_widget_ImageView::getMaxHeight()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1442,15 +1346,13 @@ int android_widget_ImageView::getMaxHeight()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_ImageView::getMaxHeight() exit");
 
 	return result;
 }
-void android_widget_ImageView::setMaxWidth(int& arg0)
+void android_widget_ImageView::setMaxWidth(int const& arg0)
 {
-	LOGV("void android_widget_ImageView::setMaxWidth(int& arg0) enter");
+	LOGV("void android_widget_ImageView::setMaxWidth(int const& arg0) enter");
 
 	const char *methodName = "setMaxWidth";
 	const char *methodSignature = "(I)V";
@@ -1460,8 +1362,6 @@ void android_widget_ImageView::setMaxWidth(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -1492,9 +1392,7 @@ void android_widget_ImageView::setMaxWidth(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::setMaxWidth(int& arg0) exit");
+	LOGV("void android_widget_ImageView::setMaxWidth(int const& arg0) exit");
 
 }
 int android_widget_ImageView::getMaxWidth()
@@ -1509,8 +1407,6 @@ int android_widget_ImageView::getMaxWidth()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -1539,8 +1435,6 @@ int android_widget_ImageView::getMaxWidth()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_ImageView::getMaxWidth() exit");
 
 	return result;
@@ -1557,8 +1451,6 @@ bool android_widget_ImageView::getAdjustViewBounds()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -1587,15 +1479,13 @@ bool android_widget_ImageView::getAdjustViewBounds()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_ImageView::getAdjustViewBounds() exit");
 
 	return result;
 }
-void android_widget_ImageView::setAdjustViewBounds(bool& arg0)
+void android_widget_ImageView::setAdjustViewBounds(bool const& arg0)
 {
-	LOGV("void android_widget_ImageView::setAdjustViewBounds(bool& arg0) enter");
+	LOGV("void android_widget_ImageView::setAdjustViewBounds(bool const& arg0) enter");
 
 	const char *methodName = "setAdjustViewBounds";
 	const char *methodSignature = "(Z)V";
@@ -1605,8 +1495,6 @@ void android_widget_ImageView::setAdjustViewBounds(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -1637,14 +1525,12 @@ void android_widget_ImageView::setAdjustViewBounds(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::setAdjustViewBounds(bool& arg0) exit");
+	LOGV("void android_widget_ImageView::setAdjustViewBounds(bool const& arg0) exit");
 
 }
-void android_widget_ImageView::setImageResource(int& arg0)
+void android_widget_ImageView::setImageResource(int const& arg0)
 {
-	LOGV("void android_widget_ImageView::setImageResource(int& arg0) enter");
+	LOGV("void android_widget_ImageView::setImageResource(int const& arg0) enter");
 
 	const char *methodName = "setImageResource";
 	const char *methodSignature = "(I)V";
@@ -1654,8 +1540,6 @@ void android_widget_ImageView::setImageResource(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -1686,14 +1570,12 @@ void android_widget_ImageView::setImageResource(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::setImageResource(int& arg0) exit");
+	LOGV("void android_widget_ImageView::setImageResource(int const& arg0) exit");
 
 }
-void android_widget_ImageView::setImageURI(AndroidCXX::android_net_Uri& arg0)
+void android_widget_ImageView::setImageURI(AndroidCXX::android_net_Uri const& arg0)
 {
-	LOGV("void android_widget_ImageView::setImageURI(AndroidCXX::android_net_Uri& arg0) enter");
+	LOGV("void android_widget_ImageView::setImageURI(AndroidCXX::android_net_Uri const& arg0) enter");
 
 	const char *methodName = "setImageURI";
 	const char *methodSignature = "(Landroid/net/Uri;)V";
@@ -1703,8 +1585,6 @@ void android_widget_ImageView::setImageURI(AndroidCXX::android_net_Uri& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -1735,14 +1615,12 @@ void android_widget_ImageView::setImageURI(AndroidCXX::android_net_Uri& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::setImageURI(AndroidCXX::android_net_Uri& arg0) exit");
+	LOGV("void android_widget_ImageView::setImageURI(AndroidCXX::android_net_Uri const& arg0) exit");
 
 }
-void android_widget_ImageView::setImageDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0)
+void android_widget_ImageView::setImageDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0)
 {
-	LOGV("void android_widget_ImageView::setImageDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0) enter");
+	LOGV("void android_widget_ImageView::setImageDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) enter");
 
 	const char *methodName = "setImageDrawable";
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
@@ -1752,8 +1630,6 @@ void android_widget_ImageView::setImageDrawable(AndroidCXX::android_graphics_dra
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -1784,14 +1660,12 @@ void android_widget_ImageView::setImageDrawable(AndroidCXX::android_graphics_dra
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::setImageDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0) exit");
+	LOGV("void android_widget_ImageView::setImageDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) exit");
 
 }
-void android_widget_ImageView::setImageBitmap(AndroidCXX::android_graphics_Bitmap& arg0)
+void android_widget_ImageView::setImageBitmap(AndroidCXX::android_graphics_Bitmap const& arg0)
 {
-	LOGV("void android_widget_ImageView::setImageBitmap(AndroidCXX::android_graphics_Bitmap& arg0) enter");
+	LOGV("void android_widget_ImageView::setImageBitmap(AndroidCXX::android_graphics_Bitmap const& arg0) enter");
 
 	const char *methodName = "setImageBitmap";
 	const char *methodSignature = "(Landroid/graphics/Bitmap;)V";
@@ -1801,8 +1675,6 @@ void android_widget_ImageView::setImageBitmap(AndroidCXX::android_graphics_Bitma
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -1833,14 +1705,12 @@ void android_widget_ImageView::setImageBitmap(AndroidCXX::android_graphics_Bitma
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::setImageBitmap(AndroidCXX::android_graphics_Bitmap& arg0) exit");
+	LOGV("void android_widget_ImageView::setImageBitmap(AndroidCXX::android_graphics_Bitmap const& arg0) exit");
 
 }
-void android_widget_ImageView::setImageState(std::vector<int>& arg0,bool& arg1)
+void android_widget_ImageView::setImageState(std::vector<int> const& arg0,bool const& arg1)
 {
-	LOGV("void android_widget_ImageView::setImageState(std::vector<int>& arg0,bool& arg1) enter");
+	LOGV("void android_widget_ImageView::setImageState(std::vector<int> const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "setImageState";
 	const char *methodSignature = "([IZ)V";
@@ -1850,8 +1720,6 @@ void android_widget_ImageView::setImageState(std::vector<int>& arg0,bool& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -1921,14 +1789,12 @@ void android_widget_ImageView::setImageState(std::vector<int>& arg0,bool& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::setImageState(std::vector<int>& arg0,bool& arg1) exit");
+	LOGV("void android_widget_ImageView::setImageState(std::vector<int> const& arg0,bool const& arg1) exit");
 
 }
-void android_widget_ImageView::setImageLevel(int& arg0)
+void android_widget_ImageView::setImageLevel(int const& arg0)
 {
-	LOGV("void android_widget_ImageView::setImageLevel(int& arg0) enter");
+	LOGV("void android_widget_ImageView::setImageLevel(int const& arg0) enter");
 
 	const char *methodName = "setImageLevel";
 	const char *methodSignature = "(I)V";
@@ -1938,8 +1804,6 @@ void android_widget_ImageView::setImageLevel(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -1970,14 +1834,12 @@ void android_widget_ImageView::setImageLevel(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::setImageLevel(int& arg0) exit");
+	LOGV("void android_widget_ImageView::setImageLevel(int const& arg0) exit");
 
 }
-void android_widget_ImageView::setScaleType(ANDROID_WIDGET_IMAGEVIEW_SCALETYPE::android_widget_ImageView_ScaleType& arg0)
+void android_widget_ImageView::setScaleType(android_widget_ImageView_ScaleType::android_widget_ImageView_ScaleType const& arg0)
 {
-	LOGV("void android_widget_ImageView::setScaleType(ANDROID_WIDGET_IMAGEVIEW_SCALETYPE::android_widget_ImageView_ScaleType& arg0) enter");
+	LOGV("void android_widget_ImageView::setScaleType(android_widget_ImageView_ScaleType::android_widget_ImageView_ScaleType const& arg0) enter");
 
 	const char *methodName = "setScaleType";
 	const char *methodSignature = "(Landroid/widget/ImageView$ScaleType;)V";
@@ -1987,8 +1849,6 @@ void android_widget_ImageView::setScaleType(ANDROID_WIDGET_IMAGEVIEW_SCALETYPE::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -2019,14 +1879,12 @@ void android_widget_ImageView::setScaleType(ANDROID_WIDGET_IMAGEVIEW_SCALETYPE::
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::setScaleType(ANDROID_WIDGET_IMAGEVIEW_SCALETYPE::android_widget_ImageView_ScaleType& arg0) exit");
+	LOGV("void android_widget_ImageView::setScaleType(android_widget_ImageView_ScaleType::android_widget_ImageView_ScaleType const& arg0) exit");
 
 }
-ANDROID_WIDGET_IMAGEVIEW_SCALETYPE::android_widget_ImageView_ScaleType android_widget_ImageView::getScaleType()
+android_widget_ImageView_ScaleType::android_widget_ImageView_ScaleType android_widget_ImageView::getScaleType()
 {
-	LOGV("ANDROID_WIDGET_IMAGEVIEW_SCALETYPE::android_widget_ImageView_ScaleType android_widget_ImageView::getScaleType() enter");
+	LOGV("android_widget_ImageView_ScaleType::android_widget_ImageView_ScaleType android_widget_ImageView::getScaleType() enter");
 
 	const char *methodName = "getScaleType";
 	const char *methodSignature = "()Landroid/widget/ImageView$ScaleType;";
@@ -2036,8 +1894,6 @@ ANDROID_WIDGET_IMAGEVIEW_SCALETYPE::android_widget_ImageView_ScaleType android_w
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -2063,12 +1919,10 @@ ANDROID_WIDGET_IMAGEVIEW_SCALETYPE::android_widget_ImageView_ScaleType android_w
 		convert_android_widget_ImageView_ScaleType(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 
-	ANDROID_WIDGET_IMAGEVIEW_SCALETYPE::android_widget_ImageView_ScaleType result = (ANDROID_WIDGET_IMAGEVIEW_SCALETYPE::android_widget_ImageView_ScaleType) (cxx_value);
+	android_widget_ImageView_ScaleType::android_widget_ImageView_ScaleType result = (android_widget_ImageView_ScaleType::android_widget_ImageView_ScaleType) (cxx_value);
 	//
 		
-	jni->popLocalFrame();
-
-	LOGV("ANDROID_WIDGET_IMAGEVIEW_SCALETYPE::android_widget_ImageView_ScaleType android_widget_ImageView::getScaleType() exit");
+	LOGV("android_widget_ImageView_ScaleType::android_widget_ImageView_ScaleType android_widget_ImageView::getScaleType() exit");
 
 	return result;
 }
@@ -2084,8 +1938,6 @@ AndroidCXX::android_graphics_Matrix android_widget_ImageView::getImageMatrix()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -2114,15 +1966,13 @@ AndroidCXX::android_graphics_Matrix android_widget_ImageView::getImageMatrix()
 	AndroidCXX::android_graphics_Matrix result((AndroidCXX::android_graphics_Matrix) *((AndroidCXX::android_graphics_Matrix *) cxx_value));
 	delete ((AndroidCXX::android_graphics_Matrix *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_graphics_Matrix android_widget_ImageView::getImageMatrix() exit");
 
 	return result;
 }
-void android_widget_ImageView::setImageMatrix(AndroidCXX::android_graphics_Matrix& arg0)
+void android_widget_ImageView::setImageMatrix(AndroidCXX::android_graphics_Matrix const& arg0)
 {
-	LOGV("void android_widget_ImageView::setImageMatrix(AndroidCXX::android_graphics_Matrix& arg0) enter");
+	LOGV("void android_widget_ImageView::setImageMatrix(AndroidCXX::android_graphics_Matrix const& arg0) enter");
 
 	const char *methodName = "setImageMatrix";
 	const char *methodSignature = "(Landroid/graphics/Matrix;)V";
@@ -2132,8 +1982,6 @@ void android_widget_ImageView::setImageMatrix(AndroidCXX::android_graphics_Matri
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -2164,9 +2012,7 @@ void android_widget_ImageView::setImageMatrix(AndroidCXX::android_graphics_Matri
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::setImageMatrix(AndroidCXX::android_graphics_Matrix& arg0) exit");
+	LOGV("void android_widget_ImageView::setImageMatrix(AndroidCXX::android_graphics_Matrix const& arg0) exit");
 
 }
 bool android_widget_ImageView::getCropToPadding()
@@ -2181,8 +2027,6 @@ bool android_widget_ImageView::getCropToPadding()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -2211,15 +2055,13 @@ bool android_widget_ImageView::getCropToPadding()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_ImageView::getCropToPadding() exit");
 
 	return result;
 }
-void android_widget_ImageView::setCropToPadding(bool& arg0)
+void android_widget_ImageView::setCropToPadding(bool const& arg0)
 {
-	LOGV("void android_widget_ImageView::setCropToPadding(bool& arg0) enter");
+	LOGV("void android_widget_ImageView::setCropToPadding(bool const& arg0) enter");
 
 	const char *methodName = "setCropToPadding";
 	const char *methodSignature = "(Z)V";
@@ -2229,8 +2071,6 @@ void android_widget_ImageView::setCropToPadding(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -2261,14 +2101,12 @@ void android_widget_ImageView::setCropToPadding(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::setCropToPadding(bool& arg0) exit");
+	LOGV("void android_widget_ImageView::setCropToPadding(bool const& arg0) exit");
 
 }
-void android_widget_ImageView::setBaseline(int& arg0)
+void android_widget_ImageView::setBaseline(int const& arg0)
 {
-	LOGV("void android_widget_ImageView::setBaseline(int& arg0) enter");
+	LOGV("void android_widget_ImageView::setBaseline(int const& arg0) enter");
 
 	const char *methodName = "setBaseline";
 	const char *methodSignature = "(I)V";
@@ -2278,8 +2116,6 @@ void android_widget_ImageView::setBaseline(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -2310,14 +2146,12 @@ void android_widget_ImageView::setBaseline(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::setBaseline(int& arg0) exit");
+	LOGV("void android_widget_ImageView::setBaseline(int const& arg0) exit");
 
 }
-void android_widget_ImageView::setBaselineAlignBottom(bool& arg0)
+void android_widget_ImageView::setBaselineAlignBottom(bool const& arg0)
 {
-	LOGV("void android_widget_ImageView::setBaselineAlignBottom(bool& arg0) enter");
+	LOGV("void android_widget_ImageView::setBaselineAlignBottom(bool const& arg0) enter");
 
 	const char *methodName = "setBaselineAlignBottom";
 	const char *methodSignature = "(Z)V";
@@ -2327,8 +2161,6 @@ void android_widget_ImageView::setBaselineAlignBottom(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -2359,9 +2191,7 @@ void android_widget_ImageView::setBaselineAlignBottom(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::setBaselineAlignBottom(bool& arg0) exit");
+	LOGV("void android_widget_ImageView::setBaselineAlignBottom(bool const& arg0) exit");
 
 }
 bool android_widget_ImageView::getBaselineAlignBottom()
@@ -2376,8 +2206,6 @@ bool android_widget_ImageView::getBaselineAlignBottom()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -2406,8 +2234,6 @@ bool android_widget_ImageView::getBaselineAlignBottom()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_ImageView::getBaselineAlignBottom() exit");
 
 	return result;
@@ -2424,8 +2250,6 @@ int android_widget_ImageView::getImageAlpha()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -2454,15 +2278,13 @@ int android_widget_ImageView::getImageAlpha()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_ImageView::getImageAlpha() exit");
 
 	return result;
 }
-void android_widget_ImageView::setImageAlpha(int& arg0)
+void android_widget_ImageView::setImageAlpha(int const& arg0)
 {
-	LOGV("void android_widget_ImageView::setImageAlpha(int& arg0) enter");
+	LOGV("void android_widget_ImageView::setImageAlpha(int const& arg0) enter");
 
 	const char *methodName = "setImageAlpha";
 	const char *methodSignature = "(I)V";
@@ -2472,8 +2294,6 @@ void android_widget_ImageView::setImageAlpha(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ImageView cxx address %d", cxxAddress);
@@ -2504,8 +2324,6 @@ void android_widget_ImageView::setImageAlpha(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ImageView::setImageAlpha(int& arg0) exit");
+	LOGV("void android_widget_ImageView::setImageAlpha(int const& arg0) exit");
 
 }

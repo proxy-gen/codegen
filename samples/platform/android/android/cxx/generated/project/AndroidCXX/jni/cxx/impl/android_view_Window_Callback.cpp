@@ -134,7 +134,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_Window_Callback::android_view_Window_Callback(const android_view_Window_Callback& cc)
 {
 	LOGV("android_view_Window_Callback::android_view_Window_Callback(const android_view_Window_Callback& cc) enter");
@@ -158,9 +157,9 @@ android_view_Window_Callback::android_view_Window_Callback(const android_view_Wi
 
 	LOGV("android_view_Window_Callback::android_view_Window_Callback(const android_view_Window_Callback& cc) exit");
 }
-android_view_Window_Callback::android_view_Window_Callback(void * proxy)
+android_view_Window_Callback::android_view_Window_Callback(Proxy proxy)
 {
-	LOGV("android_view_Window_Callback::android_view_Window_Callback(void * proxy) enter");
+	LOGV("android_view_Window_Callback::android_view_Window_Callback(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -170,52 +169,31 @@ android_view_Window_Callback::android_view_Window_Callback(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_Window_Callback::android_view_Window_Callback(void * proxy) exit");
+	LOGV("android_view_Window_Callback::android_view_Window_Callback(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_view_Window_Callback::android_view_Window_Callback()
-// {
-// 	LOGV("android_view_Window_Callback::android_view_Window_Callback() enter");	
+Proxy android_view_Window_Callback::proxy() const
+{	
+	LOGV("android_view_Window_Callback::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/view/Window$Callback";
+	long cxxAddress = (long) this;
+	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_Window_Callback jni address %d", proxiedComponent);
 
-// 	LOGV("android_view_Window_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_view_Window_Callback::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_view_Window_Callback jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_view_Window_Callback::android_view_Window_Callback() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_view_Window_Callback::~android_view_Window_Callback()
 {
@@ -227,13 +205,13 @@ android_view_Window_Callback::~android_view_Window_Callback()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_Window_Callback::~android_view_Window_Callback() exit");
 }
 // Functions
-bool android_view_Window_Callback::onCreatePanelMenu(int& arg0,AndroidCXX::android_view_Menu& arg1)
+bool android_view_Window_Callback::onCreatePanelMenu(int const& arg0,AndroidCXX::android_view_Menu const& arg1)
 {
-	LOGV("bool android_view_Window_Callback::onCreatePanelMenu(int& arg0,AndroidCXX::android_view_Menu& arg1) enter");
+	LOGV("bool android_view_Window_Callback::onCreatePanelMenu(int const& arg0,AndroidCXX::android_view_Menu const& arg1) enter");
 
 	const char *methodName = "onCreatePanelMenu";
 	const char *methodSignature = "(ILandroid/view/Menu;)Z";
@@ -243,8 +221,6 @@ bool android_view_Window_Callback::onCreatePanelMenu(int& arg0,AndroidCXX::andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
@@ -315,15 +291,13 @@ bool android_view_Window_Callback::onCreatePanelMenu(int& arg0,AndroidCXX::andro
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_Window_Callback::onCreatePanelMenu(int& arg0,AndroidCXX::android_view_Menu& arg1) exit");
+	LOGV("bool android_view_Window_Callback::onCreatePanelMenu(int const& arg0,AndroidCXX::android_view_Menu const& arg1) exit");
 
 	return result;
 }
-bool android_view_Window_Callback::onMenuItemSelected(int& arg0,AndroidCXX::android_view_MenuItem& arg1)
+bool android_view_Window_Callback::onMenuItemSelected(int const& arg0,AndroidCXX::android_view_MenuItem const& arg1)
 {
-	LOGV("bool android_view_Window_Callback::onMenuItemSelected(int& arg0,AndroidCXX::android_view_MenuItem& arg1) enter");
+	LOGV("bool android_view_Window_Callback::onMenuItemSelected(int const& arg0,AndroidCXX::android_view_MenuItem const& arg1) enter");
 
 	const char *methodName = "onMenuItemSelected";
 	const char *methodSignature = "(ILandroid/view/MenuItem;)Z";
@@ -333,8 +307,6 @@ bool android_view_Window_Callback::onMenuItemSelected(int& arg0,AndroidCXX::andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
@@ -405,15 +377,13 @@ bool android_view_Window_Callback::onMenuItemSelected(int& arg0,AndroidCXX::andr
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_Window_Callback::onMenuItemSelected(int& arg0,AndroidCXX::android_view_MenuItem& arg1) exit");
+	LOGV("bool android_view_Window_Callback::onMenuItemSelected(int const& arg0,AndroidCXX::android_view_MenuItem const& arg1) exit");
 
 	return result;
 }
-void android_view_Window_Callback::onPanelClosed(int& arg0,AndroidCXX::android_view_Menu& arg1)
+void android_view_Window_Callback::onPanelClosed(int const& arg0,AndroidCXX::android_view_Menu const& arg1)
 {
-	LOGV("void android_view_Window_Callback::onPanelClosed(int& arg0,AndroidCXX::android_view_Menu& arg1) enter");
+	LOGV("void android_view_Window_Callback::onPanelClosed(int const& arg0,AndroidCXX::android_view_Menu const& arg1) enter");
 
 	const char *methodName = "onPanelClosed";
 	const char *methodSignature = "(ILandroid/view/Menu;)V";
@@ -423,8 +393,6 @@ void android_view_Window_Callback::onPanelClosed(int& arg0,AndroidCXX::android_v
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
@@ -476,14 +444,12 @@ void android_view_Window_Callback::onPanelClosed(int& arg0,AndroidCXX::android_v
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_Window_Callback::onPanelClosed(int& arg0,AndroidCXX::android_view_Menu& arg1) exit");
+	LOGV("void android_view_Window_Callback::onPanelClosed(int const& arg0,AndroidCXX::android_view_Menu const& arg1) exit");
 
 }
-bool android_view_Window_Callback::onPreparePanel(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_Menu& arg2)
+bool android_view_Window_Callback::onPreparePanel(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_Menu const& arg2)
 {
-	LOGV("bool android_view_Window_Callback::onPreparePanel(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_Menu& arg2) enter");
+	LOGV("bool android_view_Window_Callback::onPreparePanel(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_Menu const& arg2) enter");
 
 	const char *methodName = "onPreparePanel";
 	const char *methodSignature = "(ILandroid/view/View;Landroid/view/Menu;)Z";
@@ -493,8 +459,6 @@ bool android_view_Window_Callback::onPreparePanel(int& arg0,AndroidCXX::android_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
@@ -586,15 +550,13 @@ bool android_view_Window_Callback::onPreparePanel(int& arg0,AndroidCXX::android_
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_Window_Callback::onPreparePanel(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_Menu& arg2) exit");
+	LOGV("bool android_view_Window_Callback::onPreparePanel(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_Menu const& arg2) exit");
 
 	return result;
 }
-void android_view_Window_Callback::onWindowAttributesChanged(AndroidCXX::android_view_WindowManager_LayoutParams& arg0)
+void android_view_Window_Callback::onWindowAttributesChanged(AndroidCXX::android_view_WindowManager_LayoutParams const& arg0)
 {
-	LOGV("void android_view_Window_Callback::onWindowAttributesChanged(AndroidCXX::android_view_WindowManager_LayoutParams& arg0) enter");
+	LOGV("void android_view_Window_Callback::onWindowAttributesChanged(AndroidCXX::android_view_WindowManager_LayoutParams const& arg0) enter");
 
 	const char *methodName = "onWindowAttributesChanged";
 	const char *methodSignature = "(Landroid/view/WindowManager$LayoutParams;)V";
@@ -604,8 +566,6 @@ void android_view_Window_Callback::onWindowAttributesChanged(AndroidCXX::android
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
@@ -636,9 +596,7 @@ void android_view_Window_Callback::onWindowAttributesChanged(AndroidCXX::android
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_Window_Callback::onWindowAttributesChanged(AndroidCXX::android_view_WindowManager_LayoutParams& arg0) exit");
+	LOGV("void android_view_Window_Callback::onWindowAttributesChanged(AndroidCXX::android_view_WindowManager_LayoutParams const& arg0) exit");
 
 }
 void android_view_Window_Callback::onContentChanged()
@@ -654,8 +612,6 @@ void android_view_Window_Callback::onContentChanged()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -664,14 +620,12 @@ void android_view_Window_Callback::onContentChanged()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_view_Window_Callback::onContentChanged() exit");
 
 }
-void android_view_Window_Callback::onWindowFocusChanged(bool& arg0)
+void android_view_Window_Callback::onWindowFocusChanged(bool const& arg0)
 {
-	LOGV("void android_view_Window_Callback::onWindowFocusChanged(bool& arg0) enter");
+	LOGV("void android_view_Window_Callback::onWindowFocusChanged(bool const& arg0) enter");
 
 	const char *methodName = "onWindowFocusChanged";
 	const char *methodSignature = "(Z)V";
@@ -681,8 +635,6 @@ void android_view_Window_Callback::onWindowFocusChanged(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
@@ -713,9 +665,7 @@ void android_view_Window_Callback::onWindowFocusChanged(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_Window_Callback::onWindowFocusChanged(bool& arg0) exit");
+	LOGV("void android_view_Window_Callback::onWindowFocusChanged(bool const& arg0) exit");
 
 }
 void android_view_Window_Callback::onAttachedToWindow()
@@ -731,8 +681,6 @@ void android_view_Window_Callback::onAttachedToWindow()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -741,8 +689,6 @@ void android_view_Window_Callback::onAttachedToWindow()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_view_Window_Callback::onAttachedToWindow() exit");
 
 }
@@ -759,8 +705,6 @@ void android_view_Window_Callback::onDetachedFromWindow()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -769,14 +713,12 @@ void android_view_Window_Callback::onDetachedFromWindow()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_view_Window_Callback::onDetachedFromWindow() exit");
 
 }
-bool android_view_Window_Callback::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0)
+bool android_view_Window_Callback::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0)
 {
-	LOGV("bool android_view_Window_Callback::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0) enter");
+	LOGV("bool android_view_Window_Callback::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) enter");
 
 	const char *methodName = "dispatchKeyEvent";
 	const char *methodSignature = "(Landroid/view/KeyEvent;)Z";
@@ -787,8 +729,6 @@ bool android_view_Window_Callback::dispatchKeyEvent(AndroidCXX::android_view_Key
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -837,15 +777,13 @@ bool android_view_Window_Callback::dispatchKeyEvent(AndroidCXX::android_view_Key
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_Window_Callback::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0) exit");
+	LOGV("bool android_view_Window_Callback::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) exit");
 
 	return result;
 }
-bool android_view_Window_Callback::dispatchKeyShortcutEvent(AndroidCXX::android_view_KeyEvent& arg0)
+bool android_view_Window_Callback::dispatchKeyShortcutEvent(AndroidCXX::android_view_KeyEvent const& arg0)
 {
-	LOGV("bool android_view_Window_Callback::dispatchKeyShortcutEvent(AndroidCXX::android_view_KeyEvent& arg0) enter");
+	LOGV("bool android_view_Window_Callback::dispatchKeyShortcutEvent(AndroidCXX::android_view_KeyEvent const& arg0) enter");
 
 	const char *methodName = "dispatchKeyShortcutEvent";
 	const char *methodSignature = "(Landroid/view/KeyEvent;)Z";
@@ -856,8 +794,6 @@ bool android_view_Window_Callback::dispatchKeyShortcutEvent(AndroidCXX::android_
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -906,15 +842,13 @@ bool android_view_Window_Callback::dispatchKeyShortcutEvent(AndroidCXX::android_
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_Window_Callback::dispatchKeyShortcutEvent(AndroidCXX::android_view_KeyEvent& arg0) exit");
+	LOGV("bool android_view_Window_Callback::dispatchKeyShortcutEvent(AndroidCXX::android_view_KeyEvent const& arg0) exit");
 
 	return result;
 }
-bool android_view_Window_Callback::dispatchTouchEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_view_Window_Callback::dispatchTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_view_Window_Callback::dispatchTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_view_Window_Callback::dispatchTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "dispatchTouchEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -925,8 +859,6 @@ bool android_view_Window_Callback::dispatchTouchEvent(AndroidCXX::android_view_M
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -975,15 +907,13 @@ bool android_view_Window_Callback::dispatchTouchEvent(AndroidCXX::android_view_M
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_Window_Callback::dispatchTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	LOGV("bool android_view_Window_Callback::dispatchTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-bool android_view_Window_Callback::dispatchTrackballEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_view_Window_Callback::dispatchTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_view_Window_Callback::dispatchTrackballEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_view_Window_Callback::dispatchTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "dispatchTrackballEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -994,8 +924,6 @@ bool android_view_Window_Callback::dispatchTrackballEvent(AndroidCXX::android_vi
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1044,15 +972,13 @@ bool android_view_Window_Callback::dispatchTrackballEvent(AndroidCXX::android_vi
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_Window_Callback::dispatchTrackballEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	LOGV("bool android_view_Window_Callback::dispatchTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-bool android_view_Window_Callback::dispatchGenericMotionEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_view_Window_Callback::dispatchGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_view_Window_Callback::dispatchGenericMotionEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_view_Window_Callback::dispatchGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "dispatchGenericMotionEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -1063,8 +989,6 @@ bool android_view_Window_Callback::dispatchGenericMotionEvent(AndroidCXX::androi
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1113,15 +1037,13 @@ bool android_view_Window_Callback::dispatchGenericMotionEvent(AndroidCXX::androi
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_Window_Callback::dispatchGenericMotionEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	LOGV("bool android_view_Window_Callback::dispatchGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-bool android_view_Window_Callback::dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+bool android_view_Window_Callback::dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("bool android_view_Window_Callback::dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("bool android_view_Window_Callback::dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "dispatchPopulateAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)Z";
@@ -1131,8 +1053,6 @@ bool android_view_Window_Callback::dispatchPopulateAccessibilityEvent(AndroidCXX
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
@@ -1182,15 +1102,13 @@ bool android_view_Window_Callback::dispatchPopulateAccessibilityEvent(AndroidCXX
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_Window_Callback::dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("bool android_view_Window_Callback::dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_view_View android_view_Window_Callback::onCreatePanelView(int& arg0)
+AndroidCXX::android_view_View android_view_Window_Callback::onCreatePanelView(int const& arg0)
 {
-	LOGV("AndroidCXX::android_view_View android_view_Window_Callback::onCreatePanelView(int& arg0) enter");
+	LOGV("AndroidCXX::android_view_View android_view_Window_Callback::onCreatePanelView(int const& arg0) enter");
 
 	const char *methodName = "onCreatePanelView";
 	const char *methodSignature = "(I)Landroid/view/View;";
@@ -1200,8 +1118,6 @@ AndroidCXX::android_view_View android_view_Window_Callback::onCreatePanelView(in
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
@@ -1251,15 +1167,13 @@ AndroidCXX::android_view_View android_view_Window_Callback::onCreatePanelView(in
 	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
 	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_View android_view_Window_Callback::onCreatePanelView(int& arg0) exit");
+	LOGV("AndroidCXX::android_view_View android_view_Window_Callback::onCreatePanelView(int const& arg0) exit");
 
 	return result;
 }
-bool android_view_Window_Callback::onMenuOpened(int& arg0,AndroidCXX::android_view_Menu& arg1)
+bool android_view_Window_Callback::onMenuOpened(int const& arg0,AndroidCXX::android_view_Menu const& arg1)
 {
-	LOGV("bool android_view_Window_Callback::onMenuOpened(int& arg0,AndroidCXX::android_view_Menu& arg1) enter");
+	LOGV("bool android_view_Window_Callback::onMenuOpened(int const& arg0,AndroidCXX::android_view_Menu const& arg1) enter");
 
 	const char *methodName = "onMenuOpened";
 	const char *methodSignature = "(ILandroid/view/Menu;)Z";
@@ -1269,8 +1183,6 @@ bool android_view_Window_Callback::onMenuOpened(int& arg0,AndroidCXX::android_vi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
@@ -1341,9 +1253,7 @@ bool android_view_Window_Callback::onMenuOpened(int& arg0,AndroidCXX::android_vi
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_Window_Callback::onMenuOpened(int& arg0,AndroidCXX::android_view_Menu& arg1) exit");
+	LOGV("bool android_view_Window_Callback::onMenuOpened(int const& arg0,AndroidCXX::android_view_Menu const& arg1) exit");
 
 	return result;
 }
@@ -1359,8 +1269,6 @@ bool android_view_Window_Callback::onSearchRequested()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
@@ -1389,15 +1297,13 @@ bool android_view_Window_Callback::onSearchRequested()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_Window_Callback::onSearchRequested() exit");
 
 	return result;
 }
-AndroidCXX::android_view_ActionMode android_view_Window_Callback::onWindowStartingActionMode(AndroidCXX::android_view_ActionMode_Callback& arg0)
+AndroidCXX::android_view_ActionMode android_view_Window_Callback::onWindowStartingActionMode(AndroidCXX::android_view_ActionMode_Callback const& arg0)
 {
-	LOGV("AndroidCXX::android_view_ActionMode android_view_Window_Callback::onWindowStartingActionMode(AndroidCXX::android_view_ActionMode_Callback& arg0) enter");
+	LOGV("AndroidCXX::android_view_ActionMode android_view_Window_Callback::onWindowStartingActionMode(AndroidCXX::android_view_ActionMode_Callback const& arg0) enter");
 
 	const char *methodName = "onWindowStartingActionMode";
 	const char *methodSignature = "(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;";
@@ -1407,8 +1313,6 @@ AndroidCXX::android_view_ActionMode android_view_Window_Callback::onWindowStarti
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
@@ -1458,15 +1362,13 @@ AndroidCXX::android_view_ActionMode android_view_Window_Callback::onWindowStarti
 	AndroidCXX::android_view_ActionMode result((AndroidCXX::android_view_ActionMode) *((AndroidCXX::android_view_ActionMode *) cxx_value));
 	delete ((AndroidCXX::android_view_ActionMode *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_ActionMode android_view_Window_Callback::onWindowStartingActionMode(AndroidCXX::android_view_ActionMode_Callback& arg0) exit");
+	LOGV("AndroidCXX::android_view_ActionMode android_view_Window_Callback::onWindowStartingActionMode(AndroidCXX::android_view_ActionMode_Callback const& arg0) exit");
 
 	return result;
 }
-void android_view_Window_Callback::onActionModeStarted(AndroidCXX::android_view_ActionMode& arg0)
+void android_view_Window_Callback::onActionModeStarted(AndroidCXX::android_view_ActionMode const& arg0)
 {
-	LOGV("void android_view_Window_Callback::onActionModeStarted(AndroidCXX::android_view_ActionMode& arg0) enter");
+	LOGV("void android_view_Window_Callback::onActionModeStarted(AndroidCXX::android_view_ActionMode const& arg0) enter");
 
 	const char *methodName = "onActionModeStarted";
 	const char *methodSignature = "(Landroid/view/ActionMode;)V";
@@ -1477,8 +1379,6 @@ void android_view_Window_Callback::onActionModeStarted(AndroidCXX::android_view_
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1508,14 +1408,12 @@ void android_view_Window_Callback::onActionModeStarted(AndroidCXX::android_view_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_Window_Callback::onActionModeStarted(AndroidCXX::android_view_ActionMode& arg0) exit");
+	LOGV("void android_view_Window_Callback::onActionModeStarted(AndroidCXX::android_view_ActionMode const& arg0) exit");
 
 }
-void android_view_Window_Callback::onActionModeFinished(AndroidCXX::android_view_ActionMode& arg0)
+void android_view_Window_Callback::onActionModeFinished(AndroidCXX::android_view_ActionMode const& arg0)
 {
-	LOGV("void android_view_Window_Callback::onActionModeFinished(AndroidCXX::android_view_ActionMode& arg0) enter");
+	LOGV("void android_view_Window_Callback::onActionModeFinished(AndroidCXX::android_view_ActionMode const& arg0) enter");
 
 	const char *methodName = "onActionModeFinished";
 	const char *methodSignature = "(Landroid/view/ActionMode;)V";
@@ -1526,8 +1424,6 @@ void android_view_Window_Callback::onActionModeFinished(AndroidCXX::android_view
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_Window_Callback cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1557,8 +1453,6 @@ void android_view_Window_Callback::onActionModeFinished(AndroidCXX::android_view
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_Window_Callback::onActionModeFinished(AndroidCXX::android_view_ActionMode& arg0) exit");
+	LOGV("void android_view_Window_Callback::onActionModeFinished(AndroidCXX::android_view_ActionMode const& arg0) exit");
 
 }

@@ -82,7 +82,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_security_Permission::java_security_Permission(const java_security_Permission& cc)
 {
 	LOGV("java_security_Permission::java_security_Permission(const java_security_Permission& cc) enter");
@@ -106,9 +105,9 @@ java_security_Permission::java_security_Permission(const java_security_Permissio
 
 	LOGV("java_security_Permission::java_security_Permission(const java_security_Permission& cc) exit");
 }
-java_security_Permission::java_security_Permission(void * proxy)
+java_security_Permission::java_security_Permission(Proxy proxy)
 {
-	LOGV("java_security_Permission::java_security_Permission(void * proxy) enter");
+	LOGV("java_security_Permission::java_security_Permission(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -118,55 +117,34 @@ java_security_Permission::java_security_Permission(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_security_Permission::java_security_Permission(void * proxy) exit");
+	LOGV("java_security_Permission::java_security_Permission(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_security_Permission::java_security_Permission()
-// {
-// 	LOGV("java_security_Permission::java_security_Permission() enter");	
+Proxy java_security_Permission::proxy() const
+{	
+	LOGV("java_security_Permission::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/security/Permission";
+	long cxxAddress = (long) this;
+	LOGV("java_security_Permission cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_security_Permission jni address %d", proxiedComponent);
 
-// 	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_security_Permission::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_security_Permission cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_security_Permission jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_security_Permission::java_security_Permission() exit");	
-// }
-// 
-// 
-// Public Constructors
-java_security_Permission::java_security_Permission(AndroidCXX::java_lang_String& arg0)
+	return proxy;
+}
+java_security_Permission::java_security_Permission(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("java_security_Permission::java_security_Permission(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("java_security_Permission::java_security_Permission(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -219,7 +197,7 @@ java_security_Permission::java_security_Permission(AndroidCXX::java_lang_String&
 
 	jni->popLocalFrame();
 
-	LOGV("java_security_Permission::java_security_Permission(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("java_security_Permission::java_security_Permission(AndroidCXX::java_lang_String const& arg0) exit");	
 }
 // Default Instance Destructor
 java_security_Permission::~java_security_Permission()
@@ -232,13 +210,13 @@ java_security_Permission::~java_security_Permission()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_security_Permission::~java_security_Permission() exit");
 }
 // Functions
-bool java_security_Permission::equals(AndroidCXX::java_lang_Object& arg0)
+bool java_security_Permission::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_security_Permission::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_security_Permission::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -248,8 +226,6 @@ bool java_security_Permission::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_Permission cxx address %d", cxxAddress);
@@ -299,9 +275,7 @@ bool java_security_Permission::equals(AndroidCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_security_Permission::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_security_Permission::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -317,8 +291,6 @@ AndroidCXX::java_lang_String java_security_Permission::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_Permission cxx address %d", cxxAddress);
@@ -347,8 +319,6 @@ AndroidCXX::java_lang_String java_security_Permission::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_security_Permission::toString() exit");
 
 	return result;
@@ -365,8 +335,6 @@ int java_security_Permission::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_Permission cxx address %d", cxxAddress);
@@ -395,8 +363,6 @@ int java_security_Permission::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_security_Permission::hashCode() exit");
 
 	return result;
@@ -413,8 +379,6 @@ AndroidCXX::java_lang_String java_security_Permission::getName()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_Permission cxx address %d", cxxAddress);
@@ -443,15 +407,13 @@ AndroidCXX::java_lang_String java_security_Permission::getName()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_security_Permission::getName() exit");
 
 	return result;
 }
-bool java_security_Permission::implies(AndroidCXX::java_security_Permission& arg0)
+bool java_security_Permission::implies(AndroidCXX::java_security_Permission const& arg0)
 {
-	LOGV("bool java_security_Permission::implies(AndroidCXX::java_security_Permission& arg0) enter");
+	LOGV("bool java_security_Permission::implies(AndroidCXX::java_security_Permission const& arg0) enter");
 
 	const char *methodName = "implies";
 	const char *methodSignature = "(Ljava/security/Permission;)Z";
@@ -461,8 +423,6 @@ bool java_security_Permission::implies(AndroidCXX::java_security_Permission& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_Permission cxx address %d", cxxAddress);
@@ -512,9 +472,7 @@ bool java_security_Permission::implies(AndroidCXX::java_security_Permission& arg
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_security_Permission::implies(AndroidCXX::java_security_Permission& arg0) exit");
+	LOGV("bool java_security_Permission::implies(AndroidCXX::java_security_Permission const& arg0) exit");
 
 	return result;
 }
@@ -530,8 +488,6 @@ AndroidCXX::java_lang_String java_security_Permission::getActions()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_Permission cxx address %d", cxxAddress);
@@ -560,8 +516,6 @@ AndroidCXX::java_lang_String java_security_Permission::getActions()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_security_Permission::getActions() exit");
 
 	return result;
@@ -578,8 +532,6 @@ AndroidCXX::java_security_PermissionCollection java_security_Permission::newPerm
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_Permission cxx address %d", cxxAddress);
@@ -608,15 +560,13 @@ AndroidCXX::java_security_PermissionCollection java_security_Permission::newPerm
 	AndroidCXX::java_security_PermissionCollection result((AndroidCXX::java_security_PermissionCollection) *((AndroidCXX::java_security_PermissionCollection *) cxx_value));
 	delete ((AndroidCXX::java_security_PermissionCollection *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_security_PermissionCollection java_security_Permission::newPermissionCollection() exit");
 
 	return result;
 }
-void java_security_Permission::checkGuard(AndroidCXX::java_lang_Object& arg0)
+void java_security_Permission::checkGuard(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("void java_security_Permission::checkGuard(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("void java_security_Permission::checkGuard(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "checkGuard";
 	const char *methodSignature = "(Ljava/lang/Object;)V";
@@ -626,8 +576,6 @@ void java_security_Permission::checkGuard(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_Permission cxx address %d", cxxAddress);
@@ -658,8 +606,6 @@ void java_security_Permission::checkGuard(AndroidCXX::java_lang_Object& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_security_Permission::checkGuard(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("void java_security_Permission::checkGuard(AndroidCXX::java_lang_Object const& arg0) exit");
 
 }

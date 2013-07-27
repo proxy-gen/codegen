@@ -47,12 +47,9 @@ class android_webkit_JsResult
 public:
 
 	android_webkit_JsResult(const android_webkit_JsResult& cc);
-	android_webkit_JsResult(void * proxy);
+	android_webkit_JsResult(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_webkit_JsResult();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_JsResult();
 	// Functions

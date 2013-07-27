@@ -32,7 +32,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace JAVA_MATH_ROUNDINGMODE {
+namespace java_math_RoundingMode {
 
 enum java_math_RoundingMode
 {

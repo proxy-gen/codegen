@@ -46,7 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_media_MediaPlayer_OnVideoSizeChangedListener::android_media_MediaPlayer_OnVideoSizeChangedListener(const android_media_MediaPlayer_OnVideoSizeChangedListener& cc)
 {
 	LOGV("android_media_MediaPlayer_OnVideoSizeChangedListener::android_media_MediaPlayer_OnVideoSizeChangedListener(const android_media_MediaPlayer_OnVideoSizeChangedListener& cc) enter");
@@ -70,9 +69,9 @@ android_media_MediaPlayer_OnVideoSizeChangedListener::android_media_MediaPlayer_
 
 	LOGV("android_media_MediaPlayer_OnVideoSizeChangedListener::android_media_MediaPlayer_OnVideoSizeChangedListener(const android_media_MediaPlayer_OnVideoSizeChangedListener& cc) exit");
 }
-android_media_MediaPlayer_OnVideoSizeChangedListener::android_media_MediaPlayer_OnVideoSizeChangedListener(void * proxy)
+android_media_MediaPlayer_OnVideoSizeChangedListener::android_media_MediaPlayer_OnVideoSizeChangedListener(Proxy proxy)
 {
-	LOGV("android_media_MediaPlayer_OnVideoSizeChangedListener::android_media_MediaPlayer_OnVideoSizeChangedListener(void * proxy) enter");
+	LOGV("android_media_MediaPlayer_OnVideoSizeChangedListener::android_media_MediaPlayer_OnVideoSizeChangedListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -82,52 +81,31 @@ android_media_MediaPlayer_OnVideoSizeChangedListener::android_media_MediaPlayer_
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_media_MediaPlayer_OnVideoSizeChangedListener::android_media_MediaPlayer_OnVideoSizeChangedListener(void * proxy) exit");
+	LOGV("android_media_MediaPlayer_OnVideoSizeChangedListener::android_media_MediaPlayer_OnVideoSizeChangedListener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_media_MediaPlayer_OnVideoSizeChangedListener::android_media_MediaPlayer_OnVideoSizeChangedListener()
-// {
-// 	LOGV("android_media_MediaPlayer_OnVideoSizeChangedListener::android_media_MediaPlayer_OnVideoSizeChangedListener() enter");	
+Proxy android_media_MediaPlayer_OnVideoSizeChangedListener::proxy() const
+{	
+	LOGV("android_media_MediaPlayer_OnVideoSizeChangedListener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/media/MediaPlayer$OnVideoSizeChangedListener";
+	long cxxAddress = (long) this;
+	LOGV("android_media_MediaPlayer_OnVideoSizeChangedListener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_media_MediaPlayer_OnVideoSizeChangedListener jni address %d", proxiedComponent);
 
-// 	LOGV("android_media_MediaPlayer_OnVideoSizeChangedListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_media_MediaPlayer_OnVideoSizeChangedListener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_media_MediaPlayer_OnVideoSizeChangedListener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_media_MediaPlayer_OnVideoSizeChangedListener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_media_MediaPlayer_OnVideoSizeChangedListener::android_media_MediaPlayer_OnVideoSizeChangedListener() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_media_MediaPlayer_OnVideoSizeChangedListener::~android_media_MediaPlayer_OnVideoSizeChangedListener()
 {
@@ -139,13 +117,13 @@ android_media_MediaPlayer_OnVideoSizeChangedListener::~android_media_MediaPlayer
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_media_MediaPlayer_OnVideoSizeChangedListener::~android_media_MediaPlayer_OnVideoSizeChangedListener() exit");
 }
 // Functions
-void android_media_MediaPlayer_OnVideoSizeChangedListener::onVideoSizeChanged(AndroidCXX::android_media_MediaPlayer& arg0,int& arg1,int& arg2)
+void android_media_MediaPlayer_OnVideoSizeChangedListener::onVideoSizeChanged(AndroidCXX::android_media_MediaPlayer const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("void android_media_MediaPlayer_OnVideoSizeChangedListener::onVideoSizeChanged(AndroidCXX::android_media_MediaPlayer& arg0,int& arg1,int& arg2) enter");
+	LOGV("void android_media_MediaPlayer_OnVideoSizeChangedListener::onVideoSizeChanged(AndroidCXX::android_media_MediaPlayer const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "onVideoSizeChanged";
 	const char *methodSignature = "(Landroid/media/MediaPlayer;II)V";
@@ -155,8 +133,6 @@ void android_media_MediaPlayer_OnVideoSizeChangedListener::onVideoSizeChanged(An
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_media_MediaPlayer_OnVideoSizeChangedListener cxx address %d", cxxAddress);
@@ -229,8 +205,6 @@ void android_media_MediaPlayer_OnVideoSizeChangedListener::onVideoSizeChanged(An
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_media_MediaPlayer_OnVideoSizeChangedListener::onVideoSizeChanged(AndroidCXX::android_media_MediaPlayer& arg0,int& arg1,int& arg2) exit");
+	LOGV("void android_media_MediaPlayer_OnVideoSizeChangedListener::onVideoSizeChanged(AndroidCXX::android_media_MediaPlayer const& arg0,int const& arg1,int const& arg2) exit");
 
 }

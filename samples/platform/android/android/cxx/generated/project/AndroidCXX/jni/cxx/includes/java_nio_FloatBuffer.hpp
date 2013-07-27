@@ -111,35 +111,32 @@ class java_nio_FloatBuffer
 public:
 
 	java_nio_FloatBuffer(const java_nio_FloatBuffer& cc);
-	java_nio_FloatBuffer(void * proxy);
+	java_nio_FloatBuffer(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_nio_FloatBuffer();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_FloatBuffer();
 	// Functions
 	 float get();
-	 AndroidCXX::java_nio_FloatBuffer get(std::vector<float>& arg0);
-	 AndroidCXX::java_nio_FloatBuffer get(std::vector<float>& arg0,int& arg1,int& arg2);
-	 float get(int& arg0);
-	 AndroidCXX::java_nio_FloatBuffer put(AndroidCXX::java_nio_FloatBuffer& arg0);
-	 AndroidCXX::java_nio_FloatBuffer put(float& arg0);
-	 AndroidCXX::java_nio_FloatBuffer put(int& arg0,float& arg1);
-	 AndroidCXX::java_nio_FloatBuffer put(std::vector<float>& arg0,int& arg1,int& arg2);
-	 AndroidCXX::java_nio_FloatBuffer put(std::vector<float>& arg0);
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_nio_FloatBuffer get(std::vector<float> const& arg0);
+	 AndroidCXX::java_nio_FloatBuffer get(std::vector<float> const& arg0,int const& arg1,int const& arg2);
+	 float get(int const& arg0);
+	 AndroidCXX::java_nio_FloatBuffer put(AndroidCXX::java_nio_FloatBuffer const& arg0);
+	 AndroidCXX::java_nio_FloatBuffer put(float const& arg0);
+	 AndroidCXX::java_nio_FloatBuffer put(int const& arg0,float const& arg1);
+	 AndroidCXX::java_nio_FloatBuffer put(std::vector<float> const& arg0,int const& arg1,int const& arg2);
+	 AndroidCXX::java_nio_FloatBuffer put(std::vector<float> const& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 int compareTo(AndroidCXX::java_nio_FloatBuffer& arg0);
+	 int compareTo(AndroidCXX::java_nio_FloatBuffer const& arg0);
 	 bool isDirect();
 	 bool hasArray();
 	 std::vector<float> array();
 	 int arrayOffset();
-	static AndroidCXX::java_nio_FloatBuffer wrap(std::vector<float>& arg0,int& arg1,int& arg2);
-	static AndroidCXX::java_nio_FloatBuffer wrap(std::vector<float>& arg0);
-	static AndroidCXX::java_nio_FloatBuffer allocate(int& arg0);
+	static AndroidCXX::java_nio_FloatBuffer wrap(std::vector<float> const& arg0,int const& arg1,int const& arg2);
+	static AndroidCXX::java_nio_FloatBuffer wrap(std::vector<float> const& arg0);
+	static AndroidCXX::java_nio_FloatBuffer allocate(int const& arg0);
 	 AndroidCXX::java_nio_FloatBuffer duplicate();
 	 AndroidCXX::java_nio_FloatBuffer slice();
 	 AndroidCXX::java_nio_FloatBuffer asReadOnlyBuffer();

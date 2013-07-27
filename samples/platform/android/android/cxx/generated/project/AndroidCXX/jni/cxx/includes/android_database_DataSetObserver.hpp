@@ -48,11 +48,10 @@ class android_database_DataSetObserver
 public:
 
 	android_database_DataSetObserver(const android_database_DataSetObserver& cc);
-	android_database_DataSetObserver(void * proxy);
+	android_database_DataSetObserver(Proxy proxy);
 	// Public Constructors
 	android_database_DataSetObserver();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_database_DataSetObserver();
 	// Functions

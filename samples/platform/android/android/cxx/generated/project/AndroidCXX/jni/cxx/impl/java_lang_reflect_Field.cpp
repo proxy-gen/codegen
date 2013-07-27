@@ -188,7 +188,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_lang_reflect_Field::java_lang_reflect_Field(const java_lang_reflect_Field& cc)
 {
 	LOGV("java_lang_reflect_Field::java_lang_reflect_Field(const java_lang_reflect_Field& cc) enter");
@@ -212,9 +211,9 @@ java_lang_reflect_Field::java_lang_reflect_Field(const java_lang_reflect_Field& 
 
 	LOGV("java_lang_reflect_Field::java_lang_reflect_Field(const java_lang_reflect_Field& cc) exit");
 }
-java_lang_reflect_Field::java_lang_reflect_Field(void * proxy)
+java_lang_reflect_Field::java_lang_reflect_Field(Proxy proxy)
 {
-	LOGV("java_lang_reflect_Field::java_lang_reflect_Field(void * proxy) enter");
+	LOGV("java_lang_reflect_Field::java_lang_reflect_Field(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -224,52 +223,31 @@ java_lang_reflect_Field::java_lang_reflect_Field(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_lang_reflect_Field::java_lang_reflect_Field(void * proxy) exit");
+	LOGV("java_lang_reflect_Field::java_lang_reflect_Field(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_lang_reflect_Field::java_lang_reflect_Field()
-// {
-// 	LOGV("java_lang_reflect_Field::java_lang_reflect_Field() enter");	
+Proxy java_lang_reflect_Field::proxy() const
+{	
+	LOGV("java_lang_reflect_Field::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/lang/reflect/Field";
+	long cxxAddress = (long) this;
+	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_reflect_Field jni address %d", proxiedComponent);
 
-// 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_lang_reflect_Field::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_lang_reflect_Field jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_lang_reflect_Field::java_lang_reflect_Field() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_lang_reflect_Field::~java_lang_reflect_Field()
 {
@@ -281,13 +259,13 @@ java_lang_reflect_Field::~java_lang_reflect_Field()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_lang_reflect_Field::~java_lang_reflect_Field() exit");
 }
 // Functions
-AndroidCXX::java_lang_Object java_lang_reflect_Field::get(AndroidCXX::java_lang_Object& arg0)
+AndroidCXX::java_lang_Object java_lang_reflect_Field::get(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Object java_lang_reflect_Field::get(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Object java_lang_reflect_Field::get(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "get";
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/Object;";
@@ -297,8 +275,6 @@ AndroidCXX::java_lang_Object java_lang_reflect_Field::get(AndroidCXX::java_lang_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -348,15 +324,13 @@ AndroidCXX::java_lang_Object java_lang_reflect_Field::get(AndroidCXX::java_lang_
 	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
 	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_Object java_lang_reflect_Field::get(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("AndroidCXX::java_lang_Object java_lang_reflect_Field::get(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-bool java_lang_reflect_Field::equals(AndroidCXX::java_lang_Object& arg0)
+bool java_lang_reflect_Field::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_lang_reflect_Field::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_lang_reflect_Field::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -366,8 +340,6 @@ bool java_lang_reflect_Field::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -417,9 +389,7 @@ bool java_lang_reflect_Field::equals(AndroidCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_lang_reflect_Field::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_lang_reflect_Field::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -435,8 +405,6 @@ AndroidCXX::java_lang_String java_lang_reflect_Field::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -465,8 +433,6 @@ AndroidCXX::java_lang_String java_lang_reflect_Field::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_lang_reflect_Field::toString() exit");
 
 	return result;
@@ -484,8 +450,6 @@ int java_lang_reflect_Field::hashCode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -513,8 +477,6 @@ int java_lang_reflect_Field::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_lang_reflect_Field::hashCode() exit");
 
 	return result;
@@ -532,8 +494,6 @@ int java_lang_reflect_Field::getModifiers()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -561,15 +521,13 @@ int java_lang_reflect_Field::getModifiers()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_lang_reflect_Field::getModifiers() exit");
 
 	return result;
 }
-bool java_lang_reflect_Field::getBoolean(AndroidCXX::java_lang_Object& arg0)
+bool java_lang_reflect_Field::getBoolean(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_lang_reflect_Field::getBoolean(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_lang_reflect_Field::getBoolean(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "getBoolean";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -579,8 +537,6 @@ bool java_lang_reflect_Field::getBoolean(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -630,15 +586,13 @@ bool java_lang_reflect_Field::getBoolean(AndroidCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_lang_reflect_Field::getBoolean(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_lang_reflect_Field::getBoolean(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-byte java_lang_reflect_Field::getByte(AndroidCXX::java_lang_Object& arg0)
+byte java_lang_reflect_Field::getByte(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("byte java_lang_reflect_Field::getByte(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("byte java_lang_reflect_Field::getByte(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "getByte";
 	const char *methodSignature = "(Ljava/lang/Object;)B";
@@ -648,8 +602,6 @@ byte java_lang_reflect_Field::getByte(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -699,15 +651,13 @@ byte java_lang_reflect_Field::getByte(AndroidCXX::java_lang_Object& arg0)
 	byte result = (byte) *((byte *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("byte java_lang_reflect_Field::getByte(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("byte java_lang_reflect_Field::getByte(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-short java_lang_reflect_Field::getShort(AndroidCXX::java_lang_Object& arg0)
+short java_lang_reflect_Field::getShort(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("short java_lang_reflect_Field::getShort(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("short java_lang_reflect_Field::getShort(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "getShort";
 	const char *methodSignature = "(Ljava/lang/Object;)S";
@@ -717,8 +667,6 @@ short java_lang_reflect_Field::getShort(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -768,15 +716,13 @@ short java_lang_reflect_Field::getShort(AndroidCXX::java_lang_Object& arg0)
 	short result = (short) *((short *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("short java_lang_reflect_Field::getShort(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("short java_lang_reflect_Field::getShort(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-char java_lang_reflect_Field::getChar(AndroidCXX::java_lang_Object& arg0)
+char java_lang_reflect_Field::getChar(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("char java_lang_reflect_Field::getChar(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("char java_lang_reflect_Field::getChar(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "getChar";
 	const char *methodSignature = "(Ljava/lang/Object;)C";
@@ -786,8 +732,6 @@ char java_lang_reflect_Field::getChar(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -837,15 +781,13 @@ char java_lang_reflect_Field::getChar(AndroidCXX::java_lang_Object& arg0)
 	char result = (char) *((char *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("char java_lang_reflect_Field::getChar(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("char java_lang_reflect_Field::getChar(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-int java_lang_reflect_Field::getInt(AndroidCXX::java_lang_Object& arg0)
+int java_lang_reflect_Field::getInt(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("int java_lang_reflect_Field::getInt(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("int java_lang_reflect_Field::getInt(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "getInt";
 	const char *methodSignature = "(Ljava/lang/Object;)I";
@@ -855,8 +797,6 @@ int java_lang_reflect_Field::getInt(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -906,15 +846,13 @@ int java_lang_reflect_Field::getInt(AndroidCXX::java_lang_Object& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_lang_reflect_Field::getInt(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("int java_lang_reflect_Field::getInt(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-long java_lang_reflect_Field::getLong(AndroidCXX::java_lang_Object& arg0)
+long java_lang_reflect_Field::getLong(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("long java_lang_reflect_Field::getLong(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("long java_lang_reflect_Field::getLong(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "getLong";
 	const char *methodSignature = "(Ljava/lang/Object;)J";
@@ -924,8 +862,6 @@ long java_lang_reflect_Field::getLong(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -975,15 +911,13 @@ long java_lang_reflect_Field::getLong(AndroidCXX::java_lang_Object& arg0)
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("long java_lang_reflect_Field::getLong(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("long java_lang_reflect_Field::getLong(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-float java_lang_reflect_Field::getFloat(AndroidCXX::java_lang_Object& arg0)
+float java_lang_reflect_Field::getFloat(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("float java_lang_reflect_Field::getFloat(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("float java_lang_reflect_Field::getFloat(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "getFloat";
 	const char *methodSignature = "(Ljava/lang/Object;)F";
@@ -993,8 +927,6 @@ float java_lang_reflect_Field::getFloat(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -1044,15 +976,13 @@ float java_lang_reflect_Field::getFloat(AndroidCXX::java_lang_Object& arg0)
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("float java_lang_reflect_Field::getFloat(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("float java_lang_reflect_Field::getFloat(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-double java_lang_reflect_Field::getDouble(AndroidCXX::java_lang_Object& arg0)
+double java_lang_reflect_Field::getDouble(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("double java_lang_reflect_Field::getDouble(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("double java_lang_reflect_Field::getDouble(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "getDouble";
 	const char *methodSignature = "(Ljava/lang/Object;)D";
@@ -1062,8 +992,6 @@ double java_lang_reflect_Field::getDouble(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -1113,9 +1041,7 @@ double java_lang_reflect_Field::getDouble(AndroidCXX::java_lang_Object& arg0)
 	double result = (double) *((double *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("double java_lang_reflect_Field::getDouble(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("double java_lang_reflect_Field::getDouble(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -1131,8 +1057,6 @@ AndroidCXX::java_lang_String java_lang_reflect_Field::getName()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -1161,8 +1085,6 @@ AndroidCXX::java_lang_String java_lang_reflect_Field::getName()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_lang_reflect_Field::getName() exit");
 
 	return result;
@@ -1179,8 +1101,6 @@ bool java_lang_reflect_Field::isSynthetic()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -1209,8 +1129,6 @@ bool java_lang_reflect_Field::isSynthetic()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_lang_reflect_Field::isSynthetic() exit");
 
 	return result;
@@ -1227,8 +1145,6 @@ AndroidCXX::java_lang_Class java_lang_reflect_Field::getDeclaringClass()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -1275,15 +1191,13 @@ AndroidCXX::java_lang_Class java_lang_reflect_Field::getDeclaringClass()
 	AndroidCXX::java_lang_Class result((AndroidCXX::java_lang_Class) *((AndroidCXX::java_lang_Class *) cxx_value));
 	delete ((AndroidCXX::java_lang_Class *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_Class java_lang_reflect_Field::getDeclaringClass() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_annotation_Annotation java_lang_reflect_Field::getAnnotation(AndroidCXX::java_lang_Class& arg0)
+AndroidCXX::java_lang_annotation_Annotation java_lang_reflect_Field::getAnnotation(AndroidCXX::java_lang_Class const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_annotation_Annotation java_lang_reflect_Field::getAnnotation(AndroidCXX::java_lang_Class& arg0) enter");
+	LOGV("AndroidCXX::java_lang_annotation_Annotation java_lang_reflect_Field::getAnnotation(AndroidCXX::java_lang_Class const& arg0) enter");
 
 	const char *methodName = "getAnnotation";
 	const char *methodSignature = "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;";
@@ -1293,8 +1207,6 @@ AndroidCXX::java_lang_annotation_Annotation java_lang_reflect_Field::getAnnotati
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -1362,9 +1274,7 @@ AndroidCXX::java_lang_annotation_Annotation java_lang_reflect_Field::getAnnotati
 	AndroidCXX::java_lang_annotation_Annotation result((AndroidCXX::java_lang_annotation_Annotation) *((AndroidCXX::java_lang_annotation_Annotation *) cxx_value));
 	delete ((AndroidCXX::java_lang_annotation_Annotation *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_annotation_Annotation java_lang_reflect_Field::getAnnotation(AndroidCXX::java_lang_Class& arg0) exit");
+	LOGV("AndroidCXX::java_lang_annotation_Annotation java_lang_reflect_Field::getAnnotation(AndroidCXX::java_lang_Class const& arg0) exit");
 
 	return result;
 }
@@ -1380,8 +1290,6 @@ std::vector<AndroidCXX::java_lang_annotation_Annotation > java_lang_reflect_Fiel
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -1428,8 +1336,6 @@ std::vector<AndroidCXX::java_lang_annotation_Annotation > java_lang_reflect_Fiel
 	std::vector<AndroidCXX::java_lang_annotation_Annotation > result = (std::vector<AndroidCXX::java_lang_annotation_Annotation >) *((std::vector<AndroidCXX::java_lang_annotation_Annotation > *) cxx_value);
 	delete ((std::vector<AndroidCXX::java_lang_annotation_Annotation > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<AndroidCXX::java_lang_annotation_Annotation > java_lang_reflect_Field::getDeclaredAnnotations() exit");
 
 	return result;
@@ -1446,8 +1352,6 @@ bool java_lang_reflect_Field::isEnumConstant()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -1476,8 +1380,6 @@ bool java_lang_reflect_Field::isEnumConstant()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_lang_reflect_Field::isEnumConstant() exit");
 
 	return result;
@@ -1494,8 +1396,6 @@ AndroidCXX::java_lang_Class java_lang_reflect_Field::getType()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -1542,8 +1442,6 @@ AndroidCXX::java_lang_Class java_lang_reflect_Field::getType()
 	AndroidCXX::java_lang_Class result((AndroidCXX::java_lang_Class) *((AndroidCXX::java_lang_Class *) cxx_value));
 	delete ((AndroidCXX::java_lang_Class *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_Class java_lang_reflect_Field::getType() exit");
 
 	return result;
@@ -1560,8 +1458,6 @@ AndroidCXX::java_lang_reflect_Type java_lang_reflect_Field::getGenericType()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -1590,8 +1486,6 @@ AndroidCXX::java_lang_reflect_Type java_lang_reflect_Field::getGenericType()
 	AndroidCXX::java_lang_reflect_Type result((AndroidCXX::java_lang_reflect_Type) *((AndroidCXX::java_lang_reflect_Type *) cxx_value));
 	delete ((AndroidCXX::java_lang_reflect_Type *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_reflect_Type java_lang_reflect_Field::getGenericType() exit");
 
 	return result;
@@ -1608,8 +1502,6 @@ AndroidCXX::java_lang_String java_lang_reflect_Field::toGenericString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -1638,15 +1530,13 @@ AndroidCXX::java_lang_String java_lang_reflect_Field::toGenericString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_lang_reflect_Field::toGenericString() exit");
 
 	return result;
 }
-void java_lang_reflect_Field::set(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1)
+void java_lang_reflect_Field::set(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1)
 {
-	LOGV("void java_lang_reflect_Field::set(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1) enter");
+	LOGV("void java_lang_reflect_Field::set(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1) enter");
 
 	const char *methodName = "set";
 	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/Object;)V";
@@ -1656,8 +1546,6 @@ void java_lang_reflect_Field::set(AndroidCXX::java_lang_Object& arg0,AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -1709,14 +1597,12 @@ void java_lang_reflect_Field::set(AndroidCXX::java_lang_Object& arg0,AndroidCXX:
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_reflect_Field::set(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1) exit");
+	LOGV("void java_lang_reflect_Field::set(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1) exit");
 
 }
-void java_lang_reflect_Field::setBoolean(AndroidCXX::java_lang_Object& arg0,bool& arg1)
+void java_lang_reflect_Field::setBoolean(AndroidCXX::java_lang_Object const& arg0,bool const& arg1)
 {
-	LOGV("void java_lang_reflect_Field::setBoolean(AndroidCXX::java_lang_Object& arg0,bool& arg1) enter");
+	LOGV("void java_lang_reflect_Field::setBoolean(AndroidCXX::java_lang_Object const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "setBoolean";
 	const char *methodSignature = "(Ljava/lang/Object;Z)V";
@@ -1726,8 +1612,6 @@ void java_lang_reflect_Field::setBoolean(AndroidCXX::java_lang_Object& arg0,bool
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -1779,14 +1663,12 @@ void java_lang_reflect_Field::setBoolean(AndroidCXX::java_lang_Object& arg0,bool
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_reflect_Field::setBoolean(AndroidCXX::java_lang_Object& arg0,bool& arg1) exit");
+	LOGV("void java_lang_reflect_Field::setBoolean(AndroidCXX::java_lang_Object const& arg0,bool const& arg1) exit");
 
 }
-void java_lang_reflect_Field::setByte(AndroidCXX::java_lang_Object& arg0,byte& arg1)
+void java_lang_reflect_Field::setByte(AndroidCXX::java_lang_Object const& arg0,byte const& arg1)
 {
-	LOGV("void java_lang_reflect_Field::setByte(AndroidCXX::java_lang_Object& arg0,byte& arg1) enter");
+	LOGV("void java_lang_reflect_Field::setByte(AndroidCXX::java_lang_Object const& arg0,byte const& arg1) enter");
 
 	const char *methodName = "setByte";
 	const char *methodSignature = "(Ljava/lang/Object;B)V";
@@ -1796,8 +1678,6 @@ void java_lang_reflect_Field::setByte(AndroidCXX::java_lang_Object& arg0,byte& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -1849,14 +1729,12 @@ void java_lang_reflect_Field::setByte(AndroidCXX::java_lang_Object& arg0,byte& a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_reflect_Field::setByte(AndroidCXX::java_lang_Object& arg0,byte& arg1) exit");
+	LOGV("void java_lang_reflect_Field::setByte(AndroidCXX::java_lang_Object const& arg0,byte const& arg1) exit");
 
 }
-void java_lang_reflect_Field::setChar(AndroidCXX::java_lang_Object& arg0,char& arg1)
+void java_lang_reflect_Field::setChar(AndroidCXX::java_lang_Object const& arg0,char const& arg1)
 {
-	LOGV("void java_lang_reflect_Field::setChar(AndroidCXX::java_lang_Object& arg0,char& arg1) enter");
+	LOGV("void java_lang_reflect_Field::setChar(AndroidCXX::java_lang_Object const& arg0,char const& arg1) enter");
 
 	const char *methodName = "setChar";
 	const char *methodSignature = "(Ljava/lang/Object;C)V";
@@ -1866,8 +1744,6 @@ void java_lang_reflect_Field::setChar(AndroidCXX::java_lang_Object& arg0,char& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -1919,14 +1795,12 @@ void java_lang_reflect_Field::setChar(AndroidCXX::java_lang_Object& arg0,char& a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_reflect_Field::setChar(AndroidCXX::java_lang_Object& arg0,char& arg1) exit");
+	LOGV("void java_lang_reflect_Field::setChar(AndroidCXX::java_lang_Object const& arg0,char const& arg1) exit");
 
 }
-void java_lang_reflect_Field::setShort(AndroidCXX::java_lang_Object& arg0,short& arg1)
+void java_lang_reflect_Field::setShort(AndroidCXX::java_lang_Object const& arg0,short const& arg1)
 {
-	LOGV("void java_lang_reflect_Field::setShort(AndroidCXX::java_lang_Object& arg0,short& arg1) enter");
+	LOGV("void java_lang_reflect_Field::setShort(AndroidCXX::java_lang_Object const& arg0,short const& arg1) enter");
 
 	const char *methodName = "setShort";
 	const char *methodSignature = "(Ljava/lang/Object;S)V";
@@ -1936,8 +1810,6 @@ void java_lang_reflect_Field::setShort(AndroidCXX::java_lang_Object& arg0,short&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -1989,14 +1861,12 @@ void java_lang_reflect_Field::setShort(AndroidCXX::java_lang_Object& arg0,short&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_reflect_Field::setShort(AndroidCXX::java_lang_Object& arg0,short& arg1) exit");
+	LOGV("void java_lang_reflect_Field::setShort(AndroidCXX::java_lang_Object const& arg0,short const& arg1) exit");
 
 }
-void java_lang_reflect_Field::setInt(AndroidCXX::java_lang_Object& arg0,int& arg1)
+void java_lang_reflect_Field::setInt(AndroidCXX::java_lang_Object const& arg0,int const& arg1)
 {
-	LOGV("void java_lang_reflect_Field::setInt(AndroidCXX::java_lang_Object& arg0,int& arg1) enter");
+	LOGV("void java_lang_reflect_Field::setInt(AndroidCXX::java_lang_Object const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setInt";
 	const char *methodSignature = "(Ljava/lang/Object;I)V";
@@ -2006,8 +1876,6 @@ void java_lang_reflect_Field::setInt(AndroidCXX::java_lang_Object& arg0,int& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -2059,14 +1927,12 @@ void java_lang_reflect_Field::setInt(AndroidCXX::java_lang_Object& arg0,int& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_reflect_Field::setInt(AndroidCXX::java_lang_Object& arg0,int& arg1) exit");
+	LOGV("void java_lang_reflect_Field::setInt(AndroidCXX::java_lang_Object const& arg0,int const& arg1) exit");
 
 }
-void java_lang_reflect_Field::setLong(AndroidCXX::java_lang_Object& arg0,long& arg1)
+void java_lang_reflect_Field::setLong(AndroidCXX::java_lang_Object const& arg0,long const& arg1)
 {
-	LOGV("void java_lang_reflect_Field::setLong(AndroidCXX::java_lang_Object& arg0,long& arg1) enter");
+	LOGV("void java_lang_reflect_Field::setLong(AndroidCXX::java_lang_Object const& arg0,long const& arg1) enter");
 
 	const char *methodName = "setLong";
 	const char *methodSignature = "(Ljava/lang/Object;J)V";
@@ -2076,8 +1942,6 @@ void java_lang_reflect_Field::setLong(AndroidCXX::java_lang_Object& arg0,long& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -2129,14 +1993,12 @@ void java_lang_reflect_Field::setLong(AndroidCXX::java_lang_Object& arg0,long& a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_reflect_Field::setLong(AndroidCXX::java_lang_Object& arg0,long& arg1) exit");
+	LOGV("void java_lang_reflect_Field::setLong(AndroidCXX::java_lang_Object const& arg0,long const& arg1) exit");
 
 }
-void java_lang_reflect_Field::setFloat(AndroidCXX::java_lang_Object& arg0,float& arg1)
+void java_lang_reflect_Field::setFloat(AndroidCXX::java_lang_Object const& arg0,float const& arg1)
 {
-	LOGV("void java_lang_reflect_Field::setFloat(AndroidCXX::java_lang_Object& arg0,float& arg1) enter");
+	LOGV("void java_lang_reflect_Field::setFloat(AndroidCXX::java_lang_Object const& arg0,float const& arg1) enter");
 
 	const char *methodName = "setFloat";
 	const char *methodSignature = "(Ljava/lang/Object;F)V";
@@ -2146,8 +2008,6 @@ void java_lang_reflect_Field::setFloat(AndroidCXX::java_lang_Object& arg0,float&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -2199,14 +2059,12 @@ void java_lang_reflect_Field::setFloat(AndroidCXX::java_lang_Object& arg0,float&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_reflect_Field::setFloat(AndroidCXX::java_lang_Object& arg0,float& arg1) exit");
+	LOGV("void java_lang_reflect_Field::setFloat(AndroidCXX::java_lang_Object const& arg0,float const& arg1) exit");
 
 }
-void java_lang_reflect_Field::setDouble(AndroidCXX::java_lang_Object& arg0,double& arg1)
+void java_lang_reflect_Field::setDouble(AndroidCXX::java_lang_Object const& arg0,double const& arg1)
 {
-	LOGV("void java_lang_reflect_Field::setDouble(AndroidCXX::java_lang_Object& arg0,double& arg1) enter");
+	LOGV("void java_lang_reflect_Field::setDouble(AndroidCXX::java_lang_Object const& arg0,double const& arg1) enter");
 
 	const char *methodName = "setDouble";
 	const char *methodSignature = "(Ljava/lang/Object;D)V";
@@ -2216,8 +2074,6 @@ void java_lang_reflect_Field::setDouble(AndroidCXX::java_lang_Object& arg0,doubl
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
@@ -2269,8 +2125,6 @@ void java_lang_reflect_Field::setDouble(AndroidCXX::java_lang_Object& arg0,doubl
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_reflect_Field::setDouble(AndroidCXX::java_lang_Object& arg0,double& arg1) exit");
+	LOGV("void java_lang_reflect_Field::setDouble(AndroidCXX::java_lang_Object const& arg0,double const& arg1) exit");
 
 }

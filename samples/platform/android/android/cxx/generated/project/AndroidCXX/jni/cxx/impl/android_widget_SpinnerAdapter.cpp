@@ -54,7 +54,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_SpinnerAdapter::android_widget_SpinnerAdapter(const android_widget_SpinnerAdapter& cc)
 {
 	LOGV("android_widget_SpinnerAdapter::android_widget_SpinnerAdapter(const android_widget_SpinnerAdapter& cc) enter");
@@ -78,9 +77,9 @@ android_widget_SpinnerAdapter::android_widget_SpinnerAdapter(const android_widge
 
 	LOGV("android_widget_SpinnerAdapter::android_widget_SpinnerAdapter(const android_widget_SpinnerAdapter& cc) exit");
 }
-android_widget_SpinnerAdapter::android_widget_SpinnerAdapter(void * proxy)
+android_widget_SpinnerAdapter::android_widget_SpinnerAdapter(Proxy proxy)
 {
-	LOGV("android_widget_SpinnerAdapter::android_widget_SpinnerAdapter(void * proxy) enter");
+	LOGV("android_widget_SpinnerAdapter::android_widget_SpinnerAdapter(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -90,52 +89,31 @@ android_widget_SpinnerAdapter::android_widget_SpinnerAdapter(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_SpinnerAdapter::android_widget_SpinnerAdapter(void * proxy) exit");
+	LOGV("android_widget_SpinnerAdapter::android_widget_SpinnerAdapter(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_SpinnerAdapter::android_widget_SpinnerAdapter()
-// {
-// 	LOGV("android_widget_SpinnerAdapter::android_widget_SpinnerAdapter() enter");	
+Proxy android_widget_SpinnerAdapter::proxy() const
+{	
+	LOGV("android_widget_SpinnerAdapter::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/SpinnerAdapter";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_SpinnerAdapter cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_SpinnerAdapter jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_SpinnerAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_SpinnerAdapter::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_SpinnerAdapter cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_SpinnerAdapter jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_SpinnerAdapter::android_widget_SpinnerAdapter() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_widget_SpinnerAdapter::~android_widget_SpinnerAdapter()
 {
@@ -147,13 +125,13 @@ android_widget_SpinnerAdapter::~android_widget_SpinnerAdapter()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_SpinnerAdapter::~android_widget_SpinnerAdapter() exit");
 }
 // Functions
-AndroidCXX::android_view_View android_widget_SpinnerAdapter::getDropDownView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2)
+AndroidCXX::android_view_View android_widget_SpinnerAdapter::getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2)
 {
-	LOGV("AndroidCXX::android_view_View android_widget_SpinnerAdapter::getDropDownView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2) enter");
+	LOGV("AndroidCXX::android_view_View android_widget_SpinnerAdapter::getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) enter");
 
 	const char *methodName = "getDropDownView";
 	const char *methodSignature = "(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;";
@@ -163,8 +141,6 @@ AndroidCXX::android_view_View android_widget_SpinnerAdapter::getDropDownView(int
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SpinnerAdapter cxx address %d", cxxAddress);
@@ -256,9 +232,7 @@ AndroidCXX::android_view_View android_widget_SpinnerAdapter::getDropDownView(int
 	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
 	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_View android_widget_SpinnerAdapter::getDropDownView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2) exit");
+	LOGV("AndroidCXX::android_view_View android_widget_SpinnerAdapter::getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) exit");
 
 	return result;
 }

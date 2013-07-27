@@ -51,16 +51,13 @@ class android_database_DatabaseErrorHandler
 public:
 
 	android_database_DatabaseErrorHandler(const android_database_DatabaseErrorHandler& cc);
-	android_database_DatabaseErrorHandler(void * proxy);
+	android_database_DatabaseErrorHandler(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_database_DatabaseErrorHandler();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_database_DatabaseErrorHandler();
 	// Functions
-	 void onCorruption(AndroidCXX::android_database_sqlite_SQLiteDatabase& arg0);
+	 void onCorruption(AndroidCXX::android_database_sqlite_SQLiteDatabase const& arg0);
 };	
 
 } // namespace

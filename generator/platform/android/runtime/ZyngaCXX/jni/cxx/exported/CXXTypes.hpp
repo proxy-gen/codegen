@@ -11,6 +11,11 @@
 #ifndef _CXXTYPES_H
 #define _CXXTYPES_H
 
+typedef struct 
+{
+	long address;
+} Proxy;
+
 typedef signed char byte;
 
 #endif // _CXXTYPES_H

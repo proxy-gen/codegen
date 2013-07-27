@@ -53,12 +53,9 @@ class java_nio_MappedByteBuffer
 public:
 
 	java_nio_MappedByteBuffer(const java_nio_MappedByteBuffer& cc);
-	java_nio_MappedByteBuffer(void * proxy);
+	java_nio_MappedByteBuffer(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_nio_MappedByteBuffer();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_MappedByteBuffer();
 	// Functions

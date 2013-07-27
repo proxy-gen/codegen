@@ -51,16 +51,13 @@ class android_view_MenuItem_OnMenuItemClickListener
 public:
 
 	android_view_MenuItem_OnMenuItemClickListener(const android_view_MenuItem_OnMenuItemClickListener& cc);
-	android_view_MenuItem_OnMenuItemClickListener(void * proxy);
+	android_view_MenuItem_OnMenuItemClickListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_view_MenuItem_OnMenuItemClickListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_MenuItem_OnMenuItemClickListener();
 	// Functions
-	 bool onMenuItemClick(AndroidCXX::android_view_MenuItem& arg0);
+	 bool onMenuItemClick(AndroidCXX::android_view_MenuItem const& arg0);
 };	
 
 } // namespace

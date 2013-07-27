@@ -63,7 +63,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_lang_Object::java_lang_Object(const java_lang_Object& cc)
 {
 	LOGV("java_lang_Object::java_lang_Object(const java_lang_Object& cc) enter");
@@ -87,9 +86,9 @@ java_lang_Object::java_lang_Object(const java_lang_Object& cc)
 
 	LOGV("java_lang_Object::java_lang_Object(const java_lang_Object& cc) exit");
 }
-java_lang_Object::java_lang_Object(void * proxy)
+java_lang_Object::java_lang_Object(Proxy proxy)
 {
-	LOGV("java_lang_Object::java_lang_Object(void * proxy) enter");
+	LOGV("java_lang_Object::java_lang_Object(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -99,17 +98,31 @@ java_lang_Object::java_lang_Object(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_lang_Object::java_lang_Object(void * proxy) exit");
+	LOGV("java_lang_Object::java_lang_Object(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy java_lang_Object::proxy() const
+{	
+	LOGV("java_lang_Object::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("java_lang_Object cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_Object jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("java_lang_Object::proxy() exit");	
+
+	return proxy;
+}
 java_lang_Object::java_lang_Object()
 {
 	LOGV("java_lang_Object::java_lang_Object() enter");	
@@ -157,7 +170,7 @@ java_lang_Object::~java_lang_Object()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_lang_Object::~java_lang_Object() exit");
 }
 // Functions
@@ -174,8 +187,6 @@ void java_lang_Object::wait()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Object cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -184,14 +195,12 @@ void java_lang_Object::wait()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_lang_Object::wait() exit");
 
 }
-void java_lang_Object::wait(long& arg0)
+void java_lang_Object::wait(long const& arg0)
 {
-	LOGV("void java_lang_Object::wait(long& arg0) enter");
+	LOGV("void java_lang_Object::wait(long const& arg0) enter");
 
 	const char *methodName = "wait";
 	const char *methodSignature = "(J)V";
@@ -201,8 +210,6 @@ void java_lang_Object::wait(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Object cxx address %d", cxxAddress);
@@ -233,14 +240,12 @@ void java_lang_Object::wait(long& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_Object::wait(long& arg0) exit");
+	LOGV("void java_lang_Object::wait(long const& arg0) exit");
 
 }
-void java_lang_Object::wait(long& arg0,int& arg1)
+void java_lang_Object::wait(long const& arg0,int const& arg1)
 {
-	LOGV("void java_lang_Object::wait(long& arg0,int& arg1) enter");
+	LOGV("void java_lang_Object::wait(long const& arg0,int const& arg1) enter");
 
 	const char *methodName = "wait";
 	const char *methodSignature = "(JI)V";
@@ -250,8 +255,6 @@ void java_lang_Object::wait(long& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Object cxx address %d", cxxAddress);
@@ -303,14 +306,12 @@ void java_lang_Object::wait(long& arg0,int& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_Object::wait(long& arg0,int& arg1) exit");
+	LOGV("void java_lang_Object::wait(long const& arg0,int const& arg1) exit");
 
 }
-bool java_lang_Object::equals(AndroidCXX::java_lang_Object& arg0)
+bool java_lang_Object::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_lang_Object::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_lang_Object::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -320,8 +321,6 @@ bool java_lang_Object::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Object cxx address %d", cxxAddress);
@@ -371,9 +370,7 @@ bool java_lang_Object::equals(AndroidCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_lang_Object::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_lang_Object::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -389,8 +386,6 @@ AndroidCXX::java_lang_String java_lang_Object::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Object cxx address %d", cxxAddress);
@@ -419,8 +414,6 @@ AndroidCXX::java_lang_String java_lang_Object::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_lang_Object::toString() exit");
 
 	return result;
@@ -437,8 +430,6 @@ int java_lang_Object::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Object cxx address %d", cxxAddress);
@@ -467,8 +458,6 @@ int java_lang_Object::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_lang_Object::hashCode() exit");
 
 	return result;
@@ -485,8 +474,6 @@ AndroidCXX::java_lang_Class java_lang_Object::getClass()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Object cxx address %d", cxxAddress);
@@ -533,8 +520,6 @@ AndroidCXX::java_lang_Class java_lang_Object::getClass()
 	AndroidCXX::java_lang_Class result((AndroidCXX::java_lang_Class) *((AndroidCXX::java_lang_Class *) cxx_value));
 	delete ((AndroidCXX::java_lang_Class *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_Class java_lang_Object::getClass() exit");
 
 	return result;
@@ -552,8 +537,6 @@ void java_lang_Object::notify()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Object cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -562,8 +545,6 @@ void java_lang_Object::notify()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_lang_Object::notify() exit");
 
 }
@@ -580,8 +561,6 @@ void java_lang_Object::notifyAll()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Object cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -590,8 +569,6 @@ void java_lang_Object::notifyAll()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_lang_Object::notifyAll() exit");
 
 }

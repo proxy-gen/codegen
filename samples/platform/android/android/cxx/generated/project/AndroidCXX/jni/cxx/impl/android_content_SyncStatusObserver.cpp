@@ -39,7 +39,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_content_SyncStatusObserver::android_content_SyncStatusObserver(const android_content_SyncStatusObserver& cc)
 {
 	LOGV("android_content_SyncStatusObserver::android_content_SyncStatusObserver(const android_content_SyncStatusObserver& cc) enter");
@@ -63,9 +62,9 @@ android_content_SyncStatusObserver::android_content_SyncStatusObserver(const and
 
 	LOGV("android_content_SyncStatusObserver::android_content_SyncStatusObserver(const android_content_SyncStatusObserver& cc) exit");
 }
-android_content_SyncStatusObserver::android_content_SyncStatusObserver(void * proxy)
+android_content_SyncStatusObserver::android_content_SyncStatusObserver(Proxy proxy)
 {
-	LOGV("android_content_SyncStatusObserver::android_content_SyncStatusObserver(void * proxy) enter");
+	LOGV("android_content_SyncStatusObserver::android_content_SyncStatusObserver(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -75,52 +74,31 @@ android_content_SyncStatusObserver::android_content_SyncStatusObserver(void * pr
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_content_SyncStatusObserver::android_content_SyncStatusObserver(void * proxy) exit");
+	LOGV("android_content_SyncStatusObserver::android_content_SyncStatusObserver(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_content_SyncStatusObserver::android_content_SyncStatusObserver()
-// {
-// 	LOGV("android_content_SyncStatusObserver::android_content_SyncStatusObserver() enter");	
+Proxy android_content_SyncStatusObserver::proxy() const
+{	
+	LOGV("android_content_SyncStatusObserver::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/content/SyncStatusObserver";
+	long cxxAddress = (long) this;
+	LOGV("android_content_SyncStatusObserver cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_content_SyncStatusObserver jni address %d", proxiedComponent);
 
-// 	LOGV("android_content_SyncStatusObserver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_content_SyncStatusObserver::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_content_SyncStatusObserver cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_content_SyncStatusObserver jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_content_SyncStatusObserver::android_content_SyncStatusObserver() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_content_SyncStatusObserver::~android_content_SyncStatusObserver()
 {
@@ -132,13 +110,13 @@ android_content_SyncStatusObserver::~android_content_SyncStatusObserver()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_content_SyncStatusObserver::~android_content_SyncStatusObserver() exit");
 }
 // Functions
-void android_content_SyncStatusObserver::onStatusChanged(int& arg0)
+void android_content_SyncStatusObserver::onStatusChanged(int const& arg0)
 {
-	LOGV("void android_content_SyncStatusObserver::onStatusChanged(int& arg0) enter");
+	LOGV("void android_content_SyncStatusObserver::onStatusChanged(int const& arg0) enter");
 
 	const char *methodName = "onStatusChanged";
 	const char *methodSignature = "(I)V";
@@ -148,8 +126,6 @@ void android_content_SyncStatusObserver::onStatusChanged(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SyncStatusObserver cxx address %d", cxxAddress);
@@ -180,8 +156,6 @@ void android_content_SyncStatusObserver::onStatusChanged(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_SyncStatusObserver::onStatusChanged(int& arg0) exit");
+	LOGV("void android_content_SyncStatusObserver::onStatusChanged(int const& arg0) exit");
 
 }

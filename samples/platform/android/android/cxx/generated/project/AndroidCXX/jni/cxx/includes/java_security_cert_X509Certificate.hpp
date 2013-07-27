@@ -128,12 +128,9 @@ class java_security_cert_X509Certificate
 public:
 
 	java_security_cert_X509Certificate(const java_security_cert_X509Certificate& cc);
-	java_security_cert_X509Certificate(void * proxy);
+	java_security_cert_X509Certificate(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_security_cert_X509Certificate();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_security_cert_X509Certificate();
 	// Functions
@@ -144,7 +141,7 @@ public:
 	 AndroidCXX::java_security_Principal getIssuerDN();
 	 std::vector<byte> getTBSCertificate();
 	 void checkValidity();
-	 void checkValidity(AndroidCXX::java_util_Date& arg0);
+	 void checkValidity(AndroidCXX::java_util_Date const& arg0);
 	 AndroidCXX::javax_security_auth_x500_X500Principal getIssuerX500Principal();
 	 AndroidCXX::java_security_Principal getSubjectDN();
 	 AndroidCXX::javax_security_auth_x500_X500Principal getSubjectX500Principal();

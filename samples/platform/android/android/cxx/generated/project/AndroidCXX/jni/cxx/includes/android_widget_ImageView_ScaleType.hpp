@@ -30,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace ANDROID_WIDGET_IMAGEVIEW_SCALETYPE {
+namespace android_widget_ImageView_ScaleType {
 
 enum android_widget_ImageView_ScaleType
 {

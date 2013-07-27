@@ -39,7 +39,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_os_CancellationSignal_OnCancelListener::android_os_CancellationSignal_OnCancelListener(const android_os_CancellationSignal_OnCancelListener& cc)
 {
 	LOGV("android_os_CancellationSignal_OnCancelListener::android_os_CancellationSignal_OnCancelListener(const android_os_CancellationSignal_OnCancelListener& cc) enter");
@@ -63,9 +62,9 @@ android_os_CancellationSignal_OnCancelListener::android_os_CancellationSignal_On
 
 	LOGV("android_os_CancellationSignal_OnCancelListener::android_os_CancellationSignal_OnCancelListener(const android_os_CancellationSignal_OnCancelListener& cc) exit");
 }
-android_os_CancellationSignal_OnCancelListener::android_os_CancellationSignal_OnCancelListener(void * proxy)
+android_os_CancellationSignal_OnCancelListener::android_os_CancellationSignal_OnCancelListener(Proxy proxy)
 {
-	LOGV("android_os_CancellationSignal_OnCancelListener::android_os_CancellationSignal_OnCancelListener(void * proxy) enter");
+	LOGV("android_os_CancellationSignal_OnCancelListener::android_os_CancellationSignal_OnCancelListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -75,52 +74,31 @@ android_os_CancellationSignal_OnCancelListener::android_os_CancellationSignal_On
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_os_CancellationSignal_OnCancelListener::android_os_CancellationSignal_OnCancelListener(void * proxy) exit");
+	LOGV("android_os_CancellationSignal_OnCancelListener::android_os_CancellationSignal_OnCancelListener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_os_CancellationSignal_OnCancelListener::android_os_CancellationSignal_OnCancelListener()
-// {
-// 	LOGV("android_os_CancellationSignal_OnCancelListener::android_os_CancellationSignal_OnCancelListener() enter");	
+Proxy android_os_CancellationSignal_OnCancelListener::proxy() const
+{	
+	LOGV("android_os_CancellationSignal_OnCancelListener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/os/CancellationSignal$OnCancelListener";
+	long cxxAddress = (long) this;
+	LOGV("android_os_CancellationSignal_OnCancelListener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_os_CancellationSignal_OnCancelListener jni address %d", proxiedComponent);
 
-// 	LOGV("android_os_CancellationSignal_OnCancelListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_os_CancellationSignal_OnCancelListener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_os_CancellationSignal_OnCancelListener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_os_CancellationSignal_OnCancelListener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_os_CancellationSignal_OnCancelListener::android_os_CancellationSignal_OnCancelListener() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_os_CancellationSignal_OnCancelListener::~android_os_CancellationSignal_OnCancelListener()
 {
@@ -132,7 +110,7 @@ android_os_CancellationSignal_OnCancelListener::~android_os_CancellationSignal_O
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_os_CancellationSignal_OnCancelListener::~android_os_CancellationSignal_OnCancelListener() exit");
 }
 // Functions
@@ -149,8 +127,6 @@ void android_os_CancellationSignal_OnCancelListener::onCancel()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_os_CancellationSignal_OnCancelListener cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -159,8 +135,6 @@ void android_os_CancellationSignal_OnCancelListener::onCancel()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_os_CancellationSignal_OnCancelListener::onCancel() exit");
 
 }

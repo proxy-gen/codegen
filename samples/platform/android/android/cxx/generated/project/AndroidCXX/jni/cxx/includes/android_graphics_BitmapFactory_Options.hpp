@@ -47,11 +47,10 @@ class android_graphics_BitmapFactory_Options
 public:
 
 	android_graphics_BitmapFactory_Options(const android_graphics_BitmapFactory_Options& cc);
-	android_graphics_BitmapFactory_Options(void * proxy);
+	android_graphics_BitmapFactory_Options(Proxy proxy);
 	// Public Constructors
 	android_graphics_BitmapFactory_Options();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_BitmapFactory_Options();
 	// Functions

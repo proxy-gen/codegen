@@ -63,12 +63,9 @@ class com_facebook_Response_PagedResults
 public:
 
 	com_facebook_Response_PagedResults(const com_facebook_Response_PagedResults& cc);
-	com_facebook_Response_PagedResults(void * proxy);
+	com_facebook_Response_PagedResults(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_Response_PagedResults();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Response_PagedResults();
 	// Functions

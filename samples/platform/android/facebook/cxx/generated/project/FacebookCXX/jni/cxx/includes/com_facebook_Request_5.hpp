@@ -51,16 +51,13 @@ class com_facebook_Request_5
 public:
 
 	com_facebook_Request_5(const com_facebook_Request_5& cc);
-	com_facebook_Request_5(void * proxy);
+	com_facebook_Request_5(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_Request_5();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Request_5();
 	// Functions
-	 void writeString(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
+	 void writeString(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
 };	
 
 } // namespace

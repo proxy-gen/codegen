@@ -56,7 +56,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_text_Spannable_Factory::android_text_Spannable_Factory(const android_text_Spannable_Factory& cc)
 {
 	LOGV("android_text_Spannable_Factory::android_text_Spannable_Factory(const android_text_Spannable_Factory& cc) enter");
@@ -80,9 +79,9 @@ android_text_Spannable_Factory::android_text_Spannable_Factory(const android_tex
 
 	LOGV("android_text_Spannable_Factory::android_text_Spannable_Factory(const android_text_Spannable_Factory& cc) exit");
 }
-android_text_Spannable_Factory::android_text_Spannable_Factory(void * proxy)
+android_text_Spannable_Factory::android_text_Spannable_Factory(Proxy proxy)
 {
-	LOGV("android_text_Spannable_Factory::android_text_Spannable_Factory(void * proxy) enter");
+	LOGV("android_text_Spannable_Factory::android_text_Spannable_Factory(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -92,17 +91,31 @@ android_text_Spannable_Factory::android_text_Spannable_Factory(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_text_Spannable_Factory::android_text_Spannable_Factory(void * proxy) exit");
+	LOGV("android_text_Spannable_Factory::android_text_Spannable_Factory(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy android_text_Spannable_Factory::proxy() const
+{	
+	LOGV("android_text_Spannable_Factory::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_text_Spannable_Factory cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_text_Spannable_Factory jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_text_Spannable_Factory::proxy() exit");	
+
+	return proxy;
+}
 android_text_Spannable_Factory::android_text_Spannable_Factory()
 {
 	LOGV("android_text_Spannable_Factory::android_text_Spannable_Factory() enter");	
@@ -150,7 +163,7 @@ android_text_Spannable_Factory::~android_text_Spannable_Factory()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_text_Spannable_Factory::~android_text_Spannable_Factory() exit");
 }
 // Functions
@@ -167,15 +180,13 @@ AndroidCXX::android_text_Spannable_Factory android_text_Spannable_Factory::getIn
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_text_Spannable_Factory cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_text_Spannable_Factory jni address %d", javaObject);
 
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -196,15 +207,13 @@ AndroidCXX::android_text_Spannable_Factory android_text_Spannable_Factory::getIn
 	AndroidCXX::android_text_Spannable_Factory result((AndroidCXX::android_text_Spannable_Factory) *((AndroidCXX::android_text_Spannable_Factory *) cxx_value));
 	delete ((AndroidCXX::android_text_Spannable_Factory *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_text_Spannable_Factory android_text_Spannable_Factory::getInstance() exit");
 
 	return result;
 }
-AndroidCXX::android_text_Spannable android_text_Spannable_Factory::newSpannable(AndroidCXX::java_lang_CharSequence& arg0)
+AndroidCXX::android_text_Spannable android_text_Spannable_Factory::newSpannable(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("AndroidCXX::android_text_Spannable android_text_Spannable_Factory::newSpannable(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("AndroidCXX::android_text_Spannable android_text_Spannable_Factory::newSpannable(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "newSpannable";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Landroid/text/Spannable;";
@@ -214,8 +223,6 @@ AndroidCXX::android_text_Spannable android_text_Spannable_Factory::newSpannable(
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Spannable_Factory cxx address %d", cxxAddress);
@@ -265,9 +272,7 @@ AndroidCXX::android_text_Spannable android_text_Spannable_Factory::newSpannable(
 	AndroidCXX::android_text_Spannable result((AndroidCXX::android_text_Spannable) *((AndroidCXX::android_text_Spannable *) cxx_value));
 	delete ((AndroidCXX::android_text_Spannable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_text_Spannable android_text_Spannable_Factory::newSpannable(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("AndroidCXX::android_text_Spannable android_text_Spannable_Factory::newSpannable(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 	return result;
 }

@@ -46,7 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 org_json_JSONException::org_json_JSONException(const org_json_JSONException& cc)
 {
 	LOGV("org_json_JSONException::org_json_JSONException(const org_json_JSONException& cc) enter");
@@ -70,9 +69,9 @@ org_json_JSONException::org_json_JSONException(const org_json_JSONException& cc)
 
 	LOGV("org_json_JSONException::org_json_JSONException(const org_json_JSONException& cc) exit");
 }
-org_json_JSONException::org_json_JSONException(void * proxy)
+org_json_JSONException::org_json_JSONException(Proxy proxy)
 {
-	LOGV("org_json_JSONException::org_json_JSONException(void * proxy) enter");
+	LOGV("org_json_JSONException::org_json_JSONException(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -82,55 +81,34 @@ org_json_JSONException::org_json_JSONException(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("org_json_JSONException::org_json_JSONException(void * proxy) exit");
+	LOGV("org_json_JSONException::org_json_JSONException(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// org_json_JSONException::org_json_JSONException()
-// {
-// 	LOGV("org_json_JSONException::org_json_JSONException() enter");	
+Proxy org_json_JSONException::proxy() const
+{	
+	LOGV("org_json_JSONException::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "org/json/JSONException";
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONException cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONException jni address %d", proxiedComponent);
 
-// 	LOGV("org_json_JSONException className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("org_json_JSONException::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("org_json_JSONException cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("org_json_JSONException jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("org_json_JSONException::org_json_JSONException() exit");	
-// }
-// 
-// 
-// Public Constructors
-org_json_JSONException::org_json_JSONException(AndroidCXX::java_lang_String& arg0)
+	return proxy;
+}
+org_json_JSONException::org_json_JSONException(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("org_json_JSONException::org_json_JSONException(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("org_json_JSONException::org_json_JSONException(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -183,7 +161,7 @@ org_json_JSONException::org_json_JSONException(AndroidCXX::java_lang_String& arg
 
 	jni->popLocalFrame();
 
-	LOGV("org_json_JSONException::org_json_JSONException(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("org_json_JSONException::org_json_JSONException(AndroidCXX::java_lang_String const& arg0) exit");	
 }
 // Default Instance Destructor
 org_json_JSONException::~org_json_JSONException()
@@ -196,7 +174,7 @@ org_json_JSONException::~org_json_JSONException()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("org_json_JSONException::~org_json_JSONException() exit");
 }
 // Functions

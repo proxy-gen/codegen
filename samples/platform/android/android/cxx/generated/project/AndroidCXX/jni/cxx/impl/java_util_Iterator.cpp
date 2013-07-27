@@ -48,7 +48,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_util_Iterator::java_util_Iterator(const java_util_Iterator& cc)
 {
 	LOGV("java_util_Iterator::java_util_Iterator(const java_util_Iterator& cc) enter");
@@ -72,9 +71,9 @@ java_util_Iterator::java_util_Iterator(const java_util_Iterator& cc)
 
 	LOGV("java_util_Iterator::java_util_Iterator(const java_util_Iterator& cc) exit");
 }
-java_util_Iterator::java_util_Iterator(void * proxy)
+java_util_Iterator::java_util_Iterator(Proxy proxy)
 {
-	LOGV("java_util_Iterator::java_util_Iterator(void * proxy) enter");
+	LOGV("java_util_Iterator::java_util_Iterator(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -84,52 +83,31 @@ java_util_Iterator::java_util_Iterator(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_util_Iterator::java_util_Iterator(void * proxy) exit");
+	LOGV("java_util_Iterator::java_util_Iterator(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_util_Iterator::java_util_Iterator()
-// {
-// 	LOGV("java_util_Iterator::java_util_Iterator() enter");	
+Proxy java_util_Iterator::proxy() const
+{	
+	LOGV("java_util_Iterator::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/util/Iterator";
+	long cxxAddress = (long) this;
+	LOGV("java_util_Iterator cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_util_Iterator jni address %d", proxiedComponent);
 
-// 	LOGV("java_util_Iterator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_util_Iterator::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_util_Iterator cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_util_Iterator jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_util_Iterator::java_util_Iterator() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_util_Iterator::~java_util_Iterator()
 {
@@ -141,7 +119,7 @@ java_util_Iterator::~java_util_Iterator()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_util_Iterator::~java_util_Iterator() exit");
 }
 // Functions
@@ -157,8 +135,6 @@ bool java_util_Iterator::hasNext()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Iterator cxx address %d", cxxAddress);
@@ -187,8 +163,6 @@ bool java_util_Iterator::hasNext()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_util_Iterator::hasNext() exit");
 
 	return result;
@@ -205,8 +179,6 @@ AndroidCXX::java_lang_Object java_util_Iterator::next()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Iterator cxx address %d", cxxAddress);
@@ -235,8 +207,6 @@ AndroidCXX::java_lang_Object java_util_Iterator::next()
 	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
 	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_Object java_util_Iterator::next() exit");
 
 	return result;
@@ -254,8 +224,6 @@ void java_util_Iterator::remove()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Iterator cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -264,8 +232,6 @@ void java_util_Iterator::remove()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_util_Iterator::remove() exit");
 
 }

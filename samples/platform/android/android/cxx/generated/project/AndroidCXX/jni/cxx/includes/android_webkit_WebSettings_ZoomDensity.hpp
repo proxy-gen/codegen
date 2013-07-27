@@ -30,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace ANDROID_WEBKIT_WEBSETTINGS_ZOOMDENSITY {
+namespace android_webkit_WebSettings_ZoomDensity {
 
 enum android_webkit_WebSettings_ZoomDensity
 {

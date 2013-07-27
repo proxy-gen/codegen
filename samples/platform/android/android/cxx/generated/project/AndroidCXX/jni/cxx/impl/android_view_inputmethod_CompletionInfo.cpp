@@ -78,7 +78,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo(const android_view_inputmethod_CompletionInfo& cc)
 {
 	LOGV("android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo(const android_view_inputmethod_CompletionInfo& cc) enter");
@@ -102,9 +101,9 @@ android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo
 
 	LOGV("android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo(const android_view_inputmethod_CompletionInfo& cc) exit");
 }
-android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo(void * proxy)
+android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo(Proxy proxy)
 {
-	LOGV("android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo(void * proxy) enter");
+	LOGV("android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -114,55 +113,34 @@ android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo(void * proxy) exit");
+	LOGV("android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo()
-// {
-// 	LOGV("android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo() enter");	
+Proxy android_view_inputmethod_CompletionInfo::proxy() const
+{	
+	LOGV("android_view_inputmethod_CompletionInfo::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/view/inputmethod/CompletionInfo";
+	long cxxAddress = (long) this;
+	LOGV("android_view_inputmethod_CompletionInfo cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_inputmethod_CompletionInfo jni address %d", proxiedComponent);
 
-// 	LOGV("android_view_inputmethod_CompletionInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_view_inputmethod_CompletionInfo::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_view_inputmethod_CompletionInfo cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_view_inputmethod_CompletionInfo jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo(long& arg0,int& arg1,AndroidCXX::java_lang_CharSequence& arg2)
+	return proxy;
+}
+android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo(long const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2)
 {
-	LOGV("android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo(long& arg0,int& arg1,AndroidCXX::java_lang_CharSequence& arg2) enter");	
+	LOGV("android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo(long const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(JILjava/lang/CharSequence;)V";
@@ -257,11 +235,11 @@ android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo
 
 	jni->popLocalFrame();
 
-	LOGV("android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo(long& arg0,int& arg1,AndroidCXX::java_lang_CharSequence& arg2) exit");	
+	LOGV("android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo(long const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2) exit");	
 }
-android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo(long& arg0,int& arg1,AndroidCXX::java_lang_CharSequence& arg2,AndroidCXX::java_lang_CharSequence& arg3)
+android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo(long const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2,AndroidCXX::java_lang_CharSequence const& arg3)
 {
-	LOGV("android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo(long& arg0,int& arg1,AndroidCXX::java_lang_CharSequence& arg2,AndroidCXX::java_lang_CharSequence& arg3) enter");	
+	LOGV("android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo(long const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2,AndroidCXX::java_lang_CharSequence const& arg3) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(JILjava/lang/CharSequence;Ljava/lang/CharSequence;)V";
@@ -377,7 +355,7 @@ android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo
 
 	jni->popLocalFrame();
 
-	LOGV("android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo(long& arg0,int& arg1,AndroidCXX::java_lang_CharSequence& arg2,AndroidCXX::java_lang_CharSequence& arg3) exit");	
+	LOGV("android_view_inputmethod_CompletionInfo::android_view_inputmethod_CompletionInfo(long const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2,AndroidCXX::java_lang_CharSequence const& arg3) exit");	
 }
 // Default Instance Destructor
 android_view_inputmethod_CompletionInfo::~android_view_inputmethod_CompletionInfo()
@@ -390,7 +368,7 @@ android_view_inputmethod_CompletionInfo::~android_view_inputmethod_CompletionInf
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_inputmethod_CompletionInfo::~android_view_inputmethod_CompletionInfo() exit");
 }
 // Functions
@@ -406,8 +384,6 @@ AndroidCXX::java_lang_String android_view_inputmethod_CompletionInfo::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_CompletionInfo cxx address %d", cxxAddress);
@@ -436,8 +412,6 @@ AndroidCXX::java_lang_String android_view_inputmethod_CompletionInfo::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_view_inputmethod_CompletionInfo::toString() exit");
 
 	return result;
@@ -454,8 +428,6 @@ long android_view_inputmethod_CompletionInfo::getId()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_CompletionInfo cxx address %d", cxxAddress);
@@ -484,8 +456,6 @@ long android_view_inputmethod_CompletionInfo::getId()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long android_view_inputmethod_CompletionInfo::getId() exit");
 
 	return result;
@@ -503,8 +473,6 @@ int android_view_inputmethod_CompletionInfo::getPosition()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_CompletionInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -532,8 +500,6 @@ int android_view_inputmethod_CompletionInfo::getPosition()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_inputmethod_CompletionInfo::getPosition() exit");
 
 	return result;
@@ -551,8 +517,6 @@ int android_view_inputmethod_CompletionInfo::describeContents()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_CompletionInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -580,15 +544,13 @@ int android_view_inputmethod_CompletionInfo::describeContents()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_inputmethod_CompletionInfo::describeContents() exit");
 
 	return result;
 }
-void android_view_inputmethod_CompletionInfo::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_view_inputmethod_CompletionInfo::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_view_inputmethod_CompletionInfo::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_view_inputmethod_CompletionInfo::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -598,8 +560,6 @@ void android_view_inputmethod_CompletionInfo::writeToParcel(AndroidCXX::android_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_CompletionInfo cxx address %d", cxxAddress);
@@ -651,9 +611,7 @@ void android_view_inputmethod_CompletionInfo::writeToParcel(AndroidCXX::android_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_inputmethod_CompletionInfo::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_view_inputmethod_CompletionInfo::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }
 AndroidCXX::java_lang_CharSequence android_view_inputmethod_CompletionInfo::getText()
@@ -668,8 +626,6 @@ AndroidCXX::java_lang_CharSequence android_view_inputmethod_CompletionInfo::getT
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_CompletionInfo cxx address %d", cxxAddress);
@@ -698,8 +654,6 @@ AndroidCXX::java_lang_CharSequence android_view_inputmethod_CompletionInfo::getT
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_view_inputmethod_CompletionInfo::getText() exit");
 
 	return result;
@@ -717,8 +671,6 @@ AndroidCXX::java_lang_CharSequence android_view_inputmethod_CompletionInfo::getL
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_inputmethod_CompletionInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -746,8 +698,6 @@ AndroidCXX::java_lang_CharSequence android_view_inputmethod_CompletionInfo::getL
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_view_inputmethod_CompletionInfo::getLabel() exit");
 
 	return result;

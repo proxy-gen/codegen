@@ -94,7 +94,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(const com_facebook_widget_ProfilePictureView& cc)
 {
 	LOGV("com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(const com_facebook_widget_ProfilePictureView& cc) enter");
@@ -118,9 +117,9 @@ com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(c
 
 	LOGV("com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(const com_facebook_widget_ProfilePictureView& cc) exit");
 }
-com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(void * proxy)
+com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(Proxy proxy)
 {
-	LOGV("com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(void * proxy) enter");
+	LOGV("com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -130,55 +129,34 @@ com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(v
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(void * proxy) exit");
+	LOGV("com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView()
-// {
-// 	LOGV("com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView() enter");	
+Proxy com_facebook_widget_ProfilePictureView::proxy() const
+{	
+	LOGV("com_facebook_widget_ProfilePictureView::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "com/facebook/widget/ProfilePictureView";
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_widget_ProfilePictureView cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_widget_ProfilePictureView jni address %d", proxiedComponent);
 
-// 	LOGV("com_facebook_widget_ProfilePictureView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("com_facebook_widget_ProfilePictureView::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("com_facebook_widget_ProfilePictureView cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("com_facebook_widget_ProfilePictureView jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView() exit");	
-// }
-// 
-// 
-// Public Constructors
-com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context& arg0)
+	return proxy;
+}
+com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -231,11 +209,11 @@ com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(A
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context const& arg0) exit");	
 }
-com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -309,11 +287,11 @@ com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(A
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
+com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2)
 {
-	LOGV("com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) enter");	
+	LOGV("com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
@@ -408,7 +386,7 @@ com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(A
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) exit");	
+	LOGV("com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) exit");	
 }
 // Default Instance Destructor
 com_facebook_widget_ProfilePictureView::~com_facebook_widget_ProfilePictureView()
@@ -421,7 +399,7 @@ com_facebook_widget_ProfilePictureView::~com_facebook_widget_ProfilePictureView(
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_widget_ProfilePictureView::~com_facebook_widget_ProfilePictureView() exit");
 }
 // Functions
@@ -437,8 +415,6 @@ FacebookCXX::com_facebook_widget_ProfilePictureView_OnErrorListener com_facebook
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_ProfilePictureView cxx address %d", cxxAddress);
@@ -467,15 +443,13 @@ FacebookCXX::com_facebook_widget_ProfilePictureView_OnErrorListener com_facebook
 	FacebookCXX::com_facebook_widget_ProfilePictureView_OnErrorListener result((FacebookCXX::com_facebook_widget_ProfilePictureView_OnErrorListener) *((FacebookCXX::com_facebook_widget_ProfilePictureView_OnErrorListener *) cxx_value));
 	delete ((FacebookCXX::com_facebook_widget_ProfilePictureView_OnErrorListener *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("FacebookCXX::com_facebook_widget_ProfilePictureView_OnErrorListener com_facebook_widget_ProfilePictureView::getOnErrorListener() exit");
 
 	return result;
 }
-void com_facebook_widget_ProfilePictureView::setOnErrorListener(FacebookCXX::com_facebook_widget_ProfilePictureView_OnErrorListener& arg0)
+void com_facebook_widget_ProfilePictureView::setOnErrorListener(FacebookCXX::com_facebook_widget_ProfilePictureView_OnErrorListener const& arg0)
 {
-	LOGV("void com_facebook_widget_ProfilePictureView::setOnErrorListener(FacebookCXX::com_facebook_widget_ProfilePictureView_OnErrorListener& arg0) enter");
+	LOGV("void com_facebook_widget_ProfilePictureView::setOnErrorListener(FacebookCXX::com_facebook_widget_ProfilePictureView_OnErrorListener const& arg0) enter");
 
 	const char *methodName = "setOnErrorListener";
 	const char *methodSignature = "(Lcom/facebook/widget/ProfilePictureView$OnErrorListener;)V";
@@ -485,8 +459,6 @@ void com_facebook_widget_ProfilePictureView::setOnErrorListener(FacebookCXX::com
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_ProfilePictureView cxx address %d", cxxAddress);
@@ -517,9 +489,7 @@ void com_facebook_widget_ProfilePictureView::setOnErrorListener(FacebookCXX::com
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_ProfilePictureView::setOnErrorListener(FacebookCXX::com_facebook_widget_ProfilePictureView_OnErrorListener& arg0) exit");
+	LOGV("void com_facebook_widget_ProfilePictureView::setOnErrorListener(FacebookCXX::com_facebook_widget_ProfilePictureView_OnErrorListener const& arg0) exit");
 
 }
 bool com_facebook_widget_ProfilePictureView::isCropped()
@@ -534,8 +504,6 @@ bool com_facebook_widget_ProfilePictureView::isCropped()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_ProfilePictureView cxx address %d", cxxAddress);
@@ -564,8 +532,6 @@ bool com_facebook_widget_ProfilePictureView::isCropped()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool com_facebook_widget_ProfilePictureView::isCropped() exit");
 
 	return result;
@@ -582,8 +548,6 @@ int com_facebook_widget_ProfilePictureView::getPresetSize()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_ProfilePictureView cxx address %d", cxxAddress);
@@ -612,15 +576,13 @@ int com_facebook_widget_ProfilePictureView::getPresetSize()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int com_facebook_widget_ProfilePictureView::getPresetSize() exit");
 
 	return result;
 }
-void com_facebook_widget_ProfilePictureView::setPresetSize(int& arg0)
+void com_facebook_widget_ProfilePictureView::setPresetSize(int const& arg0)
 {
-	LOGV("void com_facebook_widget_ProfilePictureView::setPresetSize(int& arg0) enter");
+	LOGV("void com_facebook_widget_ProfilePictureView::setPresetSize(int const& arg0) enter");
 
 	const char *methodName = "setPresetSize";
 	const char *methodSignature = "(I)V";
@@ -630,8 +592,6 @@ void com_facebook_widget_ProfilePictureView::setPresetSize(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_ProfilePictureView cxx address %d", cxxAddress);
@@ -662,14 +622,12 @@ void com_facebook_widget_ProfilePictureView::setPresetSize(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_ProfilePictureView::setPresetSize(int& arg0) exit");
+	LOGV("void com_facebook_widget_ProfilePictureView::setPresetSize(int const& arg0) exit");
 
 }
-void com_facebook_widget_ProfilePictureView::setCropped(bool& arg0)
+void com_facebook_widget_ProfilePictureView::setCropped(bool const& arg0)
 {
-	LOGV("void com_facebook_widget_ProfilePictureView::setCropped(bool& arg0) enter");
+	LOGV("void com_facebook_widget_ProfilePictureView::setCropped(bool const& arg0) enter");
 
 	const char *methodName = "setCropped";
 	const char *methodSignature = "(Z)V";
@@ -679,8 +637,6 @@ void com_facebook_widget_ProfilePictureView::setCropped(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_ProfilePictureView cxx address %d", cxxAddress);
@@ -711,9 +667,7 @@ void com_facebook_widget_ProfilePictureView::setCropped(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_ProfilePictureView::setCropped(bool& arg0) exit");
+	LOGV("void com_facebook_widget_ProfilePictureView::setCropped(bool const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String com_facebook_widget_ProfilePictureView::getProfileId()
@@ -728,8 +682,6 @@ AndroidCXX::java_lang_String com_facebook_widget_ProfilePictureView::getProfileI
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_ProfilePictureView cxx address %d", cxxAddress);
@@ -758,15 +710,13 @@ AndroidCXX::java_lang_String com_facebook_widget_ProfilePictureView::getProfileI
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String com_facebook_widget_ProfilePictureView::getProfileId() exit");
 
 	return result;
 }
-void com_facebook_widget_ProfilePictureView::setProfileId(AndroidCXX::java_lang_String& arg0)
+void com_facebook_widget_ProfilePictureView::setProfileId(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void com_facebook_widget_ProfilePictureView::setProfileId(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_widget_ProfilePictureView::setProfileId(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setProfileId";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -776,8 +726,6 @@ void com_facebook_widget_ProfilePictureView::setProfileId(AndroidCXX::java_lang_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_ProfilePictureView cxx address %d", cxxAddress);
@@ -808,8 +756,6 @@ void com_facebook_widget_ProfilePictureView::setProfileId(AndroidCXX::java_lang_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_ProfilePictureView::setProfileId(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_widget_ProfilePictureView::setProfileId(AndroidCXX::java_lang_String const& arg0) exit");
 
 }

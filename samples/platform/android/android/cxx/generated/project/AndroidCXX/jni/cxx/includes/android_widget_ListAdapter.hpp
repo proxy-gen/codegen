@@ -47,16 +47,13 @@ class android_widget_ListAdapter
 public:
 
 	android_widget_ListAdapter(const android_widget_ListAdapter& cc);
-	android_widget_ListAdapter(void * proxy);
+	android_widget_ListAdapter(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_ListAdapter();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ListAdapter();
 	// Functions
-	 bool isEnabled(int& arg0);
+	 bool isEnabled(int const& arg0);
 	 bool areAllItemsEnabled();
 };	
 

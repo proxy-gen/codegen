@@ -46,16 +46,13 @@ class android_webkit_WebView_FindListener
 public:
 
 	android_webkit_WebView_FindListener(const android_webkit_WebView_FindListener& cc);
-	android_webkit_WebView_FindListener(void * proxy);
+	android_webkit_WebView_FindListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_webkit_WebView_FindListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebView_FindListener();
 	// Functions
-	 void onFindResultReceived(int& arg0,int& arg1,bool& arg2);
+	 void onFindResultReceived(int const& arg0,int const& arg1,bool const& arg2);
 };	
 
 } // namespace

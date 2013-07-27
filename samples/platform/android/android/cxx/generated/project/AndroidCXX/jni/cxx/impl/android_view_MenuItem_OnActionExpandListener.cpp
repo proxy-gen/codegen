@@ -51,7 +51,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener(const android_view_MenuItem_OnActionExpandListener& cc)
 {
 	LOGV("android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener(const android_view_MenuItem_OnActionExpandListener& cc) enter");
@@ -75,9 +74,9 @@ android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpa
 
 	LOGV("android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener(const android_view_MenuItem_OnActionExpandListener& cc) exit");
 }
-android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener(void * proxy)
+android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener(Proxy proxy)
 {
-	LOGV("android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener(void * proxy) enter");
+	LOGV("android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -87,52 +86,31 @@ android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpa
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener(void * proxy) exit");
+	LOGV("android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener()
-// {
-// 	LOGV("android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener() enter");	
+Proxy android_view_MenuItem_OnActionExpandListener::proxy() const
+{	
+	LOGV("android_view_MenuItem_OnActionExpandListener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/view/MenuItem$OnActionExpandListener";
+	long cxxAddress = (long) this;
+	LOGV("android_view_MenuItem_OnActionExpandListener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_MenuItem_OnActionExpandListener jni address %d", proxiedComponent);
 
-// 	LOGV("android_view_MenuItem_OnActionExpandListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_view_MenuItem_OnActionExpandListener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_view_MenuItem_OnActionExpandListener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_view_MenuItem_OnActionExpandListener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_view_MenuItem_OnActionExpandListener::~android_view_MenuItem_OnActionExpandListener()
 {
@@ -144,13 +122,13 @@ android_view_MenuItem_OnActionExpandListener::~android_view_MenuItem_OnActionExp
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_MenuItem_OnActionExpandListener::~android_view_MenuItem_OnActionExpandListener() exit");
 }
 // Functions
-bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionExpand(AndroidCXX::android_view_MenuItem& arg0)
+bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionExpand(AndroidCXX::android_view_MenuItem const& arg0)
 {
-	LOGV("bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionExpand(AndroidCXX::android_view_MenuItem& arg0) enter");
+	LOGV("bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionExpand(AndroidCXX::android_view_MenuItem const& arg0) enter");
 
 	const char *methodName = "onMenuItemActionExpand";
 	const char *methodSignature = "(Landroid/view/MenuItem;)Z";
@@ -161,8 +139,6 @@ bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionExpand(Androi
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_MenuItem_OnActionExpandListener cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -211,15 +187,13 @@ bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionExpand(Androi
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionExpand(AndroidCXX::android_view_MenuItem& arg0) exit");
+	LOGV("bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionExpand(AndroidCXX::android_view_MenuItem const& arg0) exit");
 
 	return result;
 }
-bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionCollapse(AndroidCXX::android_view_MenuItem& arg0)
+bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionCollapse(AndroidCXX::android_view_MenuItem const& arg0)
 {
-	LOGV("bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionCollapse(AndroidCXX::android_view_MenuItem& arg0) enter");
+	LOGV("bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionCollapse(AndroidCXX::android_view_MenuItem const& arg0) enter");
 
 	const char *methodName = "onMenuItemActionCollapse";
 	const char *methodSignature = "(Landroid/view/MenuItem;)Z";
@@ -230,8 +204,6 @@ bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionCollapse(Andr
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_MenuItem_OnActionExpandListener cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -280,9 +252,7 @@ bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionCollapse(Andr
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionCollapse(AndroidCXX::android_view_MenuItem& arg0) exit");
+	LOGV("bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionCollapse(AndroidCXX::android_view_MenuItem const& arg0) exit");
 
 	return result;
 }

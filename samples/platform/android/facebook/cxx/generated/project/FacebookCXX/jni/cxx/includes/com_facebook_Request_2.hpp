@@ -51,16 +51,13 @@ class com_facebook_Request_2
 public:
 
 	com_facebook_Request_2(const com_facebook_Request_2& cc);
-	com_facebook_Request_2(void * proxy);
+	com_facebook_Request_2(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_Request_2();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Request_2();
 	// Functions
-	 void onCompleted(FacebookCXX::com_facebook_Response& arg0);
+	 void onCompleted(FacebookCXX::com_facebook_Response const& arg0);
 };	
 
 } // namespace

@@ -116,7 +116,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment(const com_facebook_widget_PlacePickerFragment& cc)
 {
 	LOGV("com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment(const com_facebook_widget_PlacePickerFragment& cc) enter");
@@ -140,9 +139,9 @@ com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment
 
 	LOGV("com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment(const com_facebook_widget_PlacePickerFragment& cc) exit");
 }
-com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment(void * proxy)
+com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment(Proxy proxy)
 {
-	LOGV("com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment(void * proxy) enter");
+	LOGV("com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -152,17 +151,31 @@ com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment(void * proxy) exit");
+	LOGV("com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy com_facebook_widget_PlacePickerFragment::proxy() const
+{	
+	LOGV("com_facebook_widget_PlacePickerFragment::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_widget_PlacePickerFragment cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_widget_PlacePickerFragment jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("com_facebook_widget_PlacePickerFragment::proxy() exit");	
+
+	return proxy;
+}
 com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment()
 {
 	LOGV("com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment() enter");	
@@ -199,9 +212,9 @@ com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment
 
 	LOGV("com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment() exit");	
 }
-com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment(AndroidCXX::android_os_Bundle& arg0)
+com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment(AndroidCXX::android_os_Bundle& arg0) enter");	
+	LOGV("com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment(AndroidCXX::android_os_Bundle const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -254,7 +267,7 @@ com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment(AndroidCXX::android_os_Bundle& arg0) exit");	
+	LOGV("com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment(AndroidCXX::android_os_Bundle const& arg0) exit");	
 }
 // Default Instance Destructor
 com_facebook_widget_PlacePickerFragment::~com_facebook_widget_PlacePickerFragment()
@@ -267,7 +280,7 @@ com_facebook_widget_PlacePickerFragment::~com_facebook_widget_PlacePickerFragmen
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_widget_PlacePickerFragment::~com_facebook_widget_PlacePickerFragment() exit");
 }
 // Functions
@@ -283,8 +296,6 @@ AndroidCXX::android_location_Location com_facebook_widget_PlacePickerFragment::g
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PlacePickerFragment cxx address %d", cxxAddress);
@@ -313,15 +324,13 @@ AndroidCXX::android_location_Location com_facebook_widget_PlacePickerFragment::g
 	AndroidCXX::android_location_Location result((AndroidCXX::android_location_Location) *((AndroidCXX::android_location_Location *) cxx_value));
 	delete ((AndroidCXX::android_location_Location *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_location_Location com_facebook_widget_PlacePickerFragment::getLocation() exit");
 
 	return result;
 }
-void com_facebook_widget_PlacePickerFragment::onInflate(AndroidCXX::android_app_Activity& arg0,AndroidCXX::android_util_AttributeSet& arg1,AndroidCXX::android_os_Bundle& arg2)
+void com_facebook_widget_PlacePickerFragment::onInflate(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,AndroidCXX::android_os_Bundle const& arg2)
 {
-	LOGV("void com_facebook_widget_PlacePickerFragment::onInflate(AndroidCXX::android_app_Activity& arg0,AndroidCXX::android_util_AttributeSet& arg1,AndroidCXX::android_os_Bundle& arg2) enter");
+	LOGV("void com_facebook_widget_PlacePickerFragment::onInflate(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,AndroidCXX::android_os_Bundle const& arg2) enter");
 
 	const char *methodName = "onInflate";
 	const char *methodSignature = "(Landroid/app/Activity;Landroid/util/AttributeSet;Landroid/os/Bundle;)V";
@@ -331,8 +340,6 @@ void com_facebook_widget_PlacePickerFragment::onInflate(AndroidCXX::android_app_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PlacePickerFragment cxx address %d", cxxAddress);
@@ -405,14 +412,12 @@ void com_facebook_widget_PlacePickerFragment::onInflate(AndroidCXX::android_app_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PlacePickerFragment::onInflate(AndroidCXX::android_app_Activity& arg0,AndroidCXX::android_util_AttributeSet& arg1,AndroidCXX::android_os_Bundle& arg2) exit");
+	LOGV("void com_facebook_widget_PlacePickerFragment::onInflate(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,AndroidCXX::android_os_Bundle const& arg2) exit");
 
 }
-void com_facebook_widget_PlacePickerFragment::onAttach(AndroidCXX::android_app_Activity& arg0)
+void com_facebook_widget_PlacePickerFragment::onAttach(AndroidCXX::android_app_Activity const& arg0)
 {
-	LOGV("void com_facebook_widget_PlacePickerFragment::onAttach(AndroidCXX::android_app_Activity& arg0) enter");
+	LOGV("void com_facebook_widget_PlacePickerFragment::onAttach(AndroidCXX::android_app_Activity const& arg0) enter");
 
 	const char *methodName = "onAttach";
 	const char *methodSignature = "(Landroid/app/Activity;)V";
@@ -422,8 +427,6 @@ void com_facebook_widget_PlacePickerFragment::onAttach(AndroidCXX::android_app_A
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PlacePickerFragment cxx address %d", cxxAddress);
@@ -454,14 +457,12 @@ void com_facebook_widget_PlacePickerFragment::onAttach(AndroidCXX::android_app_A
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PlacePickerFragment::onAttach(AndroidCXX::android_app_Activity& arg0) exit");
+	LOGV("void com_facebook_widget_PlacePickerFragment::onAttach(AndroidCXX::android_app_Activity const& arg0) exit");
 
 }
-void com_facebook_widget_PlacePickerFragment::onActivityCreated(AndroidCXX::android_os_Bundle& arg0)
+void com_facebook_widget_PlacePickerFragment::onActivityCreated(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("void com_facebook_widget_PlacePickerFragment::onActivityCreated(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_widget_PlacePickerFragment::onActivityCreated(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "onActivityCreated";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -471,8 +472,6 @@ void com_facebook_widget_PlacePickerFragment::onActivityCreated(AndroidCXX::andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PlacePickerFragment cxx address %d", cxxAddress);
@@ -503,9 +502,7 @@ void com_facebook_widget_PlacePickerFragment::onActivityCreated(AndroidCXX::andr
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PlacePickerFragment::onActivityCreated(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_widget_PlacePickerFragment::onActivityCreated(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 }
 void com_facebook_widget_PlacePickerFragment::onDetach()
@@ -521,8 +518,6 @@ void com_facebook_widget_PlacePickerFragment::onDetach()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PlacePickerFragment cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -531,14 +526,12 @@ void com_facebook_widget_PlacePickerFragment::onDetach()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void com_facebook_widget_PlacePickerFragment::onDetach() exit");
 
 }
-void com_facebook_widget_PlacePickerFragment::setLocation(AndroidCXX::android_location_Location& arg0)
+void com_facebook_widget_PlacePickerFragment::setLocation(AndroidCXX::android_location_Location const& arg0)
 {
-	LOGV("void com_facebook_widget_PlacePickerFragment::setLocation(AndroidCXX::android_location_Location& arg0) enter");
+	LOGV("void com_facebook_widget_PlacePickerFragment::setLocation(AndroidCXX::android_location_Location const& arg0) enter");
 
 	const char *methodName = "setLocation";
 	const char *methodSignature = "(Landroid/location/Location;)V";
@@ -548,8 +541,6 @@ void com_facebook_widget_PlacePickerFragment::setLocation(AndroidCXX::android_lo
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PlacePickerFragment cxx address %d", cxxAddress);
@@ -580,9 +571,7 @@ void com_facebook_widget_PlacePickerFragment::setLocation(AndroidCXX::android_lo
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PlacePickerFragment::setLocation(AndroidCXX::android_location_Location& arg0) exit");
+	LOGV("void com_facebook_widget_PlacePickerFragment::setLocation(AndroidCXX::android_location_Location const& arg0) exit");
 
 }
 FacebookCXX::com_facebook_model_GraphPlace com_facebook_widget_PlacePickerFragment::getSelection()
@@ -597,8 +586,6 @@ FacebookCXX::com_facebook_model_GraphPlace com_facebook_widget_PlacePickerFragme
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PlacePickerFragment cxx address %d", cxxAddress);
@@ -627,15 +614,13 @@ FacebookCXX::com_facebook_model_GraphPlace com_facebook_widget_PlacePickerFragme
 	FacebookCXX::com_facebook_model_GraphPlace result((FacebookCXX::com_facebook_model_GraphPlace) *((FacebookCXX::com_facebook_model_GraphPlace *) cxx_value));
 	delete ((FacebookCXX::com_facebook_model_GraphPlace *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("FacebookCXX::com_facebook_model_GraphPlace com_facebook_widget_PlacePickerFragment::getSelection() exit");
 
 	return result;
 }
-void com_facebook_widget_PlacePickerFragment::setSettingsFromBundle(AndroidCXX::android_os_Bundle& arg0)
+void com_facebook_widget_PlacePickerFragment::setSettingsFromBundle(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("void com_facebook_widget_PlacePickerFragment::setSettingsFromBundle(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_widget_PlacePickerFragment::setSettingsFromBundle(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "setSettingsFromBundle";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -645,8 +630,6 @@ void com_facebook_widget_PlacePickerFragment::setSettingsFromBundle(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PlacePickerFragment cxx address %d", cxxAddress);
@@ -677,9 +660,7 @@ void com_facebook_widget_PlacePickerFragment::setSettingsFromBundle(AndroidCXX::
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PlacePickerFragment::setSettingsFromBundle(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_widget_PlacePickerFragment::setSettingsFromBundle(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 }
 int com_facebook_widget_PlacePickerFragment::getRadiusInMeters()
@@ -695,8 +676,6 @@ int com_facebook_widget_PlacePickerFragment::getRadiusInMeters()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PlacePickerFragment cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -724,15 +703,13 @@ int com_facebook_widget_PlacePickerFragment::getRadiusInMeters()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int com_facebook_widget_PlacePickerFragment::getRadiusInMeters() exit");
 
 	return result;
 }
-void com_facebook_widget_PlacePickerFragment::setRadiusInMeters(int& arg0)
+void com_facebook_widget_PlacePickerFragment::setRadiusInMeters(int const& arg0)
 {
-	LOGV("void com_facebook_widget_PlacePickerFragment::setRadiusInMeters(int& arg0) enter");
+	LOGV("void com_facebook_widget_PlacePickerFragment::setRadiusInMeters(int const& arg0) enter");
 
 	const char *methodName = "setRadiusInMeters";
 	const char *methodSignature = "(I)V";
@@ -742,8 +719,6 @@ void com_facebook_widget_PlacePickerFragment::setRadiusInMeters(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PlacePickerFragment cxx address %d", cxxAddress);
@@ -774,9 +749,7 @@ void com_facebook_widget_PlacePickerFragment::setRadiusInMeters(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PlacePickerFragment::setRadiusInMeters(int& arg0) exit");
+	LOGV("void com_facebook_widget_PlacePickerFragment::setRadiusInMeters(int const& arg0) exit");
 
 }
 int com_facebook_widget_PlacePickerFragment::getResultsLimit()
@@ -792,8 +765,6 @@ int com_facebook_widget_PlacePickerFragment::getResultsLimit()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PlacePickerFragment cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -821,15 +792,13 @@ int com_facebook_widget_PlacePickerFragment::getResultsLimit()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int com_facebook_widget_PlacePickerFragment::getResultsLimit() exit");
 
 	return result;
 }
-void com_facebook_widget_PlacePickerFragment::setResultsLimit(int& arg0)
+void com_facebook_widget_PlacePickerFragment::setResultsLimit(int const& arg0)
 {
-	LOGV("void com_facebook_widget_PlacePickerFragment::setResultsLimit(int& arg0) enter");
+	LOGV("void com_facebook_widget_PlacePickerFragment::setResultsLimit(int const& arg0) enter");
 
 	const char *methodName = "setResultsLimit";
 	const char *methodSignature = "(I)V";
@@ -839,8 +808,6 @@ void com_facebook_widget_PlacePickerFragment::setResultsLimit(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PlacePickerFragment cxx address %d", cxxAddress);
@@ -871,9 +838,7 @@ void com_facebook_widget_PlacePickerFragment::setResultsLimit(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PlacePickerFragment::setResultsLimit(int& arg0) exit");
+	LOGV("void com_facebook_widget_PlacePickerFragment::setResultsLimit(int const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String com_facebook_widget_PlacePickerFragment::getSearchText()
@@ -888,8 +853,6 @@ AndroidCXX::java_lang_String com_facebook_widget_PlacePickerFragment::getSearchT
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PlacePickerFragment cxx address %d", cxxAddress);
@@ -918,15 +881,13 @@ AndroidCXX::java_lang_String com_facebook_widget_PlacePickerFragment::getSearchT
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String com_facebook_widget_PlacePickerFragment::getSearchText() exit");
 
 	return result;
 }
-void com_facebook_widget_PlacePickerFragment::setSearchText(AndroidCXX::java_lang_String& arg0)
+void com_facebook_widget_PlacePickerFragment::setSearchText(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void com_facebook_widget_PlacePickerFragment::setSearchText(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_widget_PlacePickerFragment::setSearchText(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setSearchText";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -936,8 +897,6 @@ void com_facebook_widget_PlacePickerFragment::setSearchText(AndroidCXX::java_lan
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PlacePickerFragment cxx address %d", cxxAddress);
@@ -968,14 +927,12 @@ void com_facebook_widget_PlacePickerFragment::setSearchText(AndroidCXX::java_lan
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PlacePickerFragment::setSearchText(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_widget_PlacePickerFragment::setSearchText(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-void com_facebook_widget_PlacePickerFragment::onSearchBoxTextChanged(AndroidCXX::java_lang_String& arg0,bool& arg1)
+void com_facebook_widget_PlacePickerFragment::onSearchBoxTextChanged(AndroidCXX::java_lang_String const& arg0,bool const& arg1)
 {
-	LOGV("void com_facebook_widget_PlacePickerFragment::onSearchBoxTextChanged(AndroidCXX::java_lang_String& arg0,bool& arg1) enter");
+	LOGV("void com_facebook_widget_PlacePickerFragment::onSearchBoxTextChanged(AndroidCXX::java_lang_String const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "onSearchBoxTextChanged";
 	const char *methodSignature = "(Ljava/lang/String;Z)V";
@@ -985,8 +942,6 @@ void com_facebook_widget_PlacePickerFragment::onSearchBoxTextChanged(AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PlacePickerFragment cxx address %d", cxxAddress);
@@ -1038,8 +993,6 @@ void com_facebook_widget_PlacePickerFragment::onSearchBoxTextChanged(AndroidCXX:
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PlacePickerFragment::onSearchBoxTextChanged(AndroidCXX::java_lang_String& arg0,bool& arg1) exit");
+	LOGV("void com_facebook_widget_PlacePickerFragment::onSearchBoxTextChanged(AndroidCXX::java_lang_String const& arg0,bool const& arg1) exit");
 
 }

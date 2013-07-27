@@ -50,16 +50,13 @@ class com_facebook_GetTokenClient_CompletedListener
 public:
 
 	com_facebook_GetTokenClient_CompletedListener(const com_facebook_GetTokenClient_CompletedListener& cc);
-	com_facebook_GetTokenClient_CompletedListener(void * proxy);
+	com_facebook_GetTokenClient_CompletedListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_GetTokenClient_CompletedListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_GetTokenClient_CompletedListener();
 	// Functions
-	 void completed(AndroidCXX::android_os_Bundle& arg0);
+	 void completed(AndroidCXX::android_os_Bundle const& arg0);
 };	
 
 } // namespace

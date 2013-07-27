@@ -54,17 +54,14 @@ class com_facebook_TestSession_UserAccount
 public:
 
 	com_facebook_TestSession_UserAccount(const com_facebook_TestSession_UserAccount& cc);
-	com_facebook_TestSession_UserAccount(void * proxy);
+	com_facebook_TestSession_UserAccount(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_TestSession_UserAccount();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_TestSession_UserAccount();
 	// Functions
 	 AndroidCXX::java_lang_String getName();
-	 void setName(AndroidCXX::java_lang_String& arg0);
+	 void setName(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_lang_String getUid();
 };	
 

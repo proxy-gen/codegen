@@ -59,14 +59,13 @@ class com_facebook_FacebookAuthorizationException
 public:
 
 	com_facebook_FacebookAuthorizationException(const com_facebook_FacebookAuthorizationException& cc);
-	com_facebook_FacebookAuthorizationException(void * proxy);
+	com_facebook_FacebookAuthorizationException(Proxy proxy);
 	// Public Constructors
 	com_facebook_FacebookAuthorizationException();
-	com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_String& arg0);
-	com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1);
-	com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_Throwable& arg0);
-	// TODO: remove
-	// 
+	com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_String const& arg0);
+	com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1);
+	com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_Throwable const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_FacebookAuthorizationException();
 	// Functions

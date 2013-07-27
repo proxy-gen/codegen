@@ -56,16 +56,13 @@ class android_media_MediaPlayer_OnTimedTextListener
 public:
 
 	android_media_MediaPlayer_OnTimedTextListener(const android_media_MediaPlayer_OnTimedTextListener& cc);
-	android_media_MediaPlayer_OnTimedTextListener(void * proxy);
+	android_media_MediaPlayer_OnTimedTextListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_media_MediaPlayer_OnTimedTextListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_OnTimedTextListener();
 	// Functions
-	 void onTimedText(AndroidCXX::android_media_MediaPlayer& arg0,AndroidCXX::android_media_TimedText& arg1);
+	 void onTimedText(AndroidCXX::android_media_MediaPlayer const& arg0,AndroidCXX::android_media_TimedText const& arg1);
 };	
 
 } // namespace

@@ -64,16 +64,15 @@ class android_widget_RemoteViewsService
 public:
 
 	android_widget_RemoteViewsService(const android_widget_RemoteViewsService& cc);
-	android_widget_RemoteViewsService(void * proxy);
+	android_widget_RemoteViewsService(Proxy proxy);
 	// Public Constructors
 	android_widget_RemoteViewsService();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RemoteViewsService();
 	// Functions
-	 AndroidCXX::android_os_IBinder onBind(AndroidCXX::android_content_Intent& arg0);
-	 AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory onGetViewFactory(AndroidCXX::android_content_Intent& arg0);
+	 AndroidCXX::android_os_IBinder onBind(AndroidCXX::android_content_Intent const& arg0);
+	 AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory onGetViewFactory(AndroidCXX::android_content_Intent const& arg0);
 };	
 
 } // namespace

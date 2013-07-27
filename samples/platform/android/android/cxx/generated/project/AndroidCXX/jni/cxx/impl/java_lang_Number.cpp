@@ -45,7 +45,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_lang_Number::java_lang_Number(const java_lang_Number& cc)
 {
 	LOGV("java_lang_Number::java_lang_Number(const java_lang_Number& cc) enter");
@@ -69,9 +68,9 @@ java_lang_Number::java_lang_Number(const java_lang_Number& cc)
 
 	LOGV("java_lang_Number::java_lang_Number(const java_lang_Number& cc) exit");
 }
-java_lang_Number::java_lang_Number(void * proxy)
+java_lang_Number::java_lang_Number(Proxy proxy)
 {
-	LOGV("java_lang_Number::java_lang_Number(void * proxy) enter");
+	LOGV("java_lang_Number::java_lang_Number(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -81,17 +80,31 @@ java_lang_Number::java_lang_Number(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_lang_Number::java_lang_Number(void * proxy) exit");
+	LOGV("java_lang_Number::java_lang_Number(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy java_lang_Number::proxy() const
+{	
+	LOGV("java_lang_Number::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("java_lang_Number cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_Number jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("java_lang_Number::proxy() exit");	
+
+	return proxy;
+}
 java_lang_Number::java_lang_Number()
 {
 	LOGV("java_lang_Number::java_lang_Number() enter");	
@@ -139,7 +152,7 @@ java_lang_Number::~java_lang_Number()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_lang_Number::~java_lang_Number() exit");
 }
 // Functions
@@ -155,8 +168,6 @@ byte java_lang_Number::byteValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Number cxx address %d", cxxAddress);
@@ -185,8 +196,6 @@ byte java_lang_Number::byteValue()
 	byte result = (byte) *((byte *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("byte java_lang_Number::byteValue() exit");
 
 	return result;
@@ -203,8 +212,6 @@ short java_lang_Number::shortValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Number cxx address %d", cxxAddress);
@@ -233,8 +240,6 @@ short java_lang_Number::shortValue()
 	short result = (short) *((short *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("short java_lang_Number::shortValue() exit");
 
 	return result;
@@ -251,8 +256,6 @@ int java_lang_Number::intValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Number cxx address %d", cxxAddress);
@@ -281,8 +284,6 @@ int java_lang_Number::intValue()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_lang_Number::intValue() exit");
 
 	return result;
@@ -299,8 +300,6 @@ long java_lang_Number::longValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Number cxx address %d", cxxAddress);
@@ -329,8 +328,6 @@ long java_lang_Number::longValue()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long java_lang_Number::longValue() exit");
 
 	return result;
@@ -347,8 +344,6 @@ float java_lang_Number::floatValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Number cxx address %d", cxxAddress);
@@ -377,8 +372,6 @@ float java_lang_Number::floatValue()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float java_lang_Number::floatValue() exit");
 
 	return result;
@@ -395,8 +388,6 @@ double java_lang_Number::doubleValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Number cxx address %d", cxxAddress);
@@ -425,8 +416,6 @@ double java_lang_Number::doubleValue()
 	double result = (double) *((double *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("double java_lang_Number::doubleValue() exit");
 
 	return result;

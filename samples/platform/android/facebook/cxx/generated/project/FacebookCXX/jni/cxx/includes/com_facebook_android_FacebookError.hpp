@@ -56,14 +56,11 @@ class com_facebook_android_FacebookError
 public:
 
 	com_facebook_android_FacebookError(const com_facebook_android_FacebookError& cc);
-	com_facebook_android_FacebookError(void * proxy);
+	com_facebook_android_FacebookError(Proxy proxy);
 	// Public Constructors
-	com_facebook_android_FacebookError(AndroidCXX::java_lang_String& arg0);
-	com_facebook_android_FacebookError(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2);
-	// TODO: remove
-	// 
-	// com_facebook_android_FacebookError();
-	// 
+	com_facebook_android_FacebookError(AndroidCXX::java_lang_String const& arg0);
+	com_facebook_android_FacebookError(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_FacebookError();
 	// Functions

@@ -63,27 +63,26 @@ class android_util_SparseBooleanArray
 public:
 
 	android_util_SparseBooleanArray(const android_util_SparseBooleanArray& cc);
-	android_util_SparseBooleanArray(void * proxy);
+	android_util_SparseBooleanArray(Proxy proxy);
 	// Public Constructors
-	android_util_SparseBooleanArray(int& arg0);
+	android_util_SparseBooleanArray(int const& arg0);
 	android_util_SparseBooleanArray();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_util_SparseBooleanArray();
 	// Functions
-	 bool get(int& arg0);
-	 bool get(int& arg0,bool& arg1);
-	 void put(int& arg0,bool& arg1);
-	 void append(int& arg0,bool& arg1);
+	 bool get(int const& arg0);
+	 bool get(int const& arg0,bool const& arg1);
+	 void put(int const& arg0,bool const& arg1);
+	 void append(int const& arg0,bool const& arg1);
 	 AndroidCXX::android_util_SparseBooleanArray clone();
 	 void clear();
 	 int size();
-	 void _delete(int& arg0);
-	 int keyAt(int& arg0);
-	 bool valueAt(int& arg0);
-	 int indexOfKey(int& arg0);
-	 int indexOfValue(bool& arg0);
+	 void _delete(int const& arg0);
+	 int keyAt(int const& arg0);
+	 bool valueAt(int const& arg0);
+	 int indexOfKey(int const& arg0);
+	 int indexOfValue(bool const& arg0);
 };	
 
 } // namespace

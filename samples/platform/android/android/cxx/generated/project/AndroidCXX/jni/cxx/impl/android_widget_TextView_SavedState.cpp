@@ -51,7 +51,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_TextView_SavedState::android_widget_TextView_SavedState(const android_widget_TextView_SavedState& cc)
 {
 	LOGV("android_widget_TextView_SavedState::android_widget_TextView_SavedState(const android_widget_TextView_SavedState& cc) enter");
@@ -75,9 +74,9 @@ android_widget_TextView_SavedState::android_widget_TextView_SavedState(const and
 
 	LOGV("android_widget_TextView_SavedState::android_widget_TextView_SavedState(const android_widget_TextView_SavedState& cc) exit");
 }
-android_widget_TextView_SavedState::android_widget_TextView_SavedState(void * proxy)
+android_widget_TextView_SavedState::android_widget_TextView_SavedState(Proxy proxy)
 {
-	LOGV("android_widget_TextView_SavedState::android_widget_TextView_SavedState(void * proxy) enter");
+	LOGV("android_widget_TextView_SavedState::android_widget_TextView_SavedState(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -87,52 +86,31 @@ android_widget_TextView_SavedState::android_widget_TextView_SavedState(void * pr
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_TextView_SavedState::android_widget_TextView_SavedState(void * proxy) exit");
+	LOGV("android_widget_TextView_SavedState::android_widget_TextView_SavedState(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_TextView_SavedState::android_widget_TextView_SavedState()
-// {
-// 	LOGV("android_widget_TextView_SavedState::android_widget_TextView_SavedState() enter");	
+Proxy android_widget_TextView_SavedState::proxy() const
+{	
+	LOGV("android_widget_TextView_SavedState::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/TextView$SavedState";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_TextView_SavedState cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_TextView_SavedState jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_TextView_SavedState className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_TextView_SavedState::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_TextView_SavedState cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_TextView_SavedState jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_TextView_SavedState::android_widget_TextView_SavedState() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_widget_TextView_SavedState::~android_widget_TextView_SavedState()
 {
@@ -144,7 +122,7 @@ android_widget_TextView_SavedState::~android_widget_TextView_SavedState()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_TextView_SavedState::~android_widget_TextView_SavedState() exit");
 }
 // Functions
@@ -160,8 +138,6 @@ AndroidCXX::java_lang_String android_widget_TextView_SavedState::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView_SavedState cxx address %d", cxxAddress);
@@ -190,15 +166,13 @@ AndroidCXX::java_lang_String android_widget_TextView_SavedState::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_widget_TextView_SavedState::toString() exit");
 
 	return result;
 }
-void android_widget_TextView_SavedState::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_widget_TextView_SavedState::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_TextView_SavedState::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_widget_TextView_SavedState::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -208,8 +182,6 @@ void android_widget_TextView_SavedState::writeToParcel(AndroidCXX::android_os_Pa
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextView_SavedState cxx address %d", cxxAddress);
@@ -261,8 +233,6 @@ void android_widget_TextView_SavedState::writeToParcel(AndroidCXX::android_os_Pa
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextView_SavedState::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_widget_TextView_SavedState::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }

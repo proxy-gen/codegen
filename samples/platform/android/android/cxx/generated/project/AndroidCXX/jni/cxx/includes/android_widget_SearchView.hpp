@@ -150,47 +150,44 @@ class android_widget_SearchView
 public:
 
 	android_widget_SearchView(const android_widget_SearchView& cc);
-	android_widget_SearchView(void * proxy);
+	android_widget_SearchView(Proxy proxy);
 	// Public Constructors
-	android_widget_SearchView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_SearchView(AndroidCXX::android_content_Context& arg0);
-	// TODO: remove
-	// 
-	// android_widget_SearchView();
-	// 
+	android_widget_SearchView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_SearchView(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SearchView();
 	// Functions
 	 AndroidCXX::java_lang_CharSequence getQuery();
-	 bool onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1);
-	 void onWindowFocusChanged(bool& arg0);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 void onRtlPropertiesChanged(int& arg0);
-	 void setMaxWidth(int& arg0);
+	 bool onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
+	 void onWindowFocusChanged(bool const& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 void onRtlPropertiesChanged(int const& arg0);
+	 void setMaxWidth(int const& arg0);
 	 int getMaxWidth();
-	 void setInputType(int& arg0);
+	 void setInputType(int const& arg0);
 	 int getInputType();
-	 void setImeOptions(int& arg0);
+	 void setImeOptions(int const& arg0);
 	 int getImeOptions();
-	 void setSearchableInfo(AndroidCXX::android_app_SearchableInfo& arg0);
-	 void setOnQueryTextListener(AndroidCXX::android_widget_SearchView_OnQueryTextListener& arg0);
-	 void setOnCloseListener(AndroidCXX::android_widget_SearchView_OnCloseListener& arg0);
-	 void setOnQueryTextFocusChangeListener(AndroidCXX::android_view_View_OnFocusChangeListener& arg0);
-	 void setOnSuggestionListener(AndroidCXX::android_widget_SearchView_OnSuggestionListener& arg0);
-	 void setOnSearchClickListener(AndroidCXX::android_view_View_OnClickListener& arg0);
-	 void setQuery(AndroidCXX::java_lang_CharSequence& arg0,bool& arg1);
-	 void setQueryHint(AndroidCXX::java_lang_CharSequence& arg0);
+	 void setSearchableInfo(AndroidCXX::android_app_SearchableInfo const& arg0);
+	 void setOnQueryTextListener(AndroidCXX::android_widget_SearchView_OnQueryTextListener const& arg0);
+	 void setOnCloseListener(AndroidCXX::android_widget_SearchView_OnCloseListener const& arg0);
+	 void setOnQueryTextFocusChangeListener(AndroidCXX::android_view_View_OnFocusChangeListener const& arg0);
+	 void setOnSuggestionListener(AndroidCXX::android_widget_SearchView_OnSuggestionListener const& arg0);
+	 void setOnSearchClickListener(AndroidCXX::android_view_View_OnClickListener const& arg0);
+	 void setQuery(AndroidCXX::java_lang_CharSequence const& arg0,bool const& arg1);
+	 void setQueryHint(AndroidCXX::java_lang_CharSequence const& arg0);
 	 AndroidCXX::java_lang_CharSequence getQueryHint();
-	 void setIconifiedByDefault(bool& arg0);
+	 void setIconifiedByDefault(bool const& arg0);
 	 bool isIconfiedByDefault();
-	 void setIconified(bool& arg0);
+	 void setIconified(bool const& arg0);
 	 bool isIconified();
-	 void setSubmitButtonEnabled(bool& arg0);
+	 void setSubmitButtonEnabled(bool const& arg0);
 	 bool isSubmitButtonEnabled();
-	 void setQueryRefinementEnabled(bool& arg0);
+	 void setQueryRefinementEnabled(bool const& arg0);
 	 bool isQueryRefinementEnabled();
-	 void setSuggestionsAdapter(AndroidCXX::android_widget_CursorAdapter& arg0);
+	 void setSuggestionsAdapter(AndroidCXX::android_widget_CursorAdapter const& arg0);
 	 AndroidCXX::android_widget_CursorAdapter getSuggestionsAdapter();
 	 void onActionViewCollapsed();
 	 void onActionViewExpanded();

@@ -52,16 +52,13 @@ class com_facebook_widget_GraphObjectAdapter_1
 public:
 
 	com_facebook_widget_GraphObjectAdapter_1(const com_facebook_widget_GraphObjectAdapter_1& cc);
-	com_facebook_widget_GraphObjectAdapter_1(void * proxy);
+	com_facebook_widget_GraphObjectAdapter_1(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_widget_GraphObjectAdapter_1();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectAdapter_1();
 	// Functions
-	 int compare(FacebookCXX::com_facebook_model_GraphObject& arg0,FacebookCXX::com_facebook_model_GraphObject& arg1);
+	 int compare(FacebookCXX::com_facebook_model_GraphObject const& arg0,FacebookCXX::com_facebook_model_GraphObject const& arg1);
 };	
 
 } // namespace

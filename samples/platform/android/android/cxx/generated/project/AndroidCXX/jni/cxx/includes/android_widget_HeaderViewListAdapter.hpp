@@ -113,34 +113,31 @@ class android_widget_HeaderViewListAdapter
 public:
 
 	android_widget_HeaderViewListAdapter(const android_widget_HeaderViewListAdapter& cc);
-	android_widget_HeaderViewListAdapter(void * proxy);
+	android_widget_HeaderViewListAdapter(Proxy proxy);
 	// Public Constructors
-	android_widget_HeaderViewListAdapter(AndroidCXX::java_util_ArrayList& arg0,AndroidCXX::java_util_ArrayList& arg1,AndroidCXX::android_widget_ListAdapter& arg2);
-	// TODO: remove
-	// 
-	// android_widget_HeaderViewListAdapter();
-	// 
+	android_widget_HeaderViewListAdapter(AndroidCXX::java_util_ArrayList const& arg0,AndroidCXX::java_util_ArrayList const& arg1,AndroidCXX::android_widget_ListAdapter const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_HeaderViewListAdapter();
 	// Functions
 	 bool isEmpty();
-	 AndroidCXX::android_view_View getView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2);
-	 bool isEnabled(int& arg0);
+	 AndroidCXX::android_view_View getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
+	 bool isEnabled(int const& arg0);
 	 AndroidCXX::android_widget_Filter getFilter();
-	 AndroidCXX::java_lang_Object getItem(int& arg0);
-	 long getItemId(int& arg0);
+	 AndroidCXX::java_lang_Object getItem(int const& arg0);
+	 long getItemId(int const& arg0);
 	 int getCount();
-	 void registerDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0);
-	 void unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0);
+	 void registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0);
+	 void unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0);
 	 bool hasStableIds();
-	 int getItemViewType(int& arg0);
+	 int getItemViewType(int const& arg0);
 	 int getViewTypeCount();
 	 bool areAllItemsEnabled();
 	 AndroidCXX::android_widget_ListAdapter getWrappedAdapter();
 	 int getHeadersCount();
 	 int getFootersCount();
-	 bool removeHeader(AndroidCXX::android_view_View& arg0);
-	 bool removeFooter(AndroidCXX::android_view_View& arg0);
+	 bool removeHeader(AndroidCXX::android_view_View const& arg0);
+	 bool removeFooter(AndroidCXX::android_view_View const& arg0);
 };	
 
 } // namespace

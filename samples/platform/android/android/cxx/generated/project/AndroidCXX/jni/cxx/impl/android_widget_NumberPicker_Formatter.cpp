@@ -46,7 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_NumberPicker_Formatter::android_widget_NumberPicker_Formatter(const android_widget_NumberPicker_Formatter& cc)
 {
 	LOGV("android_widget_NumberPicker_Formatter::android_widget_NumberPicker_Formatter(const android_widget_NumberPicker_Formatter& cc) enter");
@@ -70,9 +69,9 @@ android_widget_NumberPicker_Formatter::android_widget_NumberPicker_Formatter(con
 
 	LOGV("android_widget_NumberPicker_Formatter::android_widget_NumberPicker_Formatter(const android_widget_NumberPicker_Formatter& cc) exit");
 }
-android_widget_NumberPicker_Formatter::android_widget_NumberPicker_Formatter(void * proxy)
+android_widget_NumberPicker_Formatter::android_widget_NumberPicker_Formatter(Proxy proxy)
 {
-	LOGV("android_widget_NumberPicker_Formatter::android_widget_NumberPicker_Formatter(void * proxy) enter");
+	LOGV("android_widget_NumberPicker_Formatter::android_widget_NumberPicker_Formatter(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -82,52 +81,31 @@ android_widget_NumberPicker_Formatter::android_widget_NumberPicker_Formatter(voi
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_NumberPicker_Formatter::android_widget_NumberPicker_Formatter(void * proxy) exit");
+	LOGV("android_widget_NumberPicker_Formatter::android_widget_NumberPicker_Formatter(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_NumberPicker_Formatter::android_widget_NumberPicker_Formatter()
-// {
-// 	LOGV("android_widget_NumberPicker_Formatter::android_widget_NumberPicker_Formatter() enter");	
+Proxy android_widget_NumberPicker_Formatter::proxy() const
+{	
+	LOGV("android_widget_NumberPicker_Formatter::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/NumberPicker$Formatter";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_NumberPicker_Formatter cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_NumberPicker_Formatter jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_NumberPicker_Formatter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_NumberPicker_Formatter::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_NumberPicker_Formatter cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_NumberPicker_Formatter jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_NumberPicker_Formatter::android_widget_NumberPicker_Formatter() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_widget_NumberPicker_Formatter::~android_widget_NumberPicker_Formatter()
 {
@@ -139,13 +117,13 @@ android_widget_NumberPicker_Formatter::~android_widget_NumberPicker_Formatter()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_NumberPicker_Formatter::~android_widget_NumberPicker_Formatter() exit");
 }
 // Functions
-AndroidCXX::java_lang_String android_widget_NumberPicker_Formatter::format(int& arg0)
+AndroidCXX::java_lang_String android_widget_NumberPicker_Formatter::format(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_widget_NumberPicker_Formatter::format(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_widget_NumberPicker_Formatter::format(int const& arg0) enter");
 
 	const char *methodName = "format";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -155,8 +133,6 @@ AndroidCXX::java_lang_String android_widget_NumberPicker_Formatter::format(int& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_NumberPicker_Formatter cxx address %d", cxxAddress);
@@ -206,9 +182,7 @@ AndroidCXX::java_lang_String android_widget_NumberPicker_Formatter::format(int& 
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_widget_NumberPicker_Formatter::format(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String android_widget_NumberPicker_Formatter::format(int const& arg0) exit");
 
 	return result;
 }

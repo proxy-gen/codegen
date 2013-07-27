@@ -133,7 +133,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_nio_charset_CharsetDecoder::java_nio_charset_CharsetDecoder(const java_nio_charset_CharsetDecoder& cc)
 {
 	LOGV("java_nio_charset_CharsetDecoder::java_nio_charset_CharsetDecoder(const java_nio_charset_CharsetDecoder& cc) enter");
@@ -157,9 +156,9 @@ java_nio_charset_CharsetDecoder::java_nio_charset_CharsetDecoder(const java_nio_
 
 	LOGV("java_nio_charset_CharsetDecoder::java_nio_charset_CharsetDecoder(const java_nio_charset_CharsetDecoder& cc) exit");
 }
-java_nio_charset_CharsetDecoder::java_nio_charset_CharsetDecoder(void * proxy)
+java_nio_charset_CharsetDecoder::java_nio_charset_CharsetDecoder(Proxy proxy)
 {
-	LOGV("java_nio_charset_CharsetDecoder::java_nio_charset_CharsetDecoder(void * proxy) enter");
+	LOGV("java_nio_charset_CharsetDecoder::java_nio_charset_CharsetDecoder(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -169,52 +168,31 @@ java_nio_charset_CharsetDecoder::java_nio_charset_CharsetDecoder(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_nio_charset_CharsetDecoder::java_nio_charset_CharsetDecoder(void * proxy) exit");
+	LOGV("java_nio_charset_CharsetDecoder::java_nio_charset_CharsetDecoder(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_nio_charset_CharsetDecoder::java_nio_charset_CharsetDecoder()
-// {
-// 	LOGV("java_nio_charset_CharsetDecoder::java_nio_charset_CharsetDecoder() enter");	
+Proxy java_nio_charset_CharsetDecoder::proxy() const
+{	
+	LOGV("java_nio_charset_CharsetDecoder::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/nio/charset/CharsetDecoder";
+	long cxxAddress = (long) this;
+	LOGV("java_nio_charset_CharsetDecoder cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_charset_CharsetDecoder jni address %d", proxiedComponent);
 
-// 	LOGV("java_nio_charset_CharsetDecoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_nio_charset_CharsetDecoder::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_nio_charset_CharsetDecoder cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_nio_charset_CharsetDecoder jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_nio_charset_CharsetDecoder::java_nio_charset_CharsetDecoder() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_nio_charset_CharsetDecoder::~java_nio_charset_CharsetDecoder()
 {
@@ -226,7 +204,7 @@ java_nio_charset_CharsetDecoder::~java_nio_charset_CharsetDecoder()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_nio_charset_CharsetDecoder::~java_nio_charset_CharsetDecoder() exit");
 }
 // Functions
@@ -242,8 +220,6 @@ AndroidCXX::java_nio_charset_Charset java_nio_charset_CharsetDecoder::charset()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetDecoder cxx address %d", cxxAddress);
@@ -272,15 +248,13 @@ AndroidCXX::java_nio_charset_Charset java_nio_charset_CharsetDecoder::charset()
 	AndroidCXX::java_nio_charset_Charset result((AndroidCXX::java_nio_charset_Charset) *((AndroidCXX::java_nio_charset_Charset *) cxx_value));
 	delete ((AndroidCXX::java_nio_charset_Charset *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_nio_charset_Charset java_nio_charset_CharsetDecoder::charset() exit");
 
 	return result;
 }
-AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::decode(AndroidCXX::java_nio_ByteBuffer& arg0,AndroidCXX::java_nio_CharBuffer& arg1,bool& arg2)
+AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::decode(AndroidCXX::java_nio_ByteBuffer const& arg0,AndroidCXX::java_nio_CharBuffer const& arg1,bool const& arg2)
 {
-	LOGV("AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::decode(AndroidCXX::java_nio_ByteBuffer& arg0,AndroidCXX::java_nio_CharBuffer& arg1,bool& arg2) enter");
+	LOGV("AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::decode(AndroidCXX::java_nio_ByteBuffer const& arg0,AndroidCXX::java_nio_CharBuffer const& arg1,bool const& arg2) enter");
 
 	const char *methodName = "decode";
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;Z)Ljava/nio/charset/CoderResult;";
@@ -290,8 +264,6 @@ AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::decode
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetDecoder cxx address %d", cxxAddress);
@@ -383,15 +355,13 @@ AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::decode
 	AndroidCXX::java_nio_charset_CoderResult result((AndroidCXX::java_nio_charset_CoderResult) *((AndroidCXX::java_nio_charset_CoderResult *) cxx_value));
 	delete ((AndroidCXX::java_nio_charset_CoderResult *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::decode(AndroidCXX::java_nio_ByteBuffer& arg0,AndroidCXX::java_nio_CharBuffer& arg1,bool& arg2) exit");
+	LOGV("AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::decode(AndroidCXX::java_nio_ByteBuffer const& arg0,AndroidCXX::java_nio_CharBuffer const& arg1,bool const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::java_nio_CharBuffer java_nio_charset_CharsetDecoder::decode(AndroidCXX::java_nio_ByteBuffer& arg0)
+AndroidCXX::java_nio_CharBuffer java_nio_charset_CharsetDecoder::decode(AndroidCXX::java_nio_ByteBuffer const& arg0)
 {
-	LOGV("AndroidCXX::java_nio_CharBuffer java_nio_charset_CharsetDecoder::decode(AndroidCXX::java_nio_ByteBuffer& arg0) enter");
+	LOGV("AndroidCXX::java_nio_CharBuffer java_nio_charset_CharsetDecoder::decode(AndroidCXX::java_nio_ByteBuffer const& arg0) enter");
 
 	const char *methodName = "decode";
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;)Ljava/nio/CharBuffer;";
@@ -401,8 +371,6 @@ AndroidCXX::java_nio_CharBuffer java_nio_charset_CharsetDecoder::decode(AndroidC
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetDecoder cxx address %d", cxxAddress);
@@ -452,15 +420,13 @@ AndroidCXX::java_nio_CharBuffer java_nio_charset_CharsetDecoder::decode(AndroidC
 	AndroidCXX::java_nio_CharBuffer result((AndroidCXX::java_nio_CharBuffer) *((AndroidCXX::java_nio_CharBuffer *) cxx_value));
 	delete ((AndroidCXX::java_nio_CharBuffer *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_CharBuffer java_nio_charset_CharsetDecoder::decode(AndroidCXX::java_nio_ByteBuffer& arg0) exit");
+	LOGV("AndroidCXX::java_nio_CharBuffer java_nio_charset_CharsetDecoder::decode(AndroidCXX::java_nio_ByteBuffer const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::flush(AndroidCXX::java_nio_CharBuffer& arg0)
+AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::flush(AndroidCXX::java_nio_CharBuffer const& arg0)
 {
-	LOGV("AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::flush(AndroidCXX::java_nio_CharBuffer& arg0) enter");
+	LOGV("AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::flush(AndroidCXX::java_nio_CharBuffer const& arg0) enter");
 
 	const char *methodName = "flush";
 	const char *methodSignature = "(Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;";
@@ -470,8 +436,6 @@ AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::flush(
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetDecoder cxx address %d", cxxAddress);
@@ -521,9 +485,7 @@ AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::flush(
 	AndroidCXX::java_nio_charset_CoderResult result((AndroidCXX::java_nio_charset_CoderResult) *((AndroidCXX::java_nio_charset_CoderResult *) cxx_value));
 	delete ((AndroidCXX::java_nio_charset_CoderResult *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::flush(AndroidCXX::java_nio_CharBuffer& arg0) exit");
+	LOGV("AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::flush(AndroidCXX::java_nio_CharBuffer const& arg0) exit");
 
 	return result;
 }
@@ -539,8 +501,6 @@ AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::res
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetDecoder cxx address %d", cxxAddress);
@@ -569,15 +529,13 @@ AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::res
 	AndroidCXX::java_nio_charset_CharsetDecoder result((AndroidCXX::java_nio_charset_CharsetDecoder) *((AndroidCXX::java_nio_charset_CharsetDecoder *) cxx_value));
 	delete ((AndroidCXX::java_nio_charset_CharsetDecoder *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::reset() exit");
 
 	return result;
 }
-AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onMalformedInput(AndroidCXX::java_nio_charset_CodingErrorAction& arg0)
+AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onMalformedInput(AndroidCXX::java_nio_charset_CodingErrorAction const& arg0)
 {
-	LOGV("AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onMalformedInput(AndroidCXX::java_nio_charset_CodingErrorAction& arg0) enter");
+	LOGV("AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onMalformedInput(AndroidCXX::java_nio_charset_CodingErrorAction const& arg0) enter");
 
 	const char *methodName = "onMalformedInput";
 	const char *methodSignature = "(Ljava/nio/charset/CodingErrorAction;)Ljava/nio/charset/CharsetDecoder;";
@@ -588,8 +546,6 @@ AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onM
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetDecoder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -638,15 +594,13 @@ AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onM
 	AndroidCXX::java_nio_charset_CharsetDecoder result((AndroidCXX::java_nio_charset_CharsetDecoder) *((AndroidCXX::java_nio_charset_CharsetDecoder *) cxx_value));
 	delete ((AndroidCXX::java_nio_charset_CharsetDecoder *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onMalformedInput(AndroidCXX::java_nio_charset_CodingErrorAction& arg0) exit");
+	LOGV("AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onMalformedInput(AndroidCXX::java_nio_charset_CodingErrorAction const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onUnmappableCharacter(AndroidCXX::java_nio_charset_CodingErrorAction& arg0)
+AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onUnmappableCharacter(AndroidCXX::java_nio_charset_CodingErrorAction const& arg0)
 {
-	LOGV("AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onUnmappableCharacter(AndroidCXX::java_nio_charset_CodingErrorAction& arg0) enter");
+	LOGV("AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onUnmappableCharacter(AndroidCXX::java_nio_charset_CodingErrorAction const& arg0) enter");
 
 	const char *methodName = "onUnmappableCharacter";
 	const char *methodSignature = "(Ljava/nio/charset/CodingErrorAction;)Ljava/nio/charset/CharsetDecoder;";
@@ -657,8 +611,6 @@ AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onU
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetDecoder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -707,9 +659,7 @@ AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onU
 	AndroidCXX::java_nio_charset_CharsetDecoder result((AndroidCXX::java_nio_charset_CharsetDecoder) *((AndroidCXX::java_nio_charset_CharsetDecoder *) cxx_value));
 	delete ((AndroidCXX::java_nio_charset_CharsetDecoder *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onUnmappableCharacter(AndroidCXX::java_nio_charset_CodingErrorAction& arg0) exit");
+	LOGV("AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onUnmappableCharacter(AndroidCXX::java_nio_charset_CodingErrorAction const& arg0) exit");
 
 	return result;
 }
@@ -725,8 +675,6 @@ AndroidCXX::java_lang_String java_nio_charset_CharsetDecoder::replacement()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetDecoder cxx address %d", cxxAddress);
@@ -755,8 +703,6 @@ AndroidCXX::java_lang_String java_nio_charset_CharsetDecoder::replacement()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_nio_charset_CharsetDecoder::replacement() exit");
 
 	return result;
@@ -774,8 +720,6 @@ AndroidCXX::java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetDecoder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -803,8 +747,6 @@ AndroidCXX::java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::
 	AndroidCXX::java_nio_charset_CodingErrorAction result((AndroidCXX::java_nio_charset_CodingErrorAction) *((AndroidCXX::java_nio_charset_CodingErrorAction *) cxx_value));
 	delete ((AndroidCXX::java_nio_charset_CodingErrorAction *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::malformedInputAction() exit");
 
 	return result;
@@ -822,8 +764,6 @@ AndroidCXX::java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetDecoder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -851,15 +791,13 @@ AndroidCXX::java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::
 	AndroidCXX::java_nio_charset_CodingErrorAction result((AndroidCXX::java_nio_charset_CodingErrorAction) *((AndroidCXX::java_nio_charset_CodingErrorAction *) cxx_value));
 	delete ((AndroidCXX::java_nio_charset_CodingErrorAction *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::unmappableCharacterAction() exit");
 
 	return result;
 }
-AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::replaceWith(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::replaceWith(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::replaceWith(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::replaceWith(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "replaceWith";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/nio/charset/CharsetDecoder;";
@@ -869,8 +807,6 @@ AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::rep
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetDecoder cxx address %d", cxxAddress);
@@ -920,9 +856,7 @@ AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::rep
 	AndroidCXX::java_nio_charset_CharsetDecoder result((AndroidCXX::java_nio_charset_CharsetDecoder) *((AndroidCXX::java_nio_charset_CharsetDecoder *) cxx_value));
 	delete ((AndroidCXX::java_nio_charset_CharsetDecoder *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::replaceWith(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::replaceWith(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
@@ -938,8 +872,6 @@ float java_nio_charset_CharsetDecoder::maxCharsPerByte()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetDecoder cxx address %d", cxxAddress);
@@ -968,8 +900,6 @@ float java_nio_charset_CharsetDecoder::maxCharsPerByte()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float java_nio_charset_CharsetDecoder::maxCharsPerByte() exit");
 
 	return result;
@@ -987,8 +917,6 @@ float java_nio_charset_CharsetDecoder::averageCharsPerByte()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetDecoder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1016,8 +944,6 @@ float java_nio_charset_CharsetDecoder::averageCharsPerByte()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float java_nio_charset_CharsetDecoder::averageCharsPerByte() exit");
 
 	return result;
@@ -1035,8 +961,6 @@ bool java_nio_charset_CharsetDecoder::isAutoDetecting()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetDecoder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1064,8 +988,6 @@ bool java_nio_charset_CharsetDecoder::isAutoDetecting()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_nio_charset_CharsetDecoder::isAutoDetecting() exit");
 
 	return result;
@@ -1083,8 +1005,6 @@ bool java_nio_charset_CharsetDecoder::isCharsetDetected()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetDecoder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1112,8 +1032,6 @@ bool java_nio_charset_CharsetDecoder::isCharsetDetected()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_nio_charset_CharsetDecoder::isCharsetDetected() exit");
 
 	return result;
@@ -1130,8 +1048,6 @@ AndroidCXX::java_nio_charset_Charset java_nio_charset_CharsetDecoder::detectedCh
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_charset_CharsetDecoder cxx address %d", cxxAddress);
@@ -1160,8 +1076,6 @@ AndroidCXX::java_nio_charset_Charset java_nio_charset_CharsetDecoder::detectedCh
 	AndroidCXX::java_nio_charset_Charset result((AndroidCXX::java_nio_charset_Charset) *((AndroidCXX::java_nio_charset_Charset *) cxx_value));
 	delete ((AndroidCXX::java_nio_charset_Charset *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_nio_charset_Charset java_nio_charset_CharsetDecoder::detectedCharset() exit");
 
 	return result;

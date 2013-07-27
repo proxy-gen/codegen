@@ -90,22 +90,19 @@ class android_widget_TableRow
 public:
 
 	android_widget_TableRow(const android_widget_TableRow& cc);
-	android_widget_TableRow(void * proxy);
+	android_widget_TableRow(Proxy proxy);
 	// Public Constructors
-	android_widget_TableRow(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_TableRow(AndroidCXX::android_content_Context& arg0);
-	// TODO: remove
-	// 
-	// android_widget_TableRow();
-	// 
+	android_widget_TableRow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_TableRow(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TableRow();
 	// Functions
-	 void setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener& arg0);
-	 AndroidCXX::android_widget_TableRow_LayoutParams generateLayoutParams(AndroidCXX::android_util_AttributeSet& arg0);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 AndroidCXX::android_view_View getVirtualChildAt(int& arg0);
+	 void setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener const& arg0);
+	 AndroidCXX::android_widget_TableRow_LayoutParams generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 AndroidCXX::android_view_View getVirtualChildAt(int const& arg0);
 	 int getVirtualChildCount();
 };	
 

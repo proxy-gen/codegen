@@ -30,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace ANDROID_GRAPHICS_PAINT_STYLE {
+namespace android_graphics_Paint_Style {
 
 enum android_graphics_Paint_Style
 {

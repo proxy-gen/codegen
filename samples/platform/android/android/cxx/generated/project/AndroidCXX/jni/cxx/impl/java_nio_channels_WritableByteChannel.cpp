@@ -46,7 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel(const java_nio_channels_WritableByteChannel& cc)
 {
 	LOGV("java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel(const java_nio_channels_WritableByteChannel& cc) enter");
@@ -70,9 +69,9 @@ java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel(con
 
 	LOGV("java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel(const java_nio_channels_WritableByteChannel& cc) exit");
 }
-java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel(void * proxy)
+java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel(Proxy proxy)
 {
-	LOGV("java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel(void * proxy) enter");
+	LOGV("java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -82,52 +81,31 @@ java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel(voi
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel(void * proxy) exit");
+	LOGV("java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel()
-// {
-// 	LOGV("java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel() enter");	
+Proxy java_nio_channels_WritableByteChannel::proxy() const
+{	
+	LOGV("java_nio_channels_WritableByteChannel::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/nio/channels/WritableByteChannel";
+	long cxxAddress = (long) this;
+	LOGV("java_nio_channels_WritableByteChannel cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_channels_WritableByteChannel jni address %d", proxiedComponent);
 
-// 	LOGV("java_nio_channels_WritableByteChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_nio_channels_WritableByteChannel::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_nio_channels_WritableByteChannel cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_nio_channels_WritableByteChannel jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_nio_channels_WritableByteChannel::~java_nio_channels_WritableByteChannel()
 {
@@ -139,13 +117,13 @@ java_nio_channels_WritableByteChannel::~java_nio_channels_WritableByteChannel()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_nio_channels_WritableByteChannel::~java_nio_channels_WritableByteChannel() exit");
 }
 // Functions
-int java_nio_channels_WritableByteChannel::write(AndroidCXX::java_nio_ByteBuffer& arg0)
+int java_nio_channels_WritableByteChannel::write(AndroidCXX::java_nio_ByteBuffer const& arg0)
 {
-	LOGV("int java_nio_channels_WritableByteChannel::write(AndroidCXX::java_nio_ByteBuffer& arg0) enter");
+	LOGV("int java_nio_channels_WritableByteChannel::write(AndroidCXX::java_nio_ByteBuffer const& arg0) enter");
 
 	const char *methodName = "write";
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;)I";
@@ -155,8 +133,6 @@ int java_nio_channels_WritableByteChannel::write(AndroidCXX::java_nio_ByteBuffer
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_WritableByteChannel cxx address %d", cxxAddress);
@@ -206,9 +182,7 @@ int java_nio_channels_WritableByteChannel::write(AndroidCXX::java_nio_ByteBuffer
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_nio_channels_WritableByteChannel::write(AndroidCXX::java_nio_ByteBuffer& arg0) exit");
+	LOGV("int java_nio_channels_WritableByteChannel::write(AndroidCXX::java_nio_ByteBuffer const& arg0) exit");
 
 	return result;
 }

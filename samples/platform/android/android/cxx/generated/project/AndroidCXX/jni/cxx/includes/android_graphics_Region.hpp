@@ -133,48 +133,46 @@ class android_graphics_Region
 {
 public:
 
-	android_graphics_Region(const android_graphics_Region& cc);
-	android_graphics_Region(void * proxy);
+	android_graphics_Region(Proxy proxy);
 	// Public Constructors
 	android_graphics_Region();
-	android_graphics_Region(AndroidCXX::android_graphics_Region& arg0);
-	android_graphics_Region(AndroidCXX::android_graphics_Rect& arg0);
-	android_graphics_Region(int& arg0,int& arg1,int& arg2,int& arg3);
-	// TODO: remove
-	// 
+	android_graphics_Region(AndroidCXX::android_graphics_Region const& arg0);
+	android_graphics_Region(AndroidCXX::android_graphics_Rect const& arg0);
+	android_graphics_Region(int const& arg0,int const& arg1,int const& arg2,int const& arg3);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Region();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 bool isEmpty();
-	 bool contains(int& arg0,int& arg1);
-	 bool set(int& arg0,int& arg1,int& arg2,int& arg3);
-	 bool set(AndroidCXX::android_graphics_Rect& arg0);
-	 bool set(AndroidCXX::android_graphics_Region& arg0);
-	 bool _union(AndroidCXX::android_graphics_Rect& arg0);
-	 bool getBounds(AndroidCXX::android_graphics_Rect& arg0);
+	 bool contains(int const& arg0,int const& arg1);
+	 bool set(int const& arg0,int const& arg1,int const& arg2,int const& arg3);
+	 bool set(AndroidCXX::android_graphics_Rect const& arg0);
+	 bool set(AndroidCXX::android_graphics_Region const& arg0);
+	 bool _union(AndroidCXX::android_graphics_Rect const& arg0);
+	 bool getBounds(AndroidCXX::android_graphics_Rect const& arg0);
 	 AndroidCXX::android_graphics_Rect getBounds();
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 	 void setEmpty();
-	 void translate(int& arg0,int& arg1);
-	 void translate(int& arg0,int& arg1,AndroidCXX::android_graphics_Region& arg2);
-	 bool op(AndroidCXX::android_graphics_Rect& arg0,AndroidCXX::android_graphics_Region& arg1,ANDROID_GRAPHICS_REGION_OP::android_graphics_Region_Op& arg2);
-	 bool op(int& arg0,int& arg1,int& arg2,int& arg3,ANDROID_GRAPHICS_REGION_OP::android_graphics_Region_Op& arg4);
-	 bool op(AndroidCXX::android_graphics_Rect& arg0,ANDROID_GRAPHICS_REGION_OP::android_graphics_Region_Op& arg1);
-	 bool op(AndroidCXX::android_graphics_Region& arg0,AndroidCXX::android_graphics_Region& arg1,ANDROID_GRAPHICS_REGION_OP::android_graphics_Region_Op& arg2);
-	 bool op(AndroidCXX::android_graphics_Region& arg0,ANDROID_GRAPHICS_REGION_OP::android_graphics_Region_Op& arg1);
-	 bool quickReject(AndroidCXX::android_graphics_Rect& arg0);
-	 bool quickReject(int& arg0,int& arg1,int& arg2,int& arg3);
-	 bool quickReject(AndroidCXX::android_graphics_Region& arg0);
-	 bool setPath(AndroidCXX::android_graphics_Path& arg0,AndroidCXX::android_graphics_Region& arg1);
+	 void translate(int const& arg0,int const& arg1);
+	 void translate(int const& arg0,int const& arg1,AndroidCXX::android_graphics_Region const& arg2);
+	 bool op(AndroidCXX::android_graphics_Rect const& arg0,AndroidCXX::android_graphics_Region const& arg1,android_graphics_Region_Op::android_graphics_Region_Op const& arg2);
+	 bool op(int const& arg0,int const& arg1,int const& arg2,int const& arg3,android_graphics_Region_Op::android_graphics_Region_Op const& arg4);
+	 bool op(AndroidCXX::android_graphics_Rect const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1);
+	 bool op(AndroidCXX::android_graphics_Region const& arg0,AndroidCXX::android_graphics_Region const& arg1,android_graphics_Region_Op::android_graphics_Region_Op const& arg2);
+	 bool op(AndroidCXX::android_graphics_Region const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1);
+	 bool quickReject(AndroidCXX::android_graphics_Rect const& arg0);
+	 bool quickReject(int const& arg0,int const& arg1,int const& arg2,int const& arg3);
+	 bool quickReject(AndroidCXX::android_graphics_Region const& arg0);
+	 bool setPath(AndroidCXX::android_graphics_Path const& arg0,AndroidCXX::android_graphics_Region const& arg1);
 	 bool isRect();
 	 bool isComplex();
 	 AndroidCXX::android_graphics_Path getBoundaryPath();
-	 bool getBoundaryPath(AndroidCXX::android_graphics_Path& arg0);
-	 bool quickContains(int& arg0,int& arg1,int& arg2,int& arg3);
-	 bool quickContains(AndroidCXX::android_graphics_Rect& arg0);
+	 bool getBoundaryPath(AndroidCXX::android_graphics_Path const& arg0);
+	 bool quickContains(int const& arg0,int const& arg1,int const& arg2,int const& arg3);
+	 bool quickContains(AndroidCXX::android_graphics_Rect const& arg0);
 };	
 
 } // namespace

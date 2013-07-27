@@ -112,30 +112,29 @@ class java_util_HashMap
 public:
 
 	java_util_HashMap(const java_util_HashMap& cc);
-	java_util_HashMap(void * proxy);
+	java_util_HashMap(Proxy proxy);
 	// Public Constructors
-	java_util_HashMap(int& arg0,float& arg1);
-	java_util_HashMap(int& arg0);
+	java_util_HashMap(int const& arg0,float const& arg1);
+	java_util_HashMap(int const& arg0);
 	java_util_HashMap();
-	java_util_HashMap(JDKCXX::java_util_Map& arg0);
-	// TODO: remove
-	// 
+	java_util_HashMap(JDKCXX::java_util_Map const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_HashMap();
 	// Functions
-	 JDKCXX::java_lang_Object get(JDKCXX::java_lang_Object& arg0);
-	 JDKCXX::java_lang_Object put(JDKCXX::java_lang_Object& arg0,JDKCXX::java_lang_Object& arg1);
+	 JDKCXX::java_lang_Object get(JDKCXX::java_lang_Object const& arg0);
+	 JDKCXX::java_lang_Object put(JDKCXX::java_lang_Object const& arg0,JDKCXX::java_lang_Object const& arg1);
 	 JDKCXX::java_util_Collection values();
 	 JDKCXX::java_lang_Object clone();
 	 void clear();
 	 bool isEmpty();
 	 int size();
 	 JDKCXX::java_util_Set entrySet();
-	 void putAll(JDKCXX::java_util_Map& arg0);
-	 JDKCXX::java_lang_Object remove(JDKCXX::java_lang_Object& arg0);
+	 void putAll(JDKCXX::java_util_Map const& arg0);
+	 JDKCXX::java_lang_Object remove(JDKCXX::java_lang_Object const& arg0);
 	 JDKCXX::java_util_Set keySet();
-	 bool containsValue(JDKCXX::java_lang_Object& arg0);
-	 bool containsKey(JDKCXX::java_lang_Object& arg0);
+	 bool containsValue(JDKCXX::java_lang_Object const& arg0);
+	 bool containsKey(JDKCXX::java_lang_Object const& arg0);
 };	
 
 } // namespace

@@ -95,36 +95,33 @@ class android_util_AttributeSet
 public:
 
 	android_util_AttributeSet(const android_util_AttributeSet& cc);
-	android_util_AttributeSet(void * proxy);
+	android_util_AttributeSet(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_util_AttributeSet();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_util_AttributeSet();
 	// Functions
-	 AndroidCXX::java_lang_String getAttributeValue(int& arg0);
-	 AndroidCXX::java_lang_String getAttributeValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
+	 AndroidCXX::java_lang_String getAttributeValue(int const& arg0);
+	 AndroidCXX::java_lang_String getAttributeValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
 	 AndroidCXX::java_lang_String getPositionDescription();
 	 int getAttributeCount();
-	 AndroidCXX::java_lang_String getAttributeName(int& arg0);
-	 int getAttributeNameResource(int& arg0);
-	 int getAttributeListValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2,int& arg3);
-	 int getAttributeListValue(int& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,int& arg2);
-	 bool getAttributeBooleanValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2);
-	 bool getAttributeBooleanValue(int& arg0,bool& arg1);
-	 int getAttributeResourceValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2);
-	 int getAttributeResourceValue(int& arg0,int& arg1);
-	 int getAttributeIntValue(int& arg0,int& arg1);
-	 int getAttributeIntValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2);
-	 int getAttributeUnsignedIntValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2);
-	 int getAttributeUnsignedIntValue(int& arg0,int& arg1);
-	 float getAttributeFloatValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,float& arg2);
-	 float getAttributeFloatValue(int& arg0,float& arg1);
+	 AndroidCXX::java_lang_String getAttributeName(int const& arg0);
+	 int getAttributeNameResource(int const& arg0);
+	 int getAttributeListValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_String > const& arg2,int const& arg3);
+	 int getAttributeListValue(int const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,int const& arg2);
+	 bool getAttributeBooleanValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2);
+	 bool getAttributeBooleanValue(int const& arg0,bool const& arg1);
+	 int getAttributeResourceValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2);
+	 int getAttributeResourceValue(int const& arg0,int const& arg1);
+	 int getAttributeIntValue(int const& arg0,int const& arg1);
+	 int getAttributeIntValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2);
+	 int getAttributeUnsignedIntValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2);
+	 int getAttributeUnsignedIntValue(int const& arg0,int const& arg1);
+	 float getAttributeFloatValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,float const& arg2);
+	 float getAttributeFloatValue(int const& arg0,float const& arg1);
 	 AndroidCXX::java_lang_String getIdAttribute();
 	 AndroidCXX::java_lang_String getClassAttribute();
-	 int getIdAttributeResourceValue(int& arg0);
+	 int getIdAttributeResourceValue(int const& arg0);
 	 int getStyleAttribute();
 };	
 

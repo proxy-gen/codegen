@@ -51,16 +51,13 @@ class java_io_FileFilter
 public:
 
 	java_io_FileFilter(const java_io_FileFilter& cc);
-	java_io_FileFilter(void * proxy);
+	java_io_FileFilter(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_io_FileFilter();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_io_FileFilter();
 	// Functions
-	 bool accept(AndroidCXX::java_io_File& arg0);
+	 bool accept(AndroidCXX::java_io_File const& arg0);
 };	
 
 } // namespace

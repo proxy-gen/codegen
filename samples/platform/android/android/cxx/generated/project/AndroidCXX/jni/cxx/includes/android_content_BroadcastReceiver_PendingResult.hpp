@@ -70,23 +70,20 @@ class android_content_BroadcastReceiver_PendingResult
 public:
 
 	android_content_BroadcastReceiver_PendingResult(const android_content_BroadcastReceiver_PendingResult& cc);
-	android_content_BroadcastReceiver_PendingResult(void * proxy);
+	android_content_BroadcastReceiver_PendingResult(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_content_BroadcastReceiver_PendingResult();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_BroadcastReceiver_PendingResult();
 	// Functions
 	 void finish();
-	 void setResult(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2);
-	 void setResultCode(int& arg0);
+	 void setResult(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2);
+	 void setResultCode(int const& arg0);
 	 int getResultCode();
-	 void setResultData(AndroidCXX::java_lang_String& arg0);
+	 void setResultData(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_lang_String getResultData();
-	 void setResultExtras(AndroidCXX::android_os_Bundle& arg0);
-	 AndroidCXX::android_os_Bundle getResultExtras(bool& arg0);
+	 void setResultExtras(AndroidCXX::android_os_Bundle const& arg0);
+	 AndroidCXX::android_os_Bundle getResultExtras(bool const& arg0);
 	 bool getAbortBroadcast();
 	 void abortBroadcast();
 	 void clearAbortBroadcast();

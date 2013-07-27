@@ -54,17 +54,16 @@ class com_facebook_NonCachingTokenCachingStrategy
 public:
 
 	com_facebook_NonCachingTokenCachingStrategy(const com_facebook_NonCachingTokenCachingStrategy& cc);
-	com_facebook_NonCachingTokenCachingStrategy(void * proxy);
+	com_facebook_NonCachingTokenCachingStrategy(Proxy proxy);
 	// Public Constructors
 	com_facebook_NonCachingTokenCachingStrategy();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_NonCachingTokenCachingStrategy();
 	// Functions
 	 void clear();
 	 AndroidCXX::android_os_Bundle load();
-	 void save(AndroidCXX::android_os_Bundle& arg0);
+	 void save(AndroidCXX::android_os_Bundle const& arg0);
 };	
 
 } // namespace

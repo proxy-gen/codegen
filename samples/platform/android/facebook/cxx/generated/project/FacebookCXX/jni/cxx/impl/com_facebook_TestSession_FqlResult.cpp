@@ -47,7 +47,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 com_facebook_TestSession_FqlResult::com_facebook_TestSession_FqlResult(const com_facebook_TestSession_FqlResult& cc)
 {
 	LOGV("com_facebook_TestSession_FqlResult::com_facebook_TestSession_FqlResult(const com_facebook_TestSession_FqlResult& cc) enter");
@@ -71,9 +70,9 @@ com_facebook_TestSession_FqlResult::com_facebook_TestSession_FqlResult(const com
 
 	LOGV("com_facebook_TestSession_FqlResult::com_facebook_TestSession_FqlResult(const com_facebook_TestSession_FqlResult& cc) exit");
 }
-com_facebook_TestSession_FqlResult::com_facebook_TestSession_FqlResult(void * proxy)
+com_facebook_TestSession_FqlResult::com_facebook_TestSession_FqlResult(Proxy proxy)
 {
-	LOGV("com_facebook_TestSession_FqlResult::com_facebook_TestSession_FqlResult(void * proxy) enter");
+	LOGV("com_facebook_TestSession_FqlResult::com_facebook_TestSession_FqlResult(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -83,52 +82,31 @@ com_facebook_TestSession_FqlResult::com_facebook_TestSession_FqlResult(void * pr
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_TestSession_FqlResult::com_facebook_TestSession_FqlResult(void * proxy) exit");
+	LOGV("com_facebook_TestSession_FqlResult::com_facebook_TestSession_FqlResult(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// com_facebook_TestSession_FqlResult::com_facebook_TestSession_FqlResult()
-// {
-// 	LOGV("com_facebook_TestSession_FqlResult::com_facebook_TestSession_FqlResult() enter");	
+Proxy com_facebook_TestSession_FqlResult::proxy() const
+{	
+	LOGV("com_facebook_TestSession_FqlResult::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "com/facebook/TestSession$FqlResult";
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_TestSession_FqlResult cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_TestSession_FqlResult jni address %d", proxiedComponent);
 
-// 	LOGV("com_facebook_TestSession_FqlResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("com_facebook_TestSession_FqlResult::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("com_facebook_TestSession_FqlResult cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("com_facebook_TestSession_FqlResult jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("com_facebook_TestSession_FqlResult::com_facebook_TestSession_FqlResult() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 com_facebook_TestSession_FqlResult::~com_facebook_TestSession_FqlResult()
 {
@@ -140,7 +118,7 @@ com_facebook_TestSession_FqlResult::~com_facebook_TestSession_FqlResult()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_TestSession_FqlResult::~com_facebook_TestSession_FqlResult() exit");
 }
 // Functions
@@ -156,8 +134,6 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_TestSession_FqlResu
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_TestSession_FqlResult cxx address %d", cxxAddress);
@@ -204,8 +180,6 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_TestSession_FqlResu
 	FacebookCXX::com_facebook_model_GraphObjectList result((FacebookCXX::com_facebook_model_GraphObjectList) *((FacebookCXX::com_facebook_model_GraphObjectList *) cxx_value));
 	delete ((FacebookCXX::com_facebook_model_GraphObjectList *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("FacebookCXX::com_facebook_model_GraphObjectList com_facebook_TestSession_FqlResult::getFqlResultSet() exit");
 
 	return result;

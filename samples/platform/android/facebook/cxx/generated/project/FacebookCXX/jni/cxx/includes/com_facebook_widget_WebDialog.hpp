@@ -76,21 +76,18 @@ class com_facebook_widget_WebDialog
 public:
 
 	com_facebook_widget_WebDialog(const com_facebook_widget_WebDialog& cc);
-	com_facebook_widget_WebDialog(void * proxy);
+	com_facebook_widget_WebDialog(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_WebDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,int& arg2);
-	com_facebook_widget_WebDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,int& arg3,FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener& arg4);
-	com_facebook_widget_WebDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1);
-	// TODO: remove
-	// 
-	// com_facebook_widget_WebDialog();
-	// 
+	com_facebook_widget_WebDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2);
+	com_facebook_widget_WebDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,int const& arg3,FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener const& arg4);
+	com_facebook_widget_WebDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog();
 	// Functions
 	 void onAttachedToWindow();
 	 void onDetachedFromWindow();
-	 void setOnCompleteListener(FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener& arg0);
+	 void setOnCompleteListener(FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener const& arg0);
 	 FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener getOnCompleteListener();
 	 void dismiss();
 };	

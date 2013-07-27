@@ -133,40 +133,37 @@ class java_util_List
 public:
 
 	java_util_List(const java_util_List& cc);
-	java_util_List(void * proxy);
+	java_util_List(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_util_List();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_List();
 	// Functions
-	 void add(int& arg0,JDKCXX::java_lang_Object& arg1);
-	 bool add(JDKCXX::java_lang_Object& arg0);
-	 JDKCXX::java_lang_Object get(int& arg0);
-	 bool equals(JDKCXX::java_lang_Object& arg0);
+	 void add(int const& arg0,JDKCXX::java_lang_Object const& arg1);
+	 bool add(JDKCXX::java_lang_Object const& arg0);
+	 JDKCXX::java_lang_Object get(int const& arg0);
+	 bool equals(JDKCXX::java_lang_Object const& arg0);
 	 int hashCode();
-	 int indexOf(JDKCXX::java_lang_Object& arg0);
+	 int indexOf(JDKCXX::java_lang_Object const& arg0);
 	 void clear();
 	 bool isEmpty();
-	 int lastIndexOf(JDKCXX::java_lang_Object& arg0);
-	 bool contains(JDKCXX::java_lang_Object& arg0);
-	 bool addAll(int& arg0,JDKCXX::java_util_Collection& arg1);
-	 bool addAll(JDKCXX::java_util_Collection& arg0);
+	 int lastIndexOf(JDKCXX::java_lang_Object const& arg0);
+	 bool contains(JDKCXX::java_lang_Object const& arg0);
+	 bool addAll(int const& arg0,JDKCXX::java_util_Collection const& arg1);
+	 bool addAll(JDKCXX::java_util_Collection const& arg0);
 	 int size();
-	 std::vector<JDKCXX::java_lang_Object > toArray(std::vector<JDKCXX::java_lang_Object >& arg0);
+	 std::vector<JDKCXX::java_lang_Object > toArray(std::vector<JDKCXX::java_lang_Object > const& arg0);
 	 std::vector<JDKCXX::java_lang_Object > toArray();
 	 JDKCXX::java_util_Iterator iterator();
-	 JDKCXX::java_lang_Object remove(int& arg0);
-	 bool remove(JDKCXX::java_lang_Object& arg0);
-	 JDKCXX::java_lang_Object set(int& arg0,JDKCXX::java_lang_Object& arg1);
-	 JDKCXX::java_util_ListIterator listIterator(int& arg0);
+	 JDKCXX::java_lang_Object remove(int const& arg0);
+	 bool remove(JDKCXX::java_lang_Object const& arg0);
+	 JDKCXX::java_lang_Object set(int const& arg0,JDKCXX::java_lang_Object const& arg1);
+	 JDKCXX::java_util_ListIterator listIterator(int const& arg0);
 	 JDKCXX::java_util_ListIterator listIterator();
-	 JDKCXX::java_util_List subList(int& arg0,int& arg1);
-	 bool removeAll(JDKCXX::java_util_Collection& arg0);
-	 bool containsAll(JDKCXX::java_util_Collection& arg0);
-	 bool retainAll(JDKCXX::java_util_Collection& arg0);
+	 JDKCXX::java_util_List subList(int const& arg0,int const& arg1);
+	 bool removeAll(JDKCXX::java_util_Collection const& arg0);
+	 bool containsAll(JDKCXX::java_util_Collection const& arg0);
+	 bool retainAll(JDKCXX::java_util_Collection const& arg0);
 };	
 
 } // namespace

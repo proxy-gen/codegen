@@ -64,7 +64,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_app_LoaderManager_LoaderCallbacks::android_app_LoaderManager_LoaderCallbacks(const android_app_LoaderManager_LoaderCallbacks& cc)
 {
 	LOGV("android_app_LoaderManager_LoaderCallbacks::android_app_LoaderManager_LoaderCallbacks(const android_app_LoaderManager_LoaderCallbacks& cc) enter");
@@ -88,9 +87,9 @@ android_app_LoaderManager_LoaderCallbacks::android_app_LoaderManager_LoaderCallb
 
 	LOGV("android_app_LoaderManager_LoaderCallbacks::android_app_LoaderManager_LoaderCallbacks(const android_app_LoaderManager_LoaderCallbacks& cc) exit");
 }
-android_app_LoaderManager_LoaderCallbacks::android_app_LoaderManager_LoaderCallbacks(void * proxy)
+android_app_LoaderManager_LoaderCallbacks::android_app_LoaderManager_LoaderCallbacks(Proxy proxy)
 {
-	LOGV("android_app_LoaderManager_LoaderCallbacks::android_app_LoaderManager_LoaderCallbacks(void * proxy) enter");
+	LOGV("android_app_LoaderManager_LoaderCallbacks::android_app_LoaderManager_LoaderCallbacks(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -100,52 +99,31 @@ android_app_LoaderManager_LoaderCallbacks::android_app_LoaderManager_LoaderCallb
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_app_LoaderManager_LoaderCallbacks::android_app_LoaderManager_LoaderCallbacks(void * proxy) exit");
+	LOGV("android_app_LoaderManager_LoaderCallbacks::android_app_LoaderManager_LoaderCallbacks(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_app_LoaderManager_LoaderCallbacks::android_app_LoaderManager_LoaderCallbacks()
-// {
-// 	LOGV("android_app_LoaderManager_LoaderCallbacks::android_app_LoaderManager_LoaderCallbacks() enter");	
+Proxy android_app_LoaderManager_LoaderCallbacks::proxy() const
+{	
+	LOGV("android_app_LoaderManager_LoaderCallbacks::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/app/LoaderManager$LoaderCallbacks";
+	long cxxAddress = (long) this;
+	LOGV("android_app_LoaderManager_LoaderCallbacks cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_LoaderManager_LoaderCallbacks jni address %d", proxiedComponent);
 
-// 	LOGV("android_app_LoaderManager_LoaderCallbacks className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_app_LoaderManager_LoaderCallbacks::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_app_LoaderManager_LoaderCallbacks cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_app_LoaderManager_LoaderCallbacks jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_app_LoaderManager_LoaderCallbacks::android_app_LoaderManager_LoaderCallbacks() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_app_LoaderManager_LoaderCallbacks::~android_app_LoaderManager_LoaderCallbacks()
 {
@@ -157,13 +135,13 @@ android_app_LoaderManager_LoaderCallbacks::~android_app_LoaderManager_LoaderCall
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_app_LoaderManager_LoaderCallbacks::~android_app_LoaderManager_LoaderCallbacks() exit");
 }
 // Functions
-AndroidCXX::android_content_Loader android_app_LoaderManager_LoaderCallbacks::onCreateLoader(int& arg0,AndroidCXX::android_os_Bundle& arg1)
+AndroidCXX::android_content_Loader android_app_LoaderManager_LoaderCallbacks::onCreateLoader(int const& arg0,AndroidCXX::android_os_Bundle const& arg1)
 {
-	LOGV("AndroidCXX::android_content_Loader android_app_LoaderManager_LoaderCallbacks::onCreateLoader(int& arg0,AndroidCXX::android_os_Bundle& arg1) enter");
+	LOGV("AndroidCXX::android_content_Loader android_app_LoaderManager_LoaderCallbacks::onCreateLoader(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) enter");
 
 	const char *methodName = "onCreateLoader";
 	const char *methodSignature = "(ILandroid/os/Bundle;)Landroid/content/Loader;";
@@ -173,8 +151,6 @@ AndroidCXX::android_content_Loader android_app_LoaderManager_LoaderCallbacks::on
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_LoaderManager_LoaderCallbacks cxx address %d", cxxAddress);
@@ -263,15 +239,13 @@ AndroidCXX::android_content_Loader android_app_LoaderManager_LoaderCallbacks::on
 	AndroidCXX::android_content_Loader result((AndroidCXX::android_content_Loader) *((AndroidCXX::android_content_Loader *) cxx_value));
 	delete ((AndroidCXX::android_content_Loader *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Loader android_app_LoaderManager_LoaderCallbacks::onCreateLoader(int& arg0,AndroidCXX::android_os_Bundle& arg1) exit");
+	LOGV("AndroidCXX::android_content_Loader android_app_LoaderManager_LoaderCallbacks::onCreateLoader(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) exit");
 
 	return result;
 }
-void android_app_LoaderManager_LoaderCallbacks::onLoadFinished(AndroidCXX::android_content_Loader& arg0,AndroidCXX::java_lang_Object& arg1)
+void android_app_LoaderManager_LoaderCallbacks::onLoadFinished(AndroidCXX::android_content_Loader const& arg0,AndroidCXX::java_lang_Object const& arg1)
 {
-	LOGV("void android_app_LoaderManager_LoaderCallbacks::onLoadFinished(AndroidCXX::android_content_Loader& arg0,AndroidCXX::java_lang_Object& arg1) enter");
+	LOGV("void android_app_LoaderManager_LoaderCallbacks::onLoadFinished(AndroidCXX::android_content_Loader const& arg0,AndroidCXX::java_lang_Object const& arg1) enter");
 
 	const char *methodName = "onLoadFinished";
 	const char *methodSignature = "(Landroid/content/Loader;Ljava/lang/Object;)V";
@@ -281,8 +255,6 @@ void android_app_LoaderManager_LoaderCallbacks::onLoadFinished(AndroidCXX::andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_LoaderManager_LoaderCallbacks cxx address %d", cxxAddress);
@@ -352,14 +324,12 @@ void android_app_LoaderManager_LoaderCallbacks::onLoadFinished(AndroidCXX::andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_app_LoaderManager_LoaderCallbacks::onLoadFinished(AndroidCXX::android_content_Loader& arg0,AndroidCXX::java_lang_Object& arg1) exit");
+	LOGV("void android_app_LoaderManager_LoaderCallbacks::onLoadFinished(AndroidCXX::android_content_Loader const& arg0,AndroidCXX::java_lang_Object const& arg1) exit");
 
 }
-void android_app_LoaderManager_LoaderCallbacks::onLoaderReset(AndroidCXX::android_content_Loader& arg0)
+void android_app_LoaderManager_LoaderCallbacks::onLoaderReset(AndroidCXX::android_content_Loader const& arg0)
 {
-	LOGV("void android_app_LoaderManager_LoaderCallbacks::onLoaderReset(AndroidCXX::android_content_Loader& arg0) enter");
+	LOGV("void android_app_LoaderManager_LoaderCallbacks::onLoaderReset(AndroidCXX::android_content_Loader const& arg0) enter");
 
 	const char *methodName = "onLoaderReset";
 	const char *methodSignature = "(Landroid/content/Loader;)V";
@@ -369,8 +339,6 @@ void android_app_LoaderManager_LoaderCallbacks::onLoaderReset(AndroidCXX::androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_LoaderManager_LoaderCallbacks cxx address %d", cxxAddress);
@@ -419,8 +387,6 @@ void android_app_LoaderManager_LoaderCallbacks::onLoaderReset(AndroidCXX::androi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_app_LoaderManager_LoaderCallbacks::onLoaderReset(AndroidCXX::android_content_Loader& arg0) exit");
+	LOGV("void android_app_LoaderManager_LoaderCallbacks::onLoaderReset(AndroidCXX::android_content_Loader const& arg0) exit");
 
 }

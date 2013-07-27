@@ -185,48 +185,46 @@ class android_content_ContentValues
 {
 public:
 
-	android_content_ContentValues(const android_content_ContentValues& cc);
-	android_content_ContentValues(void * proxy);
+	android_content_ContentValues(Proxy proxy);
 	// Public Constructors
 	android_content_ContentValues();
-	android_content_ContentValues(int& arg0);
-	android_content_ContentValues(AndroidCXX::android_content_ContentValues& arg0);
-	// TODO: remove
-	// 
+	android_content_ContentValues(int const& arg0);
+	android_content_ContentValues(AndroidCXX::android_content_ContentValues const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ContentValues();
 	// Functions
-	 AndroidCXX::java_lang_Object get(AndroidCXX::java_lang_String& arg0);
-	 void put(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
-	 void put(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Byte& arg1);
-	 void put(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Short& arg1);
-	 void put(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Integer& arg1);
-	 void put(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Long& arg1);
-	 void put(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Float& arg1);
-	 void put(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Double& arg1);
-	 void put(AndroidCXX::java_lang_String& arg0,std::vector<byte>& arg1);
-	 void put(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Boolean& arg1);
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_Object get(AndroidCXX::java_lang_String const& arg0);
+	 void put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 void put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Byte const& arg1);
+	 void put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Short const& arg1);
+	 void put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Integer const& arg1);
+	 void put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Long const& arg1);
+	 void put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Float const& arg1);
+	 void put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Double const& arg1);
+	 void put(AndroidCXX::java_lang_String const& arg0,std::vector<byte> const& arg1);
+	 void put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Boolean const& arg1);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 void clear();
 	 int size();
-	 void putAll(AndroidCXX::android_content_ContentValues& arg0);
-	 void remove(AndroidCXX::java_lang_String& arg0);
+	 void putAll(AndroidCXX::android_content_ContentValues const& arg0);
+	 void remove(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_util_Set keySet();
-	 bool containsKey(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::java_lang_String getAsString(AndroidCXX::java_lang_String& arg0);
-	 void putNull(AndroidCXX::java_lang_String& arg0);
+	 bool containsKey(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::java_lang_String getAsString(AndroidCXX::java_lang_String const& arg0);
+	 void putNull(AndroidCXX::java_lang_String const& arg0);
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
-	 AndroidCXX::java_lang_Long getAsLong(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::java_lang_Integer getAsInteger(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::java_lang_Short getAsShort(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::java_lang_Byte getAsByte(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::java_lang_Double getAsDouble(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::java_lang_Float getAsFloat(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::java_lang_Boolean getAsBoolean(AndroidCXX::java_lang_String& arg0);
-	 std::vector<byte> getAsByteArray(AndroidCXX::java_lang_String& arg0);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	 AndroidCXX::java_lang_Long getAsLong(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::java_lang_Integer getAsInteger(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::java_lang_Short getAsShort(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::java_lang_Byte getAsByte(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::java_lang_Double getAsDouble(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::java_lang_Float getAsFloat(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::java_lang_Boolean getAsBoolean(AndroidCXX::java_lang_String const& arg0);
+	 std::vector<byte> getAsByteArray(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_util_Set valueSet();
 };	
 

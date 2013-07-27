@@ -54,16 +54,13 @@ class com_facebook_Settings_1
 public:
 
 	com_facebook_Settings_1(const com_facebook_Settings_1& cc);
-	com_facebook_Settings_1(void * proxy);
+	com_facebook_Settings_1(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_Settings_1();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Settings_1();
 	// Functions
-	 AndroidCXX::java_lang_Thread newThread(AndroidCXX::java_lang_Runnable& arg0);
+	 AndroidCXX::java_lang_Thread newThread(AndroidCXX::java_lang_Runnable const& arg0);
 };	
 
 } // namespace

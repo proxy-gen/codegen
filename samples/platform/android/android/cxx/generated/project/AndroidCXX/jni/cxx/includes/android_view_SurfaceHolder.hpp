@@ -82,26 +82,23 @@ class android_view_SurfaceHolder
 public:
 
 	android_view_SurfaceHolder(const android_view_SurfaceHolder& cc);
-	android_view_SurfaceHolder(void * proxy);
+	android_view_SurfaceHolder(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_view_SurfaceHolder();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_SurfaceHolder();
 	// Functions
-	 void setFormat(int& arg0);
-	 void setType(int& arg0);
-	 void setKeepScreenOn(bool& arg0);
-	 void addCallback(AndroidCXX::android_view_SurfaceHolder_Callback& arg0);
-	 void removeCallback(AndroidCXX::android_view_SurfaceHolder_Callback& arg0);
+	 void setFormat(int const& arg0);
+	 void setType(int const& arg0);
+	 void setKeepScreenOn(bool const& arg0);
+	 void addCallback(AndroidCXX::android_view_SurfaceHolder_Callback const& arg0);
+	 void removeCallback(AndroidCXX::android_view_SurfaceHolder_Callback const& arg0);
 	 bool isCreating();
-	 void setFixedSize(int& arg0,int& arg1);
+	 void setFixedSize(int const& arg0,int const& arg1);
 	 void setSizeFromLayout();
 	 AndroidCXX::android_graphics_Canvas lockCanvas();
-	 AndroidCXX::android_graphics_Canvas lockCanvas(AndroidCXX::android_graphics_Rect& arg0);
-	 void unlockCanvasAndPost(AndroidCXX::android_graphics_Canvas& arg0);
+	 AndroidCXX::android_graphics_Canvas lockCanvas(AndroidCXX::android_graphics_Rect const& arg0);
+	 void unlockCanvasAndPost(AndroidCXX::android_graphics_Canvas const& arg0);
 	 AndroidCXX::android_graphics_Rect getSurfaceFrame();
 	 AndroidCXX::android_view_Surface getSurface();
 };	

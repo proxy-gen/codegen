@@ -110,7 +110,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_MediaController::android_widget_MediaController(const android_widget_MediaController& cc)
 {
 	LOGV("android_widget_MediaController::android_widget_MediaController(const android_widget_MediaController& cc) enter");
@@ -134,9 +133,9 @@ android_widget_MediaController::android_widget_MediaController(const android_wid
 
 	LOGV("android_widget_MediaController::android_widget_MediaController(const android_widget_MediaController& cc) exit");
 }
-android_widget_MediaController::android_widget_MediaController(void * proxy)
+android_widget_MediaController::android_widget_MediaController(Proxy proxy)
 {
-	LOGV("android_widget_MediaController::android_widget_MediaController(void * proxy) enter");
+	LOGV("android_widget_MediaController::android_widget_MediaController(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -146,55 +145,34 @@ android_widget_MediaController::android_widget_MediaController(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_MediaController::android_widget_MediaController(void * proxy) exit");
+	LOGV("android_widget_MediaController::android_widget_MediaController(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_MediaController::android_widget_MediaController()
-// {
-// 	LOGV("android_widget_MediaController::android_widget_MediaController() enter");	
+Proxy android_widget_MediaController::proxy() const
+{	
+	LOGV("android_widget_MediaController::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/MediaController";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_MediaController cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_MediaController jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_MediaController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_MediaController::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_MediaController cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_MediaController jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_MediaController::android_widget_MediaController() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_MediaController::android_widget_MediaController(AndroidCXX::android_content_Context& arg0,bool& arg1)
+	return proxy;
+}
+android_widget_MediaController::android_widget_MediaController(AndroidCXX::android_content_Context const& arg0,bool const& arg1)
 {
-	LOGV("android_widget_MediaController::android_widget_MediaController(AndroidCXX::android_content_Context& arg0,bool& arg1) enter");	
+	LOGV("android_widget_MediaController::android_widget_MediaController(AndroidCXX::android_content_Context const& arg0,bool const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Z)V";
@@ -268,11 +246,11 @@ android_widget_MediaController::android_widget_MediaController(AndroidCXX::andro
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_MediaController::android_widget_MediaController(AndroidCXX::android_content_Context& arg0,bool& arg1) exit");	
+	LOGV("android_widget_MediaController::android_widget_MediaController(AndroidCXX::android_content_Context const& arg0,bool const& arg1) exit");	
 }
-android_widget_MediaController::android_widget_MediaController(AndroidCXX::android_content_Context& arg0)
+android_widget_MediaController::android_widget_MediaController(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_MediaController::android_widget_MediaController(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_MediaController::android_widget_MediaController(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -325,11 +303,11 @@ android_widget_MediaController::android_widget_MediaController(AndroidCXX::andro
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_MediaController::android_widget_MediaController(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_MediaController::android_widget_MediaController(AndroidCXX::android_content_Context const& arg0) exit");	
 }
-android_widget_MediaController::android_widget_MediaController(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+android_widget_MediaController::android_widget_MediaController(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_MediaController::android_widget_MediaController(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_MediaController::android_widget_MediaController(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -403,7 +381,7 @@ android_widget_MediaController::android_widget_MediaController(AndroidCXX::andro
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_MediaController::android_widget_MediaController(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_MediaController::android_widget_MediaController(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
 // Default Instance Destructor
 android_widget_MediaController::~android_widget_MediaController()
@@ -416,7 +394,7 @@ android_widget_MediaController::~android_widget_MediaController()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_MediaController::~android_widget_MediaController() exit");
 }
 // Functions
@@ -433,8 +411,6 @@ void android_widget_MediaController::show()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_MediaController cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -443,14 +419,12 @@ void android_widget_MediaController::show()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_MediaController::show() exit");
 
 }
-void android_widget_MediaController::show(int& arg0)
+void android_widget_MediaController::show(int const& arg0)
 {
-	LOGV("void android_widget_MediaController::show(int& arg0) enter");
+	LOGV("void android_widget_MediaController::show(int const& arg0) enter");
 
 	const char *methodName = "show";
 	const char *methodSignature = "(I)V";
@@ -460,8 +434,6 @@ void android_widget_MediaController::show(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_MediaController cxx address %d", cxxAddress);
@@ -492,14 +464,12 @@ void android_widget_MediaController::show(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_MediaController::show(int& arg0) exit");
+	LOGV("void android_widget_MediaController::show(int const& arg0) exit");
 
 }
-bool android_widget_MediaController::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_MediaController::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_MediaController::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_MediaController::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onTouchEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -510,8 +480,6 @@ bool android_widget_MediaController::onTouchEvent(AndroidCXX::android_view_Motio
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_MediaController cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -560,15 +528,13 @@ bool android_widget_MediaController::onTouchEvent(AndroidCXX::android_view_Motio
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_MediaController::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	LOGV("bool android_widget_MediaController::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-bool android_widget_MediaController::onTrackballEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_MediaController::onTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_MediaController::onTrackballEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_MediaController::onTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onTrackballEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -579,8 +545,6 @@ bool android_widget_MediaController::onTrackballEvent(AndroidCXX::android_view_M
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_MediaController cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -629,15 +593,13 @@ bool android_widget_MediaController::onTrackballEvent(AndroidCXX::android_view_M
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_MediaController::onTrackballEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	LOGV("bool android_widget_MediaController::onTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-bool android_widget_MediaController::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0)
+bool android_widget_MediaController::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0)
 {
-	LOGV("bool android_widget_MediaController::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0) enter");
+	LOGV("bool android_widget_MediaController::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) enter");
 
 	const char *methodName = "dispatchKeyEvent";
 	const char *methodSignature = "(Landroid/view/KeyEvent;)Z";
@@ -647,8 +609,6 @@ bool android_widget_MediaController::dispatchKeyEvent(AndroidCXX::android_view_K
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_MediaController cxx address %d", cxxAddress);
@@ -698,15 +658,13 @@ bool android_widget_MediaController::dispatchKeyEvent(AndroidCXX::android_view_K
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_MediaController::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0) exit");
+	LOGV("bool android_widget_MediaController::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) exit");
 
 	return result;
 }
-void android_widget_MediaController::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_MediaController::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_MediaController::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_MediaController::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -716,8 +674,6 @@ void android_widget_MediaController::onInitializeAccessibilityEvent(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_MediaController cxx address %d", cxxAddress);
@@ -748,14 +704,12 @@ void android_widget_MediaController::onInitializeAccessibilityEvent(AndroidCXX::
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_MediaController::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_MediaController::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_MediaController::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0)
+void android_widget_MediaController::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0)
 {
-	LOGV("void android_widget_MediaController::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) enter");
+	LOGV("void android_widget_MediaController::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityNodeInfo";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
@@ -765,8 +719,6 @@ void android_widget_MediaController::onInitializeAccessibilityNodeInfo(AndroidCX
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_MediaController cxx address %d", cxxAddress);
@@ -797,14 +749,12 @@ void android_widget_MediaController::onInitializeAccessibilityNodeInfo(AndroidCX
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_MediaController::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) exit");
+	LOGV("void android_widget_MediaController::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) exit");
 
 }
-void android_widget_MediaController::setEnabled(bool& arg0)
+void android_widget_MediaController::setEnabled(bool const& arg0)
 {
-	LOGV("void android_widget_MediaController::setEnabled(bool& arg0) enter");
+	LOGV("void android_widget_MediaController::setEnabled(bool const& arg0) enter");
 
 	const char *methodName = "setEnabled";
 	const char *methodSignature = "(Z)V";
@@ -814,8 +764,6 @@ void android_widget_MediaController::setEnabled(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_MediaController cxx address %d", cxxAddress);
@@ -846,9 +794,7 @@ void android_widget_MediaController::setEnabled(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_MediaController::setEnabled(bool& arg0) exit");
+	LOGV("void android_widget_MediaController::setEnabled(bool const& arg0) exit");
 
 }
 void android_widget_MediaController::onFinishInflate()
@@ -864,8 +810,6 @@ void android_widget_MediaController::onFinishInflate()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_MediaController cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -874,8 +818,6 @@ void android_widget_MediaController::onFinishInflate()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_MediaController::onFinishInflate() exit");
 
 }
@@ -892,8 +834,6 @@ void android_widget_MediaController::hide()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_MediaController cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -902,8 +842,6 @@ void android_widget_MediaController::hide()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_MediaController::hide() exit");
 
 }
@@ -919,8 +857,6 @@ bool android_widget_MediaController::isShowing()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_MediaController cxx address %d", cxxAddress);
@@ -949,15 +885,13 @@ bool android_widget_MediaController::isShowing()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_MediaController::isShowing() exit");
 
 	return result;
 }
-void android_widget_MediaController::setAnchorView(AndroidCXX::android_view_View& arg0)
+void android_widget_MediaController::setAnchorView(AndroidCXX::android_view_View const& arg0)
 {
-	LOGV("void android_widget_MediaController::setAnchorView(AndroidCXX::android_view_View& arg0) enter");
+	LOGV("void android_widget_MediaController::setAnchorView(AndroidCXX::android_view_View const& arg0) enter");
 
 	const char *methodName = "setAnchorView";
 	const char *methodSignature = "(Landroid/view/View;)V";
@@ -967,8 +901,6 @@ void android_widget_MediaController::setAnchorView(AndroidCXX::android_view_View
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_MediaController cxx address %d", cxxAddress);
@@ -999,14 +931,12 @@ void android_widget_MediaController::setAnchorView(AndroidCXX::android_view_View
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_MediaController::setAnchorView(AndroidCXX::android_view_View& arg0) exit");
+	LOGV("void android_widget_MediaController::setAnchorView(AndroidCXX::android_view_View const& arg0) exit");
 
 }
-void android_widget_MediaController::setMediaPlayer(AndroidCXX::android_widget_MediaController_MediaPlayerControl& arg0)
+void android_widget_MediaController::setMediaPlayer(AndroidCXX::android_widget_MediaController_MediaPlayerControl const& arg0)
 {
-	LOGV("void android_widget_MediaController::setMediaPlayer(AndroidCXX::android_widget_MediaController_MediaPlayerControl& arg0) enter");
+	LOGV("void android_widget_MediaController::setMediaPlayer(AndroidCXX::android_widget_MediaController_MediaPlayerControl const& arg0) enter");
 
 	const char *methodName = "setMediaPlayer";
 	const char *methodSignature = "(Landroid/widget/MediaController$MediaPlayerControl;)V";
@@ -1016,8 +946,6 @@ void android_widget_MediaController::setMediaPlayer(AndroidCXX::android_widget_M
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_MediaController cxx address %d", cxxAddress);
@@ -1048,14 +976,12 @@ void android_widget_MediaController::setMediaPlayer(AndroidCXX::android_widget_M
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_MediaController::setMediaPlayer(AndroidCXX::android_widget_MediaController_MediaPlayerControl& arg0) exit");
+	LOGV("void android_widget_MediaController::setMediaPlayer(AndroidCXX::android_widget_MediaController_MediaPlayerControl const& arg0) exit");
 
 }
-void android_widget_MediaController::setPrevNextListeners(AndroidCXX::android_view_View_OnClickListener& arg0,AndroidCXX::android_view_View_OnClickListener& arg1)
+void android_widget_MediaController::setPrevNextListeners(AndroidCXX::android_view_View_OnClickListener const& arg0,AndroidCXX::android_view_View_OnClickListener const& arg1)
 {
-	LOGV("void android_widget_MediaController::setPrevNextListeners(AndroidCXX::android_view_View_OnClickListener& arg0,AndroidCXX::android_view_View_OnClickListener& arg1) enter");
+	LOGV("void android_widget_MediaController::setPrevNextListeners(AndroidCXX::android_view_View_OnClickListener const& arg0,AndroidCXX::android_view_View_OnClickListener const& arg1) enter");
 
 	const char *methodName = "setPrevNextListeners";
 	const char *methodSignature = "(Landroid/view/View$OnClickListener;Landroid/view/View$OnClickListener;)V";
@@ -1065,8 +991,6 @@ void android_widget_MediaController::setPrevNextListeners(AndroidCXX::android_vi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_MediaController cxx address %d", cxxAddress);
@@ -1118,8 +1042,6 @@ void android_widget_MediaController::setPrevNextListeners(AndroidCXX::android_vi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_MediaController::setPrevNextListeners(AndroidCXX::android_view_View_OnClickListener& arg0,AndroidCXX::android_view_View_OnClickListener& arg1) exit");
+	LOGV("void android_widget_MediaController::setPrevNextListeners(AndroidCXX::android_view_View_OnClickListener const& arg0,AndroidCXX::android_view_View_OnClickListener const& arg1) exit");
 
 }

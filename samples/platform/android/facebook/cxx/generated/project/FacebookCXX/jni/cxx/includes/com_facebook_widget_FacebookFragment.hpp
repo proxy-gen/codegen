@@ -62,19 +62,16 @@ class com_facebook_widget_FacebookFragment
 public:
 
 	com_facebook_widget_FacebookFragment(const com_facebook_widget_FacebookFragment& cc);
-	com_facebook_widget_FacebookFragment(void * proxy);
+	com_facebook_widget_FacebookFragment(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_widget_FacebookFragment();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_FacebookFragment();
 	// Functions
 	 void onDestroy();
-	 void onActivityResult(int& arg0,int& arg1,AndroidCXX::android_content_Intent& arg2);
-	 void setSession(FacebookCXX::com_facebook_Session& arg0);
-	 void onActivityCreated(AndroidCXX::android_os_Bundle& arg0);
+	 void onActivityResult(int const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2);
+	 void setSession(FacebookCXX::com_facebook_Session const& arg0);
+	 void onActivityCreated(AndroidCXX::android_os_Bundle const& arg0);
 };	
 
 } // namespace

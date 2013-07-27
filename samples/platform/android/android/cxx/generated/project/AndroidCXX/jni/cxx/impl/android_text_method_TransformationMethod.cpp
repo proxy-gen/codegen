@@ -67,7 +67,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_text_method_TransformationMethod::android_text_method_TransformationMethod(const android_text_method_TransformationMethod& cc)
 {
 	LOGV("android_text_method_TransformationMethod::android_text_method_TransformationMethod(const android_text_method_TransformationMethod& cc) enter");
@@ -91,9 +90,9 @@ android_text_method_TransformationMethod::android_text_method_TransformationMeth
 
 	LOGV("android_text_method_TransformationMethod::android_text_method_TransformationMethod(const android_text_method_TransformationMethod& cc) exit");
 }
-android_text_method_TransformationMethod::android_text_method_TransformationMethod(void * proxy)
+android_text_method_TransformationMethod::android_text_method_TransformationMethod(Proxy proxy)
 {
-	LOGV("android_text_method_TransformationMethod::android_text_method_TransformationMethod(void * proxy) enter");
+	LOGV("android_text_method_TransformationMethod::android_text_method_TransformationMethod(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -103,52 +102,31 @@ android_text_method_TransformationMethod::android_text_method_TransformationMeth
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_text_method_TransformationMethod::android_text_method_TransformationMethod(void * proxy) exit");
+	LOGV("android_text_method_TransformationMethod::android_text_method_TransformationMethod(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_text_method_TransformationMethod::android_text_method_TransformationMethod()
-// {
-// 	LOGV("android_text_method_TransformationMethod::android_text_method_TransformationMethod() enter");	
+Proxy android_text_method_TransformationMethod::proxy() const
+{	
+	LOGV("android_text_method_TransformationMethod::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/text/method/TransformationMethod";
+	long cxxAddress = (long) this;
+	LOGV("android_text_method_TransformationMethod cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_text_method_TransformationMethod jni address %d", proxiedComponent);
 
-// 	LOGV("android_text_method_TransformationMethod className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_text_method_TransformationMethod::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_text_method_TransformationMethod cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_text_method_TransformationMethod jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_text_method_TransformationMethod::android_text_method_TransformationMethod() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_text_method_TransformationMethod::~android_text_method_TransformationMethod()
 {
@@ -160,13 +138,13 @@ android_text_method_TransformationMethod::~android_text_method_TransformationMet
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_text_method_TransformationMethod::~android_text_method_TransformationMethod() exit");
 }
 // Functions
-AndroidCXX::java_lang_CharSequence android_text_method_TransformationMethod::getTransformation(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_view_View& arg1)
+AndroidCXX::java_lang_CharSequence android_text_method_TransformationMethod::getTransformation(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_view_View const& arg1)
 {
-	LOGV("AndroidCXX::java_lang_CharSequence android_text_method_TransformationMethod::getTransformation(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_view_View& arg1) enter");
+	LOGV("AndroidCXX::java_lang_CharSequence android_text_method_TransformationMethod::getTransformation(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_view_View const& arg1) enter");
 
 	const char *methodName = "getTransformation";
 	const char *methodSignature = "(Ljava/lang/CharSequence;Landroid/view/View;)Ljava/lang/CharSequence;";
@@ -176,8 +154,6 @@ AndroidCXX::java_lang_CharSequence android_text_method_TransformationMethod::get
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_method_TransformationMethod cxx address %d", cxxAddress);
@@ -248,15 +224,13 @@ AndroidCXX::java_lang_CharSequence android_text_method_TransformationMethod::get
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_CharSequence android_text_method_TransformationMethod::getTransformation(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_view_View& arg1) exit");
+	LOGV("AndroidCXX::java_lang_CharSequence android_text_method_TransformationMethod::getTransformation(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_view_View const& arg1) exit");
 
 	return result;
 }
-void android_text_method_TransformationMethod::onFocusChanged(AndroidCXX::android_view_View& arg0,AndroidCXX::java_lang_CharSequence& arg1,bool& arg2,int& arg3,AndroidCXX::android_graphics_Rect& arg4)
+void android_text_method_TransformationMethod::onFocusChanged(AndroidCXX::android_view_View const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,bool const& arg2,int const& arg3,AndroidCXX::android_graphics_Rect const& arg4)
 {
-	LOGV("void android_text_method_TransformationMethod::onFocusChanged(AndroidCXX::android_view_View& arg0,AndroidCXX::java_lang_CharSequence& arg1,bool& arg2,int& arg3,AndroidCXX::android_graphics_Rect& arg4) enter");
+	LOGV("void android_text_method_TransformationMethod::onFocusChanged(AndroidCXX::android_view_View const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,bool const& arg2,int const& arg3,AndroidCXX::android_graphics_Rect const& arg4) enter");
 
 	const char *methodName = "onFocusChanged";
 	const char *methodSignature = "(Landroid/view/View;Ljava/lang/CharSequence;ZILandroid/graphics/Rect;)V";
@@ -266,8 +240,6 @@ void android_text_method_TransformationMethod::onFocusChanged(AndroidCXX::androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_method_TransformationMethod cxx address %d", cxxAddress);
@@ -382,8 +354,6 @@ void android_text_method_TransformationMethod::onFocusChanged(AndroidCXX::androi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_text_method_TransformationMethod::onFocusChanged(AndroidCXX::android_view_View& arg0,AndroidCXX::java_lang_CharSequence& arg1,bool& arg2,int& arg3,AndroidCXX::android_graphics_Rect& arg4) exit");
+	LOGV("void android_text_method_TransformationMethod::onFocusChanged(AndroidCXX::android_view_View const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,bool const& arg2,int const& arg3,AndroidCXX::android_graphics_Rect const& arg4) exit");
 
 }

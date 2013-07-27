@@ -30,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace ANDROID_GRAPHICS_REGION_OP {
+namespace android_graphics_Region_Op {
 
 enum android_graphics_Region_Op
 {

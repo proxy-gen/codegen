@@ -52,12 +52,9 @@ class java_util_Enumeration
 public:
 
 	java_util_Enumeration(const java_util_Enumeration& cc);
-	java_util_Enumeration(void * proxy);
+	java_util_Enumeration(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_util_Enumeration();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Enumeration();
 	// Functions

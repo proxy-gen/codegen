@@ -109,27 +109,24 @@ class java_lang_ClassLoader
 public:
 
 	java_lang_ClassLoader(const java_lang_ClassLoader& cc);
-	java_lang_ClassLoader(void * proxy);
+	java_lang_ClassLoader(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_lang_ClassLoader();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_ClassLoader();
 	// Functions
-	 JDKCXX::java_lang_Class loadClass(JDKCXX::java_lang_String& arg0);
+	 JDKCXX::java_lang_Class loadClass(JDKCXX::java_lang_String const& arg0);
 	static JDKCXX::java_lang_ClassLoader getSystemClassLoader();
-	 JDKCXX::java_io_InputStream getResourceAsStream(JDKCXX::java_lang_String& arg0);
-	 JDKCXX::java_net_URL getResource(JDKCXX::java_lang_String& arg0);
-	static JDKCXX::java_io_InputStream getSystemResourceAsStream(JDKCXX::java_lang_String& arg0);
-	static JDKCXX::java_net_URL getSystemResource(JDKCXX::java_lang_String& arg0);
-	 JDKCXX::java_util_Enumeration getResources(JDKCXX::java_lang_String& arg0);
-	static JDKCXX::java_util_Enumeration getSystemResources(JDKCXX::java_lang_String& arg0);
+	 JDKCXX::java_io_InputStream getResourceAsStream(JDKCXX::java_lang_String const& arg0);
+	 JDKCXX::java_net_URL getResource(JDKCXX::java_lang_String const& arg0);
+	static JDKCXX::java_io_InputStream getSystemResourceAsStream(JDKCXX::java_lang_String const& arg0);
+	static JDKCXX::java_net_URL getSystemResource(JDKCXX::java_lang_String const& arg0);
+	 JDKCXX::java_util_Enumeration getResources(JDKCXX::java_lang_String const& arg0);
+	static JDKCXX::java_util_Enumeration getSystemResources(JDKCXX::java_lang_String const& arg0);
 	 JDKCXX::java_lang_ClassLoader getParent();
-	 void setDefaultAssertionStatus(bool& arg0);
-	 void setPackageAssertionStatus(JDKCXX::java_lang_String& arg0,bool& arg1);
-	 void setClassAssertionStatus(JDKCXX::java_lang_String& arg0,bool& arg1);
+	 void setDefaultAssertionStatus(bool const& arg0);
+	 void setPackageAssertionStatus(JDKCXX::java_lang_String const& arg0,bool const& arg1);
+	 void setClassAssertionStatus(JDKCXX::java_lang_String const& arg0,bool const& arg1);
 	 void clearAssertionStatus();
 };	
 

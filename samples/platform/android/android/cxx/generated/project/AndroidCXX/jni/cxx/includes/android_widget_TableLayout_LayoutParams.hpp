@@ -71,16 +71,15 @@ class android_widget_TableLayout_LayoutParams
 public:
 
 	android_widget_TableLayout_LayoutParams(const android_widget_TableLayout_LayoutParams& cc);
-	android_widget_TableLayout_LayoutParams(void * proxy);
+	android_widget_TableLayout_LayoutParams(Proxy proxy);
 	// Public Constructors
-	android_widget_TableLayout_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_TableLayout_LayoutParams(int& arg0,int& arg1);
-	android_widget_TableLayout_LayoutParams(int& arg0,int& arg1,float& arg2);
+	android_widget_TableLayout_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_TableLayout_LayoutParams(int const& arg0,int const& arg1);
+	android_widget_TableLayout_LayoutParams(int const& arg0,int const& arg1,float const& arg2);
 	android_widget_TableLayout_LayoutParams();
-	android_widget_TableLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0);
-	android_widget_TableLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams& arg0);
-	// TODO: remove
-	// 
+	android_widget_TableLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0);
+	android_widget_TableLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TableLayout_LayoutParams();
 	// Functions

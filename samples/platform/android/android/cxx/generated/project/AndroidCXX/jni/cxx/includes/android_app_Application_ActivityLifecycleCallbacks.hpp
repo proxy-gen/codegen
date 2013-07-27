@@ -69,22 +69,19 @@ class android_app_Application_ActivityLifecycleCallbacks
 public:
 
 	android_app_Application_ActivityLifecycleCallbacks(const android_app_Application_ActivityLifecycleCallbacks& cc);
-	android_app_Application_ActivityLifecycleCallbacks(void * proxy);
+	android_app_Application_ActivityLifecycleCallbacks(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_app_Application_ActivityLifecycleCallbacks();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_Application_ActivityLifecycleCallbacks();
 	// Functions
-	 void onActivityCreated(AndroidCXX::android_app_Activity& arg0,AndroidCXX::android_os_Bundle& arg1);
-	 void onActivityStarted(AndroidCXX::android_app_Activity& arg0);
-	 void onActivityResumed(AndroidCXX::android_app_Activity& arg0);
-	 void onActivityPaused(AndroidCXX::android_app_Activity& arg0);
-	 void onActivityStopped(AndroidCXX::android_app_Activity& arg0);
-	 void onActivitySaveInstanceState(AndroidCXX::android_app_Activity& arg0,AndroidCXX::android_os_Bundle& arg1);
-	 void onActivityDestroyed(AndroidCXX::android_app_Activity& arg0);
+	 void onActivityCreated(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_os_Bundle const& arg1);
+	 void onActivityStarted(AndroidCXX::android_app_Activity const& arg0);
+	 void onActivityResumed(AndroidCXX::android_app_Activity const& arg0);
+	 void onActivityPaused(AndroidCXX::android_app_Activity const& arg0);
+	 void onActivityStopped(AndroidCXX::android_app_Activity const& arg0);
+	 void onActivitySaveInstanceState(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_os_Bundle const& arg1);
+	 void onActivityDestroyed(AndroidCXX::android_app_Activity const& arg0);
 };	
 
 } // namespace

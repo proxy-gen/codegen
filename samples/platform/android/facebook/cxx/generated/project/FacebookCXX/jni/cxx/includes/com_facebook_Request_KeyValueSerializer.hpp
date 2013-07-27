@@ -51,16 +51,13 @@ class com_facebook_Request_KeyValueSerializer
 public:
 
 	com_facebook_Request_KeyValueSerializer(const com_facebook_Request_KeyValueSerializer& cc);
-	com_facebook_Request_KeyValueSerializer(void * proxy);
+	com_facebook_Request_KeyValueSerializer(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_Request_KeyValueSerializer();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Request_KeyValueSerializer();
 	// Functions
-	 void writeString(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
+	 void writeString(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
 };	
 
 } // namespace

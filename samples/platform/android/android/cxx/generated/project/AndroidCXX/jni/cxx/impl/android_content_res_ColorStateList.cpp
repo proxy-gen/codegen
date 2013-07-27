@@ -82,7 +82,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_content_res_ColorStateList::android_content_res_ColorStateList(const android_content_res_ColorStateList& cc)
 {
 	LOGV("android_content_res_ColorStateList::android_content_res_ColorStateList(const android_content_res_ColorStateList& cc) enter");
@@ -106,9 +105,9 @@ android_content_res_ColorStateList::android_content_res_ColorStateList(const and
 
 	LOGV("android_content_res_ColorStateList::android_content_res_ColorStateList(const android_content_res_ColorStateList& cc) exit");
 }
-android_content_res_ColorStateList::android_content_res_ColorStateList(void * proxy)
+android_content_res_ColorStateList::android_content_res_ColorStateList(Proxy proxy)
 {
-	LOGV("android_content_res_ColorStateList::android_content_res_ColorStateList(void * proxy) enter");
+	LOGV("android_content_res_ColorStateList::android_content_res_ColorStateList(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -118,55 +117,34 @@ android_content_res_ColorStateList::android_content_res_ColorStateList(void * pr
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_content_res_ColorStateList::android_content_res_ColorStateList(void * proxy) exit");
+	LOGV("android_content_res_ColorStateList::android_content_res_ColorStateList(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_content_res_ColorStateList::android_content_res_ColorStateList()
-// {
-// 	LOGV("android_content_res_ColorStateList::android_content_res_ColorStateList() enter");	
+Proxy android_content_res_ColorStateList::proxy() const
+{	
+	LOGV("android_content_res_ColorStateList::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/content/res/ColorStateList";
+	long cxxAddress = (long) this;
+	LOGV("android_content_res_ColorStateList cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_content_res_ColorStateList jni address %d", proxiedComponent);
 
-// 	LOGV("android_content_res_ColorStateList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_content_res_ColorStateList::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_content_res_ColorStateList cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_content_res_ColorStateList jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_content_res_ColorStateList::android_content_res_ColorStateList() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_content_res_ColorStateList::android_content_res_ColorStateList(std::vector<std::vector<int > >& arg0,std::vector<int>& arg1)
+	return proxy;
+}
+android_content_res_ColorStateList::android_content_res_ColorStateList(std::vector<std::vector<int > > const& arg0,std::vector<int> const& arg1)
 {
-	LOGV("android_content_res_ColorStateList::android_content_res_ColorStateList(std::vector<std::vector<int > >& arg0,std::vector<int>& arg1) enter");	
+	LOGV("android_content_res_ColorStateList::android_content_res_ColorStateList(std::vector<std::vector<int > > const& arg0,std::vector<int> const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "([[I[I)V";
@@ -294,7 +272,7 @@ android_content_res_ColorStateList::android_content_res_ColorStateList(std::vect
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_res_ColorStateList::android_content_res_ColorStateList(std::vector<std::vector<int > >& arg0,std::vector<int>& arg1) exit");	
+	LOGV("android_content_res_ColorStateList::android_content_res_ColorStateList(std::vector<std::vector<int > > const& arg0,std::vector<int> const& arg1) exit");	
 }
 // Default Instance Destructor
 android_content_res_ColorStateList::~android_content_res_ColorStateList()
@@ -307,7 +285,7 @@ android_content_res_ColorStateList::~android_content_res_ColorStateList()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_content_res_ColorStateList::~android_content_res_ColorStateList() exit");
 }
 // Functions
@@ -323,8 +301,6 @@ AndroidCXX::java_lang_String android_content_res_ColorStateList::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_ColorStateList cxx address %d", cxxAddress);
@@ -353,15 +329,13 @@ AndroidCXX::java_lang_String android_content_res_ColorStateList::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_content_res_ColorStateList::toString() exit");
 
 	return result;
 }
-AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateList::valueOf(int& arg0)
+AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateList::valueOf(int const& arg0)
 {
-	LOGV("AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateList::valueOf(int& arg0) enter");
+	LOGV("AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateList::valueOf(int const& arg0) enter");
 
 	const char *methodName = "valueOf";
 	const char *methodSignature = "(I)Landroid/content/res/ColorStateList;";
@@ -371,8 +345,6 @@ AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateLis
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_res_ColorStateList cxx address %d", cxxAddress);
@@ -401,7 +373,7 @@ AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateLis
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -422,9 +394,7 @@ AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateLis
 	AndroidCXX::android_content_res_ColorStateList result((AndroidCXX::android_content_res_ColorStateList) *((AndroidCXX::android_content_res_ColorStateList *) cxx_value));
 	delete ((AndroidCXX::android_content_res_ColorStateList *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateList::valueOf(int& arg0) exit");
+	LOGV("AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateList::valueOf(int const& arg0) exit");
 
 	return result;
 }
@@ -440,8 +410,6 @@ int android_content_res_ColorStateList::describeContents()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_ColorStateList cxx address %d", cxxAddress);
@@ -470,15 +438,13 @@ int android_content_res_ColorStateList::describeContents()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_content_res_ColorStateList::describeContents() exit");
 
 	return result;
 }
-void android_content_res_ColorStateList::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_content_res_ColorStateList::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_content_res_ColorStateList::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_content_res_ColorStateList::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -488,8 +454,6 @@ void android_content_res_ColorStateList::writeToParcel(AndroidCXX::android_os_Pa
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_ColorStateList cxx address %d", cxxAddress);
@@ -541,9 +505,7 @@ void android_content_res_ColorStateList::writeToParcel(AndroidCXX::android_os_Pa
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_res_ColorStateList::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_content_res_ColorStateList::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }
 bool android_content_res_ColorStateList::isStateful()
@@ -558,8 +520,6 @@ bool android_content_res_ColorStateList::isStateful()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_ColorStateList cxx address %d", cxxAddress);
@@ -588,15 +548,13 @@ bool android_content_res_ColorStateList::isStateful()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_content_res_ColorStateList::isStateful() exit");
 
 	return result;
 }
-AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateList::createFromXml(AndroidCXX::android_content_res_Resources& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser& arg1)
+AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateList::createFromXml(AndroidCXX::android_content_res_Resources const& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser const& arg1)
 {
-	LOGV("AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateList::createFromXml(AndroidCXX::android_content_res_Resources& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser& arg1) enter");
+	LOGV("AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateList::createFromXml(AndroidCXX::android_content_res_Resources const& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser const& arg1) enter");
 
 	const char *methodName = "createFromXml";
 	const char *methodSignature = "(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;)Landroid/content/res/ColorStateList;";
@@ -606,8 +564,6 @@ AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateLis
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_res_ColorStateList cxx address %d", cxxAddress);
@@ -657,7 +613,7 @@ AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateLis
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -678,15 +634,13 @@ AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateLis
 	AndroidCXX::android_content_res_ColorStateList result((AndroidCXX::android_content_res_ColorStateList) *((AndroidCXX::android_content_res_ColorStateList *) cxx_value));
 	delete ((AndroidCXX::android_content_res_ColorStateList *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateList::createFromXml(AndroidCXX::android_content_res_Resources& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser& arg1) exit");
+	LOGV("AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateList::createFromXml(AndroidCXX::android_content_res_Resources const& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateList::withAlpha(int& arg0)
+AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateList::withAlpha(int const& arg0)
 {
-	LOGV("AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateList::withAlpha(int& arg0) enter");
+	LOGV("AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateList::withAlpha(int const& arg0) enter");
 
 	const char *methodName = "withAlpha";
 	const char *methodSignature = "(I)Landroid/content/res/ColorStateList;";
@@ -696,8 +650,6 @@ AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateLis
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_ColorStateList cxx address %d", cxxAddress);
@@ -747,15 +699,13 @@ AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateLis
 	AndroidCXX::android_content_res_ColorStateList result((AndroidCXX::android_content_res_ColorStateList) *((AndroidCXX::android_content_res_ColorStateList *) cxx_value));
 	delete ((AndroidCXX::android_content_res_ColorStateList *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateList::withAlpha(int& arg0) exit");
+	LOGV("AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateList::withAlpha(int const& arg0) exit");
 
 	return result;
 }
-int android_content_res_ColorStateList::getColorForState(std::vector<int>& arg0,int& arg1)
+int android_content_res_ColorStateList::getColorForState(std::vector<int> const& arg0,int const& arg1)
 {
-	LOGV("int android_content_res_ColorStateList::getColorForState(std::vector<int>& arg0,int& arg1) enter");
+	LOGV("int android_content_res_ColorStateList::getColorForState(std::vector<int> const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getColorForState";
 	const char *methodSignature = "([II)I";
@@ -765,8 +715,6 @@ int android_content_res_ColorStateList::getColorForState(std::vector<int>& arg0,
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_ColorStateList cxx address %d", cxxAddress);
@@ -855,9 +803,7 @@ int android_content_res_ColorStateList::getColorForState(std::vector<int>& arg0,
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_content_res_ColorStateList::getColorForState(std::vector<int>& arg0,int& arg1) exit");
+	LOGV("int android_content_res_ColorStateList::getColorForState(std::vector<int> const& arg0,int const& arg1) exit");
 
 	return result;
 }
@@ -873,8 +819,6 @@ int android_content_res_ColorStateList::getDefaultColor()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_ColorStateList cxx address %d", cxxAddress);
@@ -903,8 +847,6 @@ int android_content_res_ColorStateList::getDefaultColor()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_content_res_ColorStateList::getDefaultColor() exit");
 
 	return result;

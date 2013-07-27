@@ -51,13 +51,10 @@ class android_widget_ExpandableListView_ExpandableListContextMenuInfo
 public:
 
 	android_widget_ExpandableListView_ExpandableListContextMenuInfo(const android_widget_ExpandableListView_ExpandableListContextMenuInfo& cc);
-	android_widget_ExpandableListView_ExpandableListContextMenuInfo(void * proxy);
+	android_widget_ExpandableListView_ExpandableListContextMenuInfo(Proxy proxy);
 	// Public Constructors
-	android_widget_ExpandableListView_ExpandableListContextMenuInfo(AndroidCXX::android_view_View& arg0,long& arg1,long& arg2);
-	// TODO: remove
-	// 
-	// android_widget_ExpandableListView_ExpandableListContextMenuInfo();
-	// 
+	android_widget_ExpandableListView_ExpandableListContextMenuInfo(AndroidCXX::android_view_View const& arg0,long const& arg1,long const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ExpandableListView_ExpandableListContextMenuInfo();
 	// Functions

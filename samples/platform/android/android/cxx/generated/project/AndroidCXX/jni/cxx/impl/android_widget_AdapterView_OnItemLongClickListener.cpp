@@ -50,7 +50,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_AdapterView_OnItemLongClickListener::android_widget_AdapterView_OnItemLongClickListener(const android_widget_AdapterView_OnItemLongClickListener& cc)
 {
 	LOGV("android_widget_AdapterView_OnItemLongClickListener::android_widget_AdapterView_OnItemLongClickListener(const android_widget_AdapterView_OnItemLongClickListener& cc) enter");
@@ -74,9 +73,9 @@ android_widget_AdapterView_OnItemLongClickListener::android_widget_AdapterView_O
 
 	LOGV("android_widget_AdapterView_OnItemLongClickListener::android_widget_AdapterView_OnItemLongClickListener(const android_widget_AdapterView_OnItemLongClickListener& cc) exit");
 }
-android_widget_AdapterView_OnItemLongClickListener::android_widget_AdapterView_OnItemLongClickListener(void * proxy)
+android_widget_AdapterView_OnItemLongClickListener::android_widget_AdapterView_OnItemLongClickListener(Proxy proxy)
 {
-	LOGV("android_widget_AdapterView_OnItemLongClickListener::android_widget_AdapterView_OnItemLongClickListener(void * proxy) enter");
+	LOGV("android_widget_AdapterView_OnItemLongClickListener::android_widget_AdapterView_OnItemLongClickListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -86,52 +85,31 @@ android_widget_AdapterView_OnItemLongClickListener::android_widget_AdapterView_O
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_AdapterView_OnItemLongClickListener::android_widget_AdapterView_OnItemLongClickListener(void * proxy) exit");
+	LOGV("android_widget_AdapterView_OnItemLongClickListener::android_widget_AdapterView_OnItemLongClickListener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_AdapterView_OnItemLongClickListener::android_widget_AdapterView_OnItemLongClickListener()
-// {
-// 	LOGV("android_widget_AdapterView_OnItemLongClickListener::android_widget_AdapterView_OnItemLongClickListener() enter");	
+Proxy android_widget_AdapterView_OnItemLongClickListener::proxy() const
+{	
+	LOGV("android_widget_AdapterView_OnItemLongClickListener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/AdapterView$OnItemLongClickListener";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_AdapterView_OnItemLongClickListener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_AdapterView_OnItemLongClickListener jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_AdapterView_OnItemLongClickListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_AdapterView_OnItemLongClickListener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_AdapterView_OnItemLongClickListener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_AdapterView_OnItemLongClickListener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_AdapterView_OnItemLongClickListener::android_widget_AdapterView_OnItemLongClickListener() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_widget_AdapterView_OnItemLongClickListener::~android_widget_AdapterView_OnItemLongClickListener()
 {
@@ -143,13 +121,13 @@ android_widget_AdapterView_OnItemLongClickListener::~android_widget_AdapterView_
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_AdapterView_OnItemLongClickListener::~android_widget_AdapterView_OnItemLongClickListener() exit");
 }
 // Functions
-bool android_widget_AdapterView_OnItemLongClickListener::onItemLongClick(AndroidCXX::android_widget_AdapterView& arg0,AndroidCXX::android_view_View& arg1,int& arg2,long& arg3)
+bool android_widget_AdapterView_OnItemLongClickListener::onItemLongClick(AndroidCXX::android_widget_AdapterView const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2,long const& arg3)
 {
-	LOGV("bool android_widget_AdapterView_OnItemLongClickListener::onItemLongClick(AndroidCXX::android_widget_AdapterView& arg0,AndroidCXX::android_view_View& arg1,int& arg2,long& arg3) enter");
+	LOGV("bool android_widget_AdapterView_OnItemLongClickListener::onItemLongClick(AndroidCXX::android_widget_AdapterView const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2,long const& arg3) enter");
 
 	const char *methodName = "onItemLongClick";
 	const char *methodSignature = "(Landroid/widget/AdapterView;Landroid/view/View;IJ)Z";
@@ -159,8 +137,6 @@ bool android_widget_AdapterView_OnItemLongClickListener::onItemLongClick(Android
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AdapterView_OnItemLongClickListener cxx address %d", cxxAddress);
@@ -291,9 +267,7 @@ bool android_widget_AdapterView_OnItemLongClickListener::onItemLongClick(Android
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_AdapterView_OnItemLongClickListener::onItemLongClick(AndroidCXX::android_widget_AdapterView& arg0,AndroidCXX::android_view_View& arg1,int& arg2,long& arg3) exit");
+	LOGV("bool android_widget_AdapterView_OnItemLongClickListener::onItemLongClick(AndroidCXX::android_widget_AdapterView const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2,long const& arg3) exit");
 
 	return result;
 }

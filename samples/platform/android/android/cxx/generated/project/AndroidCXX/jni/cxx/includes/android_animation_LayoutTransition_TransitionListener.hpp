@@ -65,17 +65,14 @@ class android_animation_LayoutTransition_TransitionListener
 public:
 
 	android_animation_LayoutTransition_TransitionListener(const android_animation_LayoutTransition_TransitionListener& cc);
-	android_animation_LayoutTransition_TransitionListener(void * proxy);
+	android_animation_LayoutTransition_TransitionListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_animation_LayoutTransition_TransitionListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_animation_LayoutTransition_TransitionListener();
 	// Functions
-	 void startTransition(AndroidCXX::android_animation_LayoutTransition& arg0,AndroidCXX::android_view_ViewGroup& arg1,AndroidCXX::android_view_View& arg2,int& arg3);
-	 void endTransition(AndroidCXX::android_animation_LayoutTransition& arg0,AndroidCXX::android_view_ViewGroup& arg1,AndroidCXX::android_view_View& arg2,int& arg3);
+	 void startTransition(AndroidCXX::android_animation_LayoutTransition const& arg0,AndroidCXX::android_view_ViewGroup const& arg1,AndroidCXX::android_view_View const& arg2,int const& arg3);
+	 void endTransition(AndroidCXX::android_animation_LayoutTransition const& arg0,AndroidCXX::android_view_ViewGroup const& arg1,AndroidCXX::android_view_View const& arg2,int const& arg3);
 };	
 
 } // namespace

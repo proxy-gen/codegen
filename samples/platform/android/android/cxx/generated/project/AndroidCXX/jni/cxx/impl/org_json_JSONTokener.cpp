@@ -101,7 +101,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 org_json_JSONTokener::org_json_JSONTokener(const org_json_JSONTokener& cc)
 {
 	LOGV("org_json_JSONTokener::org_json_JSONTokener(const org_json_JSONTokener& cc) enter");
@@ -125,9 +124,9 @@ org_json_JSONTokener::org_json_JSONTokener(const org_json_JSONTokener& cc)
 
 	LOGV("org_json_JSONTokener::org_json_JSONTokener(const org_json_JSONTokener& cc) exit");
 }
-org_json_JSONTokener::org_json_JSONTokener(void * proxy)
+org_json_JSONTokener::org_json_JSONTokener(Proxy proxy)
 {
-	LOGV("org_json_JSONTokener::org_json_JSONTokener(void * proxy) enter");
+	LOGV("org_json_JSONTokener::org_json_JSONTokener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -137,55 +136,34 @@ org_json_JSONTokener::org_json_JSONTokener(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("org_json_JSONTokener::org_json_JSONTokener(void * proxy) exit");
+	LOGV("org_json_JSONTokener::org_json_JSONTokener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// org_json_JSONTokener::org_json_JSONTokener()
-// {
-// 	LOGV("org_json_JSONTokener::org_json_JSONTokener() enter");	
+Proxy org_json_JSONTokener::proxy() const
+{	
+	LOGV("org_json_JSONTokener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "org/json/JSONTokener";
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONTokener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONTokener jni address %d", proxiedComponent);
 
-// 	LOGV("org_json_JSONTokener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("org_json_JSONTokener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("org_json_JSONTokener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("org_json_JSONTokener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("org_json_JSONTokener::org_json_JSONTokener() exit");	
-// }
-// 
-// 
-// Public Constructors
-org_json_JSONTokener::org_json_JSONTokener(AndroidCXX::java_lang_String& arg0)
+	return proxy;
+}
+org_json_JSONTokener::org_json_JSONTokener(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("org_json_JSONTokener::org_json_JSONTokener(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("org_json_JSONTokener::org_json_JSONTokener(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -238,7 +216,7 @@ org_json_JSONTokener::org_json_JSONTokener(AndroidCXX::java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("org_json_JSONTokener::org_json_JSONTokener(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("org_json_JSONTokener::org_json_JSONTokener(AndroidCXX::java_lang_String const& arg0) exit");	
 }
 // Default Instance Destructor
 org_json_JSONTokener::~org_json_JSONTokener()
@@ -251,7 +229,7 @@ org_json_JSONTokener::~org_json_JSONTokener()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("org_json_JSONTokener::~org_json_JSONTokener() exit");
 }
 // Functions
@@ -267,8 +245,6 @@ AndroidCXX::java_lang_String org_json_JSONTokener::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONTokener cxx address %d", cxxAddress);
@@ -297,15 +273,13 @@ AndroidCXX::java_lang_String org_json_JSONTokener::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String org_json_JSONTokener::toString() exit");
 
 	return result;
 }
-char org_json_JSONTokener::next(char& arg0)
+char org_json_JSONTokener::next(char const& arg0)
 {
-	LOGV("char org_json_JSONTokener::next(char& arg0) enter");
+	LOGV("char org_json_JSONTokener::next(char const& arg0) enter");
 
 	const char *methodName = "next";
 	const char *methodSignature = "(C)C";
@@ -315,8 +289,6 @@ char org_json_JSONTokener::next(char& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONTokener cxx address %d", cxxAddress);
@@ -366,9 +338,7 @@ char org_json_JSONTokener::next(char& arg0)
 	char result = (char) *((char *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("char org_json_JSONTokener::next(char& arg0) exit");
+	LOGV("char org_json_JSONTokener::next(char const& arg0) exit");
 
 	return result;
 }
@@ -384,8 +354,6 @@ char org_json_JSONTokener::next()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONTokener cxx address %d", cxxAddress);
@@ -414,15 +382,13 @@ char org_json_JSONTokener::next()
 	char result = (char) *((char *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("char org_json_JSONTokener::next() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String org_json_JSONTokener::next(int& arg0)
+AndroidCXX::java_lang_String org_json_JSONTokener::next(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String org_json_JSONTokener::next(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String org_json_JSONTokener::next(int const& arg0) enter");
 
 	const char *methodName = "next";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -432,8 +398,6 @@ AndroidCXX::java_lang_String org_json_JSONTokener::next(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONTokener cxx address %d", cxxAddress);
@@ -483,9 +447,7 @@ AndroidCXX::java_lang_String org_json_JSONTokener::next(int& arg0)
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String org_json_JSONTokener::next(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String org_json_JSONTokener::next(int const& arg0) exit");
 
 	return result;
 }
@@ -501,8 +463,6 @@ AndroidCXX::java_lang_Object org_json_JSONTokener::nextValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONTokener cxx address %d", cxxAddress);
@@ -531,15 +491,13 @@ AndroidCXX::java_lang_Object org_json_JSONTokener::nextValue()
 	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
 	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_Object org_json_JSONTokener::nextValue() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String org_json_JSONTokener::nextString(char& arg0)
+AndroidCXX::java_lang_String org_json_JSONTokener::nextString(char const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String org_json_JSONTokener::nextString(char& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String org_json_JSONTokener::nextString(char const& arg0) enter");
 
 	const char *methodName = "nextString";
 	const char *methodSignature = "(C)Ljava/lang/String;";
@@ -549,8 +507,6 @@ AndroidCXX::java_lang_String org_json_JSONTokener::nextString(char& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONTokener cxx address %d", cxxAddress);
@@ -600,15 +556,13 @@ AndroidCXX::java_lang_String org_json_JSONTokener::nextString(char& arg0)
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String org_json_JSONTokener::nextString(char& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String org_json_JSONTokener::nextString(char const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::org_json_JSONException org_json_JSONTokener::syntaxError(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::org_json_JSONException org_json_JSONTokener::syntaxError(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::org_json_JSONException org_json_JSONTokener::syntaxError(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::org_json_JSONException org_json_JSONTokener::syntaxError(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "syntaxError";
 	const char *methodSignature = "(Ljava/lang/String;)Lorg/json/JSONException;";
@@ -618,8 +572,6 @@ AndroidCXX::org_json_JSONException org_json_JSONTokener::syntaxError(AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONTokener cxx address %d", cxxAddress);
@@ -669,9 +621,7 @@ AndroidCXX::org_json_JSONException org_json_JSONTokener::syntaxError(AndroidCXX:
 	AndroidCXX::org_json_JSONException result((AndroidCXX::org_json_JSONException) *((AndroidCXX::org_json_JSONException *) cxx_value));
 	delete ((AndroidCXX::org_json_JSONException *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::org_json_JSONException org_json_JSONTokener::syntaxError(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::org_json_JSONException org_json_JSONTokener::syntaxError(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
@@ -687,8 +637,6 @@ bool org_json_JSONTokener::more()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONTokener cxx address %d", cxxAddress);
@@ -717,8 +665,6 @@ bool org_json_JSONTokener::more()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool org_json_JSONTokener::more() exit");
 
 	return result;
@@ -735,8 +681,6 @@ char org_json_JSONTokener::nextClean()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONTokener cxx address %d", cxxAddress);
@@ -765,15 +709,13 @@ char org_json_JSONTokener::nextClean()
 	char result = (char) *((char *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("char org_json_JSONTokener::nextClean() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String org_json_JSONTokener::nextTo(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_lang_String org_json_JSONTokener::nextTo(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String org_json_JSONTokener::nextTo(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String org_json_JSONTokener::nextTo(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "nextTo";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
@@ -783,8 +725,6 @@ AndroidCXX::java_lang_String org_json_JSONTokener::nextTo(AndroidCXX::java_lang_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONTokener cxx address %d", cxxAddress);
@@ -834,15 +774,13 @@ AndroidCXX::java_lang_String org_json_JSONTokener::nextTo(AndroidCXX::java_lang_
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String org_json_JSONTokener::nextTo(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String org_json_JSONTokener::nextTo(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String org_json_JSONTokener::nextTo(char& arg0)
+AndroidCXX::java_lang_String org_json_JSONTokener::nextTo(char const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String org_json_JSONTokener::nextTo(char& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String org_json_JSONTokener::nextTo(char const& arg0) enter");
 
 	const char *methodName = "nextTo";
 	const char *methodSignature = "(C)Ljava/lang/String;";
@@ -852,8 +790,6 @@ AndroidCXX::java_lang_String org_json_JSONTokener::nextTo(char& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONTokener cxx address %d", cxxAddress);
@@ -903,15 +839,13 @@ AndroidCXX::java_lang_String org_json_JSONTokener::nextTo(char& arg0)
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String org_json_JSONTokener::nextTo(char& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String org_json_JSONTokener::nextTo(char const& arg0) exit");
 
 	return result;
 }
-void org_json_JSONTokener::skipPast(AndroidCXX::java_lang_String& arg0)
+void org_json_JSONTokener::skipPast(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void org_json_JSONTokener::skipPast(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void org_json_JSONTokener::skipPast(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "skipPast";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -921,8 +855,6 @@ void org_json_JSONTokener::skipPast(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONTokener cxx address %d", cxxAddress);
@@ -953,14 +885,12 @@ void org_json_JSONTokener::skipPast(AndroidCXX::java_lang_String& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void org_json_JSONTokener::skipPast(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void org_json_JSONTokener::skipPast(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-char org_json_JSONTokener::skipTo(char& arg0)
+char org_json_JSONTokener::skipTo(char const& arg0)
 {
-	LOGV("char org_json_JSONTokener::skipTo(char& arg0) enter");
+	LOGV("char org_json_JSONTokener::skipTo(char const& arg0) enter");
 
 	const char *methodName = "skipTo";
 	const char *methodSignature = "(C)C";
@@ -970,8 +900,6 @@ char org_json_JSONTokener::skipTo(char& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONTokener cxx address %d", cxxAddress);
@@ -1021,9 +949,7 @@ char org_json_JSONTokener::skipTo(char& arg0)
 	char result = (char) *((char *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("char org_json_JSONTokener::skipTo(char& arg0) exit");
+	LOGV("char org_json_JSONTokener::skipTo(char const& arg0) exit");
 
 	return result;
 }
@@ -1040,8 +966,6 @@ void org_json_JSONTokener::back()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_json_JSONTokener cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1050,14 +974,12 @@ void org_json_JSONTokener::back()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void org_json_JSONTokener::back() exit");
 
 }
-int org_json_JSONTokener::dehexchar(char& arg0)
+int org_json_JSONTokener::dehexchar(char const& arg0)
 {
-	LOGV("int org_json_JSONTokener::dehexchar(char& arg0) enter");
+	LOGV("int org_json_JSONTokener::dehexchar(char const& arg0) enter");
 
 	const char *methodName = "dehexchar";
 	const char *methodSignature = "(C)I";
@@ -1067,8 +989,6 @@ int org_json_JSONTokener::dehexchar(char& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("org_json_JSONTokener cxx address %d", cxxAddress);
@@ -1097,7 +1017,7 @@ int org_json_JSONTokener::dehexchar(char& arg0)
 		jarg0 = convert_jni_char_to_jni(java_value);
 	}
 
-	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jint jni_result = (jint) jni->invokeStaticIntMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
 	{
@@ -1118,9 +1038,7 @@ int org_json_JSONTokener::dehexchar(char& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int org_json_JSONTokener::dehexchar(char& arg0) exit");
+	LOGV("int org_json_JSONTokener::dehexchar(char const& arg0) exit");
 
 	return result;
 }

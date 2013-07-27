@@ -59,13 +59,10 @@ class com_facebook_Session_AutoPublishAsyncTask
 public:
 
 	com_facebook_Session_AutoPublishAsyncTask(const com_facebook_Session_AutoPublishAsyncTask& cc);
-	com_facebook_Session_AutoPublishAsyncTask(void * proxy);
+	com_facebook_Session_AutoPublishAsyncTask(Proxy proxy);
 	// Public Constructors
-	com_facebook_Session_AutoPublishAsyncTask(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_content_Context& arg2);
-	// TODO: remove
-	// 
-	// com_facebook_Session_AutoPublishAsyncTask();
-	// 
+	com_facebook_Session_AutoPublishAsyncTask(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_content_Context const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_AutoPublishAsyncTask();
 	// Functions

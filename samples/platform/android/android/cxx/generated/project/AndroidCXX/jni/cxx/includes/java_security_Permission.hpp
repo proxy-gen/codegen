@@ -77,24 +77,21 @@ class java_security_Permission
 public:
 
 	java_security_Permission(const java_security_Permission& cc);
-	java_security_Permission(void * proxy);
+	java_security_Permission(Proxy proxy);
 	// Public Constructors
-	java_security_Permission(AndroidCXX::java_lang_String& arg0);
-	// TODO: remove
-	// 
-	// java_security_Permission();
-	// 
+	java_security_Permission(AndroidCXX::java_lang_String const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_security_Permission();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 AndroidCXX::java_lang_String getName();
-	 bool implies(AndroidCXX::java_security_Permission& arg0);
+	 bool implies(AndroidCXX::java_security_Permission const& arg0);
 	 AndroidCXX::java_lang_String getActions();
 	 AndroidCXX::java_security_PermissionCollection newPermissionCollection();
-	 void checkGuard(AndroidCXX::java_lang_Object& arg0);
+	 void checkGuard(AndroidCXX::java_lang_Object const& arg0);
 };	
 
 } // namespace

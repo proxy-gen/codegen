@@ -69,19 +69,16 @@ class android_widget_AbsoluteLayout
 public:
 
 	android_widget_AbsoluteLayout(const android_widget_AbsoluteLayout& cc);
-	android_widget_AbsoluteLayout(void * proxy);
+	android_widget_AbsoluteLayout(Proxy proxy);
 	// Public Constructors
-	android_widget_AbsoluteLayout(AndroidCXX::android_content_Context& arg0);
-	android_widget_AbsoluteLayout(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_AbsoluteLayout(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	// TODO: remove
-	// 
-	// android_widget_AbsoluteLayout();
-	// 
+	android_widget_AbsoluteLayout(AndroidCXX::android_content_Context const& arg0);
+	android_widget_AbsoluteLayout(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_AbsoluteLayout(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AbsoluteLayout();
 	// Functions
-	 AndroidCXX::android_view_ViewGroup_LayoutParams generateLayoutParams(AndroidCXX::android_util_AttributeSet& arg0);
+	 AndroidCXX::android_view_ViewGroup_LayoutParams generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0);
 	 bool shouldDelayChildPressedState();
 };	
 

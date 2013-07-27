@@ -51,7 +51,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_media_TimedText::android_media_TimedText(const android_media_TimedText& cc)
 {
 	LOGV("android_media_TimedText::android_media_TimedText(const android_media_TimedText& cc) enter");
@@ -75,9 +74,9 @@ android_media_TimedText::android_media_TimedText(const android_media_TimedText& 
 
 	LOGV("android_media_TimedText::android_media_TimedText(const android_media_TimedText& cc) exit");
 }
-android_media_TimedText::android_media_TimedText(void * proxy)
+android_media_TimedText::android_media_TimedText(Proxy proxy)
 {
-	LOGV("android_media_TimedText::android_media_TimedText(void * proxy) enter");
+	LOGV("android_media_TimedText::android_media_TimedText(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -87,52 +86,31 @@ android_media_TimedText::android_media_TimedText(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_media_TimedText::android_media_TimedText(void * proxy) exit");
+	LOGV("android_media_TimedText::android_media_TimedText(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_media_TimedText::android_media_TimedText()
-// {
-// 	LOGV("android_media_TimedText::android_media_TimedText() enter");	
+Proxy android_media_TimedText::proxy() const
+{	
+	LOGV("android_media_TimedText::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/media/TimedText";
+	long cxxAddress = (long) this;
+	LOGV("android_media_TimedText cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_media_TimedText jni address %d", proxiedComponent);
 
-// 	LOGV("android_media_TimedText className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_media_TimedText::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_media_TimedText cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_media_TimedText jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_media_TimedText::android_media_TimedText() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_media_TimedText::~android_media_TimedText()
 {
@@ -144,7 +122,7 @@ android_media_TimedText::~android_media_TimedText()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_media_TimedText::~android_media_TimedText() exit");
 }
 // Functions
@@ -160,8 +138,6 @@ AndroidCXX::android_graphics_Rect android_media_TimedText::getBounds()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_media_TimedText cxx address %d", cxxAddress);
@@ -190,8 +166,6 @@ AndroidCXX::android_graphics_Rect android_media_TimedText::getBounds()
 	AndroidCXX::android_graphics_Rect result((AndroidCXX::android_graphics_Rect) *((AndroidCXX::android_graphics_Rect *) cxx_value));
 	delete ((AndroidCXX::android_graphics_Rect *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_graphics_Rect android_media_TimedText::getBounds() exit");
 
 	return result;
@@ -208,8 +182,6 @@ AndroidCXX::java_lang_String android_media_TimedText::getText()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_media_TimedText cxx address %d", cxxAddress);
@@ -238,8 +210,6 @@ AndroidCXX::java_lang_String android_media_TimedText::getText()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_media_TimedText::getText() exit");
 
 	return result;

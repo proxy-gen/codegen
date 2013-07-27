@@ -46,7 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_ListView_FixedViewInfo::android_widget_ListView_FixedViewInfo(const android_widget_ListView_FixedViewInfo& cc)
 {
 	LOGV("android_widget_ListView_FixedViewInfo::android_widget_ListView_FixedViewInfo(const android_widget_ListView_FixedViewInfo& cc) enter");
@@ -70,9 +69,9 @@ android_widget_ListView_FixedViewInfo::android_widget_ListView_FixedViewInfo(con
 
 	LOGV("android_widget_ListView_FixedViewInfo::android_widget_ListView_FixedViewInfo(const android_widget_ListView_FixedViewInfo& cc) exit");
 }
-android_widget_ListView_FixedViewInfo::android_widget_ListView_FixedViewInfo(void * proxy)
+android_widget_ListView_FixedViewInfo::android_widget_ListView_FixedViewInfo(Proxy proxy)
 {
-	LOGV("android_widget_ListView_FixedViewInfo::android_widget_ListView_FixedViewInfo(void * proxy) enter");
+	LOGV("android_widget_ListView_FixedViewInfo::android_widget_ListView_FixedViewInfo(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -82,55 +81,34 @@ android_widget_ListView_FixedViewInfo::android_widget_ListView_FixedViewInfo(voi
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_ListView_FixedViewInfo::android_widget_ListView_FixedViewInfo(void * proxy) exit");
+	LOGV("android_widget_ListView_FixedViewInfo::android_widget_ListView_FixedViewInfo(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_ListView_FixedViewInfo::android_widget_ListView_FixedViewInfo()
-// {
-// 	LOGV("android_widget_ListView_FixedViewInfo::android_widget_ListView_FixedViewInfo() enter");	
+Proxy android_widget_ListView_FixedViewInfo::proxy() const
+{	
+	LOGV("android_widget_ListView_FixedViewInfo::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/ListView$FixedViewInfo";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_ListView_FixedViewInfo cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_ListView_FixedViewInfo jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_ListView_FixedViewInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_ListView_FixedViewInfo::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_ListView_FixedViewInfo cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_ListView_FixedViewInfo jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_ListView_FixedViewInfo::android_widget_ListView_FixedViewInfo() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_ListView_FixedViewInfo::android_widget_ListView_FixedViewInfo(AndroidCXX::android_widget_ListView& arg0)
+	return proxy;
+}
+android_widget_ListView_FixedViewInfo::android_widget_ListView_FixedViewInfo(AndroidCXX::android_widget_ListView const& arg0)
 {
-	LOGV("android_widget_ListView_FixedViewInfo::android_widget_ListView_FixedViewInfo(AndroidCXX::android_widget_ListView& arg0) enter");	
+	LOGV("android_widget_ListView_FixedViewInfo::android_widget_ListView_FixedViewInfo(AndroidCXX::android_widget_ListView const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/widget/ListView;)V";
@@ -183,7 +161,7 @@ android_widget_ListView_FixedViewInfo::android_widget_ListView_FixedViewInfo(And
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_ListView_FixedViewInfo::android_widget_ListView_FixedViewInfo(AndroidCXX::android_widget_ListView& arg0) exit");	
+	LOGV("android_widget_ListView_FixedViewInfo::android_widget_ListView_FixedViewInfo(AndroidCXX::android_widget_ListView const& arg0) exit");	
 }
 // Default Instance Destructor
 android_widget_ListView_FixedViewInfo::~android_widget_ListView_FixedViewInfo()
@@ -196,7 +174,7 @@ android_widget_ListView_FixedViewInfo::~android_widget_ListView_FixedViewInfo()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_ListView_FixedViewInfo::~android_widget_ListView_FixedViewInfo() exit");
 }
 // Functions

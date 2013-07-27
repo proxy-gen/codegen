@@ -116,7 +116,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_animation_Animation::android_view_animation_Animation(const android_view_animation_Animation& cc)
 {
 	LOGV("android_view_animation_Animation::android_view_animation_Animation(const android_view_animation_Animation& cc) enter");
@@ -140,9 +139,9 @@ android_view_animation_Animation::android_view_animation_Animation(const android
 
 	LOGV("android_view_animation_Animation::android_view_animation_Animation(const android_view_animation_Animation& cc) exit");
 }
-android_view_animation_Animation::android_view_animation_Animation(void * proxy)
+android_view_animation_Animation::android_view_animation_Animation(Proxy proxy)
 {
-	LOGV("android_view_animation_Animation::android_view_animation_Animation(void * proxy) enter");
+	LOGV("android_view_animation_Animation::android_view_animation_Animation(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -152,20 +151,34 @@ android_view_animation_Animation::android_view_animation_Animation(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_animation_Animation::android_view_animation_Animation(void * proxy) exit");
+	LOGV("android_view_animation_Animation::android_view_animation_Animation(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
-android_view_animation_Animation::android_view_animation_Animation(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+Proxy android_view_animation_Animation::proxy() const
+{	
+	LOGV("android_view_animation_Animation::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_animation_Animation jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_view_animation_Animation::proxy() exit");	
+
+	return proxy;
+}
+android_view_animation_Animation::android_view_animation_Animation(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_view_animation_Animation::android_view_animation_Animation(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_view_animation_Animation::android_view_animation_Animation(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -239,7 +252,7 @@ android_view_animation_Animation::android_view_animation_Animation(AndroidCXX::a
 
 	jni->popLocalFrame();
 
-	LOGV("android_view_animation_Animation::android_view_animation_Animation(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_view_animation_Animation::android_view_animation_Animation(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
 android_view_animation_Animation::android_view_animation_Animation()
 {
@@ -288,7 +301,7 @@ android_view_animation_Animation::~android_view_animation_Animation()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_animation_Animation::~android_view_animation_Animation() exit");
 }
 // Functions
@@ -305,8 +318,6 @@ void android_view_animation_Animation::start()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -315,8 +326,6 @@ void android_view_animation_Animation::start()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_view_animation_Animation::start() exit");
 
 }
@@ -333,8 +342,6 @@ void android_view_animation_Animation::reset()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -343,14 +350,12 @@ void android_view_animation_Animation::reset()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_view_animation_Animation::reset() exit");
 
 }
-void android_view_animation_Animation::initialize(int& arg0,int& arg1,int& arg2,int& arg3)
+void android_view_animation_Animation::initialize(int const& arg0,int const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("void android_view_animation_Animation::initialize(int& arg0,int& arg1,int& arg2,int& arg3) enter");
+	LOGV("void android_view_animation_Animation::initialize(int const& arg0,int const& arg1,int const& arg2,int const& arg3) enter");
 
 	const char *methodName = "initialize";
 	const char *methodSignature = "(IIII)V";
@@ -360,8 +365,6 @@ void android_view_animation_Animation::initialize(int& arg0,int& arg1,int& arg2,
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
@@ -455,9 +458,7 @@ void android_view_animation_Animation::initialize(int& arg0,int& arg1,int& arg2,
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_animation_Animation::initialize(int& arg0,int& arg1,int& arg2,int& arg3) exit");
+	LOGV("void android_view_animation_Animation::initialize(int const& arg0,int const& arg1,int const& arg2,int const& arg3) exit");
 
 }
 void android_view_animation_Animation::cancel()
@@ -473,8 +474,6 @@ void android_view_animation_Animation::cancel()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -483,14 +482,12 @@ void android_view_animation_Animation::cancel()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_view_animation_Animation::cancel() exit");
 
 }
-void android_view_animation_Animation::setInterpolator(AndroidCXX::android_content_Context& arg0,int& arg1)
+void android_view_animation_Animation::setInterpolator(AndroidCXX::android_content_Context const& arg0,int const& arg1)
 {
-	LOGV("void android_view_animation_Animation::setInterpolator(AndroidCXX::android_content_Context& arg0,int& arg1) enter");
+	LOGV("void android_view_animation_Animation::setInterpolator(AndroidCXX::android_content_Context const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setInterpolator";
 	const char *methodSignature = "(Landroid/content/Context;I)V";
@@ -500,8 +497,6 @@ void android_view_animation_Animation::setInterpolator(AndroidCXX::android_conte
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
@@ -553,14 +548,12 @@ void android_view_animation_Animation::setInterpolator(AndroidCXX::android_conte
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_animation_Animation::setInterpolator(AndroidCXX::android_content_Context& arg0,int& arg1) exit");
+	LOGV("void android_view_animation_Animation::setInterpolator(AndroidCXX::android_content_Context const& arg0,int const& arg1) exit");
 
 }
-void android_view_animation_Animation::setInterpolator(AndroidCXX::android_view_animation_Interpolator& arg0)
+void android_view_animation_Animation::setInterpolator(AndroidCXX::android_view_animation_Interpolator const& arg0)
 {
-	LOGV("void android_view_animation_Animation::setInterpolator(AndroidCXX::android_view_animation_Interpolator& arg0) enter");
+	LOGV("void android_view_animation_Animation::setInterpolator(AndroidCXX::android_view_animation_Interpolator const& arg0) enter");
 
 	const char *methodName = "setInterpolator";
 	const char *methodSignature = "(Landroid/view/animation/Interpolator;)V";
@@ -570,8 +563,6 @@ void android_view_animation_Animation::setInterpolator(AndroidCXX::android_view_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
@@ -602,14 +593,12 @@ void android_view_animation_Animation::setInterpolator(AndroidCXX::android_view_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_animation_Animation::setInterpolator(AndroidCXX::android_view_animation_Interpolator& arg0) exit");
+	LOGV("void android_view_animation_Animation::setInterpolator(AndroidCXX::android_view_animation_Interpolator const& arg0) exit");
 
 }
-void android_view_animation_Animation::setDuration(long& arg0)
+void android_view_animation_Animation::setDuration(long const& arg0)
 {
-	LOGV("void android_view_animation_Animation::setDuration(long& arg0) enter");
+	LOGV("void android_view_animation_Animation::setDuration(long const& arg0) enter");
 
 	const char *methodName = "setDuration";
 	const char *methodSignature = "(J)V";
@@ -619,8 +608,6 @@ void android_view_animation_Animation::setDuration(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
@@ -651,14 +638,12 @@ void android_view_animation_Animation::setDuration(long& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_animation_Animation::setDuration(long& arg0) exit");
+	LOGV("void android_view_animation_Animation::setDuration(long const& arg0) exit");
 
 }
-void android_view_animation_Animation::setAnimationListener(AndroidCXX::android_view_animation_Animation_AnimationListener& arg0)
+void android_view_animation_Animation::setAnimationListener(AndroidCXX::android_view_animation_Animation_AnimationListener const& arg0)
 {
-	LOGV("void android_view_animation_Animation::setAnimationListener(AndroidCXX::android_view_animation_Animation_AnimationListener& arg0) enter");
+	LOGV("void android_view_animation_Animation::setAnimationListener(AndroidCXX::android_view_animation_Animation_AnimationListener const& arg0) enter");
 
 	const char *methodName = "setAnimationListener";
 	const char *methodSignature = "(Landroid/view/animation/Animation$AnimationListener;)V";
@@ -668,8 +653,6 @@ void android_view_animation_Animation::setAnimationListener(AndroidCXX::android_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
@@ -700,9 +683,7 @@ void android_view_animation_Animation::setAnimationListener(AndroidCXX::android_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_animation_Animation::setAnimationListener(AndroidCXX::android_view_animation_Animation_AnimationListener& arg0) exit");
+	LOGV("void android_view_animation_Animation::setAnimationListener(AndroidCXX::android_view_animation_Animation_AnimationListener const& arg0) exit");
 
 }
 int android_view_animation_Animation::getRepeatCount()
@@ -717,8 +698,6 @@ int android_view_animation_Animation::getRepeatCount()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
@@ -747,8 +726,6 @@ int android_view_animation_Animation::getRepeatCount()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_animation_Animation::getRepeatCount() exit");
 
 	return result;
@@ -765,8 +742,6 @@ bool android_view_animation_Animation::isInitialized()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
@@ -795,15 +770,13 @@ bool android_view_animation_Animation::isInitialized()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_animation_Animation::isInitialized() exit");
 
 	return result;
 }
-void android_view_animation_Animation::setStartOffset(long& arg0)
+void android_view_animation_Animation::setStartOffset(long const& arg0)
 {
-	LOGV("void android_view_animation_Animation::setStartOffset(long& arg0) enter");
+	LOGV("void android_view_animation_Animation::setStartOffset(long const& arg0) enter");
 
 	const char *methodName = "setStartOffset";
 	const char *methodSignature = "(J)V";
@@ -814,8 +787,6 @@ void android_view_animation_Animation::setStartOffset(long& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -845,14 +816,12 @@ void android_view_animation_Animation::setStartOffset(long& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_animation_Animation::setStartOffset(long& arg0) exit");
+	LOGV("void android_view_animation_Animation::setStartOffset(long const& arg0) exit");
 
 }
-void android_view_animation_Animation::restrictDuration(long& arg0)
+void android_view_animation_Animation::restrictDuration(long const& arg0)
 {
-	LOGV("void android_view_animation_Animation::restrictDuration(long& arg0) enter");
+	LOGV("void android_view_animation_Animation::restrictDuration(long const& arg0) enter");
 
 	const char *methodName = "restrictDuration";
 	const char *methodSignature = "(J)V";
@@ -863,8 +832,6 @@ void android_view_animation_Animation::restrictDuration(long& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -894,14 +861,12 @@ void android_view_animation_Animation::restrictDuration(long& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_animation_Animation::restrictDuration(long& arg0) exit");
+	LOGV("void android_view_animation_Animation::restrictDuration(long const& arg0) exit");
 
 }
-void android_view_animation_Animation::scaleCurrentDuration(float& arg0)
+void android_view_animation_Animation::scaleCurrentDuration(float const& arg0)
 {
-	LOGV("void android_view_animation_Animation::scaleCurrentDuration(float& arg0) enter");
+	LOGV("void android_view_animation_Animation::scaleCurrentDuration(float const& arg0) enter");
 
 	const char *methodName = "scaleCurrentDuration";
 	const char *methodSignature = "(F)V";
@@ -911,8 +876,6 @@ void android_view_animation_Animation::scaleCurrentDuration(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
@@ -943,14 +906,12 @@ void android_view_animation_Animation::scaleCurrentDuration(float& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_animation_Animation::scaleCurrentDuration(float& arg0) exit");
+	LOGV("void android_view_animation_Animation::scaleCurrentDuration(float const& arg0) exit");
 
 }
-void android_view_animation_Animation::setStartTime(long& arg0)
+void android_view_animation_Animation::setStartTime(long const& arg0)
 {
-	LOGV("void android_view_animation_Animation::setStartTime(long& arg0) enter");
+	LOGV("void android_view_animation_Animation::setStartTime(long const& arg0) enter");
 
 	const char *methodName = "setStartTime";
 	const char *methodSignature = "(J)V";
@@ -960,8 +921,6 @@ void android_view_animation_Animation::setStartTime(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
@@ -992,9 +951,7 @@ void android_view_animation_Animation::setStartTime(long& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_animation_Animation::setStartTime(long& arg0) exit");
+	LOGV("void android_view_animation_Animation::setStartTime(long const& arg0) exit");
 
 }
 void android_view_animation_Animation::startNow()
@@ -1010,8 +967,6 @@ void android_view_animation_Animation::startNow()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1020,14 +975,12 @@ void android_view_animation_Animation::startNow()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_view_animation_Animation::startNow() exit");
 
 }
-void android_view_animation_Animation::setRepeatMode(int& arg0)
+void android_view_animation_Animation::setRepeatMode(int const& arg0)
 {
-	LOGV("void android_view_animation_Animation::setRepeatMode(int& arg0) enter");
+	LOGV("void android_view_animation_Animation::setRepeatMode(int const& arg0) enter");
 
 	const char *methodName = "setRepeatMode";
 	const char *methodSignature = "(I)V";
@@ -1038,8 +991,6 @@ void android_view_animation_Animation::setRepeatMode(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1069,14 +1020,12 @@ void android_view_animation_Animation::setRepeatMode(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_animation_Animation::setRepeatMode(int& arg0) exit");
+	LOGV("void android_view_animation_Animation::setRepeatMode(int const& arg0) exit");
 
 }
-void android_view_animation_Animation::setRepeatCount(int& arg0)
+void android_view_animation_Animation::setRepeatCount(int const& arg0)
 {
-	LOGV("void android_view_animation_Animation::setRepeatCount(int& arg0) enter");
+	LOGV("void android_view_animation_Animation::setRepeatCount(int const& arg0) enter");
 
 	const char *methodName = "setRepeatCount";
 	const char *methodSignature = "(I)V";
@@ -1087,8 +1036,6 @@ void android_view_animation_Animation::setRepeatCount(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1118,9 +1065,7 @@ void android_view_animation_Animation::setRepeatCount(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_animation_Animation::setRepeatCount(int& arg0) exit");
+	LOGV("void android_view_animation_Animation::setRepeatCount(int const& arg0) exit");
 
 }
 bool android_view_animation_Animation::isFillEnabled()
@@ -1135,8 +1080,6 @@ bool android_view_animation_Animation::isFillEnabled()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
@@ -1165,15 +1108,13 @@ bool android_view_animation_Animation::isFillEnabled()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_animation_Animation::isFillEnabled() exit");
 
 	return result;
 }
-void android_view_animation_Animation::setFillEnabled(bool& arg0)
+void android_view_animation_Animation::setFillEnabled(bool const& arg0)
 {
-	LOGV("void android_view_animation_Animation::setFillEnabled(bool& arg0) enter");
+	LOGV("void android_view_animation_Animation::setFillEnabled(bool const& arg0) enter");
 
 	const char *methodName = "setFillEnabled";
 	const char *methodSignature = "(Z)V";
@@ -1184,8 +1125,6 @@ void android_view_animation_Animation::setFillEnabled(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1215,14 +1154,12 @@ void android_view_animation_Animation::setFillEnabled(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_animation_Animation::setFillEnabled(bool& arg0) exit");
+	LOGV("void android_view_animation_Animation::setFillEnabled(bool const& arg0) exit");
 
 }
-void android_view_animation_Animation::setFillBefore(bool& arg0)
+void android_view_animation_Animation::setFillBefore(bool const& arg0)
 {
-	LOGV("void android_view_animation_Animation::setFillBefore(bool& arg0) enter");
+	LOGV("void android_view_animation_Animation::setFillBefore(bool const& arg0) enter");
 
 	const char *methodName = "setFillBefore";
 	const char *methodSignature = "(Z)V";
@@ -1233,8 +1170,6 @@ void android_view_animation_Animation::setFillBefore(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1264,14 +1199,12 @@ void android_view_animation_Animation::setFillBefore(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_animation_Animation::setFillBefore(bool& arg0) exit");
+	LOGV("void android_view_animation_Animation::setFillBefore(bool const& arg0) exit");
 
 }
-void android_view_animation_Animation::setFillAfter(bool& arg0)
+void android_view_animation_Animation::setFillAfter(bool const& arg0)
 {
-	LOGV("void android_view_animation_Animation::setFillAfter(bool& arg0) enter");
+	LOGV("void android_view_animation_Animation::setFillAfter(bool const& arg0) enter");
 
 	const char *methodName = "setFillAfter";
 	const char *methodSignature = "(Z)V";
@@ -1282,8 +1215,6 @@ void android_view_animation_Animation::setFillAfter(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1313,14 +1244,12 @@ void android_view_animation_Animation::setFillAfter(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_animation_Animation::setFillAfter(bool& arg0) exit");
+	LOGV("void android_view_animation_Animation::setFillAfter(bool const& arg0) exit");
 
 }
-void android_view_animation_Animation::setZAdjustment(int& arg0)
+void android_view_animation_Animation::setZAdjustment(int const& arg0)
 {
-	LOGV("void android_view_animation_Animation::setZAdjustment(int& arg0) enter");
+	LOGV("void android_view_animation_Animation::setZAdjustment(int const& arg0) enter");
 
 	const char *methodName = "setZAdjustment";
 	const char *methodSignature = "(I)V";
@@ -1331,8 +1260,6 @@ void android_view_animation_Animation::setZAdjustment(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1362,14 +1289,12 @@ void android_view_animation_Animation::setZAdjustment(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_animation_Animation::setZAdjustment(int& arg0) exit");
+	LOGV("void android_view_animation_Animation::setZAdjustment(int const& arg0) exit");
 
 }
-void android_view_animation_Animation::setBackgroundColor(int& arg0)
+void android_view_animation_Animation::setBackgroundColor(int const& arg0)
 {
-	LOGV("void android_view_animation_Animation::setBackgroundColor(int& arg0) enter");
+	LOGV("void android_view_animation_Animation::setBackgroundColor(int const& arg0) enter");
 
 	const char *methodName = "setBackgroundColor";
 	const char *methodSignature = "(I)V";
@@ -1380,8 +1305,6 @@ void android_view_animation_Animation::setBackgroundColor(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1411,14 +1334,12 @@ void android_view_animation_Animation::setBackgroundColor(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_animation_Animation::setBackgroundColor(int& arg0) exit");
+	LOGV("void android_view_animation_Animation::setBackgroundColor(int const& arg0) exit");
 
 }
-void android_view_animation_Animation::setDetachWallpaper(bool& arg0)
+void android_view_animation_Animation::setDetachWallpaper(bool const& arg0)
 {
-	LOGV("void android_view_animation_Animation::setDetachWallpaper(bool& arg0) enter");
+	LOGV("void android_view_animation_Animation::setDetachWallpaper(bool const& arg0) enter");
 
 	const char *methodName = "setDetachWallpaper";
 	const char *methodSignature = "(Z)V";
@@ -1428,8 +1349,6 @@ void android_view_animation_Animation::setDetachWallpaper(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
@@ -1460,9 +1379,7 @@ void android_view_animation_Animation::setDetachWallpaper(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_animation_Animation::setDetachWallpaper(bool& arg0) exit");
+	LOGV("void android_view_animation_Animation::setDetachWallpaper(bool const& arg0) exit");
 
 }
 AndroidCXX::android_view_animation_Interpolator android_view_animation_Animation::getInterpolator()
@@ -1477,8 +1394,6 @@ AndroidCXX::android_view_animation_Interpolator android_view_animation_Animation
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
@@ -1507,8 +1422,6 @@ AndroidCXX::android_view_animation_Interpolator android_view_animation_Animation
 	AndroidCXX::android_view_animation_Interpolator result((AndroidCXX::android_view_animation_Interpolator) *((AndroidCXX::android_view_animation_Interpolator *) cxx_value));
 	delete ((AndroidCXX::android_view_animation_Interpolator *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_view_animation_Interpolator android_view_animation_Animation::getInterpolator() exit");
 
 	return result;
@@ -1526,8 +1439,6 @@ long android_view_animation_Animation::getStartTime()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1555,8 +1466,6 @@ long android_view_animation_Animation::getStartTime()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long android_view_animation_Animation::getStartTime() exit");
 
 	return result;
@@ -1574,8 +1483,6 @@ long android_view_animation_Animation::getDuration()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1603,8 +1510,6 @@ long android_view_animation_Animation::getDuration()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long android_view_animation_Animation::getDuration() exit");
 
 	return result;
@@ -1622,8 +1527,6 @@ long android_view_animation_Animation::getStartOffset()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1651,8 +1554,6 @@ long android_view_animation_Animation::getStartOffset()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long android_view_animation_Animation::getStartOffset() exit");
 
 	return result;
@@ -1670,8 +1571,6 @@ int android_view_animation_Animation::getRepeatMode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1699,8 +1598,6 @@ int android_view_animation_Animation::getRepeatMode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_animation_Animation::getRepeatMode() exit");
 
 	return result;
@@ -1718,8 +1615,6 @@ bool android_view_animation_Animation::getFillBefore()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1747,8 +1642,6 @@ bool android_view_animation_Animation::getFillBefore()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_animation_Animation::getFillBefore() exit");
 
 	return result;
@@ -1766,8 +1659,6 @@ bool android_view_animation_Animation::getFillAfter()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1795,8 +1686,6 @@ bool android_view_animation_Animation::getFillAfter()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_animation_Animation::getFillAfter() exit");
 
 	return result;
@@ -1814,8 +1703,6 @@ int android_view_animation_Animation::getZAdjustment()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1843,8 +1730,6 @@ int android_view_animation_Animation::getZAdjustment()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_animation_Animation::getZAdjustment() exit");
 
 	return result;
@@ -1862,8 +1747,6 @@ int android_view_animation_Animation::getBackgroundColor()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1891,8 +1774,6 @@ int android_view_animation_Animation::getBackgroundColor()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_animation_Animation::getBackgroundColor() exit");
 
 	return result;
@@ -1910,8 +1791,6 @@ bool android_view_animation_Animation::getDetachWallpaper()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1939,8 +1818,6 @@ bool android_view_animation_Animation::getDetachWallpaper()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_animation_Animation::getDetachWallpaper() exit");
 
 	return result;
@@ -1958,8 +1835,6 @@ bool android_view_animation_Animation::willChangeTransformationMatrix()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1987,8 +1862,6 @@ bool android_view_animation_Animation::willChangeTransformationMatrix()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_animation_Animation::willChangeTransformationMatrix() exit");
 
 	return result;
@@ -2006,8 +1879,6 @@ bool android_view_animation_Animation::willChangeBounds()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2035,8 +1906,6 @@ bool android_view_animation_Animation::willChangeBounds()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_animation_Animation::willChangeBounds() exit");
 
 	return result;
@@ -2053,8 +1922,6 @@ long android_view_animation_Animation::computeDurationHint()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
@@ -2083,15 +1950,13 @@ long android_view_animation_Animation::computeDurationHint()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long android_view_animation_Animation::computeDurationHint() exit");
 
 	return result;
 }
-bool android_view_animation_Animation::getTransformation(long& arg0,AndroidCXX::android_view_animation_Transformation& arg1)
+bool android_view_animation_Animation::getTransformation(long const& arg0,AndroidCXX::android_view_animation_Transformation const& arg1)
 {
-	LOGV("bool android_view_animation_Animation::getTransformation(long& arg0,AndroidCXX::android_view_animation_Transformation& arg1) enter");
+	LOGV("bool android_view_animation_Animation::getTransformation(long const& arg0,AndroidCXX::android_view_animation_Transformation const& arg1) enter");
 
 	const char *methodName = "getTransformation";
 	const char *methodSignature = "(JLandroid/view/animation/Transformation;)Z";
@@ -2101,8 +1966,6 @@ bool android_view_animation_Animation::getTransformation(long& arg0,AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
@@ -2173,15 +2036,13 @@ bool android_view_animation_Animation::getTransformation(long& arg0,AndroidCXX::
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_animation_Animation::getTransformation(long& arg0,AndroidCXX::android_view_animation_Transformation& arg1) exit");
+	LOGV("bool android_view_animation_Animation::getTransformation(long const& arg0,AndroidCXX::android_view_animation_Transformation const& arg1) exit");
 
 	return result;
 }
-bool android_view_animation_Animation::getTransformation(long& arg0,AndroidCXX::android_view_animation_Transformation& arg1,float& arg2)
+bool android_view_animation_Animation::getTransformation(long const& arg0,AndroidCXX::android_view_animation_Transformation const& arg1,float const& arg2)
 {
-	LOGV("bool android_view_animation_Animation::getTransformation(long& arg0,AndroidCXX::android_view_animation_Transformation& arg1,float& arg2) enter");
+	LOGV("bool android_view_animation_Animation::getTransformation(long const& arg0,AndroidCXX::android_view_animation_Transformation const& arg1,float const& arg2) enter");
 
 	const char *methodName = "getTransformation";
 	const char *methodSignature = "(JLandroid/view/animation/Transformation;F)Z";
@@ -2191,8 +2052,6 @@ bool android_view_animation_Animation::getTransformation(long& arg0,AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
@@ -2284,9 +2143,7 @@ bool android_view_animation_Animation::getTransformation(long& arg0,AndroidCXX::
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_view_animation_Animation::getTransformation(long& arg0,AndroidCXX::android_view_animation_Transformation& arg1,float& arg2) exit");
+	LOGV("bool android_view_animation_Animation::getTransformation(long const& arg0,AndroidCXX::android_view_animation_Transformation const& arg1,float const& arg2) exit");
 
 	return result;
 }
@@ -2302,8 +2159,6 @@ bool android_view_animation_Animation::hasStarted()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
@@ -2332,8 +2187,6 @@ bool android_view_animation_Animation::hasStarted()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_animation_Animation::hasStarted() exit");
 
 	return result;
@@ -2351,8 +2204,6 @@ bool android_view_animation_Animation::hasEnded()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_animation_Animation cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2380,8 +2231,6 @@ bool android_view_animation_Animation::hasEnded()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_animation_Animation::hasEnded() exit");
 
 	return result;

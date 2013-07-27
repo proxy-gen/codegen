@@ -66,7 +66,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_text_Spanned::android_text_Spanned(const android_text_Spanned& cc)
 {
 	LOGV("android_text_Spanned::android_text_Spanned(const android_text_Spanned& cc) enter");
@@ -90,9 +89,9 @@ android_text_Spanned::android_text_Spanned(const android_text_Spanned& cc)
 
 	LOGV("android_text_Spanned::android_text_Spanned(const android_text_Spanned& cc) exit");
 }
-android_text_Spanned::android_text_Spanned(void * proxy)
+android_text_Spanned::android_text_Spanned(Proxy proxy)
 {
-	LOGV("android_text_Spanned::android_text_Spanned(void * proxy) enter");
+	LOGV("android_text_Spanned::android_text_Spanned(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -102,52 +101,31 @@ android_text_Spanned::android_text_Spanned(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_text_Spanned::android_text_Spanned(void * proxy) exit");
+	LOGV("android_text_Spanned::android_text_Spanned(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_text_Spanned::android_text_Spanned()
-// {
-// 	LOGV("android_text_Spanned::android_text_Spanned() enter");	
+Proxy android_text_Spanned::proxy() const
+{	
+	LOGV("android_text_Spanned::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/text/Spanned";
+	long cxxAddress = (long) this;
+	LOGV("android_text_Spanned cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_text_Spanned jni address %d", proxiedComponent);
 
-// 	LOGV("android_text_Spanned className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_text_Spanned::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_text_Spanned cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_text_Spanned jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_text_Spanned::android_text_Spanned() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_text_Spanned::~android_text_Spanned()
 {
@@ -159,13 +137,13 @@ android_text_Spanned::~android_text_Spanned()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_text_Spanned::~android_text_Spanned() exit");
 }
 // Functions
-std::vector<AndroidCXX::java_lang_Object > android_text_Spanned::getSpans(int& arg0,int& arg1,AndroidCXX::java_lang_Class& arg2)
+std::vector<AndroidCXX::java_lang_Object > android_text_Spanned::getSpans(int const& arg0,int const& arg1,AndroidCXX::java_lang_Class const& arg2)
 {
-	LOGV("std::vector<AndroidCXX::java_lang_Object > android_text_Spanned::getSpans(int& arg0,int& arg1,AndroidCXX::java_lang_Class& arg2) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_Object > android_text_Spanned::getSpans(int const& arg0,int const& arg1,AndroidCXX::java_lang_Class const& arg2) enter");
 
 	const char *methodName = "getSpans";
 	const char *methodSignature = "(IILjava/lang/Class;)[Ljava/lang/Object;";
@@ -175,8 +153,6 @@ std::vector<AndroidCXX::java_lang_Object > android_text_Spanned::getSpans(int& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Spanned cxx address %d", cxxAddress);
@@ -304,15 +280,13 @@ std::vector<AndroidCXX::java_lang_Object > android_text_Spanned::getSpans(int& a
 	std::vector<AndroidCXX::java_lang_Object > result = (std::vector<AndroidCXX::java_lang_Object >) *((std::vector<AndroidCXX::java_lang_Object > *) cxx_value);
 	delete ((std::vector<AndroidCXX::java_lang_Object > *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<AndroidCXX::java_lang_Object > android_text_Spanned::getSpans(int& arg0,int& arg1,AndroidCXX::java_lang_Class& arg2) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_Object > android_text_Spanned::getSpans(int const& arg0,int const& arg1,AndroidCXX::java_lang_Class const& arg2) exit");
 
 	return result;
 }
-int android_text_Spanned::getSpanStart(AndroidCXX::java_lang_Object& arg0)
+int android_text_Spanned::getSpanStart(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("int android_text_Spanned::getSpanStart(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("int android_text_Spanned::getSpanStart(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "getSpanStart";
 	const char *methodSignature = "(Ljava/lang/Object;)I";
@@ -323,8 +297,6 @@ int android_text_Spanned::getSpanStart(AndroidCXX::java_lang_Object& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Spanned cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -373,15 +345,13 @@ int android_text_Spanned::getSpanStart(AndroidCXX::java_lang_Object& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Spanned::getSpanStart(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("int android_text_Spanned::getSpanStart(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-int android_text_Spanned::getSpanEnd(AndroidCXX::java_lang_Object& arg0)
+int android_text_Spanned::getSpanEnd(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("int android_text_Spanned::getSpanEnd(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("int android_text_Spanned::getSpanEnd(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "getSpanEnd";
 	const char *methodSignature = "(Ljava/lang/Object;)I";
@@ -392,8 +362,6 @@ int android_text_Spanned::getSpanEnd(AndroidCXX::java_lang_Object& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Spanned cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -442,15 +410,13 @@ int android_text_Spanned::getSpanEnd(AndroidCXX::java_lang_Object& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Spanned::getSpanEnd(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("int android_text_Spanned::getSpanEnd(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-int android_text_Spanned::getSpanFlags(AndroidCXX::java_lang_Object& arg0)
+int android_text_Spanned::getSpanFlags(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("int android_text_Spanned::getSpanFlags(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("int android_text_Spanned::getSpanFlags(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "getSpanFlags";
 	const char *methodSignature = "(Ljava/lang/Object;)I";
@@ -461,8 +427,6 @@ int android_text_Spanned::getSpanFlags(AndroidCXX::java_lang_Object& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_Spanned cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -511,15 +475,13 @@ int android_text_Spanned::getSpanFlags(AndroidCXX::java_lang_Object& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Spanned::getSpanFlags(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("int android_text_Spanned::getSpanFlags(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-int android_text_Spanned::nextSpanTransition(int& arg0,int& arg1,AndroidCXX::java_lang_Class& arg2)
+int android_text_Spanned::nextSpanTransition(int const& arg0,int const& arg1,AndroidCXX::java_lang_Class const& arg2)
 {
-	LOGV("int android_text_Spanned::nextSpanTransition(int& arg0,int& arg1,AndroidCXX::java_lang_Class& arg2) enter");
+	LOGV("int android_text_Spanned::nextSpanTransition(int const& arg0,int const& arg1,AndroidCXX::java_lang_Class const& arg2) enter");
 
 	const char *methodName = "nextSpanTransition";
 	const char *methodSignature = "(IILjava/lang/Class;)I";
@@ -529,8 +491,6 @@ int android_text_Spanned::nextSpanTransition(int& arg0,int& arg1,AndroidCXX::jav
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Spanned cxx address %d", cxxAddress);
@@ -622,9 +582,7 @@ int android_text_Spanned::nextSpanTransition(int& arg0,int& arg1,AndroidCXX::jav
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_text_Spanned::nextSpanTransition(int& arg0,int& arg1,AndroidCXX::java_lang_Class& arg2) exit");
+	LOGV("int android_text_Spanned::nextSpanTransition(int const& arg0,int const& arg1,AndroidCXX::java_lang_Class const& arg2) exit");
 
 	return result;
 }

@@ -55,18 +55,15 @@ class android_view_SurfaceHolder_Callback
 public:
 
 	android_view_SurfaceHolder_Callback(const android_view_SurfaceHolder_Callback& cc);
-	android_view_SurfaceHolder_Callback(void * proxy);
+	android_view_SurfaceHolder_Callback(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_view_SurfaceHolder_Callback();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_SurfaceHolder_Callback();
 	// Functions
-	 void surfaceCreated(AndroidCXX::android_view_SurfaceHolder& arg0);
-	 void surfaceChanged(AndroidCXX::android_view_SurfaceHolder& arg0,int& arg1,int& arg2,int& arg3);
-	 void surfaceDestroyed(AndroidCXX::android_view_SurfaceHolder& arg0);
+	 void surfaceCreated(AndroidCXX::android_view_SurfaceHolder const& arg0);
+	 void surfaceChanged(AndroidCXX::android_view_SurfaceHolder const& arg0,int const& arg1,int const& arg2,int const& arg3);
+	 void surfaceDestroyed(AndroidCXX::android_view_SurfaceHolder const& arg0);
 };	
 
 } // namespace

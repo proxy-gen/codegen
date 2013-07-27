@@ -46,12 +46,9 @@ class com_facebook_widget_GraphObjectAdapter_DataNeededListener
 public:
 
 	com_facebook_widget_GraphObjectAdapter_DataNeededListener(const com_facebook_widget_GraphObjectAdapter_DataNeededListener& cc);
-	com_facebook_widget_GraphObjectAdapter_DataNeededListener(void * proxy);
+	com_facebook_widget_GraphObjectAdapter_DataNeededListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_widget_GraphObjectAdapter_DataNeededListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectAdapter_DataNeededListener();
 	// Functions

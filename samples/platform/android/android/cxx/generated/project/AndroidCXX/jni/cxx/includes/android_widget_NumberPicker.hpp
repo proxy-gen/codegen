@@ -132,43 +132,40 @@ class android_widget_NumberPicker
 public:
 
 	android_widget_NumberPicker(const android_widget_NumberPicker& cc);
-	android_widget_NumberPicker(void * proxy);
+	android_widget_NumberPicker(Proxy proxy);
 	// Public Constructors
-	android_widget_NumberPicker(AndroidCXX::android_content_Context& arg0);
-	android_widget_NumberPicker(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_NumberPicker(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	// TODO: remove
-	// 
-	// android_widget_NumberPicker();
-	// 
+	android_widget_NumberPicker(AndroidCXX::android_content_Context const& arg0);
+	android_widget_NumberPicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_NumberPicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_NumberPicker();
 	// Functions
 	 int getValue();
-	 void setValue(int& arg0);
-	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0);
-	 bool dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0);
-	 bool dispatchTouchEvent(AndroidCXX::android_view_MotionEvent& arg0);
-	 bool dispatchTrackballEvent(AndroidCXX::android_view_MotionEvent& arg0);
-	 bool onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent& arg0);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
+	 void setValue(int const& arg0);
+	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0);
+	 bool dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0);
+	 bool dispatchTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0);
+	 bool dispatchTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0);
+	 bool onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
 	 AndroidCXX::android_view_accessibility_AccessibilityNodeProvider getAccessibilityNodeProvider();
-	 void setEnabled(bool& arg0);
-	 void scrollBy(int& arg0,int& arg1);
+	 void setEnabled(bool const& arg0);
+	 void scrollBy(int const& arg0,int const& arg1);
 	 void computeScroll();
 	 int getSolidColor();
-	 void setOnScrollListener(AndroidCXX::android_widget_NumberPicker_OnScrollListener& arg0);
-	 void setOnValueChangedListener(AndroidCXX::android_widget_NumberPicker_OnValueChangeListener& arg0);
-	 void setFormatter(AndroidCXX::android_widget_NumberPicker_Formatter& arg0);
+	 void setOnScrollListener(AndroidCXX::android_widget_NumberPicker_OnScrollListener const& arg0);
+	 void setOnValueChangedListener(AndroidCXX::android_widget_NumberPicker_OnValueChangeListener const& arg0);
+	 void setFormatter(AndroidCXX::android_widget_NumberPicker_Formatter const& arg0);
 	 bool getWrapSelectorWheel();
-	 void setWrapSelectorWheel(bool& arg0);
-	 void setOnLongPressUpdateInterval(long& arg0);
+	 void setWrapSelectorWheel(bool const& arg0);
+	 void setOnLongPressUpdateInterval(long const& arg0);
 	 int getMinValue();
-	 void setMinValue(int& arg0);
+	 void setMinValue(int const& arg0);
 	 int getMaxValue();
-	 void setMaxValue(int& arg0);
+	 void setMaxValue(int const& arg0);
 	 std::vector<AndroidCXX::java_lang_String > getDisplayedValues();
-	 void setDisplayedValues(std::vector<AndroidCXX::java_lang_String >& arg0);
+	 void setDisplayedValues(std::vector<AndroidCXX::java_lang_String > const& arg0);
 };	
 
 } // namespace

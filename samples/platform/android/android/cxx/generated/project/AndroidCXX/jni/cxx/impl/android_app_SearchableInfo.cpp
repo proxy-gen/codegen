@@ -99,7 +99,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_app_SearchableInfo::android_app_SearchableInfo(const android_app_SearchableInfo& cc)
 {
 	LOGV("android_app_SearchableInfo::android_app_SearchableInfo(const android_app_SearchableInfo& cc) enter");
@@ -123,9 +122,9 @@ android_app_SearchableInfo::android_app_SearchableInfo(const android_app_Searcha
 
 	LOGV("android_app_SearchableInfo::android_app_SearchableInfo(const android_app_SearchableInfo& cc) exit");
 }
-android_app_SearchableInfo::android_app_SearchableInfo(void * proxy)
+android_app_SearchableInfo::android_app_SearchableInfo(Proxy proxy)
 {
-	LOGV("android_app_SearchableInfo::android_app_SearchableInfo(void * proxy) enter");
+	LOGV("android_app_SearchableInfo::android_app_SearchableInfo(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -135,52 +134,31 @@ android_app_SearchableInfo::android_app_SearchableInfo(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_app_SearchableInfo::android_app_SearchableInfo(void * proxy) exit");
+	LOGV("android_app_SearchableInfo::android_app_SearchableInfo(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_app_SearchableInfo::android_app_SearchableInfo()
-// {
-// 	LOGV("android_app_SearchableInfo::android_app_SearchableInfo() enter");	
+Proxy android_app_SearchableInfo::proxy() const
+{	
+	LOGV("android_app_SearchableInfo::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/app/SearchableInfo";
+	long cxxAddress = (long) this;
+	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_SearchableInfo jni address %d", proxiedComponent);
 
-// 	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_app_SearchableInfo::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_app_SearchableInfo jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_app_SearchableInfo::android_app_SearchableInfo() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_app_SearchableInfo::~android_app_SearchableInfo()
 {
@@ -192,7 +170,7 @@ android_app_SearchableInfo::~android_app_SearchableInfo()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_app_SearchableInfo::~android_app_SearchableInfo() exit");
 }
 // Functions
@@ -208,8 +186,6 @@ int android_app_SearchableInfo::describeContents()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
@@ -238,15 +214,13 @@ int android_app_SearchableInfo::describeContents()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_app_SearchableInfo::describeContents() exit");
 
 	return result;
 }
-void android_app_SearchableInfo::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_app_SearchableInfo::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_app_SearchableInfo::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_app_SearchableInfo::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -256,8 +230,6 @@ void android_app_SearchableInfo::writeToParcel(AndroidCXX::android_os_Parcel& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
@@ -309,9 +281,7 @@ void android_app_SearchableInfo::writeToParcel(AndroidCXX::android_os_Parcel& ar
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_app_SearchableInfo::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_app_SearchableInfo::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }
 int android_app_SearchableInfo::getInputType()
@@ -326,8 +296,6 @@ int android_app_SearchableInfo::getInputType()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
@@ -356,8 +324,6 @@ int android_app_SearchableInfo::getInputType()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_app_SearchableInfo::getInputType() exit");
 
 	return result;
@@ -375,8 +341,6 @@ int android_app_SearchableInfo::getImeOptions()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -404,8 +368,6 @@ int android_app_SearchableInfo::getImeOptions()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_app_SearchableInfo::getImeOptions() exit");
 
 	return result;
@@ -423,8 +385,6 @@ AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestAuthority()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -452,8 +412,6 @@ AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestAuthority()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestAuthority() exit");
 
 	return result;
@@ -471,8 +429,6 @@ AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestPackage()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -500,8 +456,6 @@ AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestPackage()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestPackage() exit");
 
 	return result;
@@ -518,8 +472,6 @@ AndroidCXX::android_content_ComponentName android_app_SearchableInfo::getSearchA
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
@@ -548,8 +500,6 @@ AndroidCXX::android_content_ComponentName android_app_SearchableInfo::getSearchA
 	AndroidCXX::android_content_ComponentName result((AndroidCXX::android_content_ComponentName) *((AndroidCXX::android_content_ComponentName *) cxx_value));
 	delete ((AndroidCXX::android_content_ComponentName *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_content_ComponentName android_app_SearchableInfo::getSearchActivity() exit");
 
 	return result;
@@ -567,8 +517,6 @@ bool android_app_SearchableInfo::shouldRewriteQueryFromData()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -596,8 +544,6 @@ bool android_app_SearchableInfo::shouldRewriteQueryFromData()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_app_SearchableInfo::shouldRewriteQueryFromData() exit");
 
 	return result;
@@ -615,8 +561,6 @@ bool android_app_SearchableInfo::shouldRewriteQueryFromText()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -644,8 +588,6 @@ bool android_app_SearchableInfo::shouldRewriteQueryFromText()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_app_SearchableInfo::shouldRewriteQueryFromText() exit");
 
 	return result;
@@ -663,8 +605,6 @@ int android_app_SearchableInfo::getSettingsDescriptionId()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -692,8 +632,6 @@ int android_app_SearchableInfo::getSettingsDescriptionId()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_app_SearchableInfo::getSettingsDescriptionId() exit");
 
 	return result;
@@ -711,8 +649,6 @@ AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestPath()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -740,8 +676,6 @@ AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestPath()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestPath() exit");
 
 	return result;
@@ -759,8 +693,6 @@ AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestSelection()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -788,8 +720,6 @@ AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestSelection()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestSelection() exit");
 
 	return result;
@@ -807,8 +737,6 @@ AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestIntentAction(
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -836,8 +764,6 @@ AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestIntentAction(
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestIntentAction() exit");
 
 	return result;
@@ -855,8 +781,6 @@ AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestIntentData()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -884,8 +808,6 @@ AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestIntentData()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestIntentData() exit");
 
 	return result;
@@ -903,8 +825,6 @@ int android_app_SearchableInfo::getSuggestThreshold()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -932,8 +852,6 @@ int android_app_SearchableInfo::getSuggestThreshold()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_app_SearchableInfo::getSuggestThreshold() exit");
 
 	return result;
@@ -951,8 +869,6 @@ int android_app_SearchableInfo::getHintId()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -980,8 +896,6 @@ int android_app_SearchableInfo::getHintId()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_app_SearchableInfo::getHintId() exit");
 
 	return result;
@@ -999,8 +913,6 @@ bool android_app_SearchableInfo::getVoiceSearchEnabled()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1028,8 +940,6 @@ bool android_app_SearchableInfo::getVoiceSearchEnabled()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_app_SearchableInfo::getVoiceSearchEnabled() exit");
 
 	return result;
@@ -1047,8 +957,6 @@ bool android_app_SearchableInfo::getVoiceSearchLaunchWebSearch()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1076,8 +984,6 @@ bool android_app_SearchableInfo::getVoiceSearchLaunchWebSearch()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_app_SearchableInfo::getVoiceSearchLaunchWebSearch() exit");
 
 	return result;
@@ -1095,8 +1001,6 @@ bool android_app_SearchableInfo::getVoiceSearchLaunchRecognizer()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1124,8 +1028,6 @@ bool android_app_SearchableInfo::getVoiceSearchLaunchRecognizer()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_app_SearchableInfo::getVoiceSearchLaunchRecognizer() exit");
 
 	return result;
@@ -1143,8 +1045,6 @@ int android_app_SearchableInfo::getVoiceLanguageModeId()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1172,8 +1072,6 @@ int android_app_SearchableInfo::getVoiceLanguageModeId()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_app_SearchableInfo::getVoiceLanguageModeId() exit");
 
 	return result;
@@ -1191,8 +1089,6 @@ int android_app_SearchableInfo::getVoicePromptTextId()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1220,8 +1116,6 @@ int android_app_SearchableInfo::getVoicePromptTextId()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_app_SearchableInfo::getVoicePromptTextId() exit");
 
 	return result;
@@ -1239,8 +1133,6 @@ int android_app_SearchableInfo::getVoiceLanguageId()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1268,8 +1160,6 @@ int android_app_SearchableInfo::getVoiceLanguageId()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_app_SearchableInfo::getVoiceLanguageId() exit");
 
 	return result;
@@ -1287,8 +1177,6 @@ int android_app_SearchableInfo::getVoiceMaxResults()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1316,8 +1204,6 @@ int android_app_SearchableInfo::getVoiceMaxResults()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_app_SearchableInfo::getVoiceMaxResults() exit");
 
 	return result;
@@ -1335,8 +1221,6 @@ bool android_app_SearchableInfo::shouldIncludeInGlobalSearch()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1364,8 +1248,6 @@ bool android_app_SearchableInfo::shouldIncludeInGlobalSearch()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_app_SearchableInfo::shouldIncludeInGlobalSearch() exit");
 
 	return result;
@@ -1383,8 +1265,6 @@ bool android_app_SearchableInfo::queryAfterZeroResults()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1412,8 +1292,6 @@ bool android_app_SearchableInfo::queryAfterZeroResults()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_app_SearchableInfo::queryAfterZeroResults() exit");
 
 	return result;
@@ -1431,8 +1309,6 @@ bool android_app_SearchableInfo::autoUrlDetect()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_SearchableInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1460,8 +1336,6 @@ bool android_app_SearchableInfo::autoUrlDetect()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_app_SearchableInfo::autoUrlDetect() exit");
 
 	return result;

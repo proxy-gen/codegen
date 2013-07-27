@@ -159,22 +159,19 @@ class android_net_Uri
 public:
 
 	android_net_Uri(const android_net_Uri& cc);
-	android_net_Uri(void * proxy);
+	android_net_Uri(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_net_Uri();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_net_Uri();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 int compareTo(AndroidCXX::android_net_Uri& arg0);
-	static AndroidCXX::java_lang_String decode(AndroidCXX::java_lang_String& arg0);
-	static AndroidCXX::java_lang_String encode(AndroidCXX::java_lang_String& arg0);
-	static AndroidCXX::java_lang_String encode(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
+	 int compareTo(AndroidCXX::android_net_Uri const& arg0);
+	static AndroidCXX::java_lang_String decode(AndroidCXX::java_lang_String const& arg0);
+	static AndroidCXX::java_lang_String encode(AndroidCXX::java_lang_String const& arg0);
+	static AndroidCXX::java_lang_String encode(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
 	 bool isAbsolute();
 	 AndroidCXX::java_lang_String getPath();
 	 bool isOpaque();
@@ -182,7 +179,7 @@ public:
 	 AndroidCXX::java_lang_String getAuthority();
 	 AndroidCXX::java_lang_String getFragment();
 	 AndroidCXX::java_lang_String getQuery();
-	static AndroidCXX::android_net_Uri parse(AndroidCXX::java_lang_String& arg0);
+	static AndroidCXX::android_net_Uri parse(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_lang_String getUserInfo();
 	 int getPort();
 	 AndroidCXX::java_lang_String getHost();
@@ -198,14 +195,14 @@ public:
 	 AndroidCXX::java_util_List getPathSegments();
 	 AndroidCXX::java_lang_String getLastPathSegment();
 	 AndroidCXX::java_lang_String toSafeString();
-	static AndroidCXX::android_net_Uri fromFile(AndroidCXX::java_io_File& arg0);
-	static AndroidCXX::android_net_Uri fromParts(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2);
+	static AndroidCXX::android_net_Uri fromFile(AndroidCXX::java_io_File const& arg0);
+	static AndroidCXX::android_net_Uri fromParts(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2);
 	 AndroidCXX::java_util_Set getQueryParameterNames();
-	 AndroidCXX::java_util_List getQueryParameters(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::java_lang_String getQueryParameter(AndroidCXX::java_lang_String& arg0);
-	 bool getBooleanQueryParameter(AndroidCXX::java_lang_String& arg0,bool& arg1);
+	 AndroidCXX::java_util_List getQueryParameters(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::java_lang_String getQueryParameter(AndroidCXX::java_lang_String const& arg0);
+	 bool getBooleanQueryParameter(AndroidCXX::java_lang_String const& arg0,bool const& arg1);
 	 AndroidCXX::android_net_Uri normalizeScheme();
-	static AndroidCXX::android_net_Uri withAppendedPath(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1);
+	static AndroidCXX::android_net_Uri withAppendedPath(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1);
 	 AndroidCXX::android_net_Uri getCanonicalUri();
 };	
 

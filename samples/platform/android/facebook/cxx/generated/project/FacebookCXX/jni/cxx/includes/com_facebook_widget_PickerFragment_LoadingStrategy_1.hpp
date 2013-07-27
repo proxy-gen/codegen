@@ -81,18 +81,15 @@ class com_facebook_widget_PickerFragment_LoadingStrategy_1
 public:
 
 	com_facebook_widget_PickerFragment_LoadingStrategy_1(const com_facebook_widget_PickerFragment_LoadingStrategy_1& cc);
-	com_facebook_widget_PickerFragment_LoadingStrategy_1(void * proxy);
+	com_facebook_widget_PickerFragment_LoadingStrategy_1(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_widget_PickerFragment_LoadingStrategy_1();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_LoadingStrategy_1();
 	// Functions
-	 AndroidCXX::android_support_v4_content_Loader onCreateLoader(int& arg0,AndroidCXX::android_os_Bundle& arg1);
-	 void onLoadFinished(AndroidCXX::android_support_v4_content_Loader& arg0,FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor& arg1);
-	 void onLoaderReset(AndroidCXX::android_support_v4_content_Loader& arg0);
+	 AndroidCXX::android_support_v4_content_Loader onCreateLoader(int const& arg0,AndroidCXX::android_os_Bundle const& arg1);
+	 void onLoadFinished(AndroidCXX::android_support_v4_content_Loader const& arg0,FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor const& arg1);
+	 void onLoaderReset(AndroidCXX::android_support_v4_content_Loader const& arg0);
 };	
 
 } // namespace

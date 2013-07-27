@@ -47,17 +47,14 @@ class android_widget_ZoomButtonsController_OnZoomListener
 public:
 
 	android_widget_ZoomButtonsController_OnZoomListener(const android_widget_ZoomButtonsController_OnZoomListener& cc);
-	android_widget_ZoomButtonsController_OnZoomListener(void * proxy);
+	android_widget_ZoomButtonsController_OnZoomListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_ZoomButtonsController_OnZoomListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ZoomButtonsController_OnZoomListener();
 	// Functions
-	 void onVisibilityChanged(bool& arg0);
-	 void onZoom(bool& arg0);
+	 void onVisibilityChanged(bool const& arg0);
+	 void onZoom(bool const& arg0);
 };	
 
 } // namespace

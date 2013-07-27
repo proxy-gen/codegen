@@ -67,21 +67,18 @@ class android_content_ContentProviderResult
 public:
 
 	android_content_ContentProviderResult(const android_content_ContentProviderResult& cc);
-	android_content_ContentProviderResult(void * proxy);
+	android_content_ContentProviderResult(Proxy proxy);
 	// Public Constructors
-	android_content_ContentProviderResult(AndroidCXX::android_net_Uri& arg0);
-	android_content_ContentProviderResult(int& arg0);
-	android_content_ContentProviderResult(AndroidCXX::android_os_Parcel& arg0);
-	// TODO: remove
-	// 
-	// android_content_ContentProviderResult();
-	// 
+	android_content_ContentProviderResult(AndroidCXX::android_net_Uri const& arg0);
+	android_content_ContentProviderResult(int const& arg0);
+	android_content_ContentProviderResult(AndroidCXX::android_os_Parcel const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ContentProviderResult();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 };	
 
 } // namespace

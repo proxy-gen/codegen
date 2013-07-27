@@ -107,30 +107,29 @@ class android_app_ActionBar_Tab
 public:
 
 	android_app_ActionBar_Tab(const android_app_ActionBar_Tab& cc);
-	android_app_ActionBar_Tab(void * proxy);
+	android_app_ActionBar_Tab(Proxy proxy);
 	// Public Constructors
 	android_app_ActionBar_Tab();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_ActionBar_Tab();
 	// Functions
 	 AndroidCXX::java_lang_Object getTag();
 	 int getPosition();
-	 AndroidCXX::android_app_ActionBar_Tab setText(AndroidCXX::java_lang_CharSequence& arg0);
-	 AndroidCXX::android_app_ActionBar_Tab setText(int& arg0);
+	 AndroidCXX::android_app_ActionBar_Tab setText(AndroidCXX::java_lang_CharSequence const& arg0);
+	 AndroidCXX::android_app_ActionBar_Tab setText(int const& arg0);
 	 AndroidCXX::java_lang_CharSequence getText();
-	 AndroidCXX::android_app_ActionBar_Tab setTag(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::android_app_ActionBar_Tab setTag(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_CharSequence getContentDescription();
-	 AndroidCXX::android_app_ActionBar_Tab setContentDescription(AndroidCXX::java_lang_CharSequence& arg0);
-	 AndroidCXX::android_app_ActionBar_Tab setContentDescription(int& arg0);
-	 AndroidCXX::android_app_ActionBar_Tab setIcon(int& arg0);
-	 AndroidCXX::android_app_ActionBar_Tab setIcon(AndroidCXX::android_graphics_drawable_Drawable& arg0);
+	 AndroidCXX::android_app_ActionBar_Tab setContentDescription(AndroidCXX::java_lang_CharSequence const& arg0);
+	 AndroidCXX::android_app_ActionBar_Tab setContentDescription(int const& arg0);
+	 AndroidCXX::android_app_ActionBar_Tab setIcon(int const& arg0);
+	 AndroidCXX::android_app_ActionBar_Tab setIcon(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
 	 AndroidCXX::android_graphics_drawable_Drawable getIcon();
-	 AndroidCXX::android_app_ActionBar_Tab setCustomView(AndroidCXX::android_view_View& arg0);
-	 AndroidCXX::android_app_ActionBar_Tab setCustomView(int& arg0);
+	 AndroidCXX::android_app_ActionBar_Tab setCustomView(AndroidCXX::android_view_View const& arg0);
+	 AndroidCXX::android_app_ActionBar_Tab setCustomView(int const& arg0);
 	 AndroidCXX::android_view_View getCustomView();
-	 AndroidCXX::android_app_ActionBar_Tab setTabListener(AndroidCXX::android_app_ActionBar_TabListener& arg0);
+	 AndroidCXX::android_app_ActionBar_Tab setTabListener(AndroidCXX::android_app_ActionBar_TabListener const& arg0);
 	 void select();
 };	
 

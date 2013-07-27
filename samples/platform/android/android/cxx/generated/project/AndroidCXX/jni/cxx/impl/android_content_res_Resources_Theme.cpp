@@ -80,7 +80,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_content_res_Resources_Theme::android_content_res_Resources_Theme(const android_content_res_Resources_Theme& cc)
 {
 	LOGV("android_content_res_Resources_Theme::android_content_res_Resources_Theme(const android_content_res_Resources_Theme& cc) enter");
@@ -104,9 +103,9 @@ android_content_res_Resources_Theme::android_content_res_Resources_Theme(const a
 
 	LOGV("android_content_res_Resources_Theme::android_content_res_Resources_Theme(const android_content_res_Resources_Theme& cc) exit");
 }
-android_content_res_Resources_Theme::android_content_res_Resources_Theme(void * proxy)
+android_content_res_Resources_Theme::android_content_res_Resources_Theme(Proxy proxy)
 {
-	LOGV("android_content_res_Resources_Theme::android_content_res_Resources_Theme(void * proxy) enter");
+	LOGV("android_content_res_Resources_Theme::android_content_res_Resources_Theme(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -116,52 +115,31 @@ android_content_res_Resources_Theme::android_content_res_Resources_Theme(void * 
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_content_res_Resources_Theme::android_content_res_Resources_Theme(void * proxy) exit");
+	LOGV("android_content_res_Resources_Theme::android_content_res_Resources_Theme(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_content_res_Resources_Theme::android_content_res_Resources_Theme()
-// {
-// 	LOGV("android_content_res_Resources_Theme::android_content_res_Resources_Theme() enter");	
+Proxy android_content_res_Resources_Theme::proxy() const
+{	
+	LOGV("android_content_res_Resources_Theme::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/content/res/Resources$Theme";
+	long cxxAddress = (long) this;
+	LOGV("android_content_res_Resources_Theme cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_content_res_Resources_Theme jni address %d", proxiedComponent);
 
-// 	LOGV("android_content_res_Resources_Theme className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_content_res_Resources_Theme::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_content_res_Resources_Theme cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_content_res_Resources_Theme jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_content_res_Resources_Theme::android_content_res_Resources_Theme() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_content_res_Resources_Theme::~android_content_res_Resources_Theme()
 {
@@ -173,13 +151,13 @@ android_content_res_Resources_Theme::~android_content_res_Resources_Theme()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_content_res_Resources_Theme::~android_content_res_Resources_Theme() exit");
 }
 // Functions
-void android_content_res_Resources_Theme::dump(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2)
+void android_content_res_Resources_Theme::dump(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2)
 {
-	LOGV("void android_content_res_Resources_Theme::dump(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2) enter");
+	LOGV("void android_content_res_Resources_Theme::dump(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) enter");
 
 	const char *methodName = "dump";
 	const char *methodSignature = "(ILjava/lang/String;Ljava/lang/String;)V";
@@ -189,8 +167,6 @@ void android_content_res_Resources_Theme::dump(int& arg0,AndroidCXX::java_lang_S
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources_Theme cxx address %d", cxxAddress);
@@ -263,14 +239,12 @@ void android_content_res_Resources_Theme::dump(int& arg0,AndroidCXX::java_lang_S
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_res_Resources_Theme::dump(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2) exit");
+	LOGV("void android_content_res_Resources_Theme::dump(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) exit");
 
 }
-AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::obtainStyledAttributes(std::vector<int>& arg0)
+AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::obtainStyledAttributes(std::vector<int> const& arg0)
 {
-	LOGV("AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::obtainStyledAttributes(std::vector<int>& arg0) enter");
+	LOGV("AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::obtainStyledAttributes(std::vector<int> const& arg0) enter");
 
 	const char *methodName = "obtainStyledAttributes";
 	const char *methodSignature = "([I)Landroid/content/res/TypedArray;";
@@ -280,8 +254,6 @@ AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources_Theme cxx address %d", cxxAddress);
@@ -349,15 +321,13 @@ AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::
 	AndroidCXX::android_content_res_TypedArray result((AndroidCXX::android_content_res_TypedArray) *((AndroidCXX::android_content_res_TypedArray *) cxx_value));
 	delete ((AndroidCXX::android_content_res_TypedArray *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::obtainStyledAttributes(std::vector<int>& arg0) exit");
+	LOGV("AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::obtainStyledAttributes(std::vector<int> const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::obtainStyledAttributes(int& arg0,std::vector<int>& arg1)
+AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::obtainStyledAttributes(int const& arg0,std::vector<int> const& arg1)
 {
-	LOGV("AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::obtainStyledAttributes(int& arg0,std::vector<int>& arg1) enter");
+	LOGV("AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::obtainStyledAttributes(int const& arg0,std::vector<int> const& arg1) enter");
 
 	const char *methodName = "obtainStyledAttributes";
 	const char *methodSignature = "(I[I)Landroid/content/res/TypedArray;";
@@ -367,8 +337,6 @@ AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources_Theme cxx address %d", cxxAddress);
@@ -457,15 +425,13 @@ AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::
 	AndroidCXX::android_content_res_TypedArray result((AndroidCXX::android_content_res_TypedArray) *((AndroidCXX::android_content_res_TypedArray *) cxx_value));
 	delete ((AndroidCXX::android_content_res_TypedArray *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::obtainStyledAttributes(int& arg0,std::vector<int>& arg1) exit");
+	LOGV("AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::obtainStyledAttributes(int const& arg0,std::vector<int> const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::obtainStyledAttributes(AndroidCXX::android_util_AttributeSet& arg0,std::vector<int>& arg1,int& arg2,int& arg3)
+AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::obtainStyledAttributes(AndroidCXX::android_util_AttributeSet const& arg0,std::vector<int> const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::obtainStyledAttributes(AndroidCXX::android_util_AttributeSet& arg0,std::vector<int>& arg1,int& arg2,int& arg3) enter");
+	LOGV("AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::obtainStyledAttributes(AndroidCXX::android_util_AttributeSet const& arg0,std::vector<int> const& arg1,int const& arg2,int const& arg3) enter");
 
 	const char *methodName = "obtainStyledAttributes";
 	const char *methodSignature = "(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;";
@@ -475,8 +441,6 @@ AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources_Theme cxx address %d", cxxAddress);
@@ -607,15 +571,13 @@ AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::
 	AndroidCXX::android_content_res_TypedArray result((AndroidCXX::android_content_res_TypedArray) *((AndroidCXX::android_content_res_TypedArray *) cxx_value));
 	delete ((AndroidCXX::android_content_res_TypedArray *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::obtainStyledAttributes(AndroidCXX::android_util_AttributeSet& arg0,std::vector<int>& arg1,int& arg2,int& arg3) exit");
+	LOGV("AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::obtainStyledAttributes(AndroidCXX::android_util_AttributeSet const& arg0,std::vector<int> const& arg1,int const& arg2,int const& arg3) exit");
 
 	return result;
 }
-void android_content_res_Resources_Theme::setTo(AndroidCXX::android_content_res_Resources_Theme& arg0)
+void android_content_res_Resources_Theme::setTo(AndroidCXX::android_content_res_Resources_Theme const& arg0)
 {
-	LOGV("void android_content_res_Resources_Theme::setTo(AndroidCXX::android_content_res_Resources_Theme& arg0) enter");
+	LOGV("void android_content_res_Resources_Theme::setTo(AndroidCXX::android_content_res_Resources_Theme const& arg0) enter");
 
 	const char *methodName = "setTo";
 	const char *methodSignature = "(Landroid/content/res/Resources$Theme;)V";
@@ -625,8 +587,6 @@ void android_content_res_Resources_Theme::setTo(AndroidCXX::android_content_res_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources_Theme cxx address %d", cxxAddress);
@@ -657,14 +617,12 @@ void android_content_res_Resources_Theme::setTo(AndroidCXX::android_content_res_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_res_Resources_Theme::setTo(AndroidCXX::android_content_res_Resources_Theme& arg0) exit");
+	LOGV("void android_content_res_Resources_Theme::setTo(AndroidCXX::android_content_res_Resources_Theme const& arg0) exit");
 
 }
-void android_content_res_Resources_Theme::applyStyle(int& arg0,bool& arg1)
+void android_content_res_Resources_Theme::applyStyle(int const& arg0,bool const& arg1)
 {
-	LOGV("void android_content_res_Resources_Theme::applyStyle(int& arg0,bool& arg1) enter");
+	LOGV("void android_content_res_Resources_Theme::applyStyle(int const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "applyStyle";
 	const char *methodSignature = "(IZ)V";
@@ -674,8 +632,6 @@ void android_content_res_Resources_Theme::applyStyle(int& arg0,bool& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources_Theme cxx address %d", cxxAddress);
@@ -727,14 +683,12 @@ void android_content_res_Resources_Theme::applyStyle(int& arg0,bool& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_res_Resources_Theme::applyStyle(int& arg0,bool& arg1) exit");
+	LOGV("void android_content_res_Resources_Theme::applyStyle(int const& arg0,bool const& arg1) exit");
 
 }
-bool android_content_res_Resources_Theme::resolveAttribute(int& arg0,AndroidCXX::android_util_TypedValue& arg1,bool& arg2)
+bool android_content_res_Resources_Theme::resolveAttribute(int const& arg0,AndroidCXX::android_util_TypedValue const& arg1,bool const& arg2)
 {
-	LOGV("bool android_content_res_Resources_Theme::resolveAttribute(int& arg0,AndroidCXX::android_util_TypedValue& arg1,bool& arg2) enter");
+	LOGV("bool android_content_res_Resources_Theme::resolveAttribute(int const& arg0,AndroidCXX::android_util_TypedValue const& arg1,bool const& arg2) enter");
 
 	const char *methodName = "resolveAttribute";
 	const char *methodSignature = "(ILandroid/util/TypedValue;Z)Z";
@@ -744,8 +698,6 @@ bool android_content_res_Resources_Theme::resolveAttribute(int& arg0,AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_Resources_Theme cxx address %d", cxxAddress);
@@ -837,9 +789,7 @@ bool android_content_res_Resources_Theme::resolveAttribute(int& arg0,AndroidCXX:
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_content_res_Resources_Theme::resolveAttribute(int& arg0,AndroidCXX::android_util_TypedValue& arg1,bool& arg2) exit");
+	LOGV("bool android_content_res_Resources_Theme::resolveAttribute(int const& arg0,AndroidCXX::android_util_TypedValue const& arg1,bool const& arg2) exit");
 
 	return result;
 }

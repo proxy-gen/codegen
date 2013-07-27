@@ -81,25 +81,22 @@ class android_view_ActionProvider
 public:
 
 	android_view_ActionProvider(const android_view_ActionProvider& cc);
-	android_view_ActionProvider(void * proxy);
+	android_view_ActionProvider(Proxy proxy);
 	// Public Constructors
-	android_view_ActionProvider(AndroidCXX::android_content_Context& arg0);
-	// TODO: remove
-	// 
-	// android_view_ActionProvider();
-	// 
+	android_view_ActionProvider(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ActionProvider();
 	// Functions
 	 bool isVisible();
 	 bool hasSubMenu();
 	 AndroidCXX::android_view_View onCreateActionView();
-	 AndroidCXX::android_view_View onCreateActionView(AndroidCXX::android_view_MenuItem& arg0);
+	 AndroidCXX::android_view_View onCreateActionView(AndroidCXX::android_view_MenuItem const& arg0);
 	 bool overridesItemVisibility();
 	 void refreshVisibility();
 	 bool onPerformDefaultAction();
-	 void onPrepareSubMenu(AndroidCXX::android_view_SubMenu& arg0);
-	 void setVisibilityListener(AndroidCXX::android_view_ActionProvider_VisibilityListener& arg0);
+	 void onPrepareSubMenu(AndroidCXX::android_view_SubMenu const& arg0);
+	 void setVisibilityListener(AndroidCXX::android_view_ActionProvider_VisibilityListener const& arg0);
 };	
 
 } // namespace

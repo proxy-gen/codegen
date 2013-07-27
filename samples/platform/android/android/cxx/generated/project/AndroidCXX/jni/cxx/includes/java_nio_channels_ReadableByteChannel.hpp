@@ -51,16 +51,13 @@ class java_nio_channels_ReadableByteChannel
 public:
 
 	java_nio_channels_ReadableByteChannel(const java_nio_channels_ReadableByteChannel& cc);
-	java_nio_channels_ReadableByteChannel(void * proxy);
+	java_nio_channels_ReadableByteChannel(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_nio_channels_ReadableByteChannel();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_ReadableByteChannel();
 	// Functions
-	 int read(AndroidCXX::java_nio_ByteBuffer& arg0);
+	 int read(AndroidCXX::java_nio_ByteBuffer const& arg0);
 };	
 
 } // namespace

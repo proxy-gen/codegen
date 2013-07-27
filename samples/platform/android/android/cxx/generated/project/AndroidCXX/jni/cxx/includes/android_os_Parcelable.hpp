@@ -52,17 +52,14 @@ class android_os_Parcelable
 public:
 
 	android_os_Parcelable(const android_os_Parcelable& cc);
-	android_os_Parcelable(void * proxy);
+	android_os_Parcelable(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_os_Parcelable();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_os_Parcelable();
 	// Functions
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 };	
 
 } // namespace

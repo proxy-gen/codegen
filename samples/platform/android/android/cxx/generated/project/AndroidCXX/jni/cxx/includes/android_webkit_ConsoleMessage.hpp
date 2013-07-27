@@ -63,20 +63,17 @@ class android_webkit_ConsoleMessage
 public:
 
 	android_webkit_ConsoleMessage(const android_webkit_ConsoleMessage& cc);
-	android_webkit_ConsoleMessage(void * proxy);
+	android_webkit_ConsoleMessage(Proxy proxy);
 	// Public Constructors
-	android_webkit_ConsoleMessage(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2,ANDROID_WEBKIT_CONSOLEMESSAGE_MESSAGELEVEL::android_webkit_ConsoleMessage_MessageLevel& arg3);
-	// TODO: remove
-	// 
-	// android_webkit_ConsoleMessage();
-	// 
+	android_webkit_ConsoleMessage(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2,android_webkit_ConsoleMessage_MessageLevel::android_webkit_ConsoleMessage_MessageLevel const& arg3);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_ConsoleMessage();
 	// Functions
 	 int lineNumber();
 	 AndroidCXX::java_lang_String message();
 	 AndroidCXX::java_lang_String sourceId();
-	 ANDROID_WEBKIT_CONSOLEMESSAGE_MESSAGELEVEL::android_webkit_ConsoleMessage_MessageLevel messageLevel();
+	 android_webkit_ConsoleMessage_MessageLevel::android_webkit_ConsoleMessage_MessageLevel messageLevel();
 };	
 
 } // namespace

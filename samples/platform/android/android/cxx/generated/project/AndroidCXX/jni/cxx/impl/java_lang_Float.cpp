@@ -107,7 +107,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_lang_Float::java_lang_Float(const java_lang_Float& cc)
 {
 	LOGV("java_lang_Float::java_lang_Float(const java_lang_Float& cc) enter");
@@ -131,9 +130,9 @@ java_lang_Float::java_lang_Float(const java_lang_Float& cc)
 
 	LOGV("java_lang_Float::java_lang_Float(const java_lang_Float& cc) exit");
 }
-java_lang_Float::java_lang_Float(void * proxy)
+java_lang_Float::java_lang_Float(Proxy proxy)
 {
-	LOGV("java_lang_Float::java_lang_Float(void * proxy) enter");
+	LOGV("java_lang_Float::java_lang_Float(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -143,55 +142,34 @@ java_lang_Float::java_lang_Float(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_lang_Float::java_lang_Float(void * proxy) exit");
+	LOGV("java_lang_Float::java_lang_Float(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_lang_Float::java_lang_Float()
-// {
-// 	LOGV("java_lang_Float::java_lang_Float() enter");	
+Proxy java_lang_Float::proxy() const
+{	
+	LOGV("java_lang_Float::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/lang/Float";
+	long cxxAddress = (long) this;
+	LOGV("java_lang_Float cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_Float jni address %d", proxiedComponent);
 
-// 	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_lang_Float::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_lang_Float cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_lang_Float jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_lang_Float::java_lang_Float() exit");	
-// }
-// 
-// 
-// Public Constructors
-java_lang_Float::java_lang_Float(float& arg0)
+	return proxy;
+}
+java_lang_Float::java_lang_Float(float const& arg0)
 {
-	LOGV("java_lang_Float::java_lang_Float(float& arg0) enter");	
+	LOGV("java_lang_Float::java_lang_Float(float const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(F)V";
@@ -244,11 +222,11 @@ java_lang_Float::java_lang_Float(float& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Float::java_lang_Float(float& arg0) exit");	
+	LOGV("java_lang_Float::java_lang_Float(float const& arg0) exit");	
 }
-java_lang_Float::java_lang_Float(AndroidCXX::java_lang_String& arg0)
+java_lang_Float::java_lang_Float(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("java_lang_Float::java_lang_Float(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("java_lang_Float::java_lang_Float(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -301,11 +279,11 @@ java_lang_Float::java_lang_Float(AndroidCXX::java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Float::java_lang_Float(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("java_lang_Float::java_lang_Float(AndroidCXX::java_lang_String const& arg0) exit");	
 }
-java_lang_Float::java_lang_Float(double& arg0)
+java_lang_Float::java_lang_Float(double const& arg0)
 {
-	LOGV("java_lang_Float::java_lang_Float(double& arg0) enter");	
+	LOGV("java_lang_Float::java_lang_Float(double const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(D)V";
@@ -358,7 +336,7 @@ java_lang_Float::java_lang_Float(double& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Float::java_lang_Float(double& arg0) exit");	
+	LOGV("java_lang_Float::java_lang_Float(double const& arg0) exit");	
 }
 // Default Instance Destructor
 java_lang_Float::~java_lang_Float()
@@ -371,13 +349,13 @@ java_lang_Float::~java_lang_Float()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_lang_Float::~java_lang_Float() exit");
 }
 // Functions
-bool java_lang_Float::equals(AndroidCXX::java_lang_Object& arg0)
+bool java_lang_Float::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_lang_Float::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_lang_Float::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -387,8 +365,6 @@ bool java_lang_Float::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
@@ -438,15 +414,13 @@ bool java_lang_Float::equals(AndroidCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_lang_Float::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_lang_Float::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String java_lang_Float::toString(float& arg0)
+AndroidCXX::java_lang_String java_lang_Float::toString(float const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String java_lang_Float::toString(float& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String java_lang_Float::toString(float const& arg0) enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "(F)Ljava/lang/String;";
@@ -456,8 +430,6 @@ AndroidCXX::java_lang_String java_lang_Float::toString(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
@@ -486,7 +458,7 @@ AndroidCXX::java_lang_String java_lang_Float::toString(float& arg0)
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jstring jni_result = (jstring) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
 	{
@@ -507,9 +479,7 @@ AndroidCXX::java_lang_String java_lang_Float::toString(float& arg0)
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String java_lang_Float::toString(float& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String java_lang_Float::toString(float const& arg0) exit");
 
 	return result;
 }
@@ -525,8 +495,6 @@ AndroidCXX::java_lang_String java_lang_Float::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
@@ -555,8 +523,6 @@ AndroidCXX::java_lang_String java_lang_Float::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_lang_Float::toString() exit");
 
 	return result;
@@ -573,8 +539,6 @@ int java_lang_Float::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
@@ -603,15 +567,13 @@ int java_lang_Float::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_lang_Float::hashCode() exit");
 
 	return result;
 }
-int java_lang_Float::floatToRawIntBits(float& arg0)
+int java_lang_Float::floatToRawIntBits(float const& arg0)
 {
-	LOGV("int java_lang_Float::floatToRawIntBits(float& arg0) enter");
+	LOGV("int java_lang_Float::floatToRawIntBits(float const& arg0) enter");
 
 	const char *methodName = "floatToRawIntBits";
 	const char *methodSignature = "(F)I";
@@ -622,8 +584,6 @@ int java_lang_Float::floatToRawIntBits(float& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -651,7 +611,7 @@ int java_lang_Float::floatToRawIntBits(float& arg0)
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jint jni_result = (jint) jni->invokeStaticIntMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
 	{
@@ -672,15 +632,13 @@ int java_lang_Float::floatToRawIntBits(float& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_lang_Float::floatToRawIntBits(float& arg0) exit");
+	LOGV("int java_lang_Float::floatToRawIntBits(float const& arg0) exit");
 
 	return result;
 }
-int java_lang_Float::floatToIntBits(float& arg0)
+int java_lang_Float::floatToIntBits(float const& arg0)
 {
-	LOGV("int java_lang_Float::floatToIntBits(float& arg0) enter");
+	LOGV("int java_lang_Float::floatToIntBits(float const& arg0) enter");
 
 	const char *methodName = "floatToIntBits";
 	const char *methodSignature = "(F)I";
@@ -691,8 +649,6 @@ int java_lang_Float::floatToIntBits(float& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -720,7 +676,7 @@ int java_lang_Float::floatToIntBits(float& arg0)
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jint jni_result = (jint) jni->invokeStaticIntMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
 	{
@@ -741,15 +697,13 @@ int java_lang_Float::floatToIntBits(float& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_lang_Float::floatToIntBits(float& arg0) exit");
+	LOGV("int java_lang_Float::floatToIntBits(float const& arg0) exit");
 
 	return result;
 }
-float java_lang_Float::intBitsToFloat(int& arg0)
+float java_lang_Float::intBitsToFloat(int const& arg0)
 {
-	LOGV("float java_lang_Float::intBitsToFloat(int& arg0) enter");
+	LOGV("float java_lang_Float::intBitsToFloat(int const& arg0) enter");
 
 	const char *methodName = "intBitsToFloat";
 	const char *methodSignature = "(I)F";
@@ -759,8 +713,6 @@ float java_lang_Float::intBitsToFloat(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
@@ -789,7 +741,7 @@ float java_lang_Float::intBitsToFloat(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jfloat jni_result = (jfloat) jni->invokeStaticFloatMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
 	{
@@ -810,15 +762,13 @@ float java_lang_Float::intBitsToFloat(int& arg0)
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("float java_lang_Float::intBitsToFloat(int& arg0) exit");
+	LOGV("float java_lang_Float::intBitsToFloat(int const& arg0) exit");
 
 	return result;
 }
-int java_lang_Float::compareTo(AndroidCXX::java_lang_Float& arg0)
+int java_lang_Float::compareTo(AndroidCXX::java_lang_Float const& arg0)
 {
-	LOGV("int java_lang_Float::compareTo(AndroidCXX::java_lang_Float& arg0) enter");
+	LOGV("int java_lang_Float::compareTo(AndroidCXX::java_lang_Float const& arg0) enter");
 
 	const char *methodName = "compareTo";
 	const char *methodSignature = "(Ljava/lang/Float;)I";
@@ -828,8 +778,6 @@ int java_lang_Float::compareTo(AndroidCXX::java_lang_Float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
@@ -879,9 +827,7 @@ int java_lang_Float::compareTo(AndroidCXX::java_lang_Float& arg0)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_lang_Float::compareTo(AndroidCXX::java_lang_Float& arg0) exit");
+	LOGV("int java_lang_Float::compareTo(AndroidCXX::java_lang_Float const& arg0) exit");
 
 	return result;
 }
@@ -897,8 +843,6 @@ byte java_lang_Float::byteValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
@@ -927,8 +871,6 @@ byte java_lang_Float::byteValue()
 	byte result = (byte) *((byte *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("byte java_lang_Float::byteValue() exit");
 
 	return result;
@@ -945,8 +887,6 @@ short java_lang_Float::shortValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
@@ -975,8 +915,6 @@ short java_lang_Float::shortValue()
 	short result = (short) *((short *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("short java_lang_Float::shortValue() exit");
 
 	return result;
@@ -993,8 +931,6 @@ int java_lang_Float::intValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
@@ -1023,8 +959,6 @@ int java_lang_Float::intValue()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_lang_Float::intValue() exit");
 
 	return result;
@@ -1041,8 +975,6 @@ long java_lang_Float::longValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
@@ -1071,8 +1003,6 @@ long java_lang_Float::longValue()
 	long result = (long) *((long *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("long java_lang_Float::longValue() exit");
 
 	return result;
@@ -1089,8 +1019,6 @@ float java_lang_Float::floatValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
@@ -1119,8 +1047,6 @@ float java_lang_Float::floatValue()
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("float java_lang_Float::floatValue() exit");
 
 	return result;
@@ -1137,8 +1063,6 @@ double java_lang_Float::doubleValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
@@ -1167,15 +1091,13 @@ double java_lang_Float::doubleValue()
 	double result = (double) *((double *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("double java_lang_Float::doubleValue() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_Float java_lang_Float::valueOf(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_lang_Float java_lang_Float::valueOf(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Float java_lang_Float::valueOf(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Float java_lang_Float::valueOf(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "valueOf";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Float;";
@@ -1185,8 +1107,6 @@ AndroidCXX::java_lang_Float java_lang_Float::valueOf(AndroidCXX::java_lang_Strin
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
@@ -1215,7 +1135,7 @@ AndroidCXX::java_lang_Float java_lang_Float::valueOf(AndroidCXX::java_lang_Strin
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1236,15 +1156,13 @@ AndroidCXX::java_lang_Float java_lang_Float::valueOf(AndroidCXX::java_lang_Strin
 	AndroidCXX::java_lang_Float result((AndroidCXX::java_lang_Float) *((AndroidCXX::java_lang_Float *) cxx_value));
 	delete ((AndroidCXX::java_lang_Float *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_Float java_lang_Float::valueOf(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_lang_Float java_lang_Float::valueOf(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_Float java_lang_Float::valueOf(float& arg0)
+AndroidCXX::java_lang_Float java_lang_Float::valueOf(float const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Float java_lang_Float::valueOf(float& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Float java_lang_Float::valueOf(float const& arg0) enter");
 
 	const char *methodName = "valueOf";
 	const char *methodSignature = "(F)Ljava/lang/Float;";
@@ -1255,8 +1173,6 @@ AndroidCXX::java_lang_Float java_lang_Float::valueOf(float& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1284,7 +1200,7 @@ AndroidCXX::java_lang_Float java_lang_Float::valueOf(float& arg0)
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1305,15 +1221,13 @@ AndroidCXX::java_lang_Float java_lang_Float::valueOf(float& arg0)
 	AndroidCXX::java_lang_Float result((AndroidCXX::java_lang_Float) *((AndroidCXX::java_lang_Float *) cxx_value));
 	delete ((AndroidCXX::java_lang_Float *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_Float java_lang_Float::valueOf(float& arg0) exit");
+	LOGV("AndroidCXX::java_lang_Float java_lang_Float::valueOf(float const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String java_lang_Float::toHexString(float& arg0)
+AndroidCXX::java_lang_String java_lang_Float::toHexString(float const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String java_lang_Float::toHexString(float& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String java_lang_Float::toHexString(float const& arg0) enter");
 
 	const char *methodName = "toHexString";
 	const char *methodSignature = "(F)Ljava/lang/String;";
@@ -1323,8 +1237,6 @@ AndroidCXX::java_lang_String java_lang_Float::toHexString(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
@@ -1353,7 +1265,7 @@ AndroidCXX::java_lang_String java_lang_Float::toHexString(float& arg0)
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jstring jni_result = (jstring) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
 	{
@@ -1374,15 +1286,13 @@ AndroidCXX::java_lang_String java_lang_Float::toHexString(float& arg0)
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String java_lang_Float::toHexString(float& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String java_lang_Float::toHexString(float const& arg0) exit");
 
 	return result;
 }
-int java_lang_Float::compare(float& arg0,float& arg1)
+int java_lang_Float::compare(float const& arg0,float const& arg1)
 {
-	LOGV("int java_lang_Float::compare(float& arg0,float& arg1) enter");
+	LOGV("int java_lang_Float::compare(float const& arg0,float const& arg1) enter");
 
 	const char *methodName = "compare";
 	const char *methodSignature = "(FF)I";
@@ -1392,8 +1302,6 @@ int java_lang_Float::compare(float& arg0,float& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
@@ -1443,7 +1351,7 @@ int java_lang_Float::compare(float& arg0,float& arg1)
 		jarg1 = convert_jni_float_to_jni(java_value);
 	}
 
-	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jint jni_result = (jint) jni->invokeStaticIntMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
 	{
@@ -1464,15 +1372,13 @@ int java_lang_Float::compare(float& arg0,float& arg1)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int java_lang_Float::compare(float& arg0,float& arg1) exit");
+	LOGV("int java_lang_Float::compare(float const& arg0,float const& arg1) exit");
 
 	return result;
 }
-bool java_lang_Float::isNaN(float& arg0)
+bool java_lang_Float::isNaN(float const& arg0)
 {
-	LOGV("bool java_lang_Float::isNaN(float& arg0) enter");
+	LOGV("bool java_lang_Float::isNaN(float const& arg0) enter");
 
 	const char *methodName = "isNaN";
 	const char *methodSignature = "(F)Z";
@@ -1482,8 +1388,6 @@ bool java_lang_Float::isNaN(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
@@ -1512,7 +1416,7 @@ bool java_lang_Float::isNaN(float& arg0)
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jboolean jni_result = (jboolean) jni->invokeStaticBooleanMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
 	{
@@ -1533,9 +1437,7 @@ bool java_lang_Float::isNaN(float& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_lang_Float::isNaN(float& arg0) exit");
+	LOGV("bool java_lang_Float::isNaN(float const& arg0) exit");
 
 	return result;
 }
@@ -1551,8 +1453,6 @@ bool java_lang_Float::isNaN()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
@@ -1581,15 +1481,13 @@ bool java_lang_Float::isNaN()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_lang_Float::isNaN() exit");
 
 	return result;
 }
-float java_lang_Float::parseFloat(AndroidCXX::java_lang_String& arg0)
+float java_lang_Float::parseFloat(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("float java_lang_Float::parseFloat(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("float java_lang_Float::parseFloat(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "parseFloat";
 	const char *methodSignature = "(Ljava/lang/String;)F";
@@ -1599,8 +1497,6 @@ float java_lang_Float::parseFloat(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
@@ -1629,7 +1525,7 @@ float java_lang_Float::parseFloat(AndroidCXX::java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jfloat jni_result = (jfloat) jni->invokeStaticFloatMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
 	{
@@ -1650,9 +1546,7 @@ float java_lang_Float::parseFloat(AndroidCXX::java_lang_String& arg0)
 	float result = (float) *((float *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("float java_lang_Float::parseFloat(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("float java_lang_Float::parseFloat(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
@@ -1668,8 +1562,6 @@ bool java_lang_Float::isInfinite()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
@@ -1698,15 +1590,13 @@ bool java_lang_Float::isInfinite()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_lang_Float::isInfinite() exit");
 
 	return result;
 }
-bool java_lang_Float::isInfinite(float& arg0)
+bool java_lang_Float::isInfinite(float const& arg0)
 {
-	LOGV("bool java_lang_Float::isInfinite(float& arg0) enter");
+	LOGV("bool java_lang_Float::isInfinite(float const& arg0) enter");
 
 	const char *methodName = "isInfinite";
 	const char *methodSignature = "(F)Z";
@@ -1716,8 +1606,6 @@ bool java_lang_Float::isInfinite(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Float cxx address %d", cxxAddress);
@@ -1746,7 +1634,7 @@ bool java_lang_Float::isInfinite(float& arg0)
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jboolean jni_result = (jboolean) jni->invokeStaticBooleanMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
 	{
@@ -1767,9 +1655,7 @@ bool java_lang_Float::isInfinite(float& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_lang_Float::isInfinite(float& arg0) exit");
+	LOGV("bool java_lang_Float::isInfinite(float const& arg0) exit");
 
 	return result;
 }

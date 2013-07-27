@@ -194,7 +194,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(const android_widget_AutoCompleteTextView& cc)
 {
 	LOGV("android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(const android_widget_AutoCompleteTextView& cc) enter");
@@ -218,9 +217,9 @@ android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(const a
 
 	LOGV("android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(const android_widget_AutoCompleteTextView& cc) exit");
 }
-android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(void * proxy)
+android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(Proxy proxy)
 {
-	LOGV("android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(void * proxy) enter");
+	LOGV("android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -230,55 +229,34 @@ android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(void * 
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(void * proxy) exit");
+	LOGV("android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView()
-// {
-// 	LOGV("android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView() enter");	
+Proxy android_widget_AutoCompleteTextView::proxy() const
+{	
+	LOGV("android_widget_AutoCompleteTextView::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/AutoCompleteTextView";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_AutoCompleteTextView jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_AutoCompleteTextView::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_AutoCompleteTextView jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView() exit");	
-// }
-// 
-// 
-// Public Constructors
-android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context& arg0)
+	return proxy;
+}
+android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -331,11 +309,11 @@ android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(Android
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context const& arg0) exit");	
 }
-android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
+android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2)
 {
-	LOGV("android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) enter");	
+	LOGV("android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
@@ -430,11 +408,11 @@ android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(Android
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) exit");	
+	LOGV("android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) exit");	
 }
-android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -508,7 +486,7 @@ android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(Android
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
 // Default Instance Destructor
 android_widget_AutoCompleteTextView::~android_widget_AutoCompleteTextView()
@@ -521,13 +499,13 @@ android_widget_AutoCompleteTextView::~android_widget_AutoCompleteTextView()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_AutoCompleteTextView::~android_widget_AutoCompleteTextView() exit");
 }
 // Functions
-void android_widget_AutoCompleteTextView::setThreshold(int& arg0)
+void android_widget_AutoCompleteTextView::setThreshold(int const& arg0)
 {
-	LOGV("void android_widget_AutoCompleteTextView::setThreshold(int& arg0) enter");
+	LOGV("void android_widget_AutoCompleteTextView::setThreshold(int const& arg0) enter");
 
 	const char *methodName = "setThreshold";
 	const char *methodSignature = "(I)V";
@@ -537,8 +515,6 @@ void android_widget_AutoCompleteTextView::setThreshold(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -569,14 +545,12 @@ void android_widget_AutoCompleteTextView::setThreshold(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_AutoCompleteTextView::setThreshold(int& arg0) exit");
+	LOGV("void android_widget_AutoCompleteTextView::setThreshold(int const& arg0) exit");
 
 }
-void android_widget_AutoCompleteTextView::setText(AndroidCXX::java_lang_CharSequence& arg0,bool& arg1)
+void android_widget_AutoCompleteTextView::setText(AndroidCXX::java_lang_CharSequence const& arg0,bool const& arg1)
 {
-	LOGV("void android_widget_AutoCompleteTextView::setText(AndroidCXX::java_lang_CharSequence& arg0,bool& arg1) enter");
+	LOGV("void android_widget_AutoCompleteTextView::setText(AndroidCXX::java_lang_CharSequence const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "setText";
 	const char *methodSignature = "(Ljava/lang/CharSequence;Z)V";
@@ -586,8 +560,6 @@ void android_widget_AutoCompleteTextView::setText(AndroidCXX::java_lang_CharSequ
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -639,14 +611,12 @@ void android_widget_AutoCompleteTextView::setText(AndroidCXX::java_lang_CharSequ
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_AutoCompleteTextView::setText(AndroidCXX::java_lang_CharSequence& arg0,bool& arg1) exit");
+	LOGV("void android_widget_AutoCompleteTextView::setText(AndroidCXX::java_lang_CharSequence const& arg0,bool const& arg1) exit");
 
 }
-bool android_widget_AutoCompleteTextView::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1)
+bool android_widget_AutoCompleteTextView::onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1)
 {
-	LOGV("bool android_widget_AutoCompleteTextView::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) enter");
+	LOGV("bool android_widget_AutoCompleteTextView::onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) enter");
 
 	const char *methodName = "onKeyDown";
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
@@ -657,8 +627,6 @@ bool android_widget_AutoCompleteTextView::onKeyDown(int& arg0,AndroidCXX::androi
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -728,15 +696,13 @@ bool android_widget_AutoCompleteTextView::onKeyDown(int& arg0,AndroidCXX::androi
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_AutoCompleteTextView::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) exit");
+	LOGV("bool android_widget_AutoCompleteTextView::onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) exit");
 
 	return result;
 }
-bool android_widget_AutoCompleteTextView::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1)
+bool android_widget_AutoCompleteTextView::onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1)
 {
-	LOGV("bool android_widget_AutoCompleteTextView::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) enter");
+	LOGV("bool android_widget_AutoCompleteTextView::onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) enter");
 
 	const char *methodName = "onKeyUp";
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
@@ -747,8 +713,6 @@ bool android_widget_AutoCompleteTextView::onKeyUp(int& arg0,AndroidCXX::android_
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -818,15 +782,13 @@ bool android_widget_AutoCompleteTextView::onKeyUp(int& arg0,AndroidCXX::android_
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_AutoCompleteTextView::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) exit");
+	LOGV("bool android_widget_AutoCompleteTextView::onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) exit");
 
 	return result;
 }
-void android_widget_AutoCompleteTextView::onWindowFocusChanged(bool& arg0)
+void android_widget_AutoCompleteTextView::onWindowFocusChanged(bool const& arg0)
 {
-	LOGV("void android_widget_AutoCompleteTextView::onWindowFocusChanged(bool& arg0) enter");
+	LOGV("void android_widget_AutoCompleteTextView::onWindowFocusChanged(bool const& arg0) enter");
 
 	const char *methodName = "onWindowFocusChanged";
 	const char *methodSignature = "(Z)V";
@@ -836,8 +798,6 @@ void android_widget_AutoCompleteTextView::onWindowFocusChanged(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -868,14 +828,12 @@ void android_widget_AutoCompleteTextView::onWindowFocusChanged(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_AutoCompleteTextView::onWindowFocusChanged(bool& arg0) exit");
+	LOGV("void android_widget_AutoCompleteTextView::onWindowFocusChanged(bool const& arg0) exit");
 
 }
-void android_widget_AutoCompleteTextView::setOnClickListener(AndroidCXX::android_view_View_OnClickListener& arg0)
+void android_widget_AutoCompleteTextView::setOnClickListener(AndroidCXX::android_view_View_OnClickListener const& arg0)
 {
-	LOGV("void android_widget_AutoCompleteTextView::setOnClickListener(AndroidCXX::android_view_View_OnClickListener& arg0) enter");
+	LOGV("void android_widget_AutoCompleteTextView::setOnClickListener(AndroidCXX::android_view_View_OnClickListener const& arg0) enter");
 
 	const char *methodName = "setOnClickListener";
 	const char *methodSignature = "(Landroid/view/View$OnClickListener;)V";
@@ -885,8 +843,6 @@ void android_widget_AutoCompleteTextView::setOnClickListener(AndroidCXX::android
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -917,14 +873,12 @@ void android_widget_AutoCompleteTextView::setOnClickListener(AndroidCXX::android
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_AutoCompleteTextView::setOnClickListener(AndroidCXX::android_view_View_OnClickListener& arg0) exit");
+	LOGV("void android_widget_AutoCompleteTextView::setOnClickListener(AndroidCXX::android_view_View_OnClickListener const& arg0) exit");
 
 }
-bool android_widget_AutoCompleteTextView::onKeyPreIme(int& arg0,AndroidCXX::android_view_KeyEvent& arg1)
+bool android_widget_AutoCompleteTextView::onKeyPreIme(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1)
 {
-	LOGV("bool android_widget_AutoCompleteTextView::onKeyPreIme(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) enter");
+	LOGV("bool android_widget_AutoCompleteTextView::onKeyPreIme(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) enter");
 
 	const char *methodName = "onKeyPreIme";
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
@@ -934,8 +888,6 @@ bool android_widget_AutoCompleteTextView::onKeyPreIme(int& arg0,AndroidCXX::andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -1006,15 +958,13 @@ bool android_widget_AutoCompleteTextView::onKeyPreIme(int& arg0,AndroidCXX::andr
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_AutoCompleteTextView::onKeyPreIme(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) exit");
+	LOGV("bool android_widget_AutoCompleteTextView::onKeyPreIme(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) exit");
 
 	return result;
 }
-void android_widget_AutoCompleteTextView::setOnDismissListener(AndroidCXX::android_widget_AutoCompleteTextView_OnDismissListener& arg0)
+void android_widget_AutoCompleteTextView::setOnDismissListener(AndroidCXX::android_widget_AutoCompleteTextView_OnDismissListener const& arg0)
 {
-	LOGV("void android_widget_AutoCompleteTextView::setOnDismissListener(AndroidCXX::android_widget_AutoCompleteTextView_OnDismissListener& arg0) enter");
+	LOGV("void android_widget_AutoCompleteTextView::setOnDismissListener(AndroidCXX::android_widget_AutoCompleteTextView_OnDismissListener const& arg0) enter");
 
 	const char *methodName = "setOnDismissListener";
 	const char *methodSignature = "(Landroid/widget/AutoCompleteTextView$OnDismissListener;)V";
@@ -1024,8 +974,6 @@ void android_widget_AutoCompleteTextView::setOnDismissListener(AndroidCXX::andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -1056,14 +1004,12 @@ void android_widget_AutoCompleteTextView::setOnDismissListener(AndroidCXX::andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_AutoCompleteTextView::setOnDismissListener(AndroidCXX::android_widget_AutoCompleteTextView_OnDismissListener& arg0) exit");
+	LOGV("void android_widget_AutoCompleteTextView::setOnDismissListener(AndroidCXX::android_widget_AutoCompleteTextView_OnDismissListener const& arg0) exit");
 
 }
-void android_widget_AutoCompleteTextView::setAdapter(AndroidCXX::android_widget_ListAdapter& arg0)
+void android_widget_AutoCompleteTextView::setAdapter(AndroidCXX::android_widget_ListAdapter const& arg0)
 {
-	LOGV("void android_widget_AutoCompleteTextView::setAdapter(AndroidCXX::android_widget_ListAdapter& arg0) enter");
+	LOGV("void android_widget_AutoCompleteTextView::setAdapter(AndroidCXX::android_widget_ListAdapter const& arg0) enter");
 
 	const char *methodName = "setAdapter";
 	const char *methodSignature = "(Landroid/widget/ListAdapter;)V";
@@ -1073,8 +1019,6 @@ void android_widget_AutoCompleteTextView::setAdapter(AndroidCXX::android_widget_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -1105,14 +1049,12 @@ void android_widget_AutoCompleteTextView::setAdapter(AndroidCXX::android_widget_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_AutoCompleteTextView::setAdapter(AndroidCXX::android_widget_ListAdapter& arg0) exit");
+	LOGV("void android_widget_AutoCompleteTextView::setAdapter(AndroidCXX::android_widget_ListAdapter const& arg0) exit");
 
 }
-void android_widget_AutoCompleteTextView::onFilterComplete(int& arg0)
+void android_widget_AutoCompleteTextView::onFilterComplete(int const& arg0)
 {
-	LOGV("void android_widget_AutoCompleteTextView::onFilterComplete(int& arg0) enter");
+	LOGV("void android_widget_AutoCompleteTextView::onFilterComplete(int const& arg0) enter");
 
 	const char *methodName = "onFilterComplete";
 	const char *methodSignature = "(I)V";
@@ -1122,8 +1064,6 @@ void android_widget_AutoCompleteTextView::onFilterComplete(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -1154,14 +1094,12 @@ void android_widget_AutoCompleteTextView::onFilterComplete(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_AutoCompleteTextView::onFilterComplete(int& arg0) exit");
+	LOGV("void android_widget_AutoCompleteTextView::onFilterComplete(int const& arg0) exit");
 
 }
-void android_widget_AutoCompleteTextView::setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener& arg0)
+void android_widget_AutoCompleteTextView::setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener const& arg0)
 {
-	LOGV("void android_widget_AutoCompleteTextView::setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener& arg0) enter");
+	LOGV("void android_widget_AutoCompleteTextView::setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener const& arg0) enter");
 
 	const char *methodName = "setOnItemClickListener";
 	const char *methodSignature = "(Landroid/widget/AdapterView$OnItemClickListener;)V";
@@ -1171,8 +1109,6 @@ void android_widget_AutoCompleteTextView::setOnItemClickListener(AndroidCXX::and
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -1203,9 +1139,7 @@ void android_widget_AutoCompleteTextView::setOnItemClickListener(AndroidCXX::and
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_AutoCompleteTextView::setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener& arg0) exit");
+	LOGV("void android_widget_AutoCompleteTextView::setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener const& arg0) exit");
 
 }
 AndroidCXX::android_widget_AdapterView_OnItemClickListener android_widget_AutoCompleteTextView::getOnItemClickListener()
@@ -1220,8 +1154,6 @@ AndroidCXX::android_widget_AdapterView_OnItemClickListener android_widget_AutoCo
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -1250,15 +1182,13 @@ AndroidCXX::android_widget_AdapterView_OnItemClickListener android_widget_AutoCo
 	AndroidCXX::android_widget_AdapterView_OnItemClickListener result((AndroidCXX::android_widget_AdapterView_OnItemClickListener) *((AndroidCXX::android_widget_AdapterView_OnItemClickListener *) cxx_value));
 	delete ((AndroidCXX::android_widget_AdapterView_OnItemClickListener *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_widget_AdapterView_OnItemClickListener android_widget_AutoCompleteTextView::getOnItemClickListener() exit");
 
 	return result;
 }
-void android_widget_AutoCompleteTextView::setOnItemSelectedListener(AndroidCXX::android_widget_AdapterView_OnItemSelectedListener& arg0)
+void android_widget_AutoCompleteTextView::setOnItemSelectedListener(AndroidCXX::android_widget_AdapterView_OnItemSelectedListener const& arg0)
 {
-	LOGV("void android_widget_AutoCompleteTextView::setOnItemSelectedListener(AndroidCXX::android_widget_AdapterView_OnItemSelectedListener& arg0) enter");
+	LOGV("void android_widget_AutoCompleteTextView::setOnItemSelectedListener(AndroidCXX::android_widget_AdapterView_OnItemSelectedListener const& arg0) enter");
 
 	const char *methodName = "setOnItemSelectedListener";
 	const char *methodSignature = "(Landroid/widget/AdapterView$OnItemSelectedListener;)V";
@@ -1268,8 +1198,6 @@ void android_widget_AutoCompleteTextView::setOnItemSelectedListener(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -1300,9 +1228,7 @@ void android_widget_AutoCompleteTextView::setOnItemSelectedListener(AndroidCXX::
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_AutoCompleteTextView::setOnItemSelectedListener(AndroidCXX::android_widget_AdapterView_OnItemSelectedListener& arg0) exit");
+	LOGV("void android_widget_AutoCompleteTextView::setOnItemSelectedListener(AndroidCXX::android_widget_AdapterView_OnItemSelectedListener const& arg0) exit");
 
 }
 AndroidCXX::android_widget_AdapterView_OnItemSelectedListener android_widget_AutoCompleteTextView::getOnItemSelectedListener()
@@ -1317,8 +1243,6 @@ AndroidCXX::android_widget_AdapterView_OnItemSelectedListener android_widget_Aut
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -1347,8 +1271,6 @@ AndroidCXX::android_widget_AdapterView_OnItemSelectedListener android_widget_Aut
 	AndroidCXX::android_widget_AdapterView_OnItemSelectedListener result((AndroidCXX::android_widget_AdapterView_OnItemSelectedListener) *((AndroidCXX::android_widget_AdapterView_OnItemSelectedListener *) cxx_value));
 	delete ((AndroidCXX::android_widget_AdapterView_OnItemSelectedListener *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_widget_AdapterView_OnItemSelectedListener android_widget_AutoCompleteTextView::getOnItemSelectedListener() exit");
 
 	return result;
@@ -1365,8 +1287,6 @@ AndroidCXX::android_widget_ListAdapter android_widget_AutoCompleteTextView::getA
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -1395,15 +1315,13 @@ AndroidCXX::android_widget_ListAdapter android_widget_AutoCompleteTextView::getA
 	AndroidCXX::android_widget_ListAdapter result((AndroidCXX::android_widget_ListAdapter) *((AndroidCXX::android_widget_ListAdapter *) cxx_value));
 	delete ((AndroidCXX::android_widget_ListAdapter *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_widget_ListAdapter android_widget_AutoCompleteTextView::getAdapter() exit");
 
 	return result;
 }
-void android_widget_AutoCompleteTextView::onCommitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo& arg0)
+void android_widget_AutoCompleteTextView::onCommitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo const& arg0)
 {
-	LOGV("void android_widget_AutoCompleteTextView::onCommitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo& arg0) enter");
+	LOGV("void android_widget_AutoCompleteTextView::onCommitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo const& arg0) enter");
 
 	const char *methodName = "onCommitCompletion";
 	const char *methodSignature = "(Landroid/view/inputmethod/CompletionInfo;)V";
@@ -1413,8 +1331,6 @@ void android_widget_AutoCompleteTextView::onCommitCompletion(AndroidCXX::android
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -1445,14 +1361,12 @@ void android_widget_AutoCompleteTextView::onCommitCompletion(AndroidCXX::android
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_AutoCompleteTextView::onCommitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo& arg0) exit");
+	LOGV("void android_widget_AutoCompleteTextView::onCommitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo const& arg0) exit");
 
 }
-void android_widget_AutoCompleteTextView::setCompletionHint(AndroidCXX::java_lang_CharSequence& arg0)
+void android_widget_AutoCompleteTextView::setCompletionHint(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_widget_AutoCompleteTextView::setCompletionHint(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_widget_AutoCompleteTextView::setCompletionHint(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setCompletionHint";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -1462,8 +1376,6 @@ void android_widget_AutoCompleteTextView::setCompletionHint(AndroidCXX::java_lan
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -1494,9 +1406,7 @@ void android_widget_AutoCompleteTextView::setCompletionHint(AndroidCXX::java_lan
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_AutoCompleteTextView::setCompletionHint(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_widget_AutoCompleteTextView::setCompletionHint(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }
 AndroidCXX::java_lang_CharSequence android_widget_AutoCompleteTextView::getCompletionHint()
@@ -1511,8 +1421,6 @@ AndroidCXX::java_lang_CharSequence android_widget_AutoCompleteTextView::getCompl
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -1541,8 +1449,6 @@ AndroidCXX::java_lang_CharSequence android_widget_AutoCompleteTextView::getCompl
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_widget_AutoCompleteTextView::getCompletionHint() exit");
 
 	return result;
@@ -1560,8 +1466,6 @@ int android_widget_AutoCompleteTextView::getDropDownWidth()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1589,15 +1493,13 @@ int android_widget_AutoCompleteTextView::getDropDownWidth()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_AutoCompleteTextView::getDropDownWidth() exit");
 
 	return result;
 }
-void android_widget_AutoCompleteTextView::setDropDownWidth(int& arg0)
+void android_widget_AutoCompleteTextView::setDropDownWidth(int const& arg0)
 {
-	LOGV("void android_widget_AutoCompleteTextView::setDropDownWidth(int& arg0) enter");
+	LOGV("void android_widget_AutoCompleteTextView::setDropDownWidth(int const& arg0) enter");
 
 	const char *methodName = "setDropDownWidth";
 	const char *methodSignature = "(I)V";
@@ -1607,8 +1509,6 @@ void android_widget_AutoCompleteTextView::setDropDownWidth(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -1639,9 +1539,7 @@ void android_widget_AutoCompleteTextView::setDropDownWidth(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_AutoCompleteTextView::setDropDownWidth(int& arg0) exit");
+	LOGV("void android_widget_AutoCompleteTextView::setDropDownWidth(int const& arg0) exit");
 
 }
 int android_widget_AutoCompleteTextView::getDropDownHeight()
@@ -1657,8 +1555,6 @@ int android_widget_AutoCompleteTextView::getDropDownHeight()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1686,15 +1582,13 @@ int android_widget_AutoCompleteTextView::getDropDownHeight()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_AutoCompleteTextView::getDropDownHeight() exit");
 
 	return result;
 }
-void android_widget_AutoCompleteTextView::setDropDownHeight(int& arg0)
+void android_widget_AutoCompleteTextView::setDropDownHeight(int const& arg0)
 {
-	LOGV("void android_widget_AutoCompleteTextView::setDropDownHeight(int& arg0) enter");
+	LOGV("void android_widget_AutoCompleteTextView::setDropDownHeight(int const& arg0) enter");
 
 	const char *methodName = "setDropDownHeight";
 	const char *methodSignature = "(I)V";
@@ -1704,8 +1598,6 @@ void android_widget_AutoCompleteTextView::setDropDownHeight(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -1736,9 +1628,7 @@ void android_widget_AutoCompleteTextView::setDropDownHeight(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_AutoCompleteTextView::setDropDownHeight(int& arg0) exit");
+	LOGV("void android_widget_AutoCompleteTextView::setDropDownHeight(int const& arg0) exit");
 
 }
 int android_widget_AutoCompleteTextView::getDropDownAnchor()
@@ -1754,8 +1644,6 @@ int android_widget_AutoCompleteTextView::getDropDownAnchor()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1783,15 +1671,13 @@ int android_widget_AutoCompleteTextView::getDropDownAnchor()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_AutoCompleteTextView::getDropDownAnchor() exit");
 
 	return result;
 }
-void android_widget_AutoCompleteTextView::setDropDownAnchor(int& arg0)
+void android_widget_AutoCompleteTextView::setDropDownAnchor(int const& arg0)
 {
-	LOGV("void android_widget_AutoCompleteTextView::setDropDownAnchor(int& arg0) enter");
+	LOGV("void android_widget_AutoCompleteTextView::setDropDownAnchor(int const& arg0) enter");
 
 	const char *methodName = "setDropDownAnchor";
 	const char *methodSignature = "(I)V";
@@ -1801,8 +1687,6 @@ void android_widget_AutoCompleteTextView::setDropDownAnchor(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -1833,9 +1717,7 @@ void android_widget_AutoCompleteTextView::setDropDownAnchor(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_AutoCompleteTextView::setDropDownAnchor(int& arg0) exit");
+	LOGV("void android_widget_AutoCompleteTextView::setDropDownAnchor(int const& arg0) exit");
 
 }
 AndroidCXX::android_graphics_drawable_Drawable android_widget_AutoCompleteTextView::getDropDownBackground()
@@ -1850,8 +1732,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_AutoCompleteTextVi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -1880,15 +1760,13 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_AutoCompleteTextVi
 	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
 	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_widget_AutoCompleteTextView::getDropDownBackground() exit");
 
 	return result;
 }
-void android_widget_AutoCompleteTextView::setDropDownBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0)
+void android_widget_AutoCompleteTextView::setDropDownBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0)
 {
-	LOGV("void android_widget_AutoCompleteTextView::setDropDownBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0) enter");
+	LOGV("void android_widget_AutoCompleteTextView::setDropDownBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) enter");
 
 	const char *methodName = "setDropDownBackgroundDrawable";
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
@@ -1898,8 +1776,6 @@ void android_widget_AutoCompleteTextView::setDropDownBackgroundDrawable(AndroidC
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -1930,14 +1806,12 @@ void android_widget_AutoCompleteTextView::setDropDownBackgroundDrawable(AndroidC
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_AutoCompleteTextView::setDropDownBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0) exit");
+	LOGV("void android_widget_AutoCompleteTextView::setDropDownBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) exit");
 
 }
-void android_widget_AutoCompleteTextView::setDropDownBackgroundResource(int& arg0)
+void android_widget_AutoCompleteTextView::setDropDownBackgroundResource(int const& arg0)
 {
-	LOGV("void android_widget_AutoCompleteTextView::setDropDownBackgroundResource(int& arg0) enter");
+	LOGV("void android_widget_AutoCompleteTextView::setDropDownBackgroundResource(int const& arg0) enter");
 
 	const char *methodName = "setDropDownBackgroundResource";
 	const char *methodSignature = "(I)V";
@@ -1948,8 +1822,6 @@ void android_widget_AutoCompleteTextView::setDropDownBackgroundResource(int& arg
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1979,14 +1851,12 @@ void android_widget_AutoCompleteTextView::setDropDownBackgroundResource(int& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_AutoCompleteTextView::setDropDownBackgroundResource(int& arg0) exit");
+	LOGV("void android_widget_AutoCompleteTextView::setDropDownBackgroundResource(int const& arg0) exit");
 
 }
-void android_widget_AutoCompleteTextView::setDropDownVerticalOffset(int& arg0)
+void android_widget_AutoCompleteTextView::setDropDownVerticalOffset(int const& arg0)
 {
-	LOGV("void android_widget_AutoCompleteTextView::setDropDownVerticalOffset(int& arg0) enter");
+	LOGV("void android_widget_AutoCompleteTextView::setDropDownVerticalOffset(int const& arg0) enter");
 
 	const char *methodName = "setDropDownVerticalOffset";
 	const char *methodSignature = "(I)V";
@@ -1997,8 +1867,6 @@ void android_widget_AutoCompleteTextView::setDropDownVerticalOffset(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2028,9 +1896,7 @@ void android_widget_AutoCompleteTextView::setDropDownVerticalOffset(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_AutoCompleteTextView::setDropDownVerticalOffset(int& arg0) exit");
+	LOGV("void android_widget_AutoCompleteTextView::setDropDownVerticalOffset(int const& arg0) exit");
 
 }
 int android_widget_AutoCompleteTextView::getDropDownVerticalOffset()
@@ -2046,8 +1912,6 @@ int android_widget_AutoCompleteTextView::getDropDownVerticalOffset()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2075,15 +1939,13 @@ int android_widget_AutoCompleteTextView::getDropDownVerticalOffset()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_AutoCompleteTextView::getDropDownVerticalOffset() exit");
 
 	return result;
 }
-void android_widget_AutoCompleteTextView::setDropDownHorizontalOffset(int& arg0)
+void android_widget_AutoCompleteTextView::setDropDownHorizontalOffset(int const& arg0)
 {
-	LOGV("void android_widget_AutoCompleteTextView::setDropDownHorizontalOffset(int& arg0) enter");
+	LOGV("void android_widget_AutoCompleteTextView::setDropDownHorizontalOffset(int const& arg0) enter");
 
 	const char *methodName = "setDropDownHorizontalOffset";
 	const char *methodSignature = "(I)V";
@@ -2093,8 +1955,6 @@ void android_widget_AutoCompleteTextView::setDropDownHorizontalOffset(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -2125,9 +1985,7 @@ void android_widget_AutoCompleteTextView::setDropDownHorizontalOffset(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_AutoCompleteTextView::setDropDownHorizontalOffset(int& arg0) exit");
+	LOGV("void android_widget_AutoCompleteTextView::setDropDownHorizontalOffset(int const& arg0) exit");
 
 }
 int android_widget_AutoCompleteTextView::getDropDownHorizontalOffset()
@@ -2142,8 +2000,6 @@ int android_widget_AutoCompleteTextView::getDropDownHorizontalOffset()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -2172,8 +2028,6 @@ int android_widget_AutoCompleteTextView::getDropDownHorizontalOffset()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_AutoCompleteTextView::getDropDownHorizontalOffset() exit");
 
 	return result;
@@ -2191,8 +2045,6 @@ int android_widget_AutoCompleteTextView::getThreshold()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2220,8 +2072,6 @@ int android_widget_AutoCompleteTextView::getThreshold()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_AutoCompleteTextView::getThreshold() exit");
 
 	return result;
@@ -2238,8 +2088,6 @@ AndroidCXX::android_widget_AdapterView_OnItemClickListener android_widget_AutoCo
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -2268,8 +2116,6 @@ AndroidCXX::android_widget_AdapterView_OnItemClickListener android_widget_AutoCo
 	AndroidCXX::android_widget_AdapterView_OnItemClickListener result((AndroidCXX::android_widget_AdapterView_OnItemClickListener) *((AndroidCXX::android_widget_AdapterView_OnItemClickListener *) cxx_value));
 	delete ((AndroidCXX::android_widget_AdapterView_OnItemClickListener *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_widget_AdapterView_OnItemClickListener android_widget_AutoCompleteTextView::getItemClickListener() exit");
 
 	return result;
@@ -2286,8 +2132,6 @@ AndroidCXX::android_widget_AdapterView_OnItemSelectedListener android_widget_Aut
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -2316,8 +2160,6 @@ AndroidCXX::android_widget_AdapterView_OnItemSelectedListener android_widget_Aut
 	AndroidCXX::android_widget_AdapterView_OnItemSelectedListener result((AndroidCXX::android_widget_AdapterView_OnItemSelectedListener) *((AndroidCXX::android_widget_AdapterView_OnItemSelectedListener *) cxx_value));
 	delete ((AndroidCXX::android_widget_AdapterView_OnItemSelectedListener *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_widget_AdapterView_OnItemSelectedListener android_widget_AutoCompleteTextView::getItemSelectedListener() exit");
 
 	return result;
@@ -2335,8 +2177,6 @@ bool android_widget_AutoCompleteTextView::enoughToFilter()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2364,8 +2204,6 @@ bool android_widget_AutoCompleteTextView::enoughToFilter()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_AutoCompleteTextView::enoughToFilter() exit");
 
 	return result;
@@ -2383,8 +2221,6 @@ bool android_widget_AutoCompleteTextView::isPopupShowing()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2412,8 +2248,6 @@ bool android_widget_AutoCompleteTextView::isPopupShowing()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_AutoCompleteTextView::isPopupShowing() exit");
 
 	return result;
@@ -2431,8 +2265,6 @@ void android_widget_AutoCompleteTextView::clearListSelection()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2441,14 +2273,12 @@ void android_widget_AutoCompleteTextView::clearListSelection()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_AutoCompleteTextView::clearListSelection() exit");
 
 }
-void android_widget_AutoCompleteTextView::setListSelection(int& arg0)
+void android_widget_AutoCompleteTextView::setListSelection(int const& arg0)
 {
-	LOGV("void android_widget_AutoCompleteTextView::setListSelection(int& arg0) enter");
+	LOGV("void android_widget_AutoCompleteTextView::setListSelection(int const& arg0) enter");
 
 	const char *methodName = "setListSelection";
 	const char *methodSignature = "(I)V";
@@ -2458,8 +2288,6 @@ void android_widget_AutoCompleteTextView::setListSelection(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -2490,9 +2318,7 @@ void android_widget_AutoCompleteTextView::setListSelection(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_AutoCompleteTextView::setListSelection(int& arg0) exit");
+	LOGV("void android_widget_AutoCompleteTextView::setListSelection(int const& arg0) exit");
 
 }
 int android_widget_AutoCompleteTextView::getListSelection()
@@ -2507,8 +2333,6 @@ int android_widget_AutoCompleteTextView::getListSelection()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -2537,8 +2361,6 @@ int android_widget_AutoCompleteTextView::getListSelection()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_widget_AutoCompleteTextView::getListSelection() exit");
 
 	return result;
@@ -2556,8 +2378,6 @@ void android_widget_AutoCompleteTextView::performCompletion()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2566,8 +2386,6 @@ void android_widget_AutoCompleteTextView::performCompletion()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_AutoCompleteTextView::performCompletion() exit");
 
 }
@@ -2583,8 +2401,6 @@ bool android_widget_AutoCompleteTextView::isPerformingCompletion()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -2613,8 +2429,6 @@ bool android_widget_AutoCompleteTextView::isPerformingCompletion()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_widget_AutoCompleteTextView::isPerformingCompletion() exit");
 
 	return result;
@@ -2632,8 +2446,6 @@ void android_widget_AutoCompleteTextView::dismissDropDown()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2642,8 +2454,6 @@ void android_widget_AutoCompleteTextView::dismissDropDown()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_AutoCompleteTextView::dismissDropDown() exit");
 
 }
@@ -2660,8 +2470,6 @@ void android_widget_AutoCompleteTextView::showDropDown()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2670,14 +2478,12 @@ void android_widget_AutoCompleteTextView::showDropDown()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_AutoCompleteTextView::showDropDown() exit");
 
 }
-void android_widget_AutoCompleteTextView::setValidator(AndroidCXX::android_widget_AutoCompleteTextView_Validator& arg0)
+void android_widget_AutoCompleteTextView::setValidator(AndroidCXX::android_widget_AutoCompleteTextView_Validator const& arg0)
 {
-	LOGV("void android_widget_AutoCompleteTextView::setValidator(AndroidCXX::android_widget_AutoCompleteTextView_Validator& arg0) enter");
+	LOGV("void android_widget_AutoCompleteTextView::setValidator(AndroidCXX::android_widget_AutoCompleteTextView_Validator const& arg0) enter");
 
 	const char *methodName = "setValidator";
 	const char *methodSignature = "(Landroid/widget/AutoCompleteTextView$Validator;)V";
@@ -2687,8 +2493,6 @@ void android_widget_AutoCompleteTextView::setValidator(AndroidCXX::android_widge
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -2719,9 +2523,7 @@ void android_widget_AutoCompleteTextView::setValidator(AndroidCXX::android_widge
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_AutoCompleteTextView::setValidator(AndroidCXX::android_widget_AutoCompleteTextView_Validator& arg0) exit");
+	LOGV("void android_widget_AutoCompleteTextView::setValidator(AndroidCXX::android_widget_AutoCompleteTextView_Validator const& arg0) exit");
 
 }
 AndroidCXX::android_widget_AutoCompleteTextView_Validator android_widget_AutoCompleteTextView::getValidator()
@@ -2736,8 +2538,6 @@ AndroidCXX::android_widget_AutoCompleteTextView_Validator android_widget_AutoCom
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
@@ -2766,8 +2566,6 @@ AndroidCXX::android_widget_AutoCompleteTextView_Validator android_widget_AutoCom
 	AndroidCXX::android_widget_AutoCompleteTextView_Validator result((AndroidCXX::android_widget_AutoCompleteTextView_Validator) *((AndroidCXX::android_widget_AutoCompleteTextView_Validator *) cxx_value));
 	delete ((AndroidCXX::android_widget_AutoCompleteTextView_Validator *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_widget_AutoCompleteTextView_Validator android_widget_AutoCompleteTextView::getValidator() exit");
 
 	return result;
@@ -2785,8 +2583,6 @@ void android_widget_AutoCompleteTextView::performValidation()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AutoCompleteTextView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2795,8 +2591,6 @@ void android_widget_AutoCompleteTextView::performValidation()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_AutoCompleteTextView::performValidation() exit");
 
 }

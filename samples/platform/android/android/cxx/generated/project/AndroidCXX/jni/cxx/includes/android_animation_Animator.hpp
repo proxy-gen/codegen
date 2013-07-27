@@ -92,11 +92,10 @@ class android_animation_Animator
 public:
 
 	android_animation_Animator(const android_animation_Animator& cc);
-	android_animation_Animator(void * proxy);
+	android_animation_Animator(Proxy proxy);
 	// Public Constructors
 	android_animation_Animator();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_animation_Animator();
 	// Functions
@@ -104,16 +103,16 @@ public:
 	 void start();
 	 void end();
 	 void cancel();
-	 void setInterpolator(AndroidCXX::android_animation_TimeInterpolator& arg0);
-	 AndroidCXX::android_animation_Animator setDuration(long& arg0);
+	 void setInterpolator(AndroidCXX::android_animation_TimeInterpolator const& arg0);
+	 AndroidCXX::android_animation_Animator setDuration(long const& arg0);
 	 long getDuration();
-	 void setTarget(AndroidCXX::java_lang_Object& arg0);
+	 void setTarget(AndroidCXX::java_lang_Object const& arg0);
 	 long getStartDelay();
-	 void setStartDelay(long& arg0);
+	 void setStartDelay(long const& arg0);
 	 bool isRunning();
 	 bool isStarted();
-	 void addListener(AndroidCXX::android_animation_Animator_AnimatorListener& arg0);
-	 void removeListener(AndroidCXX::android_animation_Animator_AnimatorListener& arg0);
+	 void addListener(AndroidCXX::android_animation_Animator_AnimatorListener const& arg0);
+	 void removeListener(AndroidCXX::android_animation_Animator_AnimatorListener const& arg0);
 	 AndroidCXX::java_util_ArrayList getListeners();
 	 void removeAllListeners();
 	 void setupStartValues();

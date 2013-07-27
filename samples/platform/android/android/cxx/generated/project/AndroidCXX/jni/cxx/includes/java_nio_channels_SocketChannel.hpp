@@ -89,24 +89,21 @@ class java_nio_channels_SocketChannel
 public:
 
 	java_nio_channels_SocketChannel(const java_nio_channels_SocketChannel& cc);
-	java_nio_channels_SocketChannel(void * proxy);
+	java_nio_channels_SocketChannel(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_nio_channels_SocketChannel();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_SocketChannel();
 	// Functions
-	 long write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0);
-	 int write(AndroidCXX::java_nio_ByteBuffer& arg0);
-	 long write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2);
-	 long read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2);
-	 long read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0);
-	 int read(AndroidCXX::java_nio_ByteBuffer& arg0);
-	static AndroidCXX::java_nio_channels_SocketChannel open(AndroidCXX::java_net_SocketAddress& arg0);
+	 long write(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0);
+	 int write(AndroidCXX::java_nio_ByteBuffer const& arg0);
+	 long write(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0,int const& arg1,int const& arg2);
+	 long read(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0,int const& arg1,int const& arg2);
+	 long read(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0);
+	 int read(AndroidCXX::java_nio_ByteBuffer const& arg0);
+	static AndroidCXX::java_nio_channels_SocketChannel open(AndroidCXX::java_net_SocketAddress const& arg0);
 	static AndroidCXX::java_nio_channels_SocketChannel open();
-	 bool connect(AndroidCXX::java_net_SocketAddress& arg0);
+	 bool connect(AndroidCXX::java_net_SocketAddress const& arg0);
 	 AndroidCXX::java_net_Socket socket();
 	 bool isConnected();
 	 int validOps();

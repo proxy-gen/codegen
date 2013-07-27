@@ -57,16 +57,13 @@ class android_widget_SpinnerAdapter
 public:
 
 	android_widget_SpinnerAdapter(const android_widget_SpinnerAdapter& cc);
-	android_widget_SpinnerAdapter(void * proxy);
+	android_widget_SpinnerAdapter(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_SpinnerAdapter();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SpinnerAdapter();
 	// Functions
-	 AndroidCXX::android_view_View getDropDownView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2);
+	 AndroidCXX::android_view_View getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
 };	
 
 } // namespace

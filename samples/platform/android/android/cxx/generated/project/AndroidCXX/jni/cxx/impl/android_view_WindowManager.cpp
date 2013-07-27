@@ -51,7 +51,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_WindowManager::android_view_WindowManager(const android_view_WindowManager& cc)
 {
 	LOGV("android_view_WindowManager::android_view_WindowManager(const android_view_WindowManager& cc) enter");
@@ -75,9 +74,9 @@ android_view_WindowManager::android_view_WindowManager(const android_view_Window
 
 	LOGV("android_view_WindowManager::android_view_WindowManager(const android_view_WindowManager& cc) exit");
 }
-android_view_WindowManager::android_view_WindowManager(void * proxy)
+android_view_WindowManager::android_view_WindowManager(Proxy proxy)
 {
-	LOGV("android_view_WindowManager::android_view_WindowManager(void * proxy) enter");
+	LOGV("android_view_WindowManager::android_view_WindowManager(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -87,52 +86,31 @@ android_view_WindowManager::android_view_WindowManager(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_WindowManager::android_view_WindowManager(void * proxy) exit");
+	LOGV("android_view_WindowManager::android_view_WindowManager(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_view_WindowManager::android_view_WindowManager()
-// {
-// 	LOGV("android_view_WindowManager::android_view_WindowManager() enter");	
+Proxy android_view_WindowManager::proxy() const
+{	
+	LOGV("android_view_WindowManager::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/view/WindowManager";
+	long cxxAddress = (long) this;
+	LOGV("android_view_WindowManager cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_WindowManager jni address %d", proxiedComponent);
 
-// 	LOGV("android_view_WindowManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_view_WindowManager::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_view_WindowManager cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_view_WindowManager jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_view_WindowManager::android_view_WindowManager() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_view_WindowManager::~android_view_WindowManager()
 {
@@ -144,7 +122,7 @@ android_view_WindowManager::~android_view_WindowManager()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_WindowManager::~android_view_WindowManager() exit");
 }
 // Functions
@@ -160,8 +138,6 @@ AndroidCXX::android_view_Display android_view_WindowManager::getDefaultDisplay()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_WindowManager cxx address %d", cxxAddress);
@@ -190,15 +166,13 @@ AndroidCXX::android_view_Display android_view_WindowManager::getDefaultDisplay()
 	AndroidCXX::android_view_Display result((AndroidCXX::android_view_Display) *((AndroidCXX::android_view_Display *) cxx_value));
 	delete ((AndroidCXX::android_view_Display *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_view_Display android_view_WindowManager::getDefaultDisplay() exit");
 
 	return result;
 }
-void android_view_WindowManager::removeViewImmediate(AndroidCXX::android_view_View& arg0)
+void android_view_WindowManager::removeViewImmediate(AndroidCXX::android_view_View const& arg0)
 {
-	LOGV("void android_view_WindowManager::removeViewImmediate(AndroidCXX::android_view_View& arg0) enter");
+	LOGV("void android_view_WindowManager::removeViewImmediate(AndroidCXX::android_view_View const& arg0) enter");
 
 	const char *methodName = "removeViewImmediate";
 	const char *methodSignature = "(Landroid/view/View;)V";
@@ -208,8 +182,6 @@ void android_view_WindowManager::removeViewImmediate(AndroidCXX::android_view_Vi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_WindowManager cxx address %d", cxxAddress);
@@ -240,8 +212,6 @@ void android_view_WindowManager::removeViewImmediate(AndroidCXX::android_view_Vi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_WindowManager::removeViewImmediate(AndroidCXX::android_view_View& arg0) exit");
+	LOGV("void android_view_WindowManager::removeViewImmediate(AndroidCXX::android_view_View const& arg0) exit");
 
 }

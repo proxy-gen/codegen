@@ -152,7 +152,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_view_accessibility_AccessibilityRecord::android_view_accessibility_AccessibilityRecord(const android_view_accessibility_AccessibilityRecord& cc)
 {
 	LOGV("android_view_accessibility_AccessibilityRecord::android_view_accessibility_AccessibilityRecord(const android_view_accessibility_AccessibilityRecord& cc) enter");
@@ -176,9 +175,9 @@ android_view_accessibility_AccessibilityRecord::android_view_accessibility_Acces
 
 	LOGV("android_view_accessibility_AccessibilityRecord::android_view_accessibility_AccessibilityRecord(const android_view_accessibility_AccessibilityRecord& cc) exit");
 }
-android_view_accessibility_AccessibilityRecord::android_view_accessibility_AccessibilityRecord(void * proxy)
+android_view_accessibility_AccessibilityRecord::android_view_accessibility_AccessibilityRecord(Proxy proxy)
 {
-	LOGV("android_view_accessibility_AccessibilityRecord::android_view_accessibility_AccessibilityRecord(void * proxy) enter");
+	LOGV("android_view_accessibility_AccessibilityRecord::android_view_accessibility_AccessibilityRecord(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -188,52 +187,31 @@ android_view_accessibility_AccessibilityRecord::android_view_accessibility_Acces
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_accessibility_AccessibilityRecord::android_view_accessibility_AccessibilityRecord(void * proxy) exit");
+	LOGV("android_view_accessibility_AccessibilityRecord::android_view_accessibility_AccessibilityRecord(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_view_accessibility_AccessibilityRecord::android_view_accessibility_AccessibilityRecord()
-// {
-// 	LOGV("android_view_accessibility_AccessibilityRecord::android_view_accessibility_AccessibilityRecord() enter");	
+Proxy android_view_accessibility_AccessibilityRecord::proxy() const
+{	
+	LOGV("android_view_accessibility_AccessibilityRecord::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/view/accessibility/AccessibilityRecord";
+	long cxxAddress = (long) this;
+	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", proxiedComponent);
 
-// 	LOGV("android_view_accessibility_AccessibilityRecord className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_view_accessibility_AccessibilityRecord::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_view_accessibility_AccessibilityRecord::android_view_accessibility_AccessibilityRecord() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_view_accessibility_AccessibilityRecord::~android_view_accessibility_AccessibilityRecord()
 {
@@ -245,7 +223,7 @@ android_view_accessibility_AccessibilityRecord::~android_view_accessibility_Acce
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_accessibility_AccessibilityRecord::~android_view_accessibility_AccessibilityRecord() exit");
 }
 // Functions
@@ -261,8 +239,6 @@ AndroidCXX::java_lang_String android_view_accessibility_AccessibilityRecord::toS
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -291,8 +267,6 @@ AndroidCXX::java_lang_String android_view_accessibility_AccessibilityRecord::toS
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String android_view_accessibility_AccessibilityRecord::toString() exit");
 
 	return result;
@@ -309,8 +283,6 @@ AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityRecor
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -339,8 +311,6 @@ AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityRecor
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityRecord::getClassName() exit");
 
 	return result;
@@ -358,15 +328,13 @@ AndroidCXX::android_view_accessibility_AccessibilityRecord android_view_accessib
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -387,15 +355,13 @@ AndroidCXX::android_view_accessibility_AccessibilityRecord android_view_accessib
 	AndroidCXX::android_view_accessibility_AccessibilityRecord result((AndroidCXX::android_view_accessibility_AccessibilityRecord) *((AndroidCXX::android_view_accessibility_AccessibilityRecord *) cxx_value));
 	delete ((AndroidCXX::android_view_accessibility_AccessibilityRecord *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_view_accessibility_AccessibilityRecord android_view_accessibility_AccessibilityRecord::obtain() exit");
 
 	return result;
 }
-AndroidCXX::android_view_accessibility_AccessibilityRecord android_view_accessibility_AccessibilityRecord::obtain(AndroidCXX::android_view_accessibility_AccessibilityRecord& arg0)
+AndroidCXX::android_view_accessibility_AccessibilityRecord android_view_accessibility_AccessibilityRecord::obtain(AndroidCXX::android_view_accessibility_AccessibilityRecord const& arg0)
 {
-	LOGV("AndroidCXX::android_view_accessibility_AccessibilityRecord android_view_accessibility_AccessibilityRecord::obtain(AndroidCXX::android_view_accessibility_AccessibilityRecord& arg0) enter");
+	LOGV("AndroidCXX::android_view_accessibility_AccessibilityRecord android_view_accessibility_AccessibilityRecord::obtain(AndroidCXX::android_view_accessibility_AccessibilityRecord const& arg0) enter");
 
 	const char *methodName = "obtain";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityRecord;)Landroid/view/accessibility/AccessibilityRecord;";
@@ -405,8 +371,6 @@ AndroidCXX::android_view_accessibility_AccessibilityRecord android_view_accessib
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -435,7 +399,7 @@ AndroidCXX::android_view_accessibility_AccessibilityRecord android_view_accessib
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -456,9 +420,7 @@ AndroidCXX::android_view_accessibility_AccessibilityRecord android_view_accessib
 	AndroidCXX::android_view_accessibility_AccessibilityRecord result((AndroidCXX::android_view_accessibility_AccessibilityRecord) *((AndroidCXX::android_view_accessibility_AccessibilityRecord *) cxx_value));
 	delete ((AndroidCXX::android_view_accessibility_AccessibilityRecord *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_view_accessibility_AccessibilityRecord android_view_accessibility_AccessibilityRecord::obtain(AndroidCXX::android_view_accessibility_AccessibilityRecord& arg0) exit");
+	LOGV("AndroidCXX::android_view_accessibility_AccessibilityRecord android_view_accessibility_AccessibilityRecord::obtain(AndroidCXX::android_view_accessibility_AccessibilityRecord const& arg0) exit");
 
 	return result;
 }
@@ -475,8 +437,6 @@ void android_view_accessibility_AccessibilityRecord::recycle()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -485,8 +445,6 @@ void android_view_accessibility_AccessibilityRecord::recycle()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_view_accessibility_AccessibilityRecord::recycle() exit");
 
 }
@@ -502,8 +460,6 @@ AndroidCXX::java_util_List android_view_accessibility_AccessibilityRecord::getTe
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -550,8 +506,6 @@ AndroidCXX::java_util_List android_view_accessibility_AccessibilityRecord::getTe
 	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
 	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_util_List android_view_accessibility_AccessibilityRecord::getText() exit");
 
 	return result;
@@ -568,8 +522,6 @@ bool android_view_accessibility_AccessibilityRecord::isEnabled()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -598,15 +550,13 @@ bool android_view_accessibility_AccessibilityRecord::isEnabled()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_accessibility_AccessibilityRecord::isEnabled() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityRecord::setClassName(AndroidCXX::java_lang_CharSequence& arg0)
+void android_view_accessibility_AccessibilityRecord::setClassName(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityRecord::setClassName(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setClassName(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setClassName";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -616,8 +566,6 @@ void android_view_accessibility_AccessibilityRecord::setClassName(AndroidCXX::ja
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -648,9 +596,7 @@ void android_view_accessibility_AccessibilityRecord::setClassName(AndroidCXX::ja
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityRecord::setClassName(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setClassName(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }
 AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityRecord::getContentDescription()
@@ -665,8 +611,6 @@ AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityRecor
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -695,15 +639,13 @@ AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityRecor
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityRecord::getContentDescription() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityRecord::setContentDescription(AndroidCXX::java_lang_CharSequence& arg0)
+void android_view_accessibility_AccessibilityRecord::setContentDescription(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityRecord::setContentDescription(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setContentDescription(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setContentDescription";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -713,8 +655,6 @@ void android_view_accessibility_AccessibilityRecord::setContentDescription(Andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -745,14 +685,12 @@ void android_view_accessibility_AccessibilityRecord::setContentDescription(Andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityRecord::setContentDescription(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setContentDescription(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }
-void android_view_accessibility_AccessibilityRecord::setEnabled(bool& arg0)
+void android_view_accessibility_AccessibilityRecord::setEnabled(bool const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityRecord::setEnabled(bool& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setEnabled(bool const& arg0) enter");
 
 	const char *methodName = "setEnabled";
 	const char *methodSignature = "(Z)V";
@@ -762,8 +700,6 @@ void android_view_accessibility_AccessibilityRecord::setEnabled(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -794,14 +730,12 @@ void android_view_accessibility_AccessibilityRecord::setEnabled(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityRecord::setEnabled(bool& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setEnabled(bool const& arg0) exit");
 
 }
-void android_view_accessibility_AccessibilityRecord::setScrollX(int& arg0)
+void android_view_accessibility_AccessibilityRecord::setScrollX(int const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityRecord::setScrollX(int& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setScrollX(int const& arg0) enter");
 
 	const char *methodName = "setScrollX";
 	const char *methodSignature = "(I)V";
@@ -812,8 +746,6 @@ void android_view_accessibility_AccessibilityRecord::setScrollX(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -843,14 +775,12 @@ void android_view_accessibility_AccessibilityRecord::setScrollX(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityRecord::setScrollX(int& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setScrollX(int const& arg0) exit");
 
 }
-void android_view_accessibility_AccessibilityRecord::setScrollY(int& arg0)
+void android_view_accessibility_AccessibilityRecord::setScrollY(int const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityRecord::setScrollY(int& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setScrollY(int const& arg0) enter");
 
 	const char *methodName = "setScrollY";
 	const char *methodSignature = "(I)V";
@@ -861,8 +791,6 @@ void android_view_accessibility_AccessibilityRecord::setScrollY(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -892,9 +820,7 @@ void android_view_accessibility_AccessibilityRecord::setScrollY(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityRecord::setScrollY(int& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setScrollY(int const& arg0) exit");
 
 }
 int android_view_accessibility_AccessibilityRecord::getScrollX()
@@ -909,8 +835,6 @@ int android_view_accessibility_AccessibilityRecord::getScrollX()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -939,8 +863,6 @@ int android_view_accessibility_AccessibilityRecord::getScrollX()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_accessibility_AccessibilityRecord::getScrollX() exit");
 
 	return result;
@@ -958,8 +880,6 @@ int android_view_accessibility_AccessibilityRecord::getScrollY()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -987,15 +907,13 @@ int android_view_accessibility_AccessibilityRecord::getScrollY()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_accessibility_AccessibilityRecord::getScrollY() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityRecord::setChecked(bool& arg0)
+void android_view_accessibility_AccessibilityRecord::setChecked(bool const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityRecord::setChecked(bool& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setChecked(bool const& arg0) enter");
 
 	const char *methodName = "setChecked";
 	const char *methodSignature = "(Z)V";
@@ -1005,8 +923,6 @@ void android_view_accessibility_AccessibilityRecord::setChecked(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -1037,9 +953,7 @@ void android_view_accessibility_AccessibilityRecord::setChecked(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityRecord::setChecked(bool& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setChecked(bool const& arg0) exit");
 
 }
 bool android_view_accessibility_AccessibilityRecord::isChecked()
@@ -1054,8 +968,6 @@ bool android_view_accessibility_AccessibilityRecord::isChecked()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -1084,8 +996,6 @@ bool android_view_accessibility_AccessibilityRecord::isChecked()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_accessibility_AccessibilityRecord::isChecked() exit");
 
 	return result;
@@ -1102,8 +1012,6 @@ int android_view_accessibility_AccessibilityRecord::getItemCount()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -1132,8 +1040,6 @@ int android_view_accessibility_AccessibilityRecord::getItemCount()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_accessibility_AccessibilityRecord::getItemCount() exit");
 
 	return result;
@@ -1150,8 +1056,6 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -1180,15 +1084,13 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 	AndroidCXX::android_view_accessibility_AccessibilityNodeInfo result((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo) *((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value));
 	delete ((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_accessibility_AccessibilityRecord::getSource() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityRecord::setSource(AndroidCXX::android_view_View& arg0)
+void android_view_accessibility_AccessibilityRecord::setSource(AndroidCXX::android_view_View const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityRecord::setSource(AndroidCXX::android_view_View& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setSource(AndroidCXX::android_view_View const& arg0) enter");
 
 	const char *methodName = "setSource";
 	const char *methodSignature = "(Landroid/view/View;)V";
@@ -1198,8 +1100,6 @@ void android_view_accessibility_AccessibilityRecord::setSource(AndroidCXX::andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -1230,14 +1130,12 @@ void android_view_accessibility_AccessibilityRecord::setSource(AndroidCXX::andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityRecord::setSource(AndroidCXX::android_view_View& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setSource(AndroidCXX::android_view_View const& arg0) exit");
 
 }
-void android_view_accessibility_AccessibilityRecord::setSource(AndroidCXX::android_view_View& arg0,int& arg1)
+void android_view_accessibility_AccessibilityRecord::setSource(AndroidCXX::android_view_View const& arg0,int const& arg1)
 {
-	LOGV("void android_view_accessibility_AccessibilityRecord::setSource(AndroidCXX::android_view_View& arg0,int& arg1) enter");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setSource(AndroidCXX::android_view_View const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setSource";
 	const char *methodSignature = "(Landroid/view/View;I)V";
@@ -1247,8 +1145,6 @@ void android_view_accessibility_AccessibilityRecord::setSource(AndroidCXX::andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -1300,9 +1196,7 @@ void android_view_accessibility_AccessibilityRecord::setSource(AndroidCXX::andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityRecord::setSource(AndroidCXX::android_view_View& arg0,int& arg1) exit");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setSource(AndroidCXX::android_view_View const& arg0,int const& arg1) exit");
 
 }
 int android_view_accessibility_AccessibilityRecord::getWindowId()
@@ -1317,8 +1211,6 @@ int android_view_accessibility_AccessibilityRecord::getWindowId()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -1347,8 +1239,6 @@ int android_view_accessibility_AccessibilityRecord::getWindowId()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_accessibility_AccessibilityRecord::getWindowId() exit");
 
 	return result;
@@ -1366,8 +1256,6 @@ bool android_view_accessibility_AccessibilityRecord::isPassword()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1395,15 +1283,13 @@ bool android_view_accessibility_AccessibilityRecord::isPassword()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_accessibility_AccessibilityRecord::isPassword() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityRecord::setPassword(bool& arg0)
+void android_view_accessibility_AccessibilityRecord::setPassword(bool const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityRecord::setPassword(bool& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setPassword(bool const& arg0) enter");
 
 	const char *methodName = "setPassword";
 	const char *methodSignature = "(Z)V";
@@ -1413,8 +1299,6 @@ void android_view_accessibility_AccessibilityRecord::setPassword(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -1445,9 +1329,7 @@ void android_view_accessibility_AccessibilityRecord::setPassword(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityRecord::setPassword(bool& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setPassword(bool const& arg0) exit");
 
 }
 bool android_view_accessibility_AccessibilityRecord::isFullScreen()
@@ -1463,8 +1345,6 @@ bool android_view_accessibility_AccessibilityRecord::isFullScreen()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1492,15 +1372,13 @@ bool android_view_accessibility_AccessibilityRecord::isFullScreen()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_accessibility_AccessibilityRecord::isFullScreen() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityRecord::setFullScreen(bool& arg0)
+void android_view_accessibility_AccessibilityRecord::setFullScreen(bool const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityRecord::setFullScreen(bool& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setFullScreen(bool const& arg0) enter");
 
 	const char *methodName = "setFullScreen";
 	const char *methodSignature = "(Z)V";
@@ -1510,8 +1388,6 @@ void android_view_accessibility_AccessibilityRecord::setFullScreen(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -1542,9 +1418,7 @@ void android_view_accessibility_AccessibilityRecord::setFullScreen(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityRecord::setFullScreen(bool& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setFullScreen(bool const& arg0) exit");
 
 }
 bool android_view_accessibility_AccessibilityRecord::isScrollable()
@@ -1560,8 +1434,6 @@ bool android_view_accessibility_AccessibilityRecord::isScrollable()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1589,15 +1461,13 @@ bool android_view_accessibility_AccessibilityRecord::isScrollable()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_view_accessibility_AccessibilityRecord::isScrollable() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityRecord::setScrollable(bool& arg0)
+void android_view_accessibility_AccessibilityRecord::setScrollable(bool const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityRecord::setScrollable(bool& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setScrollable(bool const& arg0) enter");
 
 	const char *methodName = "setScrollable";
 	const char *methodSignature = "(Z)V";
@@ -1607,8 +1477,6 @@ void android_view_accessibility_AccessibilityRecord::setScrollable(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -1639,14 +1507,12 @@ void android_view_accessibility_AccessibilityRecord::setScrollable(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityRecord::setScrollable(bool& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setScrollable(bool const& arg0) exit");
 
 }
-void android_view_accessibility_AccessibilityRecord::setItemCount(int& arg0)
+void android_view_accessibility_AccessibilityRecord::setItemCount(int const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityRecord::setItemCount(int& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setItemCount(int const& arg0) enter");
 
 	const char *methodName = "setItemCount";
 	const char *methodSignature = "(I)V";
@@ -1656,8 +1522,6 @@ void android_view_accessibility_AccessibilityRecord::setItemCount(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -1688,9 +1552,7 @@ void android_view_accessibility_AccessibilityRecord::setItemCount(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityRecord::setItemCount(int& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setItemCount(int const& arg0) exit");
 
 }
 int android_view_accessibility_AccessibilityRecord::getCurrentItemIndex()
@@ -1706,8 +1568,6 @@ int android_view_accessibility_AccessibilityRecord::getCurrentItemIndex()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1735,15 +1595,13 @@ int android_view_accessibility_AccessibilityRecord::getCurrentItemIndex()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_accessibility_AccessibilityRecord::getCurrentItemIndex() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityRecord::setCurrentItemIndex(int& arg0)
+void android_view_accessibility_AccessibilityRecord::setCurrentItemIndex(int const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityRecord::setCurrentItemIndex(int& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setCurrentItemIndex(int const& arg0) enter");
 
 	const char *methodName = "setCurrentItemIndex";
 	const char *methodSignature = "(I)V";
@@ -1753,8 +1611,6 @@ void android_view_accessibility_AccessibilityRecord::setCurrentItemIndex(int& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -1785,9 +1641,7 @@ void android_view_accessibility_AccessibilityRecord::setCurrentItemIndex(int& ar
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityRecord::setCurrentItemIndex(int& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setCurrentItemIndex(int const& arg0) exit");
 
 }
 int android_view_accessibility_AccessibilityRecord::getFromIndex()
@@ -1803,8 +1657,6 @@ int android_view_accessibility_AccessibilityRecord::getFromIndex()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1832,15 +1684,13 @@ int android_view_accessibility_AccessibilityRecord::getFromIndex()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_accessibility_AccessibilityRecord::getFromIndex() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityRecord::setFromIndex(int& arg0)
+void android_view_accessibility_AccessibilityRecord::setFromIndex(int const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityRecord::setFromIndex(int& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setFromIndex(int const& arg0) enter");
 
 	const char *methodName = "setFromIndex";
 	const char *methodSignature = "(I)V";
@@ -1850,8 +1700,6 @@ void android_view_accessibility_AccessibilityRecord::setFromIndex(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -1882,9 +1730,7 @@ void android_view_accessibility_AccessibilityRecord::setFromIndex(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityRecord::setFromIndex(int& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setFromIndex(int const& arg0) exit");
 
 }
 int android_view_accessibility_AccessibilityRecord::getToIndex()
@@ -1900,8 +1746,6 @@ int android_view_accessibility_AccessibilityRecord::getToIndex()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1929,15 +1773,13 @@ int android_view_accessibility_AccessibilityRecord::getToIndex()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_accessibility_AccessibilityRecord::getToIndex() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityRecord::setToIndex(int& arg0)
+void android_view_accessibility_AccessibilityRecord::setToIndex(int const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityRecord::setToIndex(int& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setToIndex(int const& arg0) enter");
 
 	const char *methodName = "setToIndex";
 	const char *methodSignature = "(I)V";
@@ -1947,8 +1789,6 @@ void android_view_accessibility_AccessibilityRecord::setToIndex(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -1979,9 +1819,7 @@ void android_view_accessibility_AccessibilityRecord::setToIndex(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityRecord::setToIndex(int& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setToIndex(int const& arg0) exit");
 
 }
 int android_view_accessibility_AccessibilityRecord::getMaxScrollX()
@@ -1997,8 +1835,6 @@ int android_view_accessibility_AccessibilityRecord::getMaxScrollX()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2026,15 +1862,13 @@ int android_view_accessibility_AccessibilityRecord::getMaxScrollX()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_accessibility_AccessibilityRecord::getMaxScrollX() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityRecord::setMaxScrollX(int& arg0)
+void android_view_accessibility_AccessibilityRecord::setMaxScrollX(int const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityRecord::setMaxScrollX(int& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setMaxScrollX(int const& arg0) enter");
 
 	const char *methodName = "setMaxScrollX";
 	const char *methodSignature = "(I)V";
@@ -2044,8 +1878,6 @@ void android_view_accessibility_AccessibilityRecord::setMaxScrollX(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -2076,9 +1908,7 @@ void android_view_accessibility_AccessibilityRecord::setMaxScrollX(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityRecord::setMaxScrollX(int& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setMaxScrollX(int const& arg0) exit");
 
 }
 int android_view_accessibility_AccessibilityRecord::getMaxScrollY()
@@ -2094,8 +1924,6 @@ int android_view_accessibility_AccessibilityRecord::getMaxScrollY()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2123,15 +1951,13 @@ int android_view_accessibility_AccessibilityRecord::getMaxScrollY()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_accessibility_AccessibilityRecord::getMaxScrollY() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityRecord::setMaxScrollY(int& arg0)
+void android_view_accessibility_AccessibilityRecord::setMaxScrollY(int const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityRecord::setMaxScrollY(int& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setMaxScrollY(int const& arg0) enter");
 
 	const char *methodName = "setMaxScrollY";
 	const char *methodSignature = "(I)V";
@@ -2141,8 +1967,6 @@ void android_view_accessibility_AccessibilityRecord::setMaxScrollY(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -2173,9 +1997,7 @@ void android_view_accessibility_AccessibilityRecord::setMaxScrollY(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityRecord::setMaxScrollY(int& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setMaxScrollY(int const& arg0) exit");
 
 }
 int android_view_accessibility_AccessibilityRecord::getAddedCount()
@@ -2191,8 +2013,6 @@ int android_view_accessibility_AccessibilityRecord::getAddedCount()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2220,15 +2040,13 @@ int android_view_accessibility_AccessibilityRecord::getAddedCount()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_accessibility_AccessibilityRecord::getAddedCount() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityRecord::setAddedCount(int& arg0)
+void android_view_accessibility_AccessibilityRecord::setAddedCount(int const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityRecord::setAddedCount(int& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setAddedCount(int const& arg0) enter");
 
 	const char *methodName = "setAddedCount";
 	const char *methodSignature = "(I)V";
@@ -2238,8 +2056,6 @@ void android_view_accessibility_AccessibilityRecord::setAddedCount(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -2270,9 +2086,7 @@ void android_view_accessibility_AccessibilityRecord::setAddedCount(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityRecord::setAddedCount(int& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setAddedCount(int const& arg0) exit");
 
 }
 int android_view_accessibility_AccessibilityRecord::getRemovedCount()
@@ -2288,8 +2102,6 @@ int android_view_accessibility_AccessibilityRecord::getRemovedCount()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2317,15 +2129,13 @@ int android_view_accessibility_AccessibilityRecord::getRemovedCount()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_view_accessibility_AccessibilityRecord::getRemovedCount() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityRecord::setRemovedCount(int& arg0)
+void android_view_accessibility_AccessibilityRecord::setRemovedCount(int const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityRecord::setRemovedCount(int& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setRemovedCount(int const& arg0) enter");
 
 	const char *methodName = "setRemovedCount";
 	const char *methodSignature = "(I)V";
@@ -2335,8 +2145,6 @@ void android_view_accessibility_AccessibilityRecord::setRemovedCount(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -2367,9 +2175,7 @@ void android_view_accessibility_AccessibilityRecord::setRemovedCount(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityRecord::setRemovedCount(int& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setRemovedCount(int const& arg0) exit");
 
 }
 AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityRecord::getBeforeText()
@@ -2384,8 +2190,6 @@ AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityRecor
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -2414,15 +2218,13 @@ AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityRecor
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityRecord::getBeforeText() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityRecord::setBeforeText(AndroidCXX::java_lang_CharSequence& arg0)
+void android_view_accessibility_AccessibilityRecord::setBeforeText(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityRecord::setBeforeText(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setBeforeText(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setBeforeText";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -2432,8 +2234,6 @@ void android_view_accessibility_AccessibilityRecord::setBeforeText(AndroidCXX::j
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -2464,9 +2264,7 @@ void android_view_accessibility_AccessibilityRecord::setBeforeText(AndroidCXX::j
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityRecord::setBeforeText(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setBeforeText(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }
 AndroidCXX::android_os_Parcelable android_view_accessibility_AccessibilityRecord::getParcelableData()
@@ -2481,8 +2279,6 @@ AndroidCXX::android_os_Parcelable android_view_accessibility_AccessibilityRecord
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -2511,15 +2307,13 @@ AndroidCXX::android_os_Parcelable android_view_accessibility_AccessibilityRecord
 	AndroidCXX::android_os_Parcelable result((AndroidCXX::android_os_Parcelable) *((AndroidCXX::android_os_Parcelable *) cxx_value));
 	delete ((AndroidCXX::android_os_Parcelable *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_os_Parcelable android_view_accessibility_AccessibilityRecord::getParcelableData() exit");
 
 	return result;
 }
-void android_view_accessibility_AccessibilityRecord::setParcelableData(AndroidCXX::android_os_Parcelable& arg0)
+void android_view_accessibility_AccessibilityRecord::setParcelableData(AndroidCXX::android_os_Parcelable const& arg0)
 {
-	LOGV("void android_view_accessibility_AccessibilityRecord::setParcelableData(AndroidCXX::android_os_Parcelable& arg0) enter");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setParcelableData(AndroidCXX::android_os_Parcelable const& arg0) enter");
 
 	const char *methodName = "setParcelableData";
 	const char *methodSignature = "(Landroid/os/Parcelable;)V";
@@ -2529,8 +2323,6 @@ void android_view_accessibility_AccessibilityRecord::setParcelableData(AndroidCX
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
@@ -2561,8 +2353,6 @@ void android_view_accessibility_AccessibilityRecord::setParcelableData(AndroidCX
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_accessibility_AccessibilityRecord::setParcelableData(AndroidCXX::android_os_Parcelable& arg0) exit");
+	LOGV("void android_view_accessibility_AccessibilityRecord::setParcelableData(AndroidCXX::android_os_Parcelable const& arg0) exit");
 
 }

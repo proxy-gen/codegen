@@ -110,12 +110,9 @@ class java_util_SortedMap
 public:
 
 	java_util_SortedMap(const java_util_SortedMap& cc);
-	java_util_SortedMap(void * proxy);
+	java_util_SortedMap(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_util_SortedMap();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_SortedMap();
 	// Functions
@@ -123,9 +120,9 @@ public:
 	 JDKCXX::java_util_Set entrySet();
 	 JDKCXX::java_util_Set keySet();
 	 JDKCXX::java_util_Comparator comparator();
-	 JDKCXX::java_util_SortedMap subMap(JDKCXX::java_lang_Object& arg0,JDKCXX::java_lang_Object& arg1);
-	 JDKCXX::java_util_SortedMap headMap(JDKCXX::java_lang_Object& arg0);
-	 JDKCXX::java_util_SortedMap tailMap(JDKCXX::java_lang_Object& arg0);
+	 JDKCXX::java_util_SortedMap subMap(JDKCXX::java_lang_Object const& arg0,JDKCXX::java_lang_Object const& arg1);
+	 JDKCXX::java_util_SortedMap headMap(JDKCXX::java_lang_Object const& arg0);
+	 JDKCXX::java_util_SortedMap tailMap(JDKCXX::java_lang_Object const& arg0);
 	 JDKCXX::java_lang_Object firstKey();
 	 JDKCXX::java_lang_Object lastKey();
 };	

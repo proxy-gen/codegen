@@ -30,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace ANDROID_GRAPHICS_PORTERDUFF_MODE {
+namespace android_graphics_PorterDuff_Mode {
 
 enum android_graphics_PorterDuff_Mode
 {

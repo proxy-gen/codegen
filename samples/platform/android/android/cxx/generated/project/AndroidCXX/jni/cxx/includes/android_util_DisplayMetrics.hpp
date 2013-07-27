@@ -67,19 +67,18 @@ class android_util_DisplayMetrics
 public:
 
 	android_util_DisplayMetrics(const android_util_DisplayMetrics& cc);
-	android_util_DisplayMetrics(void * proxy);
+	android_util_DisplayMetrics(Proxy proxy);
 	// Public Constructors
 	android_util_DisplayMetrics();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_util_DisplayMetrics();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
-	 bool equals(AndroidCXX::android_util_DisplayMetrics& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
+	 bool equals(AndroidCXX::android_util_DisplayMetrics const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 void setTo(AndroidCXX::android_util_DisplayMetrics& arg0);
+	 void setTo(AndroidCXX::android_util_DisplayMetrics const& arg0);
 	 void setToDefaults();
 };	
 

@@ -64,7 +64,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_graphics_drawable_Drawable_Callback::android_graphics_drawable_Drawable_Callback(const android_graphics_drawable_Drawable_Callback& cc)
 {
 	LOGV("android_graphics_drawable_Drawable_Callback::android_graphics_drawable_Drawable_Callback(const android_graphics_drawable_Drawable_Callback& cc) enter");
@@ -88,9 +87,9 @@ android_graphics_drawable_Drawable_Callback::android_graphics_drawable_Drawable_
 
 	LOGV("android_graphics_drawable_Drawable_Callback::android_graphics_drawable_Drawable_Callback(const android_graphics_drawable_Drawable_Callback& cc) exit");
 }
-android_graphics_drawable_Drawable_Callback::android_graphics_drawable_Drawable_Callback(void * proxy)
+android_graphics_drawable_Drawable_Callback::android_graphics_drawable_Drawable_Callback(Proxy proxy)
 {
-	LOGV("android_graphics_drawable_Drawable_Callback::android_graphics_drawable_Drawable_Callback(void * proxy) enter");
+	LOGV("android_graphics_drawable_Drawable_Callback::android_graphics_drawable_Drawable_Callback(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -100,52 +99,31 @@ android_graphics_drawable_Drawable_Callback::android_graphics_drawable_Drawable_
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_graphics_drawable_Drawable_Callback::android_graphics_drawable_Drawable_Callback(void * proxy) exit");
+	LOGV("android_graphics_drawable_Drawable_Callback::android_graphics_drawable_Drawable_Callback(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_graphics_drawable_Drawable_Callback::android_graphics_drawable_Drawable_Callback()
-// {
-// 	LOGV("android_graphics_drawable_Drawable_Callback::android_graphics_drawable_Drawable_Callback() enter");	
+Proxy android_graphics_drawable_Drawable_Callback::proxy() const
+{	
+	LOGV("android_graphics_drawable_Drawable_Callback::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/graphics/drawable/Drawable$Callback";
+	long cxxAddress = (long) this;
+	LOGV("android_graphics_drawable_Drawable_Callback cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_graphics_drawable_Drawable_Callback jni address %d", proxiedComponent);
 
-// 	LOGV("android_graphics_drawable_Drawable_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_graphics_drawable_Drawable_Callback::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_graphics_drawable_Drawable_Callback cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_graphics_drawable_Drawable_Callback jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_graphics_drawable_Drawable_Callback::android_graphics_drawable_Drawable_Callback() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_graphics_drawable_Drawable_Callback::~android_graphics_drawable_Drawable_Callback()
 {
@@ -157,13 +135,13 @@ android_graphics_drawable_Drawable_Callback::~android_graphics_drawable_Drawable
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_graphics_drawable_Drawable_Callback::~android_graphics_drawable_Drawable_Callback() exit");
 }
 // Functions
-void android_graphics_drawable_Drawable_Callback::invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0)
+void android_graphics_drawable_Drawable_Callback::invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0)
 {
-	LOGV("void android_graphics_drawable_Drawable_Callback::invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0) enter");
+	LOGV("void android_graphics_drawable_Drawable_Callback::invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) enter");
 
 	const char *methodName = "invalidateDrawable";
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
@@ -173,8 +151,6 @@ void android_graphics_drawable_Drawable_Callback::invalidateDrawable(AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_drawable_Drawable_Callback cxx address %d", cxxAddress);
@@ -205,14 +181,12 @@ void android_graphics_drawable_Drawable_Callback::invalidateDrawable(AndroidCXX:
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_drawable_Drawable_Callback::invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0) exit");
+	LOGV("void android_graphics_drawable_Drawable_Callback::invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) exit");
 
 }
-void android_graphics_drawable_Drawable_Callback::scheduleDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0,AndroidCXX::java_lang_Runnable& arg1,long& arg2)
+void android_graphics_drawable_Drawable_Callback::scheduleDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::java_lang_Runnable const& arg1,long const& arg2)
 {
-	LOGV("void android_graphics_drawable_Drawable_Callback::scheduleDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0,AndroidCXX::java_lang_Runnable& arg1,long& arg2) enter");
+	LOGV("void android_graphics_drawable_Drawable_Callback::scheduleDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::java_lang_Runnable const& arg1,long const& arg2) enter");
 
 	const char *methodName = "scheduleDrawable";
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;Ljava/lang/Runnable;J)V";
@@ -222,8 +196,6 @@ void android_graphics_drawable_Drawable_Callback::scheduleDrawable(AndroidCXX::a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_drawable_Drawable_Callback cxx address %d", cxxAddress);
@@ -296,14 +268,12 @@ void android_graphics_drawable_Drawable_Callback::scheduleDrawable(AndroidCXX::a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_drawable_Drawable_Callback::scheduleDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0,AndroidCXX::java_lang_Runnable& arg1,long& arg2) exit");
+	LOGV("void android_graphics_drawable_Drawable_Callback::scheduleDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::java_lang_Runnable const& arg1,long const& arg2) exit");
 
 }
-void android_graphics_drawable_Drawable_Callback::unscheduleDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0,AndroidCXX::java_lang_Runnable& arg1)
+void android_graphics_drawable_Drawable_Callback::unscheduleDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::java_lang_Runnable const& arg1)
 {
-	LOGV("void android_graphics_drawable_Drawable_Callback::unscheduleDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0,AndroidCXX::java_lang_Runnable& arg1) enter");
+	LOGV("void android_graphics_drawable_Drawable_Callback::unscheduleDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::java_lang_Runnable const& arg1) enter");
 
 	const char *methodName = "unscheduleDrawable";
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;Ljava/lang/Runnable;)V";
@@ -313,8 +283,6 @@ void android_graphics_drawable_Drawable_Callback::unscheduleDrawable(AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_drawable_Drawable_Callback cxx address %d", cxxAddress);
@@ -366,8 +334,6 @@ void android_graphics_drawable_Drawable_Callback::unscheduleDrawable(AndroidCXX:
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_drawable_Drawable_Callback::unscheduleDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0,AndroidCXX::java_lang_Runnable& arg1) exit");
+	LOGV("void android_graphics_drawable_Drawable_Callback::unscheduleDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::java_lang_Runnable const& arg1) exit");
 
 }

@@ -66,16 +66,13 @@ class android_view_LayoutInflater_Factory
 public:
 
 	android_view_LayoutInflater_Factory(const android_view_LayoutInflater_Factory& cc);
-	android_view_LayoutInflater_Factory(void * proxy);
+	android_view_LayoutInflater_Factory(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_view_LayoutInflater_Factory();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_LayoutInflater_Factory();
 	// Functions
-	 AndroidCXX::android_view_View onCreateView(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_content_Context& arg1,AndroidCXX::android_util_AttributeSet& arg2);
+	 AndroidCXX::android_view_View onCreateView(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_content_Context const& arg1,AndroidCXX::android_util_AttributeSet const& arg2);
 };	
 
 } // namespace

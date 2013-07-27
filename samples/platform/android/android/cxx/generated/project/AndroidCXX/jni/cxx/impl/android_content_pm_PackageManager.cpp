@@ -539,7 +539,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_content_pm_PackageManager::android_content_pm_PackageManager(const android_content_pm_PackageManager& cc)
 {
 	LOGV("android_content_pm_PackageManager::android_content_pm_PackageManager(const android_content_pm_PackageManager& cc) enter");
@@ -563,9 +562,9 @@ android_content_pm_PackageManager::android_content_pm_PackageManager(const andro
 
 	LOGV("android_content_pm_PackageManager::android_content_pm_PackageManager(const android_content_pm_PackageManager& cc) exit");
 }
-android_content_pm_PackageManager::android_content_pm_PackageManager(void * proxy)
+android_content_pm_PackageManager::android_content_pm_PackageManager(Proxy proxy)
 {
-	LOGV("android_content_pm_PackageManager::android_content_pm_PackageManager(void * proxy) enter");
+	LOGV("android_content_pm_PackageManager::android_content_pm_PackageManager(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -575,17 +574,31 @@ android_content_pm_PackageManager::android_content_pm_PackageManager(void * prox
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_content_pm_PackageManager::android_content_pm_PackageManager(void * proxy) exit");
+	LOGV("android_content_pm_PackageManager::android_content_pm_PackageManager(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy android_content_pm_PackageManager::proxy() const
+{	
+	LOGV("android_content_pm_PackageManager::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_content_pm_PackageManager jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_content_pm_PackageManager::proxy() exit");	
+
+	return proxy;
+}
 android_content_pm_PackageManager::android_content_pm_PackageManager()
 {
 	LOGV("android_content_pm_PackageManager::android_content_pm_PackageManager() enter");	
@@ -633,13 +646,13 @@ android_content_pm_PackageManager::~android_content_pm_PackageManager()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_content_pm_PackageManager::~android_content_pm_PackageManager() exit");
 }
 // Functions
-int android_content_pm_PackageManager::checkPermission(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
+int android_content_pm_PackageManager::checkPermission(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("int android_content_pm_PackageManager::checkPermission(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("int android_content_pm_PackageManager::checkPermission(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "checkPermission";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)I";
@@ -649,8 +662,6 @@ int android_content_pm_PackageManager::checkPermission(AndroidCXX::java_lang_Str
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -721,15 +732,13 @@ int android_content_pm_PackageManager::checkPermission(AndroidCXX::java_lang_Str
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_content_pm_PackageManager::checkPermission(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("int android_content_pm_PackageManager::checkPermission(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_pm_PackageInfo android_content_pm_PackageManager::getPackageInfo(AndroidCXX::java_lang_String& arg0,int& arg1)
+AndroidCXX::android_content_pm_PackageInfo android_content_pm_PackageManager::getPackageInfo(AndroidCXX::java_lang_String const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_content_pm_PackageInfo android_content_pm_PackageManager::getPackageInfo(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_content_pm_PackageInfo android_content_pm_PackageManager::getPackageInfo(AndroidCXX::java_lang_String const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getPackageInfo";
 	const char *methodSignature = "(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;";
@@ -739,8 +748,6 @@ AndroidCXX::android_content_pm_PackageInfo android_content_pm_PackageManager::ge
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -811,15 +818,13 @@ AndroidCXX::android_content_pm_PackageInfo android_content_pm_PackageManager::ge
 	AndroidCXX::android_content_pm_PackageInfo result((AndroidCXX::android_content_pm_PackageInfo) *((AndroidCXX::android_content_pm_PackageInfo *) cxx_value));
 	delete ((AndroidCXX::android_content_pm_PackageInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_pm_PackageInfo android_content_pm_PackageManager::getPackageInfo(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_content_pm_PackageInfo android_content_pm_PackageManager::getPackageInfo(AndroidCXX::java_lang_String const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_CharSequence android_content_pm_PackageManager::getText(AndroidCXX::java_lang_String& arg0,int& arg1,AndroidCXX::android_content_pm_ApplicationInfo& arg2)
+AndroidCXX::java_lang_CharSequence android_content_pm_PackageManager::getText(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::android_content_pm_ApplicationInfo const& arg2)
 {
-	LOGV("AndroidCXX::java_lang_CharSequence android_content_pm_PackageManager::getText(AndroidCXX::java_lang_String& arg0,int& arg1,AndroidCXX::android_content_pm_ApplicationInfo& arg2) enter");
+	LOGV("AndroidCXX::java_lang_CharSequence android_content_pm_PackageManager::getText(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::android_content_pm_ApplicationInfo const& arg2) enter");
 
 	const char *methodName = "getText";
 	const char *methodSignature = "(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;";
@@ -829,8 +834,6 @@ AndroidCXX::java_lang_CharSequence android_content_pm_PackageManager::getText(An
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -922,15 +925,13 @@ AndroidCXX::java_lang_CharSequence android_content_pm_PackageManager::getText(An
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_CharSequence android_content_pm_PackageManager::getText(AndroidCXX::java_lang_String& arg0,int& arg1,AndroidCXX::android_content_pm_ApplicationInfo& arg2) exit");
+	LOGV("AndroidCXX::java_lang_CharSequence android_content_pm_PackageManager::getText(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::android_content_pm_ApplicationInfo const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getDrawable(AndroidCXX::java_lang_String& arg0,int& arg1,AndroidCXX::android_content_pm_ApplicationInfo& arg2)
+AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getDrawable(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::android_content_pm_ApplicationInfo const& arg2)
 {
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getDrawable(AndroidCXX::java_lang_String& arg0,int& arg1,AndroidCXX::android_content_pm_ApplicationInfo& arg2) enter");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getDrawable(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::android_content_pm_ApplicationInfo const& arg2) enter");
 
 	const char *methodName = "getDrawable";
 	const char *methodSignature = "(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;";
@@ -940,8 +941,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -1033,15 +1032,13 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager
 	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
 	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getDrawable(AndroidCXX::java_lang_String& arg0,int& arg1,AndroidCXX::android_content_pm_ApplicationInfo& arg2) exit");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getDrawable(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::android_content_pm_ApplicationInfo const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::android_content_res_XmlResourceParser android_content_pm_PackageManager::getXml(AndroidCXX::java_lang_String& arg0,int& arg1,AndroidCXX::android_content_pm_ApplicationInfo& arg2)
+AndroidCXX::android_content_res_XmlResourceParser android_content_pm_PackageManager::getXml(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::android_content_pm_ApplicationInfo const& arg2)
 {
-	LOGV("AndroidCXX::android_content_res_XmlResourceParser android_content_pm_PackageManager::getXml(AndroidCXX::java_lang_String& arg0,int& arg1,AndroidCXX::android_content_pm_ApplicationInfo& arg2) enter");
+	LOGV("AndroidCXX::android_content_res_XmlResourceParser android_content_pm_PackageManager::getXml(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::android_content_pm_ApplicationInfo const& arg2) enter");
 
 	const char *methodName = "getXml";
 	const char *methodSignature = "(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Landroid/content/res/XmlResourceParser;";
@@ -1051,8 +1048,6 @@ AndroidCXX::android_content_res_XmlResourceParser android_content_pm_PackageMana
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -1144,15 +1139,13 @@ AndroidCXX::android_content_res_XmlResourceParser android_content_pm_PackageMana
 	AndroidCXX::android_content_res_XmlResourceParser result((AndroidCXX::android_content_res_XmlResourceParser) *((AndroidCXX::android_content_res_XmlResourceParser *) cxx_value));
 	delete ((AndroidCXX::android_content_res_XmlResourceParser *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_res_XmlResourceParser android_content_pm_PackageManager::getXml(AndroidCXX::java_lang_String& arg0,int& arg1,AndroidCXX::android_content_pm_ApplicationInfo& arg2) exit");
+	LOGV("AndroidCXX::android_content_res_XmlResourceParser android_content_pm_PackageManager::getXml(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::android_content_pm_ApplicationInfo const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::android_content_pm_ApplicationInfo android_content_pm_PackageManager::getApplicationInfo(AndroidCXX::java_lang_String& arg0,int& arg1)
+AndroidCXX::android_content_pm_ApplicationInfo android_content_pm_PackageManager::getApplicationInfo(AndroidCXX::java_lang_String const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_content_pm_ApplicationInfo android_content_pm_PackageManager::getApplicationInfo(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_content_pm_ApplicationInfo android_content_pm_PackageManager::getApplicationInfo(AndroidCXX::java_lang_String const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getApplicationInfo";
 	const char *methodSignature = "(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;";
@@ -1162,8 +1155,6 @@ AndroidCXX::android_content_pm_ApplicationInfo android_content_pm_PackageManager
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -1234,15 +1225,13 @@ AndroidCXX::android_content_pm_ApplicationInfo android_content_pm_PackageManager
 	AndroidCXX::android_content_pm_ApplicationInfo result((AndroidCXX::android_content_pm_ApplicationInfo) *((AndroidCXX::android_content_pm_ApplicationInfo *) cxx_value));
 	delete ((AndroidCXX::android_content_pm_ApplicationInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_pm_ApplicationInfo android_content_pm_PackageManager::getApplicationInfo(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_content_pm_ApplicationInfo android_content_pm_PackageManager::getApplicationInfo(AndroidCXX::java_lang_String const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_pm_ResolveInfo android_content_pm_PackageManager::resolveActivity(AndroidCXX::android_content_Intent& arg0,int& arg1)
+AndroidCXX::android_content_pm_ResolveInfo android_content_pm_PackageManager::resolveActivity(AndroidCXX::android_content_Intent const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_content_pm_ResolveInfo android_content_pm_PackageManager::resolveActivity(AndroidCXX::android_content_Intent& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_content_pm_ResolveInfo android_content_pm_PackageManager::resolveActivity(AndroidCXX::android_content_Intent const& arg0,int const& arg1) enter");
 
 	const char *methodName = "resolveActivity";
 	const char *methodSignature = "(Landroid/content/Intent;I)Landroid/content/pm/ResolveInfo;";
@@ -1252,8 +1241,6 @@ AndroidCXX::android_content_pm_ResolveInfo android_content_pm_PackageManager::re
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -1324,15 +1311,13 @@ AndroidCXX::android_content_pm_ResolveInfo android_content_pm_PackageManager::re
 	AndroidCXX::android_content_pm_ResolveInfo result((AndroidCXX::android_content_pm_ResolveInfo) *((AndroidCXX::android_content_pm_ResolveInfo *) cxx_value));
 	delete ((AndroidCXX::android_content_pm_ResolveInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_pm_ResolveInfo android_content_pm_PackageManager::resolveActivity(AndroidCXX::android_content_Intent& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_content_pm_ResolveInfo android_content_pm_PackageManager::resolveActivity(AndroidCXX::android_content_Intent const& arg0,int const& arg1) exit");
 
 	return result;
 }
-std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::currentToCanonicalPackageNames(std::vector<AndroidCXX::java_lang_String >& arg0)
+std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::currentToCanonicalPackageNames(std::vector<AndroidCXX::java_lang_String > const& arg0)
 {
-	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::currentToCanonicalPackageNames(std::vector<AndroidCXX::java_lang_String >& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::currentToCanonicalPackageNames(std::vector<AndroidCXX::java_lang_String > const& arg0) enter");
 
 	const char *methodName = "currentToCanonicalPackageNames";
 	const char *methodSignature = "([Ljava/lang/String;)[Ljava/lang/String;";
@@ -1343,8 +1328,6 @@ std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::cu
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1429,15 +1412,13 @@ std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::cu
 	std::vector<AndroidCXX::java_lang_String > result = (std::vector<AndroidCXX::java_lang_String >) *((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 	delete ((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::currentToCanonicalPackageNames(std::vector<AndroidCXX::java_lang_String >& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::currentToCanonicalPackageNames(std::vector<AndroidCXX::java_lang_String > const& arg0) exit");
 
 	return result;
 }
-std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::canonicalToCurrentPackageNames(std::vector<AndroidCXX::java_lang_String >& arg0)
+std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::canonicalToCurrentPackageNames(std::vector<AndroidCXX::java_lang_String > const& arg0)
 {
-	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::canonicalToCurrentPackageNames(std::vector<AndroidCXX::java_lang_String >& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::canonicalToCurrentPackageNames(std::vector<AndroidCXX::java_lang_String > const& arg0) enter");
 
 	const char *methodName = "canonicalToCurrentPackageNames";
 	const char *methodSignature = "([Ljava/lang/String;)[Ljava/lang/String;";
@@ -1448,8 +1429,6 @@ std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::ca
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1534,15 +1513,13 @@ std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::ca
 	std::vector<AndroidCXX::java_lang_String > result = (std::vector<AndroidCXX::java_lang_String >) *((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 	delete ((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::canonicalToCurrentPackageNames(std::vector<AndroidCXX::java_lang_String >& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::canonicalToCurrentPackageNames(std::vector<AndroidCXX::java_lang_String > const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_pm_PackageManager::getLaunchIntentForPackage(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::android_content_Intent android_content_pm_PackageManager::getLaunchIntentForPackage(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_pm_PackageManager::getLaunchIntentForPackage(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_pm_PackageManager::getLaunchIntentForPackage(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getLaunchIntentForPackage";
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/content/Intent;";
@@ -1552,8 +1529,6 @@ AndroidCXX::android_content_Intent android_content_pm_PackageManager::getLaunchI
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -1603,15 +1578,13 @@ AndroidCXX::android_content_Intent android_content_pm_PackageManager::getLaunchI
 	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
 	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_Intent android_content_pm_PackageManager::getLaunchIntentForPackage(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_pm_PackageManager::getLaunchIntentForPackage(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-std::vector<int> android_content_pm_PackageManager::getPackageGids(AndroidCXX::java_lang_String& arg0)
+std::vector<int> android_content_pm_PackageManager::getPackageGids(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("std::vector<int> android_content_pm_PackageManager::getPackageGids(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("std::vector<int> android_content_pm_PackageManager::getPackageGids(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getPackageGids";
 	const char *methodSignature = "(Ljava/lang/String;)[I";
@@ -1621,8 +1594,6 @@ std::vector<int> android_content_pm_PackageManager::getPackageGids(AndroidCXX::j
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -1690,15 +1661,13 @@ std::vector<int> android_content_pm_PackageManager::getPackageGids(AndroidCXX::j
 	std::vector<int> result = (std::vector<int>) *((std::vector<int> *) cxx_value);
 	delete ((std::vector<int> *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<int> android_content_pm_PackageManager::getPackageGids(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("std::vector<int> android_content_pm_PackageManager::getPackageGids(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_pm_PermissionInfo android_content_pm_PackageManager::getPermissionInfo(AndroidCXX::java_lang_String& arg0,int& arg1)
+AndroidCXX::android_content_pm_PermissionInfo android_content_pm_PackageManager::getPermissionInfo(AndroidCXX::java_lang_String const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_content_pm_PermissionInfo android_content_pm_PackageManager::getPermissionInfo(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_content_pm_PermissionInfo android_content_pm_PackageManager::getPermissionInfo(AndroidCXX::java_lang_String const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getPermissionInfo";
 	const char *methodSignature = "(Ljava/lang/String;I)Landroid/content/pm/PermissionInfo;";
@@ -1708,8 +1677,6 @@ AndroidCXX::android_content_pm_PermissionInfo android_content_pm_PackageManager:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -1780,15 +1747,13 @@ AndroidCXX::android_content_pm_PermissionInfo android_content_pm_PackageManager:
 	AndroidCXX::android_content_pm_PermissionInfo result((AndroidCXX::android_content_pm_PermissionInfo) *((AndroidCXX::android_content_pm_PermissionInfo *) cxx_value));
 	delete ((AndroidCXX::android_content_pm_PermissionInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_pm_PermissionInfo android_content_pm_PackageManager::getPermissionInfo(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_content_pm_PermissionInfo android_content_pm_PackageManager::getPermissionInfo(AndroidCXX::java_lang_String const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_util_List android_content_pm_PackageManager::queryPermissionsByGroup(AndroidCXX::java_lang_String& arg0,int& arg1)
+AndroidCXX::java_util_List android_content_pm_PackageManager::queryPermissionsByGroup(AndroidCXX::java_lang_String const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryPermissionsByGroup(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryPermissionsByGroup(AndroidCXX::java_lang_String const& arg0,int const& arg1) enter");
 
 	const char *methodName = "queryPermissionsByGroup";
 	const char *methodSignature = "(Ljava/lang/String;I)Ljava/util/List;";
@@ -1798,8 +1763,6 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::queryPermissionsBy
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -1888,15 +1851,13 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::queryPermissionsBy
 	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
 	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryPermissionsByGroup(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryPermissionsByGroup(AndroidCXX::java_lang_String const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_pm_PermissionGroupInfo android_content_pm_PackageManager::getPermissionGroupInfo(AndroidCXX::java_lang_String& arg0,int& arg1)
+AndroidCXX::android_content_pm_PermissionGroupInfo android_content_pm_PackageManager::getPermissionGroupInfo(AndroidCXX::java_lang_String const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_content_pm_PermissionGroupInfo android_content_pm_PackageManager::getPermissionGroupInfo(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_content_pm_PermissionGroupInfo android_content_pm_PackageManager::getPermissionGroupInfo(AndroidCXX::java_lang_String const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getPermissionGroupInfo";
 	const char *methodSignature = "(Ljava/lang/String;I)Landroid/content/pm/PermissionGroupInfo;";
@@ -1906,8 +1867,6 @@ AndroidCXX::android_content_pm_PermissionGroupInfo android_content_pm_PackageMan
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -1978,15 +1937,13 @@ AndroidCXX::android_content_pm_PermissionGroupInfo android_content_pm_PackageMan
 	AndroidCXX::android_content_pm_PermissionGroupInfo result((AndroidCXX::android_content_pm_PermissionGroupInfo) *((AndroidCXX::android_content_pm_PermissionGroupInfo *) cxx_value));
 	delete ((AndroidCXX::android_content_pm_PermissionGroupInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_pm_PermissionGroupInfo android_content_pm_PackageManager::getPermissionGroupInfo(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_content_pm_PermissionGroupInfo android_content_pm_PackageManager::getPermissionGroupInfo(AndroidCXX::java_lang_String const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_util_List android_content_pm_PackageManager::getAllPermissionGroups(int& arg0)
+AndroidCXX::java_util_List android_content_pm_PackageManager::getAllPermissionGroups(int const& arg0)
 {
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::getAllPermissionGroups(int& arg0) enter");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::getAllPermissionGroups(int const& arg0) enter");
 
 	const char *methodName = "getAllPermissionGroups";
 	const char *methodSignature = "(I)Ljava/util/List;";
@@ -1996,8 +1953,6 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::getAllPermissionGr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -2065,15 +2020,13 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::getAllPermissionGr
 	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
 	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::getAllPermissionGroups(int& arg0) exit");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::getAllPermissionGroups(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_pm_ActivityInfo android_content_pm_PackageManager::getActivityInfo(AndroidCXX::android_content_ComponentName& arg0,int& arg1)
+AndroidCXX::android_content_pm_ActivityInfo android_content_pm_PackageManager::getActivityInfo(AndroidCXX::android_content_ComponentName const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_content_pm_ActivityInfo android_content_pm_PackageManager::getActivityInfo(AndroidCXX::android_content_ComponentName& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_content_pm_ActivityInfo android_content_pm_PackageManager::getActivityInfo(AndroidCXX::android_content_ComponentName const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getActivityInfo";
 	const char *methodSignature = "(Landroid/content/ComponentName;I)Landroid/content/pm/ActivityInfo;";
@@ -2084,8 +2037,6 @@ AndroidCXX::android_content_pm_ActivityInfo android_content_pm_PackageManager::g
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2155,15 +2106,13 @@ AndroidCXX::android_content_pm_ActivityInfo android_content_pm_PackageManager::g
 	AndroidCXX::android_content_pm_ActivityInfo result((AndroidCXX::android_content_pm_ActivityInfo) *((AndroidCXX::android_content_pm_ActivityInfo *) cxx_value));
 	delete ((AndroidCXX::android_content_pm_ActivityInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_pm_ActivityInfo android_content_pm_PackageManager::getActivityInfo(AndroidCXX::android_content_ComponentName& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_content_pm_ActivityInfo android_content_pm_PackageManager::getActivityInfo(AndroidCXX::android_content_ComponentName const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_pm_ActivityInfo android_content_pm_PackageManager::getReceiverInfo(AndroidCXX::android_content_ComponentName& arg0,int& arg1)
+AndroidCXX::android_content_pm_ActivityInfo android_content_pm_PackageManager::getReceiverInfo(AndroidCXX::android_content_ComponentName const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_content_pm_ActivityInfo android_content_pm_PackageManager::getReceiverInfo(AndroidCXX::android_content_ComponentName& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_content_pm_ActivityInfo android_content_pm_PackageManager::getReceiverInfo(AndroidCXX::android_content_ComponentName const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getReceiverInfo";
 	const char *methodSignature = "(Landroid/content/ComponentName;I)Landroid/content/pm/ActivityInfo;";
@@ -2174,8 +2123,6 @@ AndroidCXX::android_content_pm_ActivityInfo android_content_pm_PackageManager::g
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2245,15 +2192,13 @@ AndroidCXX::android_content_pm_ActivityInfo android_content_pm_PackageManager::g
 	AndroidCXX::android_content_pm_ActivityInfo result((AndroidCXX::android_content_pm_ActivityInfo) *((AndroidCXX::android_content_pm_ActivityInfo *) cxx_value));
 	delete ((AndroidCXX::android_content_pm_ActivityInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_pm_ActivityInfo android_content_pm_PackageManager::getReceiverInfo(AndroidCXX::android_content_ComponentName& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_content_pm_ActivityInfo android_content_pm_PackageManager::getReceiverInfo(AndroidCXX::android_content_ComponentName const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_pm_ServiceInfo android_content_pm_PackageManager::getServiceInfo(AndroidCXX::android_content_ComponentName& arg0,int& arg1)
+AndroidCXX::android_content_pm_ServiceInfo android_content_pm_PackageManager::getServiceInfo(AndroidCXX::android_content_ComponentName const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_content_pm_ServiceInfo android_content_pm_PackageManager::getServiceInfo(AndroidCXX::android_content_ComponentName& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_content_pm_ServiceInfo android_content_pm_PackageManager::getServiceInfo(AndroidCXX::android_content_ComponentName const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getServiceInfo";
 	const char *methodSignature = "(Landroid/content/ComponentName;I)Landroid/content/pm/ServiceInfo;";
@@ -2263,8 +2208,6 @@ AndroidCXX::android_content_pm_ServiceInfo android_content_pm_PackageManager::ge
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -2335,15 +2278,13 @@ AndroidCXX::android_content_pm_ServiceInfo android_content_pm_PackageManager::ge
 	AndroidCXX::android_content_pm_ServiceInfo result((AndroidCXX::android_content_pm_ServiceInfo) *((AndroidCXX::android_content_pm_ServiceInfo *) cxx_value));
 	delete ((AndroidCXX::android_content_pm_ServiceInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_pm_ServiceInfo android_content_pm_PackageManager::getServiceInfo(AndroidCXX::android_content_ComponentName& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_content_pm_ServiceInfo android_content_pm_PackageManager::getServiceInfo(AndroidCXX::android_content_ComponentName const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_pm_ProviderInfo android_content_pm_PackageManager::getProviderInfo(AndroidCXX::android_content_ComponentName& arg0,int& arg1)
+AndroidCXX::android_content_pm_ProviderInfo android_content_pm_PackageManager::getProviderInfo(AndroidCXX::android_content_ComponentName const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_content_pm_ProviderInfo android_content_pm_PackageManager::getProviderInfo(AndroidCXX::android_content_ComponentName& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_content_pm_ProviderInfo android_content_pm_PackageManager::getProviderInfo(AndroidCXX::android_content_ComponentName const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getProviderInfo";
 	const char *methodSignature = "(Landroid/content/ComponentName;I)Landroid/content/pm/ProviderInfo;";
@@ -2353,8 +2294,6 @@ AndroidCXX::android_content_pm_ProviderInfo android_content_pm_PackageManager::g
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -2425,15 +2364,13 @@ AndroidCXX::android_content_pm_ProviderInfo android_content_pm_PackageManager::g
 	AndroidCXX::android_content_pm_ProviderInfo result((AndroidCXX::android_content_pm_ProviderInfo) *((AndroidCXX::android_content_pm_ProviderInfo *) cxx_value));
 	delete ((AndroidCXX::android_content_pm_ProviderInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_pm_ProviderInfo android_content_pm_PackageManager::getProviderInfo(AndroidCXX::android_content_ComponentName& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_content_pm_ProviderInfo android_content_pm_PackageManager::getProviderInfo(AndroidCXX::android_content_ComponentName const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_util_List android_content_pm_PackageManager::getInstalledPackages(int& arg0)
+AndroidCXX::java_util_List android_content_pm_PackageManager::getInstalledPackages(int const& arg0)
 {
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::getInstalledPackages(int& arg0) enter");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::getInstalledPackages(int const& arg0) enter");
 
 	const char *methodName = "getInstalledPackages";
 	const char *methodSignature = "(I)Ljava/util/List;";
@@ -2443,8 +2380,6 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::getInstalledPackag
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -2512,15 +2447,13 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::getInstalledPackag
 	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
 	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::getInstalledPackages(int& arg0) exit");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::getInstalledPackages(int const& arg0) exit");
 
 	return result;
 }
-bool android_content_pm_PackageManager::addPermission(AndroidCXX::android_content_pm_PermissionInfo& arg0)
+bool android_content_pm_PackageManager::addPermission(AndroidCXX::android_content_pm_PermissionInfo const& arg0)
 {
-	LOGV("bool android_content_pm_PackageManager::addPermission(AndroidCXX::android_content_pm_PermissionInfo& arg0) enter");
+	LOGV("bool android_content_pm_PackageManager::addPermission(AndroidCXX::android_content_pm_PermissionInfo const& arg0) enter");
 
 	const char *methodName = "addPermission";
 	const char *methodSignature = "(Landroid/content/pm/PermissionInfo;)Z";
@@ -2531,8 +2464,6 @@ bool android_content_pm_PackageManager::addPermission(AndroidCXX::android_conten
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2581,15 +2512,13 @@ bool android_content_pm_PackageManager::addPermission(AndroidCXX::android_conten
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_content_pm_PackageManager::addPermission(AndroidCXX::android_content_pm_PermissionInfo& arg0) exit");
+	LOGV("bool android_content_pm_PackageManager::addPermission(AndroidCXX::android_content_pm_PermissionInfo const& arg0) exit");
 
 	return result;
 }
-bool android_content_pm_PackageManager::addPermissionAsync(AndroidCXX::android_content_pm_PermissionInfo& arg0)
+bool android_content_pm_PackageManager::addPermissionAsync(AndroidCXX::android_content_pm_PermissionInfo const& arg0)
 {
-	LOGV("bool android_content_pm_PackageManager::addPermissionAsync(AndroidCXX::android_content_pm_PermissionInfo& arg0) enter");
+	LOGV("bool android_content_pm_PackageManager::addPermissionAsync(AndroidCXX::android_content_pm_PermissionInfo const& arg0) enter");
 
 	const char *methodName = "addPermissionAsync";
 	const char *methodSignature = "(Landroid/content/pm/PermissionInfo;)Z";
@@ -2600,8 +2529,6 @@ bool android_content_pm_PackageManager::addPermissionAsync(AndroidCXX::android_c
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2650,15 +2577,13 @@ bool android_content_pm_PackageManager::addPermissionAsync(AndroidCXX::android_c
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_content_pm_PackageManager::addPermissionAsync(AndroidCXX::android_content_pm_PermissionInfo& arg0) exit");
+	LOGV("bool android_content_pm_PackageManager::addPermissionAsync(AndroidCXX::android_content_pm_PermissionInfo const& arg0) exit");
 
 	return result;
 }
-void android_content_pm_PackageManager::removePermission(AndroidCXX::java_lang_String& arg0)
+void android_content_pm_PackageManager::removePermission(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_content_pm_PackageManager::removePermission(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_content_pm_PackageManager::removePermission(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "removePermission";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -2668,8 +2593,6 @@ void android_content_pm_PackageManager::removePermission(AndroidCXX::java_lang_S
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -2700,14 +2623,12 @@ void android_content_pm_PackageManager::removePermission(AndroidCXX::java_lang_S
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_pm_PackageManager::removePermission(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_content_pm_PackageManager::removePermission(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-int android_content_pm_PackageManager::checkSignatures(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
+int android_content_pm_PackageManager::checkSignatures(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("int android_content_pm_PackageManager::checkSignatures(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("int android_content_pm_PackageManager::checkSignatures(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "checkSignatures";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)I";
@@ -2717,8 +2638,6 @@ int android_content_pm_PackageManager::checkSignatures(AndroidCXX::java_lang_Str
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -2789,15 +2708,13 @@ int android_content_pm_PackageManager::checkSignatures(AndroidCXX::java_lang_Str
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_content_pm_PackageManager::checkSignatures(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("int android_content_pm_PackageManager::checkSignatures(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-int android_content_pm_PackageManager::checkSignatures(int& arg0,int& arg1)
+int android_content_pm_PackageManager::checkSignatures(int const& arg0,int const& arg1)
 {
-	LOGV("int android_content_pm_PackageManager::checkSignatures(int& arg0,int& arg1) enter");
+	LOGV("int android_content_pm_PackageManager::checkSignatures(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "checkSignatures";
 	const char *methodSignature = "(II)I";
@@ -2807,8 +2724,6 @@ int android_content_pm_PackageManager::checkSignatures(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -2879,15 +2794,13 @@ int android_content_pm_PackageManager::checkSignatures(int& arg0,int& arg1)
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_content_pm_PackageManager::checkSignatures(int& arg0,int& arg1) exit");
+	LOGV("int android_content_pm_PackageManager::checkSignatures(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::getPackagesForUid(int& arg0)
+std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::getPackagesForUid(int const& arg0)
 {
-	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::getPackagesForUid(int& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::getPackagesForUid(int const& arg0) enter");
 
 	const char *methodName = "getPackagesForUid";
 	const char *methodSignature = "(I)[Ljava/lang/String;";
@@ -2897,8 +2810,6 @@ std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::ge
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -2966,15 +2877,13 @@ std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::ge
 	std::vector<AndroidCXX::java_lang_String > result = (std::vector<AndroidCXX::java_lang_String >) *((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 	delete ((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::getPackagesForUid(int& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::getPackagesForUid(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_pm_PackageManager::getNameForUid(int& arg0)
+AndroidCXX::java_lang_String android_content_pm_PackageManager::getNameForUid(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_pm_PackageManager::getNameForUid(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_pm_PackageManager::getNameForUid(int const& arg0) enter");
 
 	const char *methodName = "getNameForUid";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -2984,8 +2893,6 @@ AndroidCXX::java_lang_String android_content_pm_PackageManager::getNameForUid(in
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -3035,15 +2942,13 @@ AndroidCXX::java_lang_String android_content_pm_PackageManager::getNameForUid(in
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_content_pm_PackageManager::getNameForUid(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_pm_PackageManager::getNameForUid(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_util_List android_content_pm_PackageManager::getInstalledApplications(int& arg0)
+AndroidCXX::java_util_List android_content_pm_PackageManager::getInstalledApplications(int const& arg0)
 {
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::getInstalledApplications(int& arg0) enter");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::getInstalledApplications(int const& arg0) enter");
 
 	const char *methodName = "getInstalledApplications";
 	const char *methodSignature = "(I)Ljava/util/List;";
@@ -3053,8 +2958,6 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::getInstalledApplic
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -3122,9 +3025,7 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::getInstalledApplic
 	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
 	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::getInstalledApplications(int& arg0) exit");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::getInstalledApplications(int const& arg0) exit");
 
 	return result;
 }
@@ -3140,8 +3041,6 @@ std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::ge
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -3188,8 +3087,6 @@ std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::ge
 	std::vector<AndroidCXX::java_lang_String > result = (std::vector<AndroidCXX::java_lang_String >) *((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 	delete ((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::getSystemSharedLibraryNames() exit");
 
 	return result;
@@ -3206,8 +3103,6 @@ std::vector<AndroidCXX::android_content_pm_FeatureInfo > android_content_pm_Pack
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -3254,15 +3149,13 @@ std::vector<AndroidCXX::android_content_pm_FeatureInfo > android_content_pm_Pack
 	std::vector<AndroidCXX::android_content_pm_FeatureInfo > result = (std::vector<AndroidCXX::android_content_pm_FeatureInfo >) *((std::vector<AndroidCXX::android_content_pm_FeatureInfo > *) cxx_value);
 	delete ((std::vector<AndroidCXX::android_content_pm_FeatureInfo > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<AndroidCXX::android_content_pm_FeatureInfo > android_content_pm_PackageManager::getSystemAvailableFeatures() exit");
 
 	return result;
 }
-bool android_content_pm_PackageManager::hasSystemFeature(AndroidCXX::java_lang_String& arg0)
+bool android_content_pm_PackageManager::hasSystemFeature(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("bool android_content_pm_PackageManager::hasSystemFeature(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("bool android_content_pm_PackageManager::hasSystemFeature(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "hasSystemFeature";
 	const char *methodSignature = "(Ljava/lang/String;)Z";
@@ -3272,8 +3165,6 @@ bool android_content_pm_PackageManager::hasSystemFeature(AndroidCXX::java_lang_S
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -3323,15 +3214,13 @@ bool android_content_pm_PackageManager::hasSystemFeature(AndroidCXX::java_lang_S
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_content_pm_PackageManager::hasSystemFeature(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("bool android_content_pm_PackageManager::hasSystemFeature(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivities(AndroidCXX::android_content_Intent& arg0,int& arg1)
+AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivities(AndroidCXX::android_content_Intent const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivities(AndroidCXX::android_content_Intent& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivities(AndroidCXX::android_content_Intent const& arg0,int const& arg1) enter");
 
 	const char *methodName = "queryIntentActivities";
 	const char *methodSignature = "(Landroid/content/Intent;I)Ljava/util/List;";
@@ -3341,8 +3230,6 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivit
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -3431,15 +3318,13 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivit
 	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
 	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivities(AndroidCXX::android_content_Intent& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivities(AndroidCXX::android_content_Intent const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivityOptions(AndroidCXX::android_content_ComponentName& arg0,std::vector<AndroidCXX::android_content_Intent >& arg1,AndroidCXX::android_content_Intent& arg2,int& arg3)
+AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivityOptions(AndroidCXX::android_content_ComponentName const& arg0,std::vector<AndroidCXX::android_content_Intent > const& arg1,AndroidCXX::android_content_Intent const& arg2,int const& arg3)
 {
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivityOptions(AndroidCXX::android_content_ComponentName& arg0,std::vector<AndroidCXX::android_content_Intent >& arg1,AndroidCXX::android_content_Intent& arg2,int& arg3) enter");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivityOptions(AndroidCXX::android_content_ComponentName const& arg0,std::vector<AndroidCXX::android_content_Intent > const& arg1,AndroidCXX::android_content_Intent const& arg2,int const& arg3) enter");
 
 	const char *methodName = "queryIntentActivityOptions";
 	const char *methodSignature = "(Landroid/content/ComponentName;[Landroid/content/Intent;Landroid/content/Intent;I)Ljava/util/List;";
@@ -3449,8 +3334,6 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivit
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -3599,15 +3482,13 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivit
 	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
 	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivityOptions(AndroidCXX::android_content_ComponentName& arg0,std::vector<AndroidCXX::android_content_Intent >& arg1,AndroidCXX::android_content_Intent& arg2,int& arg3) exit");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivityOptions(AndroidCXX::android_content_ComponentName const& arg0,std::vector<AndroidCXX::android_content_Intent > const& arg1,AndroidCXX::android_content_Intent const& arg2,int const& arg3) exit");
 
 	return result;
 }
-AndroidCXX::java_util_List android_content_pm_PackageManager::queryBroadcastReceivers(AndroidCXX::android_content_Intent& arg0,int& arg1)
+AndroidCXX::java_util_List android_content_pm_PackageManager::queryBroadcastReceivers(AndroidCXX::android_content_Intent const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryBroadcastReceivers(AndroidCXX::android_content_Intent& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryBroadcastReceivers(AndroidCXX::android_content_Intent const& arg0,int const& arg1) enter");
 
 	const char *methodName = "queryBroadcastReceivers";
 	const char *methodSignature = "(Landroid/content/Intent;I)Ljava/util/List;";
@@ -3617,8 +3498,6 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::queryBroadcastRece
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -3707,15 +3586,13 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::queryBroadcastRece
 	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
 	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryBroadcastReceivers(AndroidCXX::android_content_Intent& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryBroadcastReceivers(AndroidCXX::android_content_Intent const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_pm_ResolveInfo android_content_pm_PackageManager::resolveService(AndroidCXX::android_content_Intent& arg0,int& arg1)
+AndroidCXX::android_content_pm_ResolveInfo android_content_pm_PackageManager::resolveService(AndroidCXX::android_content_Intent const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_content_pm_ResolveInfo android_content_pm_PackageManager::resolveService(AndroidCXX::android_content_Intent& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_content_pm_ResolveInfo android_content_pm_PackageManager::resolveService(AndroidCXX::android_content_Intent const& arg0,int const& arg1) enter");
 
 	const char *methodName = "resolveService";
 	const char *methodSignature = "(Landroid/content/Intent;I)Landroid/content/pm/ResolveInfo;";
@@ -3725,8 +3602,6 @@ AndroidCXX::android_content_pm_ResolveInfo android_content_pm_PackageManager::re
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -3797,15 +3672,13 @@ AndroidCXX::android_content_pm_ResolveInfo android_content_pm_PackageManager::re
 	AndroidCXX::android_content_pm_ResolveInfo result((AndroidCXX::android_content_pm_ResolveInfo) *((AndroidCXX::android_content_pm_ResolveInfo *) cxx_value));
 	delete ((AndroidCXX::android_content_pm_ResolveInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_pm_ResolveInfo android_content_pm_PackageManager::resolveService(AndroidCXX::android_content_Intent& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_content_pm_ResolveInfo android_content_pm_PackageManager::resolveService(AndroidCXX::android_content_Intent const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentServices(AndroidCXX::android_content_Intent& arg0,int& arg1)
+AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentServices(AndroidCXX::android_content_Intent const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentServices(AndroidCXX::android_content_Intent& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentServices(AndroidCXX::android_content_Intent const& arg0,int const& arg1) enter");
 
 	const char *methodName = "queryIntentServices";
 	const char *methodSignature = "(Landroid/content/Intent;I)Ljava/util/List;";
@@ -3815,8 +3688,6 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentService
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -3905,15 +3776,13 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentService
 	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
 	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentServices(AndroidCXX::android_content_Intent& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentServices(AndroidCXX::android_content_Intent const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_pm_ProviderInfo android_content_pm_PackageManager::resolveContentProvider(AndroidCXX::java_lang_String& arg0,int& arg1)
+AndroidCXX::android_content_pm_ProviderInfo android_content_pm_PackageManager::resolveContentProvider(AndroidCXX::java_lang_String const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_content_pm_ProviderInfo android_content_pm_PackageManager::resolveContentProvider(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_content_pm_ProviderInfo android_content_pm_PackageManager::resolveContentProvider(AndroidCXX::java_lang_String const& arg0,int const& arg1) enter");
 
 	const char *methodName = "resolveContentProvider";
 	const char *methodSignature = "(Ljava/lang/String;I)Landroid/content/pm/ProviderInfo;";
@@ -3923,8 +3792,6 @@ AndroidCXX::android_content_pm_ProviderInfo android_content_pm_PackageManager::r
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -3995,15 +3862,13 @@ AndroidCXX::android_content_pm_ProviderInfo android_content_pm_PackageManager::r
 	AndroidCXX::android_content_pm_ProviderInfo result((AndroidCXX::android_content_pm_ProviderInfo) *((AndroidCXX::android_content_pm_ProviderInfo *) cxx_value));
 	delete ((AndroidCXX::android_content_pm_ProviderInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_pm_ProviderInfo android_content_pm_PackageManager::resolveContentProvider(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_content_pm_ProviderInfo android_content_pm_PackageManager::resolveContentProvider(AndroidCXX::java_lang_String const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_util_List android_content_pm_PackageManager::queryContentProviders(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2)
+AndroidCXX::java_util_List android_content_pm_PackageManager::queryContentProviders(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryContentProviders(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2) enter");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryContentProviders(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "queryContentProviders";
 	const char *methodSignature = "(Ljava/lang/String;II)Ljava/util/List;";
@@ -4013,8 +3878,6 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::queryContentProvid
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -4124,15 +3987,13 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::queryContentProvid
 	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
 	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryContentProviders(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2) exit");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryContentProviders(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::android_content_pm_InstrumentationInfo android_content_pm_PackageManager::getInstrumentationInfo(AndroidCXX::android_content_ComponentName& arg0,int& arg1)
+AndroidCXX::android_content_pm_InstrumentationInfo android_content_pm_PackageManager::getInstrumentationInfo(AndroidCXX::android_content_ComponentName const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_content_pm_InstrumentationInfo android_content_pm_PackageManager::getInstrumentationInfo(AndroidCXX::android_content_ComponentName& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_content_pm_InstrumentationInfo android_content_pm_PackageManager::getInstrumentationInfo(AndroidCXX::android_content_ComponentName const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getInstrumentationInfo";
 	const char *methodSignature = "(Landroid/content/ComponentName;I)Landroid/content/pm/InstrumentationInfo;";
@@ -4142,8 +4003,6 @@ AndroidCXX::android_content_pm_InstrumentationInfo android_content_pm_PackageMan
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -4214,15 +4073,13 @@ AndroidCXX::android_content_pm_InstrumentationInfo android_content_pm_PackageMan
 	AndroidCXX::android_content_pm_InstrumentationInfo result((AndroidCXX::android_content_pm_InstrumentationInfo) *((AndroidCXX::android_content_pm_InstrumentationInfo *) cxx_value));
 	delete ((AndroidCXX::android_content_pm_InstrumentationInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_pm_InstrumentationInfo android_content_pm_PackageManager::getInstrumentationInfo(AndroidCXX::android_content_ComponentName& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_content_pm_InstrumentationInfo android_content_pm_PackageManager::getInstrumentationInfo(AndroidCXX::android_content_ComponentName const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_util_List android_content_pm_PackageManager::queryInstrumentation(AndroidCXX::java_lang_String& arg0,int& arg1)
+AndroidCXX::java_util_List android_content_pm_PackageManager::queryInstrumentation(AndroidCXX::java_lang_String const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryInstrumentation(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryInstrumentation(AndroidCXX::java_lang_String const& arg0,int const& arg1) enter");
 
 	const char *methodName = "queryInstrumentation";
 	const char *methodSignature = "(Ljava/lang/String;I)Ljava/util/List;";
@@ -4232,8 +4089,6 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::queryInstrumentati
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -4322,15 +4177,13 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::queryInstrumentati
 	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
 	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryInstrumentation(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryInstrumentation(AndroidCXX::java_lang_String const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityIcon(AndroidCXX::android_content_ComponentName& arg0)
+AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityIcon(AndroidCXX::android_content_ComponentName const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityIcon(AndroidCXX::android_content_ComponentName& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityIcon(AndroidCXX::android_content_ComponentName const& arg0) enter");
 
 	const char *methodName = "getActivityIcon";
 	const char *methodSignature = "(Landroid/content/ComponentName;)Landroid/graphics/drawable/Drawable;";
@@ -4340,8 +4193,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -4391,15 +4242,13 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager
 	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
 	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityIcon(AndroidCXX::android_content_ComponentName& arg0) exit");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityIcon(AndroidCXX::android_content_ComponentName const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityIcon(AndroidCXX::android_content_Intent& arg0)
+AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityIcon(AndroidCXX::android_content_Intent const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityIcon(AndroidCXX::android_content_Intent& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityIcon(AndroidCXX::android_content_Intent const& arg0) enter");
 
 	const char *methodName = "getActivityIcon";
 	const char *methodSignature = "(Landroid/content/Intent;)Landroid/graphics/drawable/Drawable;";
@@ -4409,8 +4258,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -4460,9 +4307,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager
 	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
 	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityIcon(AndroidCXX::android_content_Intent& arg0) exit");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityIcon(AndroidCXX::android_content_Intent const& arg0) exit");
 
 	return result;
 }
@@ -4478,8 +4323,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -4508,15 +4351,13 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager
 	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
 	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getDefaultActivityIcon() exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationIcon(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationIcon(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationIcon(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationIcon(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getApplicationIcon";
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;";
@@ -4526,8 +4367,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -4577,15 +4416,13 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager
 	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
 	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationIcon(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationIcon(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationIcon(AndroidCXX::android_content_pm_ApplicationInfo& arg0)
+AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationIcon(AndroidCXX::android_content_pm_ApplicationInfo const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationIcon(AndroidCXX::android_content_pm_ApplicationInfo& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationIcon(AndroidCXX::android_content_pm_ApplicationInfo const& arg0) enter");
 
 	const char *methodName = "getApplicationIcon";
 	const char *methodSignature = "(Landroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;";
@@ -4595,8 +4432,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -4646,15 +4481,13 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager
 	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
 	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationIcon(AndroidCXX::android_content_pm_ApplicationInfo& arg0) exit");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationIcon(AndroidCXX::android_content_pm_ApplicationInfo const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityLogo(AndroidCXX::android_content_Intent& arg0)
+AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityLogo(AndroidCXX::android_content_Intent const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityLogo(AndroidCXX::android_content_Intent& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityLogo(AndroidCXX::android_content_Intent const& arg0) enter");
 
 	const char *methodName = "getActivityLogo";
 	const char *methodSignature = "(Landroid/content/Intent;)Landroid/graphics/drawable/Drawable;";
@@ -4664,8 +4497,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -4715,15 +4546,13 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager
 	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
 	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityLogo(AndroidCXX::android_content_Intent& arg0) exit");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityLogo(AndroidCXX::android_content_Intent const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityLogo(AndroidCXX::android_content_ComponentName& arg0)
+AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityLogo(AndroidCXX::android_content_ComponentName const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityLogo(AndroidCXX::android_content_ComponentName& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityLogo(AndroidCXX::android_content_ComponentName const& arg0) enter");
 
 	const char *methodName = "getActivityLogo";
 	const char *methodSignature = "(Landroid/content/ComponentName;)Landroid/graphics/drawable/Drawable;";
@@ -4733,8 +4562,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -4784,15 +4611,13 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager
 	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
 	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityLogo(AndroidCXX::android_content_ComponentName& arg0) exit");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getActivityLogo(AndroidCXX::android_content_ComponentName const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationLogo(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationLogo(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationLogo(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationLogo(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getApplicationLogo";
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;";
@@ -4802,8 +4627,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -4853,15 +4676,13 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager
 	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
 	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationLogo(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationLogo(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationLogo(AndroidCXX::android_content_pm_ApplicationInfo& arg0)
+AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationLogo(AndroidCXX::android_content_pm_ApplicationInfo const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationLogo(AndroidCXX::android_content_pm_ApplicationInfo& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationLogo(AndroidCXX::android_content_pm_ApplicationInfo const& arg0) enter");
 
 	const char *methodName = "getApplicationLogo";
 	const char *methodSignature = "(Landroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;";
@@ -4871,8 +4692,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -4922,15 +4741,13 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager
 	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
 	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationLogo(AndroidCXX::android_content_pm_ApplicationInfo& arg0) exit");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_content_pm_PackageManager::getApplicationLogo(AndroidCXX::android_content_pm_ApplicationInfo const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_CharSequence android_content_pm_PackageManager::getApplicationLabel(AndroidCXX::android_content_pm_ApplicationInfo& arg0)
+AndroidCXX::java_lang_CharSequence android_content_pm_PackageManager::getApplicationLabel(AndroidCXX::android_content_pm_ApplicationInfo const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_CharSequence android_content_pm_PackageManager::getApplicationLabel(AndroidCXX::android_content_pm_ApplicationInfo& arg0) enter");
+	LOGV("AndroidCXX::java_lang_CharSequence android_content_pm_PackageManager::getApplicationLabel(AndroidCXX::android_content_pm_ApplicationInfo const& arg0) enter");
 
 	const char *methodName = "getApplicationLabel";
 	const char *methodSignature = "(Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;";
@@ -4940,8 +4757,6 @@ AndroidCXX::java_lang_CharSequence android_content_pm_PackageManager::getApplica
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -4991,15 +4806,13 @@ AndroidCXX::java_lang_CharSequence android_content_pm_PackageManager::getApplica
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_CharSequence android_content_pm_PackageManager::getApplicationLabel(AndroidCXX::android_content_pm_ApplicationInfo& arg0) exit");
+	LOGV("AndroidCXX::java_lang_CharSequence android_content_pm_PackageManager::getApplicationLabel(AndroidCXX::android_content_pm_ApplicationInfo const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::getResourcesForActivity(AndroidCXX::android_content_ComponentName& arg0)
+AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::getResourcesForActivity(AndroidCXX::android_content_ComponentName const& arg0)
 {
-	LOGV("AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::getResourcesForActivity(AndroidCXX::android_content_ComponentName& arg0) enter");
+	LOGV("AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::getResourcesForActivity(AndroidCXX::android_content_ComponentName const& arg0) enter");
 
 	const char *methodName = "getResourcesForActivity";
 	const char *methodSignature = "(Landroid/content/ComponentName;)Landroid/content/res/Resources;";
@@ -5009,8 +4822,6 @@ AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::get
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -5060,15 +4871,13 @@ AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::get
 	AndroidCXX::android_content_res_Resources result((AndroidCXX::android_content_res_Resources) *((AndroidCXX::android_content_res_Resources *) cxx_value));
 	delete ((AndroidCXX::android_content_res_Resources *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::getResourcesForActivity(AndroidCXX::android_content_ComponentName& arg0) exit");
+	LOGV("AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::getResourcesForActivity(AndroidCXX::android_content_ComponentName const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::getResourcesForApplication(AndroidCXX::android_content_pm_ApplicationInfo& arg0)
+AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::getResourcesForApplication(AndroidCXX::android_content_pm_ApplicationInfo const& arg0)
 {
-	LOGV("AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::getResourcesForApplication(AndroidCXX::android_content_pm_ApplicationInfo& arg0) enter");
+	LOGV("AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::getResourcesForApplication(AndroidCXX::android_content_pm_ApplicationInfo const& arg0) enter");
 
 	const char *methodName = "getResourcesForApplication";
 	const char *methodSignature = "(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/Resources;";
@@ -5078,8 +4887,6 @@ AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::get
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -5129,15 +4936,13 @@ AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::get
 	AndroidCXX::android_content_res_Resources result((AndroidCXX::android_content_res_Resources) *((AndroidCXX::android_content_res_Resources *) cxx_value));
 	delete ((AndroidCXX::android_content_res_Resources *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::getResourcesForApplication(AndroidCXX::android_content_pm_ApplicationInfo& arg0) exit");
+	LOGV("AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::getResourcesForApplication(AndroidCXX::android_content_pm_ApplicationInfo const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::getResourcesForApplication(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::getResourcesForApplication(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::getResourcesForApplication(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::getResourcesForApplication(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getResourcesForApplication";
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/content/res/Resources;";
@@ -5147,8 +4952,6 @@ AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::get
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -5198,15 +5001,13 @@ AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::get
 	AndroidCXX::android_content_res_Resources result((AndroidCXX::android_content_res_Resources) *((AndroidCXX::android_content_res_Resources *) cxx_value));
 	delete ((AndroidCXX::android_content_res_Resources *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::getResourcesForApplication(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::android_content_res_Resources android_content_pm_PackageManager::getResourcesForApplication(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_pm_PackageInfo android_content_pm_PackageManager::getPackageArchiveInfo(AndroidCXX::java_lang_String& arg0,int& arg1)
+AndroidCXX::android_content_pm_PackageInfo android_content_pm_PackageManager::getPackageArchiveInfo(AndroidCXX::java_lang_String const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_content_pm_PackageInfo android_content_pm_PackageManager::getPackageArchiveInfo(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_content_pm_PackageInfo android_content_pm_PackageManager::getPackageArchiveInfo(AndroidCXX::java_lang_String const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getPackageArchiveInfo";
 	const char *methodSignature = "(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;";
@@ -5216,8 +5017,6 @@ AndroidCXX::android_content_pm_PackageInfo android_content_pm_PackageManager::ge
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -5288,15 +5087,13 @@ AndroidCXX::android_content_pm_PackageInfo android_content_pm_PackageManager::ge
 	AndroidCXX::android_content_pm_PackageInfo result((AndroidCXX::android_content_pm_PackageInfo) *((AndroidCXX::android_content_pm_PackageInfo *) cxx_value));
 	delete ((AndroidCXX::android_content_pm_PackageInfo *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::android_content_pm_PackageInfo android_content_pm_PackageManager::getPackageArchiveInfo(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_content_pm_PackageInfo android_content_pm_PackageManager::getPackageArchiveInfo(AndroidCXX::java_lang_String const& arg0,int const& arg1) exit");
 
 	return result;
 }
-void android_content_pm_PackageManager::verifyPendingInstall(int& arg0,int& arg1)
+void android_content_pm_PackageManager::verifyPendingInstall(int const& arg0,int const& arg1)
 {
-	LOGV("void android_content_pm_PackageManager::verifyPendingInstall(int& arg0,int& arg1) enter");
+	LOGV("void android_content_pm_PackageManager::verifyPendingInstall(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "verifyPendingInstall";
 	const char *methodSignature = "(II)V";
@@ -5306,8 +5103,6 @@ void android_content_pm_PackageManager::verifyPendingInstall(int& arg0,int& arg1
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -5359,14 +5154,12 @@ void android_content_pm_PackageManager::verifyPendingInstall(int& arg0,int& arg1
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_pm_PackageManager::verifyPendingInstall(int& arg0,int& arg1) exit");
+	LOGV("void android_content_pm_PackageManager::verifyPendingInstall(int const& arg0,int const& arg1) exit");
 
 }
-void android_content_pm_PackageManager::extendVerificationTimeout(int& arg0,int& arg1,long& arg2)
+void android_content_pm_PackageManager::extendVerificationTimeout(int const& arg0,int const& arg1,long const& arg2)
 {
-	LOGV("void android_content_pm_PackageManager::extendVerificationTimeout(int& arg0,int& arg1,long& arg2) enter");
+	LOGV("void android_content_pm_PackageManager::extendVerificationTimeout(int const& arg0,int const& arg1,long const& arg2) enter");
 
 	const char *methodName = "extendVerificationTimeout";
 	const char *methodSignature = "(IIJ)V";
@@ -5376,8 +5169,6 @@ void android_content_pm_PackageManager::extendVerificationTimeout(int& arg0,int&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -5450,14 +5241,12 @@ void android_content_pm_PackageManager::extendVerificationTimeout(int& arg0,int&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_pm_PackageManager::extendVerificationTimeout(int& arg0,int& arg1,long& arg2) exit");
+	LOGV("void android_content_pm_PackageManager::extendVerificationTimeout(int const& arg0,int const& arg1,long const& arg2) exit");
 
 }
-void android_content_pm_PackageManager::setInstallerPackageName(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
+void android_content_pm_PackageManager::setInstallerPackageName(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("void android_content_pm_PackageManager::setInstallerPackageName(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("void android_content_pm_PackageManager::setInstallerPackageName(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "setInstallerPackageName";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
@@ -5467,8 +5256,6 @@ void android_content_pm_PackageManager::setInstallerPackageName(AndroidCXX::java
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -5520,14 +5307,12 @@ void android_content_pm_PackageManager::setInstallerPackageName(AndroidCXX::java
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_pm_PackageManager::setInstallerPackageName(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("void android_content_pm_PackageManager::setInstallerPackageName(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 }
-AndroidCXX::java_lang_String android_content_pm_PackageManager::getInstallerPackageName(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_lang_String android_content_pm_PackageManager::getInstallerPackageName(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_pm_PackageManager::getInstallerPackageName(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_pm_PackageManager::getInstallerPackageName(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getInstallerPackageName";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
@@ -5537,8 +5322,6 @@ AndroidCXX::java_lang_String android_content_pm_PackageManager::getInstallerPack
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -5588,15 +5371,13 @@ AndroidCXX::java_lang_String android_content_pm_PackageManager::getInstallerPack
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String android_content_pm_PackageManager::getInstallerPackageName(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_pm_PackageManager::getInstallerPackageName(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-void android_content_pm_PackageManager::addPackageToPreferred(AndroidCXX::java_lang_String& arg0)
+void android_content_pm_PackageManager::addPackageToPreferred(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_content_pm_PackageManager::addPackageToPreferred(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_content_pm_PackageManager::addPackageToPreferred(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "addPackageToPreferred";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -5607,8 +5388,6 @@ void android_content_pm_PackageManager::addPackageToPreferred(AndroidCXX::java_l
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5638,14 +5417,12 @@ void android_content_pm_PackageManager::addPackageToPreferred(AndroidCXX::java_l
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_pm_PackageManager::addPackageToPreferred(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_content_pm_PackageManager::addPackageToPreferred(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-void android_content_pm_PackageManager::removePackageFromPreferred(AndroidCXX::java_lang_String& arg0)
+void android_content_pm_PackageManager::removePackageFromPreferred(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_content_pm_PackageManager::removePackageFromPreferred(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_content_pm_PackageManager::removePackageFromPreferred(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "removePackageFromPreferred";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -5656,8 +5433,6 @@ void android_content_pm_PackageManager::removePackageFromPreferred(AndroidCXX::j
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5687,14 +5462,12 @@ void android_content_pm_PackageManager::removePackageFromPreferred(AndroidCXX::j
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_pm_PackageManager::removePackageFromPreferred(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_content_pm_PackageManager::removePackageFromPreferred(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-AndroidCXX::java_util_List android_content_pm_PackageManager::getPreferredPackages(int& arg0)
+AndroidCXX::java_util_List android_content_pm_PackageManager::getPreferredPackages(int const& arg0)
 {
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::getPreferredPackages(int& arg0) enter");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::getPreferredPackages(int const& arg0) enter");
 
 	const char *methodName = "getPreferredPackages";
 	const char *methodSignature = "(I)Ljava/util/List;";
@@ -5704,8 +5477,6 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::getPreferredPackag
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -5773,15 +5544,13 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::getPreferredPackag
 	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
 	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::getPreferredPackages(int& arg0) exit");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::getPreferredPackages(int const& arg0) exit");
 
 	return result;
 }
-void android_content_pm_PackageManager::addPreferredActivity(AndroidCXX::android_content_IntentFilter& arg0,int& arg1,std::vector<AndroidCXX::android_content_ComponentName >& arg2,AndroidCXX::android_content_ComponentName& arg3)
+void android_content_pm_PackageManager::addPreferredActivity(AndroidCXX::android_content_IntentFilter const& arg0,int const& arg1,std::vector<AndroidCXX::android_content_ComponentName > const& arg2,AndroidCXX::android_content_ComponentName const& arg3)
 {
-	LOGV("void android_content_pm_PackageManager::addPreferredActivity(AndroidCXX::android_content_IntentFilter& arg0,int& arg1,std::vector<AndroidCXX::android_content_ComponentName >& arg2,AndroidCXX::android_content_ComponentName& arg3) enter");
+	LOGV("void android_content_pm_PackageManager::addPreferredActivity(AndroidCXX::android_content_IntentFilter const& arg0,int const& arg1,std::vector<AndroidCXX::android_content_ComponentName > const& arg2,AndroidCXX::android_content_ComponentName const& arg3) enter");
 
 	const char *methodName = "addPreferredActivity";
 	const char *methodSignature = "(Landroid/content/IntentFilter;I[Landroid/content/ComponentName;Landroid/content/ComponentName;)V";
@@ -5791,8 +5560,6 @@ void android_content_pm_PackageManager::addPreferredActivity(AndroidCXX::android
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -5904,14 +5671,12 @@ void android_content_pm_PackageManager::addPreferredActivity(AndroidCXX::android
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_pm_PackageManager::addPreferredActivity(AndroidCXX::android_content_IntentFilter& arg0,int& arg1,std::vector<AndroidCXX::android_content_ComponentName >& arg2,AndroidCXX::android_content_ComponentName& arg3) exit");
+	LOGV("void android_content_pm_PackageManager::addPreferredActivity(AndroidCXX::android_content_IntentFilter const& arg0,int const& arg1,std::vector<AndroidCXX::android_content_ComponentName > const& arg2,AndroidCXX::android_content_ComponentName const& arg3) exit");
 
 }
-void android_content_pm_PackageManager::clearPackagePreferredActivities(AndroidCXX::java_lang_String& arg0)
+void android_content_pm_PackageManager::clearPackagePreferredActivities(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_content_pm_PackageManager::clearPackagePreferredActivities(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_content_pm_PackageManager::clearPackagePreferredActivities(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "clearPackagePreferredActivities";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -5921,8 +5686,6 @@ void android_content_pm_PackageManager::clearPackagePreferredActivities(AndroidC
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -5953,14 +5716,12 @@ void android_content_pm_PackageManager::clearPackagePreferredActivities(AndroidC
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_pm_PackageManager::clearPackagePreferredActivities(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_content_pm_PackageManager::clearPackagePreferredActivities(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-int android_content_pm_PackageManager::getPreferredActivities(AndroidCXX::java_util_List& arg0,AndroidCXX::java_util_List& arg1,AndroidCXX::java_lang_String& arg2)
+int android_content_pm_PackageManager::getPreferredActivities(AndroidCXX::java_util_List const& arg0,AndroidCXX::java_util_List const& arg1,AndroidCXX::java_lang_String const& arg2)
 {
-	LOGV("int android_content_pm_PackageManager::getPreferredActivities(AndroidCXX::java_util_List& arg0,AndroidCXX::java_util_List& arg1,AndroidCXX::java_lang_String& arg2) enter");
+	LOGV("int android_content_pm_PackageManager::getPreferredActivities(AndroidCXX::java_util_List const& arg0,AndroidCXX::java_util_List const& arg1,AndroidCXX::java_lang_String const& arg2) enter");
 
 	const char *methodName = "getPreferredActivities";
 	const char *methodSignature = "(Ljava/util/List;Ljava/util/List;Ljava/lang/String;)I";
@@ -5970,8 +5731,6 @@ int android_content_pm_PackageManager::getPreferredActivities(AndroidCXX::java_u
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -6099,15 +5858,13 @@ int android_content_pm_PackageManager::getPreferredActivities(AndroidCXX::java_u
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_content_pm_PackageManager::getPreferredActivities(AndroidCXX::java_util_List& arg0,AndroidCXX::java_util_List& arg1,AndroidCXX::java_lang_String& arg2) exit");
+	LOGV("int android_content_pm_PackageManager::getPreferredActivities(AndroidCXX::java_util_List const& arg0,AndroidCXX::java_util_List const& arg1,AndroidCXX::java_lang_String const& arg2) exit");
 
 	return result;
 }
-void android_content_pm_PackageManager::setComponentEnabledSetting(AndroidCXX::android_content_ComponentName& arg0,int& arg1,int& arg2)
+void android_content_pm_PackageManager::setComponentEnabledSetting(AndroidCXX::android_content_ComponentName const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("void android_content_pm_PackageManager::setComponentEnabledSetting(AndroidCXX::android_content_ComponentName& arg0,int& arg1,int& arg2) enter");
+	LOGV("void android_content_pm_PackageManager::setComponentEnabledSetting(AndroidCXX::android_content_ComponentName const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "setComponentEnabledSetting";
 	const char *methodSignature = "(Landroid/content/ComponentName;II)V";
@@ -6118,8 +5875,6 @@ void android_content_pm_PackageManager::setComponentEnabledSetting(AndroidCXX::a
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -6191,14 +5946,12 @@ void android_content_pm_PackageManager::setComponentEnabledSetting(AndroidCXX::a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_pm_PackageManager::setComponentEnabledSetting(AndroidCXX::android_content_ComponentName& arg0,int& arg1,int& arg2) exit");
+	LOGV("void android_content_pm_PackageManager::setComponentEnabledSetting(AndroidCXX::android_content_ComponentName const& arg0,int const& arg1,int const& arg2) exit");
 
 }
-int android_content_pm_PackageManager::getComponentEnabledSetting(AndroidCXX::android_content_ComponentName& arg0)
+int android_content_pm_PackageManager::getComponentEnabledSetting(AndroidCXX::android_content_ComponentName const& arg0)
 {
-	LOGV("int android_content_pm_PackageManager::getComponentEnabledSetting(AndroidCXX::android_content_ComponentName& arg0) enter");
+	LOGV("int android_content_pm_PackageManager::getComponentEnabledSetting(AndroidCXX::android_content_ComponentName const& arg0) enter");
 
 	const char *methodName = "getComponentEnabledSetting";
 	const char *methodSignature = "(Landroid/content/ComponentName;)I";
@@ -6209,8 +5962,6 @@ int android_content_pm_PackageManager::getComponentEnabledSetting(AndroidCXX::an
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -6259,15 +6010,13 @@ int android_content_pm_PackageManager::getComponentEnabledSetting(AndroidCXX::an
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_content_pm_PackageManager::getComponentEnabledSetting(AndroidCXX::android_content_ComponentName& arg0) exit");
+	LOGV("int android_content_pm_PackageManager::getComponentEnabledSetting(AndroidCXX::android_content_ComponentName const& arg0) exit");
 
 	return result;
 }
-void android_content_pm_PackageManager::setApplicationEnabledSetting(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2)
+void android_content_pm_PackageManager::setApplicationEnabledSetting(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("void android_content_pm_PackageManager::setApplicationEnabledSetting(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2) enter");
+	LOGV("void android_content_pm_PackageManager::setApplicationEnabledSetting(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "setApplicationEnabledSetting";
 	const char *methodSignature = "(Ljava/lang/String;II)V";
@@ -6277,8 +6026,6 @@ void android_content_pm_PackageManager::setApplicationEnabledSetting(AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -6351,14 +6098,12 @@ void android_content_pm_PackageManager::setApplicationEnabledSetting(AndroidCXX:
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_pm_PackageManager::setApplicationEnabledSetting(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2) exit");
+	LOGV("void android_content_pm_PackageManager::setApplicationEnabledSetting(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2) exit");
 
 }
-int android_content_pm_PackageManager::getApplicationEnabledSetting(AndroidCXX::java_lang_String& arg0)
+int android_content_pm_PackageManager::getApplicationEnabledSetting(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("int android_content_pm_PackageManager::getApplicationEnabledSetting(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("int android_content_pm_PackageManager::getApplicationEnabledSetting(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getApplicationEnabledSetting";
 	const char *methodSignature = "(Ljava/lang/String;)I";
@@ -6368,8 +6113,6 @@ int android_content_pm_PackageManager::getApplicationEnabledSetting(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -6419,9 +6162,7 @@ int android_content_pm_PackageManager::getApplicationEnabledSetting(AndroidCXX::
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("int android_content_pm_PackageManager::getApplicationEnabledSetting(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("int android_content_pm_PackageManager::getApplicationEnabledSetting(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
@@ -6437,8 +6178,6 @@ bool android_content_pm_PackageManager::isSafeMode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageManager cxx address %d", cxxAddress);
@@ -6467,8 +6206,6 @@ bool android_content_pm_PackageManager::isSafeMode()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool android_content_pm_PackageManager::isSafeMode() exit");
 
 	return result;

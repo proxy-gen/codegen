@@ -90,7 +90,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_text_method_KeyListener::android_text_method_KeyListener(const android_text_method_KeyListener& cc)
 {
 	LOGV("android_text_method_KeyListener::android_text_method_KeyListener(const android_text_method_KeyListener& cc) enter");
@@ -114,9 +113,9 @@ android_text_method_KeyListener::android_text_method_KeyListener(const android_t
 
 	LOGV("android_text_method_KeyListener::android_text_method_KeyListener(const android_text_method_KeyListener& cc) exit");
 }
-android_text_method_KeyListener::android_text_method_KeyListener(void * proxy)
+android_text_method_KeyListener::android_text_method_KeyListener(Proxy proxy)
 {
-	LOGV("android_text_method_KeyListener::android_text_method_KeyListener(void * proxy) enter");
+	LOGV("android_text_method_KeyListener::android_text_method_KeyListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -126,52 +125,31 @@ android_text_method_KeyListener::android_text_method_KeyListener(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_text_method_KeyListener::android_text_method_KeyListener(void * proxy) exit");
+	LOGV("android_text_method_KeyListener::android_text_method_KeyListener(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_text_method_KeyListener::android_text_method_KeyListener()
-// {
-// 	LOGV("android_text_method_KeyListener::android_text_method_KeyListener() enter");	
+Proxy android_text_method_KeyListener::proxy() const
+{	
+	LOGV("android_text_method_KeyListener::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/text/method/KeyListener";
+	long cxxAddress = (long) this;
+	LOGV("android_text_method_KeyListener cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_text_method_KeyListener jni address %d", proxiedComponent);
 
-// 	LOGV("android_text_method_KeyListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_text_method_KeyListener::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_text_method_KeyListener cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_text_method_KeyListener jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_text_method_KeyListener::android_text_method_KeyListener() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_text_method_KeyListener::~android_text_method_KeyListener()
 {
@@ -183,13 +161,13 @@ android_text_method_KeyListener::~android_text_method_KeyListener()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_text_method_KeyListener::~android_text_method_KeyListener() exit");
 }
 // Functions
-bool android_text_method_KeyListener::onKeyDown(AndroidCXX::android_view_View& arg0,AndroidCXX::android_text_Editable& arg1,int& arg2,AndroidCXX::android_view_KeyEvent& arg3)
+bool android_text_method_KeyListener::onKeyDown(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3)
 {
-	LOGV("bool android_text_method_KeyListener::onKeyDown(AndroidCXX::android_view_View& arg0,AndroidCXX::android_text_Editable& arg1,int& arg2,AndroidCXX::android_view_KeyEvent& arg3) enter");
+	LOGV("bool android_text_method_KeyListener::onKeyDown(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3) enter");
 
 	const char *methodName = "onKeyDown";
 	const char *methodSignature = "(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;)Z";
@@ -200,8 +178,6 @@ bool android_text_method_KeyListener::onKeyDown(AndroidCXX::android_view_View& a
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_method_KeyListener cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -313,15 +289,13 @@ bool android_text_method_KeyListener::onKeyDown(AndroidCXX::android_view_View& a
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_text_method_KeyListener::onKeyDown(AndroidCXX::android_view_View& arg0,AndroidCXX::android_text_Editable& arg1,int& arg2,AndroidCXX::android_view_KeyEvent& arg3) exit");
+	LOGV("bool android_text_method_KeyListener::onKeyDown(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3) exit");
 
 	return result;
 }
-bool android_text_method_KeyListener::onKeyUp(AndroidCXX::android_view_View& arg0,AndroidCXX::android_text_Editable& arg1,int& arg2,AndroidCXX::android_view_KeyEvent& arg3)
+bool android_text_method_KeyListener::onKeyUp(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3)
 {
-	LOGV("bool android_text_method_KeyListener::onKeyUp(AndroidCXX::android_view_View& arg0,AndroidCXX::android_text_Editable& arg1,int& arg2,AndroidCXX::android_view_KeyEvent& arg3) enter");
+	LOGV("bool android_text_method_KeyListener::onKeyUp(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3) enter");
 
 	const char *methodName = "onKeyUp";
 	const char *methodSignature = "(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;)Z";
@@ -332,8 +306,6 @@ bool android_text_method_KeyListener::onKeyUp(AndroidCXX::android_view_View& arg
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_text_method_KeyListener cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -445,9 +417,7 @@ bool android_text_method_KeyListener::onKeyUp(AndroidCXX::android_view_View& arg
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_text_method_KeyListener::onKeyUp(AndroidCXX::android_view_View& arg0,AndroidCXX::android_text_Editable& arg1,int& arg2,AndroidCXX::android_view_KeyEvent& arg3) exit");
+	LOGV("bool android_text_method_KeyListener::onKeyUp(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3) exit");
 
 	return result;
 }
@@ -463,8 +433,6 @@ int android_text_method_KeyListener::getInputType()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_method_KeyListener cxx address %d", cxxAddress);
@@ -493,15 +461,13 @@ int android_text_method_KeyListener::getInputType()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int android_text_method_KeyListener::getInputType() exit");
 
 	return result;
 }
-bool android_text_method_KeyListener::onKeyOther(AndroidCXX::android_view_View& arg0,AndroidCXX::android_text_Editable& arg1,AndroidCXX::android_view_KeyEvent& arg2)
+bool android_text_method_KeyListener::onKeyOther(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,AndroidCXX::android_view_KeyEvent const& arg2)
 {
-	LOGV("bool android_text_method_KeyListener::onKeyOther(AndroidCXX::android_view_View& arg0,AndroidCXX::android_text_Editable& arg1,AndroidCXX::android_view_KeyEvent& arg2) enter");
+	LOGV("bool android_text_method_KeyListener::onKeyOther(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) enter");
 
 	const char *methodName = "onKeyOther";
 	const char *methodSignature = "(Landroid/view/View;Landroid/text/Editable;Landroid/view/KeyEvent;)Z";
@@ -511,8 +477,6 @@ bool android_text_method_KeyListener::onKeyOther(AndroidCXX::android_view_View& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_method_KeyListener cxx address %d", cxxAddress);
@@ -604,15 +568,13 @@ bool android_text_method_KeyListener::onKeyOther(AndroidCXX::android_view_View& 
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_text_method_KeyListener::onKeyOther(AndroidCXX::android_view_View& arg0,AndroidCXX::android_text_Editable& arg1,AndroidCXX::android_view_KeyEvent& arg2) exit");
+	LOGV("bool android_text_method_KeyListener::onKeyOther(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) exit");
 
 	return result;
 }
-void android_text_method_KeyListener::clearMetaKeyState(AndroidCXX::android_view_View& arg0,AndroidCXX::android_text_Editable& arg1,int& arg2)
+void android_text_method_KeyListener::clearMetaKeyState(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2)
 {
-	LOGV("void android_text_method_KeyListener::clearMetaKeyState(AndroidCXX::android_view_View& arg0,AndroidCXX::android_text_Editable& arg1,int& arg2) enter");
+	LOGV("void android_text_method_KeyListener::clearMetaKeyState(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2) enter");
 
 	const char *methodName = "clearMetaKeyState";
 	const char *methodSignature = "(Landroid/view/View;Landroid/text/Editable;I)V";
@@ -622,8 +584,6 @@ void android_text_method_KeyListener::clearMetaKeyState(AndroidCXX::android_view
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_method_KeyListener cxx address %d", cxxAddress);
@@ -696,8 +656,6 @@ void android_text_method_KeyListener::clearMetaKeyState(AndroidCXX::android_view
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_text_method_KeyListener::clearMetaKeyState(AndroidCXX::android_view_View& arg0,AndroidCXX::android_text_Editable& arg1,int& arg2) exit");
+	LOGV("void android_text_method_KeyListener::clearMetaKeyState(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2) exit");
 
 }

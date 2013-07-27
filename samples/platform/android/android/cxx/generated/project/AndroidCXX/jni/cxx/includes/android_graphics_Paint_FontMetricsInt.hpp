@@ -52,11 +52,10 @@ class android_graphics_Paint_FontMetricsInt
 public:
 
 	android_graphics_Paint_FontMetricsInt(const android_graphics_Paint_FontMetricsInt& cc);
-	android_graphics_Paint_FontMetricsInt(void * proxy);
+	android_graphics_Paint_FontMetricsInt(Proxy proxy);
 	// Public Constructors
 	android_graphics_Paint_FontMetricsInt();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Paint_FontMetricsInt();
 	// Functions

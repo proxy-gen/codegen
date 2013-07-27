@@ -45,12 +45,9 @@ class com_facebook_widget_ImageResponseCache
 public:
 
 	com_facebook_widget_ImageResponseCache(const com_facebook_widget_ImageResponseCache& cc);
-	com_facebook_widget_ImageResponseCache(void * proxy);
+	com_facebook_widget_ImageResponseCache(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_widget_ImageResponseCache();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageResponseCache();
 	// Functions

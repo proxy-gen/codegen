@@ -72,20 +72,17 @@ class java_util_Currency
 public:
 
 	java_util_Currency(const java_util_Currency& cc);
-	java_util_Currency(void * proxy);
+	java_util_Currency(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_util_Currency();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Currency();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
-	static AndroidCXX::java_util_Currency getInstance(AndroidCXX::java_util_Locale& arg0);
-	static AndroidCXX::java_util_Currency getInstance(AndroidCXX::java_lang_String& arg0);
+	static AndroidCXX::java_util_Currency getInstance(AndroidCXX::java_util_Locale const& arg0);
+	static AndroidCXX::java_util_Currency getInstance(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_lang_String getCurrencyCode();
-	 AndroidCXX::java_lang_String getSymbol(AndroidCXX::java_util_Locale& arg0);
+	 AndroidCXX::java_lang_String getSymbol(AndroidCXX::java_util_Locale const& arg0);
 	 AndroidCXX::java_lang_String getSymbol();
 	 int getDefaultFractionDigits();
 };	

@@ -56,16 +56,13 @@ class android_widget_FilterQueryProvider
 public:
 
 	android_widget_FilterQueryProvider(const android_widget_FilterQueryProvider& cc);
-	android_widget_FilterQueryProvider(void * proxy);
+	android_widget_FilterQueryProvider(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_widget_FilterQueryProvider();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_FilterQueryProvider();
 	// Functions
-	 AndroidCXX::android_database_Cursor runQuery(AndroidCXX::java_lang_CharSequence& arg0);
+	 AndroidCXX::android_database_Cursor runQuery(AndroidCXX::java_lang_CharSequence const& arg0);
 };	
 
 } // namespace

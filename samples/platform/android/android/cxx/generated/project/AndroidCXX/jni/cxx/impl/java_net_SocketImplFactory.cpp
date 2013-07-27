@@ -46,7 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_net_SocketImplFactory::java_net_SocketImplFactory(const java_net_SocketImplFactory& cc)
 {
 	LOGV("java_net_SocketImplFactory::java_net_SocketImplFactory(const java_net_SocketImplFactory& cc) enter");
@@ -70,9 +69,9 @@ java_net_SocketImplFactory::java_net_SocketImplFactory(const java_net_SocketImpl
 
 	LOGV("java_net_SocketImplFactory::java_net_SocketImplFactory(const java_net_SocketImplFactory& cc) exit");
 }
-java_net_SocketImplFactory::java_net_SocketImplFactory(void * proxy)
+java_net_SocketImplFactory::java_net_SocketImplFactory(Proxy proxy)
 {
-	LOGV("java_net_SocketImplFactory::java_net_SocketImplFactory(void * proxy) enter");
+	LOGV("java_net_SocketImplFactory::java_net_SocketImplFactory(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -82,52 +81,31 @@ java_net_SocketImplFactory::java_net_SocketImplFactory(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_net_SocketImplFactory::java_net_SocketImplFactory(void * proxy) exit");
+	LOGV("java_net_SocketImplFactory::java_net_SocketImplFactory(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_net_SocketImplFactory::java_net_SocketImplFactory()
-// {
-// 	LOGV("java_net_SocketImplFactory::java_net_SocketImplFactory() enter");	
+Proxy java_net_SocketImplFactory::proxy() const
+{	
+	LOGV("java_net_SocketImplFactory::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/net/SocketImplFactory";
+	long cxxAddress = (long) this;
+	LOGV("java_net_SocketImplFactory cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_SocketImplFactory jni address %d", proxiedComponent);
 
-// 	LOGV("java_net_SocketImplFactory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_net_SocketImplFactory::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_net_SocketImplFactory cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_net_SocketImplFactory jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_net_SocketImplFactory::java_net_SocketImplFactory() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_net_SocketImplFactory::~java_net_SocketImplFactory()
 {
@@ -139,7 +117,7 @@ java_net_SocketImplFactory::~java_net_SocketImplFactory()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_net_SocketImplFactory::~java_net_SocketImplFactory() exit");
 }
 // Functions
@@ -155,8 +133,6 @@ AndroidCXX::java_net_SocketImpl java_net_SocketImplFactory::createSocketImpl()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_SocketImplFactory cxx address %d", cxxAddress);
@@ -185,8 +161,6 @@ AndroidCXX::java_net_SocketImpl java_net_SocketImplFactory::createSocketImpl()
 	AndroidCXX::java_net_SocketImpl result((AndroidCXX::java_net_SocketImpl) *((AndroidCXX::java_net_SocketImpl *) cxx_value));
 	delete ((AndroidCXX::java_net_SocketImpl *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_net_SocketImpl java_net_SocketImplFactory::createSocketImpl() exit");
 
 	return result;

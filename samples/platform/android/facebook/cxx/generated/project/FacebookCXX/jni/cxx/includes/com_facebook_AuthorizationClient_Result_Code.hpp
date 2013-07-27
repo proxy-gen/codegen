@@ -30,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace COM_FACEBOOK_AUTHORIZATIONCLIENT_RESULT_CODE {
+namespace com_facebook_AuthorizationClient_Result_Code {
 
 enum com_facebook_AuthorizationClient_Result_Code
 {

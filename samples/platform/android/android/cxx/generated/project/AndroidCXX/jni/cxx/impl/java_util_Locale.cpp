@@ -178,7 +178,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 java_util_Locale::java_util_Locale(const java_util_Locale& cc)
 {
 	LOGV("java_util_Locale::java_util_Locale(const java_util_Locale& cc) enter");
@@ -202,9 +201,9 @@ java_util_Locale::java_util_Locale(const java_util_Locale& cc)
 
 	LOGV("java_util_Locale::java_util_Locale(const java_util_Locale& cc) exit");
 }
-java_util_Locale::java_util_Locale(void * proxy)
+java_util_Locale::java_util_Locale(Proxy proxy)
 {
-	LOGV("java_util_Locale::java_util_Locale(void * proxy) enter");
+	LOGV("java_util_Locale::java_util_Locale(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -214,55 +213,34 @@ java_util_Locale::java_util_Locale(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_util_Locale::java_util_Locale(void * proxy) exit");
+	LOGV("java_util_Locale::java_util_Locale(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_util_Locale::java_util_Locale()
-// {
-// 	LOGV("java_util_Locale::java_util_Locale() enter");	
+Proxy java_util_Locale::proxy() const
+{	
+	LOGV("java_util_Locale::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/util/Locale";
+	long cxxAddress = (long) this;
+	LOGV("java_util_Locale cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_util_Locale jni address %d", proxiedComponent);
 
-// 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_util_Locale::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_util_Locale cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_util_Locale jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_util_Locale::java_util_Locale() exit");	
-// }
-// 
-// 
-// Public Constructors
-java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2)
+	return proxy;
+}
+java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2)
 {
-	LOGV("java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2) enter");	
+	LOGV("java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
@@ -357,11 +335,11 @@ java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String& arg0,AndroidCXX
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2) exit");	
+	LOGV("java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) exit");	
 }
-java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
+java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");	
+	LOGV("java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
@@ -435,11 +413,11 @@ java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String& arg0,AndroidCXX
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");	
+	LOGV("java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) exit");	
 }
-java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String& arg0)
+java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -492,7 +470,7 @@ java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String const& arg0) exit");	
 }
 // Default Instance Destructor
 java_util_Locale::~java_util_Locale()
@@ -505,13 +483,13 @@ java_util_Locale::~java_util_Locale()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_util_Locale::~java_util_Locale() exit");
 }
 // Functions
-bool java_util_Locale::equals(AndroidCXX::java_lang_Object& arg0)
+bool java_util_Locale::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_util_Locale::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_util_Locale::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -521,8 +499,6 @@ bool java_util_Locale::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Locale cxx address %d", cxxAddress);
@@ -572,9 +548,7 @@ bool java_util_Locale::equals(AndroidCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_util_Locale::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_util_Locale::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -590,8 +564,6 @@ AndroidCXX::java_lang_String java_util_Locale::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Locale cxx address %d", cxxAddress);
@@ -620,8 +592,6 @@ AndroidCXX::java_lang_String java_util_Locale::toString()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_util_Locale::toString() exit");
 
 	return result;
@@ -638,8 +608,6 @@ int java_util_Locale::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Locale cxx address %d", cxxAddress);
@@ -668,8 +636,6 @@ int java_util_Locale::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_util_Locale::hashCode() exit");
 
 	return result;
@@ -686,8 +652,6 @@ AndroidCXX::java_lang_Object java_util_Locale::clone()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Locale cxx address %d", cxxAddress);
@@ -716,8 +680,6 @@ AndroidCXX::java_lang_Object java_util_Locale::clone()
 	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
 	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_Object java_util_Locale::clone() exit");
 
 	return result;
@@ -734,8 +696,6 @@ AndroidCXX::java_lang_String java_util_Locale::getLanguage()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Locale cxx address %d", cxxAddress);
@@ -764,8 +724,6 @@ AndroidCXX::java_lang_String java_util_Locale::getLanguage()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_util_Locale::getLanguage() exit");
 
 	return result;
@@ -783,15 +741,13 @@ AndroidCXX::java_util_Locale java_util_Locale::getDefault()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_util_Locale cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -812,15 +768,13 @@ AndroidCXX::java_util_Locale java_util_Locale::getDefault()
 	AndroidCXX::java_util_Locale result((AndroidCXX::java_util_Locale) *((AndroidCXX::java_util_Locale *) cxx_value));
 	delete ((AndroidCXX::java_util_Locale *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_util_Locale java_util_Locale::getDefault() exit");
 
 	return result;
 }
-void java_util_Locale::setDefault(AndroidCXX::java_util_Locale& arg0)
+void java_util_Locale::setDefault(AndroidCXX::java_util_Locale const& arg0)
 {
-	LOGV("void java_util_Locale::setDefault(AndroidCXX::java_util_Locale& arg0) enter");
+	LOGV("void java_util_Locale::setDefault(AndroidCXX::java_util_Locale const& arg0) enter");
 
 	const char *methodName = "setDefault";
 	const char *methodSignature = "(Ljava/util/Locale;)V";
@@ -830,8 +784,6 @@ void java_util_Locale::setDefault(AndroidCXX::java_util_Locale& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_util_Locale cxx address %d", cxxAddress);
@@ -860,11 +812,9 @@ void java_util_Locale::setDefault(AndroidCXX::java_util_Locale& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_util_Locale::setDefault(AndroidCXX::java_util_Locale& arg0) exit");
+	LOGV("void java_util_Locale::setDefault(AndroidCXX::java_util_Locale const& arg0) exit");
 
 }
 std::vector<AndroidCXX::java_util_Locale > java_util_Locale::getAvailableLocales()
@@ -880,15 +830,13 @@ std::vector<AndroidCXX::java_util_Locale > java_util_Locale::getAvailableLocales
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_util_Locale cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jobjectArray jni_result = (jobjectArray) jni->invokeStaticObjectMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
 	{
@@ -927,8 +875,6 @@ std::vector<AndroidCXX::java_util_Locale > java_util_Locale::getAvailableLocales
 	std::vector<AndroidCXX::java_util_Locale > result = (std::vector<AndroidCXX::java_util_Locale >) *((std::vector<AndroidCXX::java_util_Locale > *) cxx_value);
 	delete ((std::vector<AndroidCXX::java_util_Locale > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<AndroidCXX::java_util_Locale > java_util_Locale::getAvailableLocales() exit");
 
 	return result;
@@ -946,15 +892,13 @@ std::vector<AndroidCXX::java_lang_String > java_util_Locale::getISOCountries()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_util_Locale cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jobjectArray jni_result = (jobjectArray) jni->invokeStaticObjectMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
 	{
@@ -993,8 +937,6 @@ std::vector<AndroidCXX::java_lang_String > java_util_Locale::getISOCountries()
 	std::vector<AndroidCXX::java_lang_String > result = (std::vector<AndroidCXX::java_lang_String >) *((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 	delete ((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<AndroidCXX::java_lang_String > java_util_Locale::getISOCountries() exit");
 
 	return result;
@@ -1012,15 +954,13 @@ std::vector<AndroidCXX::java_lang_String > java_util_Locale::getISOLanguages()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_util_Locale cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jobjectArray jni_result = (jobjectArray) jni->invokeStaticObjectMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
 	{
@@ -1059,8 +999,6 @@ std::vector<AndroidCXX::java_lang_String > java_util_Locale::getISOLanguages()
 	std::vector<AndroidCXX::java_lang_String > result = (std::vector<AndroidCXX::java_lang_String >) *((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 	delete ((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<AndroidCXX::java_lang_String > java_util_Locale::getISOLanguages() exit");
 
 	return result;
@@ -1078,8 +1016,6 @@ AndroidCXX::java_lang_String java_util_Locale::getCountry()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Locale cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1107,8 +1043,6 @@ AndroidCXX::java_lang_String java_util_Locale::getCountry()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_util_Locale::getCountry() exit");
 
 	return result;
@@ -1126,8 +1060,6 @@ AndroidCXX::java_lang_String java_util_Locale::getVariant()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Locale cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1155,8 +1087,6 @@ AndroidCXX::java_lang_String java_util_Locale::getVariant()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_util_Locale::getVariant() exit");
 
 	return result;
@@ -1174,8 +1104,6 @@ AndroidCXX::java_lang_String java_util_Locale::getISO3Language()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Locale cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1203,8 +1131,6 @@ AndroidCXX::java_lang_String java_util_Locale::getISO3Language()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_util_Locale::getISO3Language() exit");
 
 	return result;
@@ -1222,8 +1148,6 @@ AndroidCXX::java_lang_String java_util_Locale::getISO3Country()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Locale cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1251,15 +1175,13 @@ AndroidCXX::java_lang_String java_util_Locale::getISO3Country()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_util_Locale::getISO3Country() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String java_util_Locale::getDisplayLanguage(AndroidCXX::java_util_Locale& arg0)
+AndroidCXX::java_lang_String java_util_Locale::getDisplayLanguage(AndroidCXX::java_util_Locale const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayLanguage(AndroidCXX::java_util_Locale& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayLanguage(AndroidCXX::java_util_Locale const& arg0) enter");
 
 	const char *methodName = "getDisplayLanguage";
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
@@ -1269,8 +1191,6 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayLanguage(AndroidCXX::ja
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Locale cxx address %d", cxxAddress);
@@ -1320,9 +1240,7 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayLanguage(AndroidCXX::ja
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayLanguage(AndroidCXX::java_util_Locale& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayLanguage(AndroidCXX::java_util_Locale const& arg0) exit");
 
 	return result;
 }
@@ -1339,8 +1257,6 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayLanguage()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Locale cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1368,15 +1284,13 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayLanguage()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayLanguage() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String java_util_Locale::getDisplayCountry(AndroidCXX::java_util_Locale& arg0)
+AndroidCXX::java_lang_String java_util_Locale::getDisplayCountry(AndroidCXX::java_util_Locale const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayCountry(AndroidCXX::java_util_Locale& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayCountry(AndroidCXX::java_util_Locale const& arg0) enter");
 
 	const char *methodName = "getDisplayCountry";
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
@@ -1386,8 +1300,6 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayCountry(AndroidCXX::jav
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Locale cxx address %d", cxxAddress);
@@ -1437,9 +1349,7 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayCountry(AndroidCXX::jav
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayCountry(AndroidCXX::java_util_Locale& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayCountry(AndroidCXX::java_util_Locale const& arg0) exit");
 
 	return result;
 }
@@ -1455,8 +1365,6 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayCountry()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Locale cxx address %d", cxxAddress);
@@ -1485,8 +1393,6 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayCountry()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayCountry() exit");
 
 	return result;
@@ -1504,8 +1410,6 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayVariant()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Locale cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1533,15 +1437,13 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayVariant()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayVariant() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String java_util_Locale::getDisplayVariant(AndroidCXX::java_util_Locale& arg0)
+AndroidCXX::java_lang_String java_util_Locale::getDisplayVariant(AndroidCXX::java_util_Locale const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayVariant(AndroidCXX::java_util_Locale& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayVariant(AndroidCXX::java_util_Locale const& arg0) enter");
 
 	const char *methodName = "getDisplayVariant";
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
@@ -1552,8 +1454,6 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayVariant(AndroidCXX::jav
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Locale cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1602,15 +1502,13 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayVariant(AndroidCXX::jav
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayVariant(AndroidCXX::java_util_Locale& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayVariant(AndroidCXX::java_util_Locale const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String java_util_Locale::getDisplayName(AndroidCXX::java_util_Locale& arg0)
+AndroidCXX::java_lang_String java_util_Locale::getDisplayName(AndroidCXX::java_util_Locale const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayName(AndroidCXX::java_util_Locale& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayName(AndroidCXX::java_util_Locale const& arg0) enter");
 
 	const char *methodName = "getDisplayName";
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
@@ -1621,8 +1519,6 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayName(AndroidCXX::java_u
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Locale cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1671,9 +1567,7 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayName(AndroidCXX::java_u
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayName(AndroidCXX::java_util_Locale& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayName(AndroidCXX::java_util_Locale const& arg0) exit");
 
 	return result;
 }
@@ -1690,8 +1584,6 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayName()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Locale cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1719,8 +1611,6 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayName()
 	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
 	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayName() exit");
 
 	return result;

@@ -54,7 +54,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_SimpleAdapter_ViewBinder::android_widget_SimpleAdapter_ViewBinder(const android_widget_SimpleAdapter_ViewBinder& cc)
 {
 	LOGV("android_widget_SimpleAdapter_ViewBinder::android_widget_SimpleAdapter_ViewBinder(const android_widget_SimpleAdapter_ViewBinder& cc) enter");
@@ -78,9 +77,9 @@ android_widget_SimpleAdapter_ViewBinder::android_widget_SimpleAdapter_ViewBinder
 
 	LOGV("android_widget_SimpleAdapter_ViewBinder::android_widget_SimpleAdapter_ViewBinder(const android_widget_SimpleAdapter_ViewBinder& cc) exit");
 }
-android_widget_SimpleAdapter_ViewBinder::android_widget_SimpleAdapter_ViewBinder(void * proxy)
+android_widget_SimpleAdapter_ViewBinder::android_widget_SimpleAdapter_ViewBinder(Proxy proxy)
 {
-	LOGV("android_widget_SimpleAdapter_ViewBinder::android_widget_SimpleAdapter_ViewBinder(void * proxy) enter");
+	LOGV("android_widget_SimpleAdapter_ViewBinder::android_widget_SimpleAdapter_ViewBinder(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -90,52 +89,31 @@ android_widget_SimpleAdapter_ViewBinder::android_widget_SimpleAdapter_ViewBinder
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_SimpleAdapter_ViewBinder::android_widget_SimpleAdapter_ViewBinder(void * proxy) exit");
+	LOGV("android_widget_SimpleAdapter_ViewBinder::android_widget_SimpleAdapter_ViewBinder(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// android_widget_SimpleAdapter_ViewBinder::android_widget_SimpleAdapter_ViewBinder()
-// {
-// 	LOGV("android_widget_SimpleAdapter_ViewBinder::android_widget_SimpleAdapter_ViewBinder() enter");	
+Proxy android_widget_SimpleAdapter_ViewBinder::proxy() const
+{	
+	LOGV("android_widget_SimpleAdapter_ViewBinder::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "android/widget/SimpleAdapter$ViewBinder";
+	long cxxAddress = (long) this;
+	LOGV("android_widget_SimpleAdapter_ViewBinder cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_SimpleAdapter_ViewBinder jni address %d", proxiedComponent);
 
-// 	LOGV("android_widget_SimpleAdapter_ViewBinder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("android_widget_SimpleAdapter_ViewBinder::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("android_widget_SimpleAdapter_ViewBinder cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("android_widget_SimpleAdapter_ViewBinder jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("android_widget_SimpleAdapter_ViewBinder::android_widget_SimpleAdapter_ViewBinder() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 android_widget_SimpleAdapter_ViewBinder::~android_widget_SimpleAdapter_ViewBinder()
 {
@@ -147,13 +125,13 @@ android_widget_SimpleAdapter_ViewBinder::~android_widget_SimpleAdapter_ViewBinde
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_SimpleAdapter_ViewBinder::~android_widget_SimpleAdapter_ViewBinder() exit");
 }
 // Functions
-bool android_widget_SimpleAdapter_ViewBinder::setViewValue(AndroidCXX::android_view_View& arg0,AndroidCXX::java_lang_Object& arg1,AndroidCXX::java_lang_String& arg2)
+bool android_widget_SimpleAdapter_ViewBinder::setViewValue(AndroidCXX::android_view_View const& arg0,AndroidCXX::java_lang_Object const& arg1,AndroidCXX::java_lang_String const& arg2)
 {
-	LOGV("bool android_widget_SimpleAdapter_ViewBinder::setViewValue(AndroidCXX::android_view_View& arg0,AndroidCXX::java_lang_Object& arg1,AndroidCXX::java_lang_String& arg2) enter");
+	LOGV("bool android_widget_SimpleAdapter_ViewBinder::setViewValue(AndroidCXX::android_view_View const& arg0,AndroidCXX::java_lang_Object const& arg1,AndroidCXX::java_lang_String const& arg2) enter");
 
 	const char *methodName = "setViewValue";
 	const char *methodSignature = "(Landroid/view/View;Ljava/lang/Object;Ljava/lang/String;)Z";
@@ -163,8 +141,6 @@ bool android_widget_SimpleAdapter_ViewBinder::setViewValue(AndroidCXX::android_v
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleAdapter_ViewBinder cxx address %d", cxxAddress);
@@ -256,9 +232,7 @@ bool android_widget_SimpleAdapter_ViewBinder::setViewValue(AndroidCXX::android_v
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool android_widget_SimpleAdapter_ViewBinder::setViewValue(AndroidCXX::android_view_View& arg0,AndroidCXX::java_lang_Object& arg1,AndroidCXX::java_lang_String& arg2) exit");
+	LOGV("bool android_widget_SimpleAdapter_ViewBinder::setViewValue(AndroidCXX::android_view_View const& arg0,AndroidCXX::java_lang_Object const& arg1,AndroidCXX::java_lang_String const& arg2) exit");
 
 	return result;
 }

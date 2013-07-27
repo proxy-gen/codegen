@@ -50,16 +50,13 @@ class com_facebook_widget_PickerFragment_6
 public:
 
 	com_facebook_widget_PickerFragment_6(const com_facebook_widget_PickerFragment_6& cc);
-	com_facebook_widget_PickerFragment_6(void * proxy);
+	com_facebook_widget_PickerFragment_6(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// com_facebook_widget_PickerFragment_6();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_6();
 	// Functions
-	 void onClick(AndroidCXX::android_view_View& arg0);
+	 void onClick(AndroidCXX::android_view_View const& arg0);
 };	
 
 } // namespace

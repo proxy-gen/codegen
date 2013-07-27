@@ -65,7 +65,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Default Instance Constructors
 android_widget_Filter::android_widget_Filter(const android_widget_Filter& cc)
 {
 	LOGV("android_widget_Filter::android_widget_Filter(const android_widget_Filter& cc) enter");
@@ -89,9 +88,9 @@ android_widget_Filter::android_widget_Filter(const android_widget_Filter& cc)
 
 	LOGV("android_widget_Filter::android_widget_Filter(const android_widget_Filter& cc) exit");
 }
-android_widget_Filter::android_widget_Filter(void * proxy)
+android_widget_Filter::android_widget_Filter(Proxy proxy)
 {
-	LOGV("android_widget_Filter::android_widget_Filter(void * proxy) enter");
+	LOGV("android_widget_Filter::android_widget_Filter(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -101,17 +100,31 @@ android_widget_Filter::android_widget_Filter(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_Filter::android_widget_Filter(void * proxy) exit");
+	LOGV("android_widget_Filter::android_widget_Filter(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy android_widget_Filter::proxy() const
+{	
+	LOGV("android_widget_Filter::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_widget_Filter cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_Filter jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_widget_Filter::proxy() exit");	
+
+	return proxy;
+}
 android_widget_Filter::android_widget_Filter()
 {
 	LOGV("android_widget_Filter::android_widget_Filter() enter");	
@@ -159,13 +172,13 @@ android_widget_Filter::~android_widget_Filter()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_Filter::~android_widget_Filter() exit");
 }
 // Functions
-void android_widget_Filter::filter(AndroidCXX::java_lang_CharSequence& arg0)
+void android_widget_Filter::filter(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_widget_Filter::filter(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_widget_Filter::filter(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "filter";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -175,8 +188,6 @@ void android_widget_Filter::filter(AndroidCXX::java_lang_CharSequence& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Filter cxx address %d", cxxAddress);
@@ -207,14 +218,12 @@ void android_widget_Filter::filter(AndroidCXX::java_lang_CharSequence& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Filter::filter(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_widget_Filter::filter(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }
-void android_widget_Filter::filter(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_widget_Filter_FilterListener& arg1)
+void android_widget_Filter::filter(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_widget_Filter_FilterListener const& arg1)
 {
-	LOGV("void android_widget_Filter::filter(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_widget_Filter_FilterListener& arg1) enter");
+	LOGV("void android_widget_Filter::filter(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_widget_Filter_FilterListener const& arg1) enter");
 
 	const char *methodName = "filter";
 	const char *methodSignature = "(Ljava/lang/CharSequence;Landroid/widget/Filter$FilterListener;)V";
@@ -224,8 +233,6 @@ void android_widget_Filter::filter(AndroidCXX::java_lang_CharSequence& arg0,Andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Filter cxx address %d", cxxAddress);
@@ -277,14 +284,12 @@ void android_widget_Filter::filter(AndroidCXX::java_lang_CharSequence& arg0,Andr
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Filter::filter(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_widget_Filter_FilterListener& arg1) exit");
+	LOGV("void android_widget_Filter::filter(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_widget_Filter_FilterListener const& arg1) exit");
 
 }
-AndroidCXX::java_lang_CharSequence android_widget_Filter::convertResultToString(AndroidCXX::java_lang_Object& arg0)
+AndroidCXX::java_lang_CharSequence android_widget_Filter::convertResultToString(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_CharSequence android_widget_Filter::convertResultToString(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("AndroidCXX::java_lang_CharSequence android_widget_Filter::convertResultToString(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "convertResultToString";
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/CharSequence;";
@@ -294,8 +299,6 @@ AndroidCXX::java_lang_CharSequence android_widget_Filter::convertResultToString(
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Filter cxx address %d", cxxAddress);
@@ -345,9 +348,7 @@ AndroidCXX::java_lang_CharSequence android_widget_Filter::convertResultToString(
 	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
 	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("AndroidCXX::java_lang_CharSequence android_widget_Filter::convertResultToString(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("AndroidCXX::java_lang_CharSequence android_widget_Filter::convertResultToString(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }

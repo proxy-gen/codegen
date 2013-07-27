@@ -51,16 +51,13 @@ class android_view_View_OnLayoutChangeListener
 public:
 
 	android_view_View_OnLayoutChangeListener(const android_view_View_OnLayoutChangeListener& cc);
-	android_view_View_OnLayoutChangeListener(void * proxy);
+	android_view_View_OnLayoutChangeListener(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// android_view_View_OnLayoutChangeListener();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnLayoutChangeListener();
 	// Functions
-	 void onLayoutChange(AndroidCXX::android_view_View& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6,int& arg7,int& arg8);
+	 void onLayoutChange(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,int const& arg7,int const& arg8);
 };	
 
 } // namespace
