@@ -2472,13 +2472,13 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$Callback',
-			'tags' : ['_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy', '_callback'],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'onCompleted',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_callback'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Response',
@@ -2498,13 +2498,13 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$GraphPlaceListCallback',
-			'tags' : ['_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy', '_callback'],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'onCompleted',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_callback'],
 					'params' : [
 						{
 								'type' : 'java.util.List',
@@ -2529,13 +2529,13 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$GraphUserCallback',
-			'tags' : ['_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy', '_callback'],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'onCompleted',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_callback'],
 					'params' : [
 						{
 								'type' : 'com.facebook.model.GraphUser',
@@ -2559,13 +2559,13 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$GraphUserListCallback',
-			'tags' : ['_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy', '_callback'],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'onCompleted',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_callback'],
 					'params' : [
 						{
 								'type' : 'java.util.List',

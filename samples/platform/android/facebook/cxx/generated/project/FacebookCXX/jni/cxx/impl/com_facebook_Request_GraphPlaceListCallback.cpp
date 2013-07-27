@@ -20,6 +20,7 @@
 
 // Generated Code 
 
+#include <com_facebook_Request_GraphPlaceListCallback_JNI.hpp>
 #include <com_facebook_Request_GraphPlaceListCallback.hpp>
 #include <jni.h>
 #include <CXXContext.hpp>
@@ -56,6 +57,92 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
+// JNI callbacks
+void Java_FacebookCXX_com_1facebook_1Request_1GraphPlaceListCallback_onCompleted(JNIEnv *env, jobject objectRef,jobject jarg0,jobject jarg1)
+{
+	LOGV("void onCompleted(JNIEnv *env, jobject objectRef,jobject jarg0,jobject jarg1) enter");
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jobject javaObject = objectRef;
+	LOGV("callback javaObject address %ld", (long) javaObject);
+
+	long contextAddress = ctx->findProxiedComponent(javaObject);
+	LOGV("contextAddress for com_facebook_Request_GraphPlaceListCallback %ld", contextAddress);
+	com_facebook_Request_GraphPlaceListCallback *callback = (com_facebook_Request_GraphPlaceListCallback *) reinterpret_cast<com_facebook_Request_GraphPlaceListCallback *>(contextAddress);
+
+	long cxx_value = (long) 0;
+	long java_value = (long) 0;
+
+
+	{
+		cxx_value = (long) 0;
+		java_value = convert_jni_java_lang_Object_to_java(jarg0);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.util.List");
+				{
+					CXXTypeHierarchy child_cxx_type_hierarchy;
+					cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
+					cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
+					
+				}
+			}
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("com.facebook.model.GraphPlace");
+			}
+			std::stack<long> converter_stack;
+			
+			{
+				{
+					converter_stack.push((long) &convert_com_facebook_model_GraphPlace);				
+
+				}
+			}
+			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+			convert_java_util_List(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		}
+
+	}
+	AndroidCXX::java_util_List arg0(*((AndroidCXX::java_util_List *) cxx_value));
+
+
+	{
+		cxx_value = (long) 0;
+		java_value = convert_jni_java_lang_Object_to_java(jarg1);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("com.facebook.Response");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+			convert_com_facebook_Response(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		}
+
+	}
+	FacebookCXX::com_facebook_Response arg1(*((FacebookCXX::com_facebook_Response *) cxx_value));
+
+
+	callback->onCompleted(arg0,arg1);
+		
+	LOGV("void onCompleted(JNIEnv *env, jobject objectRef,jobject jarg0,jobject jarg1) exit");
+
+}
 com_facebook_Request_GraphPlaceListCallback::com_facebook_Request_GraphPlaceListCallback(const com_facebook_Request_GraphPlaceListCallback& cc)
 {
 	LOGV("com_facebook_Request_GraphPlaceListCallback::com_facebook_Request_GraphPlaceListCallback(const com_facebook_Request_GraphPlaceListCallback& cc) enter");
@@ -99,6 +186,40 @@ com_facebook_Request_GraphPlaceListCallback::com_facebook_Request_GraphPlaceList
 
 	LOGV("com_facebook_Request_GraphPlaceListCallback::com_facebook_Request_GraphPlaceListCallback(Proxy proxy) exit");
 }
+com_facebook_Request_GraphPlaceListCallback::com_facebook_Request_GraphPlaceListCallback()
+{
+	LOGV("com_facebook_Request_GraphPlaceListCallback::com_facebook_Request_GraphPlaceListCallback() enter");	
+
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "FacebookCXX/com_facebook_Request_GraphPlaceListCallback";
+
+	LOGV("com_facebook_Request_GraphPlaceListCallback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_Request_GraphPlaceListCallback cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Request_GraphPlaceListCallback jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("com_facebook_Request_GraphPlaceListCallback::com_facebook_Request_GraphPlaceListCallback() exit");	
+}
 Proxy com_facebook_Request_GraphPlaceListCallback::proxy() const
 {	
 	LOGV("com_facebook_Request_GraphPlaceListCallback::proxy() enter");	
@@ -137,7 +258,7 @@ void com_facebook_Request_GraphPlaceListCallback::onCompleted(AndroidCXX::java_u
 
 	const char *methodName = "onCompleted";
 	const char *methodSignature = "(Ljava/util/List;Lcom/facebook/Response;)V";
-	const char *className = "com/facebook/Request$GraphPlaceListCallback";
+	const char *className = "FacebookCXX/com_facebook_Request_GraphPlaceListCallback";
 
 	LOGV("com_facebook_Request_GraphPlaceListCallback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

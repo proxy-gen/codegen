@@ -20,6 +20,7 @@
     <string name="app_name">SessionLoginSample</string>
     <string name="login">Login</string>
     <string name="logout">Logout</string>
+    <string name="getfriends">Get Friends</string>
     <string name="applicationId">380615018626574</string>
 
 </resources>

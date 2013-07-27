@@ -28,6 +28,7 @@ import android.widget.Button;
 public class SessionLoginSampleActivity extends Activity {
 
     private Button buttonLoginActivity;
+    private Button buttonGetFriendsActivity;
     private Button buttonLogoutActivity;
 
     public void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,12 @@ public class SessionLoginSampleActivity extends Activity {
             public void onClick(View v) {
             	nativeLogin(SessionLoginSampleActivity.this);
             }
+        });
+        buttonGetFriendsActivity = (Button) findViewById(R.id.buttonGetFriendsActivity);
+        buttonGetFriendsActivity.setOnClickListener(new View.OnClickListener() {
+        	public void onClick(View v) {
+        		nativeGetFriends(SessionLoginSampleActivity.this);
+        	}
         });
         buttonLogoutActivity = (Button) findViewById(R.id.buttonLogoutActivity);
         buttonLogoutActivity.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +65,7 @@ public class SessionLoginSampleActivity extends Activity {
     
     private native void nativeLogin(Activity activity);
     private native void nativeLogout(Activity activity);
+    private native void nativeGetFriends(Activity activity);
     
     static {
         System.loadLibrary("SessionLoginSampleCXX");
