@@ -1,3 +1,6 @@
 [submodule "ios/samples/facebook-ios-sdk"]
 	path = ios/samples/facebook-ios-sdk
 	url = git@github-ca.corp.zynga.com:externals/facebook-ios-sdk.git
+[submodule "/Users/wsouza/projects/ZDK/cxx-bindings-generator/generator/platform/ios/generator/indexer/clocxml"]
+	path = /Users/wsouza/projects/ZDK/cxx-bindings-generator/generator/platform/ios/generator/indexer/clocxml
+	url = git@github-ca.corp.zynga.com:wsouza/clocxml.git
