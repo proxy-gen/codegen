@@ -831,7 +831,9 @@ class ConfigModule(object):
 			targetdata = deriveddata['targetdata'] = dict()
 			protocolinfo = targetdata['protocolinfo'] = dict()
 
-			type_name = protocol_config['name'] + "ConformerCxx"
+			type_name = protocol_config['name'] + "Cxx"
+			conformer_type_name = protocol_config['name'] + "ConformerCxx"
+			protocolinfo['conformertypename'] = conformer_type_name
 			protocolinfo['typename'] = type_name
 			protocolinfo['filename'] =  Utils.to_file_name(type_name,"hpp")
 			protocolinfo['proxyname'] = protocol_config['name'] + "Conformer"

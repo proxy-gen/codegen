@@ -15,7 +15,7 @@
 ##
 #set $entity_protocol_config = $CONFIG.entity_protocol
 #set $entity_protocol_info = $entity_protocol_config['deriveddata']['targetdata']['protocolinfo']
-#set $entity_protocol_typename = $entity_protocol_info['typename']
+#set $entity_protocol_typename = $entity_protocol_info['conformertypename']
 #set $entity_protocol_proxy_name = $entity_protocol_info['proxyname']
 #set $entity_protocol_framework = $entity_protocol_info['framework']
 #set $entity_protocol_nativefile = $entity_protocol_info['nativefile']
