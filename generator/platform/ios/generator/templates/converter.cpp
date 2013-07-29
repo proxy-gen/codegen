@@ -32,7 +32,7 @@ void convert_${entity_class_name}(void* &objc, $entity_class_name *&cxx, convert
 
 #for $protocol_config in $protocols
 #set $protocolinfo = $protocol_config['deriveddata']['targetdata']['protocolinfo']
-#set $entity_protocol_name = $protocolinfo['typename']
+#set $entity_protocol_name = $protocolinfo['conformertypename']
 #set $entity_proxy_name = $protocolinfo['proxyname']
 void convert_${entity_protocol_name}(void* &objc, $entity_protocol_name *&cxx, converter_t converter_type)
 {

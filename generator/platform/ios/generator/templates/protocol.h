@@ -8,7 +8,7 @@
 #set $REF = "&"
 ##
 #set $protocol_name = $CONFIG.protocol_name
-#set $protocol_class_file_name = $CONFIG.protocol_class_file_name
+#set $protocol_abstract_class_file_name = $CONFIG.protocol_abstract_class_file_name
 ##
 #set $entity_protocol_config = $CONFIG.entity_protocol
 #set $entity_protocol_info = $entity_protocol_config['deriveddata']['targetdata']['protocolinfo']
@@ -23,7 +23,7 @@
 \#define _$entity_protocol_proxy_name
 
 \#include <${entity_protocol_framework}/${entity_protocol_nativefile}>
-\#include "${protocol_class_file_name}"
+\#include "${protocol_abstract_class_file_name}"
 
 @interface $entity_protocol_proxy_name : NSObject <$protocol_name> 
 

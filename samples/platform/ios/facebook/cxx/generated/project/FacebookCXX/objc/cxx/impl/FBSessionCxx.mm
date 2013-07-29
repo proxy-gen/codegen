@@ -248,20 +248,21 @@ signed char FacebookCXX::FBSessionCxx::openActiveSessionWithReadPermissions_allo
 	BOOL objc_arg1 = (BOOL)arg1;
 
 	void (^objc_arg2)(FBSession *, FBSessionState, NSError *);
-
-	signed char objc_result = (signed char)[FBSession openActiveSessionWithReadPermissions:(__bridge id)objc_arg0 allowLoginUI:objc_arg1 completionHandler:^(FBSession * objc_barg0, FBSessionState objc_barg1, NSError * objc_barg2){
+	objc_arg2 = ^(FBSession * objc_barg0, FBSessionState objc_barg1, NSError * objc_barg2){
 		FacebookCXX::FBSessionCxx *barg0 = NULL;
 		void *objc_bcast0 = (__bridge void *)objc_barg0;
 		convert_FBSessionCxx(objc_bcast0, barg0, CONVERT_TO_CXX);
-        
+
 		FacebookCXX::FBSessionStateCxx barg1 = (FacebookCXX::FBSessionStateCxx)objc_barg1;
-        
+
 		std::string barg2;
 		void *objc_bcast2 = (__bridge void *)objc_barg2;
 		convert_error(objc_bcast2, barg2, CONVERT_TO_CXX);
-        
+
 		arg2(barg0, barg1, barg2);
-	} ];
+	};
+
+	signed char objc_result = (signed char)[FBSession openActiveSessionWithReadPermissions:(__bridge id)objc_arg0 allowLoginUI:objc_arg1 completionHandler:objc_arg2 ];
 	return objc_result;
 }
 

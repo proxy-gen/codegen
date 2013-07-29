@@ -273,22 +273,23 @@ class Generator(BaseGenerator):
 		for entity_protocol in entity_protocols:
 			self.entity_protocol = entity_protocol
 			self.protocol_name = entity_protocol['name']
-			self.protocol_class_file_name = self.protocol_name + "ConformerCxx" + ".hpp"
-			self.protocol_class_impl_file_name = self.protocol_name + "ConformerCxx" + ".mm"
+			self.protocol_abstract_class_file_name = self.protocol_name + "ConformerCxx" + ".hpp"
+			self.protocol_abstract_class_impl_file_name = self.protocol_name + "ConformerCxx" + ".mm"
 			self.protocol_interface_file_name = self.protocol_name + "Conformer" + ".h"
 			self.protocol_implementation_file_name = self.protocol_name + "Conformer" + ".mm"
-			logging.debug("entity_head_file_name " + str(self.protocol_class_file_name))	
-			entity_file_path = os.path.join(self.conformer_include_path, self.protocol_class_file_name)
+			logging.debug("entity_head_file_name " + str(self.protocol_abstract_class_file_name))	
+			entity_file_path = os.path.join(self.conformer_include_path, self.protocol_abstract_class_file_name)
 			if not os.path.exists(os.path.dirname(entity_file_path)):
 				os.makedirs(os.path.dirname(entity_file_path))
 			logging.debug("entity_file_path " + str(entity_file_path))	
 			self.entity_file = open(entity_file_path, "w+")
-			entity_head_cxx = Template(file=os.path.join(self.target, "templates", "protocol_class.hpp"), searchList=[{'CONFIG': self}])			
+			entity_head_cxx = Template(file=os.path.join(self.target, "templates", "protocol_abstract_class.hpp"), searchList=[{'CONFIG': self}])			
 			logging.debug("entity_head_cxx " + str(entity_head_cxx))
 			self.entity_file.write(str(entity_head_cxx))
 			self.entity_file.close()
 			self.entity_file = None
-			self.protocol_class_file_name = None
+			self.protocol_abstract_class_file_name = None
+			self.protocol_abstract_class_impl_file_name = None
 			self.protocol_interface_file_name = None
 			self.protocol_implementation_file_name = None
 			self.protocol_name = None
@@ -301,22 +302,23 @@ class Generator(BaseGenerator):
 		for entity_protocol in entity_protocols:
 			self.entity_protocol = entity_protocol
 			self.protocol_name = entity_protocol['name']
-			self.protocol_class_file_name = self.protocol_name + "ConformerCxx" + ".hpp"
-			self.protocol_class_impl_file_name = self.protocol_name + "ConformerCxx" + ".mm"
+			self.protocol_abstract_class_file_name = self.protocol_name + "ConformerCxx" + ".hpp"
+			self.protocol_abstract_class_impl_file_name = self.protocol_name + "ConformerCxx" + ".mm"
 			self.protocol_interface_file_name = self.protocol_name + "Conformer" + ".h"
 			self.protocol_implementation_file_name = self.protocol_name + "Conformer" + ".mm"
-			logging.debug("entity_head_file_name " + str(self.protocol_class_impl_file_name))	
-			entity_file_path = os.path.join(self.conformer_impl_path, self.protocol_class_impl_file_name)
+			logging.debug("entity_head_file_name " + str(self.protocol_abstract_class_impl_file_name))	
+			entity_file_path = os.path.join(self.conformer_impl_path, self.protocol_abstract_class_impl_file_name)
 			if not os.path.exists(os.path.dirname(entity_file_path)):
 				os.makedirs(os.path.dirname(entity_file_path))
 			logging.debug("entity_file_path " + str(entity_file_path))	
 			self.entity_file = open(entity_file_path, "w+")
-			entity_head_cxx = Template(file=os.path.join(self.target, "templates", "protocol_class.cpp"), searchList=[{'CONFIG': self}])			
+			entity_head_cxx = Template(file=os.path.join(self.target, "templates", "protocol_abstract_class.cpp"), searchList=[{'CONFIG': self}])			
 			logging.debug("entity_head_cxx " + str(entity_head_cxx))
 			self.entity_file.write(str(entity_head_cxx))
 			self.entity_file.close()
 			self.entity_file = None
-			self.protocol_class_file_name = None
+			self.protocol_abstract_class_file_name = None
+			self.protocol_abstract_class_impl_file_name = None
 			self.protocol_interface_file_name = None
 			self.protocol_implementation_file_name = None
 			self.protocol_name = None
@@ -329,8 +331,8 @@ class Generator(BaseGenerator):
 		for entity_protocol in entity_protocols:
 			self.entity_protocol = entity_protocol
 			self.protocol_name = entity_protocol['name']
-			self.protocol_class_file_name = self.protocol_name + "ConformerCxx" + ".hpp"
-			self.protocol_class_impl_file_name = self.protocol_name + "ConformerCxx" + ".mm"
+			self.protocol_abstract_class_file_name = self.protocol_name + "ConformerCxx" + ".hpp"
+			self.protocol_abstract_class_impl_file_name = self.protocol_name + "ConformerCxx" + ".mm"
 			self.protocol_interface_file_name = self.protocol_name + "Conformer" + ".h"
 			self.protocol_implementation_file_name = self.protocol_name + "Conformer" + ".mm"
 			logging.debug("entity_head_file_name " + str(self.protocol_interface_file_name))	
@@ -344,7 +346,8 @@ class Generator(BaseGenerator):
 			self.entity_file.write(str(entity_head_cxx))
 			self.entity_file.close()
 			self.entity_file = None
-			self.protocol_class_file_name = None
+			self.protocol_abstract_class_file_name = None
+			self.protocol_abstract_class_impl_file_name = None
 			self.protocol_interface_file_name = None
 			self.protocol_implementation_file_name = None
 			self.protocol_name = None
@@ -357,8 +360,8 @@ class Generator(BaseGenerator):
 		for entity_protocol in entity_protocols:
 			self.entity_protocol = entity_protocol
 			self.protocol_name = entity_protocol['name']
-			self.protocol_class_file_name = self.protocol_name + "ConformerCxx" + ".hpp"
-			self.protocol_class_impl_file_name = self.protocol_name + "ConformerCxx" + ".mm"
+			self.protocol_abstract_class_file_name = self.protocol_name + "ConformerCxx" + ".hpp"
+			self.protocol_abstract_class_impl_file_name = self.protocol_name + "ConformerCxx" + ".mm"
 			self.protocol_interface_file_name = self.protocol_name + "Conformer" + ".h"
 			self.protocol_implementation_file_name = self.protocol_name + "Conformer" + ".mm"
 			logging.debug("entity_head_file_name " + str(self.protocol_implementation_file_name))	
@@ -372,7 +375,8 @@ class Generator(BaseGenerator):
 			self.entity_file.write(str(entity_head_cxx))
 			self.entity_file.close()
 			self.entity_file = None
-			self.protocol_class_file_name = None
+			self.protocol_abstract_class_file_name = None
+			self.protocol_abstract_class_impl_file_name = None
 			self.protocol_interface_file_name = None
 			self.protocol_implementation_file_name = None
 			self.protocol_name = None
@@ -835,6 +839,7 @@ class ConfigModule(object):
 			conformer_type_name = protocol_config['name'] + "ConformerCxx"
 			protocolinfo['conformertypename'] = conformer_type_name
 			protocolinfo['typename'] = type_name
+			protocolinfo['conformerfilename'] =  Utils.to_file_name(conformer_type_name,"hpp")
 			protocolinfo['filename'] =  Utils.to_file_name(type_name,"hpp")
 			protocolinfo['proxyname'] = protocol_config['name'] + "Conformer"
 			protocolinfo['namespace'] = config_data['namespace']	

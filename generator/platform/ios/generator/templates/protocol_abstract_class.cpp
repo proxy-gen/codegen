@@ -10,7 +10,7 @@
 #set $protocol_name = $CONFIG.protocol_name
 #set $config_module = $CONFIG.config_module
 ##
-#set $protocol_class_file_name = $CONFIG.protocol_class_file_name
+#set $protocol_abstract_class_file_name = $CONFIG.protocol_abstract_class_file_name
 #set $protocol_interface_file_name = $CONFIG.protocol_interface_file_name
 ##
 #set $entity_protocol_config = $CONFIG.entity_protocol
@@ -22,7 +22,7 @@
 #set $entity_protocol_namespace = $entity_protocol_info['namespace']
 ##
 
-\#include "${protocol_class_file_name}"
+\#include "${protocol_abstract_class_file_name}"
 \#include "${protocol_interface_file_name}"
 
 $entity_protocol_namespace::${entity_protocol_typename}::${entity_protocol_typename}(){
