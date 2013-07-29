@@ -178,10 +178,10 @@ void FacebookCXX::FBPlacePickerViewControllerCxx::setSession(FacebookCXX::FBSess
 	[(__bridge FBPlacePickerViewController *)_proxy setSession:(__bridge id)objc_arg0 ];
 }
 
-FacebookCXX::FBGraphPlaceConformerCxx * FacebookCXX::FBPlacePickerViewControllerCxx::selection(){
+FacebookCXX::FBGraphPlaceProtocolCxx * FacebookCXX::FBPlacePickerViewControllerCxx::selection(){
 	void *objc_result = (__bridge void *)[(__bridge FBPlacePickerViewController *)_proxy selection];
-	FacebookCXX::FBGraphPlaceConformerCxx * result = NULL;
-	convert_FBGraphPlaceConformerCxx(objc_result, result, CONVERT_TO_CXX);
+	FacebookCXX::FBGraphPlaceProtocolCxx * result = NULL;
+	convert_FBGraphPlaceProtocolCxx(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 

@@ -130,9 +130,18 @@ ${method['modifier_str']} ($return_type) ${method['message_str']}{
 	${returns['type']} result = (${returns['type']})(self.proxy->$function_call_str);
 	return result;
 	#elif $returns['converter'] == "convert_proxy"
-	${returns_typeinfo['namespace']}::${returns_typeinfo['typename']} *result = self.proxy->$function_call_str;
+	#set $converter = ""
+	#set $returns_typename = ""
+	#if 'protocoltypeconverter' in $returns_typeinfo
+	#set $converter = $returns_typeinfo['protocoltypeconverter']
+	#set $returns_typename = $returns_typeinfo['protocoltypename']
+	#else
+	#set $converter = $returns_typeinfo['typeconverter']
+	#set $returns_typename = $returns_typeinfo['typename']
+	#end if
+	${returns_typeinfo['namespace']}::${returns_typename} *result = self.proxy->$function_call_str;
 	void *objc_result = NULL;
-	${returns_typeinfo['typeconverter']}(objc_result, result, CONVERT_TO_OBJC);
+	${converter}(objc_result, result, CONVERT_TO_OBJC);
 	return (__bridge id)objc_result;
 	#else
 	${returns_typeinfo['typename']} result = self.proxy->$function_call_str;

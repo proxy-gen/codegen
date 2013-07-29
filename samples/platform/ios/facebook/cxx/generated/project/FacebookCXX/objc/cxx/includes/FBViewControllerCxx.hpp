@@ -9,6 +9,7 @@
 #ifndef _FBViewControllerCxx
 #define _FBViewControllerCxx
 
+#include "FBViewControllerDelegateProtocolCxx.hpp"
 #include "FBViewControllerDelegateConformerCxx.hpp"
 
 #include <vector>
@@ -23,6 +24,7 @@ namespace FacebookCXX {
 
 // Forward Declarations
 class FBViewControllerCxx;
+class FBViewControllerDelegateProtocolCxx;
 class FBViewControllerDelegateConformerCxx;
 
 class FBViewControllerCxx
@@ -50,7 +52,7 @@ public:
 
 	 void setDoneButton(void *& arg0);
 
-	 FacebookCXX::FBViewControllerDelegateConformerCxx * delegate();
+	 FacebookCXX::FBViewControllerDelegateProtocolCxx * delegate();
 
 	 void setDelegate(FacebookCXX::FBViewControllerDelegateConformerCxx * arg0);
 

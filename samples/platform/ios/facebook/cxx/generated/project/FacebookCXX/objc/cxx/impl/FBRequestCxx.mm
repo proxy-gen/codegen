@@ -280,10 +280,10 @@ void FacebookCXX::FBRequestCxx::setHTTPMethod(std::string& arg0){
 	[(__bridge FBRequest *)_proxy setHTTPMethod:(__bridge id)objc_arg0 ];
 }
 
-FacebookCXX::FBGraphObjectConformerCxx * FacebookCXX::FBRequestCxx::graphObject(){
+FacebookCXX::FBGraphObjectProtocolCxx * FacebookCXX::FBRequestCxx::graphObject(){
 	void *objc_result = (__bridge void *)[(__bridge FBRequest *)_proxy graphObject];
-	FacebookCXX::FBGraphObjectConformerCxx * result = NULL;
-	convert_FBGraphObjectConformerCxx(objc_result, result, CONVERT_TO_CXX);
+	FacebookCXX::FBGraphObjectProtocolCxx * result = NULL;
+	convert_FBGraphObjectProtocolCxx(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 

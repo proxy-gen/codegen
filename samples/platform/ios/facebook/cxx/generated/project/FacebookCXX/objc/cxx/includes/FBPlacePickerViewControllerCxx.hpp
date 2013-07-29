@@ -11,7 +11,7 @@
 
 #include "FBCacheDescriptorCxx.hpp"
 #include "FBSessionCxx.hpp"
-#include "FBGraphPlaceConformerCxx.hpp"
+#include "FBGraphPlaceProtocolCxx.hpp"
 
 #include <vector>
 #include <map>
@@ -26,7 +26,7 @@ namespace FacebookCXX {
 // Forward Declarations
 class FBCacheDescriptorCxx;
 class FBSessionCxx;
-class FBGraphPlaceConformerCxx;
+class FBGraphPlaceProtocolCxx;
 
 class FBPlacePickerViewControllerCxx
 {
@@ -87,7 +87,7 @@ public:
 
 	 void setSession(FacebookCXX::FBSessionCxx * arg0);
 
-	 FacebookCXX::FBGraphPlaceConformerCxx * selection();
+	 FacebookCXX::FBGraphPlaceProtocolCxx * selection();
 private:
 	void* _proxy;
 };

@@ -10,6 +10,7 @@
 #include "FBSessionCxx.hpp"
 #include "FBRequestCxx.hpp"
 #include "FacebookCXXConverter.hpp"
+#include <iostream>
 
 @interface ViewController ()
 
@@ -40,6 +41,7 @@ void  sessionStateChanged(FacebookCXX::FBSessionCxx *session,
 {
     switch (state) {
         case FacebookCXX::FBSessionStateOpen:
+            std::cout << "You are logged in." << std::endl;
             break;
         case FacebookCXX::FBSessionStateClosed:
         case FacebookCXX::FBSessionStateClosedLoginFailed:{
@@ -66,6 +68,35 @@ void  sessionStateChanged(FacebookCXX::FBSessionCxx *session,
     }
 }
 
+void forMeRequestCompleted(FacebookCXX::FBRequestConnectionCxx *requsetConnection, void* &user, std::string &error){
+    if (error.compare("") == 0){
+        FBGraphUserProtocolCxx *puser = new FBGraphUserProtocolCxx(user);
+        std::cout << "First name: " <<  puser->first_name() << std::endl
+        << "Last name: " << puser->last_name() << std::endl
+        << "Profile ID: " << puser->_id() << std::endl;
+        delete puser;
+    }
+}
+
+void forFriendsRequestCompleted(FacebookCXX::FBRequestConnectionCxx *requsetConnection, void* &ocUserDict, std::string &error){
+    if (error.compare("") == 0){
+        std::map<void *, void*> userDict;
+        convert_dictionary(ocUserDict, userDict, CONVERT_TO_CXX);
+        
+        void *ocUserArray = userDict.begin()->second;
+        std::vector<void *> userArray;
+        convert_array(ocUserArray, userArray, CONVERT_TO_CXX);
+        
+        for(std::vector<void *>::iterator iter = userArray.begin(); iter!= userArray.end(); iter++){
+            FBGraphUserProtocolCxx *pFriend = new FBGraphUserProtocolCxx(*iter);
+            std::cout << "First name: " <<  pFriend->first_name() << std::endl
+            << "Last name: " << pFriend->last_name() << std::endl
+            << "Profile ID: " << pFriend->_id() << std::endl;
+            delete pFriend;
+        }
+    }
+}
+
 
 - (IBAction)login:(id)sender {
     std::vector<void *> empty;
@@ -73,6 +104,29 @@ void  sessionStateChanged(FacebookCXX::FBSessionCxx *session,
     FacebookCXX::FBSessionCxx::openActiveSessionWithReadPermissions_allowLoginUI_completionHandler(empty, allowLoginUI, &sessionStateChanged);
 }
 
+- (IBAction)logName:(id)sender {
+    FacebookCXX::FBSessionCxx * session = FacebookCXX::FBSessionCxx::activeSession();
+    if (session->isOpen()){
+        FacebookCXX::FBRequestCxx *request = FacebookCXX::FBRequestCxx::requestForMe();
+        request->startWithCompletionHandler(&forMeRequestCompleted);
+    }
+    delete session;
+}
 
+- (IBAction)logFriends:(id)sender {
+    FacebookCXX::FBSessionCxx * session = FacebookCXX::FBSessionCxx::activeSession();
+    if (session->isOpen()){
+        FacebookCXX::FBRequestCxx *request = FacebookCXX::FBRequestCxx::requestForMyFriends();
+        request->startWithCompletionHandler(&forFriendsRequestCompleted);
+        delete request;
+    }
+    delete session;
+}
+
+- (IBAction)logout:(id)sender {
+    FacebookCXX::FBSessionCxx *session = FacebookCXX::FBSessionCxx::activeSession();
+    session->closeAndClearTokenInformation();
+    delete session;
+}
 
 @end

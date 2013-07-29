@@ -29,6 +29,12 @@
 #include "FBGraphUserConformerCxx.hpp"
 #include "FBGraphPlaceConformerCxx.hpp"
 #include "FBGraphLocationConformerCxx.hpp"
+#include "FBViewControllerDelegateProtocolCxx.hpp"
+#include "FBGraphObjectProtocolCxx.hpp"
+#include "FBLoginViewDelegateProtocolCxx.hpp"
+#include "FBGraphUserProtocolCxx.hpp"
+#include "FBGraphPlaceProtocolCxx.hpp"
+#include "FBGraphLocationProtocolCxx.hpp"
 
 using namespace FacebookCXX;
 
@@ -54,5 +60,11 @@ void convert_FBLoginViewDelegateConformerCxx(void* &objc, FBLoginViewDelegateCon
 void convert_FBGraphUserConformerCxx(void* &objc, FBGraphUserConformerCxx *&cxx, converter_t converter_type);
 void convert_FBGraphPlaceConformerCxx(void* &objc, FBGraphPlaceConformerCxx *&cxx, converter_t converter_type);
 void convert_FBGraphLocationConformerCxx(void* &objc, FBGraphLocationConformerCxx *&cxx, converter_t converter_type);
+void convert_FBViewControllerDelegateProtocolCxx(void* &objc, FBViewControllerDelegateProtocolCxx *&cxx, converter_t converter_type);
+void convert_FBGraphObjectProtocolCxx(void* &objc, FBGraphObjectProtocolCxx *&cxx, converter_t converter_type);
+void convert_FBLoginViewDelegateProtocolCxx(void* &objc, FBLoginViewDelegateProtocolCxx *&cxx, converter_t converter_type);
+void convert_FBGraphUserProtocolCxx(void* &objc, FBGraphUserProtocolCxx *&cxx, converter_t converter_type);
+void convert_FBGraphPlaceProtocolCxx(void* &objc, FBGraphPlaceProtocolCxx *&cxx, converter_t converter_type);
+void convert_FBGraphLocationProtocolCxx(void* &objc, FBGraphLocationProtocolCxx *&cxx, converter_t converter_type);
 
 #endif // _FacebookCXXConverter

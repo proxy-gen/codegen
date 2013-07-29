@@ -259,6 +259,8 @@ class Generator(BaseGenerator):
 		self.conformer_include_path = os.path.join(self.output_dir_name, "project", self.package_name, "objc", "cxx", "conformers", "includes")
 		self.conformer_impl_path = os.path.join(self.output_dir_name, "project", self.package_name, "objc", "cxx", "conformers", "impl")
 		self.conformer_proxy_path = os.path.join(self.output_dir_name, "project", self.package_name, "objc", "cxx", "conformers", "private")
+		self._generate_protocol_class_header()
+		self._generate_protocol_class_implementation()
 		self._generate_protocol_abstract_class_header()
 		self._generate_protocol_abstract_class_implementation()
 		self._generate_protocol_interface()
@@ -266,6 +268,64 @@ class Generator(BaseGenerator):
 		self.conformer_include_path = None
 		self.conformer_impl_path = None
 		self.conformer_proxy_path = None
+
+	def _generate_protocol_class_header(self):
+		logging.debug("_generate_protocol_class_header enter")
+		entity_protocols = self.config_module.list_protocols(tags=['_proxy'],xtags=None,name=None)
+		for entity_protocol in entity_protocols:
+			self.entity_protocol = entity_protocol
+			self.protocol_name = entity_protocol['name']
+			self.protocol_class_file_name = self.protocol_name + "ProtocolCxx" + ".hpp"
+			self.protocol_class_impl_file_name = self.protocol_name + "ProtocolCxx" + ".mm"
+			self.protocol_interface_file_name = self.protocol_name + "Conformer" + ".h"
+			self.protocol_implementation_file_name = self.protocol_name + "Conformer" + ".mm"
+			logging.debug("entity_head_file_name " + str(self.protocol_class_file_name))	
+			entity_file_path = os.path.join(self.header_outdir_name, self.protocol_class_file_name)
+			if not os.path.exists(os.path.dirname(entity_file_path)):
+				os.makedirs(os.path.dirname(entity_file_path))
+			logging.debug("entity_file_path " + str(entity_file_path))	
+			self.entity_file = open(entity_file_path, "w+")
+			entity_head_cxx = Template(file=os.path.join(self.target, "templates", "protocol_class.hpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("entity_head_cxx " + str(entity_head_cxx))
+			self.entity_file.write(str(entity_head_cxx))
+			self.entity_file.close()
+			self.entity_file = None
+			self.protocol_abstract_class_file_name = None
+			self.protocol_abstract_class_impl_file_name = None
+			self.protocol_interface_file_name = None
+			self.protocol_implementation_file_name = None
+			self.protocol_name = None
+			self.entity_protocol = None
+		logging.debug("_generate_protocol_class_header exit")
+
+	def _generate_protocol_class_implementation(self):
+		logging.debug("_generate_protocol_class_implementation enter")
+		entity_protocols = self.config_module.list_protocols(tags=['_proxy'],xtags=None,name=None)
+		for entity_protocol in entity_protocols:
+			self.entity_protocol = entity_protocol
+			self.protocol_name = entity_protocol['name']
+			self.protocol_class_file_name = self.protocol_name + "ProtocolCxx" + ".hpp"
+			self.protocol_class_impl_file_name = self.protocol_name + "ProtocolCxx" + ".mm"
+			self.protocol_interface_file_name = self.protocol_name + "Conformer" + ".h"
+			self.protocol_implementation_file_name = self.protocol_name + "Conformer" + ".mm"
+			logging.debug("entity_head_file_name " + str(self.protocol_class_impl_file_name))	
+			entity_file_path = os.path.join(self.impl_outdir_name, self.protocol_class_impl_file_name)
+			if not os.path.exists(os.path.dirname(entity_file_path)):
+				os.makedirs(os.path.dirname(entity_file_path))
+			logging.debug("entity_file_path " + str(entity_file_path))	
+			self.entity_file = open(entity_file_path, "w+")
+			entity_head_cxx = Template(file=os.path.join(self.target, "templates", "protocol_class.cpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("entity_head_cxx " + str(entity_head_cxx))
+			self.entity_file.write(str(entity_head_cxx))
+			self.entity_file.close()
+			self.entity_file = None
+			self.protocol_abstract_class_file_name = None
+			self.protocol_abstract_class_impl_file_name = None
+			self.protocol_interface_file_name = None
+			self.protocol_implementation_file_name = None
+			self.protocol_name = None
+			self.entity_protocol = None
+		logging.debug("_generate_protocol_class_implementation exit")
 
 	def _generate_protocol_abstract_class_header(self):
 		logging.debug("_generate_protocol_abstract_class_header enter")
@@ -782,10 +842,10 @@ class ConfigModule(object):
 		if "parameters" in config_item_data or "returns" in config_item_data:
 			if "parameters" in config_item_data:
 				for parameter in config_item_data["parameters"]:
-					self._attach_derived_type_data(parameter, config_data)
+					self._attach_derived_type_data(parameter, True, config_data)
 			if "returns" in config_item_data:
 				for retrn in config_item_data["returns"]:
-					self._attach_derived_type_data(retrn, config_data)
+					self._attach_derived_type_data(retrn, False, config_data)
 		else:
 			if "interfaces" in config_item_data:
 				for interface in config_item_data["interfaces"]:
@@ -835,7 +895,7 @@ class ConfigModule(object):
 			targetdata = deriveddata['targetdata'] = dict()
 			protocolinfo = targetdata['protocolinfo'] = dict()
 
-			type_name = protocol_config['name'] + "Cxx"
+			type_name = protocol_config['name'] + "ProtocolCxx"
 			conformer_type_name = protocol_config['name'] + "ConformerCxx"
 			protocolinfo['conformertypename'] = conformer_type_name
 			protocolinfo['typename'] = type_name
@@ -885,22 +945,22 @@ class ConfigModule(object):
 			objcdata['selectorlist'] = Utils.to_selector_list(method_config['selector'])
 		logging.debug("_attach_derived_objc_selector_list exit")
 
-	def _attach_derived_type_data(self, type_config, config_data):
+	def _attach_derived_type_data(self, type_config, parameter, config_data):
 		logging.debug("_attach_derived_type_data enter")
 		if "deriveddata" not in type_config:
 			type_config['deriveddata'] = dict()
-		self._attach_derived_target_type_data(type_config, config_data)
+		self._attach_derived_target_type_data(type_config, parameter, config_data)
 		logging.debug("_attach_derived_type_data exit")
 
-	def _attach_derived_target_type_data(self, type_config, config_data):
+	def _attach_derived_target_type_data(self, type_config, parameter, config_data):
 		logging.debug("_attach_derived_target_type_data enter")
 		deriveddata = type_config['deriveddata']
 		if "targetdata" not in deriveddata:
 			deriveddata['targetdata'] = dict()
-		self._attach_derived_target_type_info(type_config, config_data)
+		self._attach_derived_target_type_info(type_config, parameter, config_data)
 		logging.debug("_attach_derived_target_type_data exit")
 
-	def _attach_derived_target_type_info(self, type_config, config_data):
+	def _attach_derived_target_type_info(self, type_config, parameter, config_data):
 		logging.debug("_attach_derived_target_type_info enter")
 		deriveddata = type_config['deriveddata']
 		targetdata = deriveddata['targetdata']
@@ -914,9 +974,11 @@ class ConfigModule(object):
 					for namespaced_protocol in namespaced_protocols:
 						protocol = namespaced_protocol['protocol']
 						typeinfo['namespace'] = namespaced_protocol['namespace']
-						type_name = protocol['name'] + "ConformerCxx"
+						type_name = protocol['name'] + "ConformerCxx" if parameter else protocol['name'] + "ProtocolCxx"
 						typeinfo['typename'] = type_name
 						typeinfo['typeconverter'] = "convert_" + type_name
+						typeinfo['protocoltypename'] = protocol['name'] + "ProtocolCxx" if parameter else protocol['name'] + 'ConformerCxx'
+						typeinfo['protocoltypeconverter'] = "convert_" + typeinfo['protocoltypename']
 						typeinfo['filename'] =  Utils.to_file_name(type_name,"hpp")
 						typeinfo['isproxied'] = True
 						typeinfo['framework'] = os.path.basename(config_data['frameworks'][0]).split(".")[0]
@@ -1086,6 +1148,7 @@ class Utils(object):
 							'for',
 							'friend',
 							'goto',
+							'id',
 							'if',
 							'inline',
 							'int',
@@ -1149,7 +1212,7 @@ class Utils(object):
 
 	@classmethod
 	def to_function_name(cls, selector):
-		return selector.strip(":").replace(":", "_")
+		return Utils.to_safe_cxx_name(selector.strip(":").replace(":", "_"))
 
 	@classmethod
 	def to_selector_list(cls, selector):

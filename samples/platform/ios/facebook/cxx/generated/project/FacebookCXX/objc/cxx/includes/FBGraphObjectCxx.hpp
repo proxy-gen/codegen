@@ -9,6 +9,7 @@
 #ifndef _FBGraphObjectCxx
 #define _FBGraphObjectCxx
 
+#include "FBGraphObjectProtocolCxx.hpp"
 #include "FBGraphObjectConformerCxx.hpp"
 
 #include <vector>
@@ -22,6 +23,7 @@ extern "C" {
 namespace FacebookCXX {
 
 // Forward Declarations
+class FBGraphObjectProtocolCxx;
 class FBGraphObjectConformerCxx;
 
 class FBGraphObjectCxx
@@ -39,9 +41,9 @@ public:
 
 	// Functions
 
-	static FacebookCXX::FBGraphObjectConformerCxx * graphObject();
+	static FacebookCXX::FBGraphObjectProtocolCxx * graphObject();
 
-	static FacebookCXX::FBGraphObjectConformerCxx * graphObjectWrappingDictionary(std::map<void *, void *>& arg0);
+	static FacebookCXX::FBGraphObjectProtocolCxx * graphObjectWrappingDictionary(std::map<void *, void *>& arg0);
 
 	static signed char isGraphObjectID_sameAs(FacebookCXX::FBGraphObjectConformerCxx * arg0,FacebookCXX::FBGraphObjectConformerCxx * arg1);
 

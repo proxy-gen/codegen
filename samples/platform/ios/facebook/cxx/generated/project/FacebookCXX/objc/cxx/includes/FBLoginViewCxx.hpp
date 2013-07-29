@@ -9,6 +9,7 @@
 #ifndef _FBLoginViewCxx
 #define _FBLoginViewCxx
 
+#include "FBLoginViewDelegateProtocolCxx.hpp"
 #include "FBLoginViewDelegateConformerCxx.hpp"
 #include "FBSessionDefaultAudienceCxx.hpp"
 
@@ -23,6 +24,7 @@ extern "C" {
 namespace FacebookCXX {
 
 // Forward Declarations
+class FBLoginViewDelegateProtocolCxx;
 class FBLoginViewDelegateConformerCxx;
 
 class FBLoginViewCxx
@@ -64,7 +66,7 @@ public:
 
 	 void setDefaultAudience(FacebookCXX::FBSessionDefaultAudienceCxx& arg0);
 
-	 FacebookCXX::FBLoginViewDelegateConformerCxx * delegate();
+	 FacebookCXX::FBLoginViewDelegateProtocolCxx * delegate();
 
 	 void setDelegate(FacebookCXX::FBLoginViewDelegateConformerCxx * arg0);
 private:

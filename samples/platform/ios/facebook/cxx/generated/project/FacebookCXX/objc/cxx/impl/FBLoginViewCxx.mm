@@ -119,10 +119,10 @@ void FacebookCXX::FBLoginViewCxx::setDefaultAudience(FacebookCXX::FBSessionDefau
 	[(__bridge FBLoginView *)_proxy setDefaultAudience:objc_arg0 ];
 }
 
-FacebookCXX::FBLoginViewDelegateConformerCxx * FacebookCXX::FBLoginViewCxx::delegate(){
+FacebookCXX::FBLoginViewDelegateProtocolCxx * FacebookCXX::FBLoginViewCxx::delegate(){
 	void *objc_result = (__bridge void *)[(__bridge FBLoginView *)_proxy delegate];
-	FacebookCXX::FBLoginViewDelegateConformerCxx * result = NULL;
-	convert_FBLoginViewDelegateConformerCxx(objc_result, result, CONVERT_TO_CXX);
+	FacebookCXX::FBLoginViewDelegateProtocolCxx * result = NULL;
+	convert_FBLoginViewDelegateProtocolCxx(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 

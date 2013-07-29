@@ -14,4 +14,8 @@
 
 - (IBAction)logName:(id)sender;
 
+- (IBAction)logFriends:(id)sender;
+
+- (IBAction)logout:(id)sender;
+
 @end

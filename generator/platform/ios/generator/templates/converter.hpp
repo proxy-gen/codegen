@@ -26,6 +26,11 @@
 #set $entity_file_name = $protocolinfo['conformerfilename']
 \#include "${entity_file_name}"
 #end for
+#for $protocol_config in $protocols
+#set $protocolinfo = $protocol_config['deriveddata']['targetdata']['protocolinfo']
+#set $entity_file_name = $protocolinfo['filename']
+\#include "${entity_file_name}"
+#end for
 
 using namespace ${namespace};
 
@@ -38,6 +43,11 @@ void convert_${entity_class_name}(void* &objc, $entity_class_name *&cxx, convert
 #for $protocol_config in $protocols
 #set $protocolinfo = $protocol_config['deriveddata']['targetdata']['protocolinfo']
 #set $entity_protocol_name = $protocolinfo['conformertypename']
+void convert_${entity_protocol_name}(void* &objc, $entity_protocol_name *&cxx, converter_t converter_type);
+#end for
+#for $protocol_config in $protocols
+#set $protocolinfo = $protocol_config['deriveddata']['targetdata']['protocolinfo']
+#set $entity_protocol_name = $protocolinfo['typename']
 void convert_${entity_protocol_name}(void* &objc, $entity_protocol_name *&cxx, converter_t converter_type);
 #end for
 

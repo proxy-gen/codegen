@@ -27,7 +27,7 @@
 }
 
 - (NSString *) id{
-	std::string result = self.proxy->id();
+	std::string result = self.proxy->_id();
 	void *objc_result = NULL;
 	convert_string(objc_result, result, CONVERT_TO_OBJC);
 	return (__bridge id)objc_result;

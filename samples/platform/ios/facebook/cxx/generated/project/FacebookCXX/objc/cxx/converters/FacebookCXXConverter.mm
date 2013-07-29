@@ -180,7 +180,7 @@ void convert_FBViewControllerDelegateConformerCxx(void* &objc, FBViewControllerD
 	}
 	else if (converter_type == CONVERT_TO_CXX)
 	{
-		cxx = (FBViewControllerDelegateConformerCxx *)objc; // TODO: figure out something better here
+		//This won't happen
 	}
 }
 void convert_FBGraphObjectConformerCxx(void* &objc, FBGraphObjectConformerCxx *&cxx, converter_t converter_type)
@@ -191,7 +191,7 @@ void convert_FBGraphObjectConformerCxx(void* &objc, FBGraphObjectConformerCxx *&
 	}
 	else if (converter_type == CONVERT_TO_CXX)
 	{
-		cxx = (FBGraphObjectConformerCxx *)objc; // TODO: figure out something better here
+		//This won't happen
 	}
 }
 void convert_FBLoginViewDelegateConformerCxx(void* &objc, FBLoginViewDelegateConformerCxx *&cxx, converter_t converter_type)
@@ -202,7 +202,7 @@ void convert_FBLoginViewDelegateConformerCxx(void* &objc, FBLoginViewDelegateCon
 	}
 	else if (converter_type == CONVERT_TO_CXX)
 	{
-		cxx = (FBLoginViewDelegateConformerCxx *)objc; // TODO: figure out something better here
+		//This won't happen
 	}
 }
 void convert_FBGraphUserConformerCxx(void* &objc, FBGraphUserConformerCxx *&cxx, converter_t converter_type)
@@ -213,7 +213,7 @@ void convert_FBGraphUserConformerCxx(void* &objc, FBGraphUserConformerCxx *&cxx,
 	}
 	else if (converter_type == CONVERT_TO_CXX)
 	{
-		cxx = (FBGraphUserConformerCxx *)objc; // TODO: figure out something better here
+		//This won't happen
 	}
 }
 void convert_FBGraphPlaceConformerCxx(void* &objc, FBGraphPlaceConformerCxx *&cxx, converter_t converter_type)
@@ -224,7 +224,7 @@ void convert_FBGraphPlaceConformerCxx(void* &objc, FBGraphPlaceConformerCxx *&cx
 	}
 	else if (converter_type == CONVERT_TO_CXX)
 	{
-		cxx = (FBGraphPlaceConformerCxx *)objc; // TODO: figure out something better here
+		//This won't happen
 	}
 }
 void convert_FBGraphLocationConformerCxx(void* &objc, FBGraphLocationConformerCxx *&cxx, converter_t converter_type)
@@ -235,7 +235,74 @@ void convert_FBGraphLocationConformerCxx(void* &objc, FBGraphLocationConformerCx
 	}
 	else if (converter_type == CONVERT_TO_CXX)
 	{
-		cxx = (FBGraphLocationConformerCxx *)objc; // TODO: figure out something better here
+		//This won't happen
+	}
+}
+
+void convert_FBViewControllerDelegateProtocolCxx(void* &objc, FBViewControllerDelegateProtocolCxx *&cxx, converter_t converter_type)
+{
+	if (converter_type == CONVERT_TO_OBJC)
+	{
+		//This won't happen
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		cxx = (new FBViewControllerDelegateProtocolCxx(objc));
+	}
+}
+void convert_FBGraphObjectProtocolCxx(void* &objc, FBGraphObjectProtocolCxx *&cxx, converter_t converter_type)
+{
+	if (converter_type == CONVERT_TO_OBJC)
+	{
+		//This won't happen
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		cxx = (new FBGraphObjectProtocolCxx(objc));
+	}
+}
+void convert_FBLoginViewDelegateProtocolCxx(void* &objc, FBLoginViewDelegateProtocolCxx *&cxx, converter_t converter_type)
+{
+	if (converter_type == CONVERT_TO_OBJC)
+	{
+		//This won't happen
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		cxx = (new FBLoginViewDelegateProtocolCxx(objc));
+	}
+}
+void convert_FBGraphUserProtocolCxx(void* &objc, FBGraphUserProtocolCxx *&cxx, converter_t converter_type)
+{
+	if (converter_type == CONVERT_TO_OBJC)
+	{
+		//This won't happen
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		cxx = (new FBGraphUserProtocolCxx(objc));
+	}
+}
+void convert_FBGraphPlaceProtocolCxx(void* &objc, FBGraphPlaceProtocolCxx *&cxx, converter_t converter_type)
+{
+	if (converter_type == CONVERT_TO_OBJC)
+	{
+		//This won't happen
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		cxx = (new FBGraphPlaceProtocolCxx(objc));
+	}
+}
+void convert_FBGraphLocationProtocolCxx(void* &objc, FBGraphLocationProtocolCxx *&cxx, converter_t converter_type)
+{
+	if (converter_type == CONVERT_TO_OBJC)
+	{
+		//This won't happen
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		cxx = (new FBGraphLocationProtocolCxx(objc));
 	}
 }
 

@@ -27,20 +27,20 @@ void *FacebookCXX::FBGraphObjectCxx::getProxy() const{
 	return _proxy;
 }
 
-FacebookCXX::FBGraphObjectConformerCxx * FacebookCXX::FBGraphObjectCxx::graphObject(){
+FacebookCXX::FBGraphObjectProtocolCxx * FacebookCXX::FBGraphObjectCxx::graphObject(){
 	void *objc_result = (__bridge void *)[FBGraphObject graphObject];
-	FacebookCXX::FBGraphObjectConformerCxx * result = NULL;
-	convert_FBGraphObjectConformerCxx(objc_result, result, CONVERT_TO_CXX);
+	FacebookCXX::FBGraphObjectProtocolCxx * result = NULL;
+	convert_FBGraphObjectProtocolCxx(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 
-FacebookCXX::FBGraphObjectConformerCxx * FacebookCXX::FBGraphObjectCxx::graphObjectWrappingDictionary(std::map<void *, void *>& arg0){
+FacebookCXX::FBGraphObjectProtocolCxx * FacebookCXX::FBGraphObjectCxx::graphObjectWrappingDictionary(std::map<void *, void *>& arg0){
 	void *objc_arg0 = NULL;
 	convert_dictionary(objc_arg0, arg0, CONVERT_TO_OBJC);
 
 	void *objc_result = (__bridge void *)[FBGraphObject graphObjectWrappingDictionary:(__bridge id)objc_arg0 ];
-	FacebookCXX::FBGraphObjectConformerCxx * result = NULL;
-	convert_FBGraphObjectConformerCxx(objc_result, result, CONVERT_TO_CXX);
+	FacebookCXX::FBGraphObjectProtocolCxx * result = NULL;
+	convert_FBGraphObjectProtocolCxx(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 

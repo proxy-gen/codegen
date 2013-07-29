@@ -75,10 +75,10 @@ void FacebookCXX::FBViewControllerCxx::setDoneButton(void *& arg0){
 	[(__bridge FBViewController *)_proxy setDoneButton:(__bridge id)objc_arg0 ];
 }
 
-FacebookCXX::FBViewControllerDelegateConformerCxx * FacebookCXX::FBViewControllerCxx::delegate(){
+FacebookCXX::FBViewControllerDelegateProtocolCxx * FacebookCXX::FBViewControllerCxx::delegate(){
 	void *objc_result = (__bridge void *)[(__bridge FBViewController *)_proxy delegate];
-	FacebookCXX::FBViewControllerDelegateConformerCxx * result = NULL;
-	convert_FBViewControllerDelegateConformerCxx(objc_result, result, CONVERT_TO_CXX);
+	FacebookCXX::FBViewControllerDelegateProtocolCxx * result = NULL;
+	convert_FBViewControllerDelegateProtocolCxx(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 

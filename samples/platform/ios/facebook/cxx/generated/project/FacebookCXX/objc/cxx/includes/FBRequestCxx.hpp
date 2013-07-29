@@ -12,6 +12,7 @@
 #include "FBSessionCxx.hpp"
 #include "FBGraphObjectConformerCxx.hpp"
 #include "FBRequestConnectionCxx.hpp"
+#include "FBGraphObjectProtocolCxx.hpp"
 
 #include <vector>
 #include <map>
@@ -28,6 +29,7 @@ class FBSessionCxx;
 class FBGraphObjectConformerCxx;
 class FBRequestConnectionCxx;
 class FBRequestCxx;
+class FBGraphObjectProtocolCxx;
 
 class FBRequestCxx
 {
@@ -90,7 +92,7 @@ public:
 
 	 void setHTTPMethod(std::string& arg0);
 
-	 FacebookCXX::FBGraphObjectConformerCxx * graphObject();
+	 FacebookCXX::FBGraphObjectProtocolCxx * graphObject();
 
 	 void setGraphObject(FacebookCXX::FBGraphObjectConformerCxx * arg0);
 private:

@@ -7,6 +7,7 @@
 #ifndef _FBGraphUserConformerCxx
 #define _FBGraphUserConformerCxx
 
+#include "FBGraphPlaceProtocolCxx.hpp"
 #include "FBGraphPlaceConformerCxx.hpp"
 
 #include <vector>
@@ -19,6 +20,7 @@ extern "C" {
 
 namespace FacebookCXX {
 
+class FBGraphPlaceProtocolCxx;
 class FBGraphPlaceConformerCxx;
 
 class FBGraphUserConformerCxx
@@ -35,7 +37,7 @@ public:
 
 	// Functions
 
-	virtual  std::string id() = 0;
+	virtual  std::string _id() = 0;
 
 	virtual  void setId(std::string&) = 0;
 
