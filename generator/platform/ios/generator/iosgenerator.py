@@ -151,21 +151,16 @@ class Generator(BaseGenerator):
 		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
 		assert self.config_module.is_valid, "config_module is not valid"
 		self._update_config(self.config_module)
-		# derived data attached temporary 
 		self.config_module.attach_derived_data()
-		self.header_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "includes")
-		if not os.path.exists(self.header_outdir_name):
-			os.makedirs(self.header_outdir_name)		
-		logging.debug("self.header_outdir_name " + str(self.header_outdir_name))
-		self.proxy_converter_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "converters")
-		if not os.path.exists(self.proxy_converter_outdir_name):
-			os.makedirs(self.proxy_converter_outdir_name)		
-		logging.debug("self.proxy_converter_outdir_name " + str(self.proxy_converter_outdir_name))
-		self._generate_proxy_converter_code()
+		self.includes_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "includes")
+		if not os.path.exists(self.includes_outdir_name):
+			os.makedirs(self.includes_outdir_name)		
+		logging.debug("self.includes_outdir_name " + str(self.includes_outdir_name))
 		self.impl_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "impl")
 		if not os.path.exists(self.impl_outdir_name):
 			os.makedirs(self.impl_outdir_name)		
 		logging.debug("self.impl_outdir_name " + str(self.impl_outdir_name))
+		self._generate_proxy_converter_code()
 		self._generate_cxx_class_code()
 		self._generate_cxx_enum_code()
 		self._generate_protocol_code()
@@ -176,9 +171,7 @@ class Generator(BaseGenerator):
 	def _generate_proxy_converter_code(self):
 		logging.debug("_generate_proxy_converter_code enter")
 		self.proxy_converter_head_file_name = self.package_name + "Converter.hpp"
-		logging.debug("proxy_converter_head_file_name " + str(self.proxy_converter_head_file_name))	
-		proxy_converter_head_file_path = os.path.join(self.proxy_converter_outdir_name, self.proxy_converter_head_file_name)
-		logging.debug("proxy_converter_head_file_path " + str(proxy_converter_head_file_path))	
+		proxy_converter_head_file_path = os.path.join(self.includes_outdir_name, "converters", self.proxy_converter_head_file_name)
 		if not os.path.exists(os.path.dirname(proxy_converter_head_file_path)):
 			os.makedirs(os.path.dirname(proxy_converter_head_file_path))
 		self.proxy_converter_head_file = open(proxy_converter_head_file_path, "w+")
@@ -189,8 +182,7 @@ class Generator(BaseGenerator):
 		self.proxy_converter_head_file = None
 		self.proxy_converter_head_file_name = None
 		self.proxy_converter_impl_file_name = self.package_name + "Converter.mm"
-		logging.debug("proxy_converter_impl_file_name " + str(self.proxy_converter_impl_file_name))	
-		proxy_converter_impl_file_path = os.path.join(self.proxy_converter_outdir_name, self.proxy_converter_impl_file_name)
+		proxy_converter_impl_file_path = os.path.join(self.impl_outdir_name, "converters", self.proxy_converter_impl_file_name)
 		logging.debug("proxy_converter_impl_file_path " + str(proxy_converter_impl_file_path))	
 		if not os.path.exists(os.path.dirname(proxy_converter_impl_file_path)):
 			os.makedirs(os.path.dirname(proxy_converter_impl_file_path))
@@ -213,7 +205,7 @@ class Generator(BaseGenerator):
 			self.entity_class_name = cxx_class_name + "Cxx"
 			self.entity_head_file_name = self.entity_class_name + ".hpp"
 			logging.debug("entity_head_file_name " + str(self.entity_head_file_name))	
-			entity_file_path = os.path.join(self.header_outdir_name, self.entity_head_file_name)
+			entity_file_path = os.path.join(self.includes_outdir_name, self.entity_head_file_name)
 			if not os.path.exists(os.path.dirname(entity_file_path)):
 				os.makedirs(os.path.dirname(entity_file_path))
 			logging.debug("entity_file_path " + str(entity_file_path))	
@@ -280,7 +272,7 @@ class Generator(BaseGenerator):
 			self.protocol_interface_file_name = self.protocol_name + "Conformer" + ".h"
 			self.protocol_implementation_file_name = self.protocol_name + "Conformer" + ".mm"
 			logging.debug("entity_head_file_name " + str(self.protocol_class_file_name))	
-			entity_file_path = os.path.join(self.header_outdir_name, self.protocol_class_file_name)
+			entity_file_path = os.path.join(self.includes_outdir_name, self.protocol_class_file_name)
 			if not os.path.exists(os.path.dirname(entity_file_path)):
 				os.makedirs(os.path.dirname(entity_file_path))
 			logging.debug("entity_file_path " + str(entity_file_path))	
@@ -452,7 +444,7 @@ class Generator(BaseGenerator):
 			self.enum_name = Utils.to_enum_name(enum)
 			self.enum_head_file_name = self.enum_name + ".hpp"
 			logging.debug("enum_head_file_name " + str(self.enum_head_file_name))	
-			enum_file_path = os.path.join(self.header_outdir_name, self.enum_head_file_name)
+			enum_file_path = os.path.join(self.includes_outdir_name, self.enum_head_file_name)
 			if not os.path.exists(os.path.dirname(enum_file_path)):
 				os.makedirs(os.path.dirname(enum_file_path))
 			logging.debug("enum_file_path " + str(enum_file_path))	
