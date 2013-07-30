@@ -28,7 +28,7 @@
 #include "FBFrictionlessRecipientCacheCxx.hpp"
 #include "FBRequestConnectionCxx.hpp"
 #include "FBRequestCxx.hpp"
-//#include "FBErrorUtilityCxx.hpp"
+#include "FBErrorUtilityCxx.hpp"
 #include "FBDialogsCxx.hpp"
 #include "FBShareDialogParamsCxx.hpp"
 #include "FBOpenGraphActionShareDialogParamsCxx.hpp"
@@ -78,7 +78,7 @@ void convert_FBLoginViewCxx(void* &objc, FBLoginViewCxx *&cxx, converter_t conve
 void convert_FBFrictionlessRecipientCacheCxx(void* &objc, FBFrictionlessRecipientCacheCxx *&cxx, converter_t converter_type);
 void convert_FBRequestConnectionCxx(void* &objc, FBRequestConnectionCxx *&cxx, converter_t converter_type);
 void convert_FBRequestCxx(void* &objc, FBRequestCxx *&cxx, converter_t converter_type);
-//void convert_FBErrorUtilityCxx(void* &objc, FBErrorUtilityCxx *&cxx, converter_t converter_type);
+void convert_FBErrorUtilityCxx(void* &objc, FBErrorUtilityCxx *&cxx, converter_t converter_type);
 void convert_FBDialogsCxx(void* &objc, FBDialogsCxx *&cxx, converter_t converter_type);
 void convert_FBShareDialogParamsCxx(void* &objc, FBShareDialogParamsCxx *&cxx, converter_t converter_type);
 void convert_FBOpenGraphActionShareDialogParamsCxx(void* &objc, FBOpenGraphActionShareDialogParamsCxx *&cxx, converter_t converter_type);

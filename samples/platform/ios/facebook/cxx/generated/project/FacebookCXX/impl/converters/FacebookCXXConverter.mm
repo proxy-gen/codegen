@@ -226,7 +226,7 @@ void convert_FBRequestCxx(void* &objc, FBRequestCxx *&cxx, converter_t converter
 		cxx = (new FBRequestCxx(objc));
 	}
 }
-/*void convert_FBErrorUtilityCxx(void* &objc, FBErrorUtilityCxx *&cxx, converter_t converter_type)
+void convert_FBErrorUtilityCxx(void* &objc, FBErrorUtilityCxx *&cxx, converter_t converter_type)
 {
 	if (converter_type == CONVERT_TO_OBJC)
 	{
@@ -236,7 +236,7 @@ void convert_FBRequestCxx(void* &objc, FBRequestCxx *&cxx, converter_t converter
 	{
 		cxx = (new FBErrorUtilityCxx(objc));
 	}
-}*/
+}
 void convert_FBDialogsCxx(void* &objc, FBDialogsCxx *&cxx, converter_t converter_type)
 {
 	if (converter_type == CONVERT_TO_OBJC)

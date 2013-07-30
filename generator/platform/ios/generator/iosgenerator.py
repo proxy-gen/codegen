@@ -205,7 +205,7 @@ class Generator(BaseGenerator):
 			self.entity_class_name = cxx_class_name + "Cxx"
 			self.entity_head_file_name = self.entity_class_name + ".hpp"
 			logging.debug("entity_head_file_name " + str(self.entity_head_file_name))	
-			entity_file_path = os.path.join(self.includes_outdir_name, self.entity_head_file_name)
+			entity_file_path = os.path.join(self.includes_outdir_name, "proxies", self.entity_head_file_name)
 			if not os.path.exists(os.path.dirname(entity_file_path)):
 				os.makedirs(os.path.dirname(entity_file_path))
 			logging.debug("entity_file_path " + str(entity_file_path))	
@@ -229,7 +229,7 @@ class Generator(BaseGenerator):
 			logging.debug("entity_impl_file_name " + str(self.entity_impl_file_name))		
 			self.entity_callback_file_name = self.entity_class_name + "_JNI" + ".hpp"
 			logging.debug("entity_callback_file_name " + str(self.entity_callback_file_name))	
-			entity_file_path = os.path.join(self.impl_outdir_name, self.entity_impl_file_name)
+			entity_file_path = os.path.join(self.impl_outdir_name, "proxies", self.entity_impl_file_name)
 			if not os.path.exists(os.path.dirname(entity_file_path)):
 				os.makedirs(os.path.dirname(entity_file_path))
 			logging.debug("entity_file_path " + str(entity_file_path))	
@@ -248,9 +248,10 @@ class Generator(BaseGenerator):
 		logging.debug("_generate_cxx_class_code exit")
 
 	def _generate_protocol_code(self):
-		self.conformer_include_path = os.path.join(self.output_dir_name, "project", self.package_name, "conformers", "includes")
-		self.conformer_impl_path = os.path.join(self.output_dir_name, "project", self.package_name, "conformers", "impl")
-		self.conformer_proxy_path = os.path.join(self.output_dir_name, "project", self.package_name, "conformers", "private")
+		self.conformer_include_path = os.path.join(self.includes_outdir_name, "conformers")
+		self.conformer_impl_path = os.path.join(self.impl_outdir_name, "conformers")
+		self.conformer_proxy_includes_path = os.path.join(self.includes_outdir_name, "conformers", "private")
+		self.conformer_proxy_impl_path = os.path.join(self.impl_outdir_name, "conformers", "private")
 		self._generate_protocol_class_header()
 		self._generate_protocol_class_implementation()
 		self._generate_protocol_abstract_class_header()
@@ -259,7 +260,8 @@ class Generator(BaseGenerator):
 		self._generate_protocol_implemenetation()
 		self.conformer_include_path = None
 		self.conformer_impl_path = None
-		self.conformer_proxy_path = None
+		self.conformer_proxy__includes_path = None
+		self.conformer_proxy_impl_path = None
 
 	def _generate_protocol_class_header(self):
 		logging.debug("_generate_protocol_class_header enter")
@@ -388,7 +390,7 @@ class Generator(BaseGenerator):
 			self.protocol_interface_file_name = self.protocol_name + "Conformer" + ".h"
 			self.protocol_implementation_file_name = self.protocol_name + "Conformer" + ".mm"
 			logging.debug("entity_head_file_name " + str(self.protocol_interface_file_name))	
-			entity_file_path = os.path.join(self.conformer_proxy_path, self.protocol_interface_file_name)
+			entity_file_path = os.path.join(self.conformer_proxy_includes_path, self.protocol_interface_file_name)
 			if not os.path.exists(os.path.dirname(entity_file_path)):
 				os.makedirs(os.path.dirname(entity_file_path))
 			logging.debug("entity_file_path " + str(entity_file_path))	
@@ -417,7 +419,7 @@ class Generator(BaseGenerator):
 			self.protocol_interface_file_name = self.protocol_name + "Conformer" + ".h"
 			self.protocol_implementation_file_name = self.protocol_name + "Conformer" + ".mm"
 			logging.debug("entity_head_file_name " + str(self.protocol_implementation_file_name))	
-			entity_file_path = os.path.join(self.conformer_proxy_path, self.protocol_implementation_file_name)
+			entity_file_path = os.path.join(self.conformer_proxy_impl_path, self.protocol_implementation_file_name)
 			if not os.path.exists(os.path.dirname(entity_file_path)):
 				os.makedirs(os.path.dirname(entity_file_path))
 			logging.debug("entity_file_path " + str(entity_file_path))	
