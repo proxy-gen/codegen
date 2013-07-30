@@ -153,16 +153,16 @@ class Generator(BaseGenerator):
 		self._update_config(self.config_module)
 		# derived data attached temporary 
 		self.config_module.attach_derived_data()
-		self.header_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "objc", "cxx", "includes")
+		self.header_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "includes")
 		if not os.path.exists(self.header_outdir_name):
 			os.makedirs(self.header_outdir_name)		
 		logging.debug("self.header_outdir_name " + str(self.header_outdir_name))
-		self.proxy_converter_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "objc", "cxx", "converters")
+		self.proxy_converter_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "converters")
 		if not os.path.exists(self.proxy_converter_outdir_name):
 			os.makedirs(self.proxy_converter_outdir_name)		
 		logging.debug("self.proxy_converter_outdir_name " + str(self.proxy_converter_outdir_name))
 		self._generate_proxy_converter_code()
-		self.impl_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "objc", "cxx", "impl")
+		self.impl_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "impl")
 		if not os.path.exists(self.impl_outdir_name):
 			os.makedirs(self.impl_outdir_name)		
 		logging.debug("self.impl_outdir_name " + str(self.impl_outdir_name))
@@ -256,9 +256,9 @@ class Generator(BaseGenerator):
 		logging.debug("_generate_cxx_class_code exit")
 
 	def _generate_protocol_code(self):
-		self.conformer_include_path = os.path.join(self.output_dir_name, "project", self.package_name, "objc", "cxx", "conformers", "includes")
-		self.conformer_impl_path = os.path.join(self.output_dir_name, "project", self.package_name, "objc", "cxx", "conformers", "impl")
-		self.conformer_proxy_path = os.path.join(self.output_dir_name, "project", self.package_name, "objc", "cxx", "conformers", "private")
+		self.conformer_include_path = os.path.join(self.output_dir_name, "project", self.package_name, "conformers", "includes")
+		self.conformer_impl_path = os.path.join(self.output_dir_name, "project", self.package_name, "conformers", "impl")
+		self.conformer_proxy_path = os.path.join(self.output_dir_name, "project", self.package_name, "conformers", "private")
 		self._generate_protocol_class_header()
 		self._generate_protocol_class_implementation()
 		self._generate_protocol_abstract_class_header()
