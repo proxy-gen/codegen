@@ -5955,7 +5955,7 @@ config = {
 		{
 			'name' : 'FBErrorUtility',
 			'file' : 'FBErrorUtility.h',
-			'tags' : ['_proxy'],
+			'tags' : ['_no_proxy'],
 			'methods' : [
 				{
 					'selector' : 'errorCategoryForError:',

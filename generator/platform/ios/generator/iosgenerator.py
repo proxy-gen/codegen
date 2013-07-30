@@ -250,8 +250,8 @@ class Generator(BaseGenerator):
 	def _generate_protocol_code(self):
 		self.conformer_include_path = os.path.join(self.includes_outdir_name, "conformers")
 		self.conformer_impl_path = os.path.join(self.impl_outdir_name, "conformers")
-		self.conformer_proxy_includes_path = os.path.join(self.includes_outdir_name, "conformers", "private")
-		self.conformer_proxy_impl_path = os.path.join(self.impl_outdir_name, "conformers", "private")
+		self.conformer_proxy_includes_path = os.path.join(self.includes_outdir_name, "conformers", "protocols")
+		self.conformer_proxy_impl_path = os.path.join(self.impl_outdir_name, "conformers", "protocols")
 		self._generate_protocol_class_header()
 		self._generate_protocol_class_implementation()
 		self._generate_protocol_abstract_class_header()
@@ -274,7 +274,7 @@ class Generator(BaseGenerator):
 			self.protocol_interface_file_name = self.protocol_name + "Conformer" + ".h"
 			self.protocol_implementation_file_name = self.protocol_name + "Conformer" + ".mm"
 			logging.debug("entity_head_file_name " + str(self.protocol_class_file_name))	
-			entity_file_path = os.path.join(self.includes_outdir_name, self.protocol_class_file_name)
+			entity_file_path = os.path.join(self.includes_outdir_name, "proxies", self.protocol_class_file_name)
 			if not os.path.exists(os.path.dirname(entity_file_path)):
 				os.makedirs(os.path.dirname(entity_file_path))
 			logging.debug("entity_file_path " + str(entity_file_path))	
@@ -303,7 +303,7 @@ class Generator(BaseGenerator):
 			self.protocol_interface_file_name = self.protocol_name + "Conformer" + ".h"
 			self.protocol_implementation_file_name = self.protocol_name + "Conformer" + ".mm"
 			logging.debug("entity_head_file_name " + str(self.protocol_class_impl_file_name))	
-			entity_file_path = os.path.join(self.impl_outdir_name, self.protocol_class_impl_file_name)
+			entity_file_path = os.path.join(self.impl_outdir_name, "proxies", self.protocol_class_impl_file_name)
 			if not os.path.exists(os.path.dirname(entity_file_path)):
 				os.makedirs(os.path.dirname(entity_file_path))
 			logging.debug("entity_file_path " + str(entity_file_path))	
@@ -446,7 +446,7 @@ class Generator(BaseGenerator):
 			self.enum_name = Utils.to_enum_name(enum)
 			self.enum_head_file_name = self.enum_name + ".hpp"
 			logging.debug("enum_head_file_name " + str(self.enum_head_file_name))	
-			enum_file_path = os.path.join(self.includes_outdir_name, self.enum_head_file_name)
+			enum_file_path = os.path.join(self.includes_outdir_name, "enums", self.enum_head_file_name)
 			if not os.path.exists(os.path.dirname(enum_file_path)):
 				os.makedirs(os.path.dirname(enum_file_path))
 			logging.debug("enum_file_path " + str(enum_file_path))	
