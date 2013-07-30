@@ -9,6 +9,7 @@
 #ifndef _FBSessionTokenCachingStrategyCxx
 #define _FBSessionTokenCachingStrategyCxx
 
+#include "FBAccessTokenDataCxx.hpp"
 
 #include <vector>
 #include <map>
@@ -21,6 +22,7 @@ extern "C" {
 namespace FacebookCXX {
 
 // Forward Declarations
+class FBAccessTokenDataCxx;
 class FBSessionTokenCachingStrategyCxx;
 
 class FBSessionTokenCachingStrategyCxx
@@ -44,11 +46,17 @@ public:
 
 	 void cacheTokenInformation(std::map<void *, void *>& arg0);
 
+	 void cacheFBAccessTokenData(FacebookCXX::FBAccessTokenDataCxx * arg0);
+
 	 std::map<void *, void *> fetchTokenInformation();
+
+	 FacebookCXX::FBAccessTokenDataCxx * fetchFBAccessTokenData();
 
 	 void clearToken();
 
 	static FacebookCXX::FBSessionTokenCachingStrategyCxx * defaultInstance();
+
+	static FacebookCXX::FBSessionTokenCachingStrategyCxx * nullCacheInstance();
 
 	static signed char isValidTokenInformation(std::map<void *, void *>& arg0);
 private:

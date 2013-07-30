@@ -10,7 +10,9 @@
 #define _FBRequestConnectionCxx
 
 #include "FBRequestCxx.hpp"
+#include "FBSessionCxx.hpp"
 #include "FBGraphObjectConformerCxx.hpp"
+#include "FBOpenGraphObjectConformerCxx.hpp"
 
 #include <vector>
 #include <map>
@@ -25,7 +27,9 @@ namespace FacebookCXX {
 // Forward Declarations
 class FBRequestCxx;
 class FBRequestConnectionCxx;
+class FBSessionCxx;
 class FBGraphObjectConformerCxx;
+class FBOpenGraphObjectConformerCxx;
 
 class FBRequestConnectionCxx
 {
@@ -64,11 +68,25 @@ public:
 
 	static FacebookCXX::FBRequestConnectionCxx * startForPostStatusUpdate_place_tags_completionHandler(std::string& arg0,void *& arg1,void *& arg2,void(*arg3)(FacebookCXX::FBRequestConnectionCxx *, void * &, std::string &));
 
+	static FacebookCXX::FBRequestConnectionCxx * startForCustomAudienceThirdPartyID_completionHandler(FacebookCXX::FBSessionCxx * arg0,void(*arg1)(FacebookCXX::FBRequestConnectionCxx *, void * &, std::string &));
+
 	static FacebookCXX::FBRequestConnectionCxx * startWithGraphPath_completionHandler(std::string& arg0,void(*arg1)(FacebookCXX::FBRequestConnectionCxx *, void * &, std::string &));
+
+	static FacebookCXX::FBRequestConnectionCxx * startForDeleteObject_completionHandler(void *& arg0,void(*arg1)(FacebookCXX::FBRequestConnectionCxx *, void * &, std::string &));
 
 	static FacebookCXX::FBRequestConnectionCxx * startForPostWithGraphPath_graphObject_completionHandler(std::string& arg0,FacebookCXX::FBGraphObjectConformerCxx * arg1,void(*arg2)(FacebookCXX::FBRequestConnectionCxx *, void * &, std::string &));
 
 	static FacebookCXX::FBRequestConnectionCxx * startWithGraphPath_parameters_HTTPMethod_completionHandler(std::string& arg0,std::map<void *, void *>& arg1,std::string& arg2,void(*arg3)(FacebookCXX::FBRequestConnectionCxx *, void * &, std::string &));
+
+	static FacebookCXX::FBRequestConnectionCxx * startForPostOpenGraphObject_completionHandler(FacebookCXX::FBOpenGraphObjectConformerCxx * arg0,void(*arg1)(FacebookCXX::FBRequestConnectionCxx *, void * &, std::string &));
+
+	static FacebookCXX::FBRequestConnectionCxx * startForPostOpenGraphObjectWithType_title_image_url_description_objectProperties_completionHandler(std::string& arg0,std::string& arg1,void *& arg2,void *& arg3,std::string& arg4,std::map<void *, void *>& arg5,void(*arg6)(FacebookCXX::FBRequestConnectionCxx *, void * &, std::string &));
+
+	static FacebookCXX::FBRequestConnectionCxx * startForUpdateOpenGraphObject_completionHandler(FacebookCXX::FBOpenGraphObjectConformerCxx * arg0,void(*arg1)(FacebookCXX::FBRequestConnectionCxx *, void * &, std::string &));
+
+	static FacebookCXX::FBRequestConnectionCxx * startForUpdateOpenGraphObjectWithId_title_image_url_description_objectProperties_completionHandler(void *& arg0,std::string& arg1,void *& arg2,void *& arg3,std::string& arg4,std::map<void *, void *>& arg5,void(*arg6)(FacebookCXX::FBRequestConnectionCxx *, void * &, std::string &));
+
+	static FacebookCXX::FBRequestConnectionCxx * startForUploadStagingResourceWithImage_completionHandler(void *& arg0,void(*arg1)(FacebookCXX::FBRequestConnectionCxx *, void * &, std::string &));
 
 	 void * urlRequest();
 

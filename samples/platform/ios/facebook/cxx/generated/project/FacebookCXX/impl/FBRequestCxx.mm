@@ -9,6 +9,7 @@
 #include <FacebookSDK/FBSession.h>
 #include <FacebookSDK/FBGraphObject.h>
 #include <FacebookSDK/FBRequestConnection.h>
+#include <FacebookSDK/FBOpenGraphObject.h>
 #include "FacebookCXXConverter.hpp"
 
 FacebookCXX::FBRequestCxx::FBRequestCxx(const FBRequestCxx* cc){
@@ -178,11 +179,31 @@ FacebookCXX::FBRequestCxx * FacebookCXX::FBRequestCxx::requestForPostStatusUpdat
 	return result;
 }
 
+FacebookCXX::FBRequestCxx * FacebookCXX::FBRequestCxx::requestForCustomAudienceThirdPartyID(FacebookCXX::FBSessionCxx * arg0){
+	void *objc_arg0 = NULL;
+	convert_FBSessionCxx(objc_arg0, arg0, CONVERT_TO_OBJC);
+
+	void *objc_result = (__bridge void *)[FBRequest requestForCustomAudienceThirdPartyID:(__bridge id)objc_arg0 ];
+	FacebookCXX::FBRequestCxx * result = NULL;
+	convert_FBRequestCxx(objc_result, result, CONVERT_TO_CXX);
+	return result;
+}
+
 FacebookCXX::FBRequestCxx * FacebookCXX::FBRequestCxx::requestForGraphPath(std::string& arg0){
 	void *objc_arg0 = NULL;
 	convert_string(objc_arg0, arg0, CONVERT_TO_OBJC);
 
 	void *objc_result = (__bridge void *)[FBRequest requestForGraphPath:(__bridge id)objc_arg0 ];
+	FacebookCXX::FBRequestCxx * result = NULL;
+	convert_FBRequestCxx(objc_result, result, CONVERT_TO_CXX);
+	return result;
+}
+
+FacebookCXX::FBRequestCxx * FacebookCXX::FBRequestCxx::requestForDeleteObject(void *& arg0){
+	void *objc_arg0 = NULL;
+	convert_object(objc_arg0, arg0, CONVERT_TO_OBJC);
+
+	void *objc_result = (__bridge void *)[FBRequest requestForDeleteObject:(__bridge id)objc_arg0 ];
 	FacebookCXX::FBRequestCxx * result = NULL;
 	convert_FBRequestCxx(objc_result, result, CONVERT_TO_CXX);
 	return result;
@@ -212,6 +233,86 @@ FacebookCXX::FBRequestCxx * FacebookCXX::FBRequestCxx::requestWithGraphPath_para
 	convert_string(objc_arg2, arg2, CONVERT_TO_OBJC);
 
 	void *objc_result = (__bridge void *)[FBRequest requestWithGraphPath:(__bridge id)objc_arg0 parameters:(__bridge id)objc_arg1 HTTPMethod:(__bridge id)objc_arg2 ];
+	FacebookCXX::FBRequestCxx * result = NULL;
+	convert_FBRequestCxx(objc_result, result, CONVERT_TO_CXX);
+	return result;
+}
+
+FacebookCXX::FBRequestCxx * FacebookCXX::FBRequestCxx::requestForPostOpenGraphObject(FacebookCXX::FBOpenGraphObjectConformerCxx * arg0){
+	void *objc_arg0 = NULL;
+	convert_FBOpenGraphObjectConformerCxx(objc_arg0, arg0, CONVERT_TO_OBJC);
+
+	void *objc_result = (__bridge void *)[FBRequest requestForPostOpenGraphObject:(__bridge id)objc_arg0 ];
+	FacebookCXX::FBRequestCxx * result = NULL;
+	convert_FBRequestCxx(objc_result, result, CONVERT_TO_CXX);
+	return result;
+}
+
+FacebookCXX::FBRequestCxx * FacebookCXX::FBRequestCxx::requestForPostOpenGraphObjectWithType_title_image_url_description_objectProperties(std::string& arg0,std::string& arg1,void *& arg2,void *& arg3,std::string& arg4,std::map<void *, void *>& arg5){
+	void *objc_arg0 = NULL;
+	convert_string(objc_arg0, arg0, CONVERT_TO_OBJC);
+
+	void *objc_arg1 = NULL;
+	convert_string(objc_arg1, arg1, CONVERT_TO_OBJC);
+
+	void *objc_arg2 = NULL;
+	convert_object(objc_arg2, arg2, CONVERT_TO_OBJC);
+
+	void *objc_arg3 = NULL;
+	convert_object(objc_arg3, arg3, CONVERT_TO_OBJC);
+
+	void *objc_arg4 = NULL;
+	convert_string(objc_arg4, arg4, CONVERT_TO_OBJC);
+
+	void *objc_arg5 = NULL;
+	convert_dictionary(objc_arg5, arg5, CONVERT_TO_OBJC);
+
+	void *objc_result = (__bridge void *)[FBRequest requestForPostOpenGraphObjectWithType:(__bridge id)objc_arg0 title:(__bridge id)objc_arg1 image:(__bridge id)objc_arg2 url:(__bridge id)objc_arg3 description:(__bridge id)objc_arg4 objectProperties:(__bridge id)objc_arg5 ];
+	FacebookCXX::FBRequestCxx * result = NULL;
+	convert_FBRequestCxx(objc_result, result, CONVERT_TO_CXX);
+	return result;
+}
+
+FacebookCXX::FBRequestCxx * FacebookCXX::FBRequestCxx::requestForUpdateOpenGraphObject(FacebookCXX::FBOpenGraphObjectConformerCxx * arg0){
+	void *objc_arg0 = NULL;
+	convert_FBOpenGraphObjectConformerCxx(objc_arg0, arg0, CONVERT_TO_OBJC);
+
+	void *objc_result = (__bridge void *)[FBRequest requestForUpdateOpenGraphObject:(__bridge id)objc_arg0 ];
+	FacebookCXX::FBRequestCxx * result = NULL;
+	convert_FBRequestCxx(objc_result, result, CONVERT_TO_CXX);
+	return result;
+}
+
+FacebookCXX::FBRequestCxx * FacebookCXX::FBRequestCxx::requestForUpdateOpenGraphObjectWithId_title_image_url_description_objectProperties(void *& arg0,std::string& arg1,void *& arg2,void *& arg3,std::string& arg4,std::map<void *, void *>& arg5){
+	void *objc_arg0 = NULL;
+	convert_object(objc_arg0, arg0, CONVERT_TO_OBJC);
+
+	void *objc_arg1 = NULL;
+	convert_string(objc_arg1, arg1, CONVERT_TO_OBJC);
+
+	void *objc_arg2 = NULL;
+	convert_object(objc_arg2, arg2, CONVERT_TO_OBJC);
+
+	void *objc_arg3 = NULL;
+	convert_object(objc_arg3, arg3, CONVERT_TO_OBJC);
+
+	void *objc_arg4 = NULL;
+	convert_string(objc_arg4, arg4, CONVERT_TO_OBJC);
+
+	void *objc_arg5 = NULL;
+	convert_dictionary(objc_arg5, arg5, CONVERT_TO_OBJC);
+
+	void *objc_result = (__bridge void *)[FBRequest requestForUpdateOpenGraphObjectWithId:(__bridge id)objc_arg0 title:(__bridge id)objc_arg1 image:(__bridge id)objc_arg2 url:(__bridge id)objc_arg3 description:(__bridge id)objc_arg4 objectProperties:(__bridge id)objc_arg5 ];
+	FacebookCXX::FBRequestCxx * result = NULL;
+	convert_FBRequestCxx(objc_result, result, CONVERT_TO_CXX);
+	return result;
+}
+
+FacebookCXX::FBRequestCxx * FacebookCXX::FBRequestCxx::requestForUploadStagingResourceWithImage(void *& arg0){
+	void *objc_arg0 = NULL;
+	convert_object(objc_arg0, arg0, CONVERT_TO_OBJC);
+
+	void *objc_result = (__bridge void *)[FBRequest requestForUploadStagingResourceWithImage:(__bridge id)objc_arg0 ];
 	FacebookCXX::FBRequestCxx * result = NULL;
 	convert_FBRequestCxx(objc_result, result, CONVERT_TO_CXX);
 	return result;

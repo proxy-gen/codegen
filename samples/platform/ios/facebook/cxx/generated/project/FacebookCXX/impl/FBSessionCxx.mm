@@ -7,6 +7,7 @@
 #include "FBSessionCxx.hpp"
 #include <FacebookSDK/FBSession.h>
 #include <FacebookSDK/FBSessionTokenCachingStrategy.h>
+#include <FacebookSDK/FBAccessTokenData.h>
 #include "FacebookCXXConverter.hpp"
 
 FacebookCXX::FBSessionCxx::FBSessionCxx(const FBSessionCxx* cc){
@@ -125,6 +126,29 @@ void FacebookCXX::FBSessionCxx::openWithBehavior_completionHandler(FacebookCXX::
 	[(__bridge FBSession *)_proxy openWithBehavior:objc_arg0 completionHandler:objc_arg1 ];
 }
 
+signed char FacebookCXX::FBSessionCxx::openFromAccessTokenData_completionHandler(FacebookCXX::FBAccessTokenDataCxx * arg0,void(*arg1)(FacebookCXX::FBSessionCxx *, FacebookCXX::FBSessionStateCxx &, std::string &)){
+	void *objc_arg0 = NULL;
+	convert_FBAccessTokenDataCxx(objc_arg0, arg0, CONVERT_TO_OBJC);
+
+	void (^objc_arg1)(FBSession *, FBSessionState, NSError *);
+	objc_arg1 = ^(FBSession * objc_barg0, FBSessionState objc_barg1, NSError * objc_barg2){
+		FacebookCXX::FBSessionCxx *barg0 = NULL;
+		void *objc_bcast0 = (__bridge void *)objc_barg0;
+		convert_FBSessionCxx(objc_bcast0, barg0, CONVERT_TO_CXX);
+
+		FacebookCXX::FBSessionStateCxx barg1 = (FacebookCXX::FBSessionStateCxx)objc_barg1;
+
+		std::string barg2;
+		void *objc_bcast2 = (__bridge void *)objc_barg2;
+		convert_error(objc_bcast2, barg2, CONVERT_TO_CXX);
+
+		arg1(barg0, barg1, barg2);
+	};
+
+	signed char objc_result = (signed char)[(__bridge FBSession *)_proxy openFromAccessTokenData:(__bridge id)objc_arg0 completionHandler:objc_arg1 ];
+	return objc_result;
+}
+
 void FacebookCXX::FBSessionCxx::close(){
 	[(__bridge FBSession *)_proxy close];
 }
@@ -195,6 +219,48 @@ void FacebookCXX::FBSessionCxx::reauthorizeWithPublishPermissions_defaultAudienc
 	};
 
 	[(__bridge FBSession *)_proxy reauthorizeWithPublishPermissions:(__bridge id)objc_arg0 defaultAudience:objc_arg1 completionHandler:objc_arg2 ];
+}
+
+void FacebookCXX::FBSessionCxx::requestNewReadPermissions_completionHandler(std::vector<void *>& arg0,void(*arg1)(FacebookCXX::FBSessionCxx *, std::string &)){
+	void *objc_arg0 = NULL;
+	convert_array(objc_arg0, arg0, CONVERT_TO_OBJC);
+
+	void (^objc_arg1)(FBSession *, NSError *);
+	objc_arg1 = ^(FBSession * objc_barg0, NSError * objc_barg1){
+		FacebookCXX::FBSessionCxx *barg0 = NULL;
+		void *objc_bcast0 = (__bridge void *)objc_barg0;
+		convert_FBSessionCxx(objc_bcast0, barg0, CONVERT_TO_CXX);
+
+		std::string barg1;
+		void *objc_bcast1 = (__bridge void *)objc_barg1;
+		convert_error(objc_bcast1, barg1, CONVERT_TO_CXX);
+
+		arg1(barg0, barg1);
+	};
+
+	[(__bridge FBSession *)_proxy requestNewReadPermissions:(__bridge id)objc_arg0 completionHandler:objc_arg1 ];
+}
+
+void FacebookCXX::FBSessionCxx::requestNewPublishPermissions_defaultAudience_completionHandler(std::vector<void *>& arg0,FacebookCXX::FBSessionDefaultAudienceCxx& arg1,void(*arg2)(FacebookCXX::FBSessionCxx *, std::string &)){
+	void *objc_arg0 = NULL;
+	convert_array(objc_arg0, arg0, CONVERT_TO_OBJC);
+
+	FBSessionDefaultAudience objc_arg1 = (FBSessionDefaultAudience)arg1;
+
+	void (^objc_arg2)(FBSession *, NSError *);
+	objc_arg2 = ^(FBSession * objc_barg0, NSError * objc_barg1){
+		FacebookCXX::FBSessionCxx *barg0 = NULL;
+		void *objc_bcast0 = (__bridge void *)objc_barg0;
+		convert_FBSessionCxx(objc_bcast0, barg0, CONVERT_TO_CXX);
+
+		std::string barg1;
+		void *objc_bcast1 = (__bridge void *)objc_barg1;
+		convert_error(objc_bcast1, barg1, CONVERT_TO_CXX);
+
+		arg2(barg0, barg1);
+	};
+
+	[(__bridge FBSession *)_proxy requestNewPublishPermissions:(__bridge id)objc_arg0 defaultAudience:objc_arg1 completionHandler:objc_arg2 ];
 }
 
 signed char FacebookCXX::FBSessionCxx::handleOpenURL(void *& arg0){
@@ -324,6 +390,20 @@ std::string FacebookCXX::FBSessionCxx::defaultAppID(){
 	return result;
 }
 
+void FacebookCXX::FBSessionCxx::setDefaultUrlSchemeSuffix(std::string& arg0){
+	void *objc_arg0 = NULL;
+	convert_string(objc_arg0, arg0, CONVERT_TO_OBJC);
+
+	[FBSession setDefaultUrlSchemeSuffix:(__bridge id)objc_arg0 ];
+}
+
+std::string FacebookCXX::FBSessionCxx::defaultUrlSchemeSuffix(){
+	void *objc_result = (__bridge void *)[FBSession defaultUrlSchemeSuffix];
+	std::string result;
+	convert_string(objc_result, result, CONVERT_TO_CXX);
+	return result;
+}
+
 signed char FacebookCXX::FBSessionCxx::isOpen(){
 	signed char objc_result = (signed char)[(__bridge FBSession *)_proxy isOpen];
 	return objc_result;
@@ -374,21 +454,11 @@ FacebookCXX::FBSessionLoginTypeCxx FacebookCXX::FBSessionCxx::loginType(){
 	return objc_result;
 }
 
-void FacebookCXX::FBSessionCxx::setLoginType(FacebookCXX::FBSessionLoginTypeCxx& arg0){
-	FBSessionLoginType objc_arg0 = (FBSessionLoginType)arg0;
-
-	[(__bridge FBSession *)_proxy setLoginType:objc_arg0 ];
-}
-
-signed char FacebookCXX::FBSessionCxx::useSafariForLogin(){
-	signed char objc_result = (signed char)[(__bridge FBSession *)_proxy useSafariForLogin];
-	return objc_result;
-}
-
-void FacebookCXX::FBSessionCxx::setUseSafariForLogin(signed char& arg0){
-	BOOL objc_arg0 = (BOOL)arg0;
-
-	[(__bridge FBSession *)_proxy setUseSafariForLogin:objc_arg0 ];
+FacebookCXX::FBAccessTokenDataCxx * FacebookCXX::FBSessionCxx::accessTokenData(){
+	void *objc_result = (__bridge void *)[(__bridge FBSession *)_proxy accessTokenData];
+	FacebookCXX::FBAccessTokenDataCxx * result = NULL;
+	convert_FBAccessTokenDataCxx(objc_result, result, CONVERT_TO_CXX);
+	return result;
 }
 
 

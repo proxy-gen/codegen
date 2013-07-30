@@ -12,6 +12,7 @@
 #include "FBSessionCxx.hpp"
 #include "FBGraphObjectConformerCxx.hpp"
 #include "FBRequestConnectionCxx.hpp"
+#include "FBOpenGraphObjectConformerCxx.hpp"
 #include "FBGraphObjectProtocolCxx.hpp"
 
 #include <vector>
@@ -29,6 +30,7 @@ class FBSessionCxx;
 class FBGraphObjectConformerCxx;
 class FBRequestConnectionCxx;
 class FBRequestCxx;
+class FBOpenGraphObjectConformerCxx;
 class FBGraphObjectProtocolCxx;
 
 class FBRequestCxx
@@ -68,11 +70,25 @@ public:
 
 	static FacebookCXX::FBRequestCxx * requestForPostStatusUpdate_place_tags(std::string& arg0,void *& arg1,void *& arg2);
 
+	static FacebookCXX::FBRequestCxx * requestForCustomAudienceThirdPartyID(FacebookCXX::FBSessionCxx * arg0);
+
 	static FacebookCXX::FBRequestCxx * requestForGraphPath(std::string& arg0);
+
+	static FacebookCXX::FBRequestCxx * requestForDeleteObject(void *& arg0);
 
 	static FacebookCXX::FBRequestCxx * requestForPostWithGraphPath_graphObject(std::string& arg0,FacebookCXX::FBGraphObjectConformerCxx * arg1);
 
 	static FacebookCXX::FBRequestCxx * requestWithGraphPath_parameters_HTTPMethod(std::string& arg0,std::map<void *, void *>& arg1,std::string& arg2);
+
+	static FacebookCXX::FBRequestCxx * requestForPostOpenGraphObject(FacebookCXX::FBOpenGraphObjectConformerCxx * arg0);
+
+	static FacebookCXX::FBRequestCxx * requestForPostOpenGraphObjectWithType_title_image_url_description_objectProperties(std::string& arg0,std::string& arg1,void *& arg2,void *& arg3,std::string& arg4,std::map<void *, void *>& arg5);
+
+	static FacebookCXX::FBRequestCxx * requestForUpdateOpenGraphObject(FacebookCXX::FBOpenGraphObjectConformerCxx * arg0);
+
+	static FacebookCXX::FBRequestCxx * requestForUpdateOpenGraphObjectWithId_title_image_url_description_objectProperties(void *& arg0,std::string& arg1,void *& arg2,void *& arg3,std::string& arg4,std::map<void *, void *>& arg5);
+
+	static FacebookCXX::FBRequestCxx * requestForUploadStagingResourceWithImage(void *& arg0);
 
 	 void * parameters();
 

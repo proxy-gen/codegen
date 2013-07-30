@@ -55,6 +55,8 @@ public:
 
 	 void loadData();
 
+	 void updateView();
+
 	 void * spinner();
 
 	 void setSpinner(void *& arg0);

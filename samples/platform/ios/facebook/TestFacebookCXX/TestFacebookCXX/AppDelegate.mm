@@ -8,13 +8,17 @@
 
 #import "AppDelegate.h"
 #include "FBSessionCxx.hpp"
+#include "FBSettingsCxx.hpp"
 
 #import "ViewController.h"
+
+#include <iostream>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    std::cout << "Facebook SDK Version: " << FacebookCXX::FBSettingsCxx::sdkVersion() << std::endl;
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];

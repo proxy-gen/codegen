@@ -54,4 +54,16 @@
 	self.proxy->loginViewShowingLoggedOutUser(arg0);
 }
 
+- (void)  loginView:(FBLoginView *)objc_arg0 handleError:(NSError *)objc_arg1{
+	FacebookCXX::FBLoginViewCxx *arg0 = NULL;
+	void *objc_cast0 = (__bridge void *)objc_arg0;
+	convert_FBLoginViewCxx(objc_cast0, arg0, CONVERT_TO_CXX);
+
+	std::string arg1;
+	void *objc_cast1 = (__bridge void *)objc_arg1;
+	convert_error(objc_cast1, arg1, CONVERT_TO_CXX);
+
+	self.proxy->loginView_handleError(arg0, arg1);
+}
+
 @end

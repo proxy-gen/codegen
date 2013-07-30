@@ -62,6 +62,10 @@ public:
 	virtual  void removeObjectForKey(void *&) = 0;
 
 	virtual  void setObject_forKey(void *&,void *&) = 0;
+
+	virtual  signed char provisionedForPost() = 0;
+
+	virtual  void setProvisionedForPost(signed char&) = 0;
 private:
 	void* _proxy;
 };

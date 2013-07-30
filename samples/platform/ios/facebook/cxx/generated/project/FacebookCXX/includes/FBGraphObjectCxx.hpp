@@ -10,6 +10,8 @@
 #define _FBGraphObjectCxx
 
 #include "FBGraphObjectProtocolCxx.hpp"
+#include "FBOpenGraphActionProtocolCxx.hpp"
+#include "FBOpenGraphObjectProtocolCxx.hpp"
 #include "FBGraphObjectConformerCxx.hpp"
 
 #include <vector>
@@ -24,6 +26,8 @@ namespace FacebookCXX {
 
 // Forward Declarations
 class FBGraphObjectProtocolCxx;
+class FBOpenGraphActionProtocolCxx;
+class FBOpenGraphObjectProtocolCxx;
 class FBGraphObjectConformerCxx;
 
 class FBGraphObjectCxx
@@ -45,6 +49,12 @@ public:
 
 	static FacebookCXX::FBGraphObjectProtocolCxx * graphObjectWrappingDictionary(std::map<void *, void *>& arg0);
 
+	static FacebookCXX::FBOpenGraphActionProtocolCxx * openGraphActionForPost();
+
+	static FacebookCXX::FBOpenGraphObjectProtocolCxx * openGraphObjectForPost();
+
+	static FacebookCXX::FBOpenGraphObjectProtocolCxx * openGraphObjectForPostWithType_title_image_url_description(std::string& arg0,std::string& arg1,void *& arg2,void *& arg3,std::string& arg4);
+
 	static signed char isGraphObjectID_sameAs(FacebookCXX::FBGraphObjectConformerCxx * arg0,FacebookCXX::FBGraphObjectConformerCxx * arg1);
 
 	 unsigned int count();
@@ -56,6 +66,10 @@ public:
 	 void removeObjectForKey(void *& arg0);
 
 	 void setObject_forKey(void *& arg0,void *& arg1);
+
+	 signed char provisionedForPost();
+
+	 void setProvisionedForPost(signed char& arg0);
 private:
 	void* _proxy;
 };

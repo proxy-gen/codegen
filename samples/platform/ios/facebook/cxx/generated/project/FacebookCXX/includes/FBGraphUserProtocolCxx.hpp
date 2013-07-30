@@ -86,6 +86,10 @@ public:
 	 void removeObjectForKey(void *& arg0);
 
 	 void setObject_forKey(void *& arg0,void *& arg1);
+
+	 signed char provisionedForPost();
+
+	 void setProvisionedForPost(signed char& arg0);
 private:
 	void* _proxy;
 };

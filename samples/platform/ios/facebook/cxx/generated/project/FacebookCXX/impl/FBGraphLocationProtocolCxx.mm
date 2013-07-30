@@ -164,4 +164,15 @@ void FacebookCXX::FBGraphLocationProtocolCxx::setObject_forKey(void *& arg0,void
 	[(__bridge id<FBGraphLocation>)_proxy setObject:(__bridge id)objc_arg0 forKey:(__bridge id)objc_arg1 ];
 }
 
+signed char FacebookCXX::FBGraphLocationProtocolCxx::provisionedForPost(){
+	signed char objc_result = (signed char)[(__bridge id<FBGraphLocation>)_proxy provisionedForPost];
+	return objc_result;
+}
+
+void FacebookCXX::FBGraphLocationProtocolCxx::setProvisionedForPost(signed char& arg0){
+	BOOL objc_arg0 = (BOOL)arg0;
+
+	[(__bridge id<FBGraphLocation>)_proxy setProvisionedForPost:objc_arg0 ];
+}
+
 

@@ -75,6 +75,10 @@ void FacebookCXX::FBPlacePickerViewControllerCxx::loadData(){
 	[(__bridge FBPlacePickerViewController *)_proxy loadData];
 }
 
+void FacebookCXX::FBPlacePickerViewControllerCxx::updateView(){
+	[(__bridge FBPlacePickerViewController *)_proxy updateView];
+}
+
 void * FacebookCXX::FBPlacePickerViewControllerCxx::spinner(){
 	void *objc_result = (__bridge void *)[(__bridge FBPlacePickerViewController *)_proxy spinner];
 	void * result;

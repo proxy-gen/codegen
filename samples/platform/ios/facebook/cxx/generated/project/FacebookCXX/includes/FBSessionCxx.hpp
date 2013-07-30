@@ -10,6 +10,7 @@
 #define _FBSessionCxx
 
 #include "FBSessionTokenCachingStrategyCxx.hpp"
+#include "FBAccessTokenDataCxx.hpp"
 #include "FBSessionDefaultAudienceCxx.hpp"
 #include "FBSessionStateCxx.hpp"
 #include "FBSessionLoginBehaviorCxx.hpp"
@@ -28,6 +29,7 @@ namespace FacebookCXX {
 // Forward Declarations
 class FBSessionTokenCachingStrategyCxx;
 class FBSessionCxx;
+class FBAccessTokenDataCxx;
 
 class FBSessionCxx
 {
@@ -56,6 +58,8 @@ public:
 
 	 void openWithBehavior_completionHandler(FacebookCXX::FBSessionLoginBehaviorCxx& arg0,void(*arg1)(FacebookCXX::FBSessionCxx *, FacebookCXX::FBSessionStateCxx &, std::string &));
 
+	 signed char openFromAccessTokenData_completionHandler(FacebookCXX::FBAccessTokenDataCxx * arg0,void(*arg1)(FacebookCXX::FBSessionCxx *, FacebookCXX::FBSessionStateCxx &, std::string &));
+
 	 void close();
 
 	 void closeAndClearTokenInformation();
@@ -65,6 +69,10 @@ public:
 	 void reauthorizeWithReadPermissions_completionHandler(std::vector<void *>& arg0,void(*arg1)(FacebookCXX::FBSessionCxx *, std::string &));
 
 	 void reauthorizeWithPublishPermissions_defaultAudience_completionHandler(std::vector<void *>& arg0,FacebookCXX::FBSessionDefaultAudienceCxx& arg1,void(*arg2)(FacebookCXX::FBSessionCxx *, std::string &));
+
+	 void requestNewReadPermissions_completionHandler(std::vector<void *>& arg0,void(*arg1)(FacebookCXX::FBSessionCxx *, std::string &));
+
+	 void requestNewPublishPermissions_defaultAudience_completionHandler(std::vector<void *>& arg0,FacebookCXX::FBSessionDefaultAudienceCxx& arg1,void(*arg2)(FacebookCXX::FBSessionCxx *, std::string &));
 
 	 signed char handleOpenURL(void *& arg0);
 
@@ -86,6 +94,10 @@ public:
 
 	static std::string defaultAppID();
 
+	static void setDefaultUrlSchemeSuffix(std::string& arg0);
+
+	static std::string defaultUrlSchemeSuffix();
+
 	 signed char isOpen();
 
 	 FacebookCXX::FBSessionStateCxx state();
@@ -102,11 +114,7 @@ public:
 
 	 FacebookCXX::FBSessionLoginTypeCxx loginType();
 
-	 void setLoginType(FacebookCXX::FBSessionLoginTypeCxx& arg0);
-
-	 signed char useSafariForLogin();
-
-	 void setUseSafariForLogin(signed char& arg0);
+	 FacebookCXX::FBAccessTokenDataCxx * accessTokenData();
 private:
 	void* _proxy;
 };

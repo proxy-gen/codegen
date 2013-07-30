@@ -6,6 +6,7 @@
 
 #include "FBSessionTokenCachingStrategyCxx.hpp"
 #include <FacebookSDK/FBSessionTokenCachingStrategy.h>
+#include <FacebookSDK/FBAccessTokenData.h>
 #include "FacebookCXXConverter.hpp"
 
 FacebookCXX::FBSessionTokenCachingStrategyCxx::FBSessionTokenCachingStrategyCxx(const FBSessionTokenCachingStrategyCxx* cc){
@@ -51,10 +52,24 @@ void FacebookCXX::FBSessionTokenCachingStrategyCxx::cacheTokenInformation(std::m
 	[(__bridge FBSessionTokenCachingStrategy *)_proxy cacheTokenInformation:(__bridge id)objc_arg0 ];
 }
 
+void FacebookCXX::FBSessionTokenCachingStrategyCxx::cacheFBAccessTokenData(FacebookCXX::FBAccessTokenDataCxx * arg0){
+	void *objc_arg0 = NULL;
+	convert_FBAccessTokenDataCxx(objc_arg0, arg0, CONVERT_TO_OBJC);
+
+	[(__bridge FBSessionTokenCachingStrategy *)_proxy cacheFBAccessTokenData:(__bridge id)objc_arg0 ];
+}
+
 std::map<void *, void *> FacebookCXX::FBSessionTokenCachingStrategyCxx::fetchTokenInformation(){
 	void *objc_result = (__bridge void *)[(__bridge FBSessionTokenCachingStrategy *)_proxy fetchTokenInformation];
 	std::map<void *, void *> result;
 	convert_dictionary(objc_result, result, CONVERT_TO_CXX);
+	return result;
+}
+
+FacebookCXX::FBAccessTokenDataCxx * FacebookCXX::FBSessionTokenCachingStrategyCxx::fetchFBAccessTokenData(){
+	void *objc_result = (__bridge void *)[(__bridge FBSessionTokenCachingStrategy *)_proxy fetchFBAccessTokenData];
+	FacebookCXX::FBAccessTokenDataCxx * result = NULL;
+	convert_FBAccessTokenDataCxx(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 
@@ -64,6 +79,13 @@ void FacebookCXX::FBSessionTokenCachingStrategyCxx::clearToken(){
 
 FacebookCXX::FBSessionTokenCachingStrategyCxx * FacebookCXX::FBSessionTokenCachingStrategyCxx::defaultInstance(){
 	void *objc_result = (__bridge void *)[FBSessionTokenCachingStrategy defaultInstance];
+	FacebookCXX::FBSessionTokenCachingStrategyCxx * result = NULL;
+	convert_FBSessionTokenCachingStrategyCxx(objc_result, result, CONVERT_TO_CXX);
+	return result;
+}
+
+FacebookCXX::FBSessionTokenCachingStrategyCxx * FacebookCXX::FBSessionTokenCachingStrategyCxx::nullCacheInstance(){
+	void *objc_result = (__bridge void *)[FBSessionTokenCachingStrategy nullCacheInstance];
 	FacebookCXX::FBSessionTokenCachingStrategyCxx * result = NULL;
 	convert_FBSessionTokenCachingStrategyCxx(objc_result, result, CONVERT_TO_CXX);
 	return result;

@@ -129,4 +129,15 @@
 	self.proxy->setObject_forKey(arg0, arg1);
 }
 
+- (BOOL) provisionedForPost{
+	signed char result = (BOOL)(self.proxy->provisionedForPost());
+	return result;
+}
+
+- (void)  setProvisionedForPost:(BOOL)objc_arg0{
+	signed char arg0 = (signed char)objc_arg0;
+
+	self.proxy->setProvisionedForPost(arg0);
+}
+
 @end

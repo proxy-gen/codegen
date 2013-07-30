@@ -6,6 +6,8 @@
 
 #include "FBGraphObjectCxx.hpp"
 #include <FacebookSDK/FBGraphObject.h>
+#include <FacebookSDK/FBOpenGraphAction.h>
+#include <FacebookSDK/FBOpenGraphObject.h>
 #include "FacebookCXXConverter.hpp"
 
 FacebookCXX::FBGraphObjectCxx::FBGraphObjectCxx(const FBGraphObjectCxx* cc){
@@ -41,6 +43,42 @@ FacebookCXX::FBGraphObjectProtocolCxx * FacebookCXX::FBGraphObjectCxx::graphObje
 	void *objc_result = (__bridge void *)[FBGraphObject graphObjectWrappingDictionary:(__bridge id)objc_arg0 ];
 	FacebookCXX::FBGraphObjectProtocolCxx * result = NULL;
 	convert_FBGraphObjectProtocolCxx(objc_result, result, CONVERT_TO_CXX);
+	return result;
+}
+
+FacebookCXX::FBOpenGraphActionProtocolCxx * FacebookCXX::FBGraphObjectCxx::openGraphActionForPost(){
+	void *objc_result = (__bridge void *)[FBGraphObject openGraphActionForPost];
+	FacebookCXX::FBOpenGraphActionProtocolCxx * result = NULL;
+	convert_FBOpenGraphActionProtocolCxx(objc_result, result, CONVERT_TO_CXX);
+	return result;
+}
+
+FacebookCXX::FBOpenGraphObjectProtocolCxx * FacebookCXX::FBGraphObjectCxx::openGraphObjectForPost(){
+	void *objc_result = (__bridge void *)[FBGraphObject openGraphObjectForPost];
+	FacebookCXX::FBOpenGraphObjectProtocolCxx * result = NULL;
+	convert_FBOpenGraphObjectProtocolCxx(objc_result, result, CONVERT_TO_CXX);
+	return result;
+}
+
+FacebookCXX::FBOpenGraphObjectProtocolCxx * FacebookCXX::FBGraphObjectCxx::openGraphObjectForPostWithType_title_image_url_description(std::string& arg0,std::string& arg1,void *& arg2,void *& arg3,std::string& arg4){
+	void *objc_arg0 = NULL;
+	convert_string(objc_arg0, arg0, CONVERT_TO_OBJC);
+
+	void *objc_arg1 = NULL;
+	convert_string(objc_arg1, arg1, CONVERT_TO_OBJC);
+
+	void *objc_arg2 = NULL;
+	convert_object(objc_arg2, arg2, CONVERT_TO_OBJC);
+
+	void *objc_arg3 = NULL;
+	convert_object(objc_arg3, arg3, CONVERT_TO_OBJC);
+
+	void *objc_arg4 = NULL;
+	convert_string(objc_arg4, arg4, CONVERT_TO_OBJC);
+
+	void *objc_result = (__bridge void *)[FBGraphObject openGraphObjectForPostWithType:(__bridge id)objc_arg0 title:(__bridge id)objc_arg1 image:(__bridge id)objc_arg2 url:(__bridge id)objc_arg3 description:(__bridge id)objc_arg4 ];
+	FacebookCXX::FBOpenGraphObjectProtocolCxx * result = NULL;
+	convert_FBOpenGraphObjectProtocolCxx(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 
@@ -92,6 +130,17 @@ void FacebookCXX::FBGraphObjectCxx::setObject_forKey(void *& arg0,void *& arg1){
 	convert_object(objc_arg1, arg1, CONVERT_TO_OBJC);
 
 	[(__bridge FBGraphObject *)_proxy setObject:(__bridge id)objc_arg0 forKey:(__bridge id)objc_arg1 ];
+}
+
+signed char FacebookCXX::FBGraphObjectCxx::provisionedForPost(){
+	signed char objc_result = (signed char)[(__bridge FBGraphObject *)_proxy provisionedForPost];
+	return objc_result;
+}
+
+void FacebookCXX::FBGraphObjectCxx::setProvisionedForPost(signed char& arg0){
+	BOOL objc_arg0 = (BOOL)arg0;
+
+	[(__bridge FBGraphObject *)_proxy setProvisionedForPost:objc_arg0 ];
 }
 
 

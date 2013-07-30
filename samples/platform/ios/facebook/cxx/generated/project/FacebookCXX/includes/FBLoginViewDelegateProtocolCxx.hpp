@@ -46,6 +46,8 @@ public:
 	 void loginViewFetchedUserInfo_user(FacebookCXX::FBLoginViewCxx * arg0,FacebookCXX::FBGraphUserConformerCxx * arg1);
 
 	 void loginViewShowingLoggedOutUser(FacebookCXX::FBLoginViewCxx * arg0);
+
+	 void loginView_handleError(FacebookCXX::FBLoginViewCxx * arg0,std::string& arg1);
 private:
 	void* _proxy;
 };
