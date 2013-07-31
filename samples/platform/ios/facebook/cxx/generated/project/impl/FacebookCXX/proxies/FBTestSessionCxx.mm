@@ -4,9 +4,9 @@
  */
 
 
-#include "FBTestSessionCxx.hpp"
+#include <FacebookCXX/proxies/FBTestSessionCxx.hpp>
 #include <FacebookSDK/FBTestSession.h>
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 FacebookCXX::FBTestSessionCxx::FBTestSessionCxx(const FBTestSessionCxx* cc){
 	id proxy_id = (__bridge id)cc->getProxy();

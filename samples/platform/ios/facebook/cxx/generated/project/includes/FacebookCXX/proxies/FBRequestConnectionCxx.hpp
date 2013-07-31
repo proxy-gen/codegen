@@ -9,10 +9,10 @@
 #ifndef _FBRequestConnectionCxx
 #define _FBRequestConnectionCxx
 
-#include "FBRequestCxx.hpp"
-#include "FBSessionCxx.hpp"
-#include "FBGraphObjectConformerCxx.hpp"
-#include "FBOpenGraphObjectConformerCxx.hpp"
+#include <FacebookCXX/proxies/FBRequestCxx.hpp>
+#include <FacebookCXX/proxies/FBSessionCxx.hpp>
+#include <FacebookCXX/conformers/FBGraphObjectConformerCxx.hpp>
+#include <FacebookCXX/conformers/FBOpenGraphObjectConformerCxx.hpp>
 
 #include <vector>
 #include <map>

@@ -8,7 +8,7 @@
 #define _FBGraphUserConformer
 
 #include <FacebookSDK/FBGraphUser.h>
-#include "FBGraphUserConformerCxx.hpp"
+#include <FacebookCXX/conformers/FBGraphUserConformerCxx.hpp>
 
 @interface FBGraphUserConformer : NSObject <FBGraphUser> 
 

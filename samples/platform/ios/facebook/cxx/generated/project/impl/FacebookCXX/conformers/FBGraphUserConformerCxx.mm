@@ -4,8 +4,8 @@
  */
 
 
-#include "FBGraphUserConformerCxx.hpp"
-#include "FBGraphUserConformer.h"
+#include <FacebookCXX/conformers/FBGraphUserConformerCxx.hpp>
+#include <FacebookCXX/conformers/protocols/FBGraphUserConformer.h>
 
 FacebookCXX::FBGraphUserConformerCxx::FBGraphUserConformerCxx(){
 	_proxy = (__bridge_retained void *)[FBGraphUserConformer conformerWithProxy:this];

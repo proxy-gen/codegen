@@ -8,7 +8,7 @@
 #define _FBLoginViewDelegateConformer
 
 #include <FacebookSDK/FBLoginView.h>
-#include "FBLoginViewDelegateConformerCxx.hpp"
+#include <FacebookCXX/conformers/FBLoginViewDelegateConformerCxx.hpp>
 
 @interface FBLoginViewDelegateConformer : NSObject <FBLoginViewDelegate> 
 

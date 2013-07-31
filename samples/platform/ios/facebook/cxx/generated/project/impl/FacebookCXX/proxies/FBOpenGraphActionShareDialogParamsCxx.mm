@@ -4,10 +4,10 @@
  */
 
 
-#include "FBOpenGraphActionShareDialogParamsCxx.hpp"
+#include <FacebookCXX/proxies/FBOpenGraphActionShareDialogParamsCxx.hpp>
 #include <FacebookSDK/FBOpenGraphActionShareDialogParams.h>
 #include <FacebookSDK/FBOpenGraphAction.h>
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 FacebookCXX::FBOpenGraphActionShareDialogParamsCxx::FBOpenGraphActionShareDialogParamsCxx(const FBOpenGraphActionShareDialogParamsCxx* cc){
 	id proxy_id = (__bridge id)cc->getProxy();

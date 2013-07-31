@@ -9,8 +9,8 @@
 #ifndef _FBInsightsCxx
 #define _FBInsightsCxx
 
-#include "FBSessionCxx.hpp"
-#include "FBInsightsFlushBehaviorCxx.hpp"
+#include <FacebookCXX/proxies/FBSessionCxx.hpp>
+#include <FacebookCXX/enums/FBInsightsFlushBehaviorCxx.hpp>
 
 #include <vector>
 #include <map>

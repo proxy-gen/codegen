@@ -4,8 +4,8 @@
  */
 
 
-#include "FacebookCXXConverter.hpp"
-#include "FBGraphUserConformer.h"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
+#include <FacebookCXX/conformers/protocols/FBGraphUserConformer.h>
 
 @interface FBGraphUserConformer()
 
@@ -147,9 +147,9 @@
 }
 
 - (id<FBGraphPlace>) location{
-	FacebookCXX::FBGraphPlaceConformerCxx *result = self.proxy->location();
+	FacebookCXX::FBGraphPlaceProtocolCxx *result = self.proxy->location();
 	void *objc_result = NULL;
-	convert_FBGraphPlaceConformerCxx(objc_result, result, CONVERT_TO_OBJC);
+	convert_FBGraphPlaceProtocolCxx(objc_result, result, CONVERT_TO_OBJC);
 	return (__bridge id)objc_result;
 }
 

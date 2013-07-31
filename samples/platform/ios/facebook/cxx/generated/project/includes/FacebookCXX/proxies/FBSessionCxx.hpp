@@ -9,12 +9,12 @@
 #ifndef _FBSessionCxx
 #define _FBSessionCxx
 
-#include "FBSessionTokenCachingStrategyCxx.hpp"
-#include "FBAccessTokenDataCxx.hpp"
-#include "FBSessionDefaultAudienceCxx.hpp"
-#include "FBSessionStateCxx.hpp"
-#include "FBSessionLoginBehaviorCxx.hpp"
-#include "FBSessionLoginTypeCxx.hpp"
+#include <FacebookCXX/proxies/FBSessionTokenCachingStrategyCxx.hpp>
+#include <FacebookCXX/proxies/FBAccessTokenDataCxx.hpp>
+#include <FacebookCXX/enums/FBSessionDefaultAudienceCxx.hpp>
+#include <FacebookCXX/enums/FBSessionStateCxx.hpp>
+#include <FacebookCXX/enums/FBSessionLoginBehaviorCxx.hpp>
+#include <FacebookCXX/enums/FBSessionLoginTypeCxx.hpp>
 
 #include <vector>
 #include <map>

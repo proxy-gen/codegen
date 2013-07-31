@@ -4,8 +4,8 @@
  */
 
 
-#include "FBViewControllerDelegateConformerCxx.hpp"
-#include "FBViewControllerDelegateConformer.h"
+#include <FacebookCXX/conformers/FBViewControllerDelegateConformerCxx.hpp>
+#include <FacebookCXX/conformers/protocols/FBViewControllerDelegateConformer.h>
 
 FacebookCXX::FBViewControllerDelegateConformerCxx::FBViewControllerDelegateConformerCxx(){
 	_proxy = (__bridge_retained void *)[FBViewControllerDelegateConformer conformerWithProxy:this];

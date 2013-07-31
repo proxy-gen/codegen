@@ -9,8 +9,8 @@
 #ifndef _FBViewControllerCxx
 #define _FBViewControllerCxx
 
-#include "FBViewControllerDelegateProtocolCxx.hpp"
-#include "FBViewControllerDelegateConformerCxx.hpp"
+#include <FacebookCXX/proxies/FBViewControllerDelegateProtocolCxx.hpp>
+#include <FacebookCXX/conformers/FBViewControllerDelegateConformerCxx.hpp>
 
 #include <vector>
 #include <map>

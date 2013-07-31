@@ -4,10 +4,10 @@
  */
 
 
-#include "FBCacheDescriptorCxx.hpp"
+#include <FacebookCXX/proxies/FBCacheDescriptorCxx.hpp>
 #include <FacebookSDK/FBCacheDescriptor.h>
 #include <FacebookSDK/FBSession.h>
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 FacebookCXX::FBCacheDescriptorCxx::FBCacheDescriptorCxx(const FBCacheDescriptorCxx* cc){
 	id proxy_id = (__bridge id)cc->getProxy();

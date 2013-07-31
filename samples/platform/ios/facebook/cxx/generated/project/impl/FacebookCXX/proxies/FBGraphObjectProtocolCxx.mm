@@ -4,9 +4,9 @@
  */
 
 
-#include "FBGraphObjectProtocolCxx.hpp"
+#include <FacebookCXX/proxies/FBGraphObjectProtocolCxx.hpp>
 #include <FacebookSDK/FBGraphObject.h>
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 FacebookCXX::FBGraphObjectProtocolCxx::FBGraphObjectProtocolCxx(const FBGraphObjectProtocolCxx* cc){
 	id<FBGraphObject> proxy_id = (__bridge id<FBGraphObject>)cc->getProxy();

@@ -4,10 +4,10 @@
  */
 
 
-#include "FBFrictionlessRecipientCacheCxx.hpp"
+#include <FacebookCXX/proxies/FBFrictionlessRecipientCacheCxx.hpp>
 #include <FacebookSDK/FBFrictionlessRecipientCache.h>
 #include <FacebookSDK/FBSession.h>
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 FacebookCXX::FBFrictionlessRecipientCacheCxx::FBFrictionlessRecipientCacheCxx(const FBFrictionlessRecipientCacheCxx* cc){
 	id proxy_id = (__bridge id)cc->getProxy();

@@ -4,9 +4,9 @@
  */
 
 
-#include "FBSettingsCxx.hpp"
+#include <FacebookCXX/proxies/FBSettingsCxx.hpp>
 #include <FacebookSDK/FBSettings.h>
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 FacebookCXX::FBSettingsCxx::FBSettingsCxx(const FBSettingsCxx* cc){
 	id proxy_id = (__bridge id)cc->getProxy();

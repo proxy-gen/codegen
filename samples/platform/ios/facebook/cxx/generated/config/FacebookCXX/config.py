@@ -18,6 +18,10 @@
 config = {
 	'namespace' : 'FacebookCXX',
 	'package'	: 'FacebookCXX',
+	'clang_opts': {
+			'i386'  : '-ObjC -arch i386 -fobjc-arc -mios-simulator-version-min=6.1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/4.2/include/ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk',
+			'armv7'  : '-ObjC -arch armv7 -fobjc-arc -miphoneos-version-min=6.1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/4.2/include/ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk ',
+	},
 	'converters' : [
 		{
 			'cxx' : {'type': 'std::string'},
@@ -4454,13 +4458,13 @@ config = {
 						},
 						{
 								'kind' : 'Pointer',
-								'type' : 'NSURL **',
+								'type' : 'NSURL *__autoreleasing *',
 								'name' : 'url',
 								'converter' : '_TODO_',
 						},
 						{
 								'kind' : 'Pointer',
-								'type' : 'NSError **',
+								'type' : 'NSError *__autoreleasing *',
 								'name' : 'error',
 								'converter' : '_TODO_',
 						},
@@ -10339,13 +10343,13 @@ config = {
 						},
 						{
 								'kind' : 'Pointer',
-								'type' : 'NSURL **',
+								'type' : 'NSURL *__autoreleasing *',
 								'name' : 'url',
 								'converter' : '_TODO_',
 						},
 						{
 								'kind' : 'Pointer',
-								'type' : 'NSError **',
+								'type' : 'NSError *__autoreleasing *',
 								'name' : 'error',
 								'converter' : '_TODO_',
 						},

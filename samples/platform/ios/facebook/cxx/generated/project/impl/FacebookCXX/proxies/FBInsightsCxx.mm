@@ -4,10 +4,10 @@
  */
 
 
-#include "FBInsightsCxx.hpp"
+#include <FacebookCXX/proxies/FBInsightsCxx.hpp>
 #include <FacebookSDK/FBInsights.h>
 #include <FacebookSDK/FBSession.h>
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 FacebookCXX::FBInsightsCxx::FBInsightsCxx(const FBInsightsCxx* cc){
 	id proxy_id = (__bridge id)cc->getProxy();

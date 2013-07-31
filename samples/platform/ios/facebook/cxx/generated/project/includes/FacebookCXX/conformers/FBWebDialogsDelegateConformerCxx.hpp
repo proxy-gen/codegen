@@ -7,7 +7,7 @@
 #ifndef _FBWebDialogsDelegateConformerCxx
 #define _FBWebDialogsDelegateConformerCxx
 
-#include "FBSessionCxx.hpp"
+#include <FacebookCXX/proxies/FBSessionCxx.hpp>
 
 #include <vector>
 #include <map>

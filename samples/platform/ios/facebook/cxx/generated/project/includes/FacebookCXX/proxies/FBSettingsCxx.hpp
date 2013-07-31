@@ -9,8 +9,8 @@
 #ifndef _FBSettingsCxx
 #define _FBSettingsCxx
 
-#include "FBGraphObjectCxx.hpp"
-#include "FBBetaFeaturesCxx.hpp"
+#include <FacebookCXX/proxies/FBGraphObjectCxx.hpp>
+#include <FacebookCXX/enums/FBBetaFeaturesCxx.hpp>
 
 #include <vector>
 #include <map>

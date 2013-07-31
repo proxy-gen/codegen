@@ -8,7 +8,7 @@
 #define _FBWebDialogsDelegateConformer
 
 #include <FacebookSDK/FBWebDialogs.h>
-#include "FBWebDialogsDelegateConformerCxx.hpp"
+#include <FacebookCXX/conformers/FBWebDialogsDelegateConformerCxx.hpp>
 
 @interface FBWebDialogsDelegateConformer : NSObject <FBWebDialogsDelegate> 
 

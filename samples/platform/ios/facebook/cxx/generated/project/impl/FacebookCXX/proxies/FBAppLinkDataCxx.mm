@@ -4,9 +4,9 @@
  */
 
 
-#include "FBAppLinkDataCxx.hpp"
+#include <FacebookCXX/proxies/FBAppLinkDataCxx.hpp>
 #include <FacebookSDK/FBAppLinkData.h>
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 FacebookCXX::FBAppLinkDataCxx::FBAppLinkDataCxx(const FBAppLinkDataCxx* cc){
 	id proxy_id = (__bridge id)cc->getProxy();

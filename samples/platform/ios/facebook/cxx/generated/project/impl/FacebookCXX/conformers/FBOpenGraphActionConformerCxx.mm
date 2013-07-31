@@ -4,8 +4,8 @@
  */
 
 
-#include "FBOpenGraphActionConformerCxx.hpp"
-#include "FBOpenGraphActionConformer.h"
+#include <FacebookCXX/conformers/FBOpenGraphActionConformerCxx.hpp>
+#include <FacebookCXX/conformers/protocols/FBOpenGraphActionConformer.h>
 
 FacebookCXX::FBOpenGraphActionConformerCxx::FBOpenGraphActionConformerCxx(){
 	_proxy = (__bridge_retained void *)[FBOpenGraphActionConformer conformerWithProxy:this];

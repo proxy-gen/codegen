@@ -4,8 +4,8 @@
  */
 
 
-#include "FBWebDialogsDelegateConformerCxx.hpp"
-#include "FBWebDialogsDelegateConformer.h"
+#include <FacebookCXX/conformers/FBWebDialogsDelegateConformerCxx.hpp>
+#include <FacebookCXX/conformers/protocols/FBWebDialogsDelegateConformer.h>
 
 FacebookCXX::FBWebDialogsDelegateConformerCxx::FBWebDialogsDelegateConformerCxx(){
 	_proxy = (__bridge_retained void *)[FBWebDialogsDelegateConformer conformerWithProxy:this];

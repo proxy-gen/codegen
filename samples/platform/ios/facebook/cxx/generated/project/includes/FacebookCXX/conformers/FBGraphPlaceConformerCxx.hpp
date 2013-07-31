@@ -7,8 +7,8 @@
 #ifndef _FBGraphPlaceConformerCxx
 #define _FBGraphPlaceConformerCxx
 
-#include "FBGraphLocationProtocolCxx.hpp"
-#include "FBGraphLocationConformerCxx.hpp"
+#include <FacebookCXX/proxies/FBGraphLocationProtocolCxx.hpp>
+#include <FacebookCXX/conformers/FBGraphLocationConformerCxx.hpp>
 
 #include <vector>
 #include <map>
@@ -49,7 +49,7 @@ public:
 
 	virtual  void setCategory(std::string&) = 0;
 
-	virtual  FacebookCXX::FBGraphLocationConformerCxx * location() = 0;
+	virtual  FacebookCXX::FBGraphLocationProtocolCxx * location() = 0;
 
 	virtual  void setLocation(FacebookCXX::FBGraphLocationConformerCxx *) = 0;
 

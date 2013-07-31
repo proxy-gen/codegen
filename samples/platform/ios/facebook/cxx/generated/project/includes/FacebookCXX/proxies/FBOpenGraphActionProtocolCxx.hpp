@@ -9,12 +9,12 @@
 #ifndef _FBOpenGraphActionProtocolCxx
 #define _FBOpenGraphActionProtocolCxx
 
-#include "FBGraphPlaceProtocolCxx.hpp"
-#include "FBGraphPlaceConformerCxx.hpp"
-#include "FBGraphUserProtocolCxx.hpp"
-#include "FBGraphUserConformerCxx.hpp"
-#include "FBGraphObjectProtocolCxx.hpp"
-#include "FBGraphObjectConformerCxx.hpp"
+#include <FacebookCXX/proxies/FBGraphPlaceProtocolCxx.hpp>
+#include <FacebookCXX/proxies/FBGraphUserProtocolCxx.hpp>
+#include <FacebookCXX/proxies/FBGraphObjectProtocolCxx.hpp>
+#include <FacebookCXX/conformers/FBGraphPlaceConformerCxx.hpp>
+#include <FacebookCXX/conformers/FBGraphUserConformerCxx.hpp>
+#include <FacebookCXX/conformers/FBGraphObjectConformerCxx.hpp>
 
 #include <vector>
 #include <map>
@@ -28,10 +28,10 @@ namespace FacebookCXX {
 
 // Forward Declarations
 class FBGraphPlaceProtocolCxx;
-class FBGraphPlaceConformerCxx;
 class FBGraphUserProtocolCxx;
-class FBGraphUserConformerCxx;
 class FBGraphObjectProtocolCxx;
+class FBGraphPlaceConformerCxx;
+class FBGraphUserConformerCxx;
 class FBGraphObjectConformerCxx;
 
 class FBOpenGraphActionProtocolCxx

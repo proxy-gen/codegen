@@ -4,12 +4,12 @@
  */
 
 
-#include "FBPlacePickerViewControllerCxx.hpp"
+#include <FacebookCXX/proxies/FBPlacePickerViewControllerCxx.hpp>
 #include <FacebookSDK/FBPlacePickerViewController.h>
 #include <FacebookSDK/FBCacheDescriptor.h>
 #include <FacebookSDK/FBSession.h>
 #include <FacebookSDK/FBGraphPlace.h>
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 FacebookCXX::FBPlacePickerViewControllerCxx::FBPlacePickerViewControllerCxx(const FBPlacePickerViewControllerCxx* cc){
 	id proxy_id = (__bridge id)cc->getProxy();

@@ -4,9 +4,9 @@
  */
 
 
-#include "FBLoginViewCxx.hpp"
+#include <FacebookCXX/proxies/FBLoginViewCxx.hpp>
 #include <FacebookSDK/FBLoginView.h>
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 FacebookCXX::FBLoginViewCxx::FBLoginViewCxx(const FBLoginViewCxx* cc){
 	id proxy_id = (__bridge id)cc->getProxy();

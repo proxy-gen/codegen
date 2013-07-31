@@ -9,11 +9,11 @@
 #ifndef _FBRequestCxx
 #define _FBRequestCxx
 
-#include "FBSessionCxx.hpp"
-#include "FBGraphObjectConformerCxx.hpp"
-#include "FBRequestConnectionCxx.hpp"
-#include "FBOpenGraphObjectConformerCxx.hpp"
-#include "FBGraphObjectProtocolCxx.hpp"
+#include <FacebookCXX/proxies/FBSessionCxx.hpp>
+#include <FacebookCXX/proxies/FBRequestConnectionCxx.hpp>
+#include <FacebookCXX/proxies/FBGraphObjectProtocolCxx.hpp>
+#include <FacebookCXX/conformers/FBGraphObjectConformerCxx.hpp>
+#include <FacebookCXX/conformers/FBOpenGraphObjectConformerCxx.hpp>
 
 #include <vector>
 #include <map>
@@ -27,11 +27,11 @@ namespace FacebookCXX {
 
 // Forward Declarations
 class FBSessionCxx;
-class FBGraphObjectConformerCxx;
 class FBRequestConnectionCxx;
 class FBRequestCxx;
-class FBOpenGraphObjectConformerCxx;
 class FBGraphObjectProtocolCxx;
+class FBGraphObjectConformerCxx;
+class FBOpenGraphObjectConformerCxx;
 
 class FBRequestCxx
 {

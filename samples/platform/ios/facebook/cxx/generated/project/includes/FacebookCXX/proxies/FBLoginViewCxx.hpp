@@ -9,9 +9,9 @@
 #ifndef _FBLoginViewCxx
 #define _FBLoginViewCxx
 
-#include "FBLoginViewDelegateProtocolCxx.hpp"
-#include "FBLoginViewDelegateConformerCxx.hpp"
-#include "FBSessionDefaultAudienceCxx.hpp"
+#include <FacebookCXX/proxies/FBLoginViewDelegateProtocolCxx.hpp>
+#include <FacebookCXX/enums/FBSessionDefaultAudienceCxx.hpp>
+#include <FacebookCXX/conformers/FBLoginViewDelegateConformerCxx.hpp>
 
 #include <vector>
 #include <map>

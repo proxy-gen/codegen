@@ -4,8 +4,8 @@
  */
 
 
-#include "FacebookCXXConverter.hpp"
-#include "FBOpenGraphActionConformer.h"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
+#include <FacebookCXX/conformers/protocols/FBOpenGraphActionConformer.h>
 
 @interface FBOpenGraphActionConformer()
 
@@ -147,9 +147,9 @@
 }
 
 - (id<FBGraphPlace>) place{
-	FacebookCXX::FBGraphPlaceConformerCxx *result = self.proxy->place();
+	FacebookCXX::FBGraphPlaceProtocolCxx *result = self.proxy->place();
 	void *objc_result = NULL;
-	convert_FBGraphPlaceConformerCxx(objc_result, result, CONVERT_TO_OBJC);
+	convert_FBGraphPlaceProtocolCxx(objc_result, result, CONVERT_TO_OBJC);
 	return (__bridge id)objc_result;
 }
 
@@ -192,9 +192,9 @@
 }
 
 - (id<FBGraphUser>) from{
-	FacebookCXX::FBGraphUserConformerCxx *result = self.proxy->from();
+	FacebookCXX::FBGraphUserProtocolCxx *result = self.proxy->from();
 	void *objc_result = NULL;
-	convert_FBGraphUserConformerCxx(objc_result, result, CONVERT_TO_OBJC);
+	convert_FBGraphUserProtocolCxx(objc_result, result, CONVERT_TO_OBJC);
 	return (__bridge id)objc_result;
 }
 
@@ -222,9 +222,9 @@
 }
 
 - (id<FBGraphObject>) application{
-	FacebookCXX::FBGraphObjectConformerCxx *result = self.proxy->application();
+	FacebookCXX::FBGraphObjectProtocolCxx *result = self.proxy->application();
 	void *objc_result = NULL;
-	convert_FBGraphObjectConformerCxx(objc_result, result, CONVERT_TO_OBJC);
+	convert_FBGraphObjectProtocolCxx(objc_result, result, CONVERT_TO_OBJC);
 	return (__bridge id)objc_result;
 }
 

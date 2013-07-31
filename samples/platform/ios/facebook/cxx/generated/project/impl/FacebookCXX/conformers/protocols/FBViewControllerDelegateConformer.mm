@@ -4,8 +4,8 @@
  */
 
 
-#include "FacebookCXXConverter.hpp"
-#include "FBViewControllerDelegateConformer.h"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
+#include <FacebookCXX/conformers/protocols/FBViewControllerDelegateConformer.h>
 
 @interface FBViewControllerDelegateConformer()
 

@@ -4,10 +4,10 @@
  */
 
 
-#include "FBLoginViewDelegateProtocolCxx.hpp"
+#include <FacebookCXX/proxies/FBLoginViewDelegateProtocolCxx.hpp>
 #include <FacebookSDK/FBLoginView.h>
 #include <FacebookSDK/FBGraphUser.h>
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 FacebookCXX::FBLoginViewDelegateProtocolCxx::FBLoginViewDelegateProtocolCxx(const FBLoginViewDelegateProtocolCxx* cc){
 	id<FBLoginViewDelegate> proxy_id = (__bridge id<FBLoginViewDelegate>)cc->getProxy();

@@ -8,7 +8,7 @@
 #define _FBGraphPlaceConformer
 
 #include <FacebookSDK/FBGraphPlace.h>
-#include "FBGraphPlaceConformerCxx.hpp"
+#include <FacebookCXX/conformers/FBGraphPlaceConformerCxx.hpp>
 
 @interface FBGraphPlaceConformer : NSObject <FBGraphPlace> 
 

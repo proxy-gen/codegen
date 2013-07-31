@@ -9,10 +9,10 @@
 #ifndef _FBAppCallCxx
 #define _FBAppCallCxx
 
-#include "FBSessionCxx.hpp"
-#include "FBDialogsDataCxx.hpp"
-#include "FBAppLinkDataCxx.hpp"
-#include "FBAccessTokenDataCxx.hpp"
+#include <FacebookCXX/proxies/FBSessionCxx.hpp>
+#include <FacebookCXX/proxies/FBDialogsDataCxx.hpp>
+#include <FacebookCXX/proxies/FBAppLinkDataCxx.hpp>
+#include <FacebookCXX/proxies/FBAccessTokenDataCxx.hpp>
 
 #include <vector>
 #include <map>

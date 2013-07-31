@@ -8,7 +8,7 @@
 #define _FBGraphLocationConformer
 
 #include <FacebookSDK/FBGraphLocation.h>
-#include "FBGraphLocationConformerCxx.hpp"
+#include <FacebookCXX/conformers/FBGraphLocationConformerCxx.hpp>
 
 @interface FBGraphLocationConformer : NSObject <FBGraphLocation> 
 

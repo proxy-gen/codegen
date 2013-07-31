@@ -9,7 +9,7 @@
 #ifndef _FBWebDialogsDelegateProtocolCxx
 #define _FBWebDialogsDelegateProtocolCxx
 
-#include "FBSessionCxx.hpp"
+#include <FacebookCXX/proxies/FBSessionCxx.hpp>
 
 #include <vector>
 #include <map>

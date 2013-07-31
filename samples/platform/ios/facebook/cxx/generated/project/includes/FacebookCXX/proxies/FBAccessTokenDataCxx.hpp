@@ -9,7 +9,7 @@
 #ifndef _FBAccessTokenDataCxx
 #define _FBAccessTokenDataCxx
 
-#include "FBSessionLoginTypeCxx.hpp"
+#include <FacebookCXX/enums/FBSessionLoginTypeCxx.hpp>
 
 #include <vector>
 #include <map>

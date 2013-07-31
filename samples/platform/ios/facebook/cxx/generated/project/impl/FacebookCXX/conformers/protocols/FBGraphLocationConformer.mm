@@ -4,8 +4,8 @@
  */
 
 
-#include "FacebookCXXConverter.hpp"
-#include "FBGraphLocationConformer.h"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
+#include <FacebookCXX/conformers/protocols/FBGraphLocationConformer.h>
 
 @interface FBGraphLocationConformer()
 

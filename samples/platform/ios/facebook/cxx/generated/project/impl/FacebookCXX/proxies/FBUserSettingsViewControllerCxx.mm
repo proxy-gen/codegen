@@ -4,9 +4,9 @@
  */
 
 
-#include "FBUserSettingsViewControllerCxx.hpp"
+#include <FacebookCXX/proxies/FBUserSettingsViewControllerCxx.hpp>
 #include <FacebookSDK/FBUserSettingsViewController.h>
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 FacebookCXX::FBUserSettingsViewControllerCxx::FBUserSettingsViewControllerCxx(const FBUserSettingsViewControllerCxx* cc){
 	id proxy_id = (__bridge id)cc->getProxy();

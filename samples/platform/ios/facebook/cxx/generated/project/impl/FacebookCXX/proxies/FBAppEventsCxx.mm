@@ -4,10 +4,10 @@
  */
 
 
-#include "FBAppEventsCxx.hpp"
+#include <FacebookCXX/proxies/FBAppEventsCxx.hpp>
 #include <FacebookSDK/FBAppEvents.h>
 #include <FacebookSDK/FBSession.h>
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 FacebookCXX::FBAppEventsCxx::FBAppEventsCxx(const FBAppEventsCxx* cc){
 	id proxy_id = (__bridge id)cc->getProxy();

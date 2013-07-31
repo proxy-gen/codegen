@@ -4,11 +4,11 @@
  */
 
 
-#include "FBSessionCxx.hpp"
+#include <FacebookCXX/proxies/FBSessionCxx.hpp>
 #include <FacebookSDK/FBSession.h>
 #include <FacebookSDK/FBSessionTokenCachingStrategy.h>
 #include <FacebookSDK/FBAccessTokenData.h>
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 FacebookCXX::FBSessionCxx::FBSessionCxx(const FBSessionCxx* cc){
 	id proxy_id = (__bridge id)cc->getProxy();

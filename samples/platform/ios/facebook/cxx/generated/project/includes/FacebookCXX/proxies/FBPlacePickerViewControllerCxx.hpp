@@ -9,9 +9,9 @@
 #ifndef _FBPlacePickerViewControllerCxx
 #define _FBPlacePickerViewControllerCxx
 
-#include "FBCacheDescriptorCxx.hpp"
-#include "FBSessionCxx.hpp"
-#include "FBGraphPlaceProtocolCxx.hpp"
+#include <FacebookCXX/proxies/FBCacheDescriptorCxx.hpp>
+#include <FacebookCXX/proxies/FBSessionCxx.hpp>
+#include <FacebookCXX/proxies/FBGraphPlaceProtocolCxx.hpp>
 
 #include <vector>
 #include <map>

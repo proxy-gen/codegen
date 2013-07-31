@@ -9,7 +9,7 @@
 #ifndef _FBSessionTokenCachingStrategyCxx
 #define _FBSessionTokenCachingStrategyCxx
 
-#include "FBAccessTokenDataCxx.hpp"
+#include <FacebookCXX/proxies/FBAccessTokenDataCxx.hpp>
 
 #include <vector>
 #include <map>

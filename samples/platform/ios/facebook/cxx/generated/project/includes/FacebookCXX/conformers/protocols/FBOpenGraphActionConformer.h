@@ -8,7 +8,7 @@
 #define _FBOpenGraphActionConformer
 
 #include <FacebookSDK/FBOpenGraphAction.h>
-#include "FBOpenGraphActionConformerCxx.hpp"
+#include <FacebookCXX/conformers/FBOpenGraphActionConformerCxx.hpp>
 
 @interface FBOpenGraphActionConformer : NSObject <FBOpenGraphAction> 
 

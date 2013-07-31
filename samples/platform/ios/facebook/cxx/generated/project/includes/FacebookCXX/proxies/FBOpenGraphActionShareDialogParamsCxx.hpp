@@ -9,8 +9,8 @@
 #ifndef _FBOpenGraphActionShareDialogParamsCxx
 #define _FBOpenGraphActionShareDialogParamsCxx
 
-#include "FBOpenGraphActionProtocolCxx.hpp"
-#include "FBOpenGraphActionConformerCxx.hpp"
+#include <FacebookCXX/proxies/FBOpenGraphActionProtocolCxx.hpp>
+#include <FacebookCXX/conformers/FBOpenGraphActionConformerCxx.hpp>
 
 #include <vector>
 #include <map>

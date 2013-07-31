@@ -4,10 +4,10 @@
  */
 
 
-#include "FBGraphPlaceProtocolCxx.hpp"
+#include <FacebookCXX/proxies/FBGraphPlaceProtocolCxx.hpp>
 #include <FacebookSDK/FBGraphPlace.h>
 #include <FacebookSDK/FBGraphLocation.h>
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 FacebookCXX::FBGraphPlaceProtocolCxx::FBGraphPlaceProtocolCxx(const FBGraphPlaceProtocolCxx* cc){
 	id<FBGraphPlace> proxy_id = (__bridge id<FBGraphPlace>)cc->getProxy();

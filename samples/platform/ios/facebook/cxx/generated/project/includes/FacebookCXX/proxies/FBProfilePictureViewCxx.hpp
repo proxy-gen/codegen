@@ -9,7 +9,7 @@
 #ifndef _FBProfilePictureViewCxx
 #define _FBProfilePictureViewCxx
 
-#include "FBProfilePictureCroppingCxx.hpp"
+#include <FacebookCXX/enums/FBProfilePictureCroppingCxx.hpp>
 
 #include <vector>
 #include <map>

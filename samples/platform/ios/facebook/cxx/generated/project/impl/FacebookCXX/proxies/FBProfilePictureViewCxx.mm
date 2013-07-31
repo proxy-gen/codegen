@@ -4,9 +4,9 @@
  */
 
 
-#include "FBProfilePictureViewCxx.hpp"
+#include <FacebookCXX/proxies/FBProfilePictureViewCxx.hpp>
 #include <FacebookSDK/FBProfilePictureView.h>
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 FacebookCXX::FBProfilePictureViewCxx::FBProfilePictureViewCxx(const FBProfilePictureViewCxx* cc){
 	id proxy_id = (__bridge id)cc->getProxy();

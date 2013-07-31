@@ -9,10 +9,10 @@
 #ifndef _FBFriendPickerViewControllerCxx
 #define _FBFriendPickerViewControllerCxx
 
-#include "FBCacheDescriptorCxx.hpp"
-#include "FBSessionCxx.hpp"
-#include "FBFriendSortOrderingCxx.hpp"
-#include "FBFriendDisplayOrderingCxx.hpp"
+#include <FacebookCXX/proxies/FBCacheDescriptorCxx.hpp>
+#include <FacebookCXX/proxies/FBSessionCxx.hpp>
+#include <FacebookCXX/enums/FBFriendSortOrderingCxx.hpp>
+#include <FacebookCXX/enums/FBFriendDisplayOrderingCxx.hpp>
 
 #include <vector>
 #include <map>

@@ -4,8 +4,8 @@
  */
 
 
-#include "FacebookCXXConverter.hpp"
-#include "FBWebDialogsDelegateConformer.h"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
+#include <FacebookCXX/conformers/protocols/FBWebDialogsDelegateConformer.h>
 
 @interface FBWebDialogsDelegateConformer()
 

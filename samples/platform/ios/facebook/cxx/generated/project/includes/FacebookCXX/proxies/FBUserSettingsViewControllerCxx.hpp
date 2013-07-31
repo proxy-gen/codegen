@@ -9,7 +9,7 @@
 #ifndef _FBUserSettingsViewControllerCxx
 #define _FBUserSettingsViewControllerCxx
 
-#include "FBSessionDefaultAudienceCxx.hpp"
+#include <FacebookCXX/enums/FBSessionDefaultAudienceCxx.hpp>
 
 #include <vector>
 #include <map>

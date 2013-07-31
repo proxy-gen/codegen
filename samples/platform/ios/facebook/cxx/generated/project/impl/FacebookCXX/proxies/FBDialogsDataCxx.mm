@@ -4,9 +4,9 @@
  */
 
 
-#include "FBDialogsDataCxx.hpp"
+#include <FacebookCXX/proxies/FBDialogsDataCxx.hpp>
 #include <FacebookSDK/FBDialogsData.h>
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 FacebookCXX::FBDialogsDataCxx::FBDialogsDataCxx(const FBDialogsDataCxx* cc){
 	id proxy_id = (__bridge id)cc->getProxy();

@@ -4,11 +4,11 @@
  */
 
 
-#include "FBWebDialogsCxx.hpp"
+#include <FacebookCXX/proxies/FBWebDialogsCxx.hpp>
 #include <FacebookSDK/FBWebDialogs.h>
 #include <FacebookSDK/FBSession.h>
 #include <FacebookSDK/FBFrictionlessRecipientCache.h>
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 FacebookCXX::FBWebDialogsCxx::FBWebDialogsCxx(const FBWebDialogsCxx* cc){
 	id proxy_id = (__bridge id)cc->getProxy();

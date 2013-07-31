@@ -9,8 +9,8 @@
 #ifndef _FBOpenGraphObjectProtocolCxx
 #define _FBOpenGraphObjectProtocolCxx
 
-#include "FBGraphObjectProtocolCxx.hpp"
-#include "FBGraphObjectConformerCxx.hpp"
+#include <FacebookCXX/proxies/FBGraphObjectProtocolCxx.hpp>
+#include <FacebookCXX/conformers/FBGraphObjectConformerCxx.hpp>
 
 #include <vector>
 #include <map>

@@ -7,8 +7,8 @@
 #ifndef _FBGraphUserConformerCxx
 #define _FBGraphUserConformerCxx
 
-#include "FBGraphPlaceProtocolCxx.hpp"
-#include "FBGraphPlaceConformerCxx.hpp"
+#include <FacebookCXX/proxies/FBGraphPlaceProtocolCxx.hpp>
+#include <FacebookCXX/conformers/FBGraphPlaceConformerCxx.hpp>
 
 #include <vector>
 #include <map>
@@ -69,7 +69,7 @@ public:
 
 	virtual  void setBirthday(std::string&) = 0;
 
-	virtual  FacebookCXX::FBGraphPlaceConformerCxx * location() = 0;
+	virtual  FacebookCXX::FBGraphPlaceProtocolCxx * location() = 0;
 
 	virtual  void setLocation(FacebookCXX::FBGraphPlaceConformerCxx *) = 0;
 

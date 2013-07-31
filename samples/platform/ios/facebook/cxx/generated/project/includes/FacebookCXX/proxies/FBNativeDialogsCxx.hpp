@@ -9,8 +9,8 @@
 #ifndef _FBNativeDialogsCxx
 #define _FBNativeDialogsCxx
 
-#include "FBSessionCxx.hpp"
-#include "FBNativeDialogResultCxx.hpp"
+#include <FacebookCXX/proxies/FBSessionCxx.hpp>
+#include <FacebookCXX/enums/FBNativeDialogResultCxx.hpp>
 
 #include <vector>
 #include <map>

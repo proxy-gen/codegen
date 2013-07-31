@@ -9,8 +9,8 @@
 #ifndef _FBGraphUserProtocolCxx
 #define _FBGraphUserProtocolCxx
 
-#include "FBGraphPlaceProtocolCxx.hpp"
-#include "FBGraphPlaceConformerCxx.hpp"
+#include <FacebookCXX/proxies/FBGraphPlaceProtocolCxx.hpp>
+#include <FacebookCXX/conformers/FBGraphPlaceConformerCxx.hpp>
 
 #include <vector>
 #include <map>

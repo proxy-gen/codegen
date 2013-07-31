@@ -7,8 +7,8 @@
 #ifndef _FBLoginViewDelegateConformerCxx
 #define _FBLoginViewDelegateConformerCxx
 
-#include "FBLoginViewCxx.hpp"
-#include "FBGraphUserConformerCxx.hpp"
+#include <FacebookCXX/proxies/FBLoginViewCxx.hpp>
+#include <FacebookCXX/conformers/FBGraphUserConformerCxx.hpp>
 
 #include <vector>
 #include <map>

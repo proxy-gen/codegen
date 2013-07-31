@@ -7,8 +7,8 @@
 #ifndef _FBOpenGraphObjectConformerCxx
 #define _FBOpenGraphObjectConformerCxx
 
-#include "FBGraphObjectProtocolCxx.hpp"
-#include "FBGraphObjectConformerCxx.hpp"
+#include <FacebookCXX/proxies/FBGraphObjectProtocolCxx.hpp>
+#include <FacebookCXX/conformers/FBGraphObjectConformerCxx.hpp>
 
 #include <vector>
 #include <map>
@@ -61,7 +61,7 @@ public:
 
 	virtual  void setDescription(void *&) = 0;
 
-	virtual  FacebookCXX::FBGraphObjectConformerCxx * data() = 0;
+	virtual  FacebookCXX::FBGraphObjectProtocolCxx * data() = 0;
 
 	virtual  void setData(FacebookCXX::FBGraphObjectConformerCxx *) = 0;
 

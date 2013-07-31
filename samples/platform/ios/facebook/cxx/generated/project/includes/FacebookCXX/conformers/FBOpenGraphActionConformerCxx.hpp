@@ -7,12 +7,12 @@
 #ifndef _FBOpenGraphActionConformerCxx
 #define _FBOpenGraphActionConformerCxx
 
-#include "FBGraphPlaceProtocolCxx.hpp"
-#include "FBGraphPlaceConformerCxx.hpp"
-#include "FBGraphUserProtocolCxx.hpp"
-#include "FBGraphUserConformerCxx.hpp"
-#include "FBGraphObjectProtocolCxx.hpp"
-#include "FBGraphObjectConformerCxx.hpp"
+#include <FacebookCXX/proxies/FBGraphPlaceProtocolCxx.hpp>
+#include <FacebookCXX/proxies/FBGraphUserProtocolCxx.hpp>
+#include <FacebookCXX/proxies/FBGraphObjectProtocolCxx.hpp>
+#include <FacebookCXX/conformers/FBGraphPlaceConformerCxx.hpp>
+#include <FacebookCXX/conformers/FBGraphUserConformerCxx.hpp>
+#include <FacebookCXX/conformers/FBGraphObjectConformerCxx.hpp>
 
 #include <vector>
 #include <map>
@@ -25,10 +25,10 @@ extern "C" {
 namespace FacebookCXX {
 
 class FBGraphPlaceProtocolCxx;
-class FBGraphPlaceConformerCxx;
 class FBGraphUserProtocolCxx;
-class FBGraphUserConformerCxx;
 class FBGraphObjectProtocolCxx;
+class FBGraphPlaceConformerCxx;
+class FBGraphUserConformerCxx;
 class FBGraphObjectConformerCxx;
 
 class FBOpenGraphActionConformerCxx
@@ -77,7 +77,7 @@ public:
 
 	virtual  void setMessage(std::string&) = 0;
 
-	virtual  FacebookCXX::FBGraphPlaceConformerCxx * place() = 0;
+	virtual  FacebookCXX::FBGraphPlaceProtocolCxx * place() = 0;
 
 	virtual  void setPlace(FacebookCXX::FBGraphPlaceConformerCxx *) = 0;
 
@@ -89,7 +89,7 @@ public:
 
 	virtual  void setImage(void *&) = 0;
 
-	virtual  FacebookCXX::FBGraphUserConformerCxx * from() = 0;
+	virtual  FacebookCXX::FBGraphUserProtocolCxx * from() = 0;
 
 	virtual  void setFrom(FacebookCXX::FBGraphUserConformerCxx *) = 0;
 
@@ -97,7 +97,7 @@ public:
 
 	virtual  void setLikes(std::vector<void *>&) = 0;
 
-	virtual  FacebookCXX::FBGraphObjectConformerCxx * application() = 0;
+	virtual  FacebookCXX::FBGraphObjectProtocolCxx * application() = 0;
 
 	virtual  void setApplication(FacebookCXX::FBGraphObjectConformerCxx *) = 0;
 

@@ -9,8 +9,8 @@
 #ifndef _FBAppEventsCxx
 #define _FBAppEventsCxx
 
-#include "FBSessionCxx.hpp"
-#include "FBAppEventsFlushBehaviorCxx.hpp"
+#include <FacebookCXX/proxies/FBSessionCxx.hpp>
+#include <FacebookCXX/enums/FBAppEventsFlushBehaviorCxx.hpp>
 
 #include <vector>
 #include <map>

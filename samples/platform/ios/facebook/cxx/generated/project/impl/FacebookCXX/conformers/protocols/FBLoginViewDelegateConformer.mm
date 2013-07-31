@@ -4,8 +4,8 @@
  */
 
 
-#include "FacebookCXXConverter.hpp"
-#include "FBLoginViewDelegateConformer.h"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
+#include <FacebookCXX/conformers/protocols/FBLoginViewDelegateConformer.h>
 
 @interface FBLoginViewDelegateConformer()
 

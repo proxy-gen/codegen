@@ -4,9 +4,9 @@
  */
 
 
-#include "FBViewControllerCxx.hpp"
+#include <FacebookCXX/proxies/FBViewControllerCxx.hpp>
 #include <FacebookSDK/FBViewController.h>
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 FacebookCXX::FBViewControllerCxx::FBViewControllerCxx(const FBViewControllerCxx* cc){
 	id proxy_id = (__bridge id)cc->getProxy();

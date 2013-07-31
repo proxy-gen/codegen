@@ -3,7 +3,7 @@
  * Author: cxx-bindings-generator
  */
 
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 // Proxy Converter Types
 void convert_FBProfilePictureViewCxx(void* &objc, FBProfilePictureViewCxx *&cxx, converter_t converter_type)

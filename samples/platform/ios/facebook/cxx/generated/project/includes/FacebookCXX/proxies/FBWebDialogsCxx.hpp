@@ -9,10 +9,10 @@
 #ifndef _FBWebDialogsCxx
 #define _FBWebDialogsCxx
 
-#include "FBSessionCxx.hpp"
-#include "FBWebDialogsDelegateConformerCxx.hpp"
-#include "FBFrictionlessRecipientCacheCxx.hpp"
-#include "FBWebDialogResultCxx.hpp"
+#include <FacebookCXX/proxies/FBSessionCxx.hpp>
+#include <FacebookCXX/proxies/FBFrictionlessRecipientCacheCxx.hpp>
+#include <FacebookCXX/enums/FBWebDialogResultCxx.hpp>
+#include <FacebookCXX/conformers/FBWebDialogsDelegateConformerCxx.hpp>
 
 #include <vector>
 #include <map>
@@ -26,8 +26,8 @@ namespace FacebookCXX {
 
 // Forward Declarations
 class FBSessionCxx;
-class FBWebDialogsDelegateConformerCxx;
 class FBFrictionlessRecipientCacheCxx;
+class FBWebDialogsDelegateConformerCxx;
 
 class FBWebDialogsCxx
 {

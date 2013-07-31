@@ -9,12 +9,12 @@
 #ifndef _FBDialogsCxx
 #define _FBDialogsCxx
 
-#include "FBSessionCxx.hpp"
-#include "FBShareDialogParamsCxx.hpp"
-#include "FBAppCallCxx.hpp"
-#include "FBOpenGraphActionShareDialogParamsCxx.hpp"
-#include "FBOpenGraphActionConformerCxx.hpp"
-#include "FBOSIntegratedShareDialogResultCxx.hpp"
+#include <FacebookCXX/proxies/FBSessionCxx.hpp>
+#include <FacebookCXX/proxies/FBShareDialogParamsCxx.hpp>
+#include <FacebookCXX/proxies/FBAppCallCxx.hpp>
+#include <FacebookCXX/proxies/FBOpenGraphActionShareDialogParamsCxx.hpp>
+#include <FacebookCXX/enums/FBOSIntegratedShareDialogResultCxx.hpp>
+#include <FacebookCXX/conformers/FBOpenGraphActionConformerCxx.hpp>
 
 #include <vector>
 #include <map>

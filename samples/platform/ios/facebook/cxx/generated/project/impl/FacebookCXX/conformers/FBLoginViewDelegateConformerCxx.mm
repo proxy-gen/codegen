@@ -4,8 +4,8 @@
  */
 
 
-#include "FBLoginViewDelegateConformerCxx.hpp"
-#include "FBLoginViewDelegateConformer.h"
+#include <FacebookCXX/conformers/FBLoginViewDelegateConformerCxx.hpp>
+#include <FacebookCXX/conformers/protocols/FBLoginViewDelegateConformer.h>
 
 FacebookCXX::FBLoginViewDelegateConformerCxx::FBLoginViewDelegateConformerCxx(){
 	_proxy = (__bridge_retained void *)[FBLoginViewDelegateConformer conformerWithProxy:this];

@@ -9,7 +9,7 @@
 #ifndef _FBCacheDescriptorCxx
 #define _FBCacheDescriptorCxx
 
-#include "FBSessionCxx.hpp"
+#include <FacebookCXX/proxies/FBSessionCxx.hpp>
 
 #include <vector>
 #include <map>

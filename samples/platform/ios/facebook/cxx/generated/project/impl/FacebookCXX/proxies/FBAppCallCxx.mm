@@ -4,13 +4,13 @@
  */
 
 
-#include "FBAppCallCxx.hpp"
+#include <FacebookCXX/proxies/FBAppCallCxx.hpp>
 #include <FacebookSDK/FBAppCall.h>
 #include <FacebookSDK/FBSession.h>
 #include <FacebookSDK/FBDialogsData.h>
 #include <FacebookSDK/FBAppLinkData.h>
 #include <FacebookSDK/FBAccessTokenData.h>
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 FacebookCXX::FBAppCallCxx::FBAppCallCxx(const FBAppCallCxx* cc){
 	id proxy_id = (__bridge id)cc->getProxy();

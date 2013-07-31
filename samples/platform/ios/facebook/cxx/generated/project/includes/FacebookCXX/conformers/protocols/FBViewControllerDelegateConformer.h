@@ -8,7 +8,7 @@
 #define _FBViewControllerDelegateConformer
 
 #include <FacebookSDK/FBViewController.h>
-#include "FBViewControllerDelegateConformerCxx.hpp"
+#include <FacebookCXX/conformers/FBViewControllerDelegateConformerCxx.hpp>
 
 @interface FBViewControllerDelegateConformer : NSObject <FBViewControllerDelegate> 
 

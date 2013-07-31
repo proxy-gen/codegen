@@ -4,8 +4,8 @@
  */
 
 
-#include "FacebookCXXConverter.hpp"
-#include "FBOpenGraphObjectConformer.h"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
+#include <FacebookCXX/conformers/protocols/FBOpenGraphObjectConformer.h>
 
 @interface FBOpenGraphObjectConformer()
 
@@ -117,9 +117,9 @@
 }
 
 - (id<FBGraphObject>) data{
-	FacebookCXX::FBGraphObjectConformerCxx *result = self.proxy->data();
+	FacebookCXX::FBGraphObjectProtocolCxx *result = self.proxy->data();
 	void *objc_result = NULL;
-	convert_FBGraphObjectConformerCxx(objc_result, result, CONVERT_TO_OBJC);
+	convert_FBGraphObjectProtocolCxx(objc_result, result, CONVERT_TO_OBJC);
 	return (__bridge id)objc_result;
 }
 

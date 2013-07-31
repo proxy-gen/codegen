@@ -9,8 +9,8 @@
 #ifndef _FBFrictionlessRecipientCacheCxx
 #define _FBFrictionlessRecipientCacheCxx
 
-#include "FBSessionCxx.hpp"
-#include "FBRequestConnectionCxx.hpp"
+#include <FacebookCXX/proxies/FBSessionCxx.hpp>
+#include <FacebookCXX/proxies/FBRequestConnectionCxx.hpp>
 
 #include <vector>
 #include <map>

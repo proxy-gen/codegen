@@ -4,11 +4,11 @@
  */
 
 
-#include "FBFriendPickerViewControllerCxx.hpp"
+#include <FacebookCXX/proxies/FBFriendPickerViewControllerCxx.hpp>
 #include <FacebookSDK/FBFriendPickerViewController.h>
 #include <FacebookSDK/FBCacheDescriptor.h>
 #include <FacebookSDK/FBSession.h>
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 FacebookCXX::FBFriendPickerViewControllerCxx::FBFriendPickerViewControllerCxx(const FBFriendPickerViewControllerCxx* cc){
 	id proxy_id = (__bridge id)cc->getProxy();
