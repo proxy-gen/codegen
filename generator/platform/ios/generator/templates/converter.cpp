@@ -11,7 +11,7 @@
 #set $interfaces = $config_module.list_interfaces(tags=["_proxy"],xtags=None,name=None)	
 ##
 #set $protocols = $config_module.list_protocols(tags=["_proxy"],xtags=None,name=None)
-\#include "${package}Converter.hpp"
+\#include <${package}/converters/${package}Converter.hpp>
 
 // Proxy Converter Types
 #for $interface_config in $interfaces

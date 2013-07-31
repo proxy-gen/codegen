@@ -30,6 +30,7 @@
 #set $parameter_idx = 0
 #set $proxied_typeinfo_list = list()
 #set $enum_list = list()
+#set $conformer_list = list()
 #set $modifier_str = None
 #if '_static' in $method['tags']
 #set $modifier_str = 'static' 
@@ -37,7 +38,11 @@
 #for $parameter in $parameters
     #set $typeinfo = $parameter['deriveddata']['targetdata']['typeinfo']
     #if 'isproxied' in $typeinfo
+ 	#if 'protocoltypename' in $typeinfo
+$conformer_list.append($typeinfo)#slurp
+ 	#else
 $proxied_typeinfo_list.append($typeinfo)#slurp
+	#end if
  	#elif 'isenum' in $typeinfo
 $enum_list.append($typeinfo)#slurp
 	#end if
@@ -81,15 +86,18 @@ $enum_list.append($typeinfo)#slurp
 #end for
 #set $method['proxied_typeinfo_list'] = $proxied_typeinfo_list
 #set $method['enum_list'] = $enum_list
+#set $method['conformer_list'] = $conformer_list
 #set $method['modifier_str'] = $modifier_str
 #end for
 ##
 #set $proxied_typeinfos = list()
 #set $enum_typeinfos = list()
+#set $conformer_typeinfos = list()
 ##
 #for $method in $methods
 $proxied_typeinfos.extend(method['proxied_typeinfo_list'])#slurp
 $enum_typeinfos.extend(method['enum_list'])#slurp
+$conformer_typeinfos.extend(method['conformer_list'])#slurp
 #end for
 
 // Generated Code 
@@ -102,7 +110,7 @@ $enum_typeinfos.extend(method['enum_list'])#slurp
 #if $proxied_typeinfo['filename'] not in $included_types
 $included_types.append($proxied_typeinfo['filename'])#slurp
 #if $protocol_class_header != $proxied_typeinfo['filename']
-\#include "${proxied_typeinfo['filename']}"
+\#include <${package}/proxies/${proxied_typeinfo['filename']}>
 #end if
 #end if
 #end for
@@ -111,7 +119,16 @@ $included_types.append($proxied_typeinfo['filename'])#slurp
 #if $enum_typeinfo['filename'] not in $included_enums
 $included_enums.append($enum_typeinfo['filename'])#slurp
 #if $protocol_class_header != $enum_typeinfo['filename']
-\#include "${enum_typeinfo['filename']}"
+\#include <${package}/enums/${enum_typeinfo['filename']}>
+#end if
+#end if
+#end for
+#set $included_conformers = list()
+#for $conformer_typeinfo in $conformer_typeinfos
+#if $conformer_typeinfo['filename'] not in $included_conformers
+$included_conformers.append($conformer_typeinfo['filename'])#slurp
+#if $protocol_class_header != $conformer_typeinfo['filename']
+\#include <${package}/conformers/${conformer_typeinfo['filename']}>
 #end if
 #end if
 #end for
@@ -135,6 +152,17 @@ $forwarded_types.append(proxied_type)#slurp
 #set $proxied_namespace = $proxied_typeinfo['namespace']
 #if $proxied_namespace == $entity_protocol_namespace
 class $proxied_type;
+#end if
+#end if
+#end for
+#set $forwarded_conformers = list()
+#for $conformer_typeinfo in $conformer_typeinfos
+#set $conformer_type = $conformer_typeinfo['typename']
+#if $conformer_type not in $forwarded_types
+$forwarded_types.append(conformer_type)#slurp
+#set $conformer_namespace = $conformer_typeinfo['namespace']
+#if $conformer_namespace == $entity_protocol_namespace
+class $conformer_type;
 #end if
 #end if
 #end for

@@ -9,6 +9,8 @@
 ##
 #set $protocol_name = $CONFIG.protocol_name
 #set $config_module = $CONFIG.config_module
+#set $config_data = $config_module.config_data
+#set $package = $config_data['package']
 ##
 #set $protocol_abstract_class_file_name = $CONFIG.protocol_abstract_class_file_name
 #set $protocol_interface_file_name = $CONFIG.protocol_interface_file_name
@@ -22,8 +24,8 @@
 #set $entity_protocol_namespace = $entity_protocol_info['namespace']
 ##
 
-\#include "${protocol_abstract_class_file_name}"
-\#include "${protocol_interface_file_name}"
+\#include <${package}/conformers/${protocol_abstract_class_file_name}>
+\#include <${package}/conformers/protocols/${protocol_interface_file_name}>
 
 $entity_protocol_namespace::${entity_protocol_typename}::${entity_protocol_typename}(){
 	_proxy = (__bridge_retained void *)[${entity_protocol_proxy_name} conformerWithProxy:this];

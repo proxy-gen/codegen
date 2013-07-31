@@ -7,9 +7,9 @@
 //
 
 #import "ViewController.h"
-#include "FBSessionCxx.hpp"
-#include "FBRequestCxx.hpp"
-#include "FacebookCXXConverter.hpp"
+#include <FacebookCXX/proxies/FBSessionCxx.hpp>
+#include <FacebookCXX/proxies/FBRequestCxx.hpp>
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 #include <iostream>
 
 @interface ViewController ()

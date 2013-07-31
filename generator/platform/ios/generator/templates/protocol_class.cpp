@@ -71,7 +71,7 @@ $proxied_typeinfos.extend(method['proxied_typeinfo_list'])#slurp
 #end for
 ##
 
-\#include "${protocol_class_header}"
+\#include <${package}/proxies/${protocol_class_header}>
 \#include <${entity_protocol_framework}/${entity_protocol_nativefile}>
 #set $included_types = list()
 #for $proxied_typeinfo in $proxied_typeinfos
@@ -82,7 +82,7 @@ $included_types.append($proxied_typeinfo['nativefile'])#slurp
 #end if
 #end if
 #end for
-\#include "${package}Converter.hpp"
+\#include <${package}/converters/${package}Converter.hpp>
 
 ${entity_protocol_namespace}::${entity_protocol_typename}::${entity_protocol_typename}(const ${entity_protocol_typename}* cc){
 	id<$protocol_name> proxy_id = (__bridge id<$protocol_name>)cc->getProxy();

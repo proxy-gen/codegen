@@ -23,12 +23,12 @@ class Generator(BaseGenerator):
 		super(Generator, self).__init__()
 
 	def setup(self):
-		self._setup_index()
 		self._setup_namespace()
 		self._setup_dirs()
 		self._setup_defaults()
 		self._setup_includes()
 		self._setup_config()
+		self._setup_index()
 
 	def generate(self):
 		if self.config['generate_config']:
@@ -38,11 +38,6 @@ class Generator(BaseGenerator):
 
 	def teardown(self):
 		pass
-
-	def _setup_index(self):
-		logging.debug("_setup_index enter")
-		self.indexer = Index()
-		logging.debug("_setup_index exit")
 
 	def _setup_namespace(self):
 		logging.debug("_setup_namespace enter")
@@ -119,12 +114,17 @@ class Generator(BaseGenerator):
 	def _setup_config(self):
 		logging.debug("_setup_config enter")
 		self.config_file_name = self.config['config_file_name']
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		assert self.config_module.is_valid, "config_module is not valid"
 		logging.debug("_setup_config exit")
+
+	def _setup_index(self):
+		logging.debug("_setup_index enter")
+		self.indexer = Index(self.config_module.config_data.get('clang_opts'))
+		logging.debug("_setup_index exit")
 
 	def _generate_config(self):
 		logging.debug("_generate_config enter")
-		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
-		assert self.config_module.is_valid, "config_module is not valid"
 		logging.debug("build_config_closure enter")
 		self.indexer.build_config_closure(self.config_module.config_data)
 		logging.debug("build_config_closure exit")
@@ -152,11 +152,11 @@ class Generator(BaseGenerator):
 		assert self.config_module.is_valid, "config_module is not valid"
 		self._update_config(self.config_module)
 		self.config_module.attach_derived_data()
-		self.includes_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "includes")
+		self.includes_outdir_name = os.path.join(self.output_dir_name, "project", "includes", self.package_name)
 		if not os.path.exists(self.includes_outdir_name):
 			os.makedirs(self.includes_outdir_name)		
 		logging.debug("self.includes_outdir_name " + str(self.includes_outdir_name))
-		self.impl_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "impl")
+		self.impl_outdir_name = os.path.join(self.output_dir_name, "project", "impl", self.package_name)
 		if not os.path.exists(self.impl_outdir_name):
 			os.makedirs(self.impl_outdir_name)		
 		logging.debug("self.impl_outdir_name " + str(self.impl_outdir_name))
@@ -164,6 +164,7 @@ class Generator(BaseGenerator):
 		self._generate_cxx_class_code()
 		self._generate_cxx_enum_code()
 		self._generate_protocol_code()
+		self._generate_makefile()
 		self.config_module.detach_derived_data()			
 		self.config_module = None
 		logging.debug("_generate_cxx_code exit")
@@ -439,7 +440,7 @@ class Generator(BaseGenerator):
 
 	def _generate_cxx_enum_code(self):
 		logging.debug("_generate_cxx_enum_code enter")
-		enums = self.config_module.config_data['enums']
+		enums = self.config_module.config_data.get('enums')
 		for enum in enums:
 			self.enum = enum
 			self.enum_namespace = self.config_module.config_data['namespace']
@@ -462,6 +463,20 @@ class Generator(BaseGenerator):
 			self.enum = None	
 		logging.debug("_generate_cxx_enum_code exit")
 
+	def _generate_makefile(self):
+		logging.debug("_generate_makefile enter")
+		self.cxxconverter_path = os.path.abspath(os.path.dirname(os.path.abspath(__file__)) + "/../resources/CXXConverter/build/Debug-iphoneos/")
+		self.framework_path = os.path.abspath(os.path.dirname(self.config_module.config_data['frameworks'][0]))
+		makefile_path = os.path.join(self.output_dir_name, "project", "makefile")
+		self.makefile = open(makefile_path, "w+")
+		makefile = Template(file=os.path.join(self.target, "templates", "makefile"), searchList=[{'CONFIG': self}])
+		self.makefile.write(str(makefile))
+		self.makefile.close()
+		self.makefile = None
+		self.cxxconverter_path = None
+		self.framework_path = None
+		logging.debug("_generate_makefile exit")
+
 	def _update_config(self, config_module):
 		logging.debug("Generator _update_config_data enter")
 		config_module.add_namespace_to_config_data(self.namespace_name)
@@ -469,7 +484,7 @@ class Generator(BaseGenerator):
 		config_module.attach_include_converters(self.include_converters)
 		config_module.attach_default_converters(self.default_converters)
 		config_module.attach_config_converters()
-		logging.debug("Generator _update_config_data exit")	
+		logging.debug("Generator _update_config_data exit")
 
 class ConfigModule(object):
 	def __init__(self, config_file_name, include_config_file_path):
@@ -659,7 +674,7 @@ class ConfigModule(object):
 			xtags = set(xtags)
 		protocol_list = list()
 		if 'protocols' in config_data:
-			protocols = config_data['protocols']
+			protocols = config_data.get('protocols')
 			for protocol in protocols:
 				append = True
 				if tags is not None:

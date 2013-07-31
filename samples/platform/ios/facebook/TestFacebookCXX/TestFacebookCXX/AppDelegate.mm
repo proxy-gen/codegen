@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#include "FBSessionCxx.hpp"
-#include "FBSettingsCxx.hpp"
+#include <FacebookCXX/proxies/FBSessionCxx.hpp>
+#include <FacebookCXX/proxies/FBSettingsCxx.hpp>
 
 #import "ViewController.h"
 

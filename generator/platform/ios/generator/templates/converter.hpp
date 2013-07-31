@@ -19,17 +19,17 @@
 #for $interface_config in $interfaces
 #set $class_info = $interface_config['deriveddata']['targetdata']['classinfo']
 #set $entity_file_name = $class_info['filename']
-\#include "${entity_file_name}"
+\#include <${package}/proxies/${entity_file_name}>
 #end for
 #for $protocol_config in $protocols
 #set $protocolinfo = $protocol_config['deriveddata']['targetdata']['protocolinfo']
 #set $entity_file_name = $protocolinfo['conformerfilename']
-\#include "${entity_file_name}"
+\#include <${package}/conformers/${entity_file_name}>
 #end for
 #for $protocol_config in $protocols
 #set $protocolinfo = $protocol_config['deriveddata']['targetdata']['protocolinfo']
 #set $entity_file_name = $protocolinfo['filename']
-\#include "${entity_file_name}"
+\#include <${package}/proxies/${entity_file_name}>
 #end for
 
 using namespace ${namespace};

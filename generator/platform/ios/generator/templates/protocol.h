@@ -7,6 +7,10 @@
 #set $COMMA = ","
 #set $REF = "&"
 ##
+#set $config_module = $CONFIG.config_module
+#set $config_data = $config_module.config_data
+#set $package = $config_data['package']
+##
 #set $protocol_name = $CONFIG.protocol_name
 #set $protocol_abstract_class_file_name = $CONFIG.protocol_abstract_class_file_name
 ##
@@ -23,7 +27,7 @@
 \#define _$entity_protocol_proxy_name
 
 \#include <${entity_protocol_framework}/${entity_protocol_nativefile}>
-\#include "${protocol_abstract_class_file_name}"
+\#include <${package}/conformers/${protocol_abstract_class_file_name}>
 
 @interface $entity_protocol_proxy_name : NSObject <$protocol_name> 
 
