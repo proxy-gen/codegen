@@ -40,7 +40,13 @@ LIB_${ARCH}						:= \$(LIB_${ARCH}_FOLDER)\$(LIB_NAME)
 LIB_FAT_FOLDER				:= ./lib/fat/
 LIB_FAT 					:= \$(LIB_FAT_FOLDER)\$(LIB_NAME)
 
-all: \$(LIB_FAT)
+BUILD_LOG					:= ./build.log
+
+all: \$(BUILD_LOG) \$(LIB_FAT)
+
+\$(BUILD_LOG):
+	@rm -f \$(BUILD_LOG)
+	@echo "Starting build at \$(shell date)." > build.log
 
 #set $all_libs = ""
 #set $lipo_create = ""
@@ -50,11 +56,14 @@ all: \$(LIB_FAT)
 #end for
 \$(LIB_FAT): $all_libs
 	@mkdir -p \$(LIB_FAT_FOLDER)
+	@echo "Building fat library \$(notdir \$(LIB_FAT)) ..."
+	@echo "See build.log for build details."
 	@lipo -output \$(LIB_FAT) -create ${lipo_create}
 
 #for $arch in $makefile_opts
 #set $info = $arch_data[$arch]
 \$(${info['lib']}): \$(${info['objects']})
+	@echo "Archiving \$(notdir \$(${info['lib']})) for $arch ..."
 	@mkdir -p \$(${info['lib_folder']})
 	@ar rcs \$(${info['lib']}) \$(${info['objects']})
 
@@ -62,13 +71,17 @@ all: \$(LIB_FAT)
 #for $arch in $makefile_opts
 #set $info = $arch_data[$arch]
 \$(${info['objects']}): \$(${info['objects_folder']})%.o: %.mm
+	@echo "Compiling \$(notdir \$<) ..."
 	@mkdir -p \$(dir \$@)
-	@\$(CXX) \$(${info['flags']}) -c \$< -o \$@
+	@echo "\$(CXX) \$(${info['flags']}) -c \$< -o \$@">>build.log
+	@\$(CXX) \$(${info['flags']}) -c \$< -o \$@ 1>&2 2>>build.log
 
 #end for
 
 clean:
+	@echo "Removing object files."
 	@rm -rf ./obj
 
 purge: clean
+	@echo "Removing library files."
 	@rm -rf ./lib

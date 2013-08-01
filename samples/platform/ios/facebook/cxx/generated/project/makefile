@@ -22,31 +22,47 @@ LIB_ARMV7						:= $(LIB_ARMV7_FOLDER)$(LIB_NAME)
 LIB_FAT_FOLDER				:= ./lib/fat/
 LIB_FAT 					:= $(LIB_FAT_FOLDER)$(LIB_NAME)
 
-all: $(LIB_FAT)
+BUILD_LOG					:= ./build.log
+
+all: $(BUILD_LOG) $(LIB_FAT)
+
+$(BUILD_LOG):
+	@rm -f $(BUILD_LOG)
+	@echo "Starting build at $(shell date)." > build.log
 
 $(LIB_FAT): $(LIB_I386) $(LIB_ARMV7) 
 	@mkdir -p $(LIB_FAT_FOLDER)
+	@echo "Building fat library $(notdir $(LIB_FAT))"
+	@echo "See build.log for build details."
 	@lipo -output $(LIB_FAT) -create -arch i386 $(LIB_I386) -arch armv7 $(LIB_ARMV7) 
 
 $(LIB_I386): $(OBJECTS_I386)
+	@echo "Archiving $(notdir $(LIB_I386)) for i386 ..."
 	@mkdir -p $(LIB_I386_FOLDER)
 	@ar rcs $(LIB_I386) $(OBJECTS_I386)
 
 $(LIB_ARMV7): $(OBJECTS_ARMV7)
+	@echo "Archiving $(notdir $(LIB_ARMV7)) for armv7 ..."
 	@mkdir -p $(LIB_ARMV7_FOLDER)
 	@ar rcs $(LIB_ARMV7) $(OBJECTS_ARMV7)
 
 $(OBJECTS_I386): $(OBJECTS_I386_FOLDER)%.o: %.mm
+	@echo "Compiling $(notdir $<) ..."
 	@mkdir -p $(dir $@)
-	@$(CXX) $(I386FLAGS) -c $< -o $@
+	@echo "$(CXX) $(I386FLAGS) -c $< -o $@">>build.log
+	@$(CXX) $(I386FLAGS) -c $< -o $@ 1>&2 2>>build.log
 
 $(OBJECTS_ARMV7): $(OBJECTS_ARMV7_FOLDER)%.o: %.mm
+	@echo "Compiling $(notdir $<) ..."
 	@mkdir -p $(dir $@)
-	@$(CXX) $(ARMV7FLAGS) -c $< -o $@
+	@echo "$(CXX) $(ARMV7FLAGS) -c $< -o $@">>build.log
+	@$(CXX) $(ARMV7FLAGS) -c $< -o $@ 1>&2 2>>build.log
 
 
 clean:
+	@echo "Removing object files."
 	@rm -rf ./obj
 
 purge: clean
+	@echo "Removing library files."
 	@rm -rf ./lib
