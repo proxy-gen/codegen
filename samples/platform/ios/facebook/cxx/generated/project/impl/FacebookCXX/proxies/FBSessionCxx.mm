@@ -263,9 +263,9 @@ void FacebookCXX::FBSessionCxx::requestNewPublishPermissions_defaultAudience_com
 	[(__bridge FBSession *)_proxy requestNewPublishPermissions:(__bridge id)objc_arg0 defaultAudience:objc_arg1 completionHandler:objc_arg2 ];
 }
 
-signed char FacebookCXX::FBSessionCxx::handleOpenURL(void *& arg0){
+signed char FacebookCXX::FBSessionCxx::handleOpenURL(std::string& arg0){
 	void *objc_arg0 = NULL;
-	convert_object(objc_arg0, arg0, CONVERT_TO_OBJC);
+	convert_url(objc_arg0, arg0, CONVERT_TO_OBJC);
 
 	signed char objc_result = (signed char)[(__bridge FBSession *)_proxy handleOpenURL:(__bridge id)objc_arg0 ];
 	return objc_result;

@@ -45,7 +45,7 @@ config = {
 		{
 			"name"		:	"convert_url",
 			"objc"		:	{
-								"type" : "NSUrl *"
+								"type" : "NSURL *"
 							},
 			"cxx"		:	{
 								"type" : "std::string"

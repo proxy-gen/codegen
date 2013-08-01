@@ -41,7 +41,7 @@ public:
 
 	 void webDialogsWillPresentDialog_parameters_session(std::string& arg0,void *& arg1,FacebookCXX::FBSessionCxx * arg2);
 
-	 signed char webDialogsDialog_parameters_session_shouldAutoHandleURL(std::string& arg0,std::map<void *, void *>& arg1,FacebookCXX::FBSessionCxx * arg2,void *& arg3);
+	 signed char webDialogsDialog_parameters_session_shouldAutoHandleURL(std::string& arg0,std::map<void *, void *>& arg1,FacebookCXX::FBSessionCxx * arg2,std::string& arg3);
 private:
 	void* _proxy;
 };

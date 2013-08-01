@@ -55,9 +55,9 @@
 	void *objc_cast2 = (__bridge void *)objc_arg2;
 	convert_FBSessionCxx(objc_cast2, arg2, CONVERT_TO_CXX);
 
-	void * arg3;
+	std::string arg3;
 	void *objc_cast3 = (__bridge void *)objc_arg3;
-	convert_object(objc_cast3, arg3, CONVERT_TO_CXX);
+	convert_url(objc_cast3, arg3, CONVERT_TO_CXX);
 
 	signed char result = (BOOL)(self.proxy->webDialogsDialog_parameters_session_shouldAutoHandleURL(arg0, arg1, arg2, arg3));
 	return result;

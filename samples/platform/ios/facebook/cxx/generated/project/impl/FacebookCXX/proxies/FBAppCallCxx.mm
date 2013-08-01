@@ -31,9 +31,9 @@ void *FacebookCXX::FBAppCallCxx::getProxy() const{
 	return _proxy;
 }
 
-FacebookCXX::FBAppCallCxx * FacebookCXX::FBAppCallCxx::appCallFromURL(void *& arg0){
+FacebookCXX::FBAppCallCxx * FacebookCXX::FBAppCallCxx::appCallFromURL(std::string& arg0){
 	void *objc_arg0 = NULL;
-	convert_object(objc_arg0, arg0, CONVERT_TO_OBJC);
+	convert_url(objc_arg0, arg0, CONVERT_TO_OBJC);
 
 	void *objc_result = (__bridge void *)[FBAppCall appCallFromURL:(__bridge id)objc_arg0 ];
 	FacebookCXX::FBAppCallCxx * result = NULL;
@@ -49,9 +49,9 @@ signed char FacebookCXX::FBAppCallCxx::isEqualToAppCall(FacebookCXX::FBAppCallCx
 	return objc_result;
 }
 
-signed char FacebookCXX::FBAppCallCxx::handleOpenURL_sourceApplication(void *& arg0,std::string& arg1){
+signed char FacebookCXX::FBAppCallCxx::handleOpenURL_sourceApplication(std::string& arg0,std::string& arg1){
 	void *objc_arg0 = NULL;
-	convert_object(objc_arg0, arg0, CONVERT_TO_OBJC);
+	convert_url(objc_arg0, arg0, CONVERT_TO_OBJC);
 
 	void *objc_arg1 = NULL;
 	convert_string(objc_arg1, arg1, CONVERT_TO_OBJC);
@@ -60,9 +60,9 @@ signed char FacebookCXX::FBAppCallCxx::handleOpenURL_sourceApplication(void *& a
 	return objc_result;
 }
 
-signed char FacebookCXX::FBAppCallCxx::handleOpenURL_sourceApplication_fallbackHandler(void *& arg0,std::string& arg1,void(*arg2)(FacebookCXX::FBAppCallCxx *)){
+signed char FacebookCXX::FBAppCallCxx::handleOpenURL_sourceApplication_fallbackHandler(std::string& arg0,std::string& arg1,void(*arg2)(FacebookCXX::FBAppCallCxx *)){
 	void *objc_arg0 = NULL;
-	convert_object(objc_arg0, arg0, CONVERT_TO_OBJC);
+	convert_url(objc_arg0, arg0, CONVERT_TO_OBJC);
 
 	void *objc_arg1 = NULL;
 	convert_string(objc_arg1, arg1, CONVERT_TO_OBJC);
@@ -80,9 +80,9 @@ signed char FacebookCXX::FBAppCallCxx::handleOpenURL_sourceApplication_fallbackH
 	return objc_result;
 }
 
-signed char FacebookCXX::FBAppCallCxx::handleOpenURL_sourceApplication_withSession(void *& arg0,std::string& arg1,FacebookCXX::FBSessionCxx * arg2){
+signed char FacebookCXX::FBAppCallCxx::handleOpenURL_sourceApplication_withSession(std::string& arg0,std::string& arg1,FacebookCXX::FBSessionCxx * arg2){
 	void *objc_arg0 = NULL;
-	convert_object(objc_arg0, arg0, CONVERT_TO_OBJC);
+	convert_url(objc_arg0, arg0, CONVERT_TO_OBJC);
 
 	void *objc_arg1 = NULL;
 	convert_string(objc_arg1, arg1, CONVERT_TO_OBJC);
@@ -94,9 +94,9 @@ signed char FacebookCXX::FBAppCallCxx::handleOpenURL_sourceApplication_withSessi
 	return objc_result;
 }
 
-signed char FacebookCXX::FBAppCallCxx::handleOpenURL_sourceApplication_withSession_fallbackHandler(void *& arg0,std::string& arg1,FacebookCXX::FBSessionCxx * arg2,void(*arg3)(FacebookCXX::FBAppCallCxx *)){
+signed char FacebookCXX::FBAppCallCxx::handleOpenURL_sourceApplication_withSession_fallbackHandler(std::string& arg0,std::string& arg1,FacebookCXX::FBSessionCxx * arg2,void(*arg3)(FacebookCXX::FBAppCallCxx *)){
 	void *objc_arg0 = NULL;
-	convert_object(objc_arg0, arg0, CONVERT_TO_OBJC);
+	convert_url(objc_arg0, arg0, CONVERT_TO_OBJC);
 
 	void *objc_arg1 = NULL;
 	convert_string(objc_arg1, arg1, CONVERT_TO_OBJC);

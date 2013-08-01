@@ -48,7 +48,7 @@ public:
 
 	// Functions
 
-	static signed char presentOSIntegratedShareDialogModallyFrom_initialText_image_url_handler(void *& arg0,std::string& arg1,void *& arg2,void *& arg3,void(*arg4)(FacebookCXX::FBOSIntegratedShareDialogResultCxx &, std::string &));
+	static signed char presentOSIntegratedShareDialogModallyFrom_initialText_image_url_handler(void *& arg0,std::string& arg1,void *& arg2,std::string& arg3,void(*arg4)(FacebookCXX::FBOSIntegratedShareDialogResultCxx &, std::string &));
 
 	static signed char presentOSIntegratedShareDialogModallyFrom_initialText_images_urls_handler(void *& arg0,std::string& arg1,std::vector<void *>& arg2,std::vector<void *>& arg3,void(*arg4)(FacebookCXX::FBOSIntegratedShareDialogResultCxx &, std::string &));
 
@@ -60,11 +60,11 @@ public:
 
 	static FacebookCXX::FBAppCallCxx * presentShareDialogWithParams_clientState_handler(FacebookCXX::FBShareDialogParamsCxx * arg0,std::map<void *, void *>& arg1,void(*arg2)(FacebookCXX::FBAppCallCxx *, std::map<void *, void *> &, std::string &));
 
-	static FacebookCXX::FBAppCallCxx * presentShareDialogWithLink_handler(void *& arg0,void(*arg1)(FacebookCXX::FBAppCallCxx *, std::map<void *, void *> &, std::string &));
+	static FacebookCXX::FBAppCallCxx * presentShareDialogWithLink_handler(std::string& arg0,void(*arg1)(FacebookCXX::FBAppCallCxx *, std::map<void *, void *> &, std::string &));
 
-	static FacebookCXX::FBAppCallCxx * presentShareDialogWithLink_name_handler(void *& arg0,std::string& arg1,void(*arg2)(FacebookCXX::FBAppCallCxx *, std::map<void *, void *> &, std::string &));
+	static FacebookCXX::FBAppCallCxx * presentShareDialogWithLink_name_handler(std::string& arg0,std::string& arg1,void(*arg2)(FacebookCXX::FBAppCallCxx *, std::map<void *, void *> &, std::string &));
 
-	static FacebookCXX::FBAppCallCxx * presentShareDialogWithLink_name_caption_description_picture_clientState_handler(void *& arg0,std::string& arg1,std::string& arg2,std::string& arg3,void *& arg4,std::map<void *, void *>& arg5,void(*arg6)(FacebookCXX::FBAppCallCxx *, std::map<void *, void *> &, std::string &));
+	static FacebookCXX::FBAppCallCxx * presentShareDialogWithLink_name_caption_description_picture_clientState_handler(std::string& arg0,std::string& arg1,std::string& arg2,std::string& arg3,std::string& arg4,std::map<void *, void *>& arg5,void(*arg6)(FacebookCXX::FBAppCallCxx *, std::map<void *, void *> &, std::string &));
 
 	static signed char canPresentShareDialogWithOpenGraphActionParams(FacebookCXX::FBOpenGraphActionShareDialogParamsCxx * arg0);
 

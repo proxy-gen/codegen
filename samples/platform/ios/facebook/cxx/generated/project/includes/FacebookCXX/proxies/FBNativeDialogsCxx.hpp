@@ -40,7 +40,7 @@ public:
 
 	// Functions
 
-	static signed char presentShareDialogModallyFrom_initialText_image_url_handler(void *& arg0,std::string& arg1,void *& arg2,void *& arg3,void(*arg4)(FacebookCXX::FBNativeDialogResultCxx &, std::string &));
+	static signed char presentShareDialogModallyFrom_initialText_image_url_handler(void *& arg0,std::string& arg1,void *& arg2,std::string& arg3,void(*arg4)(FacebookCXX::FBNativeDialogResultCxx &, std::string &));
 
 	static signed char presentShareDialogModallyFrom_initialText_images_urls_handler(void *& arg0,std::string& arg1,std::vector<void *>& arg2,std::vector<void *>& arg3,void(*arg4)(FacebookCXX::FBNativeDialogResultCxx &, std::string &));
 

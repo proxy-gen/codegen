@@ -32,7 +32,7 @@ $(BUILD_LOG):
 
 $(LIB_FAT): $(LIB_I386) $(LIB_ARMV7) 
 	@mkdir -p $(LIB_FAT_FOLDER)
-	@echo "Building fat library $(notdir $(LIB_FAT))"
+	@echo "Building fat library $(notdir $(LIB_FAT)) ..."
 	@echo "See build.log for build details."
 	@lipo -output $(LIB_FAT) -create -arch i386 $(LIB_I386) -arch armv7 $(LIB_ARMV7) 
 

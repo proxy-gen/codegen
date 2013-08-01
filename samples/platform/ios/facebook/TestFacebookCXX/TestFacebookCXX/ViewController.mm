@@ -44,6 +44,8 @@ void  sessionStateChanged(FacebookCXX::FBSessionCxx *session,
             std::cout << "You are logged in." << std::endl;
             break;
         case FacebookCXX::FBSessionStateClosed:
+            std::cout << "You are logged out." << std::endl;
+            break;
         case FacebookCXX::FBSessionStateClosedLoginFailed:{
             // Once the user has logged in, we want them to
             // be looking at the root view.

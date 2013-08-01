@@ -74,7 +74,7 @@ public:
 
 	 void requestNewPublishPermissions_defaultAudience_completionHandler(std::vector<void *>& arg0,FacebookCXX::FBSessionDefaultAudienceCxx& arg1,void(*arg2)(FacebookCXX::FBSessionCxx *, std::string &));
 
-	 signed char handleOpenURL(void *& arg0);
+	 signed char handleOpenURL(std::string& arg0);
 
 	 void handleDidBecomeActive();
 

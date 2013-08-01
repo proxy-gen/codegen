@@ -37,7 +37,7 @@ public:
 
 	// Functions
 
-	 void * targetURL();
+	 std::string targetURL();
 
 	 std::vector<void *> actionTypes();
 
@@ -47,7 +47,7 @@ public:
 
 	 std::map<void *, void *> originalQueryParameters();
 
-	 void * originalURL();
+	 std::string originalURL();
 
 	 std::map<void *, void *> arguments();
 private:

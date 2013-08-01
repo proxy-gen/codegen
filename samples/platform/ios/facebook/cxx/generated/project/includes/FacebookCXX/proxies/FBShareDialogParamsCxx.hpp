@@ -37,9 +37,9 @@ public:
 
 	// Functions
 
-	 void * link();
+	 std::string link();
 
-	 void setLink(void *& arg0);
+	 void setLink(std::string& arg0);
 
 	 std::string name();
 
@@ -53,9 +53,9 @@ public:
 
 	 void setDescription(std::string& arg0);
 
-	 void * picture();
+	 std::string picture();
 
-	 void setPicture(void *& arg0);
+	 void setPicture(std::string& arg0);
 
 	 std::vector<void *> friends();
 

@@ -27,16 +27,16 @@ void *FacebookCXX::FBShareDialogParamsCxx::getProxy() const{
 	return _proxy;
 }
 
-void * FacebookCXX::FBShareDialogParamsCxx::link(){
+std::string FacebookCXX::FBShareDialogParamsCxx::link(){
 	void *objc_result = (__bridge void *)[(__bridge FBShareDialogParams *)_proxy link];
-	void * result;
-	convert_object(objc_result, result, CONVERT_TO_CXX);
+	std::string result;
+	convert_url(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 
-void FacebookCXX::FBShareDialogParamsCxx::setLink(void *& arg0){
+void FacebookCXX::FBShareDialogParamsCxx::setLink(std::string& arg0){
 	void *objc_arg0 = NULL;
-	convert_object(objc_arg0, arg0, CONVERT_TO_OBJC);
+	convert_url(objc_arg0, arg0, CONVERT_TO_OBJC);
 
 	[(__bridge FBShareDialogParams *)_proxy setLink:(__bridge id)objc_arg0 ];
 }
@@ -83,16 +83,16 @@ void FacebookCXX::FBShareDialogParamsCxx::setDescription(std::string& arg0){
 	[(__bridge FBShareDialogParams *)_proxy setDescription:(__bridge id)objc_arg0 ];
 }
 
-void * FacebookCXX::FBShareDialogParamsCxx::picture(){
+std::string FacebookCXX::FBShareDialogParamsCxx::picture(){
 	void *objc_result = (__bridge void *)[(__bridge FBShareDialogParams *)_proxy picture];
-	void * result;
-	convert_object(objc_result, result, CONVERT_TO_CXX);
+	std::string result;
+	convert_url(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 
-void FacebookCXX::FBShareDialogParamsCxx::setPicture(void *& arg0){
+void FacebookCXX::FBShareDialogParamsCxx::setPicture(std::string& arg0){
 	void *objc_arg0 = NULL;
-	convert_object(objc_arg0, arg0, CONVERT_TO_OBJC);
+	convert_url(objc_arg0, arg0, CONVERT_TO_OBJC);
 
 	[(__bridge FBShareDialogParams *)_proxy setPicture:(__bridge id)objc_arg0 ];
 }

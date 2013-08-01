@@ -109,7 +109,7 @@ void FacebookCXX::FBFrictionlessRecipientCacheCxx::webDialogsWillPresentDialog_p
 	[(__bridge FBFrictionlessRecipientCache *)_proxy webDialogsWillPresentDialog:(__bridge id)objc_arg0 parameters:(__bridge id)objc_arg1 session:(__bridge id)objc_arg2 ];
 }
 
-signed char FacebookCXX::FBFrictionlessRecipientCacheCxx::webDialogsDialog_parameters_session_shouldAutoHandleURL(std::string& arg0,std::map<void *, void *>& arg1,FacebookCXX::FBSessionCxx * arg2,void *& arg3){
+signed char FacebookCXX::FBFrictionlessRecipientCacheCxx::webDialogsDialog_parameters_session_shouldAutoHandleURL(std::string& arg0,std::map<void *, void *>& arg1,FacebookCXX::FBSessionCxx * arg2,std::string& arg3){
 	void *objc_arg0 = NULL;
 	convert_string(objc_arg0, arg0, CONVERT_TO_OBJC);
 
@@ -120,7 +120,7 @@ signed char FacebookCXX::FBFrictionlessRecipientCacheCxx::webDialogsDialog_param
 	convert_FBSessionCxx(objc_arg2, arg2, CONVERT_TO_OBJC);
 
 	void *objc_arg3 = NULL;
-	convert_object(objc_arg3, arg3, CONVERT_TO_OBJC);
+	convert_url(objc_arg3, arg3, CONVERT_TO_OBJC);
 
 	signed char objc_result = (signed char)[(__bridge FBFrictionlessRecipientCache *)_proxy webDialogsDialog:(__bridge id)objc_arg0 parameters:(__bridge id)objc_arg1 session:(__bridge id)objc_arg2 shouldAutoHandleURL:(__bridge id)objc_arg3 ];
 	return objc_result;

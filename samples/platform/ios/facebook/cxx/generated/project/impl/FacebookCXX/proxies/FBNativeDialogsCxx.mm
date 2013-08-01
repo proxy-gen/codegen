@@ -28,7 +28,7 @@ void *FacebookCXX::FBNativeDialogsCxx::getProxy() const{
 	return _proxy;
 }
 
-signed char FacebookCXX::FBNativeDialogsCxx::presentShareDialogModallyFrom_initialText_image_url_handler(void *& arg0,std::string& arg1,void *& arg2,void *& arg3,void(*arg4)(FacebookCXX::FBNativeDialogResultCxx &, std::string &)){
+signed char FacebookCXX::FBNativeDialogsCxx::presentShareDialogModallyFrom_initialText_image_url_handler(void *& arg0,std::string& arg1,void *& arg2,std::string& arg3,void(*arg4)(FacebookCXX::FBNativeDialogResultCxx &, std::string &)){
 	void *objc_arg0 = NULL;
 	convert_object(objc_arg0, arg0, CONVERT_TO_OBJC);
 
@@ -39,7 +39,7 @@ signed char FacebookCXX::FBNativeDialogsCxx::presentShareDialogModallyFrom_initi
 	convert_object(objc_arg2, arg2, CONVERT_TO_OBJC);
 
 	void *objc_arg3 = NULL;
-	convert_object(objc_arg3, arg3, CONVERT_TO_OBJC);
+	convert_url(objc_arg3, arg3, CONVERT_TO_OBJC);
 
 	void (^objc_arg4)(FBNativeDialogResult, NSError *);
 	objc_arg4 = ^(FBNativeDialogResult objc_barg0, NSError * objc_barg1){

@@ -27,9 +27,9 @@ void *FacebookCXX::FBAccessTokenDataCxx::getProxy() const{
 	return _proxy;
 }
 
-FacebookCXX::FBAccessTokenDataCxx * FacebookCXX::FBAccessTokenDataCxx::createTokenFromFacebookURL_appID_urlSchemeSuffix(void *& arg0,std::string& arg1,std::string& arg2){
+FacebookCXX::FBAccessTokenDataCxx * FacebookCXX::FBAccessTokenDataCxx::createTokenFromFacebookURL_appID_urlSchemeSuffix(std::string& arg0,std::string& arg1,std::string& arg2){
 	void *objc_arg0 = NULL;
-	convert_object(objc_arg0, arg0, CONVERT_TO_OBJC);
+	convert_url(objc_arg0, arg0, CONVERT_TO_OBJC);
 
 	void *objc_arg1 = NULL;
 	convert_string(objc_arg1, arg1, CONVERT_TO_OBJC);

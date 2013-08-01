@@ -39,7 +39,7 @@ public:
 
 	// Functions
 
-	static FacebookCXX::FBAccessTokenDataCxx * createTokenFromFacebookURL_appID_urlSchemeSuffix(void *& arg0,std::string& arg1,std::string& arg2);
+	static FacebookCXX::FBAccessTokenDataCxx * createTokenFromFacebookURL_appID_urlSchemeSuffix(std::string& arg0,std::string& arg1,std::string& arg2);
 
 	static FacebookCXX::FBAccessTokenDataCxx * createTokenFromDictionary(std::map<void *, void *>& arg0);
 

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #include <FacebookCXX/proxies/FBSessionCxx.hpp>
 #include <FacebookCXX/proxies/FBSettingsCxx.hpp>
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 #import "ViewController.h"
 
@@ -33,8 +34,10 @@
          annotation:(id)annotation
 {
     FacebookCXX::FBSessionCxx* session = FacebookCXX::FBSessionCxx::activeSession();
-    void * url_v = (__bridge void *)url;
-    return session->handleOpenURL(url_v);
+    void * urlvoid = (__bridge void*)url;
+    std::string urlstring;
+    convert_url(urlvoid, urlstring, CONVERT_TO_CXX);
+    return session->handleOpenURL(urlstring);
     delete session;
 }
 

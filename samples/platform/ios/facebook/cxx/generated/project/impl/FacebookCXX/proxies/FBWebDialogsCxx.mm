@@ -29,7 +29,7 @@ void *FacebookCXX::FBWebDialogsCxx::getProxy() const{
 	return _proxy;
 }
 
-void FacebookCXX::FBWebDialogsCxx::presentDialogModallyWithSession_dialog_parameters_handler(FacebookCXX::FBSessionCxx * arg0,std::string& arg1,std::map<void *, void *>& arg2,void(*arg3)(FacebookCXX::FBWebDialogResultCxx &, void * &, std::string &)){
+void FacebookCXX::FBWebDialogsCxx::presentDialogModallyWithSession_dialog_parameters_handler(FacebookCXX::FBSessionCxx * arg0,std::string& arg1,std::map<void *, void *>& arg2,void(*arg3)(FacebookCXX::FBWebDialogResultCxx &, std::string &, std::string &)){
 	void *objc_arg0 = NULL;
 	convert_FBSessionCxx(objc_arg0, arg0, CONVERT_TO_OBJC);
 
@@ -43,9 +43,9 @@ void FacebookCXX::FBWebDialogsCxx::presentDialogModallyWithSession_dialog_parame
 	objc_arg3 = ^(FBWebDialogResult objc_barg0, NSURL * objc_barg1, NSError * objc_barg2){
 		FacebookCXX::FBWebDialogResultCxx barg0 = (FacebookCXX::FBWebDialogResultCxx)objc_barg0;
 
-		void * barg1;
+		std::string barg1;
 		void *objc_bcast1 = (__bridge void *)objc_barg1;
-		convert_object(objc_bcast1, barg1, CONVERT_TO_CXX);
+		convert_url(objc_bcast1, barg1, CONVERT_TO_CXX);
 
 		std::string barg2;
 		void *objc_bcast2 = (__bridge void *)objc_barg2;
@@ -57,7 +57,7 @@ void FacebookCXX::FBWebDialogsCxx::presentDialogModallyWithSession_dialog_parame
 	[FBWebDialogs presentDialogModallyWithSession:(__bridge id)objc_arg0 dialog:(__bridge id)objc_arg1 parameters:(__bridge id)objc_arg2 handler:objc_arg3 ];
 }
 
-void FacebookCXX::FBWebDialogsCxx::presentDialogModallyWithSession_dialog_parameters_handler_delegate(FacebookCXX::FBSessionCxx * arg0,std::string& arg1,std::map<void *, void *>& arg2,void(*arg3)(FacebookCXX::FBWebDialogResultCxx &, void * &, std::string &),FacebookCXX::FBWebDialogsDelegateConformerCxx * arg4){
+void FacebookCXX::FBWebDialogsCxx::presentDialogModallyWithSession_dialog_parameters_handler_delegate(FacebookCXX::FBSessionCxx * arg0,std::string& arg1,std::map<void *, void *>& arg2,void(*arg3)(FacebookCXX::FBWebDialogResultCxx &, std::string &, std::string &),FacebookCXX::FBWebDialogsDelegateConformerCxx * arg4){
 	void *objc_arg0 = NULL;
 	convert_FBSessionCxx(objc_arg0, arg0, CONVERT_TO_OBJC);
 
@@ -71,9 +71,9 @@ void FacebookCXX::FBWebDialogsCxx::presentDialogModallyWithSession_dialog_parame
 	objc_arg3 = ^(FBWebDialogResult objc_barg0, NSURL * objc_barg1, NSError * objc_barg2){
 		FacebookCXX::FBWebDialogResultCxx barg0 = (FacebookCXX::FBWebDialogResultCxx)objc_barg0;
 
-		void * barg1;
+		std::string barg1;
 		void *objc_bcast1 = (__bridge void *)objc_barg1;
-		convert_object(objc_bcast1, barg1, CONVERT_TO_CXX);
+		convert_url(objc_bcast1, barg1, CONVERT_TO_CXX);
 
 		std::string barg2;
 		void *objc_bcast2 = (__bridge void *)objc_barg2;
@@ -88,7 +88,7 @@ void FacebookCXX::FBWebDialogsCxx::presentDialogModallyWithSession_dialog_parame
 	[FBWebDialogs presentDialogModallyWithSession:(__bridge id)objc_arg0 dialog:(__bridge id)objc_arg1 parameters:(__bridge id)objc_arg2 handler:objc_arg3 delegate:(__bridge id)objc_arg4 ];
 }
 
-void FacebookCXX::FBWebDialogsCxx::presentRequestsDialogModallyWithSession_message_title_parameters_handler(FacebookCXX::FBSessionCxx * arg0,std::string& arg1,std::string& arg2,std::map<void *, void *>& arg3,void(*arg4)(FacebookCXX::FBWebDialogResultCxx &, void * &, std::string &)){
+void FacebookCXX::FBWebDialogsCxx::presentRequestsDialogModallyWithSession_message_title_parameters_handler(FacebookCXX::FBSessionCxx * arg0,std::string& arg1,std::string& arg2,std::map<void *, void *>& arg3,void(*arg4)(FacebookCXX::FBWebDialogResultCxx &, std::string &, std::string &)){
 	void *objc_arg0 = NULL;
 	convert_FBSessionCxx(objc_arg0, arg0, CONVERT_TO_OBJC);
 
@@ -105,9 +105,9 @@ void FacebookCXX::FBWebDialogsCxx::presentRequestsDialogModallyWithSession_messa
 	objc_arg4 = ^(FBWebDialogResult objc_barg0, NSURL * objc_barg1, NSError * objc_barg2){
 		FacebookCXX::FBWebDialogResultCxx barg0 = (FacebookCXX::FBWebDialogResultCxx)objc_barg0;
 
-		void * barg1;
+		std::string barg1;
 		void *objc_bcast1 = (__bridge void *)objc_barg1;
-		convert_object(objc_bcast1, barg1, CONVERT_TO_CXX);
+		convert_url(objc_bcast1, barg1, CONVERT_TO_CXX);
 
 		std::string barg2;
 		void *objc_bcast2 = (__bridge void *)objc_barg2;
@@ -119,7 +119,7 @@ void FacebookCXX::FBWebDialogsCxx::presentRequestsDialogModallyWithSession_messa
 	[FBWebDialogs presentRequestsDialogModallyWithSession:(__bridge id)objc_arg0 message:(__bridge id)objc_arg1 title:(__bridge id)objc_arg2 parameters:(__bridge id)objc_arg3 handler:objc_arg4 ];
 }
 
-void FacebookCXX::FBWebDialogsCxx::presentRequestsDialogModallyWithSession_message_title_parameters_handler_friendCache(FacebookCXX::FBSessionCxx * arg0,std::string& arg1,std::string& arg2,std::map<void *, void *>& arg3,void(*arg4)(FacebookCXX::FBWebDialogResultCxx &, void * &, std::string &),FacebookCXX::FBFrictionlessRecipientCacheCxx * arg5){
+void FacebookCXX::FBWebDialogsCxx::presentRequestsDialogModallyWithSession_message_title_parameters_handler_friendCache(FacebookCXX::FBSessionCxx * arg0,std::string& arg1,std::string& arg2,std::map<void *, void *>& arg3,void(*arg4)(FacebookCXX::FBWebDialogResultCxx &, std::string &, std::string &),FacebookCXX::FBFrictionlessRecipientCacheCxx * arg5){
 	void *objc_arg0 = NULL;
 	convert_FBSessionCxx(objc_arg0, arg0, CONVERT_TO_OBJC);
 
@@ -136,9 +136,9 @@ void FacebookCXX::FBWebDialogsCxx::presentRequestsDialogModallyWithSession_messa
 	objc_arg4 = ^(FBWebDialogResult objc_barg0, NSURL * objc_barg1, NSError * objc_barg2){
 		FacebookCXX::FBWebDialogResultCxx barg0 = (FacebookCXX::FBWebDialogResultCxx)objc_barg0;
 
-		void * barg1;
+		std::string barg1;
 		void *objc_bcast1 = (__bridge void *)objc_barg1;
-		convert_object(objc_bcast1, barg1, CONVERT_TO_CXX);
+		convert_url(objc_bcast1, barg1, CONVERT_TO_CXX);
 
 		std::string barg2;
 		void *objc_bcast2 = (__bridge void *)objc_barg2;
@@ -153,7 +153,7 @@ void FacebookCXX::FBWebDialogsCxx::presentRequestsDialogModallyWithSession_messa
 	[FBWebDialogs presentRequestsDialogModallyWithSession:(__bridge id)objc_arg0 message:(__bridge id)objc_arg1 title:(__bridge id)objc_arg2 parameters:(__bridge id)objc_arg3 handler:objc_arg4 friendCache:(__bridge id)objc_arg5 ];
 }
 
-void FacebookCXX::FBWebDialogsCxx::presentFeedDialogModallyWithSession_parameters_handler(FacebookCXX::FBSessionCxx * arg0,std::map<void *, void *>& arg1,void(*arg2)(FacebookCXX::FBWebDialogResultCxx &, void * &, std::string &)){
+void FacebookCXX::FBWebDialogsCxx::presentFeedDialogModallyWithSession_parameters_handler(FacebookCXX::FBSessionCxx * arg0,std::map<void *, void *>& arg1,void(*arg2)(FacebookCXX::FBWebDialogResultCxx &, std::string &, std::string &)){
 	void *objc_arg0 = NULL;
 	convert_FBSessionCxx(objc_arg0, arg0, CONVERT_TO_OBJC);
 
@@ -164,9 +164,9 @@ void FacebookCXX::FBWebDialogsCxx::presentFeedDialogModallyWithSession_parameter
 	objc_arg2 = ^(FBWebDialogResult objc_barg0, NSURL * objc_barg1, NSError * objc_barg2){
 		FacebookCXX::FBWebDialogResultCxx barg0 = (FacebookCXX::FBWebDialogResultCxx)objc_barg0;
 
-		void * barg1;
+		std::string barg1;
 		void *objc_bcast1 = (__bridge void *)objc_barg1;
-		convert_object(objc_bcast1, barg1, CONVERT_TO_CXX);
+		convert_url(objc_bcast1, barg1, CONVERT_TO_CXX);
 
 		std::string barg2;
 		void *objc_bcast2 = (__bridge void *)objc_barg2;

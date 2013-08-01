@@ -46,17 +46,17 @@ public:
 
 	// Functions
 
-	static FacebookCXX::FBAppCallCxx * appCallFromURL(void *& arg0);
+	static FacebookCXX::FBAppCallCxx * appCallFromURL(std::string& arg0);
 
 	 signed char isEqualToAppCall(FacebookCXX::FBAppCallCxx * arg0);
 
-	static signed char handleOpenURL_sourceApplication(void *& arg0,std::string& arg1);
+	static signed char handleOpenURL_sourceApplication(std::string& arg0,std::string& arg1);
 
-	static signed char handleOpenURL_sourceApplication_fallbackHandler(void *& arg0,std::string& arg1,void(*arg2)(FacebookCXX::FBAppCallCxx *));
+	static signed char handleOpenURL_sourceApplication_fallbackHandler(std::string& arg0,std::string& arg1,void(*arg2)(FacebookCXX::FBAppCallCxx *));
 
-	static signed char handleOpenURL_sourceApplication_withSession(void *& arg0,std::string& arg1,FacebookCXX::FBSessionCxx * arg2);
+	static signed char handleOpenURL_sourceApplication_withSession(std::string& arg0,std::string& arg1,FacebookCXX::FBSessionCxx * arg2);
 
-	static signed char handleOpenURL_sourceApplication_withSession_fallbackHandler(void *& arg0,std::string& arg1,FacebookCXX::FBSessionCxx * arg2,void(*arg3)(FacebookCXX::FBAppCallCxx *));
+	static signed char handleOpenURL_sourceApplication_withSession_fallbackHandler(std::string& arg0,std::string& arg1,FacebookCXX::FBSessionCxx * arg2,void(*arg3)(FacebookCXX::FBAppCallCxx *));
 
 	static void handleDidBecomeActive();
 

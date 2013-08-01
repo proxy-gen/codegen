@@ -48,7 +48,7 @@ config = {
 		},
 		{
 			'cxx' : {'type': 'std::string'},
-			'objc' : {'type': 'NSUrl *'},
+			'objc' : {'type': 'NSURL *'},
 			'name' : 'convert_url',
 		},
 		{
@@ -815,7 +815,7 @@ config = {
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'NSURL *',
 								'name' : 'url',
-								'converter' : 'convert_object',
+								'converter' : 'convert_url',
 						},
 					],
 					'returns' : [
@@ -1388,7 +1388,7 @@ config = {
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'NSURL *',
 								'name' : 'url',
-								'converter' : 'convert_object',
+								'converter' : 'convert_url',
 						},
 						{
 								'kind' : 'ObjCObjectPointer',
@@ -1646,7 +1646,7 @@ config = {
 						{
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'NSURL *',
-								'converter' : 'convert_object',
+								'converter' : 'convert_url',
 						},
 					],
 				},
@@ -1711,7 +1711,7 @@ config = {
 						{
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'NSURL *',
-								'converter' : 'convert_object',
+								'converter' : 'convert_url',
 						},
 					],
 				},
@@ -3074,7 +3074,7 @@ config = {
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'NSURL *',
 								'name' : 'url',
-								'converter' : 'convert_object',
+								'converter' : 'convert_url',
 						},
 						{
 								'kind' : 'BlockPointer',
@@ -3365,7 +3365,7 @@ config = {
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'NSURL *',
 								'name' : 'url',
-								'converter' : 'convert_object',
+								'converter' : 'convert_url',
 						},
 					],
 					'returns' : [
@@ -3404,7 +3404,7 @@ config = {
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'NSURL *',
 								'name' : 'url',
-								'converter' : 'convert_object',
+								'converter' : 'convert_url',
 						},
 						{
 								'kind' : 'ObjCObjectPointer',
@@ -3430,7 +3430,7 @@ config = {
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'NSURL *',
 								'name' : 'url',
-								'converter' : 'convert_object',
+								'converter' : 'convert_url',
 						},
 						{
 								'kind' : 'ObjCObjectPointer',
@@ -3465,7 +3465,7 @@ config = {
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'NSURL *',
 								'name' : 'url',
-								'converter' : 'convert_object',
+								'converter' : 'convert_url',
 						},
 						{
 								'kind' : 'ObjCObjectPointer',
@@ -3497,7 +3497,7 @@ config = {
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'NSURL *',
 								'name' : 'url',
-								'converter' : 'convert_object',
+								'converter' : 'convert_url',
 						},
 						{
 								'kind' : 'ObjCObjectPointer',
@@ -4419,7 +4419,7 @@ config = {
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'NSURL *',
 								'name' : 'url',
-								'converter' : 'convert_object',
+								'converter' : 'convert_url',
 						},
 					],
 					'returns' : [
@@ -6054,7 +6054,7 @@ config = {
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'NSURL *',
 								'name' : 'url',
-								'converter' : 'convert_object',
+								'converter' : 'convert_url',
 						},
 						{
 								'kind' : 'BlockPointer',
@@ -6257,7 +6257,7 @@ config = {
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'NSURL *',
 								'name' : 'link',
-								'converter' : 'convert_object',
+								'converter' : 'convert_url',
 						},
 						{
 								'kind' : 'BlockPointer',
@@ -6285,7 +6285,7 @@ config = {
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'NSURL *',
 								'name' : 'link',
-								'converter' : 'convert_object',
+								'converter' : 'convert_url',
 						},
 						{
 								'kind' : 'ObjCObjectPointer',
@@ -6319,7 +6319,7 @@ config = {
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'NSURL *',
 								'name' : 'link',
-								'converter' : 'convert_object',
+								'converter' : 'convert_url',
 						},
 						{
 								'kind' : 'ObjCObjectPointer',
@@ -6343,7 +6343,7 @@ config = {
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'NSURL *',
 								'name' : 'picture',
-								'converter' : 'convert_object',
+								'converter' : 'convert_url',
 						},
 						{
 								'kind' : 'ObjCObjectPointer',
@@ -6527,7 +6527,7 @@ config = {
 						{
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'NSURL *',
-								'converter' : 'convert_object',
+								'converter' : 'convert_url',
 						},
 					],
 				},
@@ -6539,7 +6539,7 @@ config = {
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'NSURL *',
 								'name' : 'link',
-								'converter' : 'convert_object',
+								'converter' : 'convert_url',
 						},
 					],
 					'returns' : [
@@ -6655,7 +6655,7 @@ config = {
 						{
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'NSURL *',
-								'converter' : 'convert_object',
+								'converter' : 'convert_url',
 						},
 					],
 				},
@@ -6667,7 +6667,7 @@ config = {
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'NSURL *',
 								'name' : 'picture',
-								'converter' : 'convert_object',
+								'converter' : 'convert_url',
 						},
 					],
 					'returns' : [
@@ -7421,7 +7421,7 @@ config = {
 								'kind' : 'BlockPointer',
 								'declared_type' : 'FBWebDialogHandler',
 								'name' : 'handler',
-								'parameters' : [{'kind': 'Enum', 'type': 'FBWebDialogResult', 'converter': 'convert_enum'}, {'kind': 'ObjCObjectPointer', 'type': 'NSURL *', 'converter': 'convert_object'}, {'kind': 'ObjCObjectPointer', 'type': 'NSError *', 'converter': 'convert_error'}],
+								'parameters' : [{'kind': 'Enum', 'type': 'FBWebDialogResult', 'converter': 'convert_enum'}, {'kind': 'ObjCObjectPointer', 'type': 'NSURL *', 'converter': 'convert_url'}, {'kind': 'ObjCObjectPointer', 'type': 'NSError *', 'converter': 'convert_error'}],
 								'returns' : [{'kind': 'Builtin', 'type': 'void', 'converter': 'convert_builtin'}],
 								'type' : 'void (^)(FBWebDialogResult, NSURL *, NSError *)',
 								'converter' : 'convert_block',
@@ -7461,7 +7461,7 @@ config = {
 								'kind' : 'BlockPointer',
 								'declared_type' : 'FBWebDialogHandler',
 								'name' : 'handler',
-								'parameters' : [{'kind': 'Enum', 'type': 'FBWebDialogResult', 'converter': 'convert_enum'}, {'kind': 'ObjCObjectPointer', 'type': 'NSURL *', 'converter': 'convert_object'}, {'kind': 'ObjCObjectPointer', 'type': 'NSError *', 'converter': 'convert_error'}],
+								'parameters' : [{'kind': 'Enum', 'type': 'FBWebDialogResult', 'converter': 'convert_enum'}, {'kind': 'ObjCObjectPointer', 'type': 'NSURL *', 'converter': 'convert_url'}, {'kind': 'ObjCObjectPointer', 'type': 'NSError *', 'converter': 'convert_error'}],
 								'returns' : [{'kind': 'Builtin', 'type': 'void', 'converter': 'convert_builtin'}],
 								'type' : 'void (^)(FBWebDialogResult, NSURL *, NSError *)',
 								'converter' : 'convert_block',
@@ -7514,7 +7514,7 @@ config = {
 								'kind' : 'BlockPointer',
 								'declared_type' : 'FBWebDialogHandler',
 								'name' : 'handler',
-								'parameters' : [{'kind': 'Enum', 'type': 'FBWebDialogResult', 'converter': 'convert_enum'}, {'kind': 'ObjCObjectPointer', 'type': 'NSURL *', 'converter': 'convert_object'}, {'kind': 'ObjCObjectPointer', 'type': 'NSError *', 'converter': 'convert_error'}],
+								'parameters' : [{'kind': 'Enum', 'type': 'FBWebDialogResult', 'converter': 'convert_enum'}, {'kind': 'ObjCObjectPointer', 'type': 'NSURL *', 'converter': 'convert_url'}, {'kind': 'ObjCObjectPointer', 'type': 'NSError *', 'converter': 'convert_error'}],
 								'returns' : [{'kind': 'Builtin', 'type': 'void', 'converter': 'convert_builtin'}],
 								'type' : 'void (^)(FBWebDialogResult, NSURL *, NSError *)',
 								'converter' : 'convert_block',
@@ -7560,7 +7560,7 @@ config = {
 								'kind' : 'BlockPointer',
 								'declared_type' : 'FBWebDialogHandler',
 								'name' : 'handler',
-								'parameters' : [{'kind': 'Enum', 'type': 'FBWebDialogResult', 'converter': 'convert_enum'}, {'kind': 'ObjCObjectPointer', 'type': 'NSURL *', 'converter': 'convert_object'}, {'kind': 'ObjCObjectPointer', 'type': 'NSError *', 'converter': 'convert_error'}],
+								'parameters' : [{'kind': 'Enum', 'type': 'FBWebDialogResult', 'converter': 'convert_enum'}, {'kind': 'ObjCObjectPointer', 'type': 'NSURL *', 'converter': 'convert_url'}, {'kind': 'ObjCObjectPointer', 'type': 'NSError *', 'converter': 'convert_error'}],
 								'returns' : [{'kind': 'Builtin', 'type': 'void', 'converter': 'convert_builtin'}],
 								'type' : 'void (^)(FBWebDialogResult, NSURL *, NSError *)',
 								'converter' : 'convert_block',
@@ -7600,7 +7600,7 @@ config = {
 								'kind' : 'BlockPointer',
 								'declared_type' : 'FBWebDialogHandler',
 								'name' : 'handler',
-								'parameters' : [{'kind': 'Enum', 'type': 'FBWebDialogResult', 'converter': 'convert_enum'}, {'kind': 'ObjCObjectPointer', 'type': 'NSURL *', 'converter': 'convert_object'}, {'kind': 'ObjCObjectPointer', 'type': 'NSError *', 'converter': 'convert_error'}],
+								'parameters' : [{'kind': 'Enum', 'type': 'FBWebDialogResult', 'converter': 'convert_enum'}, {'kind': 'ObjCObjectPointer', 'type': 'NSURL *', 'converter': 'convert_url'}, {'kind': 'ObjCObjectPointer', 'type': 'NSError *', 'converter': 'convert_error'}],
 								'returns' : [{'kind': 'Builtin', 'type': 'void', 'converter': 'convert_builtin'}],
 								'type' : 'void (^)(FBWebDialogResult, NSURL *, NSError *)',
 								'converter' : 'convert_block',
@@ -10304,7 +10304,7 @@ config = {
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'NSURL *',
 								'name' : 'url',
-								'converter' : 'convert_object',
+								'converter' : 'convert_url',
 						},
 					],
 					'returns' : [

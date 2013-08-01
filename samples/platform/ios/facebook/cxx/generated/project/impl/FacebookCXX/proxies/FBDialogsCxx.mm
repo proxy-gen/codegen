@@ -32,7 +32,7 @@ void *FacebookCXX::FBDialogsCxx::getProxy() const{
 	return _proxy;
 }
 
-signed char FacebookCXX::FBDialogsCxx::presentOSIntegratedShareDialogModallyFrom_initialText_image_url_handler(void *& arg0,std::string& arg1,void *& arg2,void *& arg3,void(*arg4)(FacebookCXX::FBOSIntegratedShareDialogResultCxx &, std::string &)){
+signed char FacebookCXX::FBDialogsCxx::presentOSIntegratedShareDialogModallyFrom_initialText_image_url_handler(void *& arg0,std::string& arg1,void *& arg2,std::string& arg3,void(*arg4)(FacebookCXX::FBOSIntegratedShareDialogResultCxx &, std::string &)){
 	void *objc_arg0 = NULL;
 	convert_object(objc_arg0, arg0, CONVERT_TO_OBJC);
 
@@ -43,7 +43,7 @@ signed char FacebookCXX::FBDialogsCxx::presentOSIntegratedShareDialogModallyFrom
 	convert_object(objc_arg2, arg2, CONVERT_TO_OBJC);
 
 	void *objc_arg3 = NULL;
-	convert_object(objc_arg3, arg3, CONVERT_TO_OBJC);
+	convert_url(objc_arg3, arg3, CONVERT_TO_OBJC);
 
 	void (^objc_arg4)(FBOSIntegratedShareDialogResult, NSError *);
 	objc_arg4 = ^(FBOSIntegratedShareDialogResult objc_barg0, NSError * objc_barg1){
@@ -165,9 +165,9 @@ FacebookCXX::FBAppCallCxx * FacebookCXX::FBDialogsCxx::presentShareDialogWithPar
 	return result;
 }
 
-FacebookCXX::FBAppCallCxx * FacebookCXX::FBDialogsCxx::presentShareDialogWithLink_handler(void *& arg0,void(*arg1)(FacebookCXX::FBAppCallCxx *, std::map<void *, void *> &, std::string &)){
+FacebookCXX::FBAppCallCxx * FacebookCXX::FBDialogsCxx::presentShareDialogWithLink_handler(std::string& arg0,void(*arg1)(FacebookCXX::FBAppCallCxx *, std::map<void *, void *> &, std::string &)){
 	void *objc_arg0 = NULL;
-	convert_object(objc_arg0, arg0, CONVERT_TO_OBJC);
+	convert_url(objc_arg0, arg0, CONVERT_TO_OBJC);
 
 	void (^objc_arg1)(FBAppCall *, NSDictionary *, NSError *);
 	objc_arg1 = ^(FBAppCall * objc_barg0, NSDictionary * objc_barg1, NSError * objc_barg2){
@@ -192,9 +192,9 @@ FacebookCXX::FBAppCallCxx * FacebookCXX::FBDialogsCxx::presentShareDialogWithLin
 	return result;
 }
 
-FacebookCXX::FBAppCallCxx * FacebookCXX::FBDialogsCxx::presentShareDialogWithLink_name_handler(void *& arg0,std::string& arg1,void(*arg2)(FacebookCXX::FBAppCallCxx *, std::map<void *, void *> &, std::string &)){
+FacebookCXX::FBAppCallCxx * FacebookCXX::FBDialogsCxx::presentShareDialogWithLink_name_handler(std::string& arg0,std::string& arg1,void(*arg2)(FacebookCXX::FBAppCallCxx *, std::map<void *, void *> &, std::string &)){
 	void *objc_arg0 = NULL;
-	convert_object(objc_arg0, arg0, CONVERT_TO_OBJC);
+	convert_url(objc_arg0, arg0, CONVERT_TO_OBJC);
 
 	void *objc_arg1 = NULL;
 	convert_string(objc_arg1, arg1, CONVERT_TO_OBJC);
@@ -222,9 +222,9 @@ FacebookCXX::FBAppCallCxx * FacebookCXX::FBDialogsCxx::presentShareDialogWithLin
 	return result;
 }
 
-FacebookCXX::FBAppCallCxx * FacebookCXX::FBDialogsCxx::presentShareDialogWithLink_name_caption_description_picture_clientState_handler(void *& arg0,std::string& arg1,std::string& arg2,std::string& arg3,void *& arg4,std::map<void *, void *>& arg5,void(*arg6)(FacebookCXX::FBAppCallCxx *, std::map<void *, void *> &, std::string &)){
+FacebookCXX::FBAppCallCxx * FacebookCXX::FBDialogsCxx::presentShareDialogWithLink_name_caption_description_picture_clientState_handler(std::string& arg0,std::string& arg1,std::string& arg2,std::string& arg3,std::string& arg4,std::map<void *, void *>& arg5,void(*arg6)(FacebookCXX::FBAppCallCxx *, std::map<void *, void *> &, std::string &)){
 	void *objc_arg0 = NULL;
-	convert_object(objc_arg0, arg0, CONVERT_TO_OBJC);
+	convert_url(objc_arg0, arg0, CONVERT_TO_OBJC);
 
 	void *objc_arg1 = NULL;
 	convert_string(objc_arg1, arg1, CONVERT_TO_OBJC);
@@ -236,7 +236,7 @@ FacebookCXX::FBAppCallCxx * FacebookCXX::FBDialogsCxx::presentShareDialogWithLin
 	convert_string(objc_arg3, arg3, CONVERT_TO_OBJC);
 
 	void *objc_arg4 = NULL;
-	convert_object(objc_arg4, arg4, CONVERT_TO_OBJC);
+	convert_url(objc_arg4, arg4, CONVERT_TO_OBJC);
 
 	void *objc_arg5 = NULL;
 	convert_dictionary(objc_arg5, arg5, CONVERT_TO_OBJC);

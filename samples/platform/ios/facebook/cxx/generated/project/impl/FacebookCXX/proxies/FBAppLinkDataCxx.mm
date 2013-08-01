@@ -27,10 +27,10 @@ void *FacebookCXX::FBAppLinkDataCxx::getProxy() const{
 	return _proxy;
 }
 
-void * FacebookCXX::FBAppLinkDataCxx::targetURL(){
+std::string FacebookCXX::FBAppLinkDataCxx::targetURL(){
 	void *objc_result = (__bridge void *)[(__bridge FBAppLinkData *)_proxy targetURL];
-	void * result;
-	convert_object(objc_result, result, CONVERT_TO_CXX);
+	std::string result;
+	convert_url(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 
@@ -62,10 +62,10 @@ std::map<void *, void *> FacebookCXX::FBAppLinkDataCxx::originalQueryParameters(
 	return result;
 }
 
-void * FacebookCXX::FBAppLinkDataCxx::originalURL(){
+std::string FacebookCXX::FBAppLinkDataCxx::originalURL(){
 	void *objc_result = (__bridge void *)[(__bridge FBAppLinkData *)_proxy originalURL];
-	void * result;
-	convert_object(objc_result, result, CONVERT_TO_CXX);
+	std::string result;
+	convert_url(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 
