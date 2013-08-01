@@ -470,7 +470,7 @@ class Generator(BaseGenerator):
 
 	def _generate_cxx_enum_code(self):
 		logging.debug("_generate_cxx_enum_code enter")
-		enums = self.config_module.config_data.get('enums')
+		enums = self.config_module.config_data.get('enums', list())
 		for enum in enums:
 			self.enum = enum
 			self.enum_namespace = self.config_module.config_data['namespace']
@@ -700,7 +700,7 @@ class ConfigModule(object):
 			xtags = set(xtags)
 		protocol_list = list()
 		if 'protocols' in config_data:
-			protocols = config_data.get('protocols')
+			protocols = config_data.get('protocols', list())
 			for protocol in protocols:
 				append = True
 				if tags is not None:
@@ -851,7 +851,7 @@ class ConfigModule(object):
 				convertible["converter"] = 'convert_block'
 		elif Index.isEnumType(convertible):
 			if "converter" not in convertible:
-				for enum in config_data["enums"]:
+				for enum in config_data.get("enums", list()):
 					if Index.matchesEnumType(convertible, enum):
 						no_proxy = False
 						if "tags" in enum:
