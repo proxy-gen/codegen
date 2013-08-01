@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -34,7 +33,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_lang_Error"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -62,8 +61,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_lang_Error::java_lang_Error(const java_lang_Error& cc)
 {
 	LOGV("java_lang_Error::java_lang_Error(const java_lang_Error& cc) enter");
@@ -87,9 +84,9 @@ java_lang_Error::java_lang_Error(const java_lang_Error& cc)
 
 	LOGV("java_lang_Error::java_lang_Error(const java_lang_Error& cc) exit");
 }
-java_lang_Error::java_lang_Error(void * proxy)
+java_lang_Error::java_lang_Error(Proxy proxy)
 {
-	LOGV("java_lang_Error::java_lang_Error(void * proxy) enter");
+	LOGV("java_lang_Error::java_lang_Error(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -99,13 +96,31 @@ java_lang_Error::java_lang_Error(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_lang_Error::java_lang_Error(void * proxy) exit");
+	LOGV("java_lang_Error::java_lang_Error(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy java_lang_Error::proxy() const
+{	
+	LOGV("java_lang_Error::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("java_lang_Error cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_Error jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("java_lang_Error::proxy() exit");	
+
+	return proxy;
+}
 java_lang_Error::java_lang_Error()
 {
 	LOGV("java_lang_Error::java_lang_Error() enter");	
@@ -142,9 +157,9 @@ java_lang_Error::java_lang_Error()
 
 	LOGV("java_lang_Error::java_lang_Error() exit");	
 }
-java_lang_Error::java_lang_Error(AndroidCXX::java_lang_String& arg0)
+java_lang_Error::java_lang_Error(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("java_lang_Error::java_lang_Error(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("java_lang_Error::java_lang_Error(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -197,11 +212,11 @@ java_lang_Error::java_lang_Error(AndroidCXX::java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Error::java_lang_Error(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("java_lang_Error::java_lang_Error(AndroidCXX::java_lang_String const& arg0) exit");	
 }
-java_lang_Error::java_lang_Error(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1)
+java_lang_Error::java_lang_Error(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1)
 {
-	LOGV("java_lang_Error::java_lang_Error(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1) enter");	
+	LOGV("java_lang_Error::java_lang_Error(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/Throwable;)V";
@@ -275,11 +290,11 @@ java_lang_Error::java_lang_Error(AndroidCXX::java_lang_String& arg0,AndroidCXX::
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Error::java_lang_Error(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1) exit");	
+	LOGV("java_lang_Error::java_lang_Error(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1) exit");	
 }
-java_lang_Error::java_lang_Error(AndroidCXX::java_lang_Throwable& arg0)
+java_lang_Error::java_lang_Error(AndroidCXX::java_lang_Throwable const& arg0)
 {
-	LOGV("java_lang_Error::java_lang_Error(AndroidCXX::java_lang_Throwable& arg0) enter");	
+	LOGV("java_lang_Error::java_lang_Error(AndroidCXX::java_lang_Throwable const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/Throwable;)V";
@@ -332,7 +347,7 @@ java_lang_Error::java_lang_Error(AndroidCXX::java_lang_Throwable& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Error::java_lang_Error(AndroidCXX::java_lang_Throwable& arg0) exit");	
+	LOGV("java_lang_Error::java_lang_Error(AndroidCXX::java_lang_Throwable const& arg0) exit");	
 }
 // Default Instance Destructor
 java_lang_Error::~java_lang_Error()
@@ -345,7 +360,7 @@ java_lang_Error::~java_lang_Error()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_lang_Error::~java_lang_Error() exit");
 }
 // Functions

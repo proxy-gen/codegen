@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -56,15 +55,15 @@ class android_view_animation_Animation_AnimationListener
 public:
 
 	android_view_animation_Animation_AnimationListener(const android_view_animation_Animation_AnimationListener& cc);
-	android_view_animation_Animation_AnimationListener(void * proxy);
+	android_view_animation_Animation_AnimationListener(Proxy proxy);
 	// Public Constructors
-	android_view_animation_Animation_AnimationListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_animation_Animation_AnimationListener();
 	// Functions
-	 void onAnimationStart(AndroidCXX::android_view_animation_Animation& arg0);
-	 void onAnimationEnd(AndroidCXX::android_view_animation_Animation& arg0);
-	 void onAnimationRepeat(AndroidCXX::android_view_animation_Animation& arg0);
+	 void onAnimationStart(AndroidCXX::android_view_animation_Animation const& arg0);
+	 void onAnimationEnd(AndroidCXX::android_view_animation_Animation const& arg0);
+	 void onAnimationRepeat(AndroidCXX::android_view_animation_Animation const& arg0);
 };	
 
 } // namespace

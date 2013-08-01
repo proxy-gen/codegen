@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -78,20 +77,20 @@ class java_nio_Buffer
 public:
 
 	java_nio_Buffer(const java_nio_Buffer& cc);
-	java_nio_Buffer(void * proxy);
+	java_nio_Buffer(Proxy proxy);
 	// Public Constructors
-	java_nio_Buffer();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_Buffer();
 	// Functions
 	 int limit();
-	 AndroidCXX::java_nio_Buffer limit(int& arg0);
+	 AndroidCXX::java_nio_Buffer limit(int const& arg0);
 	 AndroidCXX::java_nio_Buffer clear();
 	 int remaining();
 	 bool isDirect();
 	 bool hasArray();
 	 AndroidCXX::java_lang_Object array();
-	 AndroidCXX::java_nio_Buffer position(int& arg0);
+	 AndroidCXX::java_nio_Buffer position(int const& arg0);
 	 int position();
 	 int arrayOffset();
 	 int capacity();

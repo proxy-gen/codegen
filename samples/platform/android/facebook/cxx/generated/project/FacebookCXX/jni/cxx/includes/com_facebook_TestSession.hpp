@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -89,20 +88,20 @@ class com_facebook_TestSession
 public:
 
 	com_facebook_TestSession(const com_facebook_TestSession& cc);
-	com_facebook_TestSession(void * proxy);
+	com_facebook_TestSession(Proxy proxy);
 	// Public Constructors
-	com_facebook_TestSession();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_TestSession();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
-	static FacebookCXX::com_facebook_TestSession createSessionWithPrivateUser(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1);
-	static FacebookCXX::com_facebook_TestSession createSessionWithSharedUser(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1);
-	static FacebookCXX::com_facebook_TestSession createSessionWithSharedUser(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1,AndroidCXX::java_lang_String& arg2);
+	static FacebookCXX::com_facebook_TestSession createSessionWithPrivateUser(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::java_util_List const& arg1);
+	static FacebookCXX::com_facebook_TestSession createSessionWithSharedUser(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::java_util_List const& arg1);
+	static FacebookCXX::com_facebook_TestSession createSessionWithSharedUser(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::java_util_List const& arg1,AndroidCXX::java_lang_String const& arg2);
 	static AndroidCXX::java_lang_String getTestApplicationId();
-	static void setTestApplicationId(AndroidCXX::java_lang_String& arg0);
+	static void setTestApplicationId(AndroidCXX::java_lang_String const& arg0);
 	static AndroidCXX::java_lang_String getTestApplicationSecret();
-	static void setTestApplicationSecret(AndroidCXX::java_lang_String& arg0);
+	static void setTestApplicationSecret(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_lang_String getTestUserId();
 };	
 

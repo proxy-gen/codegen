@@ -6,9 +6,10 @@
 //
 // Scroll Down 
 //
-
+#from Utils import Utils
 #set $SPACE = " "
 #set $COMMA = ","
+#set $CONST = "const"
 #set $REF = "&"
 #set $config_module = $CONFIG.config_module
 #set $config_data = $config_module.config_data
@@ -29,7 +30,18 @@
 #set $proxied_typeinfo_list = list()
 #set $modifier_str = None
 #if '_static' in $function['tags']
-#set $modifier_str = 'static' 
+#if $modifier_str
+#set $modifier_str = $modifier_str + SPACE + 'static' 
+#else
+#set $modifier_str = 'static'  
+#end if
+#end if
+#if '_callback' in $function['tags']
+#if $modifier_str
+#set $modifier_str = $modifier_str + SPACE + 'virtual' 
+#else
+#set $modifier_str = 'virtual'  
+#end if
 #end if
 #set $child_type_stack = list()
 #for $param in $params
@@ -45,9 +57,9 @@
  	#if 'isproxied' in $typeinfo
 	#set $param_str = $param_str + $typeinfo['namespace'] + '::'
  	#end if
-	#set $param_str = $param_str + $typeinfo['typename'] + $REF
+	#set $param_str = $param_str + $typeinfo['typename'] + $SPACE + $CONST + $REF
 	#set $param_str = $param_str + $SPACE + "arg" + str($param_idx)
- 	#set $jni_param_str = $jni_param_str + $jnidata['jnitypename'] + $REF
+ 	#set $jni_param_str = $jni_param_str + $jnidata['jnitypename']
  	#set $jni_param_str = $jni_param_str + $SPACE + "jarg" + str($param_idx)
 	#set $param_idx = $param_idx + 1
  	#if 'children' in $param
@@ -107,7 +119,7 @@
  	#if 'isproxied' in $typeinfo
 	#set $param_str = $param_str + $typeinfo['namespace'] + '::'
  	#end if
-	#set $param_str = $param_str + $typeinfo['typename'] + $REF
+	#set $param_str = $param_str + $typeinfo['typename'] + $SPACE + $CONST + $REF
 	#set $param_str = $param_str + $SPACE + "arg" + str($param_idx)
 	#set $param_idx = $param_idx + 1
  	#if 'children' in $param
@@ -128,13 +140,8 @@
 #set $constructor['proxied_typeinfo_list'] = $proxied_typeinfo_list
 #end for
 
-#set $no_arg_constructor = True
-#for $constructor in $constructors
- 	#if $len(constructor['params']) == 0
- 		#set $no_arg_constructor = False
- 		#break
- 	#end if
-#end for
+#set $no_arg_constructor = True if '_callback' in $entity_class_config['tags'] else False
+#set $no_copy_constructor = True if $entity_class_info['no_copy_constructor'] else False
 
 #set $proxied_typeinfos = list()
 
@@ -199,28 +206,30 @@ class $entity_class_name
 public:
 
 	#if not '_static' in $entity_class_config['tags']
+	#if $no_copy_constructor
 	${entity_class_name}(const ${entity_class_name}& cc);
 	#end if
+	#end if
 	#if not '_static' in $entity_class_config['tags']
-	${entity_class_name}(void * proxy);
+	${entity_class_name}(Proxy proxy);
 	#end if
 	#if not '_static' in $entity_class_config['tags']
 	// Public Constructors
 	#for $constructor in $constructors
 	${entity_class_name}($constructor['param_str']);
 	#end for
-	// TODO: remove
-	// #if $no_arg_constructor
-	// ${entity_class_name}();
-	// #end if
+	#if $no_arg_constructor
+	${entity_class_name}();
 	#end if
+	#end if
+	Proxy proxy() const;	
 	#if not '_static' in $entity_class_config['tags']
 	// Default Destructor
 	virtual ~${entity_class_name}();
 	#end if	
 	// Functions
 	#for $function in $functions
-	$function['modifier_str'] $function['retrn_type'] $config_module.to_safe_cxx_name(function['name'])($function['param_str']);
+	$function['modifier_str'] $function['retrn_type'] $Utils.to_safe_cxx_name(function['name'])($function['param_str']);
 	#end for
 };	
 

@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -82,19 +81,19 @@ class android_widget_Scroller
 public:
 
 	android_widget_Scroller(const android_widget_Scroller& cc);
-	android_widget_Scroller(void * proxy);
+	android_widget_Scroller(Proxy proxy);
 	// Public Constructors
-	android_widget_Scroller(AndroidCXX::android_content_Context& arg0);
-	android_widget_Scroller(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_animation_Interpolator& arg1);
-	android_widget_Scroller(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_animation_Interpolator& arg1,bool& arg2);
-	android_widget_Scroller();
+	android_widget_Scroller(AndroidCXX::android_content_Context const& arg0);
+	android_widget_Scroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1);
+	android_widget_Scroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1,bool const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Scroller();
 	// Functions
 	 int getDuration();
-	 void setFriction(float& arg0);
+	 void setFriction(float const& arg0);
 	 bool isFinished();
-	 void forceFinished(bool& arg0);
+	 void forceFinished(bool const& arg0);
 	 int getCurrX();
 	 int getCurrY();
 	 float getCurrVelocity();
@@ -103,14 +102,14 @@ public:
 	 int getFinalX();
 	 int getFinalY();
 	 bool computeScrollOffset();
-	 void startScroll(int& arg0,int& arg1,int& arg2,int& arg3);
-	 void startScroll(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4);
-	 void fling(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6,int& arg7);
+	 void startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3);
+	 void startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4);
+	 void fling(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,int const& arg7);
 	 void abortAnimation();
-	 void extendDuration(int& arg0);
+	 void extendDuration(int const& arg0);
 	 int timePassed();
-	 void setFinalX(int& arg0);
-	 void setFinalY(int& arg0);
+	 void setFinalX(int const& arg0);
+	 void setFinalY(int const& arg0);
 };	
 
 } // namespace

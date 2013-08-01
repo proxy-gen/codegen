@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -33,7 +32,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_drawable_Drawable_ConstantState"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -58,8 +57,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_graphics_drawable_Drawable_ConstantState::android_graphics_drawable_Drawable_ConstantState(const android_graphics_drawable_Drawable_ConstantState& cc)
 {
 	LOGV("android_graphics_drawable_Drawable_ConstantState::android_graphics_drawable_Drawable_ConstantState(const android_graphics_drawable_Drawable_ConstantState& cc) enter");
@@ -83,9 +80,9 @@ android_graphics_drawable_Drawable_ConstantState::android_graphics_drawable_Draw
 
 	LOGV("android_graphics_drawable_Drawable_ConstantState::android_graphics_drawable_Drawable_ConstantState(const android_graphics_drawable_Drawable_ConstantState& cc) exit");
 }
-android_graphics_drawable_Drawable_ConstantState::android_graphics_drawable_Drawable_ConstantState(void * proxy)
+android_graphics_drawable_Drawable_ConstantState::android_graphics_drawable_Drawable_ConstantState(Proxy proxy)
 {
-	LOGV("android_graphics_drawable_Drawable_ConstantState::android_graphics_drawable_Drawable_ConstantState(void * proxy) enter");
+	LOGV("android_graphics_drawable_Drawable_ConstantState::android_graphics_drawable_Drawable_ConstantState(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -95,13 +92,31 @@ android_graphics_drawable_Drawable_ConstantState::android_graphics_drawable_Draw
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_graphics_drawable_Drawable_ConstantState::android_graphics_drawable_Drawable_ConstantState(void * proxy) exit");
+	LOGV("android_graphics_drawable_Drawable_ConstantState::android_graphics_drawable_Drawable_ConstantState(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy android_graphics_drawable_Drawable_ConstantState::proxy() const
+{	
+	LOGV("android_graphics_drawable_Drawable_ConstantState::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_graphics_drawable_Drawable_ConstantState cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_graphics_drawable_Drawable_ConstantState jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_graphics_drawable_Drawable_ConstantState::proxy() exit");	
+
+	return proxy;
+}
 android_graphics_drawable_Drawable_ConstantState::android_graphics_drawable_Drawable_ConstantState()
 {
 	LOGV("android_graphics_drawable_Drawable_ConstantState::android_graphics_drawable_Drawable_ConstantState() enter");	
@@ -149,7 +164,7 @@ android_graphics_drawable_Drawable_ConstantState::~android_graphics_drawable_Dra
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_graphics_drawable_Drawable_ConstantState::~android_graphics_drawable_Drawable_ConstantState() exit");
 }
 // Functions
@@ -166,15 +181,12 @@ int android_graphics_drawable_Drawable_ConstantState::getChangingConfigurations(
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_drawable_Drawable_ConstantState cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_drawable_Drawable_ConstantState jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -192,10 +204,10 @@ int android_graphics_drawable_Drawable_ConstantState::getChangingConfigurations(
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_graphics_drawable_Drawable_ConstantState::getChangingConfigurations() exit");
 
 	return result;
@@ -213,15 +225,12 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_drawable_Drawable_ConstantState cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_drawable_Drawable_ConstantState jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_drawable_Drawable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -239,17 +248,17 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_drawable_Drawable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_drawable_Drawable) (AndroidCXX::android_graphics_drawable_Drawable((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
+		
 	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawable_ConstantState::newDrawable() exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawable_ConstantState::newDrawable(AndroidCXX::android_content_res_Resources& arg0)
+AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawable_ConstantState::newDrawable(AndroidCXX::android_content_res_Resources const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawable_ConstantState::newDrawable(AndroidCXX::android_content_res_Resources& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawable_ConstantState::newDrawable(AndroidCXX::android_content_res_Resources const& arg0) enter");
 
 	const char *methodName = "newDrawable";
 	const char *methodSignature = "(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;";
@@ -259,8 +268,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_drawable_Drawable_ConstantState cxx address %d", cxxAddress);
@@ -289,7 +296,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_drawable_Drawable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -307,11 +313,11 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_drawable_Drawable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_drawable_Drawable) (AndroidCXX::android_graphics_drawable_Drawable((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawable_ConstantState::newDrawable(AndroidCXX::android_content_res_Resources& arg0) exit");
+	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawable_ConstantState::newDrawable(AndroidCXX::android_content_res_Resources const& arg0) exit");
 
 	return result;
 }

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -63,14 +62,15 @@ class android_text_Spannable_Factory
 public:
 
 	android_text_Spannable_Factory(const android_text_Spannable_Factory& cc);
-	android_text_Spannable_Factory(void * proxy);
+	android_text_Spannable_Factory(Proxy proxy);
 	// Public Constructors
 	android_text_Spannable_Factory();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_text_Spannable_Factory();
 	// Functions
 	static AndroidCXX::android_text_Spannable_Factory getInstance();
-	 AndroidCXX::android_text_Spannable newSpannable(AndroidCXX::java_lang_CharSequence& arg0);
+	 AndroidCXX::android_text_Spannable newSpannable(AndroidCXX::java_lang_CharSequence const& arg0);
 };	
 
 } // namespace

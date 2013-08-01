@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -121,54 +120,53 @@ class android_location_Location
 {
 public:
 
-	android_location_Location(const android_location_Location& cc);
-	android_location_Location(void * proxy);
+	android_location_Location(Proxy proxy);
 	// Public Constructors
-	android_location_Location(AndroidCXX::java_lang_String& arg0);
-	android_location_Location(AndroidCXX::android_location_Location& arg0);
-	android_location_Location();
+	android_location_Location(AndroidCXX::java_lang_String const& arg0);
+	android_location_Location(AndroidCXX::android_location_Location const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_location_Location();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
-	 void set(AndroidCXX::android_location_Location& arg0);
+	 void set(AndroidCXX::android_location_Location const& arg0);
 	 void reset();
-	 void setTime(long& arg0);
+	 void setTime(long const& arg0);
 	 long getTime();
 	 AndroidCXX::java_lang_String getProvider();
-	static AndroidCXX::java_lang_String convert(double& arg0,int& arg1);
-	static double convert(AndroidCXX::java_lang_String& arg0);
-	static void distanceBetween(double& arg0,double& arg1,double& arg2,double& arg3,std::vector<float>& arg4);
-	 float distanceTo(AndroidCXX::android_location_Location& arg0);
-	 float bearingTo(AndroidCXX::android_location_Location& arg0);
-	 void setProvider(AndroidCXX::java_lang_String& arg0);
+	static AndroidCXX::java_lang_String convert(double const& arg0,int const& arg1);
+	static double convert(AndroidCXX::java_lang_String const& arg0);
+	static void distanceBetween(double const& arg0,double const& arg1,double const& arg2,double const& arg3,std::vector<float> const& arg4);
+	 float distanceTo(AndroidCXX::android_location_Location const& arg0);
+	 float bearingTo(AndroidCXX::android_location_Location const& arg0);
+	 void setProvider(AndroidCXX::java_lang_String const& arg0);
 	 long getElapsedRealtimeNanos();
-	 void setElapsedRealtimeNanos(long& arg0);
+	 void setElapsedRealtimeNanos(long const& arg0);
 	 double getLatitude();
-	 void setLatitude(double& arg0);
+	 void setLatitude(double const& arg0);
 	 double getLongitude();
-	 void setLongitude(double& arg0);
+	 void setLongitude(double const& arg0);
 	 bool hasAltitude();
 	 double getAltitude();
-	 void setAltitude(double& arg0);
+	 void setAltitude(double const& arg0);
 	 void removeAltitude();
 	 bool hasSpeed();
 	 float getSpeed();
-	 void setSpeed(float& arg0);
+	 void setSpeed(float const& arg0);
 	 void removeSpeed();
 	 bool hasBearing();
 	 float getBearing();
-	 void setBearing(float& arg0);
+	 void setBearing(float const& arg0);
 	 void removeBearing();
 	 bool hasAccuracy();
 	 float getAccuracy();
-	 void setAccuracy(float& arg0);
+	 void setAccuracy(float const& arg0);
 	 void removeAccuracy();
 	 AndroidCXX::android_os_Bundle getExtras();
-	 void setExtras(AndroidCXX::android_os_Bundle& arg0);
-	 void dump(AndroidCXX::android_util_Printer& arg0,AndroidCXX::java_lang_String& arg1);
+	 void setExtras(AndroidCXX::android_os_Bundle const& arg0);
+	 void dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1);
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 };	
 
 } // namespace

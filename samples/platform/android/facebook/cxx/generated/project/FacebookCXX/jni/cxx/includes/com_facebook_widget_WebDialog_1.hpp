@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -51,13 +50,13 @@ class com_facebook_widget_WebDialog_1
 public:
 
 	com_facebook_widget_WebDialog_1(const com_facebook_widget_WebDialog_1& cc);
-	com_facebook_widget_WebDialog_1(void * proxy);
+	com_facebook_widget_WebDialog_1(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_WebDialog_1();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog_1();
 	// Functions
-	 void onCancel(AndroidCXX::android_content_DialogInterface& arg0);
+	 void onCancel(AndroidCXX::android_content_DialogInterface const& arg0);
 };	
 
 } // namespace

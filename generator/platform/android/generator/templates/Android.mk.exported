@@ -4,8 +4,8 @@ include \$(CLEAR_VARS)
 #set $config_data = $CONFIG.config_module.config_data
 #set $package = $config_data['package']
 LOCAL_MODULE    := $package
-LOCAL_SRC_FILES := ../../../${package}/libs/\$(TARGET_ARCH_ABI)/lib${package}_static.a
-LOCAL_EXPORT_C_INCLUDES := \$(LOCAL_PATH)/../../../${package}/jni/cxx/includes
+LOCAL_SRC_FILES := ../../../${package}/obj/local/\$(TARGET_ARCH_ABI)/lib${package}_static.a
+LOCAL_EXPORT_C_INCLUDES := \$(LOCAL_PATH)/../../../${package}/jni/cxx/includes \$(LOCAL_PATH)/../../../${package}/jni/cxx/converters \$(LOCAL_PATH)/../../../${package}/jni/jni/includes
 LOCAL_EXPORT_LDLIBS := -llog
 
 include \$(PREBUILT_STATIC_LIBRARY)

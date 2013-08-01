@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #include <java_lang_reflect_Type.hpp>
@@ -39,8 +38,6 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_lang_reflect_Type::java_lang_reflect_Type(const java_lang_reflect_Type& cc)
 {
 	LOGV("java_lang_reflect_Type::java_lang_reflect_Type(const java_lang_reflect_Type& cc) enter");
@@ -64,9 +61,9 @@ java_lang_reflect_Type::java_lang_reflect_Type(const java_lang_reflect_Type& cc)
 
 	LOGV("java_lang_reflect_Type::java_lang_reflect_Type(const java_lang_reflect_Type& cc) exit");
 }
-java_lang_reflect_Type::java_lang_reflect_Type(void * proxy)
+java_lang_reflect_Type::java_lang_reflect_Type(Proxy proxy)
 {
-	LOGV("java_lang_reflect_Type::java_lang_reflect_Type(void * proxy) enter");
+	LOGV("java_lang_reflect_Type::java_lang_reflect_Type(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -76,52 +73,31 @@ java_lang_reflect_Type::java_lang_reflect_Type(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_lang_reflect_Type::java_lang_reflect_Type(void * proxy) exit");
+	LOGV("java_lang_reflect_Type::java_lang_reflect_Type(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_lang_reflect_Type::java_lang_reflect_Type()
-// {
-// 	LOGV("java_lang_reflect_Type::java_lang_reflect_Type() enter");	
+Proxy java_lang_reflect_Type::proxy() const
+{	
+	LOGV("java_lang_reflect_Type::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/lang/reflect/Type";
+	long cxxAddress = (long) this;
+	LOGV("java_lang_reflect_Type cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_reflect_Type jni address %d", proxiedComponent);
 
-// 	LOGV("java_lang_reflect_Type className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_lang_reflect_Type::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_lang_reflect_Type cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_lang_reflect_Type jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_lang_reflect_Type::java_lang_reflect_Type() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_lang_reflect_Type::~java_lang_reflect_Type()
 {
@@ -133,7 +109,7 @@ java_lang_reflect_Type::~java_lang_reflect_Type()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_lang_reflect_Type::~java_lang_reflect_Type() exit");
 }
 // Functions

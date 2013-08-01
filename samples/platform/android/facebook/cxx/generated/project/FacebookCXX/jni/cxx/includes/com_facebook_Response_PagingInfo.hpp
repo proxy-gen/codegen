@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 
@@ -53,9 +52,9 @@ class com_facebook_Response_PagingInfo
 public:
 
 	com_facebook_Response_PagingInfo(const com_facebook_Response_PagingInfo& cc);
-	com_facebook_Response_PagingInfo(void * proxy);
+	com_facebook_Response_PagingInfo(Proxy proxy);
 	// Public Constructors
-	com_facebook_Response_PagingInfo();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Response_PagingInfo();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -116,11 +115,11 @@ class android_widget_SlidingDrawer
 public:
 
 	android_widget_SlidingDrawer(const android_widget_SlidingDrawer& cc);
-	android_widget_SlidingDrawer(void * proxy);
+	android_widget_SlidingDrawer(Proxy proxy);
 	// Public Constructors
-	android_widget_SlidingDrawer(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_SlidingDrawer(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_SlidingDrawer();
+	android_widget_SlidingDrawer(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_SlidingDrawer(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SlidingDrawer();
 	// Functions
@@ -130,17 +129,17 @@ public:
 	 void open();
 	 AndroidCXX::android_view_View getHandle();
 	 void unlock();
-	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0);
-	 bool onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent& arg0);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0);
+	 bool onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
 	 void toggle();
 	 void animateToggle();
 	 void animateClose();
 	 void animateOpen();
-	 void setOnDrawerOpenListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerOpenListener& arg0);
-	 void setOnDrawerCloseListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerCloseListener& arg0);
-	 void setOnDrawerScrollListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerScrollListener& arg0);
+	 void setOnDrawerOpenListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerOpenListener const& arg0);
+	 void setOnDrawerCloseListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerCloseListener const& arg0);
+	 void setOnDrawerScrollListener(AndroidCXX::android_widget_SlidingDrawer_OnDrawerScrollListener const& arg0);
 	 bool isOpened();
 	 bool isMoving();
 };	

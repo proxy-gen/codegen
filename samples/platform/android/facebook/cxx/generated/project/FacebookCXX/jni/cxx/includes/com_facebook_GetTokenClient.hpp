@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -57,14 +56,14 @@ class com_facebook_GetTokenClient
 public:
 
 	com_facebook_GetTokenClient(const com_facebook_GetTokenClient& cc);
-	com_facebook_GetTokenClient(void * proxy);
+	com_facebook_GetTokenClient(Proxy proxy);
 	// Public Constructors
-	com_facebook_GetTokenClient();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_GetTokenClient();
 	// Functions
-	 void onServiceConnected(AndroidCXX::android_content_ComponentName& arg0,AndroidCXX::android_os_IBinder& arg1);
-	 void onServiceDisconnected(AndroidCXX::android_content_ComponentName& arg0);
+	 void onServiceConnected(AndroidCXX::android_content_ComponentName const& arg0,AndroidCXX::android_os_IBinder const& arg1);
+	 void onServiceDisconnected(AndroidCXX::android_content_ComponentName const& arg0);
 };	
 
 } // namespace

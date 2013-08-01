@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -165,51 +164,50 @@ class android_view_KeyEvent
 {
 public:
 
-	android_view_KeyEvent(const android_view_KeyEvent& cc);
-	android_view_KeyEvent(void * proxy);
+	android_view_KeyEvent(Proxy proxy);
 	// Public Constructors
-	android_view_KeyEvent(int& arg0,int& arg1);
-	android_view_KeyEvent(long& arg0,long& arg1,int& arg2,int& arg3,int& arg4);
-	android_view_KeyEvent(long& arg0,long& arg1,int& arg2,int& arg3,int& arg4,int& arg5);
-	android_view_KeyEvent(long& arg0,long& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6,int& arg7);
-	android_view_KeyEvent(long& arg0,long& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6,int& arg7,int& arg8);
-	android_view_KeyEvent(long& arg0,long& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6,int& arg7,int& arg8,int& arg9);
-	android_view_KeyEvent(long& arg0,AndroidCXX::java_lang_String& arg1,int& arg2,int& arg3);
-	android_view_KeyEvent(AndroidCXX::android_view_KeyEvent& arg0);
-	android_view_KeyEvent(AndroidCXX::android_view_KeyEvent& arg0,long& arg1,int& arg2);
-	android_view_KeyEvent();
+	android_view_KeyEvent(int const& arg0,int const& arg1);
+	android_view_KeyEvent(long const& arg0,long const& arg1,int const& arg2,int const& arg3,int const& arg4);
+	android_view_KeyEvent(long const& arg0,long const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5);
+	android_view_KeyEvent(long const& arg0,long const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,int const& arg7);
+	android_view_KeyEvent(long const& arg0,long const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,int const& arg7,int const& arg8);
+	android_view_KeyEvent(long const& arg0,long const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,int const& arg7,int const& arg8,int const& arg9);
+	android_view_KeyEvent(long const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2,int const& arg3);
+	android_view_KeyEvent(AndroidCXX::android_view_KeyEvent const& arg0);
+	android_view_KeyEvent(AndroidCXX::android_view_KeyEvent const& arg0,long const& arg1,int const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_KeyEvent();
 	// Functions
-	 bool dispatch(AndroidCXX::android_view_KeyEvent_Callback& arg0,AndroidCXX::android_view_KeyEvent_DispatcherState& arg1,AndroidCXX::java_lang_Object& arg2);
-	 bool dispatch(AndroidCXX::android_view_KeyEvent_Callback& arg0);
+	 bool dispatch(AndroidCXX::android_view_KeyEvent_Callback const& arg0,AndroidCXX::android_view_KeyEvent_DispatcherState const& arg1,AndroidCXX::java_lang_Object const& arg2);
+	 bool dispatch(AndroidCXX::android_view_KeyEvent_Callback const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int getModifiers();
 	 char getNumber();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 	 int getRepeatCount();
 	 int getAction();
 	 int getFlags();
 	 bool isCanceled();
 	static int getMaxKeyCode();
-	static int getDeadChar(int& arg0,int& arg1);
-	static AndroidCXX::android_view_KeyEvent changeTimeRepeat(AndroidCXX::android_view_KeyEvent& arg0,long& arg1,int& arg2,int& arg3);
-	static AndroidCXX::android_view_KeyEvent changeTimeRepeat(AndroidCXX::android_view_KeyEvent& arg0,long& arg1,int& arg2);
-	static AndroidCXX::android_view_KeyEvent changeAction(AndroidCXX::android_view_KeyEvent& arg0,int& arg1);
-	static AndroidCXX::android_view_KeyEvent changeFlags(AndroidCXX::android_view_KeyEvent& arg0,int& arg1);
+	static int getDeadChar(int const& arg0,int const& arg1);
+	static AndroidCXX::android_view_KeyEvent changeTimeRepeat(AndroidCXX::android_view_KeyEvent const& arg0,long const& arg1,int const& arg2,int const& arg3);
+	static AndroidCXX::android_view_KeyEvent changeTimeRepeat(AndroidCXX::android_view_KeyEvent const& arg0,long const& arg1,int const& arg2);
+	static AndroidCXX::android_view_KeyEvent changeAction(AndroidCXX::android_view_KeyEvent const& arg0,int const& arg1);
+	static AndroidCXX::android_view_KeyEvent changeFlags(AndroidCXX::android_view_KeyEvent const& arg0,int const& arg1);
 	 bool isSystem();
-	static bool isGamepadButton(int& arg0);
+	static bool isGamepadButton(int const& arg0);
 	 int getDeviceId();
 	 int getSource();
-	 void setSource(int& arg0);
+	 void setSource(int const& arg0);
 	 int getMetaState();
 	static int getModifierMetaStateMask();
-	static bool isModifierKey(int& arg0);
-	static int normalizeMetaState(int& arg0);
-	static bool metaStateHasNoModifiers(int& arg0);
-	static bool metaStateHasModifiers(int& arg0,int& arg1);
+	static bool isModifierKey(int const& arg0);
+	static int normalizeMetaState(int const& arg0);
+	static bool metaStateHasNoModifiers(int const& arg0);
+	static bool metaStateHasModifiers(int const& arg0,int const& arg1);
 	 bool hasNoModifiers();
-	 bool hasModifiers(int& arg0);
+	 bool hasModifiers(int const& arg0);
 	 bool isAltPressed();
 	 bool isShiftPressed();
 	 bool isSymPressed();
@@ -230,13 +228,13 @@ public:
 	 AndroidCXX::android_view_KeyCharacterMap getKeyCharacterMap();
 	 char getDisplayLabel();
 	 int getUnicodeChar();
-	 int getUnicodeChar(int& arg0);
-	 bool getKeyData(AndroidCXX::android_view_KeyCharacterMap_KeyData& arg0);
-	 char getMatch(std::vector<char>& arg0,int& arg1);
-	 char getMatch(std::vector<char>& arg0);
+	 int getUnicodeChar(int const& arg0);
+	 bool getKeyData(AndroidCXX::android_view_KeyCharacterMap_KeyData const& arg0);
+	 char getMatch(std::vector<char> const& arg0,int const& arg1);
+	 char getMatch(std::vector<char> const& arg0);
 	 bool isPrintingKey();
-	static AndroidCXX::java_lang_String keyCodeToString(int& arg0);
-	static int keyCodeFromString(AndroidCXX::java_lang_String& arg0);
+	static AndroidCXX::java_lang_String keyCodeToString(int const& arg0);
+	static int keyCodeFromString(AndroidCXX::java_lang_String const& arg0);
 };	
 
 } // namespace

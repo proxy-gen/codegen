@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -44,6 +43,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_WebDialog_DialogWebViewClient"
@@ -101,8 +101,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_widget_WebDialog_DialogWebViewClient::com_facebook_widget_WebDialog_DialogWebViewClient(const com_facebook_widget_WebDialog_DialogWebViewClient& cc)
 {
 	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient::com_facebook_widget_WebDialog_DialogWebViewClient(const com_facebook_widget_WebDialog_DialogWebViewClient& cc) enter");
@@ -126,9 +124,9 @@ com_facebook_widget_WebDialog_DialogWebViewClient::com_facebook_widget_WebDialog
 
 	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient::com_facebook_widget_WebDialog_DialogWebViewClient(const com_facebook_widget_WebDialog_DialogWebViewClient& cc) exit");
 }
-com_facebook_widget_WebDialog_DialogWebViewClient::com_facebook_widget_WebDialog_DialogWebViewClient(void * proxy)
+com_facebook_widget_WebDialog_DialogWebViewClient::com_facebook_widget_WebDialog_DialogWebViewClient(Proxy proxy)
 {
-	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient::com_facebook_widget_WebDialog_DialogWebViewClient(void * proxy) enter");
+	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient::com_facebook_widget_WebDialog_DialogWebViewClient(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -138,47 +136,31 @@ com_facebook_widget_WebDialog_DialogWebViewClient::com_facebook_widget_WebDialog
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient::com_facebook_widget_WebDialog_DialogWebViewClient(void * proxy) exit");
+	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient::com_facebook_widget_WebDialog_DialogWebViewClient(Proxy proxy) exit");
 }
-com_facebook_widget_WebDialog_DialogWebViewClient::com_facebook_widget_WebDialog_DialogWebViewClient()
-{
-	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient::com_facebook_widget_WebDialog_DialogWebViewClient() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/widget/WebDialog$DialogWebViewClient";
-
-	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_widget_WebDialog_DialogWebViewClient::proxy() const
+{	
+	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient::com_facebook_widget_WebDialog_DialogWebViewClient() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 com_facebook_widget_WebDialog_DialogWebViewClient::~com_facebook_widget_WebDialog_DialogWebViewClient()
 {
@@ -190,13 +172,13 @@ com_facebook_widget_WebDialog_DialogWebViewClient::~com_facebook_widget_WebDialo
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient::~com_facebook_widget_WebDialog_DialogWebViewClient() exit");
 }
 // Functions
-bool com_facebook_widget_WebDialog_DialogWebViewClient::shouldOverrideUrlLoading(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1)
+bool com_facebook_widget_WebDialog_DialogWebViewClient::shouldOverrideUrlLoading(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("bool com_facebook_widget_WebDialog_DialogWebViewClient::shouldOverrideUrlLoading(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("bool com_facebook_widget_WebDialog_DialogWebViewClient::shouldOverrideUrlLoading(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "shouldOverrideUrlLoading";
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;)Z";
@@ -206,8 +188,6 @@ bool com_facebook_widget_WebDialog_DialogWebViewClient::shouldOverrideUrlLoading
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient cxx address %d", cxxAddress);
@@ -257,7 +237,6 @@ bool com_facebook_widget_WebDialog_DialogWebViewClient::shouldOverrideUrlLoading
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -275,17 +254,17 @@ bool com_facebook_widget_WebDialog_DialogWebViewClient::shouldOverrideUrlLoading
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool com_facebook_widget_WebDialog_DialogWebViewClient::shouldOverrideUrlLoading(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool com_facebook_widget_WebDialog_DialogWebViewClient::shouldOverrideUrlLoading(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-void com_facebook_widget_WebDialog_DialogWebViewClient::onPageStarted(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_graphics_Bitmap& arg2)
+void com_facebook_widget_WebDialog_DialogWebViewClient::onPageStarted(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_graphics_Bitmap const& arg2)
 {
-	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onPageStarted(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_graphics_Bitmap& arg2) enter");
+	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onPageStarted(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_graphics_Bitmap const& arg2) enter");
 
 	const char *methodName = "onPageStarted";
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;Landroid/graphics/Bitmap;)V";
@@ -295,8 +274,6 @@ void com_facebook_widget_WebDialog_DialogWebViewClient::onPageStarted(AndroidCXX
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient cxx address %d", cxxAddress);
@@ -369,14 +346,12 @@ void com_facebook_widget_WebDialog_DialogWebViewClient::onPageStarted(AndroidCXX
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onPageStarted(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_graphics_Bitmap& arg2) exit");
+	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onPageStarted(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_graphics_Bitmap const& arg2) exit");
 
 }
-void com_facebook_widget_WebDialog_DialogWebViewClient::onPageFinished(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1)
+void com_facebook_widget_WebDialog_DialogWebViewClient::onPageFinished(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onPageFinished(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onPageFinished(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "onPageFinished";
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;)V";
@@ -386,8 +361,6 @@ void com_facebook_widget_WebDialog_DialogWebViewClient::onPageFinished(AndroidCX
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient cxx address %d", cxxAddress);
@@ -439,14 +412,12 @@ void com_facebook_widget_WebDialog_DialogWebViewClient::onPageFinished(AndroidCX
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onPageFinished(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onPageFinished(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 }
-void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedError(AndroidCXX::android_webkit_WebView& arg0,int& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3)
+void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedError(AndroidCXX::android_webkit_WebView const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3)
 {
-	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedError(AndroidCXX::android_webkit_WebView& arg0,int& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3) enter");
+	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedError(AndroidCXX::android_webkit_WebView const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3) enter");
 
 	const char *methodName = "onReceivedError";
 	const char *methodSignature = "(Landroid/webkit/WebView;ILjava/lang/String;Ljava/lang/String;)V";
@@ -456,8 +427,6 @@ void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedError(AndroidC
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient cxx address %d", cxxAddress);
@@ -551,14 +520,12 @@ void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedError(AndroidC
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedError(AndroidCXX::android_webkit_WebView& arg0,int& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3) exit");
+	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedError(AndroidCXX::android_webkit_WebView const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3) exit");
 
 }
-void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedSslError(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_webkit_SslErrorHandler& arg1,AndroidCXX::android_net_http_SslError& arg2)
+void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedSslError(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_webkit_SslErrorHandler const& arg1,AndroidCXX::android_net_http_SslError const& arg2)
 {
-	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedSslError(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_webkit_SslErrorHandler& arg1,AndroidCXX::android_net_http_SslError& arg2) enter");
+	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedSslError(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_webkit_SslErrorHandler const& arg1,AndroidCXX::android_net_http_SslError const& arg2) enter");
 
 	const char *methodName = "onReceivedSslError";
 	const char *methodSignature = "(Landroid/webkit/WebView;Landroid/webkit/SslErrorHandler;Landroid/net/http/SslError;)V";
@@ -568,8 +535,6 @@ void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedSslError(Andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient cxx address %d", cxxAddress);
@@ -642,8 +607,6 @@ void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedSslError(Andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedSslError(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_webkit_SslErrorHandler& arg1,AndroidCXX::android_net_http_SslError& arg2) exit");
+	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedSslError(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_webkit_SslErrorHandler const& arg1,AndroidCXX::android_net_http_SslError const& arg2) exit");
 
 }

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -118,26 +117,27 @@ class com_facebook_widget_UserSettingsFragment
 public:
 
 	com_facebook_widget_UserSettingsFragment(const com_facebook_widget_UserSettingsFragment& cc);
-	com_facebook_widget_UserSettingsFragment(void * proxy);
+	com_facebook_widget_UserSettingsFragment(Proxy proxy);
 	// Public Constructors
 	com_facebook_widget_UserSettingsFragment();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_UserSettingsFragment();
 	// Functions
-	 void onCreate(AndroidCXX::android_os_Bundle& arg0);
+	 void onCreate(AndroidCXX::android_os_Bundle const& arg0);
 	 void onResume();
-	 AndroidCXX::android_view_View onCreateView(AndroidCXX::android_view_LayoutInflater& arg0,AndroidCXX::android_view_ViewGroup& arg1,AndroidCXX::android_os_Bundle& arg2);
-	 COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior getLoginBehavior();
-	 void setSession(FacebookCXX::com_facebook_Session& arg0);
-	 void setLoginBehavior(COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior& arg0);
-	 void setDefaultAudience(COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience& arg0);
-	 COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience getDefaultAudience();
+	 AndroidCXX::android_view_View onCreateView(AndroidCXX::android_view_LayoutInflater const& arg0,AndroidCXX::android_view_ViewGroup const& arg1,AndroidCXX::android_os_Bundle const& arg2);
+	 com_facebook_SessionLoginBehavior::com_facebook_SessionLoginBehavior getLoginBehavior();
+	 void setSession(FacebookCXX::com_facebook_Session const& arg0);
+	 void setLoginBehavior(com_facebook_SessionLoginBehavior::com_facebook_SessionLoginBehavior const& arg0);
+	 void setDefaultAudience(com_facebook_SessionDefaultAudience::com_facebook_SessionDefaultAudience const& arg0);
+	 com_facebook_SessionDefaultAudience::com_facebook_SessionDefaultAudience getDefaultAudience();
 	 FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener getOnErrorListener();
-	 void setOnErrorListener(FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener& arg0);
-	 void setReadPermissions(AndroidCXX::java_util_List& arg0);
-	 void setPublishPermissions(AndroidCXX::java_util_List& arg0);
+	 void setOnErrorListener(FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener const& arg0);
+	 void setReadPermissions(AndroidCXX::java_util_List const& arg0);
+	 void setPublishPermissions(AndroidCXX::java_util_List const& arg0);
 	 void clearPermissions();
-	 void setSessionStatusCallback(FacebookCXX::com_facebook_Session_StatusCallback& arg0);
+	 void setSessionStatusCallback(FacebookCXX::com_facebook_Session_StatusCallback const& arg0);
 	 FacebookCXX::com_facebook_Session_StatusCallback getSessionStatusCallback();
 };	
 

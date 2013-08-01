@@ -13,6 +13,7 @@ import re
 import os
 import inspect
 import logging
+from Utils import Utils
 from collections import defaultdict
 from multiprocessing import Process
 from Cheetah.Template import Template
@@ -237,6 +238,7 @@ class Generator(BaseGenerator):
 		logging.debug("self.impl_outdir_name " + str(self.impl_outdir_name))
 		self._generate_cxx_class_code()
 		self._generate_cxx_enum_code()
+		# derived data detached
 		self.config_module.detach_derived_data()			
 		self.config_module = None
 		logging.debug("_generate_cxx_code exit")
@@ -445,18 +447,20 @@ class Generator(BaseGenerator):
  
 	def _generate_java_code(self):
 		logging.debug("_generate_java_code enter")
-		self.java_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "src")
+		self.java_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "src", self.package_name)
 		if not os.path.exists(self.java_outdir_name):
 			os.makedirs(self.java_outdir_name)
 		logging.debug("self.java_outdir_name " + str(self.java_outdir_name))
 		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
 		assert self.config_module.is_valid, "config_module is not valid"
 		self._update_config(self.config_module)
+		# derived data attached temporary 
+		self.config_module.attach_derived_data()
 		callback_classes = self.config_module.list_classes(tags=['_callback'],xtags=None,name=None)
 		for callback_class in callback_classes:
 			self.callback_class = callback_class
-			class_name = callback_class['name']
-			cxx_class_name = Utils.to_class_name(class_name)
+			self.callback_java_class_name = callback_class['name']
+			cxx_class_name = Utils.to_class_name(self.callback_java_class_name)
 			self.callback_class_name = cxx_class_name
 			callback_file_name = self.callback_class_name + ".java"
 			logging.debug("callback_file_name " + str(callback_file_name))		
@@ -469,6 +473,8 @@ class Generator(BaseGenerator):
 			logging.debug("callback_impl_java " + str(callback_impl_java))
 			self.callback_file.write(str(callback_impl_java))
 			self.callback_file.close()
+		# derived data detached
+		self.config_module.detach_derived_data()			
 		self.config_module = None
 		logging.debug("_generate_java_code exit")
 
@@ -477,6 +483,89 @@ class Generator(BaseGenerator):
 		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
 		assert self.config_module.is_valid, "config_module is not valid"
 		self._update_config(self.config_module)
+		# android src outdir (required)
+		self.java_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "src")
+		if not os.path.exists(self.java_outdir_name):
+			os.makedirs(self.java_outdir_name)
+		# android res outdir (required)
+		self.res_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "res")
+		if not os.path.exists(self.res_outdir_name):
+			os.makedirs(self.res_outdir_name)
+		# android gen outdir (required)
+		self.gen_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "gen")
+		if not os.path.exists(self.gen_outdir_name):
+			os.makedirs(self.gen_outdir_name)
+		# android .settings (optional)
+		self.settings_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, ".settings")
+		if not os.path.exists(self.settings_outdir_name):
+			os.makedirs(self.settings_outdir_name)
+		# android settings prefs 
+		self.eclipse_prefs_file_name = "org.eclipse.jdt.core.prefs"
+		logging.debug("self.eclipse_prefs_file_name " + str(self.eclipse_prefs_file_name))
+		eclipse_prefs_file_path = os.path.join(self.settings_outdir_name, self.eclipse_prefs_file_name)
+		logging.debug("eclipse_prefs_file_path " + str(eclipse_prefs_file_path))
+		self.eclipse_prefs_file = open(eclipse_prefs_file_path, "w+")
+		eclipse_prefs_template = Template(file=os.path.join(self.target, "templates", "android.eclipse.prefs"), searchList=[{'CONFIG': self}])
+		logging.debug("eclipse_prefs_template " + str(eclipse_prefs_template))	
+		self.eclipse_prefs_file.write(str(eclipse_prefs_template))
+		self.eclipse_prefs_file.close()
+		# android eclipse .project
+		self.eclipse_project_outdir_name = os.path.join(self.makefile_outdir_name, self.package_name)
+		if not os.path.exists(self.eclipse_project_outdir_name):
+			os.makedirs(self.eclipse_project_outdir_name)					
+		logging.debug("self.eclipse_project_outdir_name " + str(self.eclipse_project_outdir_name))
+		self.eclipse_project_file_name = ".project"
+		logging.debug("self.eclipse_project_file_name " + str(self.eclipse_project_file_name))
+		eclipse_project_file_path = os.path.join(self.eclipse_project_outdir_name, self.eclipse_project_file_name)
+		logging.debug("eclipse_project_file_path " + str(eclipse_project_file_path))
+		self.eclipse_project_file = open(eclipse_project_file_path, "w+")
+		eclipse_project_template = Template(file=os.path.join(self.target, "templates", "android.eclipse.project"), searchList=[{'CONFIG': self}])
+		logging.debug("eclipse_project_template " + str(eclipse_project_template))	
+		self.eclipse_project_file.write(str(eclipse_project_template))
+		self.eclipse_project_file.close()
+		# android eclipse .classpath
+		self.eclipse_classpath_outdir_name = os.path.join(self.makefile_outdir_name, self.package_name)
+		if not os.path.exists(self.eclipse_classpath_outdir_name):
+			os.makedirs(self.eclipse_classpath_outdir_name)					
+		logging.debug("self.eclipse_classpath_outdir_name " + str(self.eclipse_classpath_outdir_name))
+		self.eclipse_classpath_file_name = ".classpath"
+		logging.debug("self.eclipse_classpath_file_name " + str(self.eclipse_classpath_file_name))
+		eclipse_classpath_file_path = os.path.join(self.eclipse_classpath_outdir_name, self.eclipse_classpath_file_name)
+		logging.debug("eclipse_classpath_file_path " + str(eclipse_classpath_file_path))
+		self.eclipse_classpath_file = open(eclipse_classpath_file_path, "w+")
+		eclipse_classpath_template = Template(file=os.path.join(self.target, "templates", "android.eclipse.classpath"), searchList=[{'CONFIG': self}])
+		logging.debug("eclipse_classpath_template " + str(eclipse_classpath_template))	
+		self.eclipse_classpath_file.write(str(eclipse_classpath_template))
+		self.eclipse_classpath_file.close()
+		# android project.properties
+		self.project_properties_outdir_name = os.path.join(self.makefile_outdir_name, self.package_name)
+		if not os.path.exists(self.project_properties_outdir_name):
+			os.makedirs(self.project_properties_outdir_name)					
+		logging.debug("self.project_properties_outdir_name " + str(self.project_properties_outdir_name))
+		self.project_properties_file_name = "project.properties"
+		logging.debug("self.project_properties_file_name " + str(self.project_properties_file_name))
+		project_properties_file_path = os.path.join(self.project_properties_outdir_name, self.project_properties_file_name)
+		logging.debug("project_properties_file_path " + str(project_properties_file_path))
+		self.project_properties_file = open(project_properties_file_path, "w+")
+		project_properties_template = Template(file=os.path.join(self.target, "templates", "android.project.properties"), searchList=[{'CONFIG': self}])
+		logging.debug("project_properties_template " + str(project_properties_template))	
+		self.project_properties_file.write(str(project_properties_template))
+		self.project_properties_file.close()
+		# android AndroidManifest.xml
+		self.android_manifest_outdir_name = os.path.join(self.makefile_outdir_name, self.package_name)
+		if not os.path.exists(self.android_manifest_outdir_name):
+			os.makedirs(self.android_manifest_outdir_name)					
+		logging.debug("self.android_manifest_outdir_name " + str(self.android_manifest_outdir_name))
+		self.android_manifest_file_name = "AndroidManifest.xml"
+		logging.debug("self.android_manifest_file_name " + str(self.android_manifest_file_name))
+		android_manifest_file_path = os.path.join(self.android_manifest_outdir_name, self.android_manifest_file_name)
+		logging.debug("android_manifest_file_path " + str(android_manifest_file_path))
+		self.android_manifest_file = open(android_manifest_file_path, "w+")
+		android_manifest_template = Template(file=os.path.join(self.target, "templates", "AndroidManifest.xml"), searchList=[{'CONFIG': self}])
+		logging.debug("android_manifest_template " + str(android_manifest_template))	
+		self.android_manifest_file.write(str(android_manifest_template))
+		self.android_manifest_file.close()
+		# android build xml
 		self.internal_build_outdir_name = os.path.join(self.makefile_outdir_name, self.package_name)
 		if not os.path.exists(self.internal_build_outdir_name):
 			os.makedirs(self.internal_build_outdir_name)					
@@ -490,6 +579,11 @@ class Generator(BaseGenerator):
 		logging.debug("internal_build_xml " + str(internal_build_xml))	
 		self.internal_build_file.write(str(internal_build_xml))
 		self.internal_build_file.close()		
+		# Android.mk
+		self.internal_makefile_outdir_name = os.path.join(self.makefile_outdir_name, self.package_name, 'jni')
+		if not os.path.exists(self.internal_makefile_outdir_name):
+			os.makedirs(self.internal_makefile_outdir_name)					
+		logging.debug("self.internal_makefile_outdir_name " + str(self.internal_makefile_outdir_name))
 		self.internal_makefile_outdir_name = os.path.join(self.makefile_outdir_name, self.package_name, 'jni')
 		if not os.path.exists(self.internal_makefile_outdir_name):
 			os.makedirs(self.internal_makefile_outdir_name)					
@@ -503,6 +597,7 @@ class Generator(BaseGenerator):
 		logging.debug("internal_android_mk " + str(internal_android_mk))	
 		self.internal_androidmk_file.write(str(internal_android_mk))
 		self.internal_androidmk_file.close()		
+		# Application.mk
 		self.internal_applicationmk_file_name = "Application.mk"
 		logging.debug("self.internal_applicationmk_file_name " + str(self.internal_applicationmk_file_name))
 		internal_applicationmk_file_path = os.path.join(self.internal_makefile_outdir_name, self.internal_applicationmk_file_name)
@@ -649,23 +744,6 @@ class ConfigModule(object):
 		if include_config_file_path is not None:
 			self.include_config_data_list = ConfigModule.load_included_configs(self.config_data, include_config_file_path)
 		self.is_valid = self.config_data is not None
-
-	# TODO: remove me
-	def to_class_name(self, class_name):
-		class_name = class_name.replace('.','_')
-		class_name = class_name.replace('$','_')
-		return class_name
-
-	# TODO: remove me
-	def to_safe_cxx_name(self, cxx_name):
-		if cxx_name in Utils.cxx_reserved_names:
-			return '_' + cxx_name
-		return cxx_name
-
-	# TODO: remove me
-	def to_file_name(self, base_name, extension):
-		file_name = ".".join([base_name, extension])
-		return file_name
 
 	def add_namespace_to_config_data(self, namespace_name):
 		logging.debug("_add_namespace_to_config_data enter")
@@ -931,7 +1009,7 @@ class ConfigModule(object):
 				if clazz["name"] == convertible["type"]:
 					no_proxy = False
 					if "tags" in clazz:
-						if "no_proxy" in clazz["tags"]:
+						if "_no_proxy" in clazz["tags"]:
 							no_proxy = True
 					if not no_proxy:
 						convertible["converter"] = 'convert_proxy'
@@ -941,7 +1019,7 @@ class ConfigModule(object):
 					if clazz["name"] == convertible["type"]:
 						no_proxy = False
 						if "tags" in clazz:
-							if "no_proxy" in clazz["tags"]:
+							if "_no_proxy" in clazz["tags"]:
 								no_proxy = True
 						if not no_proxy:
 							convertible["converter"] = 'convert_proxy'					
@@ -1024,7 +1102,14 @@ class ConfigModule(object):
 			classinfo['filename'] = class_file_name
 			classinfo['namespace'] = config_data['namespace']
 			if '_enum' in class_config['tags']:
-				classinfo['namespace'] = class_name.upper()
+				classinfo['namespace'] = class_name
+			classinfo['no_copy_constructor'] = True
+			if 'constructors' in class_config:
+				for constructor in class_config['constructors']:
+					if len(constructor['params']) == 1:
+						if constructor['params'][0]['type'] == class_config['name']:
+							classinfo['no_copy_constructor'] = False
+							break
 		assert "classinfo" in targetdata, "classinfo not attached to " + str(class_config)
 		logging.debug("_attach_derived_target_class_info exit")	
 
@@ -1043,8 +1128,9 @@ class ConfigModule(object):
 		if 'jnisignature' not in jnidata:
 			class_name = class_config['name']
 			if '_callback' in class_config['tags']:
-				class_name = Utils.to_class_name(class_name)					
-				class_sig = Utils.to_jni_class_name(class_name)
+				class_name = Utils.to_class_name(class_name)	
+				class_sig = Utils.to_callback_name(class_name,config_data['package'])				
+				class_sig = Utils.to_jni_class_name(class_sig)
 			else:
 				class_sig = Utils.to_jni_class_name(class_name)
 			jnidata['jnisignature'] = class_sig
@@ -1129,18 +1215,26 @@ class ConfigModule(object):
 
 	def _attach_derived_type_data(self, type_config, config_data):
 		logging.debug("_attach_derived_type_data enter")
-		if "deriveddata" not in type_config:
-			type_config['deriveddata'] = dict()
 		self._attach_derived_target_type_data(type_config, config_data)
 		self._attach_derived_jni_type_data(type_config, config_data)
 		logging.debug("_attach_derived_type_data exit")
 
 	def _attach_derived_target_type_data(self, type_config, config_data):
 		logging.debug("_attach_derived_target_type_data enter")
+		if "deriveddata" not in type_config:
+			type_config['deriveddata'] = dict()
 		deriveddata = type_config['deriveddata']
 		if "targetdata" not in deriveddata:
 			deriveddata['targetdata'] = dict()
 		self._attach_derived_target_type_info(type_config, config_data)
+		if "children" in type_config:
+			for child_type_config in type_config["children"]:
+				if "deriveddata" not in child_type_config:
+					child_type_config['deriveddata'] = dict()
+				child_deriveddata = child_type_config['deriveddata']
+				if "targetdata" not in child_type_config:
+					child_deriveddata['targetdata'] = dict()
+				self._attach_derived_target_type_data(child_type_config, config_data)
 		logging.debug("_attach_derived_target_type_data exit")
 
 	def _attach_derived_target_type_info(self, type_config, config_data):
@@ -1154,6 +1248,7 @@ class ConfigModule(object):
 			typeinfo['isarray'] = jindex.ArrayType.is_array_id(type_config["type"])
 			typeinfo['isvoid'] = jindex.VoidType.is_void_id(type_config["type"])
 			typeinfo['namespace'] = config_data['namespace']
+			typeinfo['javatypename'] = Utils.to_java_name(type_config)
 			if type_config['converter'] == 'convert_proxy':
 				namespaced_classes = self.list_all_namespaced_classes(tags=None,xtags=None,name=type_config['type'])
 				for namespaced_class in namespaced_classes:
@@ -1166,7 +1261,7 @@ class ConfigModule(object):
 					typeinfo['filename'] = file_name
 					is_enum = True if '_enum' in clazz['tags'] else False
 					if is_enum:
-						typeinfo['namespace'] = type_name.upper()
+						typeinfo['namespace'] = type_name
 					typeinfo['isenum'] = is_enum
 					is_callback = True if '_callback' in clazz['tags'] else False
 					typeinfo['iscallback'] = is_callback
@@ -1225,6 +1320,8 @@ class ConfigModule(object):
 
 	def _attach_derived_jni_type_data(self, type_config, config_data):
 		logging.debug("_attach_derived_jni_type_data enter")
+		if "deriveddata" not in type_config:
+			type_config['deriveddata'] = dict()
 		deriveddata = type_config['deriveddata']
 		if "jnidata" not in deriveddata:
 			deriveddata['jnidata'] = dict()
@@ -1232,7 +1329,12 @@ class ConfigModule(object):
 		self._attach_derived_jni_type_signature(type_config, config_data)
 		if "children" in type_config:
 			for child_type_config in type_config["children"]:
-				self._attach_derived_type_data(child_type_config, config_data)
+				if "deriveddata" not in child_type_config:
+					child_type_config['deriveddata'] = dict()
+				child_deriveddata = child_type_config['deriveddata']
+				if "jnidata" not in child_deriveddata:
+					child_deriveddata['jnidata'] = dict()
+				self._attach_derived_jni_type_data(child_type_config, config_data)		
 		logging.debug("_attach_derived_jni_type_data exit")
 
 	def _attach_derived_jni_type_converter(self, type_config, config_data):
@@ -1267,13 +1369,7 @@ class ConfigModule(object):
 		jnidata = deriveddata['jnidata']
 		typeinfo = deriveddata['targetdata']['typeinfo']
 		if 'jnisignature' not in jnidata:
-			type_config = type_config.copy()
-			type_ = type_config['type']
-			if 'iscallback' in typeinfo:
-				if typeinfo['iscallback']:
-					type_ = typeinfo['typename']
-			type_config['type'] = type_
-			jnidata['jnisignature'] = Utils.to_jni_type_signature(type_config)
+			jnidata['jnisignature'] = Utils.to_jni_type_signature(type_config, config_data)
 		logging.debug("_attach_derived_jni_type_signature exit")
 
 	def _detach_derived_data(self, config_item_data, config_data):
@@ -1344,153 +1440,6 @@ class ConfigModule(object):
 				if include_config_data is not None:
 					include_config_data_list.append(include_config_data)
 		return include_config_data_list
-
-class Utils(object):
-
-	cxx_reserved_names = ( 	
-							'alignas', 			# C++11
-							'alignof',			# C++11
-							'and', 		
-							'and_eq',
-							'asm',
-							'auto',
-							'bitand',
-							'bitor',
-							'bool',
-							'break',
-							'case',
-							'catch',
-							'char',
-							'char16_t',			# C++11
-							'char32_t',			# C++11
-							'class',
-							'compl',
-							'const',
-							'constexpr',		# C++11
-							'const_cast',
-							'continue',
-							'decltype',			# C++11
-							'default',			
-							'delete',		
-							'do',
-							'double',
-							'dynamic_cast',
-							'else',
-							'enum',
-							'explicit',
-							'export',
-							'extern',
-							'false',
-							'float',
-							'for',
-							'friend',
-							'goto',
-							'if',
-							'inline',
-							'int',
-							'long',
-							'mutable',
-							'namespace',
-							'new',
-							'noexcept',			# C++11
-							'not',
-							'not_eq',
-							'nullptr'			# C++11
-							'operator',
-							'or',
-							'or_eq',
-							'private',
-							'protected',
-							'public',
-							'register',
-							'reinterpret_cast',
-							'return',
-							'short',
-							'signed',
-							'sizeof',
-							'static',
-							'static_assert',	# C++11
-							'static_cast',
-							'struct',
-							'switch',
-							'template',
-							'this',
-							'thread_local',		# C++11
-							'throw',
-							'true',
-							'try',
-							'typedef',
-							'typeid',
-							'typename',
-							'union',
-							'unsigned',
-							'using',
-							'virtual',
-							'void',
-							'volatile',
-							'wchar_t',
-							'while',
-							'xor',
-							'xor_eq',
-						)
-
-	jni_type_signature_map = 	{
-									'boolean'	:	'Z',
-									'byte'		:	'B',
-									'char'		:	'C',
-									'short'		:	'S',
-									'int'		:	'I',
-									'long'		:	'J',
-									'float'		:	'F',
-									'double'	:	'D',
-									'void'		:	'V',
-								}
-
-	@classmethod
-	def to_resource_name(cls, class_name):
-		return class_name.replace('.', '/')
-
-	@classmethod
-	def to_class_name(cls, class_name):
-		class_name = class_name.replace('.','_')
-		class_name = class_name.replace('$','_')
-		return class_name
-
-	@classmethod
-	def to_safe_cxx_name(cls, cxx_name):
-		if cxx_name in Utils.cxx_reserved_names:
-			return '_' + cxx_name
-		return cxx_name
-
-	@classmethod
-	def to_jni_class_name(cls, class_name):
-		return Utils.to_resource_name(class_name)
-
-	@classmethod
-	def to_file_name(cls, base_name, extension):
-		file_name = ".".join([base_name, extension])
-		return file_name
-
-	@classmethod
-	def to_namespace_name(cls, namespace_name, class_name):
-		namespaced_name = namespace_name + "::" + class_name
-		return namespaced_name
-
-	@classmethod
-	def to_jni_type_signature(cls, type_config):
-		type_ = type_config['type']
-		if type_ in Utils.jni_type_signature_map:
-			return Utils.jni_type_signature_map[type_]
-		if jindex.ArrayType.is_array_id(type_):
-			array_type = type_.split('_')[1]
-			if array_type in Utils.jni_type_signature_map:
-				array_type = Utils.jni_type_signature_map[array_type]
-			else:
-				array_type = 'java.lang.Object'
-				if 'children' in type_config:
-					array_type = Utils.to_jni_type_signature(type_config['children'][0])
-			return '[' + array_type
-		return 'L' + Utils.to_resource_name(type_) + ';'
 
 
 

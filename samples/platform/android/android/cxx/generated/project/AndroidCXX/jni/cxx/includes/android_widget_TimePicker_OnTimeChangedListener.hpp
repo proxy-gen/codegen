@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -52,13 +51,13 @@ class android_widget_TimePicker_OnTimeChangedListener
 public:
 
 	android_widget_TimePicker_OnTimeChangedListener(const android_widget_TimePicker_OnTimeChangedListener& cc);
-	android_widget_TimePicker_OnTimeChangedListener(void * proxy);
+	android_widget_TimePicker_OnTimeChangedListener(Proxy proxy);
 	// Public Constructors
-	android_widget_TimePicker_OnTimeChangedListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TimePicker_OnTimeChangedListener();
 	// Functions
-	 void onTimeChanged(AndroidCXX::android_widget_TimePicker& arg0,int& arg1,int& arg2);
+	 void onTimeChanged(AndroidCXX::android_widget_TimePicker const& arg0,int const& arg1,int const& arg2);
 };	
 
 } // namespace

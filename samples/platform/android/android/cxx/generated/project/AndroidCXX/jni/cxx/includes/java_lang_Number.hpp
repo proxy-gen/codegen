@@ -22,7 +22,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _java_lang_Number
@@ -53,9 +52,10 @@ class java_lang_Number
 public:
 
 	java_lang_Number(const java_lang_Number& cc);
-	java_lang_Number(void * proxy);
+	java_lang_Number(Proxy proxy);
 	// Public Constructors
 	java_lang_Number();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Number();
 	// Functions

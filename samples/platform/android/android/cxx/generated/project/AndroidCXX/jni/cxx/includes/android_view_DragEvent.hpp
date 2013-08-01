@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -81,9 +80,9 @@ class android_view_DragEvent
 public:
 
 	android_view_DragEvent(const android_view_DragEvent& cc);
-	android_view_DragEvent(void * proxy);
+	android_view_DragEvent(Proxy proxy);
 	// Public Constructors
-	android_view_DragEvent();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_DragEvent();
 	// Functions
@@ -92,7 +91,7 @@ public:
 	 float getX();
 	 bool getResult();
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 	 int getAction();
 	 AndroidCXX::android_content_ClipData getClipData();
 	 AndroidCXX::android_content_ClipDescription getClipDescription();

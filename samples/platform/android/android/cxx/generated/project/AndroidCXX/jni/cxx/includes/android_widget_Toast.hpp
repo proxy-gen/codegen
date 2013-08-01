@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -88,30 +87,30 @@ class android_widget_Toast
 public:
 
 	android_widget_Toast(const android_widget_Toast& cc);
-	android_widget_Toast(void * proxy);
+	android_widget_Toast(Proxy proxy);
 	// Public Constructors
-	android_widget_Toast(AndroidCXX::android_content_Context& arg0);
-	android_widget_Toast();
+	android_widget_Toast(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Toast();
 	// Functions
-	 void setText(AndroidCXX::java_lang_CharSequence& arg0);
-	 void setText(int& arg0);
+	 void setText(AndroidCXX::java_lang_CharSequence const& arg0);
+	 void setText(int const& arg0);
 	 void cancel();
 	 AndroidCXX::android_view_View getView();
 	 void show();
-	 void setDuration(int& arg0);
+	 void setDuration(int const& arg0);
 	 int getDuration();
-	 void setGravity(int& arg0,int& arg1,int& arg2);
+	 void setGravity(int const& arg0,int const& arg1,int const& arg2);
 	 int getGravity();
-	 void setView(AndroidCXX::android_view_View& arg0);
-	 void setMargin(float& arg0,float& arg1);
+	 void setView(AndroidCXX::android_view_View const& arg0);
+	 void setMargin(float const& arg0,float const& arg1);
 	 float getHorizontalMargin();
 	 float getVerticalMargin();
 	 int getXOffset();
 	 int getYOffset();
-	static AndroidCXX::android_widget_Toast makeText(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_CharSequence& arg1,int& arg2);
-	static AndroidCXX::android_widget_Toast makeText(AndroidCXX::android_content_Context& arg0,int& arg1,int& arg2);
+	static AndroidCXX::android_widget_Toast makeText(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,int const& arg2);
+	static AndroidCXX::android_widget_Toast makeText(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2);
 };	
 
 } // namespace

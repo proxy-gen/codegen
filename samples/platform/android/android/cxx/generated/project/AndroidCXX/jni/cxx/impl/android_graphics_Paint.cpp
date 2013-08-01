@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -168,7 +167,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_Paint"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -193,7 +192,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_PAINT_STYLE;
+// using namespace android_graphics_Paint_Style;
 // 
 // 
 // 
@@ -204,7 +203,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_PAINT_CAP;
+// using namespace android_graphics_Paint_Cap;
 // 
 // 
 // 
@@ -215,7 +214,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_PAINT_JOIN;
+// using namespace android_graphics_Paint_Join;
 // 
 // 
 // 
@@ -289,7 +288,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_PAINT_ALIGN;
+// using namespace android_graphics_Paint_Align;
 // 
 // 
 // 
@@ -363,34 +362,9 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
-android_graphics_Paint::android_graphics_Paint(const android_graphics_Paint& cc)
+android_graphics_Paint::android_graphics_Paint(Proxy proxy)
 {
-	LOGV("android_graphics_Paint::android_graphics_Paint(const android_graphics_Paint& cc) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	long ccaddress = (long) &cc;
-	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
-	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
-	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
-	long address = (long) this;
-	LOGV("registerProxyComponent address %ld", address);
-	jobject proxiedComponent = ctx->findProxyComponent(address);
-	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
-	if (proxiedComponent == 0)
-	{
-		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = proxiedCCComponent;
-		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
-		ctx->registerProxyComponent(address, proxiedComponent);
-	}
-
-	LOGV("android_graphics_Paint::android_graphics_Paint(const android_graphics_Paint& cc) exit");
-}
-android_graphics_Paint::android_graphics_Paint(void * proxy)
-{
-	LOGV("android_graphics_Paint::android_graphics_Paint(void * proxy) enter");
+	LOGV("android_graphics_Paint::android_graphics_Paint(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -400,13 +374,31 @@ android_graphics_Paint::android_graphics_Paint(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_graphics_Paint::android_graphics_Paint(void * proxy) exit");
+	LOGV("android_graphics_Paint::android_graphics_Paint(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy android_graphics_Paint::proxy() const
+{	
+	LOGV("android_graphics_Paint::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_graphics_Paint jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_graphics_Paint::proxy() exit");	
+
+	return proxy;
+}
 android_graphics_Paint::android_graphics_Paint()
 {
 	LOGV("android_graphics_Paint::android_graphics_Paint() enter");	
@@ -443,9 +435,9 @@ android_graphics_Paint::android_graphics_Paint()
 
 	LOGV("android_graphics_Paint::android_graphics_Paint() exit");	
 }
-android_graphics_Paint::android_graphics_Paint(int& arg0)
+android_graphics_Paint::android_graphics_Paint(int const& arg0)
 {
-	LOGV("android_graphics_Paint::android_graphics_Paint(int& arg0) enter");	
+	LOGV("android_graphics_Paint::android_graphics_Paint(int const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(I)V";
@@ -498,11 +490,11 @@ android_graphics_Paint::android_graphics_Paint(int& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("android_graphics_Paint::android_graphics_Paint(int& arg0) exit");	
+	LOGV("android_graphics_Paint::android_graphics_Paint(int const& arg0) exit");	
 }
-android_graphics_Paint::android_graphics_Paint(AndroidCXX::android_graphics_Paint& arg0)
+android_graphics_Paint::android_graphics_Paint(AndroidCXX::android_graphics_Paint const& arg0)
 {
-	LOGV("android_graphics_Paint::android_graphics_Paint(AndroidCXX::android_graphics_Paint& arg0) enter");	
+	LOGV("android_graphics_Paint::android_graphics_Paint(AndroidCXX::android_graphics_Paint const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/graphics/Paint;)V";
@@ -555,7 +547,7 @@ android_graphics_Paint::android_graphics_Paint(AndroidCXX::android_graphics_Pain
 
 	jni->popLocalFrame();
 
-	LOGV("android_graphics_Paint::android_graphics_Paint(AndroidCXX::android_graphics_Paint& arg0) exit");	
+	LOGV("android_graphics_Paint::android_graphics_Paint(AndroidCXX::android_graphics_Paint const& arg0) exit");	
 }
 // Default Instance Destructor
 android_graphics_Paint::~android_graphics_Paint()
@@ -568,13 +560,13 @@ android_graphics_Paint::~android_graphics_Paint()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_graphics_Paint::~android_graphics_Paint() exit");
 }
 // Functions
-void android_graphics_Paint::set(AndroidCXX::android_graphics_Paint& arg0)
+void android_graphics_Paint::set(AndroidCXX::android_graphics_Paint const& arg0)
 {
-	LOGV("void android_graphics_Paint::set(AndroidCXX::android_graphics_Paint& arg0) enter");
+	LOGV("void android_graphics_Paint::set(AndroidCXX::android_graphics_Paint const& arg0) enter");
 
 	const char *methodName = "set";
 	const char *methodSignature = "(Landroid/graphics/Paint;)V";
@@ -584,8 +576,6 @@ void android_graphics_Paint::set(AndroidCXX::android_graphics_Paint& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -616,9 +606,7 @@ void android_graphics_Paint::set(AndroidCXX::android_graphics_Paint& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::set(AndroidCXX::android_graphics_Paint& arg0) exit");
+	LOGV("void android_graphics_Paint::set(AndroidCXX::android_graphics_Paint const& arg0) exit");
 
 }
 void android_graphics_Paint::reset()
@@ -634,8 +622,6 @@ void android_graphics_Paint::reset()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -644,8 +630,6 @@ void android_graphics_Paint::reset()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_graphics_Paint::reset() exit");
 
 }
@@ -662,15 +646,12 @@ int android_graphics_Paint::getColor()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -688,10 +669,10 @@ int android_graphics_Paint::getColor()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_graphics_Paint::getColor() exit");
 
 	return result;
@@ -709,15 +690,12 @@ int android_graphics_Paint::getFlags()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -735,17 +713,17 @@ int android_graphics_Paint::getFlags()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_graphics_Paint::getFlags() exit");
 
 	return result;
 }
-void android_graphics_Paint::setFlags(int& arg0)
+void android_graphics_Paint::setFlags(int const& arg0)
 {
-	LOGV("void android_graphics_Paint::setFlags(int& arg0) enter");
+	LOGV("void android_graphics_Paint::setFlags(int const& arg0) enter");
 
 	const char *methodName = "setFlags";
 	const char *methodSignature = "(I)V";
@@ -755,8 +733,6 @@ void android_graphics_Paint::setFlags(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -787,9 +763,7 @@ void android_graphics_Paint::setFlags(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setFlags(int& arg0) exit");
+	LOGV("void android_graphics_Paint::setFlags(int const& arg0) exit");
 
 }
 int android_graphics_Paint::getAlpha()
@@ -805,15 +779,12 @@ int android_graphics_Paint::getAlpha()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -831,17 +802,17 @@ int android_graphics_Paint::getAlpha()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_graphics_Paint::getAlpha() exit");
 
 	return result;
 }
-void android_graphics_Paint::setAlpha(int& arg0)
+void android_graphics_Paint::setAlpha(int const& arg0)
 {
-	LOGV("void android_graphics_Paint::setAlpha(int& arg0) enter");
+	LOGV("void android_graphics_Paint::setAlpha(int const& arg0) enter");
 
 	const char *methodName = "setAlpha";
 	const char *methodSignature = "(I)V";
@@ -851,8 +822,6 @@ void android_graphics_Paint::setAlpha(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -883,14 +852,12 @@ void android_graphics_Paint::setAlpha(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setAlpha(int& arg0) exit");
+	LOGV("void android_graphics_Paint::setAlpha(int const& arg0) exit");
 
 }
-void android_graphics_Paint::setDither(bool& arg0)
+void android_graphics_Paint::setDither(bool const& arg0)
 {
-	LOGV("void android_graphics_Paint::setDither(bool& arg0) enter");
+	LOGV("void android_graphics_Paint::setDither(bool const& arg0) enter");
 
 	const char *methodName = "setDither";
 	const char *methodSignature = "(Z)V";
@@ -901,8 +868,6 @@ void android_graphics_Paint::setDither(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -932,14 +897,12 @@ void android_graphics_Paint::setDither(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setDither(bool& arg0) exit");
+	LOGV("void android_graphics_Paint::setDither(bool const& arg0) exit");
 
 }
-void android_graphics_Paint::setFilterBitmap(bool& arg0)
+void android_graphics_Paint::setFilterBitmap(bool const& arg0)
 {
-	LOGV("void android_graphics_Paint::setFilterBitmap(bool& arg0) enter");
+	LOGV("void android_graphics_Paint::setFilterBitmap(bool const& arg0) enter");
 
 	const char *methodName = "setFilterBitmap";
 	const char *methodSignature = "(Z)V";
@@ -950,8 +913,6 @@ void android_graphics_Paint::setFilterBitmap(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -981,14 +942,12 @@ void android_graphics_Paint::setFilterBitmap(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setFilterBitmap(bool& arg0) exit");
+	LOGV("void android_graphics_Paint::setFilterBitmap(bool const& arg0) exit");
 
 }
-AndroidCXX::android_graphics_ColorFilter android_graphics_Paint::setColorFilter(AndroidCXX::android_graphics_ColorFilter& arg0)
+AndroidCXX::android_graphics_ColorFilter android_graphics_Paint::setColorFilter(AndroidCXX::android_graphics_ColorFilter const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_ColorFilter android_graphics_Paint::setColorFilter(AndroidCXX::android_graphics_ColorFilter& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_ColorFilter android_graphics_Paint::setColorFilter(AndroidCXX::android_graphics_ColorFilter const& arg0) enter");
 
 	const char *methodName = "setColorFilter";
 	const char *methodSignature = "(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;";
@@ -998,8 +957,6 @@ AndroidCXX::android_graphics_ColorFilter android_graphics_Paint::setColorFilter(
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -1028,7 +985,6 @@ AndroidCXX::android_graphics_ColorFilter android_graphics_Paint::setColorFilter(
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_ColorFilter result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1046,11 +1002,11 @@ AndroidCXX::android_graphics_ColorFilter android_graphics_Paint::setColorFilter(
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_ColorFilter(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_ColorFilter) (AndroidCXX::android_graphics_ColorFilter((AndroidCXX::android_graphics_ColorFilter *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_graphics_ColorFilter android_graphics_Paint::setColorFilter(AndroidCXX::android_graphics_ColorFilter& arg0) exit");
+	AndroidCXX::android_graphics_ColorFilter result((AndroidCXX::android_graphics_ColorFilter) *((AndroidCXX::android_graphics_ColorFilter *) cxx_value));
+	delete ((AndroidCXX::android_graphics_ColorFilter *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_ColorFilter android_graphics_Paint::setColorFilter(AndroidCXX::android_graphics_ColorFilter const& arg0) exit");
 
 	return result;
 }
@@ -1067,15 +1023,12 @@ int android_graphics_Paint::getHinting()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1093,17 +1046,17 @@ int android_graphics_Paint::getHinting()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_graphics_Paint::getHinting() exit");
 
 	return result;
 }
-void android_graphics_Paint::setHinting(int& arg0)
+void android_graphics_Paint::setHinting(int const& arg0)
 {
-	LOGV("void android_graphics_Paint::setHinting(int& arg0) enter");
+	LOGV("void android_graphics_Paint::setHinting(int const& arg0) enter");
 
 	const char *methodName = "setHinting";
 	const char *methodSignature = "(I)V";
@@ -1113,8 +1066,6 @@ void android_graphics_Paint::setHinting(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -1145,9 +1096,7 @@ void android_graphics_Paint::setHinting(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setHinting(int& arg0) exit");
+	LOGV("void android_graphics_Paint::setHinting(int const& arg0) exit");
 
 }
 bool android_graphics_Paint::isAntiAlias()
@@ -1163,15 +1112,12 @@ bool android_graphics_Paint::isAntiAlias()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1189,17 +1135,17 @@ bool android_graphics_Paint::isAntiAlias()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_graphics_Paint::isAntiAlias() exit");
 
 	return result;
 }
-void android_graphics_Paint::setAntiAlias(bool& arg0)
+void android_graphics_Paint::setAntiAlias(bool const& arg0)
 {
-	LOGV("void android_graphics_Paint::setAntiAlias(bool& arg0) enter");
+	LOGV("void android_graphics_Paint::setAntiAlias(bool const& arg0) enter");
 
 	const char *methodName = "setAntiAlias";
 	const char *methodSignature = "(Z)V";
@@ -1209,8 +1155,6 @@ void android_graphics_Paint::setAntiAlias(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -1241,9 +1185,7 @@ void android_graphics_Paint::setAntiAlias(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setAntiAlias(bool& arg0) exit");
+	LOGV("void android_graphics_Paint::setAntiAlias(bool const& arg0) exit");
 
 }
 bool android_graphics_Paint::isDither()
@@ -1259,15 +1201,12 @@ bool android_graphics_Paint::isDither()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1285,10 +1224,10 @@ bool android_graphics_Paint::isDither()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_graphics_Paint::isDither() exit");
 
 	return result;
@@ -1306,15 +1245,12 @@ bool android_graphics_Paint::isLinearText()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1332,17 +1268,17 @@ bool android_graphics_Paint::isLinearText()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_graphics_Paint::isLinearText() exit");
 
 	return result;
 }
-void android_graphics_Paint::setLinearText(bool& arg0)
+void android_graphics_Paint::setLinearText(bool const& arg0)
 {
-	LOGV("void android_graphics_Paint::setLinearText(bool& arg0) enter");
+	LOGV("void android_graphics_Paint::setLinearText(bool const& arg0) enter");
 
 	const char *methodName = "setLinearText";
 	const char *methodSignature = "(Z)V";
@@ -1352,8 +1288,6 @@ void android_graphics_Paint::setLinearText(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -1384,9 +1318,7 @@ void android_graphics_Paint::setLinearText(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setLinearText(bool& arg0) exit");
+	LOGV("void android_graphics_Paint::setLinearText(bool const& arg0) exit");
 
 }
 bool android_graphics_Paint::isSubpixelText()
@@ -1402,15 +1334,12 @@ bool android_graphics_Paint::isSubpixelText()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1428,17 +1357,17 @@ bool android_graphics_Paint::isSubpixelText()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_graphics_Paint::isSubpixelText() exit");
 
 	return result;
 }
-void android_graphics_Paint::setSubpixelText(bool& arg0)
+void android_graphics_Paint::setSubpixelText(bool const& arg0)
 {
-	LOGV("void android_graphics_Paint::setSubpixelText(bool& arg0) enter");
+	LOGV("void android_graphics_Paint::setSubpixelText(bool const& arg0) enter");
 
 	const char *methodName = "setSubpixelText";
 	const char *methodSignature = "(Z)V";
@@ -1448,8 +1377,6 @@ void android_graphics_Paint::setSubpixelText(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -1480,9 +1407,7 @@ void android_graphics_Paint::setSubpixelText(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setSubpixelText(bool& arg0) exit");
+	LOGV("void android_graphics_Paint::setSubpixelText(bool const& arg0) exit");
 
 }
 bool android_graphics_Paint::isUnderlineText()
@@ -1498,15 +1423,12 @@ bool android_graphics_Paint::isUnderlineText()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1524,17 +1446,17 @@ bool android_graphics_Paint::isUnderlineText()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_graphics_Paint::isUnderlineText() exit");
 
 	return result;
 }
-void android_graphics_Paint::setUnderlineText(bool& arg0)
+void android_graphics_Paint::setUnderlineText(bool const& arg0)
 {
-	LOGV("void android_graphics_Paint::setUnderlineText(bool& arg0) enter");
+	LOGV("void android_graphics_Paint::setUnderlineText(bool const& arg0) enter");
 
 	const char *methodName = "setUnderlineText";
 	const char *methodSignature = "(Z)V";
@@ -1544,8 +1466,6 @@ void android_graphics_Paint::setUnderlineText(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -1576,9 +1496,7 @@ void android_graphics_Paint::setUnderlineText(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setUnderlineText(bool& arg0) exit");
+	LOGV("void android_graphics_Paint::setUnderlineText(bool const& arg0) exit");
 
 }
 bool android_graphics_Paint::isStrikeThruText()
@@ -1594,15 +1512,12 @@ bool android_graphics_Paint::isStrikeThruText()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1620,17 +1535,17 @@ bool android_graphics_Paint::isStrikeThruText()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_graphics_Paint::isStrikeThruText() exit");
 
 	return result;
 }
-void android_graphics_Paint::setStrikeThruText(bool& arg0)
+void android_graphics_Paint::setStrikeThruText(bool const& arg0)
 {
-	LOGV("void android_graphics_Paint::setStrikeThruText(bool& arg0) enter");
+	LOGV("void android_graphics_Paint::setStrikeThruText(bool const& arg0) enter");
 
 	const char *methodName = "setStrikeThruText";
 	const char *methodSignature = "(Z)V";
@@ -1640,8 +1555,6 @@ void android_graphics_Paint::setStrikeThruText(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -1672,9 +1585,7 @@ void android_graphics_Paint::setStrikeThruText(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setStrikeThruText(bool& arg0) exit");
+	LOGV("void android_graphics_Paint::setStrikeThruText(bool const& arg0) exit");
 
 }
 bool android_graphics_Paint::isFakeBoldText()
@@ -1690,15 +1601,12 @@ bool android_graphics_Paint::isFakeBoldText()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1716,17 +1624,17 @@ bool android_graphics_Paint::isFakeBoldText()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_graphics_Paint::isFakeBoldText() exit");
 
 	return result;
 }
-void android_graphics_Paint::setFakeBoldText(bool& arg0)
+void android_graphics_Paint::setFakeBoldText(bool const& arg0)
 {
-	LOGV("void android_graphics_Paint::setFakeBoldText(bool& arg0) enter");
+	LOGV("void android_graphics_Paint::setFakeBoldText(bool const& arg0) enter");
 
 	const char *methodName = "setFakeBoldText";
 	const char *methodSignature = "(Z)V";
@@ -1736,8 +1644,6 @@ void android_graphics_Paint::setFakeBoldText(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -1768,9 +1674,7 @@ void android_graphics_Paint::setFakeBoldText(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setFakeBoldText(bool& arg0) exit");
+	LOGV("void android_graphics_Paint::setFakeBoldText(bool const& arg0) exit");
 
 }
 bool android_graphics_Paint::isFilterBitmap()
@@ -1786,15 +1690,12 @@ bool android_graphics_Paint::isFilterBitmap()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1812,17 +1713,17 @@ bool android_graphics_Paint::isFilterBitmap()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_graphics_Paint::isFilterBitmap() exit");
 
 	return result;
 }
-ANDROID_GRAPHICS_PAINT_STYLE::android_graphics_Paint_Style android_graphics_Paint::getStyle()
+android_graphics_Paint_Style::android_graphics_Paint_Style android_graphics_Paint::getStyle()
 {
-	LOGV("ANDROID_GRAPHICS_PAINT_STYLE::android_graphics_Paint_Style android_graphics_Paint::getStyle() enter");
+	LOGV("android_graphics_Paint_Style::android_graphics_Paint_Style android_graphics_Paint::getStyle() enter");
 
 	const char *methodName = "getStyle";
 	const char *methodSignature = "()Landroid/graphics/Paint$Style;";
@@ -1833,15 +1734,12 @@ ANDROID_GRAPHICS_PAINT_STYLE::android_graphics_Paint_Style android_graphics_Pain
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	ANDROID_GRAPHICS_PAINT_STYLE::android_graphics_Paint_Style result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1859,17 +1757,17 @@ ANDROID_GRAPHICS_PAINT_STYLE::android_graphics_Paint_Style android_graphics_Pain
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Paint_Style(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (ANDROID_GRAPHICS_PAINT_STYLE::android_graphics_Paint_Style) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("ANDROID_GRAPHICS_PAINT_STYLE::android_graphics_Paint_Style android_graphics_Paint::getStyle() exit");
+	android_graphics_Paint_Style::android_graphics_Paint_Style result = (android_graphics_Paint_Style::android_graphics_Paint_Style) (cxx_value);
+	//
+		
+	LOGV("android_graphics_Paint_Style::android_graphics_Paint_Style android_graphics_Paint::getStyle() exit");
 
 	return result;
 }
-void android_graphics_Paint::setStyle(ANDROID_GRAPHICS_PAINT_STYLE::android_graphics_Paint_Style& arg0)
+void android_graphics_Paint::setStyle(android_graphics_Paint_Style::android_graphics_Paint_Style const& arg0)
 {
-	LOGV("void android_graphics_Paint::setStyle(ANDROID_GRAPHICS_PAINT_STYLE::android_graphics_Paint_Style& arg0) enter");
+	LOGV("void android_graphics_Paint::setStyle(android_graphics_Paint_Style::android_graphics_Paint_Style const& arg0) enter");
 
 	const char *methodName = "setStyle";
 	const char *methodSignature = "(Landroid/graphics/Paint$Style;)V";
@@ -1879,8 +1777,6 @@ void android_graphics_Paint::setStyle(ANDROID_GRAPHICS_PAINT_STYLE::android_grap
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -1911,14 +1807,12 @@ void android_graphics_Paint::setStyle(ANDROID_GRAPHICS_PAINT_STYLE::android_grap
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setStyle(ANDROID_GRAPHICS_PAINT_STYLE::android_graphics_Paint_Style& arg0) exit");
+	LOGV("void android_graphics_Paint::setStyle(android_graphics_Paint_Style::android_graphics_Paint_Style const& arg0) exit");
 
 }
-void android_graphics_Paint::setColor(int& arg0)
+void android_graphics_Paint::setColor(int const& arg0)
 {
-	LOGV("void android_graphics_Paint::setColor(int& arg0) enter");
+	LOGV("void android_graphics_Paint::setColor(int const& arg0) enter");
 
 	const char *methodName = "setColor";
 	const char *methodSignature = "(I)V";
@@ -1928,8 +1822,6 @@ void android_graphics_Paint::setColor(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -1960,14 +1852,12 @@ void android_graphics_Paint::setColor(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setColor(int& arg0) exit");
+	LOGV("void android_graphics_Paint::setColor(int const& arg0) exit");
 
 }
-void android_graphics_Paint::setARGB(int& arg0,int& arg1,int& arg2,int& arg3)
+void android_graphics_Paint::setARGB(int const& arg0,int const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("void android_graphics_Paint::setARGB(int& arg0,int& arg1,int& arg2,int& arg3) enter");
+	LOGV("void android_graphics_Paint::setARGB(int const& arg0,int const& arg1,int const& arg2,int const& arg3) enter");
 
 	const char *methodName = "setARGB";
 	const char *methodSignature = "(IIII)V";
@@ -1977,8 +1867,6 @@ void android_graphics_Paint::setARGB(int& arg0,int& arg1,int& arg2,int& arg3)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -2072,9 +1960,7 @@ void android_graphics_Paint::setARGB(int& arg0,int& arg1,int& arg2,int& arg3)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setARGB(int& arg0,int& arg1,int& arg2,int& arg3) exit");
+	LOGV("void android_graphics_Paint::setARGB(int const& arg0,int const& arg1,int const& arg2,int const& arg3) exit");
 
 }
 float android_graphics_Paint::getStrokeWidth()
@@ -2090,15 +1976,12 @@ float android_graphics_Paint::getStrokeWidth()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -2116,17 +1999,17 @@ float android_graphics_Paint::getStrokeWidth()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	float result = (float) *((float *) cxx_value);
+	// 
+		
 	LOGV("float android_graphics_Paint::getStrokeWidth() exit");
 
 	return result;
 }
-void android_graphics_Paint::setStrokeWidth(float& arg0)
+void android_graphics_Paint::setStrokeWidth(float const& arg0)
 {
-	LOGV("void android_graphics_Paint::setStrokeWidth(float& arg0) enter");
+	LOGV("void android_graphics_Paint::setStrokeWidth(float const& arg0) enter");
 
 	const char *methodName = "setStrokeWidth";
 	const char *methodSignature = "(F)V";
@@ -2136,8 +2019,6 @@ void android_graphics_Paint::setStrokeWidth(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -2168,9 +2049,7 @@ void android_graphics_Paint::setStrokeWidth(float& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setStrokeWidth(float& arg0) exit");
+	LOGV("void android_graphics_Paint::setStrokeWidth(float const& arg0) exit");
 
 }
 float android_graphics_Paint::getStrokeMiter()
@@ -2186,15 +2065,12 @@ float android_graphics_Paint::getStrokeMiter()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -2212,17 +2088,17 @@ float android_graphics_Paint::getStrokeMiter()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	float result = (float) *((float *) cxx_value);
+	// 
+		
 	LOGV("float android_graphics_Paint::getStrokeMiter() exit");
 
 	return result;
 }
-void android_graphics_Paint::setStrokeMiter(float& arg0)
+void android_graphics_Paint::setStrokeMiter(float const& arg0)
 {
-	LOGV("void android_graphics_Paint::setStrokeMiter(float& arg0) enter");
+	LOGV("void android_graphics_Paint::setStrokeMiter(float const& arg0) enter");
 
 	const char *methodName = "setStrokeMiter";
 	const char *methodSignature = "(F)V";
@@ -2232,8 +2108,6 @@ void android_graphics_Paint::setStrokeMiter(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -2264,14 +2138,12 @@ void android_graphics_Paint::setStrokeMiter(float& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setStrokeMiter(float& arg0) exit");
+	LOGV("void android_graphics_Paint::setStrokeMiter(float const& arg0) exit");
 
 }
-ANDROID_GRAPHICS_PAINT_CAP::android_graphics_Paint_Cap android_graphics_Paint::getStrokeCap()
+android_graphics_Paint_Cap::android_graphics_Paint_Cap android_graphics_Paint::getStrokeCap()
 {
-	LOGV("ANDROID_GRAPHICS_PAINT_CAP::android_graphics_Paint_Cap android_graphics_Paint::getStrokeCap() enter");
+	LOGV("android_graphics_Paint_Cap::android_graphics_Paint_Cap android_graphics_Paint::getStrokeCap() enter");
 
 	const char *methodName = "getStrokeCap";
 	const char *methodSignature = "()Landroid/graphics/Paint$Cap;";
@@ -2282,15 +2154,12 @@ ANDROID_GRAPHICS_PAINT_CAP::android_graphics_Paint_Cap android_graphics_Paint::g
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	ANDROID_GRAPHICS_PAINT_CAP::android_graphics_Paint_Cap result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2308,17 +2177,17 @@ ANDROID_GRAPHICS_PAINT_CAP::android_graphics_Paint_Cap android_graphics_Paint::g
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Paint_Cap(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (ANDROID_GRAPHICS_PAINT_CAP::android_graphics_Paint_Cap) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("ANDROID_GRAPHICS_PAINT_CAP::android_graphics_Paint_Cap android_graphics_Paint::getStrokeCap() exit");
+	android_graphics_Paint_Cap::android_graphics_Paint_Cap result = (android_graphics_Paint_Cap::android_graphics_Paint_Cap) (cxx_value);
+	//
+		
+	LOGV("android_graphics_Paint_Cap::android_graphics_Paint_Cap android_graphics_Paint::getStrokeCap() exit");
 
 	return result;
 }
-void android_graphics_Paint::setStrokeCap(ANDROID_GRAPHICS_PAINT_CAP::android_graphics_Paint_Cap& arg0)
+void android_graphics_Paint::setStrokeCap(android_graphics_Paint_Cap::android_graphics_Paint_Cap const& arg0)
 {
-	LOGV("void android_graphics_Paint::setStrokeCap(ANDROID_GRAPHICS_PAINT_CAP::android_graphics_Paint_Cap& arg0) enter");
+	LOGV("void android_graphics_Paint::setStrokeCap(android_graphics_Paint_Cap::android_graphics_Paint_Cap const& arg0) enter");
 
 	const char *methodName = "setStrokeCap";
 	const char *methodSignature = "(Landroid/graphics/Paint$Cap;)V";
@@ -2329,8 +2198,6 @@ void android_graphics_Paint::setStrokeCap(ANDROID_GRAPHICS_PAINT_CAP::android_gr
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2360,14 +2227,12 @@ void android_graphics_Paint::setStrokeCap(ANDROID_GRAPHICS_PAINT_CAP::android_gr
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setStrokeCap(ANDROID_GRAPHICS_PAINT_CAP::android_graphics_Paint_Cap& arg0) exit");
+	LOGV("void android_graphics_Paint::setStrokeCap(android_graphics_Paint_Cap::android_graphics_Paint_Cap const& arg0) exit");
 
 }
-ANDROID_GRAPHICS_PAINT_JOIN::android_graphics_Paint_Join android_graphics_Paint::getStrokeJoin()
+android_graphics_Paint_Join::android_graphics_Paint_Join android_graphics_Paint::getStrokeJoin()
 {
-	LOGV("ANDROID_GRAPHICS_PAINT_JOIN::android_graphics_Paint_Join android_graphics_Paint::getStrokeJoin() enter");
+	LOGV("android_graphics_Paint_Join::android_graphics_Paint_Join android_graphics_Paint::getStrokeJoin() enter");
 
 	const char *methodName = "getStrokeJoin";
 	const char *methodSignature = "()Landroid/graphics/Paint$Join;";
@@ -2378,15 +2243,12 @@ ANDROID_GRAPHICS_PAINT_JOIN::android_graphics_Paint_Join android_graphics_Paint:
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	ANDROID_GRAPHICS_PAINT_JOIN::android_graphics_Paint_Join result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2404,17 +2266,17 @@ ANDROID_GRAPHICS_PAINT_JOIN::android_graphics_Paint_Join android_graphics_Paint:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Paint_Join(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (ANDROID_GRAPHICS_PAINT_JOIN::android_graphics_Paint_Join) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("ANDROID_GRAPHICS_PAINT_JOIN::android_graphics_Paint_Join android_graphics_Paint::getStrokeJoin() exit");
+	android_graphics_Paint_Join::android_graphics_Paint_Join result = (android_graphics_Paint_Join::android_graphics_Paint_Join) (cxx_value);
+	//
+		
+	LOGV("android_graphics_Paint_Join::android_graphics_Paint_Join android_graphics_Paint::getStrokeJoin() exit");
 
 	return result;
 }
-void android_graphics_Paint::setStrokeJoin(ANDROID_GRAPHICS_PAINT_JOIN::android_graphics_Paint_Join& arg0)
+void android_graphics_Paint::setStrokeJoin(android_graphics_Paint_Join::android_graphics_Paint_Join const& arg0)
 {
-	LOGV("void android_graphics_Paint::setStrokeJoin(ANDROID_GRAPHICS_PAINT_JOIN::android_graphics_Paint_Join& arg0) enter");
+	LOGV("void android_graphics_Paint::setStrokeJoin(android_graphics_Paint_Join::android_graphics_Paint_Join const& arg0) enter");
 
 	const char *methodName = "setStrokeJoin";
 	const char *methodSignature = "(Landroid/graphics/Paint$Join;)V";
@@ -2424,8 +2286,6 @@ void android_graphics_Paint::setStrokeJoin(ANDROID_GRAPHICS_PAINT_JOIN::android_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -2456,14 +2316,12 @@ void android_graphics_Paint::setStrokeJoin(ANDROID_GRAPHICS_PAINT_JOIN::android_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setStrokeJoin(ANDROID_GRAPHICS_PAINT_JOIN::android_graphics_Paint_Join& arg0) exit");
+	LOGV("void android_graphics_Paint::setStrokeJoin(android_graphics_Paint_Join::android_graphics_Paint_Join const& arg0) exit");
 
 }
-bool android_graphics_Paint::getFillPath(AndroidCXX::android_graphics_Path& arg0,AndroidCXX::android_graphics_Path& arg1)
+bool android_graphics_Paint::getFillPath(AndroidCXX::android_graphics_Path const& arg0,AndroidCXX::android_graphics_Path const& arg1)
 {
-	LOGV("bool android_graphics_Paint::getFillPath(AndroidCXX::android_graphics_Path& arg0,AndroidCXX::android_graphics_Path& arg1) enter");
+	LOGV("bool android_graphics_Paint::getFillPath(AndroidCXX::android_graphics_Path const& arg0,AndroidCXX::android_graphics_Path const& arg1) enter");
 
 	const char *methodName = "getFillPath";
 	const char *methodSignature = "(Landroid/graphics/Path;Landroid/graphics/Path;)Z";
@@ -2473,8 +2331,6 @@ bool android_graphics_Paint::getFillPath(AndroidCXX::android_graphics_Path& arg0
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -2524,7 +2380,6 @@ bool android_graphics_Paint::getFillPath(AndroidCXX::android_graphics_Path& arg0
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2542,11 +2397,11 @@ bool android_graphics_Paint::getFillPath(AndroidCXX::android_graphics_Path& arg0
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Paint::getFillPath(AndroidCXX::android_graphics_Path& arg0,AndroidCXX::android_graphics_Path& arg1) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Paint::getFillPath(AndroidCXX::android_graphics_Path const& arg0,AndroidCXX::android_graphics_Path const& arg1) exit");
 
 	return result;
 }
@@ -2563,15 +2418,12 @@ AndroidCXX::android_graphics_Shader android_graphics_Paint::getShader()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_Shader result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2589,17 +2441,17 @@ AndroidCXX::android_graphics_Shader android_graphics_Paint::getShader()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Shader(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Shader) (AndroidCXX::android_graphics_Shader((AndroidCXX::android_graphics_Shader *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_graphics_Shader result((AndroidCXX::android_graphics_Shader) *((AndroidCXX::android_graphics_Shader *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Shader *) cxx_value);
+		
 	LOGV("AndroidCXX::android_graphics_Shader android_graphics_Paint::getShader() exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Shader android_graphics_Paint::setShader(AndroidCXX::android_graphics_Shader& arg0)
+AndroidCXX::android_graphics_Shader android_graphics_Paint::setShader(AndroidCXX::android_graphics_Shader const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_Shader android_graphics_Paint::setShader(AndroidCXX::android_graphics_Shader& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_Shader android_graphics_Paint::setShader(AndroidCXX::android_graphics_Shader const& arg0) enter");
 
 	const char *methodName = "setShader";
 	const char *methodSignature = "(Landroid/graphics/Shader;)Landroid/graphics/Shader;";
@@ -2609,8 +2461,6 @@ AndroidCXX::android_graphics_Shader android_graphics_Paint::setShader(AndroidCXX
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -2639,7 +2489,6 @@ AndroidCXX::android_graphics_Shader android_graphics_Paint::setShader(AndroidCXX
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_Shader result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2657,11 +2506,11 @@ AndroidCXX::android_graphics_Shader android_graphics_Paint::setShader(AndroidCXX
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Shader(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Shader) (AndroidCXX::android_graphics_Shader((AndroidCXX::android_graphics_Shader *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_graphics_Shader android_graphics_Paint::setShader(AndroidCXX::android_graphics_Shader& arg0) exit");
+	AndroidCXX::android_graphics_Shader result((AndroidCXX::android_graphics_Shader) *((AndroidCXX::android_graphics_Shader *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Shader *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_Shader android_graphics_Paint::setShader(AndroidCXX::android_graphics_Shader const& arg0) exit");
 
 	return result;
 }
@@ -2678,15 +2527,12 @@ AndroidCXX::android_graphics_ColorFilter android_graphics_Paint::getColorFilter(
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_ColorFilter result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2704,10 +2550,10 @@ AndroidCXX::android_graphics_ColorFilter android_graphics_Paint::getColorFilter(
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_ColorFilter(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_ColorFilter) (AndroidCXX::android_graphics_ColorFilter((AndroidCXX::android_graphics_ColorFilter *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_graphics_ColorFilter result((AndroidCXX::android_graphics_ColorFilter) *((AndroidCXX::android_graphics_ColorFilter *) cxx_value));
+	delete ((AndroidCXX::android_graphics_ColorFilter *) cxx_value);
+		
 	LOGV("AndroidCXX::android_graphics_ColorFilter android_graphics_Paint::getColorFilter() exit");
 
 	return result;
@@ -2725,15 +2571,12 @@ AndroidCXX::android_graphics_Xfermode android_graphics_Paint::getXfermode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_Xfermode result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2751,17 +2594,17 @@ AndroidCXX::android_graphics_Xfermode android_graphics_Paint::getXfermode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Xfermode(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Xfermode) (AndroidCXX::android_graphics_Xfermode((AndroidCXX::android_graphics_Xfermode *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_graphics_Xfermode result((AndroidCXX::android_graphics_Xfermode) *((AndroidCXX::android_graphics_Xfermode *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Xfermode *) cxx_value);
+		
 	LOGV("AndroidCXX::android_graphics_Xfermode android_graphics_Paint::getXfermode() exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Xfermode android_graphics_Paint::setXfermode(AndroidCXX::android_graphics_Xfermode& arg0)
+AndroidCXX::android_graphics_Xfermode android_graphics_Paint::setXfermode(AndroidCXX::android_graphics_Xfermode const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_Xfermode android_graphics_Paint::setXfermode(AndroidCXX::android_graphics_Xfermode& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_Xfermode android_graphics_Paint::setXfermode(AndroidCXX::android_graphics_Xfermode const& arg0) enter");
 
 	const char *methodName = "setXfermode";
 	const char *methodSignature = "(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;";
@@ -2771,8 +2614,6 @@ AndroidCXX::android_graphics_Xfermode android_graphics_Paint::setXfermode(Androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -2801,7 +2642,6 @@ AndroidCXX::android_graphics_Xfermode android_graphics_Paint::setXfermode(Androi
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_Xfermode result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2819,11 +2659,11 @@ AndroidCXX::android_graphics_Xfermode android_graphics_Paint::setXfermode(Androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Xfermode(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Xfermode) (AndroidCXX::android_graphics_Xfermode((AndroidCXX::android_graphics_Xfermode *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_graphics_Xfermode android_graphics_Paint::setXfermode(AndroidCXX::android_graphics_Xfermode& arg0) exit");
+	AndroidCXX::android_graphics_Xfermode result((AndroidCXX::android_graphics_Xfermode) *((AndroidCXX::android_graphics_Xfermode *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Xfermode *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_Xfermode android_graphics_Paint::setXfermode(AndroidCXX::android_graphics_Xfermode const& arg0) exit");
 
 	return result;
 }
@@ -2840,15 +2680,12 @@ AndroidCXX::android_graphics_PathEffect android_graphics_Paint::getPathEffect()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_PathEffect result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2866,17 +2703,17 @@ AndroidCXX::android_graphics_PathEffect android_graphics_Paint::getPathEffect()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_PathEffect(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_PathEffect) (AndroidCXX::android_graphics_PathEffect((AndroidCXX::android_graphics_PathEffect *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_graphics_PathEffect result((AndroidCXX::android_graphics_PathEffect) *((AndroidCXX::android_graphics_PathEffect *) cxx_value));
+	delete ((AndroidCXX::android_graphics_PathEffect *) cxx_value);
+		
 	LOGV("AndroidCXX::android_graphics_PathEffect android_graphics_Paint::getPathEffect() exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_PathEffect android_graphics_Paint::setPathEffect(AndroidCXX::android_graphics_PathEffect& arg0)
+AndroidCXX::android_graphics_PathEffect android_graphics_Paint::setPathEffect(AndroidCXX::android_graphics_PathEffect const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_PathEffect android_graphics_Paint::setPathEffect(AndroidCXX::android_graphics_PathEffect& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_PathEffect android_graphics_Paint::setPathEffect(AndroidCXX::android_graphics_PathEffect const& arg0) enter");
 
 	const char *methodName = "setPathEffect";
 	const char *methodSignature = "(Landroid/graphics/PathEffect;)Landroid/graphics/PathEffect;";
@@ -2886,8 +2723,6 @@ AndroidCXX::android_graphics_PathEffect android_graphics_Paint::setPathEffect(An
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -2916,7 +2751,6 @@ AndroidCXX::android_graphics_PathEffect android_graphics_Paint::setPathEffect(An
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_PathEffect result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2934,11 +2768,11 @@ AndroidCXX::android_graphics_PathEffect android_graphics_Paint::setPathEffect(An
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_PathEffect(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_PathEffect) (AndroidCXX::android_graphics_PathEffect((AndroidCXX::android_graphics_PathEffect *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_graphics_PathEffect android_graphics_Paint::setPathEffect(AndroidCXX::android_graphics_PathEffect& arg0) exit");
+	AndroidCXX::android_graphics_PathEffect result((AndroidCXX::android_graphics_PathEffect) *((AndroidCXX::android_graphics_PathEffect *) cxx_value));
+	delete ((AndroidCXX::android_graphics_PathEffect *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_PathEffect android_graphics_Paint::setPathEffect(AndroidCXX::android_graphics_PathEffect const& arg0) exit");
 
 	return result;
 }
@@ -2955,15 +2789,12 @@ AndroidCXX::android_graphics_MaskFilter android_graphics_Paint::getMaskFilter()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_MaskFilter result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2981,17 +2812,17 @@ AndroidCXX::android_graphics_MaskFilter android_graphics_Paint::getMaskFilter()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_MaskFilter(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_MaskFilter) (AndroidCXX::android_graphics_MaskFilter((AndroidCXX::android_graphics_MaskFilter *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_graphics_MaskFilter result((AndroidCXX::android_graphics_MaskFilter) *((AndroidCXX::android_graphics_MaskFilter *) cxx_value));
+	delete ((AndroidCXX::android_graphics_MaskFilter *) cxx_value);
+		
 	LOGV("AndroidCXX::android_graphics_MaskFilter android_graphics_Paint::getMaskFilter() exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_MaskFilter android_graphics_Paint::setMaskFilter(AndroidCXX::android_graphics_MaskFilter& arg0)
+AndroidCXX::android_graphics_MaskFilter android_graphics_Paint::setMaskFilter(AndroidCXX::android_graphics_MaskFilter const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_MaskFilter android_graphics_Paint::setMaskFilter(AndroidCXX::android_graphics_MaskFilter& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_MaskFilter android_graphics_Paint::setMaskFilter(AndroidCXX::android_graphics_MaskFilter const& arg0) enter");
 
 	const char *methodName = "setMaskFilter";
 	const char *methodSignature = "(Landroid/graphics/MaskFilter;)Landroid/graphics/MaskFilter;";
@@ -3001,8 +2832,6 @@ AndroidCXX::android_graphics_MaskFilter android_graphics_Paint::setMaskFilter(An
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -3031,7 +2860,6 @@ AndroidCXX::android_graphics_MaskFilter android_graphics_Paint::setMaskFilter(An
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_MaskFilter result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3049,11 +2877,11 @@ AndroidCXX::android_graphics_MaskFilter android_graphics_Paint::setMaskFilter(An
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_MaskFilter(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_MaskFilter) (AndroidCXX::android_graphics_MaskFilter((AndroidCXX::android_graphics_MaskFilter *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_graphics_MaskFilter android_graphics_Paint::setMaskFilter(AndroidCXX::android_graphics_MaskFilter& arg0) exit");
+	AndroidCXX::android_graphics_MaskFilter result((AndroidCXX::android_graphics_MaskFilter) *((AndroidCXX::android_graphics_MaskFilter *) cxx_value));
+	delete ((AndroidCXX::android_graphics_MaskFilter *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_MaskFilter android_graphics_Paint::setMaskFilter(AndroidCXX::android_graphics_MaskFilter const& arg0) exit");
 
 	return result;
 }
@@ -3070,15 +2898,12 @@ AndroidCXX::android_graphics_Typeface android_graphics_Paint::getTypeface()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_Typeface result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3096,17 +2921,17 @@ AndroidCXX::android_graphics_Typeface android_graphics_Paint::getTypeface()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Typeface(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Typeface) (AndroidCXX::android_graphics_Typeface((AndroidCXX::android_graphics_Typeface *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_graphics_Typeface result((AndroidCXX::android_graphics_Typeface) *((AndroidCXX::android_graphics_Typeface *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Typeface *) cxx_value);
+		
 	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Paint::getTypeface() exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Typeface android_graphics_Paint::setTypeface(AndroidCXX::android_graphics_Typeface& arg0)
+AndroidCXX::android_graphics_Typeface android_graphics_Paint::setTypeface(AndroidCXX::android_graphics_Typeface const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Paint::setTypeface(AndroidCXX::android_graphics_Typeface& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Paint::setTypeface(AndroidCXX::android_graphics_Typeface const& arg0) enter");
 
 	const char *methodName = "setTypeface";
 	const char *methodSignature = "(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;";
@@ -3116,8 +2941,6 @@ AndroidCXX::android_graphics_Typeface android_graphics_Paint::setTypeface(Androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -3146,7 +2969,6 @@ AndroidCXX::android_graphics_Typeface android_graphics_Paint::setTypeface(Androi
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_Typeface result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3164,11 +2986,11 @@ AndroidCXX::android_graphics_Typeface android_graphics_Paint::setTypeface(Androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Typeface(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Typeface) (AndroidCXX::android_graphics_Typeface((AndroidCXX::android_graphics_Typeface *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Paint::setTypeface(AndroidCXX::android_graphics_Typeface& arg0) exit");
+	AndroidCXX::android_graphics_Typeface result((AndroidCXX::android_graphics_Typeface) *((AndroidCXX::android_graphics_Typeface *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Typeface *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_Typeface android_graphics_Paint::setTypeface(AndroidCXX::android_graphics_Typeface const& arg0) exit");
 
 	return result;
 }
@@ -3185,15 +3007,12 @@ AndroidCXX::android_graphics_Rasterizer android_graphics_Paint::getRasterizer()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_Rasterizer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3211,17 +3030,17 @@ AndroidCXX::android_graphics_Rasterizer android_graphics_Paint::getRasterizer()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Rasterizer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Rasterizer) (AndroidCXX::android_graphics_Rasterizer((AndroidCXX::android_graphics_Rasterizer *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_graphics_Rasterizer result((AndroidCXX::android_graphics_Rasterizer) *((AndroidCXX::android_graphics_Rasterizer *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Rasterizer *) cxx_value);
+		
 	LOGV("AndroidCXX::android_graphics_Rasterizer android_graphics_Paint::getRasterizer() exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Rasterizer android_graphics_Paint::setRasterizer(AndroidCXX::android_graphics_Rasterizer& arg0)
+AndroidCXX::android_graphics_Rasterizer android_graphics_Paint::setRasterizer(AndroidCXX::android_graphics_Rasterizer const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_Rasterizer android_graphics_Paint::setRasterizer(AndroidCXX::android_graphics_Rasterizer& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_Rasterizer android_graphics_Paint::setRasterizer(AndroidCXX::android_graphics_Rasterizer const& arg0) enter");
 
 	const char *methodName = "setRasterizer";
 	const char *methodSignature = "(Landroid/graphics/Rasterizer;)Landroid/graphics/Rasterizer;";
@@ -3231,8 +3050,6 @@ AndroidCXX::android_graphics_Rasterizer android_graphics_Paint::setRasterizer(An
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -3261,7 +3078,6 @@ AndroidCXX::android_graphics_Rasterizer android_graphics_Paint::setRasterizer(An
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_Rasterizer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3279,17 +3095,17 @@ AndroidCXX::android_graphics_Rasterizer android_graphics_Paint::setRasterizer(An
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Rasterizer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Rasterizer) (AndroidCXX::android_graphics_Rasterizer((AndroidCXX::android_graphics_Rasterizer *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_graphics_Rasterizer android_graphics_Paint::setRasterizer(AndroidCXX::android_graphics_Rasterizer& arg0) exit");
+	AndroidCXX::android_graphics_Rasterizer result((AndroidCXX::android_graphics_Rasterizer) *((AndroidCXX::android_graphics_Rasterizer *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Rasterizer *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_Rasterizer android_graphics_Paint::setRasterizer(AndroidCXX::android_graphics_Rasterizer const& arg0) exit");
 
 	return result;
 }
-void android_graphics_Paint::setShadowLayer(float& arg0,float& arg1,float& arg2,int& arg3)
+void android_graphics_Paint::setShadowLayer(float const& arg0,float const& arg1,float const& arg2,int const& arg3)
 {
-	LOGV("void android_graphics_Paint::setShadowLayer(float& arg0,float& arg1,float& arg2,int& arg3) enter");
+	LOGV("void android_graphics_Paint::setShadowLayer(float const& arg0,float const& arg1,float const& arg2,int const& arg3) enter");
 
 	const char *methodName = "setShadowLayer";
 	const char *methodSignature = "(FFFI)V";
@@ -3299,8 +3115,6 @@ void android_graphics_Paint::setShadowLayer(float& arg0,float& arg1,float& arg2,
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -3394,9 +3208,7 @@ void android_graphics_Paint::setShadowLayer(float& arg0,float& arg1,float& arg2,
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setShadowLayer(float& arg0,float& arg1,float& arg2,int& arg3) exit");
+	LOGV("void android_graphics_Paint::setShadowLayer(float const& arg0,float const& arg1,float const& arg2,int const& arg3) exit");
 
 }
 void android_graphics_Paint::clearShadowLayer()
@@ -3412,8 +3224,6 @@ void android_graphics_Paint::clearShadowLayer()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3422,14 +3232,12 @@ void android_graphics_Paint::clearShadowLayer()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_graphics_Paint::clearShadowLayer() exit");
 
 }
-ANDROID_GRAPHICS_PAINT_ALIGN::android_graphics_Paint_Align android_graphics_Paint::getTextAlign()
+android_graphics_Paint_Align::android_graphics_Paint_Align android_graphics_Paint::getTextAlign()
 {
-	LOGV("ANDROID_GRAPHICS_PAINT_ALIGN::android_graphics_Paint_Align android_graphics_Paint::getTextAlign() enter");
+	LOGV("android_graphics_Paint_Align::android_graphics_Paint_Align android_graphics_Paint::getTextAlign() enter");
 
 	const char *methodName = "getTextAlign";
 	const char *methodSignature = "()Landroid/graphics/Paint$Align;";
@@ -3440,15 +3248,12 @@ ANDROID_GRAPHICS_PAINT_ALIGN::android_graphics_Paint_Align android_graphics_Pain
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	ANDROID_GRAPHICS_PAINT_ALIGN::android_graphics_Paint_Align result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3466,17 +3271,17 @@ ANDROID_GRAPHICS_PAINT_ALIGN::android_graphics_Paint_Align android_graphics_Pain
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Paint_Align(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (ANDROID_GRAPHICS_PAINT_ALIGN::android_graphics_Paint_Align) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("ANDROID_GRAPHICS_PAINT_ALIGN::android_graphics_Paint_Align android_graphics_Paint::getTextAlign() exit");
+	android_graphics_Paint_Align::android_graphics_Paint_Align result = (android_graphics_Paint_Align::android_graphics_Paint_Align) (cxx_value);
+	//
+		
+	LOGV("android_graphics_Paint_Align::android_graphics_Paint_Align android_graphics_Paint::getTextAlign() exit");
 
 	return result;
 }
-void android_graphics_Paint::setTextAlign(ANDROID_GRAPHICS_PAINT_ALIGN::android_graphics_Paint_Align& arg0)
+void android_graphics_Paint::setTextAlign(android_graphics_Paint_Align::android_graphics_Paint_Align const& arg0)
 {
-	LOGV("void android_graphics_Paint::setTextAlign(ANDROID_GRAPHICS_PAINT_ALIGN::android_graphics_Paint_Align& arg0) enter");
+	LOGV("void android_graphics_Paint::setTextAlign(android_graphics_Paint_Align::android_graphics_Paint_Align const& arg0) enter");
 
 	const char *methodName = "setTextAlign";
 	const char *methodSignature = "(Landroid/graphics/Paint$Align;)V";
@@ -3486,8 +3291,6 @@ void android_graphics_Paint::setTextAlign(ANDROID_GRAPHICS_PAINT_ALIGN::android_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -3518,9 +3321,7 @@ void android_graphics_Paint::setTextAlign(ANDROID_GRAPHICS_PAINT_ALIGN::android_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setTextAlign(ANDROID_GRAPHICS_PAINT_ALIGN::android_graphics_Paint_Align& arg0) exit");
+	LOGV("void android_graphics_Paint::setTextAlign(android_graphics_Paint_Align::android_graphics_Paint_Align const& arg0) exit");
 
 }
 AndroidCXX::java_util_Locale android_graphics_Paint::getTextLocale()
@@ -3536,15 +3337,12 @@ AndroidCXX::java_util_Locale android_graphics_Paint::getTextLocale()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_Locale result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3562,17 +3360,17 @@ AndroidCXX::java_util_Locale android_graphics_Paint::getTextLocale()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Locale(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Locale) (AndroidCXX::java_util_Locale((AndroidCXX::java_util_Locale *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_util_Locale result((AndroidCXX::java_util_Locale) *((AndroidCXX::java_util_Locale *) cxx_value));
+	delete ((AndroidCXX::java_util_Locale *) cxx_value);
+		
 	LOGV("AndroidCXX::java_util_Locale android_graphics_Paint::getTextLocale() exit");
 
 	return result;
 }
-void android_graphics_Paint::setTextLocale(AndroidCXX::java_util_Locale& arg0)
+void android_graphics_Paint::setTextLocale(AndroidCXX::java_util_Locale const& arg0)
 {
-	LOGV("void android_graphics_Paint::setTextLocale(AndroidCXX::java_util_Locale& arg0) enter");
+	LOGV("void android_graphics_Paint::setTextLocale(AndroidCXX::java_util_Locale const& arg0) enter");
 
 	const char *methodName = "setTextLocale";
 	const char *methodSignature = "(Ljava/util/Locale;)V";
@@ -3582,8 +3380,6 @@ void android_graphics_Paint::setTextLocale(AndroidCXX::java_util_Locale& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -3614,9 +3410,7 @@ void android_graphics_Paint::setTextLocale(AndroidCXX::java_util_Locale& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setTextLocale(AndroidCXX::java_util_Locale& arg0) exit");
+	LOGV("void android_graphics_Paint::setTextLocale(AndroidCXX::java_util_Locale const& arg0) exit");
 
 }
 float android_graphics_Paint::getTextSize()
@@ -3632,15 +3426,12 @@ float android_graphics_Paint::getTextSize()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -3658,17 +3449,17 @@ float android_graphics_Paint::getTextSize()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	float result = (float) *((float *) cxx_value);
+	// 
+		
 	LOGV("float android_graphics_Paint::getTextSize() exit");
 
 	return result;
 }
-void android_graphics_Paint::setTextSize(float& arg0)
+void android_graphics_Paint::setTextSize(float const& arg0)
 {
-	LOGV("void android_graphics_Paint::setTextSize(float& arg0) enter");
+	LOGV("void android_graphics_Paint::setTextSize(float const& arg0) enter");
 
 	const char *methodName = "setTextSize";
 	const char *methodSignature = "(F)V";
@@ -3678,8 +3469,6 @@ void android_graphics_Paint::setTextSize(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -3710,9 +3499,7 @@ void android_graphics_Paint::setTextSize(float& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setTextSize(float& arg0) exit");
+	LOGV("void android_graphics_Paint::setTextSize(float const& arg0) exit");
 
 }
 float android_graphics_Paint::getTextScaleX()
@@ -3728,15 +3515,12 @@ float android_graphics_Paint::getTextScaleX()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -3754,17 +3538,17 @@ float android_graphics_Paint::getTextScaleX()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	float result = (float) *((float *) cxx_value);
+	// 
+		
 	LOGV("float android_graphics_Paint::getTextScaleX() exit");
 
 	return result;
 }
-void android_graphics_Paint::setTextScaleX(float& arg0)
+void android_graphics_Paint::setTextScaleX(float const& arg0)
 {
-	LOGV("void android_graphics_Paint::setTextScaleX(float& arg0) enter");
+	LOGV("void android_graphics_Paint::setTextScaleX(float const& arg0) enter");
 
 	const char *methodName = "setTextScaleX";
 	const char *methodSignature = "(F)V";
@@ -3774,8 +3558,6 @@ void android_graphics_Paint::setTextScaleX(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -3806,9 +3588,7 @@ void android_graphics_Paint::setTextScaleX(float& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setTextScaleX(float& arg0) exit");
+	LOGV("void android_graphics_Paint::setTextScaleX(float const& arg0) exit");
 
 }
 float android_graphics_Paint::getTextSkewX()
@@ -3824,15 +3604,12 @@ float android_graphics_Paint::getTextSkewX()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -3850,17 +3627,17 @@ float android_graphics_Paint::getTextSkewX()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	float result = (float) *((float *) cxx_value);
+	// 
+		
 	LOGV("float android_graphics_Paint::getTextSkewX() exit");
 
 	return result;
 }
-void android_graphics_Paint::setTextSkewX(float& arg0)
+void android_graphics_Paint::setTextSkewX(float const& arg0)
 {
-	LOGV("void android_graphics_Paint::setTextSkewX(float& arg0) enter");
+	LOGV("void android_graphics_Paint::setTextSkewX(float const& arg0) enter");
 
 	const char *methodName = "setTextSkewX";
 	const char *methodSignature = "(F)V";
@@ -3870,8 +3647,6 @@ void android_graphics_Paint::setTextSkewX(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -3902,9 +3677,7 @@ void android_graphics_Paint::setTextSkewX(float& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::setTextSkewX(float& arg0) exit");
+	LOGV("void android_graphics_Paint::setTextSkewX(float const& arg0) exit");
 
 }
 float android_graphics_Paint::ascent()
@@ -3920,15 +3693,12 @@ float android_graphics_Paint::ascent()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -3946,10 +3716,10 @@ float android_graphics_Paint::ascent()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	float result = (float) *((float *) cxx_value);
+	// 
+		
 	LOGV("float android_graphics_Paint::ascent() exit");
 
 	return result;
@@ -3967,15 +3737,12 @@ float android_graphics_Paint::descent()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -3993,10 +3760,10 @@ float android_graphics_Paint::descent()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	float result = (float) *((float *) cxx_value);
+	// 
+		
 	LOGV("float android_graphics_Paint::descent() exit");
 
 	return result;
@@ -4014,15 +3781,12 @@ AndroidCXX::android_graphics_Paint_FontMetrics android_graphics_Paint::getFontMe
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_Paint_FontMetrics result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4040,17 +3804,17 @@ AndroidCXX::android_graphics_Paint_FontMetrics android_graphics_Paint::getFontMe
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Paint_FontMetrics(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Paint_FontMetrics) (AndroidCXX::android_graphics_Paint_FontMetrics((AndroidCXX::android_graphics_Paint_FontMetrics *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_graphics_Paint_FontMetrics result((AndroidCXX::android_graphics_Paint_FontMetrics) *((AndroidCXX::android_graphics_Paint_FontMetrics *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Paint_FontMetrics *) cxx_value);
+		
 	LOGV("AndroidCXX::android_graphics_Paint_FontMetrics android_graphics_Paint::getFontMetrics() exit");
 
 	return result;
 }
-float android_graphics_Paint::getFontMetrics(AndroidCXX::android_graphics_Paint_FontMetrics& arg0)
+float android_graphics_Paint::getFontMetrics(AndroidCXX::android_graphics_Paint_FontMetrics const& arg0)
 {
-	LOGV("float android_graphics_Paint::getFontMetrics(AndroidCXX::android_graphics_Paint_FontMetrics& arg0) enter");
+	LOGV("float android_graphics_Paint::getFontMetrics(AndroidCXX::android_graphics_Paint_FontMetrics const& arg0) enter");
 
 	const char *methodName = "getFontMetrics";
 	const char *methodSignature = "(Landroid/graphics/Paint$FontMetrics;)F";
@@ -4060,8 +3824,6 @@ float android_graphics_Paint::getFontMetrics(AndroidCXX::android_graphics_Paint_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -4090,7 +3852,6 @@ float android_graphics_Paint::getFontMetrics(AndroidCXX::android_graphics_Paint_
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -4108,11 +3869,11 @@ float android_graphics_Paint::getFontMetrics(AndroidCXX::android_graphics_Paint_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("float android_graphics_Paint::getFontMetrics(AndroidCXX::android_graphics_Paint_FontMetrics& arg0) exit");
+	float result = (float) *((float *) cxx_value);
+	// 
+		
+	LOGV("float android_graphics_Paint::getFontMetrics(AndroidCXX::android_graphics_Paint_FontMetrics const& arg0) exit");
 
 	return result;
 }
@@ -4129,15 +3890,12 @@ AndroidCXX::android_graphics_Paint_FontMetricsInt android_graphics_Paint::getFon
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_Paint_FontMetricsInt result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4155,17 +3913,17 @@ AndroidCXX::android_graphics_Paint_FontMetricsInt android_graphics_Paint::getFon
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Paint_FontMetricsInt(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Paint_FontMetricsInt) (AndroidCXX::android_graphics_Paint_FontMetricsInt((AndroidCXX::android_graphics_Paint_FontMetricsInt *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_graphics_Paint_FontMetricsInt result((AndroidCXX::android_graphics_Paint_FontMetricsInt) *((AndroidCXX::android_graphics_Paint_FontMetricsInt *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Paint_FontMetricsInt *) cxx_value);
+		
 	LOGV("AndroidCXX::android_graphics_Paint_FontMetricsInt android_graphics_Paint::getFontMetricsInt() exit");
 
 	return result;
 }
-int android_graphics_Paint::getFontMetricsInt(AndroidCXX::android_graphics_Paint_FontMetricsInt& arg0)
+int android_graphics_Paint::getFontMetricsInt(AndroidCXX::android_graphics_Paint_FontMetricsInt const& arg0)
 {
-	LOGV("int android_graphics_Paint::getFontMetricsInt(AndroidCXX::android_graphics_Paint_FontMetricsInt& arg0) enter");
+	LOGV("int android_graphics_Paint::getFontMetricsInt(AndroidCXX::android_graphics_Paint_FontMetricsInt const& arg0) enter");
 
 	const char *methodName = "getFontMetricsInt";
 	const char *methodSignature = "(Landroid/graphics/Paint$FontMetricsInt;)I";
@@ -4175,8 +3933,6 @@ int android_graphics_Paint::getFontMetricsInt(AndroidCXX::android_graphics_Paint
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -4205,7 +3961,6 @@ int android_graphics_Paint::getFontMetricsInt(AndroidCXX::android_graphics_Paint
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -4223,11 +3978,11 @@ int android_graphics_Paint::getFontMetricsInt(AndroidCXX::android_graphics_Paint
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_graphics_Paint::getFontMetricsInt(AndroidCXX::android_graphics_Paint_FontMetricsInt& arg0) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_graphics_Paint::getFontMetricsInt(AndroidCXX::android_graphics_Paint_FontMetricsInt const& arg0) exit");
 
 	return result;
 }
@@ -4244,15 +3999,12 @@ float android_graphics_Paint::getFontSpacing()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Paint jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -4270,17 +4022,17 @@ float android_graphics_Paint::getFontSpacing()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	float result = (float) *((float *) cxx_value);
+	// 
+		
 	LOGV("float android_graphics_Paint::getFontSpacing() exit");
 
 	return result;
 }
-float android_graphics_Paint::measureText(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2)
+float android_graphics_Paint::measureText(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("float android_graphics_Paint::measureText(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2) enter");
+	LOGV("float android_graphics_Paint::measureText(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "measureText";
 	const char *methodSignature = "(Ljava/lang/String;II)F";
@@ -4290,8 +4042,6 @@ float android_graphics_Paint::measureText(AndroidCXX::java_lang_String& arg0,int
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -4362,7 +4112,6 @@ float android_graphics_Paint::measureText(AndroidCXX::java_lang_String& arg0,int
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -4380,17 +4129,17 @@ float android_graphics_Paint::measureText(AndroidCXX::java_lang_String& arg0,int
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("float android_graphics_Paint::measureText(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2) exit");
+	float result = (float) *((float *) cxx_value);
+	// 
+		
+	LOGV("float android_graphics_Paint::measureText(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-float android_graphics_Paint::measureText(AndroidCXX::java_lang_String& arg0)
+float android_graphics_Paint::measureText(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("float android_graphics_Paint::measureText(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("float android_graphics_Paint::measureText(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "measureText";
 	const char *methodSignature = "(Ljava/lang/String;)F";
@@ -4400,8 +4149,6 @@ float android_graphics_Paint::measureText(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -4430,7 +4177,6 @@ float android_graphics_Paint::measureText(AndroidCXX::java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -4448,17 +4194,17 @@ float android_graphics_Paint::measureText(AndroidCXX::java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("float android_graphics_Paint::measureText(AndroidCXX::java_lang_String& arg0) exit");
+	float result = (float) *((float *) cxx_value);
+	// 
+		
+	LOGV("float android_graphics_Paint::measureText(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-float android_graphics_Paint::measureText(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2)
+float android_graphics_Paint::measureText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("float android_graphics_Paint::measureText(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2) enter");
+	LOGV("float android_graphics_Paint::measureText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "measureText";
 	const char *methodSignature = "(Ljava/lang/CharSequence;II)F";
@@ -4468,8 +4214,6 @@ float android_graphics_Paint::measureText(AndroidCXX::java_lang_CharSequence& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -4540,7 +4284,6 @@ float android_graphics_Paint::measureText(AndroidCXX::java_lang_CharSequence& ar
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -4558,17 +4301,17 @@ float android_graphics_Paint::measureText(AndroidCXX::java_lang_CharSequence& ar
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("float android_graphics_Paint::measureText(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2) exit");
+	float result = (float) *((float *) cxx_value);
+	// 
+		
+	LOGV("float android_graphics_Paint::measureText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-float android_graphics_Paint::measureText(std::vector<char>& arg0,int& arg1,int& arg2)
+float android_graphics_Paint::measureText(std::vector<char> const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("float android_graphics_Paint::measureText(std::vector<char>& arg0,int& arg1,int& arg2) enter");
+	LOGV("float android_graphics_Paint::measureText(std::vector<char> const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "measureText";
 	const char *methodSignature = "([CII)F";
@@ -4578,8 +4321,6 @@ float android_graphics_Paint::measureText(std::vector<char>& arg0,int& arg1,int&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -4668,7 +4409,6 @@ float android_graphics_Paint::measureText(std::vector<char>& arg0,int& arg1,int&
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -4686,17 +4426,17 @@ float android_graphics_Paint::measureText(std::vector<char>& arg0,int& arg1,int&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("float android_graphics_Paint::measureText(std::vector<char>& arg0,int& arg1,int& arg2) exit");
+	float result = (float) *((float *) cxx_value);
+	// 
+		
+	LOGV("float android_graphics_Paint::measureText(std::vector<char> const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-int android_graphics_Paint::breakText(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,bool& arg3,float& arg4,std::vector<float>& arg5)
+int android_graphics_Paint::breakText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,bool const& arg3,float const& arg4,std::vector<float> const& arg5)
 {
-	LOGV("int android_graphics_Paint::breakText(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,bool& arg3,float& arg4,std::vector<float>& arg5) enter");
+	LOGV("int android_graphics_Paint::breakText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,bool const& arg3,float const& arg4,std::vector<float> const& arg5) enter");
 
 	const char *methodName = "breakText";
 	const char *methodSignature = "(Ljava/lang/CharSequence;IIZF[F)I";
@@ -4706,8 +4446,6 @@ int android_graphics_Paint::breakText(AndroidCXX::java_lang_CharSequence& arg0,i
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -4859,7 +4597,6 @@ int android_graphics_Paint::breakText(AndroidCXX::java_lang_CharSequence& arg0,i
 		jarg5 = convert_jni__float_array_type_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -4877,17 +4614,17 @@ int android_graphics_Paint::breakText(AndroidCXX::java_lang_CharSequence& arg0,i
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_graphics_Paint::breakText(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,bool& arg3,float& arg4,std::vector<float>& arg5) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_graphics_Paint::breakText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,bool const& arg3,float const& arg4,std::vector<float> const& arg5) exit");
 
 	return result;
 }
-int android_graphics_Paint::breakText(AndroidCXX::java_lang_String& arg0,bool& arg1,float& arg2,std::vector<float>& arg3)
+int android_graphics_Paint::breakText(AndroidCXX::java_lang_String const& arg0,bool const& arg1,float const& arg2,std::vector<float> const& arg3)
 {
-	LOGV("int android_graphics_Paint::breakText(AndroidCXX::java_lang_String& arg0,bool& arg1,float& arg2,std::vector<float>& arg3) enter");
+	LOGV("int android_graphics_Paint::breakText(AndroidCXX::java_lang_String const& arg0,bool const& arg1,float const& arg2,std::vector<float> const& arg3) enter");
 
 	const char *methodName = "breakText";
 	const char *methodSignature = "(Ljava/lang/String;ZF[F)I";
@@ -4897,8 +4634,6 @@ int android_graphics_Paint::breakText(AndroidCXX::java_lang_String& arg0,bool& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -5008,7 +4743,6 @@ int android_graphics_Paint::breakText(AndroidCXX::java_lang_String& arg0,bool& a
 		jarg3 = convert_jni__float_array_type_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -5026,17 +4760,17 @@ int android_graphics_Paint::breakText(AndroidCXX::java_lang_String& arg0,bool& a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_graphics_Paint::breakText(AndroidCXX::java_lang_String& arg0,bool& arg1,float& arg2,std::vector<float>& arg3) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_graphics_Paint::breakText(AndroidCXX::java_lang_String const& arg0,bool const& arg1,float const& arg2,std::vector<float> const& arg3) exit");
 
 	return result;
 }
-int android_graphics_Paint::breakText(std::vector<char>& arg0,int& arg1,int& arg2,float& arg3,std::vector<float>& arg4)
+int android_graphics_Paint::breakText(std::vector<char> const& arg0,int const& arg1,int const& arg2,float const& arg3,std::vector<float> const& arg4)
 {
-	LOGV("int android_graphics_Paint::breakText(std::vector<char>& arg0,int& arg1,int& arg2,float& arg3,std::vector<float>& arg4) enter");
+	LOGV("int android_graphics_Paint::breakText(std::vector<char> const& arg0,int const& arg1,int const& arg2,float const& arg3,std::vector<float> const& arg4) enter");
 
 	const char *methodName = "breakText";
 	const char *methodSignature = "([CIIF[F)I";
@@ -5046,8 +4780,6 @@ int android_graphics_Paint::breakText(std::vector<char>& arg0,int& arg1,int& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -5196,7 +4928,6 @@ int android_graphics_Paint::breakText(std::vector<char>& arg0,int& arg1,int& arg
 		jarg4 = convert_jni__float_array_type_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -5214,17 +4945,17 @@ int android_graphics_Paint::breakText(std::vector<char>& arg0,int& arg1,int& arg
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_graphics_Paint::breakText(std::vector<char>& arg0,int& arg1,int& arg2,float& arg3,std::vector<float>& arg4) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_graphics_Paint::breakText(std::vector<char> const& arg0,int const& arg1,int const& arg2,float const& arg3,std::vector<float> const& arg4) exit");
 
 	return result;
 }
-int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,std::vector<float>& arg3)
+int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3)
 {
-	LOGV("int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,std::vector<float>& arg3) enter");
+	LOGV("int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3) enter");
 
 	const char *methodName = "getTextWidths";
 	const char *methodSignature = "(Ljava/lang/CharSequence;II[F)I";
@@ -5234,8 +4965,6 @@ int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_CharSequence& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -5345,7 +5074,6 @@ int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_CharSequence& ar
 		jarg3 = convert_jni__float_array_type_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -5363,17 +5091,17 @@ int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_CharSequence& ar
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,std::vector<float>& arg3) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3) exit");
 
 	return result;
 }
-int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2,std::vector<float>& arg3)
+int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3)
 {
-	LOGV("int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2,std::vector<float>& arg3) enter");
+	LOGV("int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3) enter");
 
 	const char *methodName = "getTextWidths";
 	const char *methodSignature = "(Ljava/lang/String;II[F)I";
@@ -5383,8 +5111,6 @@ int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_String& arg0,int
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -5494,7 +5220,6 @@ int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_String& arg0,int
 		jarg3 = convert_jni__float_array_type_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -5512,17 +5237,17 @@ int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_String& arg0,int
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2,std::vector<float>& arg3) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3) exit");
 
 	return result;
 }
-int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_String& arg0,std::vector<float>& arg1)
+int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_String const& arg0,std::vector<float> const& arg1)
 {
-	LOGV("int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_String& arg0,std::vector<float>& arg1) enter");
+	LOGV("int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_String const& arg0,std::vector<float> const& arg1) enter");
 
 	const char *methodName = "getTextWidths";
 	const char *methodSignature = "(Ljava/lang/String;[F)I";
@@ -5532,8 +5257,6 @@ int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_String& arg0,std
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -5601,7 +5324,6 @@ int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_String& arg0,std
 		jarg1 = convert_jni__float_array_type_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -5619,17 +5341,17 @@ int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_String& arg0,std
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_String& arg0,std::vector<float>& arg1) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_String const& arg0,std::vector<float> const& arg1) exit");
 
 	return result;
 }
-int android_graphics_Paint::getTextWidths(std::vector<char>& arg0,int& arg1,int& arg2,std::vector<float>& arg3)
+int android_graphics_Paint::getTextWidths(std::vector<char> const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3)
 {
-	LOGV("int android_graphics_Paint::getTextWidths(std::vector<char>& arg0,int& arg1,int& arg2,std::vector<float>& arg3) enter");
+	LOGV("int android_graphics_Paint::getTextWidths(std::vector<char> const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3) enter");
 
 	const char *methodName = "getTextWidths";
 	const char *methodSignature = "([CII[F)I";
@@ -5639,8 +5361,6 @@ int android_graphics_Paint::getTextWidths(std::vector<char>& arg0,int& arg1,int&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -5768,7 +5488,6 @@ int android_graphics_Paint::getTextWidths(std::vector<char>& arg0,int& arg1,int&
 		jarg3 = convert_jni__float_array_type_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -5786,17 +5505,17 @@ int android_graphics_Paint::getTextWidths(std::vector<char>& arg0,int& arg1,int&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_graphics_Paint::getTextWidths(std::vector<char>& arg0,int& arg1,int& arg2,std::vector<float>& arg3) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_graphics_Paint::getTextWidths(std::vector<char> const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3) exit");
 
 	return result;
 }
-void android_graphics_Paint::getTextPath(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2,float& arg3,float& arg4,AndroidCXX::android_graphics_Path& arg5)
+void android_graphics_Paint::getTextPath(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,AndroidCXX::android_graphics_Path const& arg5)
 {
-	LOGV("void android_graphics_Paint::getTextPath(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2,float& arg3,float& arg4,AndroidCXX::android_graphics_Path& arg5) enter");
+	LOGV("void android_graphics_Paint::getTextPath(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,AndroidCXX::android_graphics_Path const& arg5) enter");
 
 	const char *methodName = "getTextPath";
 	const char *methodSignature = "(Ljava/lang/String;IIFFLandroid/graphics/Path;)V";
@@ -5807,8 +5526,6 @@ void android_graphics_Paint::getTextPath(AndroidCXX::java_lang_String& arg0,int&
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -5943,14 +5660,12 @@ void android_graphics_Paint::getTextPath(AndroidCXX::java_lang_String& arg0,int&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::getTextPath(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2,float& arg3,float& arg4,AndroidCXX::android_graphics_Path& arg5) exit");
+	LOGV("void android_graphics_Paint::getTextPath(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,AndroidCXX::android_graphics_Path const& arg5) exit");
 
 }
-void android_graphics_Paint::getTextPath(std::vector<char>& arg0,int& arg1,int& arg2,float& arg3,float& arg4,AndroidCXX::android_graphics_Path& arg5)
+void android_graphics_Paint::getTextPath(std::vector<char> const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,AndroidCXX::android_graphics_Path const& arg5)
 {
-	LOGV("void android_graphics_Paint::getTextPath(std::vector<char>& arg0,int& arg1,int& arg2,float& arg3,float& arg4,AndroidCXX::android_graphics_Path& arg5) enter");
+	LOGV("void android_graphics_Paint::getTextPath(std::vector<char> const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,AndroidCXX::android_graphics_Path const& arg5) enter");
 
 	const char *methodName = "getTextPath";
 	const char *methodSignature = "([CIIFFLandroid/graphics/Path;)V";
@@ -5961,8 +5676,6 @@ void android_graphics_Paint::getTextPath(std::vector<char>& arg0,int& arg1,int& 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -6115,14 +5828,12 @@ void android_graphics_Paint::getTextPath(std::vector<char>& arg0,int& arg1,int& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::getTextPath(std::vector<char>& arg0,int& arg1,int& arg2,float& arg3,float& arg4,AndroidCXX::android_graphics_Path& arg5) exit");
+	LOGV("void android_graphics_Paint::getTextPath(std::vector<char> const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,AndroidCXX::android_graphics_Path const& arg5) exit");
 
 }
-void android_graphics_Paint::getTextBounds(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2,AndroidCXX::android_graphics_Rect& arg3)
+void android_graphics_Paint::getTextBounds(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_graphics_Rect const& arg3)
 {
-	LOGV("void android_graphics_Paint::getTextBounds(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2,AndroidCXX::android_graphics_Rect& arg3) enter");
+	LOGV("void android_graphics_Paint::getTextBounds(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_graphics_Rect const& arg3) enter");
 
 	const char *methodName = "getTextBounds";
 	const char *methodSignature = "(Ljava/lang/String;IILandroid/graphics/Rect;)V";
@@ -6132,8 +5843,6 @@ void android_graphics_Paint::getTextBounds(AndroidCXX::java_lang_String& arg0,in
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -6227,14 +5936,12 @@ void android_graphics_Paint::getTextBounds(AndroidCXX::java_lang_String& arg0,in
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::getTextBounds(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2,AndroidCXX::android_graphics_Rect& arg3) exit");
+	LOGV("void android_graphics_Paint::getTextBounds(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_graphics_Rect const& arg3) exit");
 
 }
-void android_graphics_Paint::getTextBounds(std::vector<char>& arg0,int& arg1,int& arg2,AndroidCXX::android_graphics_Rect& arg3)
+void android_graphics_Paint::getTextBounds(std::vector<char> const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_graphics_Rect const& arg3)
 {
-	LOGV("void android_graphics_Paint::getTextBounds(std::vector<char>& arg0,int& arg1,int& arg2,AndroidCXX::android_graphics_Rect& arg3) enter");
+	LOGV("void android_graphics_Paint::getTextBounds(std::vector<char> const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_graphics_Rect const& arg3) enter");
 
 	const char *methodName = "getTextBounds";
 	const char *methodSignature = "([CIILandroid/graphics/Rect;)V";
@@ -6244,8 +5951,6 @@ void android_graphics_Paint::getTextBounds(std::vector<char>& arg0,int& arg1,int
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Paint cxx address %d", cxxAddress);
@@ -6357,8 +6062,6 @@ void android_graphics_Paint::getTextBounds(std::vector<char>& arg0,int& arg1,int
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Paint::getTextBounds(std::vector<char>& arg0,int& arg1,int& arg2,AndroidCXX::android_graphics_Rect& arg3) exit");
+	LOGV("void android_graphics_Paint::getTextBounds(std::vector<char> const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_graphics_Rect const& arg3) exit");
 
 }

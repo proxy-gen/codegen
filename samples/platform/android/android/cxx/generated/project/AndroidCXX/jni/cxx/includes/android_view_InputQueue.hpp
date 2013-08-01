@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_view_InputQueue
@@ -46,9 +45,9 @@ class android_view_InputQueue
 public:
 
 	android_view_InputQueue(const android_view_InputQueue& cc);
-	android_view_InputQueue(void * proxy);
+	android_view_InputQueue(Proxy proxy);
 	// Public Constructors
-	android_view_InputQueue();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_InputQueue();
 	// Functions

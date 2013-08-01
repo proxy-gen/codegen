@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_view_ViewTreeObserver_OnPreDrawListener
@@ -47,9 +46,9 @@ class android_view_ViewTreeObserver_OnPreDrawListener
 public:
 
 	android_view_ViewTreeObserver_OnPreDrawListener(const android_view_ViewTreeObserver_OnPreDrawListener& cc);
-	android_view_ViewTreeObserver_OnPreDrawListener(void * proxy);
+	android_view_ViewTreeObserver_OnPreDrawListener(Proxy proxy);
 	// Public Constructors
-	android_view_ViewTreeObserver_OnPreDrawListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewTreeObserver_OnPreDrawListener();
 	// Functions

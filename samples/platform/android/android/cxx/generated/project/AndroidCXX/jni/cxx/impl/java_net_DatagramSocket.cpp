@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -73,7 +72,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_net_DatagramSocket"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -128,8 +127,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_net_DatagramSocket::java_net_DatagramSocket(const java_net_DatagramSocket& cc)
 {
 	LOGV("java_net_DatagramSocket::java_net_DatagramSocket(const java_net_DatagramSocket& cc) enter");
@@ -153,9 +150,9 @@ java_net_DatagramSocket::java_net_DatagramSocket(const java_net_DatagramSocket& 
 
 	LOGV("java_net_DatagramSocket::java_net_DatagramSocket(const java_net_DatagramSocket& cc) exit");
 }
-java_net_DatagramSocket::java_net_DatagramSocket(void * proxy)
+java_net_DatagramSocket::java_net_DatagramSocket(Proxy proxy)
 {
-	LOGV("java_net_DatagramSocket::java_net_DatagramSocket(void * proxy) enter");
+	LOGV("java_net_DatagramSocket::java_net_DatagramSocket(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -165,16 +162,34 @@ java_net_DatagramSocket::java_net_DatagramSocket(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_net_DatagramSocket::java_net_DatagramSocket(void * proxy) exit");
+	LOGV("java_net_DatagramSocket::java_net_DatagramSocket(Proxy proxy) exit");
 }
-// Public Constructors
-java_net_DatagramSocket::java_net_DatagramSocket(int& arg0,AndroidCXX::java_net_InetAddress& arg1)
+Proxy java_net_DatagramSocket::proxy() const
+{	
+	LOGV("java_net_DatagramSocket::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("java_net_DatagramSocket::proxy() exit");	
+
+	return proxy;
+}
+java_net_DatagramSocket::java_net_DatagramSocket(int const& arg0,AndroidCXX::java_net_InetAddress const& arg1)
 {
-	LOGV("java_net_DatagramSocket::java_net_DatagramSocket(int& arg0,AndroidCXX::java_net_InetAddress& arg1) enter");	
+	LOGV("java_net_DatagramSocket::java_net_DatagramSocket(int const& arg0,AndroidCXX::java_net_InetAddress const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(ILjava/net/InetAddress;)V";
@@ -248,7 +263,7 @@ java_net_DatagramSocket::java_net_DatagramSocket(int& arg0,AndroidCXX::java_net_
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_DatagramSocket::java_net_DatagramSocket(int& arg0,AndroidCXX::java_net_InetAddress& arg1) exit");	
+	LOGV("java_net_DatagramSocket::java_net_DatagramSocket(int const& arg0,AndroidCXX::java_net_InetAddress const& arg1) exit");	
 }
 java_net_DatagramSocket::java_net_DatagramSocket()
 {
@@ -286,9 +301,9 @@ java_net_DatagramSocket::java_net_DatagramSocket()
 
 	LOGV("java_net_DatagramSocket::java_net_DatagramSocket() exit");	
 }
-java_net_DatagramSocket::java_net_DatagramSocket(AndroidCXX::java_net_SocketAddress& arg0)
+java_net_DatagramSocket::java_net_DatagramSocket(AndroidCXX::java_net_SocketAddress const& arg0)
 {
-	LOGV("java_net_DatagramSocket::java_net_DatagramSocket(AndroidCXX::java_net_SocketAddress& arg0) enter");	
+	LOGV("java_net_DatagramSocket::java_net_DatagramSocket(AndroidCXX::java_net_SocketAddress const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/net/SocketAddress;)V";
@@ -341,11 +356,11 @@ java_net_DatagramSocket::java_net_DatagramSocket(AndroidCXX::java_net_SocketAddr
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_DatagramSocket::java_net_DatagramSocket(AndroidCXX::java_net_SocketAddress& arg0) exit");	
+	LOGV("java_net_DatagramSocket::java_net_DatagramSocket(AndroidCXX::java_net_SocketAddress const& arg0) exit");	
 }
-java_net_DatagramSocket::java_net_DatagramSocket(int& arg0)
+java_net_DatagramSocket::java_net_DatagramSocket(int const& arg0)
 {
-	LOGV("java_net_DatagramSocket::java_net_DatagramSocket(int& arg0) enter");	
+	LOGV("java_net_DatagramSocket::java_net_DatagramSocket(int const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(I)V";
@@ -398,7 +413,7 @@ java_net_DatagramSocket::java_net_DatagramSocket(int& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_DatagramSocket::java_net_DatagramSocket(int& arg0) exit");	
+	LOGV("java_net_DatagramSocket::java_net_DatagramSocket(int const& arg0) exit");	
 }
 // Default Instance Destructor
 java_net_DatagramSocket::~java_net_DatagramSocket()
@@ -411,7 +426,7 @@ java_net_DatagramSocket::~java_net_DatagramSocket()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_net_DatagramSocket::~java_net_DatagramSocket() exit");
 }
 // Functions
@@ -428,8 +443,6 @@ void java_net_DatagramSocket::close()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -438,14 +451,12 @@ void java_net_DatagramSocket::close()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_net_DatagramSocket::close() exit");
 
 }
-void java_net_DatagramSocket::send(AndroidCXX::java_net_DatagramPacket& arg0)
+void java_net_DatagramSocket::send(AndroidCXX::java_net_DatagramPacket const& arg0)
 {
-	LOGV("void java_net_DatagramSocket::send(AndroidCXX::java_net_DatagramPacket& arg0) enter");
+	LOGV("void java_net_DatagramSocket::send(AndroidCXX::java_net_DatagramPacket const& arg0) enter");
 
 	const char *methodName = "send";
 	const char *methodSignature = "(Ljava/net/DatagramPacket;)V";
@@ -455,8 +466,6 @@ void java_net_DatagramSocket::send(AndroidCXX::java_net_DatagramPacket& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
@@ -487,9 +496,7 @@ void java_net_DatagramSocket::send(AndroidCXX::java_net_DatagramPacket& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_net_DatagramSocket::send(AndroidCXX::java_net_DatagramPacket& arg0) exit");
+	LOGV("void java_net_DatagramSocket::send(AndroidCXX::java_net_DatagramPacket const& arg0) exit");
 
 }
 int java_net_DatagramSocket::getPort()
@@ -505,15 +512,12 @@ int java_net_DatagramSocket::getPort()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_DatagramSocket jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -531,10 +535,10 @@ int java_net_DatagramSocket::getPort()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_net_DatagramSocket::getPort() exit");
 
 	return result;
@@ -552,15 +556,12 @@ AndroidCXX::java_nio_channels_DatagramChannel java_net_DatagramSocket::getChanne
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_DatagramSocket jni address %d", javaObject);
 
 
-	AndroidCXX::java_nio_channels_DatagramChannel result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -578,17 +579,17 @@ AndroidCXX::java_nio_channels_DatagramChannel java_net_DatagramSocket::getChanne
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_channels_DatagramChannel(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_channels_DatagramChannel) (AndroidCXX::java_nio_channels_DatagramChannel((AndroidCXX::java_nio_channels_DatagramChannel *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_nio_channels_DatagramChannel result((AndroidCXX::java_nio_channels_DatagramChannel) *((AndroidCXX::java_nio_channels_DatagramChannel *) cxx_value));
+	delete ((AndroidCXX::java_nio_channels_DatagramChannel *) cxx_value);
+		
 	LOGV("AndroidCXX::java_nio_channels_DatagramChannel java_net_DatagramSocket::getChannel() exit");
 
 	return result;
 }
-void java_net_DatagramSocket::connect(AndroidCXX::java_net_SocketAddress& arg0)
+void java_net_DatagramSocket::connect(AndroidCXX::java_net_SocketAddress const& arg0)
 {
-	LOGV("void java_net_DatagramSocket::connect(AndroidCXX::java_net_SocketAddress& arg0) enter");
+	LOGV("void java_net_DatagramSocket::connect(AndroidCXX::java_net_SocketAddress const& arg0) enter");
 
 	const char *methodName = "connect";
 	const char *methodSignature = "(Ljava/net/SocketAddress;)V";
@@ -598,8 +599,6 @@ void java_net_DatagramSocket::connect(AndroidCXX::java_net_SocketAddress& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
@@ -630,14 +629,12 @@ void java_net_DatagramSocket::connect(AndroidCXX::java_net_SocketAddress& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_net_DatagramSocket::connect(AndroidCXX::java_net_SocketAddress& arg0) exit");
+	LOGV("void java_net_DatagramSocket::connect(AndroidCXX::java_net_SocketAddress const& arg0) exit");
 
 }
-void java_net_DatagramSocket::connect(AndroidCXX::java_net_InetAddress& arg0,int& arg1)
+void java_net_DatagramSocket::connect(AndroidCXX::java_net_InetAddress const& arg0,int const& arg1)
 {
-	LOGV("void java_net_DatagramSocket::connect(AndroidCXX::java_net_InetAddress& arg0,int& arg1) enter");
+	LOGV("void java_net_DatagramSocket::connect(AndroidCXX::java_net_InetAddress const& arg0,int const& arg1) enter");
 
 	const char *methodName = "connect";
 	const char *methodSignature = "(Ljava/net/InetAddress;I)V";
@@ -647,8 +644,6 @@ void java_net_DatagramSocket::connect(AndroidCXX::java_net_InetAddress& arg0,int
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
@@ -700,9 +695,7 @@ void java_net_DatagramSocket::connect(AndroidCXX::java_net_InetAddress& arg0,int
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_net_DatagramSocket::connect(AndroidCXX::java_net_InetAddress& arg0,int& arg1) exit");
+	LOGV("void java_net_DatagramSocket::connect(AndroidCXX::java_net_InetAddress const& arg0,int const& arg1) exit");
 
 }
 bool java_net_DatagramSocket::isClosed()
@@ -718,15 +711,12 @@ bool java_net_DatagramSocket::isClosed()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_DatagramSocket jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -744,10 +734,10 @@ bool java_net_DatagramSocket::isClosed()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool java_net_DatagramSocket::isClosed() exit");
 
 	return result;
@@ -765,8 +755,6 @@ void java_net_DatagramSocket::disconnect()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -775,14 +763,12 @@ void java_net_DatagramSocket::disconnect()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_net_DatagramSocket::disconnect() exit");
 
 }
-void java_net_DatagramSocket::bind(AndroidCXX::java_net_SocketAddress& arg0)
+void java_net_DatagramSocket::bind(AndroidCXX::java_net_SocketAddress const& arg0)
 {
-	LOGV("void java_net_DatagramSocket::bind(AndroidCXX::java_net_SocketAddress& arg0) enter");
+	LOGV("void java_net_DatagramSocket::bind(AndroidCXX::java_net_SocketAddress const& arg0) enter");
 
 	const char *methodName = "bind";
 	const char *methodSignature = "(Ljava/net/SocketAddress;)V";
@@ -792,8 +778,6 @@ void java_net_DatagramSocket::bind(AndroidCXX::java_net_SocketAddress& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
@@ -824,9 +808,7 @@ void java_net_DatagramSocket::bind(AndroidCXX::java_net_SocketAddress& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_net_DatagramSocket::bind(AndroidCXX::java_net_SocketAddress& arg0) exit");
+	LOGV("void java_net_DatagramSocket::bind(AndroidCXX::java_net_SocketAddress const& arg0) exit");
 
 }
 AndroidCXX::java_net_InetAddress java_net_DatagramSocket::getInetAddress()
@@ -842,15 +824,12 @@ AndroidCXX::java_net_InetAddress java_net_DatagramSocket::getInetAddress()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_DatagramSocket jni address %d", javaObject);
 
 
-	AndroidCXX::java_net_InetAddress result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -868,10 +847,10 @@ AndroidCXX::java_net_InetAddress java_net_DatagramSocket::getInetAddress()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_InetAddress(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_net_InetAddress) (AndroidCXX::java_net_InetAddress((AndroidCXX::java_net_InetAddress *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_net_InetAddress result((AndroidCXX::java_net_InetAddress) *((AndroidCXX::java_net_InetAddress *) cxx_value));
+	delete ((AndroidCXX::java_net_InetAddress *) cxx_value);
+		
 	LOGV("AndroidCXX::java_net_InetAddress java_net_DatagramSocket::getInetAddress() exit");
 
 	return result;
@@ -889,15 +868,12 @@ AndroidCXX::java_net_InetAddress java_net_DatagramSocket::getLocalAddress()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_DatagramSocket jni address %d", javaObject);
 
 
-	AndroidCXX::java_net_InetAddress result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -915,10 +891,10 @@ AndroidCXX::java_net_InetAddress java_net_DatagramSocket::getLocalAddress()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_InetAddress(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_net_InetAddress) (AndroidCXX::java_net_InetAddress((AndroidCXX::java_net_InetAddress *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_net_InetAddress result((AndroidCXX::java_net_InetAddress) *((AndroidCXX::java_net_InetAddress *) cxx_value));
+	delete ((AndroidCXX::java_net_InetAddress *) cxx_value);
+		
 	LOGV("AndroidCXX::java_net_InetAddress java_net_DatagramSocket::getLocalAddress() exit");
 
 	return result;
@@ -936,15 +912,12 @@ int java_net_DatagramSocket::getLocalPort()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_DatagramSocket jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -962,10 +935,10 @@ int java_net_DatagramSocket::getLocalPort()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_net_DatagramSocket::getLocalPort() exit");
 
 	return result;
@@ -983,15 +956,12 @@ AndroidCXX::java_net_SocketAddress java_net_DatagramSocket::getRemoteSocketAddre
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_DatagramSocket jni address %d", javaObject);
 
 
-	AndroidCXX::java_net_SocketAddress result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1009,10 +979,10 @@ AndroidCXX::java_net_SocketAddress java_net_DatagramSocket::getRemoteSocketAddre
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_SocketAddress(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_net_SocketAddress) (AndroidCXX::java_net_SocketAddress((AndroidCXX::java_net_SocketAddress *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_net_SocketAddress result((AndroidCXX::java_net_SocketAddress) *((AndroidCXX::java_net_SocketAddress *) cxx_value));
+	delete ((AndroidCXX::java_net_SocketAddress *) cxx_value);
+		
 	LOGV("AndroidCXX::java_net_SocketAddress java_net_DatagramSocket::getRemoteSocketAddress() exit");
 
 	return result;
@@ -1030,15 +1000,12 @@ AndroidCXX::java_net_SocketAddress java_net_DatagramSocket::getLocalSocketAddres
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_DatagramSocket jni address %d", javaObject);
 
 
-	AndroidCXX::java_net_SocketAddress result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1056,17 +1023,17 @@ AndroidCXX::java_net_SocketAddress java_net_DatagramSocket::getLocalSocketAddres
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_SocketAddress(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_net_SocketAddress) (AndroidCXX::java_net_SocketAddress((AndroidCXX::java_net_SocketAddress *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_net_SocketAddress result((AndroidCXX::java_net_SocketAddress) *((AndroidCXX::java_net_SocketAddress *) cxx_value));
+	delete ((AndroidCXX::java_net_SocketAddress *) cxx_value);
+		
 	LOGV("AndroidCXX::java_net_SocketAddress java_net_DatagramSocket::getLocalSocketAddress() exit");
 
 	return result;
 }
-void java_net_DatagramSocket::setSoTimeout(int& arg0)
+void java_net_DatagramSocket::setSoTimeout(int const& arg0)
 {
-	LOGV("void java_net_DatagramSocket::setSoTimeout(int& arg0) enter");
+	LOGV("void java_net_DatagramSocket::setSoTimeout(int const& arg0) enter");
 
 	const char *methodName = "setSoTimeout";
 	const char *methodSignature = "(I)V";
@@ -1076,8 +1043,6 @@ void java_net_DatagramSocket::setSoTimeout(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
@@ -1108,9 +1073,7 @@ void java_net_DatagramSocket::setSoTimeout(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_net_DatagramSocket::setSoTimeout(int& arg0) exit");
+	LOGV("void java_net_DatagramSocket::setSoTimeout(int const& arg0) exit");
 
 }
 int java_net_DatagramSocket::getSoTimeout()
@@ -1126,15 +1089,12 @@ int java_net_DatagramSocket::getSoTimeout()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_DatagramSocket jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1152,17 +1112,17 @@ int java_net_DatagramSocket::getSoTimeout()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_net_DatagramSocket::getSoTimeout() exit");
 
 	return result;
 }
-void java_net_DatagramSocket::setSendBufferSize(int& arg0)
+void java_net_DatagramSocket::setSendBufferSize(int const& arg0)
 {
-	LOGV("void java_net_DatagramSocket::setSendBufferSize(int& arg0) enter");
+	LOGV("void java_net_DatagramSocket::setSendBufferSize(int const& arg0) enter");
 
 	const char *methodName = "setSendBufferSize";
 	const char *methodSignature = "(I)V";
@@ -1172,8 +1132,6 @@ void java_net_DatagramSocket::setSendBufferSize(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
@@ -1204,9 +1162,7 @@ void java_net_DatagramSocket::setSendBufferSize(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_net_DatagramSocket::setSendBufferSize(int& arg0) exit");
+	LOGV("void java_net_DatagramSocket::setSendBufferSize(int const& arg0) exit");
 
 }
 int java_net_DatagramSocket::getSendBufferSize()
@@ -1222,15 +1178,12 @@ int java_net_DatagramSocket::getSendBufferSize()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_DatagramSocket jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1248,17 +1201,17 @@ int java_net_DatagramSocket::getSendBufferSize()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_net_DatagramSocket::getSendBufferSize() exit");
 
 	return result;
 }
-void java_net_DatagramSocket::setReceiveBufferSize(int& arg0)
+void java_net_DatagramSocket::setReceiveBufferSize(int const& arg0)
 {
-	LOGV("void java_net_DatagramSocket::setReceiveBufferSize(int& arg0) enter");
+	LOGV("void java_net_DatagramSocket::setReceiveBufferSize(int const& arg0) enter");
 
 	const char *methodName = "setReceiveBufferSize";
 	const char *methodSignature = "(I)V";
@@ -1268,8 +1221,6 @@ void java_net_DatagramSocket::setReceiveBufferSize(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
@@ -1300,9 +1251,7 @@ void java_net_DatagramSocket::setReceiveBufferSize(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_net_DatagramSocket::setReceiveBufferSize(int& arg0) exit");
+	LOGV("void java_net_DatagramSocket::setReceiveBufferSize(int const& arg0) exit");
 
 }
 int java_net_DatagramSocket::getReceiveBufferSize()
@@ -1318,15 +1267,12 @@ int java_net_DatagramSocket::getReceiveBufferSize()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_DatagramSocket jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1344,17 +1290,17 @@ int java_net_DatagramSocket::getReceiveBufferSize()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_net_DatagramSocket::getReceiveBufferSize() exit");
 
 	return result;
 }
-void java_net_DatagramSocket::setTrafficClass(int& arg0)
+void java_net_DatagramSocket::setTrafficClass(int const& arg0)
 {
-	LOGV("void java_net_DatagramSocket::setTrafficClass(int& arg0) enter");
+	LOGV("void java_net_DatagramSocket::setTrafficClass(int const& arg0) enter");
 
 	const char *methodName = "setTrafficClass";
 	const char *methodSignature = "(I)V";
@@ -1364,8 +1310,6 @@ void java_net_DatagramSocket::setTrafficClass(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
@@ -1396,9 +1340,7 @@ void java_net_DatagramSocket::setTrafficClass(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_net_DatagramSocket::setTrafficClass(int& arg0) exit");
+	LOGV("void java_net_DatagramSocket::setTrafficClass(int const& arg0) exit");
 
 }
 int java_net_DatagramSocket::getTrafficClass()
@@ -1414,15 +1356,12 @@ int java_net_DatagramSocket::getTrafficClass()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_DatagramSocket jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1440,17 +1379,17 @@ int java_net_DatagramSocket::getTrafficClass()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_net_DatagramSocket::getTrafficClass() exit");
 
 	return result;
 }
-void java_net_DatagramSocket::setReuseAddress(bool& arg0)
+void java_net_DatagramSocket::setReuseAddress(bool const& arg0)
 {
-	LOGV("void java_net_DatagramSocket::setReuseAddress(bool& arg0) enter");
+	LOGV("void java_net_DatagramSocket::setReuseAddress(bool const& arg0) enter");
 
 	const char *methodName = "setReuseAddress";
 	const char *methodSignature = "(Z)V";
@@ -1460,8 +1399,6 @@ void java_net_DatagramSocket::setReuseAddress(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
@@ -1492,9 +1429,7 @@ void java_net_DatagramSocket::setReuseAddress(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_net_DatagramSocket::setReuseAddress(bool& arg0) exit");
+	LOGV("void java_net_DatagramSocket::setReuseAddress(bool const& arg0) exit");
 
 }
 bool java_net_DatagramSocket::getReuseAddress()
@@ -1510,15 +1445,12 @@ bool java_net_DatagramSocket::getReuseAddress()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_DatagramSocket jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1536,10 +1468,10 @@ bool java_net_DatagramSocket::getReuseAddress()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool java_net_DatagramSocket::getReuseAddress() exit");
 
 	return result;
@@ -1557,15 +1489,12 @@ bool java_net_DatagramSocket::isConnected()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_DatagramSocket jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1583,10 +1512,10 @@ bool java_net_DatagramSocket::isConnected()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool java_net_DatagramSocket::isConnected() exit");
 
 	return result;
@@ -1604,15 +1533,12 @@ bool java_net_DatagramSocket::isBound()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_DatagramSocket jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1630,17 +1556,17 @@ bool java_net_DatagramSocket::isBound()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool java_net_DatagramSocket::isBound() exit");
 
 	return result;
 }
-void java_net_DatagramSocket::receive(AndroidCXX::java_net_DatagramPacket& arg0)
+void java_net_DatagramSocket::receive(AndroidCXX::java_net_DatagramPacket const& arg0)
 {
-	LOGV("void java_net_DatagramSocket::receive(AndroidCXX::java_net_DatagramPacket& arg0) enter");
+	LOGV("void java_net_DatagramSocket::receive(AndroidCXX::java_net_DatagramPacket const& arg0) enter");
 
 	const char *methodName = "receive";
 	const char *methodSignature = "(Ljava/net/DatagramPacket;)V";
@@ -1650,8 +1576,6 @@ void java_net_DatagramSocket::receive(AndroidCXX::java_net_DatagramPacket& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
@@ -1682,14 +1606,12 @@ void java_net_DatagramSocket::receive(AndroidCXX::java_net_DatagramPacket& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_net_DatagramSocket::receive(AndroidCXX::java_net_DatagramPacket& arg0) exit");
+	LOGV("void java_net_DatagramSocket::receive(AndroidCXX::java_net_DatagramPacket const& arg0) exit");
 
 }
-void java_net_DatagramSocket::setBroadcast(bool& arg0)
+void java_net_DatagramSocket::setBroadcast(bool const& arg0)
 {
-	LOGV("void java_net_DatagramSocket::setBroadcast(bool& arg0) enter");
+	LOGV("void java_net_DatagramSocket::setBroadcast(bool const& arg0) enter");
 
 	const char *methodName = "setBroadcast";
 	const char *methodSignature = "(Z)V";
@@ -1699,8 +1621,6 @@ void java_net_DatagramSocket::setBroadcast(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
@@ -1731,9 +1651,7 @@ void java_net_DatagramSocket::setBroadcast(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_net_DatagramSocket::setBroadcast(bool& arg0) exit");
+	LOGV("void java_net_DatagramSocket::setBroadcast(bool const& arg0) exit");
 
 }
 bool java_net_DatagramSocket::getBroadcast()
@@ -1749,15 +1667,12 @@ bool java_net_DatagramSocket::getBroadcast()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_DatagramSocket jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1775,17 +1690,17 @@ bool java_net_DatagramSocket::getBroadcast()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool java_net_DatagramSocket::getBroadcast() exit");
 
 	return result;
 }
-void java_net_DatagramSocket::setDatagramSocketImplFactory(AndroidCXX::java_net_DatagramSocketImplFactory& arg0)
+void java_net_DatagramSocket::setDatagramSocketImplFactory(AndroidCXX::java_net_DatagramSocketImplFactory const& arg0)
 {
-	LOGV("void java_net_DatagramSocket::setDatagramSocketImplFactory(AndroidCXX::java_net_DatagramSocketImplFactory& arg0) enter");
+	LOGV("void java_net_DatagramSocket::setDatagramSocketImplFactory(AndroidCXX::java_net_DatagramSocketImplFactory const& arg0) enter");
 
 	const char *methodName = "setDatagramSocketImplFactory";
 	const char *methodSignature = "(Ljava/net/DatagramSocketImplFactory;)V";
@@ -1795,8 +1710,6 @@ void java_net_DatagramSocket::setDatagramSocketImplFactory(AndroidCXX::java_net_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
@@ -1825,10 +1738,8 @@ void java_net_DatagramSocket::setDatagramSocketImplFactory(AndroidCXX::java_net_
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_net_DatagramSocket::setDatagramSocketImplFactory(AndroidCXX::java_net_DatagramSocketImplFactory& arg0) exit");
+	LOGV("void java_net_DatagramSocket::setDatagramSocketImplFactory(AndroidCXX::java_net_DatagramSocketImplFactory const& arg0) exit");
 
 }

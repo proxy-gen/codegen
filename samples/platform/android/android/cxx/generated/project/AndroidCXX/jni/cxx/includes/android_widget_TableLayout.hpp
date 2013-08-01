@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -113,33 +112,33 @@ class android_widget_TableLayout
 public:
 
 	android_widget_TableLayout(const android_widget_TableLayout& cc);
-	android_widget_TableLayout(void * proxy);
+	android_widget_TableLayout(Proxy proxy);
 	// Public Constructors
-	android_widget_TableLayout(AndroidCXX::android_content_Context& arg0);
-	android_widget_TableLayout(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_TableLayout();
+	android_widget_TableLayout(AndroidCXX::android_content_Context const& arg0);
+	android_widget_TableLayout(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TableLayout();
 	// Functions
-	 void addView(AndroidCXX::android_view_View& arg0,int& arg1);
-	 void addView(AndroidCXX::android_view_View& arg0);
-	 void addView(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams& arg1);
-	 void addView(AndroidCXX::android_view_View& arg0,int& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams& arg2);
-	 void setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener& arg0);
-	 AndroidCXX::android_widget_TableLayout_LayoutParams generateLayoutParams(AndroidCXX::android_util_AttributeSet& arg0);
+	 void addView(AndroidCXX::android_view_View const& arg0,int const& arg1);
+	 void addView(AndroidCXX::android_view_View const& arg0);
+	 void addView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg1);
+	 void addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2);
+	 void setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener const& arg0);
+	 AndroidCXX::android_widget_TableLayout_LayoutParams generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0);
 	 void requestLayout();
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
 	 bool isShrinkAllColumns();
-	 void setShrinkAllColumns(bool& arg0);
+	 void setShrinkAllColumns(bool const& arg0);
 	 bool isStretchAllColumns();
-	 void setStretchAllColumns(bool& arg0);
-	 void setColumnCollapsed(int& arg0,bool& arg1);
-	 bool isColumnCollapsed(int& arg0);
-	 void setColumnStretchable(int& arg0,bool& arg1);
-	 bool isColumnStretchable(int& arg0);
-	 void setColumnShrinkable(int& arg0,bool& arg1);
-	 bool isColumnShrinkable(int& arg0);
+	 void setStretchAllColumns(bool const& arg0);
+	 void setColumnCollapsed(int const& arg0,bool const& arg1);
+	 bool isColumnCollapsed(int const& arg0);
+	 void setColumnStretchable(int const& arg0,bool const& arg1);
+	 bool isColumnStretchable(int const& arg0);
+	 void setColumnShrinkable(int const& arg0,bool const& arg1);
+	 bool isColumnShrinkable(int const& arg0);
 };	
 
 } // namespace

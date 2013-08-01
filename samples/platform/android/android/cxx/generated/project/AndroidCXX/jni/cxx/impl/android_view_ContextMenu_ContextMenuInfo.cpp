@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_view_ContextMenu_ContextMenuInfo.hpp>
@@ -26,7 +25,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_ContextMenu_ContextMenuInfo"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -39,8 +38,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_view_ContextMenu_ContextMenuInfo::android_view_ContextMenu_ContextMenuInfo(const android_view_ContextMenu_ContextMenuInfo& cc)
 {
 	LOGV("android_view_ContextMenu_ContextMenuInfo::android_view_ContextMenu_ContextMenuInfo(const android_view_ContextMenu_ContextMenuInfo& cc) enter");
@@ -64,9 +61,9 @@ android_view_ContextMenu_ContextMenuInfo::android_view_ContextMenu_ContextMenuIn
 
 	LOGV("android_view_ContextMenu_ContextMenuInfo::android_view_ContextMenu_ContextMenuInfo(const android_view_ContextMenu_ContextMenuInfo& cc) exit");
 }
-android_view_ContextMenu_ContextMenuInfo::android_view_ContextMenu_ContextMenuInfo(void * proxy)
+android_view_ContextMenu_ContextMenuInfo::android_view_ContextMenu_ContextMenuInfo(Proxy proxy)
 {
-	LOGV("android_view_ContextMenu_ContextMenuInfo::android_view_ContextMenu_ContextMenuInfo(void * proxy) enter");
+	LOGV("android_view_ContextMenu_ContextMenuInfo::android_view_ContextMenu_ContextMenuInfo(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -76,47 +73,31 @@ android_view_ContextMenu_ContextMenuInfo::android_view_ContextMenu_ContextMenuIn
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_ContextMenu_ContextMenuInfo::android_view_ContextMenu_ContextMenuInfo(void * proxy) exit");
+	LOGV("android_view_ContextMenu_ContextMenuInfo::android_view_ContextMenu_ContextMenuInfo(Proxy proxy) exit");
 }
-android_view_ContextMenu_ContextMenuInfo::android_view_ContextMenu_ContextMenuInfo()
-{
-	LOGV("android_view_ContextMenu_ContextMenuInfo::android_view_ContextMenu_ContextMenuInfo() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/view/ContextMenu$ContextMenuInfo";
-
-	LOGV("android_view_ContextMenu_ContextMenuInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_view_ContextMenu_ContextMenuInfo::proxy() const
+{	
+	LOGV("android_view_ContextMenu_ContextMenuInfo::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_ContextMenu_ContextMenuInfo cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_view_ContextMenu_ContextMenuInfo jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_view_ContextMenu_ContextMenuInfo::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_view_ContextMenu_ContextMenuInfo::android_view_ContextMenu_ContextMenuInfo() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_view_ContextMenu_ContextMenuInfo::~android_view_ContextMenu_ContextMenuInfo()
 {
@@ -128,7 +109,7 @@ android_view_ContextMenu_ContextMenuInfo::~android_view_ContextMenu_ContextMenuI
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_ContextMenu_ContextMenuInfo::~android_view_ContextMenu_ContextMenuInfo() exit");
 }
 // Functions

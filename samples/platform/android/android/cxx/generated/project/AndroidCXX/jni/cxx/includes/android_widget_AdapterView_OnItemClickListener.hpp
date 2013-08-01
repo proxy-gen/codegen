@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
  		 
@@ -63,13 +62,13 @@ class android_widget_AdapterView_OnItemClickListener
 public:
 
 	android_widget_AdapterView_OnItemClickListener(const android_widget_AdapterView_OnItemClickListener& cc);
-	android_widget_AdapterView_OnItemClickListener(void * proxy);
+	android_widget_AdapterView_OnItemClickListener(Proxy proxy);
 	// Public Constructors
-	android_widget_AdapterView_OnItemClickListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AdapterView_OnItemClickListener();
 	// Functions
-	 void onItemClick(AndroidCXX::android_widget_AdapterView& arg0,AndroidCXX::android_view_View& arg1,int& arg2,long& arg3);
+	 void onItemClick(AndroidCXX::android_widget_AdapterView const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2,long const& arg3);
 };	
 
 } // namespace

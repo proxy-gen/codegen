@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -75,17 +74,17 @@ class android_view_ContextMenu
 public:
 
 	android_view_ContextMenu(const android_view_ContextMenu& cc);
-	android_view_ContextMenu(void * proxy);
+	android_view_ContextMenu(Proxy proxy);
 	// Public Constructors
-	android_view_ContextMenu();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ContextMenu();
 	// Functions
-	 AndroidCXX::android_view_ContextMenu setHeaderTitle(int& arg0);
-	 AndroidCXX::android_view_ContextMenu setHeaderTitle(AndroidCXX::java_lang_CharSequence& arg0);
-	 AndroidCXX::android_view_ContextMenu setHeaderIcon(int& arg0);
-	 AndroidCXX::android_view_ContextMenu setHeaderIcon(AndroidCXX::android_graphics_drawable_Drawable& arg0);
-	 AndroidCXX::android_view_ContextMenu setHeaderView(AndroidCXX::android_view_View& arg0);
+	 AndroidCXX::android_view_ContextMenu setHeaderTitle(int const& arg0);
+	 AndroidCXX::android_view_ContextMenu setHeaderTitle(AndroidCXX::java_lang_CharSequence const& arg0);
+	 AndroidCXX::android_view_ContextMenu setHeaderIcon(int const& arg0);
+	 AndroidCXX::android_view_ContextMenu setHeaderIcon(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
+	 AndroidCXX::android_view_ContextMenu setHeaderView(AndroidCXX::android_view_View const& arg0);
 	 void clearHeader();
 };	
 

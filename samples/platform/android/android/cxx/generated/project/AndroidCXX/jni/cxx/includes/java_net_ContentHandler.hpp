@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -67,14 +66,15 @@ class java_net_ContentHandler
 public:
 
 	java_net_ContentHandler(const java_net_ContentHandler& cc);
-	java_net_ContentHandler(void * proxy);
+	java_net_ContentHandler(Proxy proxy);
 	// Public Constructors
 	java_net_ContentHandler();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_ContentHandler();
 	// Functions
-	 AndroidCXX::java_lang_Object getContent(AndroidCXX::java_net_URLConnection& arg0);
-	 AndroidCXX::java_lang_Object getContent(AndroidCXX::java_net_URLConnection& arg0,std::vector<AndroidCXX::java_lang_Class >& arg1);
+	 AndroidCXX::java_lang_Object getContent(AndroidCXX::java_net_URLConnection const& arg0);
+	 AndroidCXX::java_lang_Object getContent(AndroidCXX::java_net_URLConnection const& arg0,std::vector<AndroidCXX::java_lang_Class > const& arg1);
 };	
 
 } // namespace

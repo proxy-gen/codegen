@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_view_KeyCharacterMap_KeyData.hpp>
@@ -27,7 +26,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_KeyCharacterMap_KeyData"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -40,8 +39,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_view_KeyCharacterMap_KeyData::android_view_KeyCharacterMap_KeyData(const android_view_KeyCharacterMap_KeyData& cc)
 {
 	LOGV("android_view_KeyCharacterMap_KeyData::android_view_KeyCharacterMap_KeyData(const android_view_KeyCharacterMap_KeyData& cc) enter");
@@ -65,9 +62,9 @@ android_view_KeyCharacterMap_KeyData::android_view_KeyCharacterMap_KeyData(const
 
 	LOGV("android_view_KeyCharacterMap_KeyData::android_view_KeyCharacterMap_KeyData(const android_view_KeyCharacterMap_KeyData& cc) exit");
 }
-android_view_KeyCharacterMap_KeyData::android_view_KeyCharacterMap_KeyData(void * proxy)
+android_view_KeyCharacterMap_KeyData::android_view_KeyCharacterMap_KeyData(Proxy proxy)
 {
-	LOGV("android_view_KeyCharacterMap_KeyData::android_view_KeyCharacterMap_KeyData(void * proxy) enter");
+	LOGV("android_view_KeyCharacterMap_KeyData::android_view_KeyCharacterMap_KeyData(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -77,13 +74,31 @@ android_view_KeyCharacterMap_KeyData::android_view_KeyCharacterMap_KeyData(void 
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_KeyCharacterMap_KeyData::android_view_KeyCharacterMap_KeyData(void * proxy) exit");
+	LOGV("android_view_KeyCharacterMap_KeyData::android_view_KeyCharacterMap_KeyData(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy android_view_KeyCharacterMap_KeyData::proxy() const
+{	
+	LOGV("android_view_KeyCharacterMap_KeyData::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_view_KeyCharacterMap_KeyData cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_KeyCharacterMap_KeyData jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_view_KeyCharacterMap_KeyData::proxy() exit");	
+
+	return proxy;
+}
 android_view_KeyCharacterMap_KeyData::android_view_KeyCharacterMap_KeyData()
 {
 	LOGV("android_view_KeyCharacterMap_KeyData::android_view_KeyCharacterMap_KeyData() enter");	
@@ -131,7 +146,7 @@ android_view_KeyCharacterMap_KeyData::~android_view_KeyCharacterMap_KeyData()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_KeyCharacterMap_KeyData::~android_view_KeyCharacterMap_KeyData() exit");
 }
 // Functions

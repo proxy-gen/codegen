@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _java_lang_reflect_Type
@@ -46,9 +45,9 @@ class java_lang_reflect_Type
 public:
 
 	java_lang_reflect_Type(const java_lang_reflect_Type& cc);
-	java_lang_reflect_Type(void * proxy);
+	java_lang_reflect_Type(Proxy proxy);
 	// Public Constructors
-	java_lang_reflect_Type();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_reflect_Type();
 	// Functions

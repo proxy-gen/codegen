@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -107,25 +106,25 @@ class com_facebook_model_GraphObject_Factory_GraphObjectListImpl
 public:
 
 	com_facebook_model_GraphObject_Factory_GraphObjectListImpl(const com_facebook_model_GraphObject_Factory_GraphObjectListImpl& cc);
-	com_facebook_model_GraphObject_Factory_GraphObjectListImpl(void * proxy);
+	com_facebook_model_GraphObject_Factory_GraphObjectListImpl(Proxy proxy);
 	// Public Constructors
-	com_facebook_model_GraphObject_Factory_GraphObjectListImpl(AndroidCXX::org_json_JSONArray& arg0,AndroidCXX::java_lang_Class& arg1);
-	com_facebook_model_GraphObject_Factory_GraphObjectListImpl();
+	com_facebook_model_GraphObject_Factory_GraphObjectListImpl(AndroidCXX::org_json_JSONArray const& arg0,AndroidCXX::java_lang_Class const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphObject_Factory_GraphObjectListImpl();
 	// Functions
-	 void add(int& arg0,AndroidCXX::java_lang_Object& arg1);
-	 AndroidCXX::java_lang_Object get(int& arg0);
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 void add(int const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	 AndroidCXX::java_lang_Object get(int const& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 void clear();
 	 int size();
-	 bool remove(AndroidCXX::java_lang_Object& arg0);
-	 AndroidCXX::java_lang_Object set(int& arg0,AndroidCXX::java_lang_Object& arg1);
-	 bool removeAll(AndroidCXX::java_util_Collection& arg0);
-	 bool retainAll(AndroidCXX::java_util_Collection& arg0);
-	 FacebookCXX::com_facebook_model_GraphObjectList castToListOf(AndroidCXX::java_lang_Class& arg0);
+	 bool remove(AndroidCXX::java_lang_Object const& arg0);
+	 AndroidCXX::java_lang_Object set(int const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	 bool removeAll(AndroidCXX::java_util_Collection const& arg0);
+	 bool retainAll(AndroidCXX::java_util_Collection const& arg0);
+	 FacebookCXX::com_facebook_model_GraphObjectList castToListOf(AndroidCXX::java_lang_Class const& arg0);
 	 AndroidCXX::org_json_JSONArray getInnerJSONArray();
 };	
 

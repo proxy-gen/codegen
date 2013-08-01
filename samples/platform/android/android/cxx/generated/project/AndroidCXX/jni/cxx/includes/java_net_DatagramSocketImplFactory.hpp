@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -52,9 +51,9 @@ class java_net_DatagramSocketImplFactory
 public:
 
 	java_net_DatagramSocketImplFactory(const java_net_DatagramSocketImplFactory& cc);
-	java_net_DatagramSocketImplFactory(void * proxy);
+	java_net_DatagramSocketImplFactory(Proxy proxy);
 	// Public Constructors
-	java_net_DatagramSocketImplFactory();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_DatagramSocketImplFactory();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -73,16 +72,16 @@ class com_facebook_Session_Builder
 public:
 
 	com_facebook_Session_Builder(const com_facebook_Session_Builder& cc);
-	com_facebook_Session_Builder(void * proxy);
+	com_facebook_Session_Builder(Proxy proxy);
 	// Public Constructors
-	com_facebook_Session_Builder(AndroidCXX::android_content_Context& arg0);
-	com_facebook_Session_Builder();
+	com_facebook_Session_Builder(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_Builder();
 	// Functions
 	 FacebookCXX::com_facebook_Session build();
-	 FacebookCXX::com_facebook_Session_Builder setApplicationId(AndroidCXX::java_lang_String& arg0);
-	 FacebookCXX::com_facebook_Session_Builder setTokenCachingStrategy(FacebookCXX::com_facebook_TokenCachingStrategy& arg0);
+	 FacebookCXX::com_facebook_Session_Builder setApplicationId(AndroidCXX::java_lang_String const& arg0);
+	 FacebookCXX::com_facebook_Session_Builder setTokenCachingStrategy(FacebookCXX::com_facebook_TokenCachingStrategy const& arg0);
 };	
 
 } // namespace

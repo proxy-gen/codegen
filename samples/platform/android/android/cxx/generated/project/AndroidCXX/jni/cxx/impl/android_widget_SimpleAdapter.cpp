@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -64,7 +63,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_SimpleAdapter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -143,8 +142,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_widget_SimpleAdapter::android_widget_SimpleAdapter(const android_widget_SimpleAdapter& cc)
 {
 	LOGV("android_widget_SimpleAdapter::android_widget_SimpleAdapter(const android_widget_SimpleAdapter& cc) enter");
@@ -168,9 +165,9 @@ android_widget_SimpleAdapter::android_widget_SimpleAdapter(const android_widget_
 
 	LOGV("android_widget_SimpleAdapter::android_widget_SimpleAdapter(const android_widget_SimpleAdapter& cc) exit");
 }
-android_widget_SimpleAdapter::android_widget_SimpleAdapter(void * proxy)
+android_widget_SimpleAdapter::android_widget_SimpleAdapter(Proxy proxy)
 {
-	LOGV("android_widget_SimpleAdapter::android_widget_SimpleAdapter(void * proxy) enter");
+	LOGV("android_widget_SimpleAdapter::android_widget_SimpleAdapter(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -180,50 +177,34 @@ android_widget_SimpleAdapter::android_widget_SimpleAdapter(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_SimpleAdapter::android_widget_SimpleAdapter(void * proxy) exit");
+	LOGV("android_widget_SimpleAdapter::android_widget_SimpleAdapter(Proxy proxy) exit");
 }
-android_widget_SimpleAdapter::android_widget_SimpleAdapter()
-{
-	LOGV("android_widget_SimpleAdapter::android_widget_SimpleAdapter() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/SimpleAdapter";
-
-	LOGV("android_widget_SimpleAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_widget_SimpleAdapter::proxy() const
+{	
+	LOGV("android_widget_SimpleAdapter::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleAdapter cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_SimpleAdapter jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_widget_SimpleAdapter::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_widget_SimpleAdapter::android_widget_SimpleAdapter() exit");	
+	return proxy;
 }
-// Public Constructors
-android_widget_SimpleAdapter::android_widget_SimpleAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_util_List& arg1,int& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4)
+android_widget_SimpleAdapter::android_widget_SimpleAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_util_List const& arg1,int const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,std::vector<int> const& arg4)
 {
-	LOGV("android_widget_SimpleAdapter::android_widget_SimpleAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_util_List& arg1,int& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4) enter");	
+	LOGV("android_widget_SimpleAdapter::android_widget_SimpleAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_util_List const& arg1,int const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,std::vector<int> const& arg4) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Ljava/util/List;I[Ljava/lang/String;[I)V";
@@ -447,7 +428,7 @@ android_widget_SimpleAdapter::android_widget_SimpleAdapter(AndroidCXX::android_c
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_SimpleAdapter::android_widget_SimpleAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_util_List& arg1,int& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4) exit");	
+	LOGV("android_widget_SimpleAdapter::android_widget_SimpleAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_util_List const& arg1,int const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,std::vector<int> const& arg4) exit");	
 }
 // Default Instance Destructor
 android_widget_SimpleAdapter::~android_widget_SimpleAdapter()
@@ -460,13 +441,13 @@ android_widget_SimpleAdapter::~android_widget_SimpleAdapter()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_SimpleAdapter::~android_widget_SimpleAdapter() exit");
 }
 // Functions
-AndroidCXX::android_view_View android_widget_SimpleAdapter::getView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2)
+AndroidCXX::android_view_View android_widget_SimpleAdapter::getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2)
 {
-	LOGV("AndroidCXX::android_view_View android_widget_SimpleAdapter::getView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2) enter");
+	LOGV("AndroidCXX::android_view_View android_widget_SimpleAdapter::getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) enter");
 
 	const char *methodName = "getView";
 	const char *methodSignature = "(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;";
@@ -476,8 +457,6 @@ AndroidCXX::android_view_View android_widget_SimpleAdapter::getView(int& arg0,An
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleAdapter cxx address %d", cxxAddress);
@@ -548,7 +527,6 @@ AndroidCXX::android_view_View android_widget_SimpleAdapter::getView(int& arg0,An
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -566,11 +544,11 @@ AndroidCXX::android_view_View android_widget_SimpleAdapter::getView(int& arg0,An
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_view_View android_widget_SimpleAdapter::getView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2) exit");
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
+		
+	LOGV("AndroidCXX::android_view_View android_widget_SimpleAdapter::getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) exit");
 
 	return result;
 }
@@ -587,15 +565,12 @@ AndroidCXX::android_widget_Filter android_widget_SimpleAdapter::getFilter()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleAdapter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_SimpleAdapter jni address %d", javaObject);
 
 
-	AndroidCXX::android_widget_Filter result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -613,17 +588,17 @@ AndroidCXX::android_widget_Filter android_widget_SimpleAdapter::getFilter()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_widget_Filter(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_widget_Filter) (AndroidCXX::android_widget_Filter((AndroidCXX::android_widget_Filter *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_widget_Filter result((AndroidCXX::android_widget_Filter) *((AndroidCXX::android_widget_Filter *) cxx_value));
+	delete ((AndroidCXX::android_widget_Filter *) cxx_value);
+		
 	LOGV("AndroidCXX::android_widget_Filter android_widget_SimpleAdapter::getFilter() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_Object android_widget_SimpleAdapter::getItem(int& arg0)
+AndroidCXX::java_lang_Object android_widget_SimpleAdapter::getItem(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Object android_widget_SimpleAdapter::getItem(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Object android_widget_SimpleAdapter::getItem(int const& arg0) enter");
 
 	const char *methodName = "getItem";
 	const char *methodSignature = "(I)Ljava/lang/Object;";
@@ -633,8 +608,6 @@ AndroidCXX::java_lang_Object android_widget_SimpleAdapter::getItem(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleAdapter cxx address %d", cxxAddress);
@@ -663,7 +636,6 @@ AndroidCXX::java_lang_Object android_widget_SimpleAdapter::getItem(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -681,17 +653,17 @@ AndroidCXX::java_lang_Object android_widget_SimpleAdapter::getItem(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_Object android_widget_SimpleAdapter::getItem(int& arg0) exit");
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_Object android_widget_SimpleAdapter::getItem(int const& arg0) exit");
 
 	return result;
 }
-long android_widget_SimpleAdapter::getItemId(int& arg0)
+long android_widget_SimpleAdapter::getItemId(int const& arg0)
 {
-	LOGV("long android_widget_SimpleAdapter::getItemId(int& arg0) enter");
+	LOGV("long android_widget_SimpleAdapter::getItemId(int const& arg0) enter");
 
 	const char *methodName = "getItemId";
 	const char *methodSignature = "(I)J";
@@ -701,8 +673,6 @@ long android_widget_SimpleAdapter::getItemId(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleAdapter cxx address %d", cxxAddress);
@@ -731,7 +701,6 @@ long android_widget_SimpleAdapter::getItemId(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -749,11 +718,11 @@ long android_widget_SimpleAdapter::getItemId(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("long android_widget_SimpleAdapter::getItemId(int& arg0) exit");
+	long result = (long) *((long *) cxx_value);
+	// 
+		
+	LOGV("long android_widget_SimpleAdapter::getItemId(int const& arg0) exit");
 
 	return result;
 }
@@ -770,15 +739,12 @@ int android_widget_SimpleAdapter::getCount()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleAdapter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_SimpleAdapter jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -796,17 +762,17 @@ int android_widget_SimpleAdapter::getCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_SimpleAdapter::getCount() exit");
 
 	return result;
 }
-AndroidCXX::android_view_View android_widget_SimpleAdapter::getDropDownView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2)
+AndroidCXX::android_view_View android_widget_SimpleAdapter::getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2)
 {
-	LOGV("AndroidCXX::android_view_View android_widget_SimpleAdapter::getDropDownView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2) enter");
+	LOGV("AndroidCXX::android_view_View android_widget_SimpleAdapter::getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) enter");
 
 	const char *methodName = "getDropDownView";
 	const char *methodSignature = "(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;";
@@ -816,8 +782,6 @@ AndroidCXX::android_view_View android_widget_SimpleAdapter::getDropDownView(int&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleAdapter cxx address %d", cxxAddress);
@@ -888,7 +852,6 @@ AndroidCXX::android_view_View android_widget_SimpleAdapter::getDropDownView(int&
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -906,17 +869,17 @@ AndroidCXX::android_view_View android_widget_SimpleAdapter::getDropDownView(int&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_view_View android_widget_SimpleAdapter::getDropDownView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2) exit");
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
+		
+	LOGV("AndroidCXX::android_view_View android_widget_SimpleAdapter::getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) exit");
 
 	return result;
 }
-void android_widget_SimpleAdapter::setDropDownViewResource(int& arg0)
+void android_widget_SimpleAdapter::setDropDownViewResource(int const& arg0)
 {
-	LOGV("void android_widget_SimpleAdapter::setDropDownViewResource(int& arg0) enter");
+	LOGV("void android_widget_SimpleAdapter::setDropDownViewResource(int const& arg0) enter");
 
 	const char *methodName = "setDropDownViewResource";
 	const char *methodSignature = "(I)V";
@@ -926,8 +889,6 @@ void android_widget_SimpleAdapter::setDropDownViewResource(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleAdapter cxx address %d", cxxAddress);
@@ -958,9 +919,7 @@ void android_widget_SimpleAdapter::setDropDownViewResource(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SimpleAdapter::setDropDownViewResource(int& arg0) exit");
+	LOGV("void android_widget_SimpleAdapter::setDropDownViewResource(int const& arg0) exit");
 
 }
 AndroidCXX::android_widget_SimpleAdapter_ViewBinder android_widget_SimpleAdapter::getViewBinder()
@@ -976,15 +935,12 @@ AndroidCXX::android_widget_SimpleAdapter_ViewBinder android_widget_SimpleAdapter
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleAdapter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_SimpleAdapter jni address %d", javaObject);
 
 
-	AndroidCXX::android_widget_SimpleAdapter_ViewBinder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1002,17 +958,17 @@ AndroidCXX::android_widget_SimpleAdapter_ViewBinder android_widget_SimpleAdapter
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_widget_SimpleAdapter_ViewBinder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_widget_SimpleAdapter_ViewBinder) (AndroidCXX::android_widget_SimpleAdapter_ViewBinder((AndroidCXX::android_widget_SimpleAdapter_ViewBinder *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_widget_SimpleAdapter_ViewBinder result((AndroidCXX::android_widget_SimpleAdapter_ViewBinder) *((AndroidCXX::android_widget_SimpleAdapter_ViewBinder *) cxx_value));
+	delete ((AndroidCXX::android_widget_SimpleAdapter_ViewBinder *) cxx_value);
+		
 	LOGV("AndroidCXX::android_widget_SimpleAdapter_ViewBinder android_widget_SimpleAdapter::getViewBinder() exit");
 
 	return result;
 }
-void android_widget_SimpleAdapter::setViewBinder(AndroidCXX::android_widget_SimpleAdapter_ViewBinder& arg0)
+void android_widget_SimpleAdapter::setViewBinder(AndroidCXX::android_widget_SimpleAdapter_ViewBinder const& arg0)
 {
-	LOGV("void android_widget_SimpleAdapter::setViewBinder(AndroidCXX::android_widget_SimpleAdapter_ViewBinder& arg0) enter");
+	LOGV("void android_widget_SimpleAdapter::setViewBinder(AndroidCXX::android_widget_SimpleAdapter_ViewBinder const& arg0) enter");
 
 	const char *methodName = "setViewBinder";
 	const char *methodSignature = "(Landroid/widget/SimpleAdapter$ViewBinder;)V";
@@ -1022,8 +978,6 @@ void android_widget_SimpleAdapter::setViewBinder(AndroidCXX::android_widget_Simp
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleAdapter cxx address %d", cxxAddress);
@@ -1054,14 +1008,12 @@ void android_widget_SimpleAdapter::setViewBinder(AndroidCXX::android_widget_Simp
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SimpleAdapter::setViewBinder(AndroidCXX::android_widget_SimpleAdapter_ViewBinder& arg0) exit");
+	LOGV("void android_widget_SimpleAdapter::setViewBinder(AndroidCXX::android_widget_SimpleAdapter_ViewBinder const& arg0) exit");
 
 }
-void android_widget_SimpleAdapter::setViewImage(AndroidCXX::android_widget_ImageView& arg0,int& arg1)
+void android_widget_SimpleAdapter::setViewImage(AndroidCXX::android_widget_ImageView const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_SimpleAdapter::setViewImage(AndroidCXX::android_widget_ImageView& arg0,int& arg1) enter");
+	LOGV("void android_widget_SimpleAdapter::setViewImage(AndroidCXX::android_widget_ImageView const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setViewImage";
 	const char *methodSignature = "(Landroid/widget/ImageView;I)V";
@@ -1071,8 +1023,6 @@ void android_widget_SimpleAdapter::setViewImage(AndroidCXX::android_widget_Image
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleAdapter cxx address %d", cxxAddress);
@@ -1124,14 +1074,12 @@ void android_widget_SimpleAdapter::setViewImage(AndroidCXX::android_widget_Image
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SimpleAdapter::setViewImage(AndroidCXX::android_widget_ImageView& arg0,int& arg1) exit");
+	LOGV("void android_widget_SimpleAdapter::setViewImage(AndroidCXX::android_widget_ImageView const& arg0,int const& arg1) exit");
 
 }
-void android_widget_SimpleAdapter::setViewImage(AndroidCXX::android_widget_ImageView& arg0,AndroidCXX::java_lang_String& arg1)
+void android_widget_SimpleAdapter::setViewImage(AndroidCXX::android_widget_ImageView const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("void android_widget_SimpleAdapter::setViewImage(AndroidCXX::android_widget_ImageView& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("void android_widget_SimpleAdapter::setViewImage(AndroidCXX::android_widget_ImageView const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "setViewImage";
 	const char *methodSignature = "(Landroid/widget/ImageView;Ljava/lang/String;)V";
@@ -1141,8 +1089,6 @@ void android_widget_SimpleAdapter::setViewImage(AndroidCXX::android_widget_Image
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleAdapter cxx address %d", cxxAddress);
@@ -1194,14 +1140,12 @@ void android_widget_SimpleAdapter::setViewImage(AndroidCXX::android_widget_Image
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SimpleAdapter::setViewImage(AndroidCXX::android_widget_ImageView& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("void android_widget_SimpleAdapter::setViewImage(AndroidCXX::android_widget_ImageView const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 }
-void android_widget_SimpleAdapter::setViewText(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::java_lang_String& arg1)
+void android_widget_SimpleAdapter::setViewText(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("void android_widget_SimpleAdapter::setViewText(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("void android_widget_SimpleAdapter::setViewText(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "setViewText";
 	const char *methodSignature = "(Landroid/widget/TextView;Ljava/lang/String;)V";
@@ -1211,8 +1155,6 @@ void android_widget_SimpleAdapter::setViewText(AndroidCXX::android_widget_TextVi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_SimpleAdapter cxx address %d", cxxAddress);
@@ -1264,8 +1206,6 @@ void android_widget_SimpleAdapter::setViewText(AndroidCXX::android_widget_TextVi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_SimpleAdapter::setViewText(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("void android_widget_SimpleAdapter::setViewText(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 }

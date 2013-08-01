@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -85,7 +84,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_ScrollView"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -173,8 +172,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_widget_ScrollView::android_widget_ScrollView(const android_widget_ScrollView& cc)
 {
 	LOGV("android_widget_ScrollView::android_widget_ScrollView(const android_widget_ScrollView& cc) enter");
@@ -198,9 +195,9 @@ android_widget_ScrollView::android_widget_ScrollView(const android_widget_Scroll
 
 	LOGV("android_widget_ScrollView::android_widget_ScrollView(const android_widget_ScrollView& cc) exit");
 }
-android_widget_ScrollView::android_widget_ScrollView(void * proxy)
+android_widget_ScrollView::android_widget_ScrollView(Proxy proxy)
 {
-	LOGV("android_widget_ScrollView::android_widget_ScrollView(void * proxy) enter");
+	LOGV("android_widget_ScrollView::android_widget_ScrollView(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -210,50 +207,34 @@ android_widget_ScrollView::android_widget_ScrollView(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_ScrollView::android_widget_ScrollView(void * proxy) exit");
+	LOGV("android_widget_ScrollView::android_widget_ScrollView(Proxy proxy) exit");
 }
-android_widget_ScrollView::android_widget_ScrollView()
-{
-	LOGV("android_widget_ScrollView::android_widget_ScrollView() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/ScrollView";
-
-	LOGV("android_widget_ScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_widget_ScrollView::proxy() const
+{	
+	LOGV("android_widget_ScrollView::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_ScrollView jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_widget_ScrollView::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_widget_ScrollView::android_widget_ScrollView() exit");	
+	return proxy;
 }
-// Public Constructors
-android_widget_ScrollView::android_widget_ScrollView(AndroidCXX::android_content_Context& arg0)
+android_widget_ScrollView::android_widget_ScrollView(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_ScrollView::android_widget_ScrollView(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_ScrollView::android_widget_ScrollView(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -306,11 +287,11 @@ android_widget_ScrollView::android_widget_ScrollView(AndroidCXX::android_content
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_ScrollView::android_widget_ScrollView(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_ScrollView::android_widget_ScrollView(AndroidCXX::android_content_Context const& arg0) exit");	
 }
-android_widget_ScrollView::android_widget_ScrollView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+android_widget_ScrollView::android_widget_ScrollView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_ScrollView::android_widget_ScrollView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_ScrollView::android_widget_ScrollView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -384,11 +365,11 @@ android_widget_ScrollView::android_widget_ScrollView(AndroidCXX::android_content
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_ScrollView::android_widget_ScrollView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_ScrollView::android_widget_ScrollView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_widget_ScrollView::android_widget_ScrollView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
+android_widget_ScrollView::android_widget_ScrollView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2)
 {
-	LOGV("android_widget_ScrollView::android_widget_ScrollView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) enter");	
+	LOGV("android_widget_ScrollView::android_widget_ScrollView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
@@ -483,7 +464,7 @@ android_widget_ScrollView::android_widget_ScrollView(AndroidCXX::android_content
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_ScrollView::android_widget_ScrollView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) exit");	
+	LOGV("android_widget_ScrollView::android_widget_ScrollView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) exit");	
 }
 // Default Instance Destructor
 android_widget_ScrollView::~android_widget_ScrollView()
@@ -496,13 +477,13 @@ android_widget_ScrollView::~android_widget_ScrollView()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_ScrollView::~android_widget_ScrollView() exit");
 }
 // Functions
-void android_widget_ScrollView::addView(AndroidCXX::android_view_View& arg0,int& arg1)
+void android_widget_ScrollView::addView(AndroidCXX::android_view_View const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_ScrollView::addView(AndroidCXX::android_view_View& arg0,int& arg1) enter");
+	LOGV("void android_widget_ScrollView::addView(AndroidCXX::android_view_View const& arg0,int const& arg1) enter");
 
 	const char *methodName = "addView";
 	const char *methodSignature = "(Landroid/view/View;I)V";
@@ -512,8 +493,6 @@ void android_widget_ScrollView::addView(AndroidCXX::android_view_View& arg0,int&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
@@ -565,14 +544,12 @@ void android_widget_ScrollView::addView(AndroidCXX::android_view_View& arg0,int&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ScrollView::addView(AndroidCXX::android_view_View& arg0,int& arg1) exit");
+	LOGV("void android_widget_ScrollView::addView(AndroidCXX::android_view_View const& arg0,int const& arg1) exit");
 
 }
-void android_widget_ScrollView::addView(AndroidCXX::android_view_View& arg0)
+void android_widget_ScrollView::addView(AndroidCXX::android_view_View const& arg0)
 {
-	LOGV("void android_widget_ScrollView::addView(AndroidCXX::android_view_View& arg0) enter");
+	LOGV("void android_widget_ScrollView::addView(AndroidCXX::android_view_View const& arg0) enter");
 
 	const char *methodName = "addView";
 	const char *methodSignature = "(Landroid/view/View;)V";
@@ -582,8 +559,6 @@ void android_widget_ScrollView::addView(AndroidCXX::android_view_View& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
@@ -614,14 +589,12 @@ void android_widget_ScrollView::addView(AndroidCXX::android_view_View& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ScrollView::addView(AndroidCXX::android_view_View& arg0) exit");
+	LOGV("void android_widget_ScrollView::addView(AndroidCXX::android_view_View const& arg0) exit");
 
 }
-void android_widget_ScrollView::addView(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams& arg1)
+void android_widget_ScrollView::addView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg1)
 {
-	LOGV("void android_widget_ScrollView::addView(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams& arg1) enter");
+	LOGV("void android_widget_ScrollView::addView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg1) enter");
 
 	const char *methodName = "addView";
 	const char *methodSignature = "(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V";
@@ -631,8 +604,6 @@ void android_widget_ScrollView::addView(AndroidCXX::android_view_View& arg0,Andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
@@ -684,14 +655,12 @@ void android_widget_ScrollView::addView(AndroidCXX::android_view_View& arg0,Andr
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ScrollView::addView(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams& arg1) exit");
+	LOGV("void android_widget_ScrollView::addView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg1) exit");
 
 }
-void android_widget_ScrollView::addView(AndroidCXX::android_view_View& arg0,int& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams& arg2)
+void android_widget_ScrollView::addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2)
 {
-	LOGV("void android_widget_ScrollView::addView(AndroidCXX::android_view_View& arg0,int& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams& arg2) enter");
+	LOGV("void android_widget_ScrollView::addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) enter");
 
 	const char *methodName = "addView";
 	const char *methodSignature = "(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V";
@@ -701,8 +670,6 @@ void android_widget_ScrollView::addView(AndroidCXX::android_view_View& arg0,int&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
@@ -775,14 +742,12 @@ void android_widget_ScrollView::addView(AndroidCXX::android_view_View& arg0,int&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ScrollView::addView(AndroidCXX::android_view_View& arg0,int& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams& arg2) exit");
+	LOGV("void android_widget_ScrollView::addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) exit");
 
 }
-bool android_widget_ScrollView::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_ScrollView::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_ScrollView::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_ScrollView::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onTouchEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -793,8 +758,6 @@ bool android_widget_ScrollView::onTouchEvent(AndroidCXX::android_view_MotionEven
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -822,7 +785,6 @@ bool android_widget_ScrollView::onTouchEvent(AndroidCXX::android_view_MotionEven
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -840,17 +802,17 @@ bool android_widget_ScrollView::onTouchEvent(AndroidCXX::android_view_MotionEven
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_ScrollView::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_ScrollView::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-bool android_widget_ScrollView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_ScrollView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_ScrollView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_ScrollView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onGenericMotionEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -861,8 +823,6 @@ bool android_widget_ScrollView::onGenericMotionEvent(AndroidCXX::android_view_Mo
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -890,7 +850,6 @@ bool android_widget_ScrollView::onGenericMotionEvent(AndroidCXX::android_view_Mo
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -908,17 +867,17 @@ bool android_widget_ScrollView::onGenericMotionEvent(AndroidCXX::android_view_Mo
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_ScrollView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_ScrollView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-bool android_widget_ScrollView::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0)
+bool android_widget_ScrollView::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0)
 {
-	LOGV("bool android_widget_ScrollView::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0) enter");
+	LOGV("bool android_widget_ScrollView::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) enter");
 
 	const char *methodName = "dispatchKeyEvent";
 	const char *methodSignature = "(Landroid/view/KeyEvent;)Z";
@@ -928,8 +887,6 @@ bool android_widget_ScrollView::dispatchKeyEvent(AndroidCXX::android_view_KeyEve
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
@@ -958,7 +915,6 @@ bool android_widget_ScrollView::dispatchKeyEvent(AndroidCXX::android_view_KeyEve
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -976,17 +932,17 @@ bool android_widget_ScrollView::dispatchKeyEvent(AndroidCXX::android_view_KeyEve
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_ScrollView::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_ScrollView::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) exit");
 
 	return result;
 }
-void android_widget_ScrollView::requestChildFocus(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_View& arg1)
+void android_widget_ScrollView::requestChildFocus(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1)
 {
-	LOGV("void android_widget_ScrollView::requestChildFocus(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_View& arg1) enter");
+	LOGV("void android_widget_ScrollView::requestChildFocus(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1) enter");
 
 	const char *methodName = "requestChildFocus";
 	const char *methodSignature = "(Landroid/view/View;Landroid/view/View;)V";
@@ -996,8 +952,6 @@ void android_widget_ScrollView::requestChildFocus(AndroidCXX::android_view_View&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
@@ -1049,14 +1003,12 @@ void android_widget_ScrollView::requestChildFocus(AndroidCXX::android_view_View&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ScrollView::requestChildFocus(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_View& arg1) exit");
+	LOGV("void android_widget_ScrollView::requestChildFocus(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1) exit");
 
 }
-bool android_widget_ScrollView::requestChildRectangleOnScreen(AndroidCXX::android_view_View& arg0,AndroidCXX::android_graphics_Rect& arg1,bool& arg2)
+bool android_widget_ScrollView::requestChildRectangleOnScreen(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,bool const& arg2)
 {
-	LOGV("bool android_widget_ScrollView::requestChildRectangleOnScreen(AndroidCXX::android_view_View& arg0,AndroidCXX::android_graphics_Rect& arg1,bool& arg2) enter");
+	LOGV("bool android_widget_ScrollView::requestChildRectangleOnScreen(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,bool const& arg2) enter");
 
 	const char *methodName = "requestChildRectangleOnScreen";
 	const char *methodSignature = "(Landroid/view/View;Landroid/graphics/Rect;Z)Z";
@@ -1066,8 +1018,6 @@ bool android_widget_ScrollView::requestChildRectangleOnScreen(AndroidCXX::androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
@@ -1138,7 +1088,6 @@ bool android_widget_ScrollView::requestChildRectangleOnScreen(AndroidCXX::androi
 		jarg2 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1156,17 +1105,17 @@ bool android_widget_ScrollView::requestChildRectangleOnScreen(AndroidCXX::androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_ScrollView::requestChildRectangleOnScreen(AndroidCXX::android_view_View& arg0,AndroidCXX::android_graphics_Rect& arg1,bool& arg2) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_ScrollView::requestChildRectangleOnScreen(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,bool const& arg2) exit");
 
 	return result;
 }
-void android_widget_ScrollView::requestDisallowInterceptTouchEvent(bool& arg0)
+void android_widget_ScrollView::requestDisallowInterceptTouchEvent(bool const& arg0)
 {
-	LOGV("void android_widget_ScrollView::requestDisallowInterceptTouchEvent(bool& arg0) enter");
+	LOGV("void android_widget_ScrollView::requestDisallowInterceptTouchEvent(bool const& arg0) enter");
 
 	const char *methodName = "requestDisallowInterceptTouchEvent";
 	const char *methodSignature = "(Z)V";
@@ -1176,8 +1125,6 @@ void android_widget_ScrollView::requestDisallowInterceptTouchEvent(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
@@ -1208,14 +1155,12 @@ void android_widget_ScrollView::requestDisallowInterceptTouchEvent(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ScrollView::requestDisallowInterceptTouchEvent(bool& arg0) exit");
+	LOGV("void android_widget_ScrollView::requestDisallowInterceptTouchEvent(bool const& arg0) exit");
 
 }
-bool android_widget_ScrollView::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_ScrollView::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_ScrollView::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_ScrollView::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onInterceptTouchEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -1225,8 +1170,6 @@ bool android_widget_ScrollView::onInterceptTouchEvent(AndroidCXX::android_view_M
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
@@ -1255,7 +1198,6 @@ bool android_widget_ScrollView::onInterceptTouchEvent(AndroidCXX::android_view_M
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1273,11 +1215,11 @@ bool android_widget_ScrollView::onInterceptTouchEvent(AndroidCXX::android_view_M
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_ScrollView::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_ScrollView::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
@@ -1294,15 +1236,12 @@ bool android_widget_ScrollView::shouldDelayChildPressedState()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_ScrollView jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1320,10 +1259,10 @@ bool android_widget_ScrollView::shouldDelayChildPressedState()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_widget_ScrollView::shouldDelayChildPressedState() exit");
 
 	return result;
@@ -1341,8 +1280,6 @@ void android_widget_ScrollView::requestLayout()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1351,14 +1288,12 @@ void android_widget_ScrollView::requestLayout()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_ScrollView::requestLayout() exit");
 
 }
-void android_widget_ScrollView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_ScrollView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_ScrollView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_ScrollView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -1368,8 +1303,6 @@ void android_widget_ScrollView::onInitializeAccessibilityEvent(AndroidCXX::andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
@@ -1400,14 +1333,12 @@ void android_widget_ScrollView::onInitializeAccessibilityEvent(AndroidCXX::andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ScrollView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_ScrollView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_ScrollView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0)
+void android_widget_ScrollView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0)
 {
-	LOGV("void android_widget_ScrollView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) enter");
+	LOGV("void android_widget_ScrollView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityNodeInfo";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
@@ -1417,8 +1348,6 @@ void android_widget_ScrollView::onInitializeAccessibilityNodeInfo(AndroidCXX::an
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
@@ -1449,14 +1378,12 @@ void android_widget_ScrollView::onInitializeAccessibilityNodeInfo(AndroidCXX::an
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ScrollView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) exit");
+	LOGV("void android_widget_ScrollView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) exit");
 
 }
-bool android_widget_ScrollView::performAccessibilityAction(int& arg0,AndroidCXX::android_os_Bundle& arg1)
+bool android_widget_ScrollView::performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1)
 {
-	LOGV("bool android_widget_ScrollView::performAccessibilityAction(int& arg0,AndroidCXX::android_os_Bundle& arg1) enter");
+	LOGV("bool android_widget_ScrollView::performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) enter");
 
 	const char *methodName = "performAccessibilityAction";
 	const char *methodSignature = "(ILandroid/os/Bundle;)Z";
@@ -1466,8 +1393,6 @@ bool android_widget_ScrollView::performAccessibilityAction(int& arg0,AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
@@ -1517,7 +1442,6 @@ bool android_widget_ScrollView::performAccessibilityAction(int& arg0,AndroidCXX:
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1535,17 +1459,17 @@ bool android_widget_ScrollView::performAccessibilityAction(int& arg0,AndroidCXX:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_ScrollView::performAccessibilityAction(int& arg0,AndroidCXX::android_os_Bundle& arg1) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_ScrollView::performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) exit");
 
 	return result;
 }
-void android_widget_ScrollView::scrollTo(int& arg0,int& arg1)
+void android_widget_ScrollView::scrollTo(int const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_ScrollView::scrollTo(int& arg0,int& arg1) enter");
+	LOGV("void android_widget_ScrollView::scrollTo(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "scrollTo";
 	const char *methodSignature = "(II)V";
@@ -1555,8 +1479,6 @@ void android_widget_ScrollView::scrollTo(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
@@ -1608,9 +1530,7 @@ void android_widget_ScrollView::scrollTo(int& arg0,int& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ScrollView::scrollTo(int& arg0,int& arg1) exit");
+	LOGV("void android_widget_ScrollView::scrollTo(int const& arg0,int const& arg1) exit");
 
 }
 void android_widget_ScrollView::computeScroll()
@@ -1626,8 +1546,6 @@ void android_widget_ScrollView::computeScroll()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1636,14 +1554,12 @@ void android_widget_ScrollView::computeScroll()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_ScrollView::computeScroll() exit");
 
 }
-void android_widget_ScrollView::draw(AndroidCXX::android_graphics_Canvas& arg0)
+void android_widget_ScrollView::draw(AndroidCXX::android_graphics_Canvas const& arg0)
 {
-	LOGV("void android_widget_ScrollView::draw(AndroidCXX::android_graphics_Canvas& arg0) enter");
+	LOGV("void android_widget_ScrollView::draw(AndroidCXX::android_graphics_Canvas const& arg0) enter");
 
 	const char *methodName = "draw";
 	const char *methodSignature = "(Landroid/graphics/Canvas;)V";
@@ -1653,8 +1569,6 @@ void android_widget_ScrollView::draw(AndroidCXX::android_graphics_Canvas& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
@@ -1685,14 +1599,12 @@ void android_widget_ScrollView::draw(AndroidCXX::android_graphics_Canvas& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ScrollView::draw(AndroidCXX::android_graphics_Canvas& arg0) exit");
+	LOGV("void android_widget_ScrollView::draw(AndroidCXX::android_graphics_Canvas const& arg0) exit");
 
 }
-void android_widget_ScrollView::setOverScrollMode(int& arg0)
+void android_widget_ScrollView::setOverScrollMode(int const& arg0)
 {
-	LOGV("void android_widget_ScrollView::setOverScrollMode(int& arg0) enter");
+	LOGV("void android_widget_ScrollView::setOverScrollMode(int const& arg0) enter");
 
 	const char *methodName = "setOverScrollMode";
 	const char *methodSignature = "(I)V";
@@ -1702,8 +1614,6 @@ void android_widget_ScrollView::setOverScrollMode(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
@@ -1734,14 +1644,12 @@ void android_widget_ScrollView::setOverScrollMode(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ScrollView::setOverScrollMode(int& arg0) exit");
+	LOGV("void android_widget_ScrollView::setOverScrollMode(int const& arg0) exit");
 
 }
-void android_widget_ScrollView::smoothScrollBy(int& arg0,int& arg1)
+void android_widget_ScrollView::smoothScrollBy(int const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_ScrollView::smoothScrollBy(int& arg0,int& arg1) enter");
+	LOGV("void android_widget_ScrollView::smoothScrollBy(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "smoothScrollBy";
 	const char *methodSignature = "(II)V";
@@ -1751,8 +1659,6 @@ void android_widget_ScrollView::smoothScrollBy(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
@@ -1804,9 +1710,7 @@ void android_widget_ScrollView::smoothScrollBy(int& arg0,int& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ScrollView::smoothScrollBy(int& arg0,int& arg1) exit");
+	LOGV("void android_widget_ScrollView::smoothScrollBy(int const& arg0,int const& arg1) exit");
 
 }
 int android_widget_ScrollView::getMaxScrollAmount()
@@ -1822,15 +1726,12 @@ int android_widget_ScrollView::getMaxScrollAmount()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_ScrollView jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1848,17 +1749,17 @@ int android_widget_ScrollView::getMaxScrollAmount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_ScrollView::getMaxScrollAmount() exit");
 
 	return result;
 }
-void android_widget_ScrollView::fling(int& arg0)
+void android_widget_ScrollView::fling(int const& arg0)
 {
-	LOGV("void android_widget_ScrollView::fling(int& arg0) enter");
+	LOGV("void android_widget_ScrollView::fling(int const& arg0) enter");
 
 	const char *methodName = "fling";
 	const char *methodSignature = "(I)V";
@@ -1868,8 +1769,6 @@ void android_widget_ScrollView::fling(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
@@ -1900,9 +1799,7 @@ void android_widget_ScrollView::fling(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ScrollView::fling(int& arg0) exit");
+	LOGV("void android_widget_ScrollView::fling(int const& arg0) exit");
 
 }
 bool android_widget_ScrollView::isFillViewport()
@@ -1918,15 +1815,12 @@ bool android_widget_ScrollView::isFillViewport()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_ScrollView jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1944,17 +1838,17 @@ bool android_widget_ScrollView::isFillViewport()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_widget_ScrollView::isFillViewport() exit");
 
 	return result;
 }
-void android_widget_ScrollView::setFillViewport(bool& arg0)
+void android_widget_ScrollView::setFillViewport(bool const& arg0)
 {
-	LOGV("void android_widget_ScrollView::setFillViewport(bool& arg0) enter");
+	LOGV("void android_widget_ScrollView::setFillViewport(bool const& arg0) enter");
 
 	const char *methodName = "setFillViewport";
 	const char *methodSignature = "(Z)V";
@@ -1964,8 +1858,6 @@ void android_widget_ScrollView::setFillViewport(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
@@ -1996,9 +1888,7 @@ void android_widget_ScrollView::setFillViewport(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ScrollView::setFillViewport(bool& arg0) exit");
+	LOGV("void android_widget_ScrollView::setFillViewport(bool const& arg0) exit");
 
 }
 bool android_widget_ScrollView::isSmoothScrollingEnabled()
@@ -2014,15 +1904,12 @@ bool android_widget_ScrollView::isSmoothScrollingEnabled()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_ScrollView jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2040,17 +1927,17 @@ bool android_widget_ScrollView::isSmoothScrollingEnabled()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_widget_ScrollView::isSmoothScrollingEnabled() exit");
 
 	return result;
 }
-void android_widget_ScrollView::setSmoothScrollingEnabled(bool& arg0)
+void android_widget_ScrollView::setSmoothScrollingEnabled(bool const& arg0)
 {
-	LOGV("void android_widget_ScrollView::setSmoothScrollingEnabled(bool& arg0) enter");
+	LOGV("void android_widget_ScrollView::setSmoothScrollingEnabled(bool const& arg0) enter");
 
 	const char *methodName = "setSmoothScrollingEnabled";
 	const char *methodSignature = "(Z)V";
@@ -2060,8 +1947,6 @@ void android_widget_ScrollView::setSmoothScrollingEnabled(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
@@ -2092,14 +1977,12 @@ void android_widget_ScrollView::setSmoothScrollingEnabled(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ScrollView::setSmoothScrollingEnabled(bool& arg0) exit");
+	LOGV("void android_widget_ScrollView::setSmoothScrollingEnabled(bool const& arg0) exit");
 
 }
-bool android_widget_ScrollView::executeKeyEvent(AndroidCXX::android_view_KeyEvent& arg0)
+bool android_widget_ScrollView::executeKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0)
 {
-	LOGV("bool android_widget_ScrollView::executeKeyEvent(AndroidCXX::android_view_KeyEvent& arg0) enter");
+	LOGV("bool android_widget_ScrollView::executeKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) enter");
 
 	const char *methodName = "executeKeyEvent";
 	const char *methodSignature = "(Landroid/view/KeyEvent;)Z";
@@ -2109,8 +1992,6 @@ bool android_widget_ScrollView::executeKeyEvent(AndroidCXX::android_view_KeyEven
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
@@ -2139,7 +2020,6 @@ bool android_widget_ScrollView::executeKeyEvent(AndroidCXX::android_view_KeyEven
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2157,17 +2037,17 @@ bool android_widget_ScrollView::executeKeyEvent(AndroidCXX::android_view_KeyEven
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_ScrollView::executeKeyEvent(AndroidCXX::android_view_KeyEvent& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_ScrollView::executeKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) exit");
 
 	return result;
 }
-bool android_widget_ScrollView::pageScroll(int& arg0)
+bool android_widget_ScrollView::pageScroll(int const& arg0)
 {
-	LOGV("bool android_widget_ScrollView::pageScroll(int& arg0) enter");
+	LOGV("bool android_widget_ScrollView::pageScroll(int const& arg0) enter");
 
 	const char *methodName = "pageScroll";
 	const char *methodSignature = "(I)Z";
@@ -2178,8 +2058,6 @@ bool android_widget_ScrollView::pageScroll(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2207,7 +2085,6 @@ bool android_widget_ScrollView::pageScroll(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2225,17 +2102,17 @@ bool android_widget_ScrollView::pageScroll(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_ScrollView::pageScroll(int& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_ScrollView::pageScroll(int const& arg0) exit");
 
 	return result;
 }
-bool android_widget_ScrollView::fullScroll(int& arg0)
+bool android_widget_ScrollView::fullScroll(int const& arg0)
 {
-	LOGV("bool android_widget_ScrollView::fullScroll(int& arg0) enter");
+	LOGV("bool android_widget_ScrollView::fullScroll(int const& arg0) enter");
 
 	const char *methodName = "fullScroll";
 	const char *methodSignature = "(I)Z";
@@ -2246,8 +2123,6 @@ bool android_widget_ScrollView::fullScroll(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2275,7 +2150,6 @@ bool android_widget_ScrollView::fullScroll(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2293,17 +2167,17 @@ bool android_widget_ScrollView::fullScroll(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_ScrollView::fullScroll(int& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_ScrollView::fullScroll(int const& arg0) exit");
 
 	return result;
 }
-bool android_widget_ScrollView::arrowScroll(int& arg0)
+bool android_widget_ScrollView::arrowScroll(int const& arg0)
 {
-	LOGV("bool android_widget_ScrollView::arrowScroll(int& arg0) enter");
+	LOGV("bool android_widget_ScrollView::arrowScroll(int const& arg0) enter");
 
 	const char *methodName = "arrowScroll";
 	const char *methodSignature = "(I)Z";
@@ -2314,8 +2188,6 @@ bool android_widget_ScrollView::arrowScroll(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2343,7 +2215,6 @@ bool android_widget_ScrollView::arrowScroll(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2361,17 +2232,17 @@ bool android_widget_ScrollView::arrowScroll(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_ScrollView::arrowScroll(int& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_ScrollView::arrowScroll(int const& arg0) exit");
 
 	return result;
 }
-void android_widget_ScrollView::smoothScrollTo(int& arg0,int& arg1)
+void android_widget_ScrollView::smoothScrollTo(int const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_ScrollView::smoothScrollTo(int& arg0,int& arg1) enter");
+	LOGV("void android_widget_ScrollView::smoothScrollTo(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "smoothScrollTo";
 	const char *methodSignature = "(II)V";
@@ -2381,8 +2252,6 @@ void android_widget_ScrollView::smoothScrollTo(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ScrollView cxx address %d", cxxAddress);
@@ -2434,8 +2303,6 @@ void android_widget_ScrollView::smoothScrollTo(int& arg0,int& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ScrollView::smoothScrollTo(int& arg0,int& arg1) exit");
+	LOGV("void android_widget_ScrollView::smoothScrollTo(int const& arg0,int const& arg1) exit");
 
 }

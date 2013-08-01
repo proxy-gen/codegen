@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -93,20 +92,20 @@ class android_text_method_MovementMethod
 public:
 
 	android_text_method_MovementMethod(const android_text_method_MovementMethod& cc);
-	android_text_method_MovementMethod(void * proxy);
+	android_text_method_MovementMethod(Proxy proxy);
 	// Public Constructors
-	android_text_method_MovementMethod();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_text_method_MovementMethod();
 	// Functions
-	 void initialize(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1);
-	 bool onKeyDown(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,int& arg2,AndroidCXX::android_view_KeyEvent& arg3);
-	 bool onKeyUp(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,int& arg2,AndroidCXX::android_view_KeyEvent& arg3);
-	 bool onTouchEvent(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,AndroidCXX::android_view_MotionEvent& arg2);
-	 bool onTrackballEvent(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,AndroidCXX::android_view_MotionEvent& arg2);
-	 bool onGenericMotionEvent(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,AndroidCXX::android_view_MotionEvent& arg2);
-	 bool onKeyOther(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,AndroidCXX::android_view_KeyEvent& arg2);
-	 void onTakeFocus(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::android_text_Spannable& arg1,int& arg2);
+	 void initialize(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1);
+	 bool onKeyDown(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3);
+	 bool onKeyUp(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3);
+	 bool onTouchEvent(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_MotionEvent const& arg2);
+	 bool onTrackballEvent(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_MotionEvent const& arg2);
+	 bool onGenericMotionEvent(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_MotionEvent const& arg2);
+	 bool onKeyOther(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_KeyEvent const& arg2);
+	 void onTakeFocus(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,int const& arg2);
 	 bool canSelectArbitrarily();
 };	
 

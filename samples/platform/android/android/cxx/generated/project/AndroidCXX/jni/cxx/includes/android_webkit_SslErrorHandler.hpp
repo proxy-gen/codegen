@@ -17,7 +17,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_webkit_SslErrorHandler
@@ -48,9 +47,9 @@ class android_webkit_SslErrorHandler
 public:
 
 	android_webkit_SslErrorHandler(const android_webkit_SslErrorHandler& cc);
-	android_webkit_SslErrorHandler(void * proxy);
+	android_webkit_SslErrorHandler(Proxy proxy);
 	// Public Constructors
-	android_webkit_SslErrorHandler();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_SslErrorHandler();
 	// Functions

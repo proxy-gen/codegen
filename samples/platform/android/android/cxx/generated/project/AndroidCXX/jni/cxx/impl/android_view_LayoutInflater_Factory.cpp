@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -31,7 +30,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_LayoutInflater_Factory"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -59,8 +58,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_view_LayoutInflater_Factory::android_view_LayoutInflater_Factory(const android_view_LayoutInflater_Factory& cc)
 {
 	LOGV("android_view_LayoutInflater_Factory::android_view_LayoutInflater_Factory(const android_view_LayoutInflater_Factory& cc) enter");
@@ -84,9 +81,9 @@ android_view_LayoutInflater_Factory::android_view_LayoutInflater_Factory(const a
 
 	LOGV("android_view_LayoutInflater_Factory::android_view_LayoutInflater_Factory(const android_view_LayoutInflater_Factory& cc) exit");
 }
-android_view_LayoutInflater_Factory::android_view_LayoutInflater_Factory(void * proxy)
+android_view_LayoutInflater_Factory::android_view_LayoutInflater_Factory(Proxy proxy)
 {
-	LOGV("android_view_LayoutInflater_Factory::android_view_LayoutInflater_Factory(void * proxy) enter");
+	LOGV("android_view_LayoutInflater_Factory::android_view_LayoutInflater_Factory(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -96,47 +93,31 @@ android_view_LayoutInflater_Factory::android_view_LayoutInflater_Factory(void * 
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_LayoutInflater_Factory::android_view_LayoutInflater_Factory(void * proxy) exit");
+	LOGV("android_view_LayoutInflater_Factory::android_view_LayoutInflater_Factory(Proxy proxy) exit");
 }
-android_view_LayoutInflater_Factory::android_view_LayoutInflater_Factory()
-{
-	LOGV("android_view_LayoutInflater_Factory::android_view_LayoutInflater_Factory() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/view/LayoutInflater$Factory";
-
-	LOGV("android_view_LayoutInflater_Factory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_view_LayoutInflater_Factory::proxy() const
+{	
+	LOGV("android_view_LayoutInflater_Factory::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_LayoutInflater_Factory cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_view_LayoutInflater_Factory jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_view_LayoutInflater_Factory::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_view_LayoutInflater_Factory::android_view_LayoutInflater_Factory() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_view_LayoutInflater_Factory::~android_view_LayoutInflater_Factory()
 {
@@ -148,13 +129,13 @@ android_view_LayoutInflater_Factory::~android_view_LayoutInflater_Factory()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_LayoutInflater_Factory::~android_view_LayoutInflater_Factory() exit");
 }
 // Functions
-AndroidCXX::android_view_View android_view_LayoutInflater_Factory::onCreateView(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_content_Context& arg1,AndroidCXX::android_util_AttributeSet& arg2)
+AndroidCXX::android_view_View android_view_LayoutInflater_Factory::onCreateView(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_content_Context const& arg1,AndroidCXX::android_util_AttributeSet const& arg2)
 {
-	LOGV("AndroidCXX::android_view_View android_view_LayoutInflater_Factory::onCreateView(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_content_Context& arg1,AndroidCXX::android_util_AttributeSet& arg2) enter");
+	LOGV("AndroidCXX::android_view_View android_view_LayoutInflater_Factory::onCreateView(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_content_Context const& arg1,AndroidCXX::android_util_AttributeSet const& arg2) enter");
 
 	const char *methodName = "onCreateView";
 	const char *methodSignature = "(Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;";
@@ -164,8 +145,6 @@ AndroidCXX::android_view_View android_view_LayoutInflater_Factory::onCreateView(
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_LayoutInflater_Factory cxx address %d", cxxAddress);
@@ -236,7 +215,6 @@ AndroidCXX::android_view_View android_view_LayoutInflater_Factory::onCreateView(
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -254,11 +232,11 @@ AndroidCXX::android_view_View android_view_LayoutInflater_Factory::onCreateView(
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_view_View android_view_LayoutInflater_Factory::onCreateView(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_content_Context& arg1,AndroidCXX::android_util_AttributeSet& arg2) exit");
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
+		
+	LOGV("AndroidCXX::android_view_View android_view_LayoutInflater_Factory::onCreateView(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_content_Context const& arg1,AndroidCXX::android_util_AttributeSet const& arg2) exit");
 
 	return result;
 }

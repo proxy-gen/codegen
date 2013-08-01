@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -74,14 +73,14 @@ class java_security_CodeSigner
 public:
 
 	java_security_CodeSigner(const java_security_CodeSigner& cc);
-	java_security_CodeSigner(void * proxy);
+	java_security_CodeSigner(Proxy proxy);
 	// Public Constructors
-	java_security_CodeSigner(AndroidCXX::java_security_cert_CertPath& arg0,AndroidCXX::java_security_Timestamp& arg1);
-	java_security_CodeSigner();
+	java_security_CodeSigner(AndroidCXX::java_security_cert_CertPath const& arg0,AndroidCXX::java_security_Timestamp const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_security_CodeSigner();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 AndroidCXX::java_security_cert_CertPath getSignerCertPath();

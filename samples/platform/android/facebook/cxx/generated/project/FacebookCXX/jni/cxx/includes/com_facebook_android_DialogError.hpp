@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -55,10 +54,10 @@ class com_facebook_android_DialogError
 public:
 
 	com_facebook_android_DialogError(const com_facebook_android_DialogError& cc);
-	com_facebook_android_DialogError(void * proxy);
+	com_facebook_android_DialogError(Proxy proxy);
 	// Public Constructors
-	com_facebook_android_DialogError(AndroidCXX::java_lang_String& arg0,int& arg1,AndroidCXX::java_lang_String& arg2);
-	com_facebook_android_DialogError();
+	com_facebook_android_DialogError(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_DialogError();
 	// Functions

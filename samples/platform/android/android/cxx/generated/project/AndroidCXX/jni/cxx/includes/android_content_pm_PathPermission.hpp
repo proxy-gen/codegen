@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -66,15 +65,15 @@ class android_content_pm_PathPermission
 public:
 
 	android_content_pm_PathPermission(const android_content_pm_PathPermission& cc);
-	android_content_pm_PathPermission(void * proxy);
+	android_content_pm_PathPermission(Proxy proxy);
 	// Public Constructors
-	android_content_pm_PathPermission(AndroidCXX::java_lang_String& arg0,int& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3);
-	android_content_pm_PathPermission(AndroidCXX::android_os_Parcel& arg0);
-	android_content_pm_PathPermission();
+	android_content_pm_PathPermission(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3);
+	android_content_pm_PathPermission(AndroidCXX::android_os_Parcel const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_pm_PathPermission();
 	// Functions
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 	 AndroidCXX::java_lang_String getReadPermission();
 	 AndroidCXX::java_lang_String getWritePermission();
 };	

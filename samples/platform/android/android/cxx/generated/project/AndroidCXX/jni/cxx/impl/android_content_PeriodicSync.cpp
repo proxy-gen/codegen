@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -35,7 +34,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_content_PeriodicSync"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -66,8 +65,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_content_PeriodicSync::android_content_PeriodicSync(const android_content_PeriodicSync& cc)
 {
 	LOGV("android_content_PeriodicSync::android_content_PeriodicSync(const android_content_PeriodicSync& cc) enter");
@@ -91,9 +88,9 @@ android_content_PeriodicSync::android_content_PeriodicSync(const android_content
 
 	LOGV("android_content_PeriodicSync::android_content_PeriodicSync(const android_content_PeriodicSync& cc) exit");
 }
-android_content_PeriodicSync::android_content_PeriodicSync(void * proxy)
+android_content_PeriodicSync::android_content_PeriodicSync(Proxy proxy)
 {
-	LOGV("android_content_PeriodicSync::android_content_PeriodicSync(void * proxy) enter");
+	LOGV("android_content_PeriodicSync::android_content_PeriodicSync(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -103,50 +100,34 @@ android_content_PeriodicSync::android_content_PeriodicSync(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_content_PeriodicSync::android_content_PeriodicSync(void * proxy) exit");
+	LOGV("android_content_PeriodicSync::android_content_PeriodicSync(Proxy proxy) exit");
 }
-android_content_PeriodicSync::android_content_PeriodicSync()
-{
-	LOGV("android_content_PeriodicSync::android_content_PeriodicSync() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/content/PeriodicSync";
-
-	LOGV("android_content_PeriodicSync className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_content_PeriodicSync::proxy() const
+{	
+	LOGV("android_content_PeriodicSync::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_PeriodicSync cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_PeriodicSync jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_content_PeriodicSync::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_content_PeriodicSync::android_content_PeriodicSync() exit");	
+	return proxy;
 }
-// Public Constructors
-android_content_PeriodicSync::android_content_PeriodicSync(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,long& arg3)
+android_content_PeriodicSync::android_content_PeriodicSync(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,long const& arg3)
 {
-	LOGV("android_content_PeriodicSync::android_content_PeriodicSync(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,long& arg3) enter");	
+	LOGV("android_content_PeriodicSync::android_content_PeriodicSync(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,long const& arg3) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;J)V";
@@ -262,7 +243,7 @@ android_content_PeriodicSync::android_content_PeriodicSync(AndroidCXX::android_a
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_PeriodicSync::android_content_PeriodicSync(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,long& arg3) exit");	
+	LOGV("android_content_PeriodicSync::android_content_PeriodicSync(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,long const& arg3) exit");	
 }
 // Default Instance Destructor
 android_content_PeriodicSync::~android_content_PeriodicSync()
@@ -275,13 +256,13 @@ android_content_PeriodicSync::~android_content_PeriodicSync()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_content_PeriodicSync::~android_content_PeriodicSync() exit");
 }
 // Functions
-bool android_content_PeriodicSync::equals(AndroidCXX::java_lang_Object& arg0)
+bool android_content_PeriodicSync::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool android_content_PeriodicSync::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool android_content_PeriodicSync::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -291,8 +272,6 @@ bool android_content_PeriodicSync::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_PeriodicSync cxx address %d", cxxAddress);
@@ -321,7 +300,6 @@ bool android_content_PeriodicSync::equals(AndroidCXX::java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -339,11 +317,11 @@ bool android_content_PeriodicSync::equals(AndroidCXX::java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_content_PeriodicSync::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_content_PeriodicSync::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -360,15 +338,12 @@ int android_content_PeriodicSync::describeContents()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_PeriodicSync cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_PeriodicSync jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -386,17 +361,17 @@ int android_content_PeriodicSync::describeContents()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_content_PeriodicSync::describeContents() exit");
 
 	return result;
 }
-void android_content_PeriodicSync::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_content_PeriodicSync::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_content_PeriodicSync::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_content_PeriodicSync::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -406,8 +381,6 @@ void android_content_PeriodicSync::writeToParcel(AndroidCXX::android_os_Parcel& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_PeriodicSync cxx address %d", cxxAddress);
@@ -459,8 +432,6 @@ void android_content_PeriodicSync::writeToParcel(AndroidCXX::android_os_Parcel& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_PeriodicSync::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_content_PeriodicSync::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }

@@ -8,7 +8,6 @@
 //
 
 
-
  	
  	
 
@@ -54,17 +53,16 @@ class java_io_OutputStream
 public:
 
 	java_io_OutputStream(const java_io_OutputStream& cc);
-	java_io_OutputStream(void * proxy);
+	java_io_OutputStream(Proxy proxy);
 	// Public Constructors
 	java_io_OutputStream();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_io_OutputStream();
 	// Functions
-	 void write(int& arg0);
-	 void write(std::vector<byte>& arg0);
-	 void write(std::vector<byte>& arg0,int& arg1,int& arg2);
+	 void write(int const& arg0);
+	 void write(std::vector<byte> const& arg0);
+	 void write(std::vector<byte> const& arg0,int const& arg1,int const& arg2);
 	 void flush();
 	 void close();
 };	

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -51,7 +50,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_util_TypedValue"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -97,8 +96,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_util_TypedValue::android_util_TypedValue(const android_util_TypedValue& cc)
 {
 	LOGV("android_util_TypedValue::android_util_TypedValue(const android_util_TypedValue& cc) enter");
@@ -122,9 +119,9 @@ android_util_TypedValue::android_util_TypedValue(const android_util_TypedValue& 
 
 	LOGV("android_util_TypedValue::android_util_TypedValue(const android_util_TypedValue& cc) exit");
 }
-android_util_TypedValue::android_util_TypedValue(void * proxy)
+android_util_TypedValue::android_util_TypedValue(Proxy proxy)
 {
-	LOGV("android_util_TypedValue::android_util_TypedValue(void * proxy) enter");
+	LOGV("android_util_TypedValue::android_util_TypedValue(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -134,13 +131,31 @@ android_util_TypedValue::android_util_TypedValue(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_util_TypedValue::android_util_TypedValue(void * proxy) exit");
+	LOGV("android_util_TypedValue::android_util_TypedValue(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy android_util_TypedValue::proxy() const
+{	
+	LOGV("android_util_TypedValue::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_util_TypedValue cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_util_TypedValue jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_util_TypedValue::proxy() exit");	
+
+	return proxy;
+}
 android_util_TypedValue::android_util_TypedValue()
 {
 	LOGV("android_util_TypedValue::android_util_TypedValue() enter");	
@@ -188,7 +203,7 @@ android_util_TypedValue::~android_util_TypedValue()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_util_TypedValue::~android_util_TypedValue() exit");
 }
 // Functions
@@ -205,15 +220,12 @@ AndroidCXX::java_lang_String android_util_TypedValue::toString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_util_TypedValue cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_util_TypedValue jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -231,10 +243,10 @@ AndroidCXX::java_lang_String android_util_TypedValue::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_util_TypedValue::toString() exit");
 
 	return result;
@@ -252,15 +264,12 @@ float android_util_TypedValue::getFloat()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_util_TypedValue cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_util_TypedValue jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -278,17 +287,17 @@ float android_util_TypedValue::getFloat()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	float result = (float) *((float *) cxx_value);
+	// 
+		
 	LOGV("float android_util_TypedValue::getFloat() exit");
 
 	return result;
 }
-float android_util_TypedValue::getDimension(AndroidCXX::android_util_DisplayMetrics& arg0)
+float android_util_TypedValue::getDimension(AndroidCXX::android_util_DisplayMetrics const& arg0)
 {
-	LOGV("float android_util_TypedValue::getDimension(AndroidCXX::android_util_DisplayMetrics& arg0) enter");
+	LOGV("float android_util_TypedValue::getDimension(AndroidCXX::android_util_DisplayMetrics const& arg0) enter");
 
 	const char *methodName = "getDimension";
 	const char *methodSignature = "(Landroid/util/DisplayMetrics;)F";
@@ -298,8 +307,6 @@ float android_util_TypedValue::getDimension(AndroidCXX::android_util_DisplayMetr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_TypedValue cxx address %d", cxxAddress);
@@ -328,7 +335,6 @@ float android_util_TypedValue::getDimension(AndroidCXX::android_util_DisplayMetr
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -346,17 +352,17 @@ float android_util_TypedValue::getDimension(AndroidCXX::android_util_DisplayMetr
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("float android_util_TypedValue::getDimension(AndroidCXX::android_util_DisplayMetrics& arg0) exit");
+	float result = (float) *((float *) cxx_value);
+	// 
+		
+	LOGV("float android_util_TypedValue::getDimension(AndroidCXX::android_util_DisplayMetrics const& arg0) exit");
 
 	return result;
 }
-float android_util_TypedValue::getFraction(float& arg0,float& arg1)
+float android_util_TypedValue::getFraction(float const& arg0,float const& arg1)
 {
-	LOGV("float android_util_TypedValue::getFraction(float& arg0,float& arg1) enter");
+	LOGV("float android_util_TypedValue::getFraction(float const& arg0,float const& arg1) enter");
 
 	const char *methodName = "getFraction";
 	const char *methodSignature = "(FF)F";
@@ -366,8 +372,6 @@ float android_util_TypedValue::getFraction(float& arg0,float& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_TypedValue cxx address %d", cxxAddress);
@@ -417,7 +421,6 @@ float android_util_TypedValue::getFraction(float& arg0,float& arg1)
 		jarg1 = convert_jni_float_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -435,17 +438,17 @@ float android_util_TypedValue::getFraction(float& arg0,float& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("float android_util_TypedValue::getFraction(float& arg0,float& arg1) exit");
+	float result = (float) *((float *) cxx_value);
+	// 
+		
+	LOGV("float android_util_TypedValue::getFraction(float const& arg0,float const& arg1) exit");
 
 	return result;
 }
-void android_util_TypedValue::setTo(AndroidCXX::android_util_TypedValue& arg0)
+void android_util_TypedValue::setTo(AndroidCXX::android_util_TypedValue const& arg0)
 {
-	LOGV("void android_util_TypedValue::setTo(AndroidCXX::android_util_TypedValue& arg0) enter");
+	LOGV("void android_util_TypedValue::setTo(AndroidCXX::android_util_TypedValue const& arg0) enter");
 
 	const char *methodName = "setTo";
 	const char *methodSignature = "(Landroid/util/TypedValue;)V";
@@ -455,8 +458,6 @@ void android_util_TypedValue::setTo(AndroidCXX::android_util_TypedValue& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_TypedValue cxx address %d", cxxAddress);
@@ -487,14 +488,12 @@ void android_util_TypedValue::setTo(AndroidCXX::android_util_TypedValue& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_util_TypedValue::setTo(AndroidCXX::android_util_TypedValue& arg0) exit");
+	LOGV("void android_util_TypedValue::setTo(AndroidCXX::android_util_TypedValue const& arg0) exit");
 
 }
-float android_util_TypedValue::complexToFloat(int& arg0)
+float android_util_TypedValue::complexToFloat(int const& arg0)
 {
-	LOGV("float android_util_TypedValue::complexToFloat(int& arg0) enter");
+	LOGV("float android_util_TypedValue::complexToFloat(int const& arg0) enter");
 
 	const char *methodName = "complexToFloat";
 	const char *methodSignature = "(I)F";
@@ -505,8 +504,6 @@ float android_util_TypedValue::complexToFloat(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_util_TypedValue cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -534,8 +531,7 @@ float android_util_TypedValue::complexToFloat(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
-	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jfloat jni_result = (jfloat) jni->invokeStaticFloatMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
 	{
@@ -552,17 +548,17 @@ float android_util_TypedValue::complexToFloat(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("float android_util_TypedValue::complexToFloat(int& arg0) exit");
+	float result = (float) *((float *) cxx_value);
+	// 
+		
+	LOGV("float android_util_TypedValue::complexToFloat(int const& arg0) exit");
 
 	return result;
 }
-float android_util_TypedValue::complexToDimension(int& arg0,AndroidCXX::android_util_DisplayMetrics& arg1)
+float android_util_TypedValue::complexToDimension(int const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1)
 {
-	LOGV("float android_util_TypedValue::complexToDimension(int& arg0,AndroidCXX::android_util_DisplayMetrics& arg1) enter");
+	LOGV("float android_util_TypedValue::complexToDimension(int const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1) enter");
 
 	const char *methodName = "complexToDimension";
 	const char *methodSignature = "(ILandroid/util/DisplayMetrics;)F";
@@ -573,8 +569,6 @@ float android_util_TypedValue::complexToDimension(int& arg0,AndroidCXX::android_
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_util_TypedValue cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -623,8 +617,7 @@ float android_util_TypedValue::complexToDimension(int& arg0,AndroidCXX::android_
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	float result;
-	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jfloat jni_result = (jfloat) jni->invokeStaticFloatMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
 	{
@@ -641,17 +634,17 @@ float android_util_TypedValue::complexToDimension(int& arg0,AndroidCXX::android_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("float android_util_TypedValue::complexToDimension(int& arg0,AndroidCXX::android_util_DisplayMetrics& arg1) exit");
+	float result = (float) *((float *) cxx_value);
+	// 
+		
+	LOGV("float android_util_TypedValue::complexToDimension(int const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1) exit");
 
 	return result;
 }
-int android_util_TypedValue::complexToDimensionPixelOffset(int& arg0,AndroidCXX::android_util_DisplayMetrics& arg1)
+int android_util_TypedValue::complexToDimensionPixelOffset(int const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1)
 {
-	LOGV("int android_util_TypedValue::complexToDimensionPixelOffset(int& arg0,AndroidCXX::android_util_DisplayMetrics& arg1) enter");
+	LOGV("int android_util_TypedValue::complexToDimensionPixelOffset(int const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1) enter");
 
 	const char *methodName = "complexToDimensionPixelOffset";
 	const char *methodSignature = "(ILandroid/util/DisplayMetrics;)I";
@@ -662,8 +655,6 @@ int android_util_TypedValue::complexToDimensionPixelOffset(int& arg0,AndroidCXX:
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_util_TypedValue cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -712,8 +703,7 @@ int android_util_TypedValue::complexToDimensionPixelOffset(int& arg0,AndroidCXX:
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
-	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jint jni_result = (jint) jni->invokeStaticIntMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
 	{
@@ -730,17 +720,17 @@ int android_util_TypedValue::complexToDimensionPixelOffset(int& arg0,AndroidCXX:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_util_TypedValue::complexToDimensionPixelOffset(int& arg0,AndroidCXX::android_util_DisplayMetrics& arg1) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_util_TypedValue::complexToDimensionPixelOffset(int const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1) exit");
 
 	return result;
 }
-int android_util_TypedValue::complexToDimensionPixelSize(int& arg0,AndroidCXX::android_util_DisplayMetrics& arg1)
+int android_util_TypedValue::complexToDimensionPixelSize(int const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1)
 {
-	LOGV("int android_util_TypedValue::complexToDimensionPixelSize(int& arg0,AndroidCXX::android_util_DisplayMetrics& arg1) enter");
+	LOGV("int android_util_TypedValue::complexToDimensionPixelSize(int const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1) enter");
 
 	const char *methodName = "complexToDimensionPixelSize";
 	const char *methodSignature = "(ILandroid/util/DisplayMetrics;)I";
@@ -751,8 +741,6 @@ int android_util_TypedValue::complexToDimensionPixelSize(int& arg0,AndroidCXX::a
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_util_TypedValue cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -801,8 +789,7 @@ int android_util_TypedValue::complexToDimensionPixelSize(int& arg0,AndroidCXX::a
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
-	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jint jni_result = (jint) jni->invokeStaticIntMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
 	{
@@ -819,17 +806,17 @@ int android_util_TypedValue::complexToDimensionPixelSize(int& arg0,AndroidCXX::a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_util_TypedValue::complexToDimensionPixelSize(int& arg0,AndroidCXX::android_util_DisplayMetrics& arg1) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_util_TypedValue::complexToDimensionPixelSize(int const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1) exit");
 
 	return result;
 }
-float android_util_TypedValue::complexToDimensionNoisy(int& arg0,AndroidCXX::android_util_DisplayMetrics& arg1)
+float android_util_TypedValue::complexToDimensionNoisy(int const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1)
 {
-	LOGV("float android_util_TypedValue::complexToDimensionNoisy(int& arg0,AndroidCXX::android_util_DisplayMetrics& arg1) enter");
+	LOGV("float android_util_TypedValue::complexToDimensionNoisy(int const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1) enter");
 
 	const char *methodName = "complexToDimensionNoisy";
 	const char *methodSignature = "(ILandroid/util/DisplayMetrics;)F";
@@ -839,8 +826,6 @@ float android_util_TypedValue::complexToDimensionNoisy(int& arg0,AndroidCXX::and
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_util_TypedValue cxx address %d", cxxAddress);
@@ -890,8 +875,7 @@ float android_util_TypedValue::complexToDimensionNoisy(int& arg0,AndroidCXX::and
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	float result;
-	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jfloat jni_result = (jfloat) jni->invokeStaticFloatMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
 	{
@@ -908,17 +892,17 @@ float android_util_TypedValue::complexToDimensionNoisy(int& arg0,AndroidCXX::and
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("float android_util_TypedValue::complexToDimensionNoisy(int& arg0,AndroidCXX::android_util_DisplayMetrics& arg1) exit");
+	float result = (float) *((float *) cxx_value);
+	// 
+		
+	LOGV("float android_util_TypedValue::complexToDimensionNoisy(int const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1) exit");
 
 	return result;
 }
-float android_util_TypedValue::applyDimension(int& arg0,float& arg1,AndroidCXX::android_util_DisplayMetrics& arg2)
+float android_util_TypedValue::applyDimension(int const& arg0,float const& arg1,AndroidCXX::android_util_DisplayMetrics const& arg2)
 {
-	LOGV("float android_util_TypedValue::applyDimension(int& arg0,float& arg1,AndroidCXX::android_util_DisplayMetrics& arg2) enter");
+	LOGV("float android_util_TypedValue::applyDimension(int const& arg0,float const& arg1,AndroidCXX::android_util_DisplayMetrics const& arg2) enter");
 
 	const char *methodName = "applyDimension";
 	const char *methodSignature = "(IFLandroid/util/DisplayMetrics;)F";
@@ -928,8 +912,6 @@ float android_util_TypedValue::applyDimension(int& arg0,float& arg1,AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_util_TypedValue cxx address %d", cxxAddress);
@@ -1000,8 +982,7 @@ float android_util_TypedValue::applyDimension(int& arg0,float& arg1,AndroidCXX::
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	float result;
-	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jfloat jni_result = (jfloat) jni->invokeStaticFloatMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
 	{
@@ -1018,17 +999,17 @@ float android_util_TypedValue::applyDimension(int& arg0,float& arg1,AndroidCXX::
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("float android_util_TypedValue::applyDimension(int& arg0,float& arg1,AndroidCXX::android_util_DisplayMetrics& arg2) exit");
+	float result = (float) *((float *) cxx_value);
+	// 
+		
+	LOGV("float android_util_TypedValue::applyDimension(int const& arg0,float const& arg1,AndroidCXX::android_util_DisplayMetrics const& arg2) exit");
 
 	return result;
 }
-float android_util_TypedValue::complexToFraction(int& arg0,float& arg1,float& arg2)
+float android_util_TypedValue::complexToFraction(int const& arg0,float const& arg1,float const& arg2)
 {
-	LOGV("float android_util_TypedValue::complexToFraction(int& arg0,float& arg1,float& arg2) enter");
+	LOGV("float android_util_TypedValue::complexToFraction(int const& arg0,float const& arg1,float const& arg2) enter");
 
 	const char *methodName = "complexToFraction";
 	const char *methodSignature = "(IFF)F";
@@ -1038,8 +1019,6 @@ float android_util_TypedValue::complexToFraction(int& arg0,float& arg1,float& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_util_TypedValue cxx address %d", cxxAddress);
@@ -1110,8 +1089,7 @@ float android_util_TypedValue::complexToFraction(int& arg0,float& arg1,float& ar
 		jarg2 = convert_jni_float_to_jni(java_value);
 	}
 
-	float result;
-	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jfloat jni_result = (jfloat) jni->invokeStaticFloatMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
 	{
@@ -1128,11 +1106,11 @@ float android_util_TypedValue::complexToFraction(int& arg0,float& arg1,float& ar
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("float android_util_TypedValue::complexToFraction(int& arg0,float& arg1,float& arg2) exit");
+	float result = (float) *((float *) cxx_value);
+	// 
+		
+	LOGV("float android_util_TypedValue::complexToFraction(int const& arg0,float const& arg1,float const& arg2) exit");
 
 	return result;
 }
@@ -1149,15 +1127,12 @@ AndroidCXX::java_lang_CharSequence android_util_TypedValue::coerceToString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_util_TypedValue cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_util_TypedValue jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1175,17 +1150,17 @@ AndroidCXX::java_lang_CharSequence android_util_TypedValue::coerceToString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_CharSequence) (AndroidCXX::java_lang_CharSequence((AndroidCXX::java_lang_CharSequence *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
+	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_CharSequence android_util_TypedValue::coerceToString() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_util_TypedValue::coerceToString(int& arg0,int& arg1)
+AndroidCXX::java_lang_String android_util_TypedValue::coerceToString(int const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::java_lang_String android_util_TypedValue::coerceToString(int& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::java_lang_String android_util_TypedValue::coerceToString(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "coerceToString";
 	const char *methodSignature = "(II)Ljava/lang/String;";
@@ -1195,8 +1170,6 @@ AndroidCXX::java_lang_String android_util_TypedValue::coerceToString(int& arg0,i
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_util_TypedValue cxx address %d", cxxAddress);
@@ -1246,8 +1219,7 @@ AndroidCXX::java_lang_String android_util_TypedValue::coerceToString(int& arg0,i
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
-	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jstring jni_result = (jstring) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
 	{
@@ -1264,11 +1236,11 @@ AndroidCXX::java_lang_String android_util_TypedValue::coerceToString(int& arg0,i
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String android_util_TypedValue::coerceToString(int& arg0,int& arg1) exit");
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_String android_util_TypedValue::coerceToString(int const& arg0,int const& arg1) exit");
 
 	return result;
 }

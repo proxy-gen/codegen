@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -69,7 +68,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_util_Date"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -115,8 +114,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_util_Date::java_util_Date(const java_util_Date& cc)
 {
 	LOGV("java_util_Date::java_util_Date(const java_util_Date& cc) enter");
@@ -140,9 +137,9 @@ java_util_Date::java_util_Date(const java_util_Date& cc)
 
 	LOGV("java_util_Date::java_util_Date(const java_util_Date& cc) exit");
 }
-java_util_Date::java_util_Date(void * proxy)
+java_util_Date::java_util_Date(Proxy proxy)
 {
-	LOGV("java_util_Date::java_util_Date(void * proxy) enter");
+	LOGV("java_util_Date::java_util_Date(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -152,13 +149,31 @@ java_util_Date::java_util_Date(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_util_Date::java_util_Date(void * proxy) exit");
+	LOGV("java_util_Date::java_util_Date(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy java_util_Date::proxy() const
+{	
+	LOGV("java_util_Date::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("java_util_Date cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_util_Date jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("java_util_Date::proxy() exit");	
+
+	return proxy;
+}
 java_util_Date::java_util_Date()
 {
 	LOGV("java_util_Date::java_util_Date() enter");	
@@ -195,9 +210,9 @@ java_util_Date::java_util_Date()
 
 	LOGV("java_util_Date::java_util_Date() exit");	
 }
-java_util_Date::java_util_Date(long& arg0)
+java_util_Date::java_util_Date(long const& arg0)
 {
-	LOGV("java_util_Date::java_util_Date(long& arg0) enter");	
+	LOGV("java_util_Date::java_util_Date(long const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(J)V";
@@ -250,11 +265,11 @@ java_util_Date::java_util_Date(long& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Date::java_util_Date(long& arg0) exit");	
+	LOGV("java_util_Date::java_util_Date(long const& arg0) exit");	
 }
-java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2)
+java_util_Date::java_util_Date(int const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2) enter");	
+	LOGV("java_util_Date::java_util_Date(int const& arg0,int const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(III)V";
@@ -349,11 +364,11 @@ java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2)
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2) exit");	
+	LOGV("java_util_Date::java_util_Date(int const& arg0,int const& arg1,int const& arg2) exit");	
 }
-java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4)
+java_util_Date::java_util_Date(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4)
 {
-	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4) enter");	
+	LOGV("java_util_Date::java_util_Date(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(IIIII)V";
@@ -490,11 +505,11 @@ java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4) exit");	
+	LOGV("java_util_Date::java_util_Date(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) exit");	
 }
-java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5)
+java_util_Date::java_util_Date(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5)
 {
-	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5) enter");	
+	LOGV("java_util_Date::java_util_Date(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(IIIIII)V";
@@ -652,11 +667,11 @@ java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5) exit");	
+	LOGV("java_util_Date::java_util_Date(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5) exit");	
 }
-java_util_Date::java_util_Date(AndroidCXX::java_lang_String& arg0)
+java_util_Date::java_util_Date(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("java_util_Date::java_util_Date(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("java_util_Date::java_util_Date(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -709,7 +724,7 @@ java_util_Date::java_util_Date(AndroidCXX::java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Date::java_util_Date(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("java_util_Date::java_util_Date(AndroidCXX::java_lang_String const& arg0) exit");	
 }
 // Default Instance Destructor
 java_util_Date::~java_util_Date()
@@ -722,13 +737,13 @@ java_util_Date::~java_util_Date()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_util_Date::~java_util_Date() exit");
 }
 // Functions
-bool java_util_Date::equals(AndroidCXX::java_lang_Object& arg0)
+bool java_util_Date::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_util_Date::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_util_Date::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -738,8 +753,6 @@ bool java_util_Date::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
@@ -768,7 +781,6 @@ bool java_util_Date::equals(AndroidCXX::java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -786,11 +798,11 @@ bool java_util_Date::equals(AndroidCXX::java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool java_util_Date::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool java_util_Date::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -807,15 +819,12 @@ AndroidCXX::java_lang_String java_util_Date::toString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Date jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -833,10 +842,10 @@ AndroidCXX::java_lang_String java_util_Date::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String java_util_Date::toString() exit");
 
 	return result;
@@ -854,15 +863,12 @@ int java_util_Date::hashCode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Date jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -880,10 +886,10 @@ int java_util_Date::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_util_Date::hashCode() exit");
 
 	return result;
@@ -901,15 +907,12 @@ AndroidCXX::java_lang_Object java_util_Date::clone()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Date jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -927,17 +930,17 @@ AndroidCXX::java_lang_Object java_util_Date::clone()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_Object java_util_Date::clone() exit");
 
 	return result;
 }
-int java_util_Date::compareTo(AndroidCXX::java_util_Date& arg0)
+int java_util_Date::compareTo(AndroidCXX::java_util_Date const& arg0)
 {
-	LOGV("int java_util_Date::compareTo(AndroidCXX::java_util_Date& arg0) enter");
+	LOGV("int java_util_Date::compareTo(AndroidCXX::java_util_Date const& arg0) enter");
 
 	const char *methodName = "compareTo";
 	const char *methodSignature = "(Ljava/util/Date;)I";
@@ -947,8 +950,6 @@ int java_util_Date::compareTo(AndroidCXX::java_util_Date& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
@@ -977,7 +978,6 @@ int java_util_Date::compareTo(AndroidCXX::java_util_Date& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -995,17 +995,17 @@ int java_util_Date::compareTo(AndroidCXX::java_util_Date& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int java_util_Date::compareTo(AndroidCXX::java_util_Date& arg0) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int java_util_Date::compareTo(AndroidCXX::java_util_Date const& arg0) exit");
 
 	return result;
 }
-bool java_util_Date::after(AndroidCXX::java_util_Date& arg0)
+bool java_util_Date::after(AndroidCXX::java_util_Date const& arg0)
 {
-	LOGV("bool java_util_Date::after(AndroidCXX::java_util_Date& arg0) enter");
+	LOGV("bool java_util_Date::after(AndroidCXX::java_util_Date const& arg0) enter");
 
 	const char *methodName = "after";
 	const char *methodSignature = "(Ljava/util/Date;)Z";
@@ -1016,8 +1016,6 @@ bool java_util_Date::after(AndroidCXX::java_util_Date& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1045,7 +1043,6 @@ bool java_util_Date::after(AndroidCXX::java_util_Date& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1063,17 +1060,17 @@ bool java_util_Date::after(AndroidCXX::java_util_Date& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool java_util_Date::after(AndroidCXX::java_util_Date& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool java_util_Date::after(AndroidCXX::java_util_Date const& arg0) exit");
 
 	return result;
 }
-bool java_util_Date::before(AndroidCXX::java_util_Date& arg0)
+bool java_util_Date::before(AndroidCXX::java_util_Date const& arg0)
 {
-	LOGV("bool java_util_Date::before(AndroidCXX::java_util_Date& arg0) enter");
+	LOGV("bool java_util_Date::before(AndroidCXX::java_util_Date const& arg0) enter");
 
 	const char *methodName = "before";
 	const char *methodSignature = "(Ljava/util/Date;)Z";
@@ -1084,8 +1081,6 @@ bool java_util_Date::before(AndroidCXX::java_util_Date& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1113,7 +1108,6 @@ bool java_util_Date::before(AndroidCXX::java_util_Date& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1131,17 +1125,17 @@ bool java_util_Date::before(AndroidCXX::java_util_Date& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool java_util_Date::before(AndroidCXX::java_util_Date& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool java_util_Date::before(AndroidCXX::java_util_Date const& arg0) exit");
 
 	return result;
 }
-long java_util_Date::parse(AndroidCXX::java_lang_String& arg0)
+long java_util_Date::parse(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("long java_util_Date::parse(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("long java_util_Date::parse(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "parse";
 	const char *methodSignature = "(Ljava/lang/String;)J";
@@ -1151,8 +1145,6 @@ long java_util_Date::parse(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_util_Date cxx address %d", cxxAddress);
@@ -1181,8 +1173,7 @@ long java_util_Date::parse(AndroidCXX::java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	long result;
-	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jlong jni_result = (jlong) jni->invokeStaticLongMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
 	{
@@ -1199,17 +1190,17 @@ long java_util_Date::parse(AndroidCXX::java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("long java_util_Date::parse(AndroidCXX::java_lang_String& arg0) exit");
+	long result = (long) *((long *) cxx_value);
+	// 
+		
+	LOGV("long java_util_Date::parse(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-void java_util_Date::setTime(long& arg0)
+void java_util_Date::setTime(long const& arg0)
 {
-	LOGV("void java_util_Date::setTime(long& arg0) enter");
+	LOGV("void java_util_Date::setTime(long const& arg0) enter");
 
 	const char *methodName = "setTime";
 	const char *methodSignature = "(J)V";
@@ -1219,8 +1210,6 @@ void java_util_Date::setTime(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
@@ -1251,9 +1240,7 @@ void java_util_Date::setTime(long& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_util_Date::setTime(long& arg0) exit");
+	LOGV("void java_util_Date::setTime(long const& arg0) exit");
 
 }
 long java_util_Date::getTime()
@@ -1269,15 +1256,12 @@ long java_util_Date::getTime()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Date jni address %d", javaObject);
 
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -1295,10 +1279,10 @@ long java_util_Date::getTime()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	long result = (long) *((long *) cxx_value);
+	// 
+		
 	LOGV("long java_util_Date::getTime() exit");
 
 	return result;
@@ -1316,15 +1300,12 @@ int java_util_Date::getYear()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Date jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1342,10 +1323,10 @@ int java_util_Date::getYear()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_util_Date::getYear() exit");
 
 	return result;
@@ -1363,15 +1344,12 @@ int java_util_Date::getMonth()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Date jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1389,10 +1367,10 @@ int java_util_Date::getMonth()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_util_Date::getMonth() exit");
 
 	return result;
@@ -1410,15 +1388,12 @@ int java_util_Date::getDate()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Date jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1436,10 +1411,10 @@ int java_util_Date::getDate()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_util_Date::getDate() exit");
 
 	return result;
@@ -1457,15 +1432,12 @@ int java_util_Date::getHours()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Date jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1483,10 +1455,10 @@ int java_util_Date::getHours()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_util_Date::getHours() exit");
 
 	return result;
@@ -1504,15 +1476,12 @@ int java_util_Date::getMinutes()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Date jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1530,10 +1499,10 @@ int java_util_Date::getMinutes()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_util_Date::getMinutes() exit");
 
 	return result;
@@ -1551,15 +1520,12 @@ int java_util_Date::getSeconds()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Date jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1577,17 +1543,17 @@ int java_util_Date::getSeconds()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_util_Date::getSeconds() exit");
 
 	return result;
 }
-long java_util_Date::UTC(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5)
+long java_util_Date::UTC(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5)
 {
-	LOGV("long java_util_Date::UTC(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5) enter");
+	LOGV("long java_util_Date::UTC(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5) enter");
 
 	const char *methodName = "UTC";
 	const char *methodSignature = "(IIIIII)J";
@@ -1597,8 +1563,6 @@ long java_util_Date::UTC(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_util_Date cxx address %d", cxxAddress);
@@ -1732,8 +1696,7 @@ long java_util_Date::UTC(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& 
 		jarg5 = convert_jni_int_to_jni(java_value);
 	}
 
-	long result;
-	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5);
+	jlong jni_result = (jlong) jni->invokeStaticLongMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
 	{
@@ -1750,17 +1713,17 @@ long java_util_Date::UTC(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& 
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("long java_util_Date::UTC(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5) exit");
+	long result = (long) *((long *) cxx_value);
+	// 
+		
+	LOGV("long java_util_Date::UTC(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5) exit");
 
 	return result;
 }
-void java_util_Date::setDate(int& arg0)
+void java_util_Date::setDate(int const& arg0)
 {
-	LOGV("void java_util_Date::setDate(int& arg0) enter");
+	LOGV("void java_util_Date::setDate(int const& arg0) enter");
 
 	const char *methodName = "setDate";
 	const char *methodSignature = "(I)V";
@@ -1771,8 +1734,6 @@ void java_util_Date::setDate(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1802,14 +1763,12 @@ void java_util_Date::setDate(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_util_Date::setDate(int& arg0) exit");
+	LOGV("void java_util_Date::setDate(int const& arg0) exit");
 
 }
-void java_util_Date::setMonth(int& arg0)
+void java_util_Date::setMonth(int const& arg0)
 {
-	LOGV("void java_util_Date::setMonth(int& arg0) enter");
+	LOGV("void java_util_Date::setMonth(int const& arg0) enter");
 
 	const char *methodName = "setMonth";
 	const char *methodSignature = "(I)V";
@@ -1820,8 +1779,6 @@ void java_util_Date::setMonth(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1851,14 +1808,12 @@ void java_util_Date::setMonth(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_util_Date::setMonth(int& arg0) exit");
+	LOGV("void java_util_Date::setMonth(int const& arg0) exit");
 
 }
-void java_util_Date::setHours(int& arg0)
+void java_util_Date::setHours(int const& arg0)
 {
-	LOGV("void java_util_Date::setHours(int& arg0) enter");
+	LOGV("void java_util_Date::setHours(int const& arg0) enter");
 
 	const char *methodName = "setHours";
 	const char *methodSignature = "(I)V";
@@ -1869,8 +1824,6 @@ void java_util_Date::setHours(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1900,14 +1853,12 @@ void java_util_Date::setHours(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_util_Date::setHours(int& arg0) exit");
+	LOGV("void java_util_Date::setHours(int const& arg0) exit");
 
 }
-void java_util_Date::setMinutes(int& arg0)
+void java_util_Date::setMinutes(int const& arg0)
 {
-	LOGV("void java_util_Date::setMinutes(int& arg0) enter");
+	LOGV("void java_util_Date::setMinutes(int const& arg0) enter");
 
 	const char *methodName = "setMinutes";
 	const char *methodSignature = "(I)V";
@@ -1918,8 +1869,6 @@ void java_util_Date::setMinutes(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1949,14 +1898,12 @@ void java_util_Date::setMinutes(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_util_Date::setMinutes(int& arg0) exit");
+	LOGV("void java_util_Date::setMinutes(int const& arg0) exit");
 
 }
-void java_util_Date::setSeconds(int& arg0)
+void java_util_Date::setSeconds(int const& arg0)
 {
-	LOGV("void java_util_Date::setSeconds(int& arg0) enter");
+	LOGV("void java_util_Date::setSeconds(int const& arg0) enter");
 
 	const char *methodName = "setSeconds";
 	const char *methodSignature = "(I)V";
@@ -1967,8 +1914,6 @@ void java_util_Date::setSeconds(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1998,14 +1943,12 @@ void java_util_Date::setSeconds(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_util_Date::setSeconds(int& arg0) exit");
+	LOGV("void java_util_Date::setSeconds(int const& arg0) exit");
 
 }
-void java_util_Date::setYear(int& arg0)
+void java_util_Date::setYear(int const& arg0)
 {
-	LOGV("void java_util_Date::setYear(int& arg0) enter");
+	LOGV("void java_util_Date::setYear(int const& arg0) enter");
 
 	const char *methodName = "setYear";
 	const char *methodSignature = "(I)V";
@@ -2016,8 +1959,6 @@ void java_util_Date::setYear(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2047,9 +1988,7 @@ void java_util_Date::setYear(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_util_Date::setYear(int& arg0) exit");
+	LOGV("void java_util_Date::setYear(int const& arg0) exit");
 
 }
 int java_util_Date::getDay()
@@ -2065,15 +2004,12 @@ int java_util_Date::getDay()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Date jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2091,10 +2027,10 @@ int java_util_Date::getDay()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_util_Date::getDay() exit");
 
 	return result;
@@ -2112,15 +2048,12 @@ AndroidCXX::java_lang_String java_util_Date::toLocaleString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Date jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2138,10 +2071,10 @@ AndroidCXX::java_lang_String java_util_Date::toLocaleString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String java_util_Date::toLocaleString() exit");
 
 	return result;
@@ -2159,15 +2092,12 @@ AndroidCXX::java_lang_String java_util_Date::toGMTString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Date jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2185,10 +2115,10 @@ AndroidCXX::java_lang_String java_util_Date::toGMTString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String java_util_Date::toGMTString() exit");
 
 	return result;
@@ -2206,15 +2136,12 @@ int java_util_Date::getTimezoneOffset()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Date cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Date jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2232,10 +2159,10 @@ int java_util_Date::getTimezoneOffset()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_util_Date::getTimezoneOffset() exit");
 
 	return result;

@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #include <com_facebook_widget_ImageDownloader_CacheReadWorkItem.hpp>
@@ -27,6 +26,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_ImageDownloader_CacheReadWorkItem"
@@ -40,8 +40,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_widget_ImageDownloader_CacheReadWorkItem::com_facebook_widget_ImageDownloader_CacheReadWorkItem(const com_facebook_widget_ImageDownloader_CacheReadWorkItem& cc)
 {
 	LOGV("com_facebook_widget_ImageDownloader_CacheReadWorkItem::com_facebook_widget_ImageDownloader_CacheReadWorkItem(const com_facebook_widget_ImageDownloader_CacheReadWorkItem& cc) enter");
@@ -65,9 +63,9 @@ com_facebook_widget_ImageDownloader_CacheReadWorkItem::com_facebook_widget_Image
 
 	LOGV("com_facebook_widget_ImageDownloader_CacheReadWorkItem::com_facebook_widget_ImageDownloader_CacheReadWorkItem(const com_facebook_widget_ImageDownloader_CacheReadWorkItem& cc) exit");
 }
-com_facebook_widget_ImageDownloader_CacheReadWorkItem::com_facebook_widget_ImageDownloader_CacheReadWorkItem(void * proxy)
+com_facebook_widget_ImageDownloader_CacheReadWorkItem::com_facebook_widget_ImageDownloader_CacheReadWorkItem(Proxy proxy)
 {
-	LOGV("com_facebook_widget_ImageDownloader_CacheReadWorkItem::com_facebook_widget_ImageDownloader_CacheReadWorkItem(void * proxy) enter");
+	LOGV("com_facebook_widget_ImageDownloader_CacheReadWorkItem::com_facebook_widget_ImageDownloader_CacheReadWorkItem(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -77,47 +75,31 @@ com_facebook_widget_ImageDownloader_CacheReadWorkItem::com_facebook_widget_Image
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_widget_ImageDownloader_CacheReadWorkItem::com_facebook_widget_ImageDownloader_CacheReadWorkItem(void * proxy) exit");
+	LOGV("com_facebook_widget_ImageDownloader_CacheReadWorkItem::com_facebook_widget_ImageDownloader_CacheReadWorkItem(Proxy proxy) exit");
 }
-com_facebook_widget_ImageDownloader_CacheReadWorkItem::com_facebook_widget_ImageDownloader_CacheReadWorkItem()
-{
-	LOGV("com_facebook_widget_ImageDownloader_CacheReadWorkItem::com_facebook_widget_ImageDownloader_CacheReadWorkItem() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/widget/ImageDownloader$CacheReadWorkItem";
-
-	LOGV("com_facebook_widget_ImageDownloader_CacheReadWorkItem className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_widget_ImageDownloader_CacheReadWorkItem::proxy() const
+{	
+	LOGV("com_facebook_widget_ImageDownloader_CacheReadWorkItem::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_ImageDownloader_CacheReadWorkItem cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_ImageDownloader_CacheReadWorkItem jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_widget_ImageDownloader_CacheReadWorkItem::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_widget_ImageDownloader_CacheReadWorkItem::com_facebook_widget_ImageDownloader_CacheReadWorkItem() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 com_facebook_widget_ImageDownloader_CacheReadWorkItem::~com_facebook_widget_ImageDownloader_CacheReadWorkItem()
 {
@@ -129,7 +111,7 @@ com_facebook_widget_ImageDownloader_CacheReadWorkItem::~com_facebook_widget_Imag
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_widget_ImageDownloader_CacheReadWorkItem::~com_facebook_widget_ImageDownloader_CacheReadWorkItem() exit");
 }
 // Functions
@@ -146,8 +128,6 @@ void com_facebook_widget_ImageDownloader_CacheReadWorkItem::run()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_ImageDownloader_CacheReadWorkItem cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -156,8 +136,6 @@ void com_facebook_widget_ImageDownloader_CacheReadWorkItem::run()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void com_facebook_widget_ImageDownloader_CacheReadWorkItem::run() exit");
 
 }

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 
@@ -60,15 +59,16 @@ class android_content_pm_PackageInfo
 public:
 
 	android_content_pm_PackageInfo(const android_content_pm_PackageInfo& cc);
-	android_content_pm_PackageInfo(void * proxy);
+	android_content_pm_PackageInfo(Proxy proxy);
 	// Public Constructors
 	android_content_pm_PackageInfo();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_pm_PackageInfo();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 };	
 
 } // namespace

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -116,22 +115,22 @@ class java_util_Locale
 public:
 
 	java_util_Locale(const java_util_Locale& cc);
-	java_util_Locale(void * proxy);
+	java_util_Locale(Proxy proxy);
 	// Public Constructors
-	java_util_Locale(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2);
-	java_util_Locale(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
-	java_util_Locale(AndroidCXX::java_lang_String& arg0);
-	java_util_Locale();
+	java_util_Locale(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2);
+	java_util_Locale(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
+	java_util_Locale(AndroidCXX::java_lang_String const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Locale();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 AndroidCXX::java_lang_Object clone();
 	 AndroidCXX::java_lang_String getLanguage();
 	static AndroidCXX::java_util_Locale getDefault();
-	static void setDefault(AndroidCXX::java_util_Locale& arg0);
+	static void setDefault(AndroidCXX::java_util_Locale const& arg0);
 	static std::vector<AndroidCXX::java_util_Locale > getAvailableLocales();
 	static std::vector<AndroidCXX::java_lang_String > getISOCountries();
 	static std::vector<AndroidCXX::java_lang_String > getISOLanguages();
@@ -139,13 +138,13 @@ public:
 	 AndroidCXX::java_lang_String getVariant();
 	 AndroidCXX::java_lang_String getISO3Language();
 	 AndroidCXX::java_lang_String getISO3Country();
-	 AndroidCXX::java_lang_String getDisplayLanguage(AndroidCXX::java_util_Locale& arg0);
+	 AndroidCXX::java_lang_String getDisplayLanguage(AndroidCXX::java_util_Locale const& arg0);
 	 AndroidCXX::java_lang_String getDisplayLanguage();
-	 AndroidCXX::java_lang_String getDisplayCountry(AndroidCXX::java_util_Locale& arg0);
+	 AndroidCXX::java_lang_String getDisplayCountry(AndroidCXX::java_util_Locale const& arg0);
 	 AndroidCXX::java_lang_String getDisplayCountry();
 	 AndroidCXX::java_lang_String getDisplayVariant();
-	 AndroidCXX::java_lang_String getDisplayVariant(AndroidCXX::java_util_Locale& arg0);
-	 AndroidCXX::java_lang_String getDisplayName(AndroidCXX::java_util_Locale& arg0);
+	 AndroidCXX::java_lang_String getDisplayVariant(AndroidCXX::java_util_Locale const& arg0);
+	 AndroidCXX::java_lang_String getDisplayName(AndroidCXX::java_util_Locale const& arg0);
 	 AndroidCXX::java_lang_String getDisplayName();
 };	
 

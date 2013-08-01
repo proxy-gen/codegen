@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -58,15 +57,15 @@ class com_facebook_widget_PlacePickerFragment_SearchTextWatcher
 public:
 
 	com_facebook_widget_PlacePickerFragment_SearchTextWatcher(const com_facebook_widget_PlacePickerFragment_SearchTextWatcher& cc);
-	com_facebook_widget_PlacePickerFragment_SearchTextWatcher(void * proxy);
+	com_facebook_widget_PlacePickerFragment_SearchTextWatcher(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_PlacePickerFragment_SearchTextWatcher();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PlacePickerFragment_SearchTextWatcher();
 	// Functions
-	 void onTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3);
-	 void beforeTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3);
-	 void afterTextChanged(AndroidCXX::android_text_Editable& arg0);
+	 void onTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3);
+	 void beforeTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3);
+	 void afterTextChanged(AndroidCXX::android_text_Editable const& arg0);
 };	
 
 } // namespace

@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -32,7 +31,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_Gallery_LayoutParams"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -57,8 +56,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(const android_widget_Gallery_LayoutParams& cc)
 {
 	LOGV("android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(const android_widget_Gallery_LayoutParams& cc) enter");
@@ -82,9 +79,9 @@ android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(const a
 
 	LOGV("android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(const android_widget_Gallery_LayoutParams& cc) exit");
 }
-android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(void * proxy)
+android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(Proxy proxy)
 {
-	LOGV("android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(void * proxy) enter");
+	LOGV("android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -94,50 +91,34 @@ android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(void * 
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(void * proxy) exit");
+	LOGV("android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(Proxy proxy) exit");
 }
-android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams()
-{
-	LOGV("android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/Gallery$LayoutParams";
-
-	LOGV("android_widget_Gallery_LayoutParams className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_widget_Gallery_LayoutParams::proxy() const
+{	
+	LOGV("android_widget_Gallery_LayoutParams::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery_LayoutParams cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Gallery_LayoutParams jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_widget_Gallery_LayoutParams::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams() exit");	
+	return proxy;
 }
-// Public Constructors
-android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -211,11 +192,11 @@ android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(Android
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(int& arg0,int& arg1)
+android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(int const& arg0,int const& arg1)
 {
-	LOGV("android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(int& arg0,int& arg1) enter");	
+	LOGV("android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(int const& arg0,int const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(II)V";
@@ -289,11 +270,11 @@ android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(int& ar
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(int& arg0,int& arg1) exit");	
+	LOGV("android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(int const& arg0,int const& arg1) exit");	
 }
-android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0)
+android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0)
 {
-	LOGV("android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0) enter");	
+	LOGV("android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/view/ViewGroup$LayoutParams;)V";
@@ -346,7 +327,7 @@ android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(Android
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0) exit");	
+	LOGV("android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0) exit");	
 }
 // Default Instance Destructor
 android_widget_Gallery_LayoutParams::~android_widget_Gallery_LayoutParams()
@@ -359,7 +340,7 @@ android_widget_Gallery_LayoutParams::~android_widget_Gallery_LayoutParams()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_Gallery_LayoutParams::~android_widget_Gallery_LayoutParams() exit");
 }
 // Functions

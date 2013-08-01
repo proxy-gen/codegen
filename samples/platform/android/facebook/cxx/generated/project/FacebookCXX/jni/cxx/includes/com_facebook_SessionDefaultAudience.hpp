@@ -9,7 +9,6 @@
 
 
 
-
  			
 		
 
@@ -31,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace COM_FACEBOOK_SESSIONDEFAULTAUDIENCE {
+namespace com_facebook_SessionDefaultAudience {
 
 enum com_facebook_SessionDefaultAudience
 {

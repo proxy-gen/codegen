@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -93,8 +92,6 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_util_Collection::java_util_Collection(const java_util_Collection& cc)
 {
 	LOGV("java_util_Collection::java_util_Collection(const java_util_Collection& cc) enter");
@@ -118,9 +115,9 @@ java_util_Collection::java_util_Collection(const java_util_Collection& cc)
 
 	LOGV("java_util_Collection::java_util_Collection(const java_util_Collection& cc) exit");
 }
-java_util_Collection::java_util_Collection(void * proxy)
+java_util_Collection::java_util_Collection(Proxy proxy)
 {
-	LOGV("java_util_Collection::java_util_Collection(void * proxy) enter");
+	LOGV("java_util_Collection::java_util_Collection(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -130,52 +127,31 @@ java_util_Collection::java_util_Collection(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_util_Collection::java_util_Collection(void * proxy) exit");
+	LOGV("java_util_Collection::java_util_Collection(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_util_Collection::java_util_Collection()
-// {
-// 	LOGV("java_util_Collection::java_util_Collection() enter");	
+Proxy java_util_Collection::proxy() const
+{	
+	LOGV("java_util_Collection::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/util/Collection";
+	long cxxAddress = (long) this;
+	LOGV("java_util_Collection cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_util_Collection jni address %d", proxiedComponent);
 
-// 	LOGV("java_util_Collection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_util_Collection::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_util_Collection cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_util_Collection jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_util_Collection::java_util_Collection() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_util_Collection::~java_util_Collection()
 {
@@ -187,13 +163,13 @@ java_util_Collection::~java_util_Collection()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_util_Collection::~java_util_Collection() exit");
 }
 // Functions
-bool java_util_Collection::add(JDKCXX::java_lang_Object& arg0)
+bool java_util_Collection::add(JDKCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_util_Collection::add(JDKCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_util_Collection::add(JDKCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "add";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -204,8 +180,6 @@ bool java_util_Collection::add(JDKCXX::java_lang_Object& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Collection cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -254,15 +228,13 @@ bool java_util_Collection::add(JDKCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_util_Collection::add(JDKCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_util_Collection::add(JDKCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-bool java_util_Collection::equals(JDKCXX::java_lang_Object& arg0)
+bool java_util_Collection::equals(JDKCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_util_Collection::equals(JDKCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_util_Collection::equals(JDKCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -273,8 +245,6 @@ bool java_util_Collection::equals(JDKCXX::java_lang_Object& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Collection cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -323,9 +293,7 @@ bool java_util_Collection::equals(JDKCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_util_Collection::equals(JDKCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_util_Collection::equals(JDKCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -341,8 +309,6 @@ int java_util_Collection::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Collection cxx address %d", cxxAddress);
@@ -371,8 +337,6 @@ int java_util_Collection::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_util_Collection::hashCode() exit");
 
 	return result;
@@ -390,8 +354,6 @@ void java_util_Collection::clear()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Collection cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -400,8 +362,6 @@ void java_util_Collection::clear()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_util_Collection::clear() exit");
 
 }
@@ -417,8 +377,6 @@ bool java_util_Collection::isEmpty()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Collection cxx address %d", cxxAddress);
@@ -447,15 +405,13 @@ bool java_util_Collection::isEmpty()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_util_Collection::isEmpty() exit");
 
 	return result;
 }
-bool java_util_Collection::contains(JDKCXX::java_lang_Object& arg0)
+bool java_util_Collection::contains(JDKCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_util_Collection::contains(JDKCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_util_Collection::contains(JDKCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "contains";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -465,8 +421,6 @@ bool java_util_Collection::contains(JDKCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Collection cxx address %d", cxxAddress);
@@ -516,15 +470,13 @@ bool java_util_Collection::contains(JDKCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_util_Collection::contains(JDKCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_util_Collection::contains(JDKCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-bool java_util_Collection::addAll(JDKCXX::java_util_Collection& arg0)
+bool java_util_Collection::addAll(JDKCXX::java_util_Collection const& arg0)
 {
-	LOGV("bool java_util_Collection::addAll(JDKCXX::java_util_Collection& arg0) enter");
+	LOGV("bool java_util_Collection::addAll(JDKCXX::java_util_Collection const& arg0) enter");
 
 	const char *methodName = "addAll";
 	const char *methodSignature = "(Ljava/util/Collection;)Z";
@@ -534,8 +486,6 @@ bool java_util_Collection::addAll(JDKCXX::java_util_Collection& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Collection cxx address %d", cxxAddress);
@@ -603,9 +553,7 @@ bool java_util_Collection::addAll(JDKCXX::java_util_Collection& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_util_Collection::addAll(JDKCXX::java_util_Collection& arg0) exit");
+	LOGV("bool java_util_Collection::addAll(JDKCXX::java_util_Collection const& arg0) exit");
 
 	return result;
 }
@@ -621,8 +569,6 @@ int java_util_Collection::size()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Collection cxx address %d", cxxAddress);
@@ -651,15 +597,13 @@ int java_util_Collection::size()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_util_Collection::size() exit");
 
 	return result;
 }
-std::vector<JDKCXX::java_lang_Object > java_util_Collection::toArray(std::vector<JDKCXX::java_lang_Object >& arg0)
+std::vector<JDKCXX::java_lang_Object > java_util_Collection::toArray(std::vector<JDKCXX::java_lang_Object > const& arg0)
 {
-	LOGV("std::vector<JDKCXX::java_lang_Object > java_util_Collection::toArray(std::vector<JDKCXX::java_lang_Object >& arg0) enter");
+	LOGV("std::vector<JDKCXX::java_lang_Object > java_util_Collection::toArray(std::vector<JDKCXX::java_lang_Object > const& arg0) enter");
 
 	const char *methodName = "toArray";
 	const char *methodSignature = "([Ljava/lang/Object;)[Ljava/lang/Object;";
@@ -669,8 +613,6 @@ std::vector<JDKCXX::java_lang_Object > java_util_Collection::toArray(std::vector
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Collection cxx address %d", cxxAddress);
@@ -756,9 +698,7 @@ std::vector<JDKCXX::java_lang_Object > java_util_Collection::toArray(std::vector
 	std::vector<JDKCXX::java_lang_Object > result = (std::vector<JDKCXX::java_lang_Object >) *((std::vector<JDKCXX::java_lang_Object > *) cxx_value);
 	delete ((std::vector<JDKCXX::java_lang_Object > *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("std::vector<JDKCXX::java_lang_Object > java_util_Collection::toArray(std::vector<JDKCXX::java_lang_Object >& arg0) exit");
+	LOGV("std::vector<JDKCXX::java_lang_Object > java_util_Collection::toArray(std::vector<JDKCXX::java_lang_Object > const& arg0) exit");
 
 	return result;
 }
@@ -774,8 +714,6 @@ std::vector<JDKCXX::java_lang_Object > java_util_Collection::toArray()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Collection cxx address %d", cxxAddress);
@@ -822,8 +760,6 @@ std::vector<JDKCXX::java_lang_Object > java_util_Collection::toArray()
 	std::vector<JDKCXX::java_lang_Object > result = (std::vector<JDKCXX::java_lang_Object >) *((std::vector<JDKCXX::java_lang_Object > *) cxx_value);
 	delete ((std::vector<JDKCXX::java_lang_Object > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<JDKCXX::java_lang_Object > java_util_Collection::toArray() exit");
 
 	return result;
@@ -840,8 +776,6 @@ JDKCXX::java_util_Iterator java_util_Collection::iterator()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Collection cxx address %d", cxxAddress);
@@ -888,15 +822,13 @@ JDKCXX::java_util_Iterator java_util_Collection::iterator()
 	JDKCXX::java_util_Iterator result((JDKCXX::java_util_Iterator) *((JDKCXX::java_util_Iterator *) cxx_value));
 	delete ((JDKCXX::java_util_Iterator *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_util_Iterator java_util_Collection::iterator() exit");
 
 	return result;
 }
-bool java_util_Collection::remove(JDKCXX::java_lang_Object& arg0)
+bool java_util_Collection::remove(JDKCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_util_Collection::remove(JDKCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_util_Collection::remove(JDKCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "remove";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -906,8 +838,6 @@ bool java_util_Collection::remove(JDKCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Collection cxx address %d", cxxAddress);
@@ -957,15 +887,13 @@ bool java_util_Collection::remove(JDKCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_util_Collection::remove(JDKCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_util_Collection::remove(JDKCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-bool java_util_Collection::removeAll(JDKCXX::java_util_Collection& arg0)
+bool java_util_Collection::removeAll(JDKCXX::java_util_Collection const& arg0)
 {
-	LOGV("bool java_util_Collection::removeAll(JDKCXX::java_util_Collection& arg0) enter");
+	LOGV("bool java_util_Collection::removeAll(JDKCXX::java_util_Collection const& arg0) enter");
 
 	const char *methodName = "removeAll";
 	const char *methodSignature = "(Ljava/util/Collection;)Z";
@@ -976,8 +904,6 @@ bool java_util_Collection::removeAll(JDKCXX::java_util_Collection& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Collection cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1044,15 +970,13 @@ bool java_util_Collection::removeAll(JDKCXX::java_util_Collection& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_util_Collection::removeAll(JDKCXX::java_util_Collection& arg0) exit");
+	LOGV("bool java_util_Collection::removeAll(JDKCXX::java_util_Collection const& arg0) exit");
 
 	return result;
 }
-bool java_util_Collection::containsAll(JDKCXX::java_util_Collection& arg0)
+bool java_util_Collection::containsAll(JDKCXX::java_util_Collection const& arg0)
 {
-	LOGV("bool java_util_Collection::containsAll(JDKCXX::java_util_Collection& arg0) enter");
+	LOGV("bool java_util_Collection::containsAll(JDKCXX::java_util_Collection const& arg0) enter");
 
 	const char *methodName = "containsAll";
 	const char *methodSignature = "(Ljava/util/Collection;)Z";
@@ -1063,8 +987,6 @@ bool java_util_Collection::containsAll(JDKCXX::java_util_Collection& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Collection cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1131,15 +1053,13 @@ bool java_util_Collection::containsAll(JDKCXX::java_util_Collection& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_util_Collection::containsAll(JDKCXX::java_util_Collection& arg0) exit");
+	LOGV("bool java_util_Collection::containsAll(JDKCXX::java_util_Collection const& arg0) exit");
 
 	return result;
 }
-bool java_util_Collection::retainAll(JDKCXX::java_util_Collection& arg0)
+bool java_util_Collection::retainAll(JDKCXX::java_util_Collection const& arg0)
 {
-	LOGV("bool java_util_Collection::retainAll(JDKCXX::java_util_Collection& arg0) enter");
+	LOGV("bool java_util_Collection::retainAll(JDKCXX::java_util_Collection const& arg0) enter");
 
 	const char *methodName = "retainAll";
 	const char *methodSignature = "(Ljava/util/Collection;)Z";
@@ -1150,8 +1070,6 @@ bool java_util_Collection::retainAll(JDKCXX::java_util_Collection& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Collection cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1218,9 +1136,7 @@ bool java_util_Collection::retainAll(JDKCXX::java_util_Collection& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_util_Collection::retainAll(JDKCXX::java_util_Collection& arg0) exit");
+	LOGV("bool java_util_Collection::retainAll(JDKCXX::java_util_Collection const& arg0) exit");
 
 	return result;
 }

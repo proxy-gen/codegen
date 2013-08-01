@@ -8,7 +8,6 @@
 //
 
 
-
  	
  		 
  	
@@ -59,9 +58,9 @@ class java_lang_reflect_GenericDeclaration
 public:
 
 	java_lang_reflect_GenericDeclaration(const java_lang_reflect_GenericDeclaration& cc);
-	java_lang_reflect_GenericDeclaration(void * proxy);
+	java_lang_reflect_GenericDeclaration(Proxy proxy);
 	// Public Constructors
-	java_lang_reflect_GenericDeclaration();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_reflect_GenericDeclaration();
 	// Functions

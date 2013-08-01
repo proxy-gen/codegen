@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_widget_SearchView_OnCloseListener
@@ -47,9 +46,9 @@ class android_widget_SearchView_OnCloseListener
 public:
 
 	android_widget_SearchView_OnCloseListener(const android_widget_SearchView_OnCloseListener& cc);
-	android_widget_SearchView_OnCloseListener(void * proxy);
+	android_widget_SearchView_OnCloseListener(Proxy proxy);
 	// Public Constructors
-	android_widget_SearchView_OnCloseListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SearchView_OnCloseListener();
 	// Functions

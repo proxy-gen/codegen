@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -115,30 +114,30 @@ class android_content_ComponentName
 public:
 
 	android_content_ComponentName(const android_content_ComponentName& cc);
-	android_content_ComponentName(void * proxy);
+	android_content_ComponentName(Proxy proxy);
 	// Public Constructors
-	android_content_ComponentName(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
-	android_content_ComponentName(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1);
-	android_content_ComponentName(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_Class& arg1);
-	android_content_ComponentName(AndroidCXX::android_os_Parcel& arg0);
-	android_content_ComponentName();
+	android_content_ComponentName(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
+	android_content_ComponentName(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1);
+	android_content_ComponentName(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1);
+	android_content_ComponentName(AndroidCXX::android_os_Parcel const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ComponentName();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 AndroidCXX::android_content_ComponentName clone();
-	 int compareTo(AndroidCXX::android_content_ComponentName& arg0);
+	 int compareTo(AndroidCXX::android_content_ComponentName const& arg0);
 	 AndroidCXX::java_lang_String getClassName();
 	 AndroidCXX::java_lang_String getPackageName();
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
-	static void writeToParcel(AndroidCXX::android_content_ComponentName& arg0,AndroidCXX::android_os_Parcel& arg1);
-	static AndroidCXX::android_content_ComponentName readFromParcel(AndroidCXX::android_os_Parcel& arg0);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	static void writeToParcel(AndroidCXX::android_content_ComponentName const& arg0,AndroidCXX::android_os_Parcel const& arg1);
+	static AndroidCXX::android_content_ComponentName readFromParcel(AndroidCXX::android_os_Parcel const& arg0);
 	 AndroidCXX::java_lang_String toShortString();
 	 AndroidCXX::java_lang_String flattenToString();
-	static AndroidCXX::android_content_ComponentName unflattenFromString(AndroidCXX::java_lang_String& arg0);
+	static AndroidCXX::android_content_ComponentName unflattenFromString(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_lang_String getShortClassName();
 	 AndroidCXX::java_lang_String flattenToShortString();
 };	

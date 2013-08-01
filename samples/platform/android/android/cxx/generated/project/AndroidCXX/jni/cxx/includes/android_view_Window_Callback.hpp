@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -121,33 +120,33 @@ class android_view_Window_Callback
 public:
 
 	android_view_Window_Callback(const android_view_Window_Callback& cc);
-	android_view_Window_Callback(void * proxy);
+	android_view_Window_Callback(Proxy proxy);
 	// Public Constructors
-	android_view_Window_Callback();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_Window_Callback();
 	// Functions
-	 bool onCreatePanelMenu(int& arg0,AndroidCXX::android_view_Menu& arg1);
-	 bool onMenuItemSelected(int& arg0,AndroidCXX::android_view_MenuItem& arg1);
-	 void onPanelClosed(int& arg0,AndroidCXX::android_view_Menu& arg1);
-	 bool onPreparePanel(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_Menu& arg2);
-	 void onWindowAttributesChanged(AndroidCXX::android_view_WindowManager_LayoutParams& arg0);
+	 bool onCreatePanelMenu(int const& arg0,AndroidCXX::android_view_Menu const& arg1);
+	 bool onMenuItemSelected(int const& arg0,AndroidCXX::android_view_MenuItem const& arg1);
+	 void onPanelClosed(int const& arg0,AndroidCXX::android_view_Menu const& arg1);
+	 bool onPreparePanel(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_Menu const& arg2);
+	 void onWindowAttributesChanged(AndroidCXX::android_view_WindowManager_LayoutParams const& arg0);
 	 void onContentChanged();
-	 void onWindowFocusChanged(bool& arg0);
+	 void onWindowFocusChanged(bool const& arg0);
 	 void onAttachedToWindow();
 	 void onDetachedFromWindow();
-	 bool dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0);
-	 bool dispatchKeyShortcutEvent(AndroidCXX::android_view_KeyEvent& arg0);
-	 bool dispatchTouchEvent(AndroidCXX::android_view_MotionEvent& arg0);
-	 bool dispatchTrackballEvent(AndroidCXX::android_view_MotionEvent& arg0);
-	 bool dispatchGenericMotionEvent(AndroidCXX::android_view_MotionEvent& arg0);
-	 bool dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 AndroidCXX::android_view_View onCreatePanelView(int& arg0);
-	 bool onMenuOpened(int& arg0,AndroidCXX::android_view_Menu& arg1);
+	 bool dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0);
+	 bool dispatchKeyShortcutEvent(AndroidCXX::android_view_KeyEvent const& arg0);
+	 bool dispatchTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0);
+	 bool dispatchTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0);
+	 bool dispatchGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0);
+	 bool dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 AndroidCXX::android_view_View onCreatePanelView(int const& arg0);
+	 bool onMenuOpened(int const& arg0,AndroidCXX::android_view_Menu const& arg1);
 	 bool onSearchRequested();
-	 AndroidCXX::android_view_ActionMode onWindowStartingActionMode(AndroidCXX::android_view_ActionMode_Callback& arg0);
-	 void onActionModeStarted(AndroidCXX::android_view_ActionMode& arg0);
-	 void onActionModeFinished(AndroidCXX::android_view_ActionMode& arg0);
+	 AndroidCXX::android_view_ActionMode onWindowStartingActionMode(AndroidCXX::android_view_ActionMode_Callback const& arg0);
+	 void onActionModeStarted(AndroidCXX::android_view_ActionMode const& arg0);
+	 void onActionModeFinished(AndroidCXX::android_view_ActionMode const& arg0);
 };	
 
 } // namespace

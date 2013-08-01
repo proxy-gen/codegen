@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 
@@ -64,17 +63,17 @@ class android_content_pm_ProviderInfo
 {
 public:
 
-	android_content_pm_ProviderInfo(const android_content_pm_ProviderInfo& cc);
-	android_content_pm_ProviderInfo(void * proxy);
+	android_content_pm_ProviderInfo(Proxy proxy);
 	// Public Constructors
 	android_content_pm_ProviderInfo();
-	android_content_pm_ProviderInfo(AndroidCXX::android_content_pm_ProviderInfo& arg0);
+	android_content_pm_ProviderInfo(AndroidCXX::android_content_pm_ProviderInfo const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_pm_ProviderInfo();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 };	
 
 } // namespace

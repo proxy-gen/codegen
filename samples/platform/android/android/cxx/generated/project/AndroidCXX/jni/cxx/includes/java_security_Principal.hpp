@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -61,13 +60,13 @@ class java_security_Principal
 public:
 
 	java_security_Principal(const java_security_Principal& cc);
-	java_security_Principal(void * proxy);
+	java_security_Principal(Proxy proxy);
 	// Public Constructors
-	java_security_Principal();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_security_Principal();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 AndroidCXX::java_lang_String getName();

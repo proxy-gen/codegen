@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -54,14 +53,14 @@ class android_view_View_OnAttachStateChangeListener
 public:
 
 	android_view_View_OnAttachStateChangeListener(const android_view_View_OnAttachStateChangeListener& cc);
-	android_view_View_OnAttachStateChangeListener(void * proxy);
+	android_view_View_OnAttachStateChangeListener(Proxy proxy);
 	// Public Constructors
-	android_view_View_OnAttachStateChangeListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnAttachStateChangeListener();
 	// Functions
-	 void onViewAttachedToWindow(AndroidCXX::android_view_View& arg0);
-	 void onViewDetachedFromWindow(AndroidCXX::android_view_View& arg0);
+	 void onViewAttachedToWindow(AndroidCXX::android_view_View const& arg0);
+	 void onViewDetachedFromWindow(AndroidCXX::android_view_View const& arg0);
 };	
 
 } // namespace

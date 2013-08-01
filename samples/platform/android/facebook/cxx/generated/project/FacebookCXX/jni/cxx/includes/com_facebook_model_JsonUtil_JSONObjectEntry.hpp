@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -59,15 +58,15 @@ class com_facebook_model_JsonUtil_JSONObjectEntry
 public:
 
 	com_facebook_model_JsonUtil_JSONObjectEntry(const com_facebook_model_JsonUtil_JSONObjectEntry& cc);
-	com_facebook_model_JsonUtil_JSONObjectEntry(void * proxy);
+	com_facebook_model_JsonUtil_JSONObjectEntry(Proxy proxy);
 	// Public Constructors
-	com_facebook_model_JsonUtil_JSONObjectEntry();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_JsonUtil_JSONObjectEntry();
 	// Functions
 	 AndroidCXX::java_lang_Object getValue();
 	 AndroidCXX::java_lang_String getKey();
-	 AndroidCXX::java_lang_Object setValue(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_Object setValue(AndroidCXX::java_lang_Object const& arg0);
 };	
 
 } // namespace

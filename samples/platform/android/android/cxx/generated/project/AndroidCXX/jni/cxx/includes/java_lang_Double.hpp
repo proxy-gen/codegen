@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -92,37 +91,37 @@ class java_lang_Double
 public:
 
 	java_lang_Double(const java_lang_Double& cc);
-	java_lang_Double(void * proxy);
+	java_lang_Double(Proxy proxy);
 	// Public Constructors
-	java_lang_Double(double& arg0);
-	java_lang_Double(AndroidCXX::java_lang_String& arg0);
-	java_lang_Double();
+	java_lang_Double(double const& arg0);
+	java_lang_Double(AndroidCXX::java_lang_String const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Double();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
-	static AndroidCXX::java_lang_String toString(double& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
+	static AndroidCXX::java_lang_String toString(double const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	static long doubleToRawLongBits(double& arg0);
-	static long doubleToLongBits(double& arg0);
-	static double longBitsToDouble(long& arg0);
-	 int compareTo(AndroidCXX::java_lang_Double& arg0);
+	static long doubleToRawLongBits(double const& arg0);
+	static long doubleToLongBits(double const& arg0);
+	static double longBitsToDouble(long const& arg0);
+	 int compareTo(AndroidCXX::java_lang_Double const& arg0);
 	 byte byteValue();
 	 short shortValue();
 	 int intValue();
 	 long longValue();
 	 float floatValue();
 	 double doubleValue();
-	static AndroidCXX::java_lang_Double valueOf(AndroidCXX::java_lang_String& arg0);
-	static AndroidCXX::java_lang_Double valueOf(double& arg0);
-	static AndroidCXX::java_lang_String toHexString(double& arg0);
-	static int compare(double& arg0,double& arg1);
-	static bool isNaN(double& arg0);
+	static AndroidCXX::java_lang_Double valueOf(AndroidCXX::java_lang_String const& arg0);
+	static AndroidCXX::java_lang_Double valueOf(double const& arg0);
+	static AndroidCXX::java_lang_String toHexString(double const& arg0);
+	static int compare(double const& arg0,double const& arg1);
+	static bool isNaN(double const& arg0);
 	 bool isNaN();
 	 bool isInfinite();
-	static bool isInfinite(double& arg0);
-	static double parseDouble(AndroidCXX::java_lang_String& arg0);
+	static bool isInfinite(double const& arg0);
+	static double parseDouble(AndroidCXX::java_lang_String const& arg0);
 };	
 
 } // namespace

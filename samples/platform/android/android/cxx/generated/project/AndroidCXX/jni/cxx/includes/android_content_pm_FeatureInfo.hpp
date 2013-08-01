@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -66,17 +65,17 @@ class android_content_pm_FeatureInfo
 {
 public:
 
-	android_content_pm_FeatureInfo(const android_content_pm_FeatureInfo& cc);
-	android_content_pm_FeatureInfo(void * proxy);
+	android_content_pm_FeatureInfo(Proxy proxy);
 	// Public Constructors
 	android_content_pm_FeatureInfo();
-	android_content_pm_FeatureInfo(AndroidCXX::android_content_pm_FeatureInfo& arg0);
+	android_content_pm_FeatureInfo(AndroidCXX::android_content_pm_FeatureInfo const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_pm_FeatureInfo();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 	 AndroidCXX::java_lang_String getGlEsVersion();
 };	
 

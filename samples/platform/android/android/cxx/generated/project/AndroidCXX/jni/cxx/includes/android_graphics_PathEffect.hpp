@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_graphics_PathEffect
@@ -47,9 +46,10 @@ class android_graphics_PathEffect
 public:
 
 	android_graphics_PathEffect(const android_graphics_PathEffect& cc);
-	android_graphics_PathEffect(void * proxy);
+	android_graphics_PathEffect(Proxy proxy);
 	// Public Constructors
 	android_graphics_PathEffect();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_PathEffect();
 	// Functions

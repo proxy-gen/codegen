@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -66,16 +65,16 @@ class android_util_Pair
 public:
 
 	android_util_Pair(const android_util_Pair& cc);
-	android_util_Pair(void * proxy);
+	android_util_Pair(Proxy proxy);
 	// Public Constructors
-	android_util_Pair(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1);
-	android_util_Pair();
+	android_util_Pair(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_util_Pair();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 int hashCode();
-	static AndroidCXX::android_util_Pair create(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1);
+	static AndroidCXX::android_util_Pair create(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1);
 };	
 
 } // namespace

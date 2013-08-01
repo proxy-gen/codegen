@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -93,23 +92,23 @@ class android_widget_ToggleButton
 public:
 
 	android_widget_ToggleButton(const android_widget_ToggleButton& cc);
-	android_widget_ToggleButton(void * proxy);
+	android_widget_ToggleButton(Proxy proxy);
 	// Public Constructors
-	android_widget_ToggleButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_ToggleButton(AndroidCXX::android_content_Context& arg0);
-	android_widget_ToggleButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_ToggleButton();
+	android_widget_ToggleButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_ToggleButton(AndroidCXX::android_content_Context const& arg0);
+	android_widget_ToggleButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ToggleButton();
 	// Functions
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 void setBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0);
-	 void setChecked(bool& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 void setBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
+	 void setChecked(bool const& arg0);
 	 AndroidCXX::java_lang_CharSequence getTextOn();
-	 void setTextOn(AndroidCXX::java_lang_CharSequence& arg0);
+	 void setTextOn(AndroidCXX::java_lang_CharSequence const& arg0);
 	 AndroidCXX::java_lang_CharSequence getTextOff();
-	 void setTextOff(AndroidCXX::java_lang_CharSequence& arg0);
+	 void setTextOff(AndroidCXX::java_lang_CharSequence const& arg0);
 };	
 
 } // namespace

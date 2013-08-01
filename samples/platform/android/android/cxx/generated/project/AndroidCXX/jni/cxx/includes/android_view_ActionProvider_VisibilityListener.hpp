@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_view_ActionProvider_VisibilityListener
@@ -47,13 +46,13 @@ class android_view_ActionProvider_VisibilityListener
 public:
 
 	android_view_ActionProvider_VisibilityListener(const android_view_ActionProvider_VisibilityListener& cc);
-	android_view_ActionProvider_VisibilityListener(void * proxy);
+	android_view_ActionProvider_VisibilityListener(Proxy proxy);
 	// Public Constructors
-	android_view_ActionProvider_VisibilityListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ActionProvider_VisibilityListener();
 	// Functions
-	 void onActionProviderVisibilityChanged(bool& arg0);
+	 void onActionProviderVisibilityChanged(bool const& arg0);
 };	
 
 } // namespace

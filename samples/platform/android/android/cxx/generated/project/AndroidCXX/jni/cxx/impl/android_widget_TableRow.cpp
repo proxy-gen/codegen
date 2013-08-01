@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -43,7 +42,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_TableRow"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -86,8 +85,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_widget_TableRow::android_widget_TableRow(const android_widget_TableRow& cc)
 {
 	LOGV("android_widget_TableRow::android_widget_TableRow(const android_widget_TableRow& cc) enter");
@@ -111,9 +108,9 @@ android_widget_TableRow::android_widget_TableRow(const android_widget_TableRow& 
 
 	LOGV("android_widget_TableRow::android_widget_TableRow(const android_widget_TableRow& cc) exit");
 }
-android_widget_TableRow::android_widget_TableRow(void * proxy)
+android_widget_TableRow::android_widget_TableRow(Proxy proxy)
 {
-	LOGV("android_widget_TableRow::android_widget_TableRow(void * proxy) enter");
+	LOGV("android_widget_TableRow::android_widget_TableRow(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -123,50 +120,34 @@ android_widget_TableRow::android_widget_TableRow(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_TableRow::android_widget_TableRow(void * proxy) exit");
+	LOGV("android_widget_TableRow::android_widget_TableRow(Proxy proxy) exit");
 }
-android_widget_TableRow::android_widget_TableRow()
-{
-	LOGV("android_widget_TableRow::android_widget_TableRow() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/TableRow";
-
-	LOGV("android_widget_TableRow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_widget_TableRow::proxy() const
+{	
+	LOGV("android_widget_TableRow::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TableRow cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_TableRow jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_widget_TableRow::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_widget_TableRow::android_widget_TableRow() exit");	
+	return proxy;
 }
-// Public Constructors
-android_widget_TableRow::android_widget_TableRow(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+android_widget_TableRow::android_widget_TableRow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_TableRow::android_widget_TableRow(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_TableRow::android_widget_TableRow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -240,11 +221,11 @@ android_widget_TableRow::android_widget_TableRow(AndroidCXX::android_content_Con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_TableRow::android_widget_TableRow(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_TableRow::android_widget_TableRow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_widget_TableRow::android_widget_TableRow(AndroidCXX::android_content_Context& arg0)
+android_widget_TableRow::android_widget_TableRow(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_TableRow::android_widget_TableRow(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_TableRow::android_widget_TableRow(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -297,7 +278,7 @@ android_widget_TableRow::android_widget_TableRow(AndroidCXX::android_content_Con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_TableRow::android_widget_TableRow(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_TableRow::android_widget_TableRow(AndroidCXX::android_content_Context const& arg0) exit");	
 }
 // Default Instance Destructor
 android_widget_TableRow::~android_widget_TableRow()
@@ -310,13 +291,13 @@ android_widget_TableRow::~android_widget_TableRow()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_TableRow::~android_widget_TableRow() exit");
 }
 // Functions
-void android_widget_TableRow::setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener& arg0)
+void android_widget_TableRow::setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener const& arg0)
 {
-	LOGV("void android_widget_TableRow::setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener& arg0) enter");
+	LOGV("void android_widget_TableRow::setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener const& arg0) enter");
 
 	const char *methodName = "setOnHierarchyChangeListener";
 	const char *methodSignature = "(Landroid/view/ViewGroup$OnHierarchyChangeListener;)V";
@@ -326,8 +307,6 @@ void android_widget_TableRow::setOnHierarchyChangeListener(AndroidCXX::android_v
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TableRow cxx address %d", cxxAddress);
@@ -358,14 +337,12 @@ void android_widget_TableRow::setOnHierarchyChangeListener(AndroidCXX::android_v
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TableRow::setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener& arg0) exit");
+	LOGV("void android_widget_TableRow::setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener const& arg0) exit");
 
 }
-AndroidCXX::android_widget_TableRow_LayoutParams android_widget_TableRow::generateLayoutParams(AndroidCXX::android_util_AttributeSet& arg0)
+AndroidCXX::android_widget_TableRow_LayoutParams android_widget_TableRow::generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0)
 {
-	LOGV("AndroidCXX::android_widget_TableRow_LayoutParams android_widget_TableRow::generateLayoutParams(AndroidCXX::android_util_AttributeSet& arg0) enter");
+	LOGV("AndroidCXX::android_widget_TableRow_LayoutParams android_widget_TableRow::generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0) enter");
 
 	const char *methodName = "generateLayoutParams";
 	const char *methodSignature = "(Landroid/util/AttributeSet;)Landroid/widget/TableRow$LayoutParams;";
@@ -375,8 +352,6 @@ AndroidCXX::android_widget_TableRow_LayoutParams android_widget_TableRow::genera
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TableRow cxx address %d", cxxAddress);
@@ -405,7 +380,6 @@ AndroidCXX::android_widget_TableRow_LayoutParams android_widget_TableRow::genera
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_widget_TableRow_LayoutParams result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -423,17 +397,17 @@ AndroidCXX::android_widget_TableRow_LayoutParams android_widget_TableRow::genera
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_widget_TableRow_LayoutParams(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_widget_TableRow_LayoutParams) (AndroidCXX::android_widget_TableRow_LayoutParams((AndroidCXX::android_widget_TableRow_LayoutParams *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_widget_TableRow_LayoutParams android_widget_TableRow::generateLayoutParams(AndroidCXX::android_util_AttributeSet& arg0) exit");
+	AndroidCXX::android_widget_TableRow_LayoutParams result((AndroidCXX::android_widget_TableRow_LayoutParams) *((AndroidCXX::android_widget_TableRow_LayoutParams *) cxx_value));
+	delete ((AndroidCXX::android_widget_TableRow_LayoutParams *) cxx_value);
+		
+	LOGV("AndroidCXX::android_widget_TableRow_LayoutParams android_widget_TableRow::generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0) exit");
 
 	return result;
 }
-void android_widget_TableRow::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_TableRow::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_TableRow::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_TableRow::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -443,8 +417,6 @@ void android_widget_TableRow::onInitializeAccessibilityEvent(AndroidCXX::android
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TableRow cxx address %d", cxxAddress);
@@ -475,14 +447,12 @@ void android_widget_TableRow::onInitializeAccessibilityEvent(AndroidCXX::android
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TableRow::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_TableRow::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_TableRow::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0)
+void android_widget_TableRow::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0)
 {
-	LOGV("void android_widget_TableRow::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) enter");
+	LOGV("void android_widget_TableRow::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityNodeInfo";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
@@ -492,8 +462,6 @@ void android_widget_TableRow::onInitializeAccessibilityNodeInfo(AndroidCXX::andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TableRow cxx address %d", cxxAddress);
@@ -524,14 +492,12 @@ void android_widget_TableRow::onInitializeAccessibilityNodeInfo(AndroidCXX::andr
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TableRow::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) exit");
+	LOGV("void android_widget_TableRow::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) exit");
 
 }
-AndroidCXX::android_view_View android_widget_TableRow::getVirtualChildAt(int& arg0)
+AndroidCXX::android_view_View android_widget_TableRow::getVirtualChildAt(int const& arg0)
 {
-	LOGV("AndroidCXX::android_view_View android_widget_TableRow::getVirtualChildAt(int& arg0) enter");
+	LOGV("AndroidCXX::android_view_View android_widget_TableRow::getVirtualChildAt(int const& arg0) enter");
 
 	const char *methodName = "getVirtualChildAt";
 	const char *methodSignature = "(I)Landroid/view/View;";
@@ -541,8 +507,6 @@ AndroidCXX::android_view_View android_widget_TableRow::getVirtualChildAt(int& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TableRow cxx address %d", cxxAddress);
@@ -571,7 +535,6 @@ AndroidCXX::android_view_View android_widget_TableRow::getVirtualChildAt(int& ar
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -589,11 +552,11 @@ AndroidCXX::android_view_View android_widget_TableRow::getVirtualChildAt(int& ar
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_view_View android_widget_TableRow::getVirtualChildAt(int& arg0) exit");
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
+		
+	LOGV("AndroidCXX::android_view_View android_widget_TableRow::getVirtualChildAt(int const& arg0) exit");
 
 	return result;
 }
@@ -610,15 +573,12 @@ int android_widget_TableRow::getVirtualChildCount()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TableRow cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_TableRow jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -636,10 +596,10 @@ int android_widget_TableRow::getVirtualChildCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_TableRow::getVirtualChildCount() exit");
 
 	return result;

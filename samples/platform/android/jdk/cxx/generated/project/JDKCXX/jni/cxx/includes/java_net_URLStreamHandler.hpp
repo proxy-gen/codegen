@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _java_net_URLStreamHandler
@@ -47,11 +46,10 @@ class java_net_URLStreamHandler
 public:
 
 	java_net_URLStreamHandler(const java_net_URLStreamHandler& cc);
-	java_net_URLStreamHandler(void * proxy);
+	java_net_URLStreamHandler(Proxy proxy);
 	// Public Constructors
 	java_net_URLStreamHandler();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_URLStreamHandler();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -57,13 +56,13 @@ class java_lang_Thread_UncaughtExceptionHandler
 public:
 
 	java_lang_Thread_UncaughtExceptionHandler(const java_lang_Thread_UncaughtExceptionHandler& cc);
-	java_lang_Thread_UncaughtExceptionHandler(void * proxy);
+	java_lang_Thread_UncaughtExceptionHandler(Proxy proxy);
 	// Public Constructors
-	java_lang_Thread_UncaughtExceptionHandler();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Thread_UncaughtExceptionHandler();
 	// Functions
-	 void uncaughtException(AndroidCXX::java_lang_Thread& arg0,AndroidCXX::java_lang_Throwable& arg1);
+	 void uncaughtException(AndroidCXX::java_lang_Thread const& arg0,AndroidCXX::java_lang_Throwable const& arg1);
 };	
 
 } // namespace

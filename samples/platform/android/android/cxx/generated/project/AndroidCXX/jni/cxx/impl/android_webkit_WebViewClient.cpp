@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -81,7 +80,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_webkit_WebViewClient"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -214,8 +213,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_webkit_WebViewClient::android_webkit_WebViewClient(const android_webkit_WebViewClient& cc)
 {
 	LOGV("android_webkit_WebViewClient::android_webkit_WebViewClient(const android_webkit_WebViewClient& cc) enter");
@@ -239,9 +236,9 @@ android_webkit_WebViewClient::android_webkit_WebViewClient(const android_webkit_
 
 	LOGV("android_webkit_WebViewClient::android_webkit_WebViewClient(const android_webkit_WebViewClient& cc) exit");
 }
-android_webkit_WebViewClient::android_webkit_WebViewClient(void * proxy)
+android_webkit_WebViewClient::android_webkit_WebViewClient(Proxy proxy)
 {
-	LOGV("android_webkit_WebViewClient::android_webkit_WebViewClient(void * proxy) enter");
+	LOGV("android_webkit_WebViewClient::android_webkit_WebViewClient(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -251,13 +248,31 @@ android_webkit_WebViewClient::android_webkit_WebViewClient(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_webkit_WebViewClient::android_webkit_WebViewClient(void * proxy) exit");
+	LOGV("android_webkit_WebViewClient::android_webkit_WebViewClient(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy android_webkit_WebViewClient::proxy() const
+{	
+	LOGV("android_webkit_WebViewClient::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_webkit_WebViewClient cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_webkit_WebViewClient jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_webkit_WebViewClient::proxy() exit");	
+
+	return proxy;
+}
 android_webkit_WebViewClient::android_webkit_WebViewClient()
 {
 	LOGV("android_webkit_WebViewClient::android_webkit_WebViewClient() enter");	
@@ -305,13 +320,13 @@ android_webkit_WebViewClient::~android_webkit_WebViewClient()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_webkit_WebViewClient::~android_webkit_WebViewClient() exit");
 }
 // Functions
-bool android_webkit_WebViewClient::shouldOverrideUrlLoading(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1)
+bool android_webkit_WebViewClient::shouldOverrideUrlLoading(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("bool android_webkit_WebViewClient::shouldOverrideUrlLoading(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("bool android_webkit_WebViewClient::shouldOverrideUrlLoading(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "shouldOverrideUrlLoading";
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;)Z";
@@ -321,8 +336,6 @@ bool android_webkit_WebViewClient::shouldOverrideUrlLoading(AndroidCXX::android_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebViewClient cxx address %d", cxxAddress);
@@ -372,7 +385,6 @@ bool android_webkit_WebViewClient::shouldOverrideUrlLoading(AndroidCXX::android_
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -390,17 +402,17 @@ bool android_webkit_WebViewClient::shouldOverrideUrlLoading(AndroidCXX::android_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_webkit_WebViewClient::shouldOverrideUrlLoading(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_webkit_WebViewClient::shouldOverrideUrlLoading(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-void android_webkit_WebViewClient::onPageStarted(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_graphics_Bitmap& arg2)
+void android_webkit_WebViewClient::onPageStarted(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_graphics_Bitmap const& arg2)
 {
-	LOGV("void android_webkit_WebViewClient::onPageStarted(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_graphics_Bitmap& arg2) enter");
+	LOGV("void android_webkit_WebViewClient::onPageStarted(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_graphics_Bitmap const& arg2) enter");
 
 	const char *methodName = "onPageStarted";
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;Landroid/graphics/Bitmap;)V";
@@ -410,8 +422,6 @@ void android_webkit_WebViewClient::onPageStarted(AndroidCXX::android_webkit_WebV
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebViewClient cxx address %d", cxxAddress);
@@ -484,14 +494,12 @@ void android_webkit_WebViewClient::onPageStarted(AndroidCXX::android_webkit_WebV
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebViewClient::onPageStarted(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_graphics_Bitmap& arg2) exit");
+	LOGV("void android_webkit_WebViewClient::onPageStarted(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_graphics_Bitmap const& arg2) exit");
 
 }
-void android_webkit_WebViewClient::onPageFinished(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1)
+void android_webkit_WebViewClient::onPageFinished(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("void android_webkit_WebViewClient::onPageFinished(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("void android_webkit_WebViewClient::onPageFinished(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "onPageFinished";
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;)V";
@@ -502,8 +510,6 @@ void android_webkit_WebViewClient::onPageFinished(AndroidCXX::android_webkit_Web
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebViewClient cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -554,14 +560,12 @@ void android_webkit_WebViewClient::onPageFinished(AndroidCXX::android_webkit_Web
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebViewClient::onPageFinished(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("void android_webkit_WebViewClient::onPageFinished(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 }
-void android_webkit_WebViewClient::onLoadResource(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1)
+void android_webkit_WebViewClient::onLoadResource(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("void android_webkit_WebViewClient::onLoadResource(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("void android_webkit_WebViewClient::onLoadResource(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "onLoadResource";
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;)V";
@@ -572,8 +576,6 @@ void android_webkit_WebViewClient::onLoadResource(AndroidCXX::android_webkit_Web
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebViewClient cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -624,14 +626,12 @@ void android_webkit_WebViewClient::onLoadResource(AndroidCXX::android_webkit_Web
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebViewClient::onLoadResource(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("void android_webkit_WebViewClient::onLoadResource(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 }
-AndroidCXX::android_webkit_WebResourceResponse android_webkit_WebViewClient::shouldInterceptRequest(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1)
+AndroidCXX::android_webkit_WebResourceResponse android_webkit_WebViewClient::shouldInterceptRequest(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("AndroidCXX::android_webkit_WebResourceResponse android_webkit_WebViewClient::shouldInterceptRequest(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("AndroidCXX::android_webkit_WebResourceResponse android_webkit_WebViewClient::shouldInterceptRequest(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "shouldInterceptRequest";
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;)Landroid/webkit/WebResourceResponse;";
@@ -641,8 +641,6 @@ AndroidCXX::android_webkit_WebResourceResponse android_webkit_WebViewClient::sho
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebViewClient cxx address %d", cxxAddress);
@@ -692,7 +690,6 @@ AndroidCXX::android_webkit_WebResourceResponse android_webkit_WebViewClient::sho
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_webkit_WebResourceResponse result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -710,17 +707,17 @@ AndroidCXX::android_webkit_WebResourceResponse android_webkit_WebViewClient::sho
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_webkit_WebResourceResponse(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_webkit_WebResourceResponse) (AndroidCXX::android_webkit_WebResourceResponse((AndroidCXX::android_webkit_WebResourceResponse *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_webkit_WebResourceResponse android_webkit_WebViewClient::shouldInterceptRequest(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	AndroidCXX::android_webkit_WebResourceResponse result((AndroidCXX::android_webkit_WebResourceResponse) *((AndroidCXX::android_webkit_WebResourceResponse *) cxx_value));
+	delete ((AndroidCXX::android_webkit_WebResourceResponse *) cxx_value);
+		
+	LOGV("AndroidCXX::android_webkit_WebResourceResponse android_webkit_WebViewClient::shouldInterceptRequest(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-void android_webkit_WebViewClient::onTooManyRedirects(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_os_Message& arg1,AndroidCXX::android_os_Message& arg2)
+void android_webkit_WebViewClient::onTooManyRedirects(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_os_Message const& arg1,AndroidCXX::android_os_Message const& arg2)
 {
-	LOGV("void android_webkit_WebViewClient::onTooManyRedirects(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_os_Message& arg1,AndroidCXX::android_os_Message& arg2) enter");
+	LOGV("void android_webkit_WebViewClient::onTooManyRedirects(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_os_Message const& arg1,AndroidCXX::android_os_Message const& arg2) enter");
 
 	const char *methodName = "onTooManyRedirects";
 	const char *methodSignature = "(Landroid/webkit/WebView;Landroid/os/Message;Landroid/os/Message;)V";
@@ -730,8 +727,6 @@ void android_webkit_WebViewClient::onTooManyRedirects(AndroidCXX::android_webkit
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebViewClient cxx address %d", cxxAddress);
@@ -804,14 +799,12 @@ void android_webkit_WebViewClient::onTooManyRedirects(AndroidCXX::android_webkit
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebViewClient::onTooManyRedirects(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_os_Message& arg1,AndroidCXX::android_os_Message& arg2) exit");
+	LOGV("void android_webkit_WebViewClient::onTooManyRedirects(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_os_Message const& arg1,AndroidCXX::android_os_Message const& arg2) exit");
 
 }
-void android_webkit_WebViewClient::onReceivedError(AndroidCXX::android_webkit_WebView& arg0,int& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3)
+void android_webkit_WebViewClient::onReceivedError(AndroidCXX::android_webkit_WebView const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3)
 {
-	LOGV("void android_webkit_WebViewClient::onReceivedError(AndroidCXX::android_webkit_WebView& arg0,int& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3) enter");
+	LOGV("void android_webkit_WebViewClient::onReceivedError(AndroidCXX::android_webkit_WebView const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3) enter");
 
 	const char *methodName = "onReceivedError";
 	const char *methodSignature = "(Landroid/webkit/WebView;ILjava/lang/String;Ljava/lang/String;)V";
@@ -821,8 +814,6 @@ void android_webkit_WebViewClient::onReceivedError(AndroidCXX::android_webkit_We
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebViewClient cxx address %d", cxxAddress);
@@ -916,14 +907,12 @@ void android_webkit_WebViewClient::onReceivedError(AndroidCXX::android_webkit_We
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebViewClient::onReceivedError(AndroidCXX::android_webkit_WebView& arg0,int& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3) exit");
+	LOGV("void android_webkit_WebViewClient::onReceivedError(AndroidCXX::android_webkit_WebView const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3) exit");
 
 }
-void android_webkit_WebViewClient::onFormResubmission(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_os_Message& arg1,AndroidCXX::android_os_Message& arg2)
+void android_webkit_WebViewClient::onFormResubmission(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_os_Message const& arg1,AndroidCXX::android_os_Message const& arg2)
 {
-	LOGV("void android_webkit_WebViewClient::onFormResubmission(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_os_Message& arg1,AndroidCXX::android_os_Message& arg2) enter");
+	LOGV("void android_webkit_WebViewClient::onFormResubmission(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_os_Message const& arg1,AndroidCXX::android_os_Message const& arg2) enter");
 
 	const char *methodName = "onFormResubmission";
 	const char *methodSignature = "(Landroid/webkit/WebView;Landroid/os/Message;Landroid/os/Message;)V";
@@ -933,8 +922,6 @@ void android_webkit_WebViewClient::onFormResubmission(AndroidCXX::android_webkit
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebViewClient cxx address %d", cxxAddress);
@@ -1007,14 +994,12 @@ void android_webkit_WebViewClient::onFormResubmission(AndroidCXX::android_webkit
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebViewClient::onFormResubmission(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_os_Message& arg1,AndroidCXX::android_os_Message& arg2) exit");
+	LOGV("void android_webkit_WebViewClient::onFormResubmission(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_os_Message const& arg1,AndroidCXX::android_os_Message const& arg2) exit");
 
 }
-void android_webkit_WebViewClient::doUpdateVisitedHistory(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2)
+void android_webkit_WebViewClient::doUpdateVisitedHistory(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2)
 {
-	LOGV("void android_webkit_WebViewClient::doUpdateVisitedHistory(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2) enter");
+	LOGV("void android_webkit_WebViewClient::doUpdateVisitedHistory(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2) enter");
 
 	const char *methodName = "doUpdateVisitedHistory";
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;Z)V";
@@ -1024,8 +1009,6 @@ void android_webkit_WebViewClient::doUpdateVisitedHistory(AndroidCXX::android_we
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebViewClient cxx address %d", cxxAddress);
@@ -1098,14 +1081,12 @@ void android_webkit_WebViewClient::doUpdateVisitedHistory(AndroidCXX::android_we
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebViewClient::doUpdateVisitedHistory(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2) exit");
+	LOGV("void android_webkit_WebViewClient::doUpdateVisitedHistory(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2) exit");
 
 }
-void android_webkit_WebViewClient::onReceivedSslError(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_webkit_SslErrorHandler& arg1,AndroidCXX::android_net_http_SslError& arg2)
+void android_webkit_WebViewClient::onReceivedSslError(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_webkit_SslErrorHandler const& arg1,AndroidCXX::android_net_http_SslError const& arg2)
 {
-	LOGV("void android_webkit_WebViewClient::onReceivedSslError(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_webkit_SslErrorHandler& arg1,AndroidCXX::android_net_http_SslError& arg2) enter");
+	LOGV("void android_webkit_WebViewClient::onReceivedSslError(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_webkit_SslErrorHandler const& arg1,AndroidCXX::android_net_http_SslError const& arg2) enter");
 
 	const char *methodName = "onReceivedSslError";
 	const char *methodSignature = "(Landroid/webkit/WebView;Landroid/webkit/SslErrorHandler;Landroid/net/http/SslError;)V";
@@ -1115,8 +1096,6 @@ void android_webkit_WebViewClient::onReceivedSslError(AndroidCXX::android_webkit
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebViewClient cxx address %d", cxxAddress);
@@ -1189,14 +1168,12 @@ void android_webkit_WebViewClient::onReceivedSslError(AndroidCXX::android_webkit
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebViewClient::onReceivedSslError(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_webkit_SslErrorHandler& arg1,AndroidCXX::android_net_http_SslError& arg2) exit");
+	LOGV("void android_webkit_WebViewClient::onReceivedSslError(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_webkit_SslErrorHandler const& arg1,AndroidCXX::android_net_http_SslError const& arg2) exit");
 
 }
-void android_webkit_WebViewClient::onReceivedHttpAuthRequest(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_webkit_HttpAuthHandler& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3)
+void android_webkit_WebViewClient::onReceivedHttpAuthRequest(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_webkit_HttpAuthHandler const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3)
 {
-	LOGV("void android_webkit_WebViewClient::onReceivedHttpAuthRequest(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_webkit_HttpAuthHandler& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3) enter");
+	LOGV("void android_webkit_WebViewClient::onReceivedHttpAuthRequest(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_webkit_HttpAuthHandler const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3) enter");
 
 	const char *methodName = "onReceivedHttpAuthRequest";
 	const char *methodSignature = "(Landroid/webkit/WebView;Landroid/webkit/HttpAuthHandler;Ljava/lang/String;Ljava/lang/String;)V";
@@ -1206,8 +1183,6 @@ void android_webkit_WebViewClient::onReceivedHttpAuthRequest(AndroidCXX::android
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebViewClient cxx address %d", cxxAddress);
@@ -1301,14 +1276,12 @@ void android_webkit_WebViewClient::onReceivedHttpAuthRequest(AndroidCXX::android
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebViewClient::onReceivedHttpAuthRequest(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_webkit_HttpAuthHandler& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3) exit");
+	LOGV("void android_webkit_WebViewClient::onReceivedHttpAuthRequest(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_webkit_HttpAuthHandler const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3) exit");
 
 }
-bool android_webkit_WebViewClient::shouldOverrideKeyEvent(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_view_KeyEvent& arg1)
+bool android_webkit_WebViewClient::shouldOverrideKeyEvent(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_view_KeyEvent const& arg1)
 {
-	LOGV("bool android_webkit_WebViewClient::shouldOverrideKeyEvent(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_view_KeyEvent& arg1) enter");
+	LOGV("bool android_webkit_WebViewClient::shouldOverrideKeyEvent(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) enter");
 
 	const char *methodName = "shouldOverrideKeyEvent";
 	const char *methodSignature = "(Landroid/webkit/WebView;Landroid/view/KeyEvent;)Z";
@@ -1318,8 +1291,6 @@ bool android_webkit_WebViewClient::shouldOverrideKeyEvent(AndroidCXX::android_we
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebViewClient cxx address %d", cxxAddress);
@@ -1369,7 +1340,6 @@ bool android_webkit_WebViewClient::shouldOverrideKeyEvent(AndroidCXX::android_we
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1387,17 +1357,17 @@ bool android_webkit_WebViewClient::shouldOverrideKeyEvent(AndroidCXX::android_we
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_webkit_WebViewClient::shouldOverrideKeyEvent(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_view_KeyEvent& arg1) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_webkit_WebViewClient::shouldOverrideKeyEvent(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) exit");
 
 	return result;
 }
-void android_webkit_WebViewClient::onUnhandledKeyEvent(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_view_KeyEvent& arg1)
+void android_webkit_WebViewClient::onUnhandledKeyEvent(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_view_KeyEvent const& arg1)
 {
-	LOGV("void android_webkit_WebViewClient::onUnhandledKeyEvent(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_view_KeyEvent& arg1) enter");
+	LOGV("void android_webkit_WebViewClient::onUnhandledKeyEvent(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) enter");
 
 	const char *methodName = "onUnhandledKeyEvent";
 	const char *methodSignature = "(Landroid/webkit/WebView;Landroid/view/KeyEvent;)V";
@@ -1407,8 +1377,6 @@ void android_webkit_WebViewClient::onUnhandledKeyEvent(AndroidCXX::android_webki
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebViewClient cxx address %d", cxxAddress);
@@ -1460,14 +1428,12 @@ void android_webkit_WebViewClient::onUnhandledKeyEvent(AndroidCXX::android_webki
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebViewClient::onUnhandledKeyEvent(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_view_KeyEvent& arg1) exit");
+	LOGV("void android_webkit_WebViewClient::onUnhandledKeyEvent(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) exit");
 
 }
-void android_webkit_WebViewClient::onScaleChanged(AndroidCXX::android_webkit_WebView& arg0,float& arg1,float& arg2)
+void android_webkit_WebViewClient::onScaleChanged(AndroidCXX::android_webkit_WebView const& arg0,float const& arg1,float const& arg2)
 {
-	LOGV("void android_webkit_WebViewClient::onScaleChanged(AndroidCXX::android_webkit_WebView& arg0,float& arg1,float& arg2) enter");
+	LOGV("void android_webkit_WebViewClient::onScaleChanged(AndroidCXX::android_webkit_WebView const& arg0,float const& arg1,float const& arg2) enter");
 
 	const char *methodName = "onScaleChanged";
 	const char *methodSignature = "(Landroid/webkit/WebView;FF)V";
@@ -1477,8 +1443,6 @@ void android_webkit_WebViewClient::onScaleChanged(AndroidCXX::android_webkit_Web
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebViewClient cxx address %d", cxxAddress);
@@ -1551,14 +1515,12 @@ void android_webkit_WebViewClient::onScaleChanged(AndroidCXX::android_webkit_Web
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebViewClient::onScaleChanged(AndroidCXX::android_webkit_WebView& arg0,float& arg1,float& arg2) exit");
+	LOGV("void android_webkit_WebViewClient::onScaleChanged(AndroidCXX::android_webkit_WebView const& arg0,float const& arg1,float const& arg2) exit");
 
 }
-void android_webkit_WebViewClient::onReceivedLoginRequest(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3)
+void android_webkit_WebViewClient::onReceivedLoginRequest(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3)
 {
-	LOGV("void android_webkit_WebViewClient::onReceivedLoginRequest(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3) enter");
+	LOGV("void android_webkit_WebViewClient::onReceivedLoginRequest(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3) enter");
 
 	const char *methodName = "onReceivedLoginRequest";
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
@@ -1568,8 +1530,6 @@ void android_webkit_WebViewClient::onReceivedLoginRequest(AndroidCXX::android_we
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebViewClient cxx address %d", cxxAddress);
@@ -1663,8 +1623,6 @@ void android_webkit_WebViewClient::onReceivedLoginRequest(AndroidCXX::android_we
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebViewClient::onReceivedLoginRequest(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3) exit");
+	LOGV("void android_webkit_WebViewClient::onReceivedLoginRequest(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3) exit");
 
 }

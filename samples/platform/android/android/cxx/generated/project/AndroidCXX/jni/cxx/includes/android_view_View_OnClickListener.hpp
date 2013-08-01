@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -52,13 +51,13 @@ class android_view_View_OnClickListener
 public:
 
 	android_view_View_OnClickListener(const android_view_View_OnClickListener& cc);
-	android_view_View_OnClickListener(void * proxy);
+	android_view_View_OnClickListener(Proxy proxy);
 	// Public Constructors
-	android_view_View_OnClickListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnClickListener();
 	// Functions
-	 void onClick(AndroidCXX::android_view_View& arg0);
+	 void onClick(AndroidCXX::android_view_View const& arg0);
 };	
 
 } // namespace

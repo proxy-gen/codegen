@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -70,7 +69,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_Spinner"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -137,8 +136,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_widget_Spinner::android_widget_Spinner(const android_widget_Spinner& cc)
 {
 	LOGV("android_widget_Spinner::android_widget_Spinner(const android_widget_Spinner& cc) enter");
@@ -162,9 +159,9 @@ android_widget_Spinner::android_widget_Spinner(const android_widget_Spinner& cc)
 
 	LOGV("android_widget_Spinner::android_widget_Spinner(const android_widget_Spinner& cc) exit");
 }
-android_widget_Spinner::android_widget_Spinner(void * proxy)
+android_widget_Spinner::android_widget_Spinner(Proxy proxy)
 {
-	LOGV("android_widget_Spinner::android_widget_Spinner(void * proxy) enter");
+	LOGV("android_widget_Spinner::android_widget_Spinner(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -174,50 +171,34 @@ android_widget_Spinner::android_widget_Spinner(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_Spinner::android_widget_Spinner(void * proxy) exit");
+	LOGV("android_widget_Spinner::android_widget_Spinner(Proxy proxy) exit");
 }
-android_widget_Spinner::android_widget_Spinner()
-{
-	LOGV("android_widget_Spinner::android_widget_Spinner() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/Spinner";
-
-	LOGV("android_widget_Spinner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_widget_Spinner::proxy() const
+{	
+	LOGV("android_widget_Spinner::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Spinner jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_widget_Spinner::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_widget_Spinner::android_widget_Spinner() exit");	
+	return proxy;
 }
-// Public Constructors
-android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context& arg0)
+android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -270,11 +251,11 @@ android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Conte
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context const& arg0) exit");	
 }
-android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context& arg0,int& arg1)
+android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context const& arg0,int const& arg1)
 {
-	LOGV("android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context& arg0,int& arg1) enter");	
+	LOGV("android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context const& arg0,int const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;I)V";
@@ -348,11 +329,11 @@ android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Conte
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context& arg0,int& arg1) exit");	
+	LOGV("android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context const& arg0,int const& arg1) exit");	
 }
-android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -426,11 +407,11 @@ android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Conte
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
+android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2)
 {
-	LOGV("android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) enter");	
+	LOGV("android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
@@ -525,11 +506,11 @@ android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Conte
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) exit");	
+	LOGV("android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) exit");	
 }
-android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2,int& arg3)
+android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2,int& arg3) enter");	
+	LOGV("android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,int const& arg3) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;II)V";
@@ -645,7 +626,7 @@ android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Conte
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2,int& arg3) exit");	
+	LOGV("android_widget_Spinner::android_widget_Spinner(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,int const& arg3) exit");	
 }
 // Default Instance Destructor
 android_widget_Spinner::~android_widget_Spinner()
@@ -658,7 +639,7 @@ android_widget_Spinner::~android_widget_Spinner()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_Spinner::~android_widget_Spinner() exit");
 }
 // Functions
@@ -675,15 +656,12 @@ bool android_widget_Spinner::performClick()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Spinner jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -701,17 +679,17 @@ bool android_widget_Spinner::performClick()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_widget_Spinner::performClick() exit");
 
 	return result;
 }
-void android_widget_Spinner::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_Spinner::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_Spinner::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_Spinner::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -721,8 +699,6 @@ void android_widget_Spinner::onInitializeAccessibilityEvent(AndroidCXX::android_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
@@ -753,14 +729,12 @@ void android_widget_Spinner::onInitializeAccessibilityEvent(AndroidCXX::android_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Spinner::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_Spinner::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_Spinner::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0)
+void android_widget_Spinner::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0)
 {
-	LOGV("void android_widget_Spinner::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) enter");
+	LOGV("void android_widget_Spinner::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityNodeInfo";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
@@ -770,8 +744,6 @@ void android_widget_Spinner::onInitializeAccessibilityNodeInfo(AndroidCXX::andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
@@ -802,14 +774,12 @@ void android_widget_Spinner::onInitializeAccessibilityNodeInfo(AndroidCXX::andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Spinner::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) exit");
+	LOGV("void android_widget_Spinner::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) exit");
 
 }
-void android_widget_Spinner::setEnabled(bool& arg0)
+void android_widget_Spinner::setEnabled(bool const& arg0)
 {
-	LOGV("void android_widget_Spinner::setEnabled(bool& arg0) enter");
+	LOGV("void android_widget_Spinner::setEnabled(bool const& arg0) enter");
 
 	const char *methodName = "setEnabled";
 	const char *methodSignature = "(Z)V";
@@ -819,8 +789,6 @@ void android_widget_Spinner::setEnabled(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
@@ -851,9 +819,7 @@ void android_widget_Spinner::setEnabled(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Spinner::setEnabled(bool& arg0) exit");
+	LOGV("void android_widget_Spinner::setEnabled(bool const& arg0) exit");
 
 }
 int android_widget_Spinner::getBaseline()
@@ -869,15 +835,12 @@ int android_widget_Spinner::getBaseline()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Spinner jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -895,17 +858,17 @@ int android_widget_Spinner::getBaseline()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_Spinner::getBaseline() exit");
 
 	return result;
 }
-void android_widget_Spinner::onClick(AndroidCXX::android_content_DialogInterface& arg0,int& arg1)
+void android_widget_Spinner::onClick(AndroidCXX::android_content_DialogInterface const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_Spinner::onClick(AndroidCXX::android_content_DialogInterface& arg0,int& arg1) enter");
+	LOGV("void android_widget_Spinner::onClick(AndroidCXX::android_content_DialogInterface const& arg0,int const& arg1) enter");
 
 	const char *methodName = "onClick";
 	const char *methodSignature = "(Landroid/content/DialogInterface;I)V";
@@ -915,8 +878,6 @@ void android_widget_Spinner::onClick(AndroidCXX::android_content_DialogInterface
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
@@ -968,14 +929,12 @@ void android_widget_Spinner::onClick(AndroidCXX::android_content_DialogInterface
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Spinner::onClick(AndroidCXX::android_content_DialogInterface& arg0,int& arg1) exit");
+	LOGV("void android_widget_Spinner::onClick(AndroidCXX::android_content_DialogInterface const& arg0,int const& arg1) exit");
 
 }
-void android_widget_Spinner::setGravity(int& arg0)
+void android_widget_Spinner::setGravity(int const& arg0)
 {
-	LOGV("void android_widget_Spinner::setGravity(int& arg0) enter");
+	LOGV("void android_widget_Spinner::setGravity(int const& arg0) enter");
 
 	const char *methodName = "setGravity";
 	const char *methodSignature = "(I)V";
@@ -985,8 +944,6 @@ void android_widget_Spinner::setGravity(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
@@ -1017,14 +974,12 @@ void android_widget_Spinner::setGravity(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Spinner::setGravity(int& arg0) exit");
+	LOGV("void android_widget_Spinner::setGravity(int const& arg0) exit");
 
 }
-void android_widget_Spinner::setAdapter(AndroidCXX::android_widget_SpinnerAdapter& arg0)
+void android_widget_Spinner::setAdapter(AndroidCXX::android_widget_SpinnerAdapter const& arg0)
 {
-	LOGV("void android_widget_Spinner::setAdapter(AndroidCXX::android_widget_SpinnerAdapter& arg0) enter");
+	LOGV("void android_widget_Spinner::setAdapter(AndroidCXX::android_widget_SpinnerAdapter const& arg0) enter");
 
 	const char *methodName = "setAdapter";
 	const char *methodSignature = "(Landroid/widget/SpinnerAdapter;)V";
@@ -1034,8 +989,6 @@ void android_widget_Spinner::setAdapter(AndroidCXX::android_widget_SpinnerAdapte
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
@@ -1066,14 +1019,12 @@ void android_widget_Spinner::setAdapter(AndroidCXX::android_widget_SpinnerAdapte
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Spinner::setAdapter(AndroidCXX::android_widget_SpinnerAdapter& arg0) exit");
+	LOGV("void android_widget_Spinner::setAdapter(AndroidCXX::android_widget_SpinnerAdapter const& arg0) exit");
 
 }
-void android_widget_Spinner::setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener& arg0)
+void android_widget_Spinner::setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener const& arg0)
 {
-	LOGV("void android_widget_Spinner::setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener& arg0) enter");
+	LOGV("void android_widget_Spinner::setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener const& arg0) enter");
 
 	const char *methodName = "setOnItemClickListener";
 	const char *methodSignature = "(Landroid/widget/AdapterView$OnItemClickListener;)V";
@@ -1083,8 +1034,6 @@ void android_widget_Spinner::setOnItemClickListener(AndroidCXX::android_widget_A
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
@@ -1115,9 +1064,7 @@ void android_widget_Spinner::setOnItemClickListener(AndroidCXX::android_widget_A
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Spinner::setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener& arg0) exit");
+	LOGV("void android_widget_Spinner::setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener const& arg0) exit");
 
 }
 int android_widget_Spinner::getGravity()
@@ -1133,15 +1080,12 @@ int android_widget_Spinner::getGravity()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Spinner jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1159,10 +1103,10 @@ int android_widget_Spinner::getGravity()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_Spinner::getGravity() exit");
 
 	return result;
@@ -1180,15 +1124,12 @@ int android_widget_Spinner::getDropDownWidth()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Spinner jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1206,17 +1147,17 @@ int android_widget_Spinner::getDropDownWidth()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_Spinner::getDropDownWidth() exit");
 
 	return result;
 }
-void android_widget_Spinner::setDropDownWidth(int& arg0)
+void android_widget_Spinner::setDropDownWidth(int const& arg0)
 {
-	LOGV("void android_widget_Spinner::setDropDownWidth(int& arg0) enter");
+	LOGV("void android_widget_Spinner::setDropDownWidth(int const& arg0) enter");
 
 	const char *methodName = "setDropDownWidth";
 	const char *methodSignature = "(I)V";
@@ -1227,8 +1168,6 @@ void android_widget_Spinner::setDropDownWidth(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1258,14 +1197,12 @@ void android_widget_Spinner::setDropDownWidth(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Spinner::setDropDownWidth(int& arg0) exit");
+	LOGV("void android_widget_Spinner::setDropDownWidth(int const& arg0) exit");
 
 }
-void android_widget_Spinner::setDropDownVerticalOffset(int& arg0)
+void android_widget_Spinner::setDropDownVerticalOffset(int const& arg0)
 {
-	LOGV("void android_widget_Spinner::setDropDownVerticalOffset(int& arg0) enter");
+	LOGV("void android_widget_Spinner::setDropDownVerticalOffset(int const& arg0) enter");
 
 	const char *methodName = "setDropDownVerticalOffset";
 	const char *methodSignature = "(I)V";
@@ -1276,8 +1213,6 @@ void android_widget_Spinner::setDropDownVerticalOffset(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1307,9 +1242,7 @@ void android_widget_Spinner::setDropDownVerticalOffset(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Spinner::setDropDownVerticalOffset(int& arg0) exit");
+	LOGV("void android_widget_Spinner::setDropDownVerticalOffset(int const& arg0) exit");
 
 }
 int android_widget_Spinner::getDropDownVerticalOffset()
@@ -1325,15 +1258,12 @@ int android_widget_Spinner::getDropDownVerticalOffset()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Spinner jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1351,17 +1281,17 @@ int android_widget_Spinner::getDropDownVerticalOffset()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_Spinner::getDropDownVerticalOffset() exit");
 
 	return result;
 }
-void android_widget_Spinner::setDropDownHorizontalOffset(int& arg0)
+void android_widget_Spinner::setDropDownHorizontalOffset(int const& arg0)
 {
-	LOGV("void android_widget_Spinner::setDropDownHorizontalOffset(int& arg0) enter");
+	LOGV("void android_widget_Spinner::setDropDownHorizontalOffset(int const& arg0) enter");
 
 	const char *methodName = "setDropDownHorizontalOffset";
 	const char *methodSignature = "(I)V";
@@ -1371,8 +1301,6 @@ void android_widget_Spinner::setDropDownHorizontalOffset(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
@@ -1403,9 +1331,7 @@ void android_widget_Spinner::setDropDownHorizontalOffset(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Spinner::setDropDownHorizontalOffset(int& arg0) exit");
+	LOGV("void android_widget_Spinner::setDropDownHorizontalOffset(int const& arg0) exit");
 
 }
 int android_widget_Spinner::getDropDownHorizontalOffset()
@@ -1421,15 +1347,12 @@ int android_widget_Spinner::getDropDownHorizontalOffset()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Spinner jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1447,17 +1370,17 @@ int android_widget_Spinner::getDropDownHorizontalOffset()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_Spinner::getDropDownHorizontalOffset() exit");
 
 	return result;
 }
-void android_widget_Spinner::setPopupBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0)
+void android_widget_Spinner::setPopupBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0)
 {
-	LOGV("void android_widget_Spinner::setPopupBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0) enter");
+	LOGV("void android_widget_Spinner::setPopupBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) enter");
 
 	const char *methodName = "setPopupBackgroundDrawable";
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
@@ -1467,8 +1390,6 @@ void android_widget_Spinner::setPopupBackgroundDrawable(AndroidCXX::android_grap
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
@@ -1499,14 +1420,12 @@ void android_widget_Spinner::setPopupBackgroundDrawable(AndroidCXX::android_grap
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Spinner::setPopupBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0) exit");
+	LOGV("void android_widget_Spinner::setPopupBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) exit");
 
 }
-void android_widget_Spinner::setPopupBackgroundResource(int& arg0)
+void android_widget_Spinner::setPopupBackgroundResource(int const& arg0)
 {
-	LOGV("void android_widget_Spinner::setPopupBackgroundResource(int& arg0) enter");
+	LOGV("void android_widget_Spinner::setPopupBackgroundResource(int const& arg0) enter");
 
 	const char *methodName = "setPopupBackgroundResource";
 	const char *methodSignature = "(I)V";
@@ -1516,8 +1435,6 @@ void android_widget_Spinner::setPopupBackgroundResource(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
@@ -1548,9 +1465,7 @@ void android_widget_Spinner::setPopupBackgroundResource(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Spinner::setPopupBackgroundResource(int& arg0) exit");
+	LOGV("void android_widget_Spinner::setPopupBackgroundResource(int const& arg0) exit");
 
 }
 AndroidCXX::android_graphics_drawable_Drawable android_widget_Spinner::getPopupBackground()
@@ -1566,15 +1481,12 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_Spinner::getPopupB
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Spinner jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_drawable_Drawable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1592,17 +1504,17 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_Spinner::getPopupB
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_drawable_Drawable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_drawable_Drawable) (AndroidCXX::android_graphics_drawable_Drawable((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
+		
 	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_widget_Spinner::getPopupBackground() exit");
 
 	return result;
 }
-void android_widget_Spinner::setPrompt(AndroidCXX::java_lang_CharSequence& arg0)
+void android_widget_Spinner::setPrompt(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_widget_Spinner::setPrompt(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_widget_Spinner::setPrompt(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setPrompt";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -1612,8 +1524,6 @@ void android_widget_Spinner::setPrompt(AndroidCXX::java_lang_CharSequence& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
@@ -1644,14 +1554,12 @@ void android_widget_Spinner::setPrompt(AndroidCXX::java_lang_CharSequence& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Spinner::setPrompt(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_widget_Spinner::setPrompt(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }
-void android_widget_Spinner::setPromptId(int& arg0)
+void android_widget_Spinner::setPromptId(int const& arg0)
 {
-	LOGV("void android_widget_Spinner::setPromptId(int& arg0) enter");
+	LOGV("void android_widget_Spinner::setPromptId(int const& arg0) enter");
 
 	const char *methodName = "setPromptId";
 	const char *methodSignature = "(I)V";
@@ -1661,8 +1569,6 @@ void android_widget_Spinner::setPromptId(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
@@ -1693,9 +1599,7 @@ void android_widget_Spinner::setPromptId(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Spinner::setPromptId(int& arg0) exit");
+	LOGV("void android_widget_Spinner::setPromptId(int const& arg0) exit");
 
 }
 AndroidCXX::java_lang_CharSequence android_widget_Spinner::getPrompt()
@@ -1711,15 +1615,12 @@ AndroidCXX::java_lang_CharSequence android_widget_Spinner::getPrompt()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Spinner cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Spinner jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1737,10 +1638,10 @@ AndroidCXX::java_lang_CharSequence android_widget_Spinner::getPrompt()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_CharSequence) (AndroidCXX::java_lang_CharSequence((AndroidCXX::java_lang_CharSequence *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
+	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_CharSequence android_widget_Spinner::getPrompt() exit");
 
 	return result;

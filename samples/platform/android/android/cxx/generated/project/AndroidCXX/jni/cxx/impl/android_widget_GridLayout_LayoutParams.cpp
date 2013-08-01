@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -43,7 +42,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_GridLayout_LayoutParams"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -83,34 +82,9 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
-android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(const android_widget_GridLayout_LayoutParams& cc)
+android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(Proxy proxy)
 {
-	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(const android_widget_GridLayout_LayoutParams& cc) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	long ccaddress = (long) &cc;
-	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
-	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
-	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
-	long address = (long) this;
-	LOGV("registerProxyComponent address %ld", address);
-	jobject proxiedComponent = ctx->findProxyComponent(address);
-	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
-	if (proxiedComponent == 0)
-	{
-		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = proxiedCCComponent;
-		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
-		ctx->registerProxyComponent(address, proxiedComponent);
-	}
-
-	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(const android_widget_GridLayout_LayoutParams& cc) exit");
-}
-android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(void * proxy)
-{
-	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(void * proxy) enter");
+	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -120,16 +94,34 @@ android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(v
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(void * proxy) exit");
+	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(Proxy proxy) exit");
 }
-// Public Constructors
-android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_Spec& arg0,AndroidCXX::android_widget_GridLayout_Spec& arg1)
+Proxy android_widget_GridLayout_LayoutParams::proxy() const
+{	
+	LOGV("android_widget_GridLayout_LayoutParams::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_widget_GridLayout_LayoutParams cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_GridLayout_LayoutParams jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_widget_GridLayout_LayoutParams::proxy() exit");	
+
+	return proxy;
+}
+android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_Spec const& arg0,AndroidCXX::android_widget_GridLayout_Spec const& arg1)
 {
-	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_Spec& arg0,AndroidCXX::android_widget_GridLayout_Spec& arg1) enter");	
+	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_Spec const& arg0,AndroidCXX::android_widget_GridLayout_Spec const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/widget/GridLayout$Spec;Landroid/widget/GridLayout$Spec;)V";
@@ -203,7 +195,7 @@ android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(A
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_Spec& arg0,AndroidCXX::android_widget_GridLayout_Spec& arg1) exit");	
+	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_Spec const& arg0,AndroidCXX::android_widget_GridLayout_Spec const& arg1) exit");	
 }
 android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams()
 {
@@ -241,9 +233,9 @@ android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams()
 
 	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams() exit");	
 }
-android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0)
+android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0)
 {
-	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0) enter");	
+	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/view/ViewGroup$LayoutParams;)V";
@@ -296,11 +288,11 @@ android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(A
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0) exit");	
+	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0) exit");	
 }
-android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams& arg0)
+android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams const& arg0)
 {
-	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams& arg0) enter");	
+	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/view/ViewGroup$MarginLayoutParams;)V";
@@ -353,11 +345,11 @@ android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(A
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams& arg0) exit");	
+	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams const& arg0) exit");	
 }
-android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_LayoutParams& arg0)
+android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_LayoutParams const& arg0)
 {
-	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_LayoutParams& arg0) enter");	
+	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_LayoutParams const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/widget/GridLayout$LayoutParams;)V";
@@ -410,11 +402,11 @@ android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(A
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_LayoutParams& arg0) exit");	
+	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_LayoutParams const& arg0) exit");	
 }
-android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -488,7 +480,7 @@ android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(A
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
 // Default Instance Destructor
 android_widget_GridLayout_LayoutParams::~android_widget_GridLayout_LayoutParams()
@@ -501,13 +493,13 @@ android_widget_GridLayout_LayoutParams::~android_widget_GridLayout_LayoutParams(
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_GridLayout_LayoutParams::~android_widget_GridLayout_LayoutParams() exit");
 }
 // Functions
-bool android_widget_GridLayout_LayoutParams::equals(AndroidCXX::java_lang_Object& arg0)
+bool android_widget_GridLayout_LayoutParams::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool android_widget_GridLayout_LayoutParams::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool android_widget_GridLayout_LayoutParams::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -517,8 +509,6 @@ bool android_widget_GridLayout_LayoutParams::equals(AndroidCXX::java_lang_Object
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridLayout_LayoutParams cxx address %d", cxxAddress);
@@ -547,7 +537,6 @@ bool android_widget_GridLayout_LayoutParams::equals(AndroidCXX::java_lang_Object
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -565,11 +554,11 @@ bool android_widget_GridLayout_LayoutParams::equals(AndroidCXX::java_lang_Object
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_GridLayout_LayoutParams::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_GridLayout_LayoutParams::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -586,15 +575,12 @@ int android_widget_GridLayout_LayoutParams::hashCode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridLayout_LayoutParams cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_GridLayout_LayoutParams jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -612,17 +598,17 @@ int android_widget_GridLayout_LayoutParams::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_GridLayout_LayoutParams::hashCode() exit");
 
 	return result;
 }
-void android_widget_GridLayout_LayoutParams::setGravity(int& arg0)
+void android_widget_GridLayout_LayoutParams::setGravity(int const& arg0)
 {
-	LOGV("void android_widget_GridLayout_LayoutParams::setGravity(int& arg0) enter");
+	LOGV("void android_widget_GridLayout_LayoutParams::setGravity(int const& arg0) enter");
 
 	const char *methodName = "setGravity";
 	const char *methodSignature = "(I)V";
@@ -632,8 +618,6 @@ void android_widget_GridLayout_LayoutParams::setGravity(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_GridLayout_LayoutParams cxx address %d", cxxAddress);
@@ -664,8 +648,6 @@ void android_widget_GridLayout_LayoutParams::setGravity(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_GridLayout_LayoutParams::setGravity(int& arg0) exit");
+	LOGV("void android_widget_GridLayout_LayoutParams::setGravity(int const& arg0) exit");
 
 }

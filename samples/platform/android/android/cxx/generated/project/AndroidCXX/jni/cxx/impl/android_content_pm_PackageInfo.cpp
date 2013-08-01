@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 
@@ -32,7 +31,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_content_pm_PackageInfo"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -54,8 +53,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_content_pm_PackageInfo::android_content_pm_PackageInfo(const android_content_pm_PackageInfo& cc)
 {
 	LOGV("android_content_pm_PackageInfo::android_content_pm_PackageInfo(const android_content_pm_PackageInfo& cc) enter");
@@ -79,9 +76,9 @@ android_content_pm_PackageInfo::android_content_pm_PackageInfo(const android_con
 
 	LOGV("android_content_pm_PackageInfo::android_content_pm_PackageInfo(const android_content_pm_PackageInfo& cc) exit");
 }
-android_content_pm_PackageInfo::android_content_pm_PackageInfo(void * proxy)
+android_content_pm_PackageInfo::android_content_pm_PackageInfo(Proxy proxy)
 {
-	LOGV("android_content_pm_PackageInfo::android_content_pm_PackageInfo(void * proxy) enter");
+	LOGV("android_content_pm_PackageInfo::android_content_pm_PackageInfo(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -91,13 +88,31 @@ android_content_pm_PackageInfo::android_content_pm_PackageInfo(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_content_pm_PackageInfo::android_content_pm_PackageInfo(void * proxy) exit");
+	LOGV("android_content_pm_PackageInfo::android_content_pm_PackageInfo(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy android_content_pm_PackageInfo::proxy() const
+{	
+	LOGV("android_content_pm_PackageInfo::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_content_pm_PackageInfo cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_content_pm_PackageInfo jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_content_pm_PackageInfo::proxy() exit");	
+
+	return proxy;
+}
 android_content_pm_PackageInfo::android_content_pm_PackageInfo()
 {
 	LOGV("android_content_pm_PackageInfo::android_content_pm_PackageInfo() enter");	
@@ -145,7 +160,7 @@ android_content_pm_PackageInfo::~android_content_pm_PackageInfo()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_content_pm_PackageInfo::~android_content_pm_PackageInfo() exit");
 }
 // Functions
@@ -162,15 +177,12 @@ AndroidCXX::java_lang_String android_content_pm_PackageInfo::toString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_pm_PackageInfo jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -188,10 +200,10 @@ AndroidCXX::java_lang_String android_content_pm_PackageInfo::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_content_pm_PackageInfo::toString() exit");
 
 	return result;
@@ -209,15 +221,12 @@ int android_content_pm_PackageInfo::describeContents()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageInfo cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_pm_PackageInfo jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -235,17 +244,17 @@ int android_content_pm_PackageInfo::describeContents()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_content_pm_PackageInfo::describeContents() exit");
 
 	return result;
 }
-void android_content_pm_PackageInfo::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_content_pm_PackageInfo::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_content_pm_PackageInfo::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_content_pm_PackageInfo::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -255,8 +264,6 @@ void android_content_pm_PackageInfo::writeToParcel(AndroidCXX::android_os_Parcel
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_PackageInfo cxx address %d", cxxAddress);
@@ -308,8 +315,6 @@ void android_content_pm_PackageInfo::writeToParcel(AndroidCXX::android_os_Parcel
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_pm_PackageInfo::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_content_pm_PackageInfo::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }

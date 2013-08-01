@@ -811,6 +811,10 @@ class TranslationUnit(JavaObject):
 			tags = list()
 			tags.append("_no_proxy")
 		else:
+			if Modifier.is_modifier(modifiers, Modifier.JAVA_FINAL):
+				if '_callback' in tags:
+					tags.remove('_callback')
+				tags.append('_no_callback')
 			type_kind = TypeKind.from_id(_type)
 			if type_kind == TypeKind.JAVA_ENUM:
 				tags[:] = list()
@@ -893,6 +897,10 @@ class TranslationUnit(JavaObject):
 			tags = list()
 			tags.append("_no_proxy")
 		else:
+			if Modifier.is_modifier(modifiers, Modifier.JAVA_FINAL):
+				if '_callback' in tags:
+					tags.remove('_callback')
+				tags.append('_no_callback')
 			type_kind = TypeKind.from_id(_type)
 			if type_kind == TypeKind.JAVA_PUBLIC_STATIC_METHOD:
 				tags.append("_static")

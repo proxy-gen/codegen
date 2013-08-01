@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -89,10 +88,10 @@ class android_content_res_AssetFileDescriptor
 public:
 
 	android_content_res_AssetFileDescriptor(const android_content_res_AssetFileDescriptor& cc);
-	android_content_res_AssetFileDescriptor(void * proxy);
+	android_content_res_AssetFileDescriptor(Proxy proxy);
 	// Public Constructors
-	android_content_res_AssetFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor& arg0,long& arg1,long& arg2);
-	android_content_res_AssetFileDescriptor();
+	android_content_res_AssetFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor const& arg0,long const& arg1,long const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_res_AssetFileDescriptor();
 	// Functions
@@ -100,7 +99,7 @@ public:
 	 long getLength();
 	 void close();
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 	 AndroidCXX::java_io_FileDescriptor getFileDescriptor();
 	 long getStartOffset();
 	 AndroidCXX::android_os_ParcelFileDescriptor getParcelFileDescriptor();

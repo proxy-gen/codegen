@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -41,7 +40,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_content_pm_Signature"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -69,8 +68,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_content_pm_Signature::android_content_pm_Signature(const android_content_pm_Signature& cc)
 {
 	LOGV("android_content_pm_Signature::android_content_pm_Signature(const android_content_pm_Signature& cc) enter");
@@ -94,9 +91,9 @@ android_content_pm_Signature::android_content_pm_Signature(const android_content
 
 	LOGV("android_content_pm_Signature::android_content_pm_Signature(const android_content_pm_Signature& cc) exit");
 }
-android_content_pm_Signature::android_content_pm_Signature(void * proxy)
+android_content_pm_Signature::android_content_pm_Signature(Proxy proxy)
 {
-	LOGV("android_content_pm_Signature::android_content_pm_Signature(void * proxy) enter");
+	LOGV("android_content_pm_Signature::android_content_pm_Signature(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -106,50 +103,34 @@ android_content_pm_Signature::android_content_pm_Signature(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_content_pm_Signature::android_content_pm_Signature(void * proxy) exit");
+	LOGV("android_content_pm_Signature::android_content_pm_Signature(Proxy proxy) exit");
 }
-android_content_pm_Signature::android_content_pm_Signature()
-{
-	LOGV("android_content_pm_Signature::android_content_pm_Signature() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/content/pm/Signature";
-
-	LOGV("android_content_pm_Signature className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_content_pm_Signature::proxy() const
+{	
+	LOGV("android_content_pm_Signature::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_Signature cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_pm_Signature jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_content_pm_Signature::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_content_pm_Signature::android_content_pm_Signature() exit");	
+	return proxy;
 }
-// Public Constructors
-android_content_pm_Signature::android_content_pm_Signature(std::vector<byte>& arg0)
+android_content_pm_Signature::android_content_pm_Signature(std::vector<byte> const& arg0)
 {
-	LOGV("android_content_pm_Signature::android_content_pm_Signature(std::vector<byte>& arg0) enter");	
+	LOGV("android_content_pm_Signature::android_content_pm_Signature(std::vector<byte> const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "([B)V";
@@ -220,11 +201,11 @@ android_content_pm_Signature::android_content_pm_Signature(std::vector<byte>& ar
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_pm_Signature::android_content_pm_Signature(std::vector<byte>& arg0) exit");	
+	LOGV("android_content_pm_Signature::android_content_pm_Signature(std::vector<byte> const& arg0) exit");	
 }
-android_content_pm_Signature::android_content_pm_Signature(AndroidCXX::java_lang_String& arg0)
+android_content_pm_Signature::android_content_pm_Signature(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("android_content_pm_Signature::android_content_pm_Signature(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("android_content_pm_Signature::android_content_pm_Signature(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -277,7 +258,7 @@ android_content_pm_Signature::android_content_pm_Signature(AndroidCXX::java_lang
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_pm_Signature::android_content_pm_Signature(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("android_content_pm_Signature::android_content_pm_Signature(AndroidCXX::java_lang_String const& arg0) exit");	
 }
 // Default Instance Destructor
 android_content_pm_Signature::~android_content_pm_Signature()
@@ -290,13 +271,13 @@ android_content_pm_Signature::~android_content_pm_Signature()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_content_pm_Signature::~android_content_pm_Signature() exit");
 }
 // Functions
-bool android_content_pm_Signature::equals(AndroidCXX::java_lang_Object& arg0)
+bool android_content_pm_Signature::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool android_content_pm_Signature::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool android_content_pm_Signature::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -306,8 +287,6 @@ bool android_content_pm_Signature::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_Signature cxx address %d", cxxAddress);
@@ -336,7 +315,6 @@ bool android_content_pm_Signature::equals(AndroidCXX::java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -354,11 +332,11 @@ bool android_content_pm_Signature::equals(AndroidCXX::java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_content_pm_Signature::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_content_pm_Signature::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -375,15 +353,12 @@ int android_content_pm_Signature::hashCode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_Signature cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_pm_Signature jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -401,10 +376,10 @@ int android_content_pm_Signature::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_content_pm_Signature::hashCode() exit");
 
 	return result;
@@ -422,15 +397,12 @@ std::vector<char> android_content_pm_Signature::toChars()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_Signature cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_pm_Signature jni address %d", javaObject);
 
 
-	std::vector<char> result;
 	jcharArray jni_result = (jcharArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__char_array_type_to_java(jni_result);
@@ -466,17 +438,17 @@ std::vector<char> android_content_pm_Signature::toChars()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__char_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<char>) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	std::vector<char> result = (std::vector<char>) *((std::vector<char> *) cxx_value);
+	delete ((std::vector<char> *) cxx_value);
+		
 	LOGV("std::vector<char> android_content_pm_Signature::toChars() exit");
 
 	return result;
 }
-std::vector<char> android_content_pm_Signature::toChars(std::vector<char>& arg0,std::vector<int>& arg1)
+std::vector<char> android_content_pm_Signature::toChars(std::vector<char> const& arg0,std::vector<int> const& arg1)
 {
-	LOGV("std::vector<char> android_content_pm_Signature::toChars(std::vector<char>& arg0,std::vector<int>& arg1) enter");
+	LOGV("std::vector<char> android_content_pm_Signature::toChars(std::vector<char> const& arg0,std::vector<int> const& arg1) enter");
 
 	const char *methodName = "toChars";
 	const char *methodSignature = "([C[I)[C";
@@ -486,8 +458,6 @@ std::vector<char> android_content_pm_Signature::toChars(std::vector<char>& arg0,
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_Signature cxx address %d", cxxAddress);
@@ -573,7 +543,6 @@ std::vector<char> android_content_pm_Signature::toChars(std::vector<char>& arg0,
 		jarg1 = convert_jni__int_array_type_to_jni(java_value);
 	}
 
-	std::vector<char> result;
 	jcharArray jni_result = (jcharArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__char_array_type_to_java(jni_result);
@@ -609,11 +578,11 @@ std::vector<char> android_content_pm_Signature::toChars(std::vector<char>& arg0,
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__char_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<char>) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("std::vector<char> android_content_pm_Signature::toChars(std::vector<char>& arg0,std::vector<int>& arg1) exit");
+	std::vector<char> result = (std::vector<char>) *((std::vector<char> *) cxx_value);
+	delete ((std::vector<char> *) cxx_value);
+		
+	LOGV("std::vector<char> android_content_pm_Signature::toChars(std::vector<char> const& arg0,std::vector<int> const& arg1) exit");
 
 	return result;
 }
@@ -630,15 +599,12 @@ std::vector<byte> android_content_pm_Signature::toByteArray()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_Signature cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_pm_Signature jni address %d", javaObject);
 
 
-	std::vector<byte> result;
 	jbyteArray jni_result = (jbyteArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__byte_array_type_to_java(jni_result);
@@ -674,10 +640,10 @@ std::vector<byte> android_content_pm_Signature::toByteArray()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__byte_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<byte>) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	std::vector<byte> result = (std::vector<byte>) *((std::vector<byte> *) cxx_value);
+	delete ((std::vector<byte> *) cxx_value);
+		
 	LOGV("std::vector<byte> android_content_pm_Signature::toByteArray() exit");
 
 	return result;
@@ -695,15 +661,12 @@ int android_content_pm_Signature::describeContents()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_Signature cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_pm_Signature jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -721,17 +684,17 @@ int android_content_pm_Signature::describeContents()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_content_pm_Signature::describeContents() exit");
 
 	return result;
 }
-void android_content_pm_Signature::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_content_pm_Signature::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_content_pm_Signature::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_content_pm_Signature::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -741,8 +704,6 @@ void android_content_pm_Signature::writeToParcel(AndroidCXX::android_os_Parcel& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_Signature cxx address %d", cxxAddress);
@@ -794,9 +755,7 @@ void android_content_pm_Signature::writeToParcel(AndroidCXX::android_os_Parcel& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_pm_Signature::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_content_pm_Signature::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }
 AndroidCXX::java_lang_String android_content_pm_Signature::toCharsString()
@@ -812,15 +771,12 @@ AndroidCXX::java_lang_String android_content_pm_Signature::toCharsString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_pm_Signature cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_pm_Signature jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -838,10 +794,10 @@ AndroidCXX::java_lang_String android_content_pm_Signature::toCharsString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_content_pm_Signature::toCharsString() exit");
 
 	return result;

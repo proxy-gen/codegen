@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -28,7 +27,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_webkit_ValueCallback"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -47,8 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_webkit_ValueCallback::android_webkit_ValueCallback(const android_webkit_ValueCallback& cc)
 {
 	LOGV("android_webkit_ValueCallback::android_webkit_ValueCallback(const android_webkit_ValueCallback& cc) enter");
@@ -72,9 +69,9 @@ android_webkit_ValueCallback::android_webkit_ValueCallback(const android_webkit_
 
 	LOGV("android_webkit_ValueCallback::android_webkit_ValueCallback(const android_webkit_ValueCallback& cc) exit");
 }
-android_webkit_ValueCallback::android_webkit_ValueCallback(void * proxy)
+android_webkit_ValueCallback::android_webkit_ValueCallback(Proxy proxy)
 {
-	LOGV("android_webkit_ValueCallback::android_webkit_ValueCallback(void * proxy) enter");
+	LOGV("android_webkit_ValueCallback::android_webkit_ValueCallback(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -84,47 +81,31 @@ android_webkit_ValueCallback::android_webkit_ValueCallback(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_webkit_ValueCallback::android_webkit_ValueCallback(void * proxy) exit");
+	LOGV("android_webkit_ValueCallback::android_webkit_ValueCallback(Proxy proxy) exit");
 }
-android_webkit_ValueCallback::android_webkit_ValueCallback()
-{
-	LOGV("android_webkit_ValueCallback::android_webkit_ValueCallback() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/webkit/ValueCallback";
-
-	LOGV("android_webkit_ValueCallback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_webkit_ValueCallback::proxy() const
+{	
+	LOGV("android_webkit_ValueCallback::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_ValueCallback cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_ValueCallback jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_webkit_ValueCallback::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_webkit_ValueCallback::android_webkit_ValueCallback() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_webkit_ValueCallback::~android_webkit_ValueCallback()
 {
@@ -136,13 +117,13 @@ android_webkit_ValueCallback::~android_webkit_ValueCallback()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_webkit_ValueCallback::~android_webkit_ValueCallback() exit");
 }
 // Functions
-void android_webkit_ValueCallback::onReceiveValue(AndroidCXX::java_lang_Object& arg0)
+void android_webkit_ValueCallback::onReceiveValue(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("void android_webkit_ValueCallback::onReceiveValue(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("void android_webkit_ValueCallback::onReceiveValue(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "onReceiveValue";
 	const char *methodSignature = "(Ljava/lang/Object;)V";
@@ -152,8 +133,6 @@ void android_webkit_ValueCallback::onReceiveValue(AndroidCXX::java_lang_Object& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_ValueCallback cxx address %d", cxxAddress);
@@ -184,8 +163,6 @@ void android_webkit_ValueCallback::onReceiveValue(AndroidCXX::java_lang_Object& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_ValueCallback::onReceiveValue(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("void android_webkit_ValueCallback::onReceiveValue(AndroidCXX::java_lang_Object const& arg0) exit");
 
 }

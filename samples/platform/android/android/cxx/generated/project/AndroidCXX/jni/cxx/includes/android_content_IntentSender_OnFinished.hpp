@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -67,13 +66,13 @@ class android_content_IntentSender_OnFinished
 public:
 
 	android_content_IntentSender_OnFinished(const android_content_IntentSender_OnFinished& cc);
-	android_content_IntentSender_OnFinished(void * proxy);
+	android_content_IntentSender_OnFinished(Proxy proxy);
 	// Public Constructors
-	android_content_IntentSender_OnFinished();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_IntentSender_OnFinished();
 	// Functions
-	 void onSendFinished(AndroidCXX::android_content_IntentSender& arg0,AndroidCXX::android_content_Intent& arg1,int& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::android_os_Bundle& arg4);
+	 void onSendFinished(AndroidCXX::android_content_IntentSender const& arg0,AndroidCXX::android_content_Intent const& arg1,int const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::android_os_Bundle const& arg4);
 };	
 
 } // namespace

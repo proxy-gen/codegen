@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -72,18 +71,18 @@ class android_content_pm_ActivityInfo
 {
 public:
 
-	android_content_pm_ActivityInfo(const android_content_pm_ActivityInfo& cc);
-	android_content_pm_ActivityInfo(void * proxy);
+	android_content_pm_ActivityInfo(Proxy proxy);
 	// Public Constructors
 	android_content_pm_ActivityInfo();
-	android_content_pm_ActivityInfo(AndroidCXX::android_content_pm_ActivityInfo& arg0);
+	android_content_pm_ActivityInfo(AndroidCXX::android_content_pm_ActivityInfo const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_pm_ActivityInfo();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
-	 void dump(AndroidCXX::android_util_Printer& arg0,AndroidCXX::java_lang_String& arg1);
+	 void dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1);
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 	 int getThemeResource();
 };	
 

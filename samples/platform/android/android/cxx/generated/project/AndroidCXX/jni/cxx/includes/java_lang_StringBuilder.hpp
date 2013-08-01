@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -155,49 +154,50 @@ class java_lang_StringBuilder
 public:
 
 	java_lang_StringBuilder(const java_lang_StringBuilder& cc);
-	java_lang_StringBuilder(void * proxy);
+	java_lang_StringBuilder(Proxy proxy);
 	// Public Constructors
-	java_lang_StringBuilder(int& arg0);
+	java_lang_StringBuilder(int const& arg0);
 	java_lang_StringBuilder();
-	java_lang_StringBuilder(AndroidCXX::java_lang_String& arg0);
-	java_lang_StringBuilder(AndroidCXX::java_lang_CharSequence& arg0);
+	java_lang_StringBuilder(AndroidCXX::java_lang_String const& arg0);
+	java_lang_StringBuilder(AndroidCXX::java_lang_CharSequence const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_StringBuilder();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
-	 AndroidCXX::java_lang_StringBuilder append(AndroidCXX::java_lang_CharSequence& arg0);
-	 AndroidCXX::java_lang_StringBuilder append(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2);
-	 AndroidCXX::java_lang_StringBuilder append(std::vector<char>& arg0);
-	 AndroidCXX::java_lang_StringBuilder append(bool& arg0);
-	 AndroidCXX::java_lang_StringBuilder append(char& arg0);
-	 AndroidCXX::java_lang_StringBuilder append(int& arg0);
-	 AndroidCXX::java_lang_StringBuilder append(long& arg0);
-	 AndroidCXX::java_lang_StringBuilder append(float& arg0);
-	 AndroidCXX::java_lang_StringBuilder append(double& arg0);
-	 AndroidCXX::java_lang_StringBuilder append(std::vector<char>& arg0,int& arg1,int& arg2);
-	 AndroidCXX::java_lang_StringBuilder append(AndroidCXX::java_lang_Object& arg0);
-	 AndroidCXX::java_lang_StringBuilder append(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::java_lang_StringBuilder append(AndroidCXX::java_lang_StringBuffer& arg0);
-	 int indexOf(AndroidCXX::java_lang_String& arg0);
-	 int indexOf(AndroidCXX::java_lang_String& arg0,int& arg1);
-	 int lastIndexOf(AndroidCXX::java_lang_String& arg0,int& arg1);
-	 int lastIndexOf(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::java_lang_StringBuilder replace(int& arg0,int& arg1,AndroidCXX::java_lang_String& arg2);
-	 AndroidCXX::java_lang_StringBuilder appendCodePoint(int& arg0);
-	 AndroidCXX::java_lang_StringBuilder _delete(int& arg0,int& arg1);
-	 AndroidCXX::java_lang_StringBuilder deleteCharAt(int& arg0);
-	 AndroidCXX::java_lang_StringBuilder insert(int& arg0,float& arg1);
-	 AndroidCXX::java_lang_StringBuilder insert(int& arg0,double& arg1);
-	 AndroidCXX::java_lang_StringBuilder insert(int& arg0,std::vector<char>& arg1,int& arg2,int& arg3);
-	 AndroidCXX::java_lang_StringBuilder insert(int& arg0,AndroidCXX::java_lang_Object& arg1);
-	 AndroidCXX::java_lang_StringBuilder insert(int& arg0,AndroidCXX::java_lang_String& arg1);
-	 AndroidCXX::java_lang_StringBuilder insert(int& arg0,std::vector<char>& arg1);
-	 AndroidCXX::java_lang_StringBuilder insert(int& arg0,AndroidCXX::java_lang_CharSequence& arg1);
-	 AndroidCXX::java_lang_StringBuilder insert(int& arg0,AndroidCXX::java_lang_CharSequence& arg1,int& arg2,int& arg3);
-	 AndroidCXX::java_lang_StringBuilder insert(int& arg0,bool& arg1);
-	 AndroidCXX::java_lang_StringBuilder insert(int& arg0,char& arg1);
-	 AndroidCXX::java_lang_StringBuilder insert(int& arg0,int& arg1);
-	 AndroidCXX::java_lang_StringBuilder insert(int& arg0,long& arg1);
+	 AndroidCXX::java_lang_StringBuilder append(AndroidCXX::java_lang_CharSequence const& arg0);
+	 AndroidCXX::java_lang_StringBuilder append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2);
+	 AndroidCXX::java_lang_StringBuilder append(std::vector<char> const& arg0);
+	 AndroidCXX::java_lang_StringBuilder append(bool const& arg0);
+	 AndroidCXX::java_lang_StringBuilder append(char const& arg0);
+	 AndroidCXX::java_lang_StringBuilder append(int const& arg0);
+	 AndroidCXX::java_lang_StringBuilder append(long const& arg0);
+	 AndroidCXX::java_lang_StringBuilder append(float const& arg0);
+	 AndroidCXX::java_lang_StringBuilder append(double const& arg0);
+	 AndroidCXX::java_lang_StringBuilder append(std::vector<char> const& arg0,int const& arg1,int const& arg2);
+	 AndroidCXX::java_lang_StringBuilder append(AndroidCXX::java_lang_Object const& arg0);
+	 AndroidCXX::java_lang_StringBuilder append(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::java_lang_StringBuilder append(AndroidCXX::java_lang_StringBuffer const& arg0);
+	 int indexOf(AndroidCXX::java_lang_String const& arg0);
+	 int indexOf(AndroidCXX::java_lang_String const& arg0,int const& arg1);
+	 int lastIndexOf(AndroidCXX::java_lang_String const& arg0,int const& arg1);
+	 int lastIndexOf(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::java_lang_StringBuilder replace(int const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2);
+	 AndroidCXX::java_lang_StringBuilder appendCodePoint(int const& arg0);
+	 AndroidCXX::java_lang_StringBuilder _delete(int const& arg0,int const& arg1);
+	 AndroidCXX::java_lang_StringBuilder deleteCharAt(int const& arg0);
+	 AndroidCXX::java_lang_StringBuilder insert(int const& arg0,float const& arg1);
+	 AndroidCXX::java_lang_StringBuilder insert(int const& arg0,double const& arg1);
+	 AndroidCXX::java_lang_StringBuilder insert(int const& arg0,std::vector<char> const& arg1,int const& arg2,int const& arg3);
+	 AndroidCXX::java_lang_StringBuilder insert(int const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	 AndroidCXX::java_lang_StringBuilder insert(int const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 AndroidCXX::java_lang_StringBuilder insert(int const& arg0,std::vector<char> const& arg1);
+	 AndroidCXX::java_lang_StringBuilder insert(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1);
+	 AndroidCXX::java_lang_StringBuilder insert(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,int const& arg2,int const& arg3);
+	 AndroidCXX::java_lang_StringBuilder insert(int const& arg0,bool const& arg1);
+	 AndroidCXX::java_lang_StringBuilder insert(int const& arg0,char const& arg1);
+	 AndroidCXX::java_lang_StringBuilder insert(int const& arg0,int const& arg1);
+	 AndroidCXX::java_lang_StringBuilder insert(int const& arg0,long const& arg1);
 	 AndroidCXX::java_lang_StringBuilder reverse();
 };	
 

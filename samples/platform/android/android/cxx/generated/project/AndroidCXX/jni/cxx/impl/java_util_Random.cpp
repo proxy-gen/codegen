@@ -26,7 +26,6 @@
 
 
 
-
 // Generated Code 
 
 #include <java_util_Random.hpp>
@@ -37,7 +36,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_util_Random"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -50,8 +49,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_util_Random::java_util_Random(const java_util_Random& cc)
 {
 	LOGV("java_util_Random::java_util_Random(const java_util_Random& cc) enter");
@@ -75,9 +72,9 @@ java_util_Random::java_util_Random(const java_util_Random& cc)
 
 	LOGV("java_util_Random::java_util_Random(const java_util_Random& cc) exit");
 }
-java_util_Random::java_util_Random(void * proxy)
+java_util_Random::java_util_Random(Proxy proxy)
 {
-	LOGV("java_util_Random::java_util_Random(void * proxy) enter");
+	LOGV("java_util_Random::java_util_Random(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -87,13 +84,31 @@ java_util_Random::java_util_Random(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_util_Random::java_util_Random(void * proxy) exit");
+	LOGV("java_util_Random::java_util_Random(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy java_util_Random::proxy() const
+{	
+	LOGV("java_util_Random::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("java_util_Random cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_util_Random jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("java_util_Random::proxy() exit");	
+
+	return proxy;
+}
 java_util_Random::java_util_Random()
 {
 	LOGV("java_util_Random::java_util_Random() enter");	
@@ -130,9 +145,9 @@ java_util_Random::java_util_Random()
 
 	LOGV("java_util_Random::java_util_Random() exit");	
 }
-java_util_Random::java_util_Random(long& arg0)
+java_util_Random::java_util_Random(long const& arg0)
 {
-	LOGV("java_util_Random::java_util_Random(long& arg0) enter");	
+	LOGV("java_util_Random::java_util_Random(long const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(J)V";
@@ -185,7 +200,7 @@ java_util_Random::java_util_Random(long& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Random::java_util_Random(long& arg0) exit");	
+	LOGV("java_util_Random::java_util_Random(long const& arg0) exit");	
 }
 // Default Instance Destructor
 java_util_Random::~java_util_Random()
@@ -198,7 +213,7 @@ java_util_Random::~java_util_Random()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_util_Random::~java_util_Random() exit");
 }
 // Functions
@@ -215,15 +230,12 @@ int java_util_Random::nextInt()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Random cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Random jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -241,17 +253,17 @@ int java_util_Random::nextInt()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_util_Random::nextInt() exit");
 
 	return result;
 }
-int java_util_Random::nextInt(int& arg0)
+int java_util_Random::nextInt(int const& arg0)
 {
-	LOGV("int java_util_Random::nextInt(int& arg0) enter");
+	LOGV("int java_util_Random::nextInt(int const& arg0) enter");
 
 	const char *methodName = "nextInt";
 	const char *methodSignature = "(I)I";
@@ -261,8 +273,6 @@ int java_util_Random::nextInt(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Random cxx address %d", cxxAddress);
@@ -291,7 +301,6 @@ int java_util_Random::nextInt(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -309,11 +318,11 @@ int java_util_Random::nextInt(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int java_util_Random::nextInt(int& arg0) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int java_util_Random::nextInt(int const& arg0) exit");
 
 	return result;
 }
@@ -330,15 +339,12 @@ double java_util_Random::nextDouble()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Random cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Random jni address %d", javaObject);
 
 
-	double result;
 	jdouble jni_result = (jdouble) jni->invokeDoubleMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_double_to_java(jni_result);
@@ -356,10 +362,10 @@ double java_util_Random::nextDouble()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_double(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (double) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	double result = (double) *((double *) cxx_value);
+	// 
+		
 	LOGV("double java_util_Random::nextDouble() exit");
 
 	return result;
@@ -377,15 +383,12 @@ long java_util_Random::nextLong()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Random cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Random jni address %d", javaObject);
 
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -403,17 +406,17 @@ long java_util_Random::nextLong()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	long result = (long) *((long *) cxx_value);
+	// 
+		
 	LOGV("long java_util_Random::nextLong() exit");
 
 	return result;
 }
-void java_util_Random::nextBytes(std::vector<byte>& arg0)
+void java_util_Random::nextBytes(std::vector<byte> const& arg0)
 {
-	LOGV("void java_util_Random::nextBytes(std::vector<byte>& arg0) enter");
+	LOGV("void java_util_Random::nextBytes(std::vector<byte> const& arg0) enter");
 
 	const char *methodName = "nextBytes";
 	const char *methodSignature = "([B)V";
@@ -423,8 +426,6 @@ void java_util_Random::nextBytes(std::vector<byte>& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Random cxx address %d", cxxAddress);
@@ -473,14 +474,12 @@ void java_util_Random::nextBytes(std::vector<byte>& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_util_Random::nextBytes(std::vector<byte>& arg0) exit");
+	LOGV("void java_util_Random::nextBytes(std::vector<byte> const& arg0) exit");
 
 }
-void java_util_Random::setSeed(long& arg0)
+void java_util_Random::setSeed(long const& arg0)
 {
-	LOGV("void java_util_Random::setSeed(long& arg0) enter");
+	LOGV("void java_util_Random::setSeed(long const& arg0) enter");
 
 	const char *methodName = "setSeed";
 	const char *methodSignature = "(J)V";
@@ -490,8 +489,6 @@ void java_util_Random::setSeed(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Random cxx address %d", cxxAddress);
@@ -522,9 +519,7 @@ void java_util_Random::setSeed(long& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_util_Random::setSeed(long& arg0) exit");
+	LOGV("void java_util_Random::setSeed(long const& arg0) exit");
 
 }
 bool java_util_Random::nextBoolean()
@@ -540,15 +535,12 @@ bool java_util_Random::nextBoolean()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Random cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Random jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -566,10 +558,10 @@ bool java_util_Random::nextBoolean()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool java_util_Random::nextBoolean() exit");
 
 	return result;
@@ -587,15 +579,12 @@ float java_util_Random::nextFloat()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Random cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Random jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -613,10 +602,10 @@ float java_util_Random::nextFloat()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	float result = (float) *((float *) cxx_value);
+	// 
+		
 	LOGV("float java_util_Random::nextFloat() exit");
 
 	return result;
@@ -634,15 +623,12 @@ double java_util_Random::nextGaussian()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Random cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Random jni address %d", javaObject);
 
 
-	double result;
 	jdouble jni_result = (jdouble) jni->invokeDoubleMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_double_to_java(jni_result);
@@ -660,10 +646,10 @@ double java_util_Random::nextGaussian()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_double(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (double) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	double result = (double) *((double *) cxx_value);
+	// 
+		
 	LOGV("double java_util_Random::nextGaussian() exit");
 
 	return result;

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -29,7 +28,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_net_SocketImpl"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -48,8 +47,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_net_SocketImpl::java_net_SocketImpl(const java_net_SocketImpl& cc)
 {
 	LOGV("java_net_SocketImpl::java_net_SocketImpl(const java_net_SocketImpl& cc) enter");
@@ -73,9 +70,9 @@ java_net_SocketImpl::java_net_SocketImpl(const java_net_SocketImpl& cc)
 
 	LOGV("java_net_SocketImpl::java_net_SocketImpl(const java_net_SocketImpl& cc) exit");
 }
-java_net_SocketImpl::java_net_SocketImpl(void * proxy)
+java_net_SocketImpl::java_net_SocketImpl(Proxy proxy)
 {
-	LOGV("java_net_SocketImpl::java_net_SocketImpl(void * proxy) enter");
+	LOGV("java_net_SocketImpl::java_net_SocketImpl(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -85,13 +82,31 @@ java_net_SocketImpl::java_net_SocketImpl(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_net_SocketImpl::java_net_SocketImpl(void * proxy) exit");
+	LOGV("java_net_SocketImpl::java_net_SocketImpl(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy java_net_SocketImpl::proxy() const
+{	
+	LOGV("java_net_SocketImpl::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_SocketImpl cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_SocketImpl jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("java_net_SocketImpl::proxy() exit");	
+
+	return proxy;
+}
 java_net_SocketImpl::java_net_SocketImpl()
 {
 	LOGV("java_net_SocketImpl::java_net_SocketImpl() enter");	
@@ -139,7 +154,7 @@ java_net_SocketImpl::~java_net_SocketImpl()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_net_SocketImpl::~java_net_SocketImpl() exit");
 }
 // Functions
@@ -156,15 +171,12 @@ AndroidCXX::java_lang_String java_net_SocketImpl::toString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_SocketImpl cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_SocketImpl jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -182,10 +194,10 @@ AndroidCXX::java_lang_String java_net_SocketImpl::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String java_net_SocketImpl::toString() exit");
 
 	return result;

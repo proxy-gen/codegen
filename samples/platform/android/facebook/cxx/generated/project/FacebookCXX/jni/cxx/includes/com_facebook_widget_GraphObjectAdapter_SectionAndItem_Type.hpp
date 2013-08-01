@@ -9,7 +9,6 @@
 
 
 
-
  			
 		
 
@@ -31,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace COM_FACEBOOK_WIDGET_GRAPHOBJECTADAPTER_SECTIONANDITEM_TYPE {
+namespace com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type {
 
 enum com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type
 {

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -149,16 +148,17 @@ class java_net_Socket
 public:
 
 	java_net_Socket(const java_net_Socket& cc);
-	java_net_Socket(void * proxy);
+	java_net_Socket(Proxy proxy);
 	// Public Constructors
 	java_net_Socket();
-	java_net_Socket(AndroidCXX::java_net_Proxy& arg0);
-	java_net_Socket(AndroidCXX::java_lang_String& arg0,int& arg1);
-	java_net_Socket(AndroidCXX::java_net_InetAddress& arg0,int& arg1);
-	java_net_Socket(AndroidCXX::java_lang_String& arg0,int& arg1,AndroidCXX::java_net_InetAddress& arg2,int& arg3);
-	java_net_Socket(AndroidCXX::java_net_InetAddress& arg0,int& arg1,AndroidCXX::java_net_InetAddress& arg2,int& arg3);
-	java_net_Socket(AndroidCXX::java_lang_String& arg0,int& arg1,bool& arg2);
-	java_net_Socket(AndroidCXX::java_net_InetAddress& arg0,int& arg1,bool& arg2);
+	java_net_Socket(AndroidCXX::java_net_Proxy const& arg0);
+	java_net_Socket(AndroidCXX::java_lang_String const& arg0,int const& arg1);
+	java_net_Socket(AndroidCXX::java_net_InetAddress const& arg0,int const& arg1);
+	java_net_Socket(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::java_net_InetAddress const& arg2,int const& arg3);
+	java_net_Socket(AndroidCXX::java_net_InetAddress const& arg0,int const& arg1,AndroidCXX::java_net_InetAddress const& arg2,int const& arg3);
+	java_net_Socket(AndroidCXX::java_lang_String const& arg0,int const& arg1,bool const& arg2);
+	java_net_Socket(AndroidCXX::java_net_InetAddress const& arg0,int const& arg1,bool const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_Socket();
 	// Functions
@@ -167,34 +167,34 @@ public:
 	 int getPort();
 	 AndroidCXX::java_io_InputStream getInputStream();
 	 AndroidCXX::java_nio_channels_SocketChannel getChannel();
-	 void connect(AndroidCXX::java_net_SocketAddress& arg0);
-	 void connect(AndroidCXX::java_net_SocketAddress& arg0,int& arg1);
+	 void connect(AndroidCXX::java_net_SocketAddress const& arg0);
+	 void connect(AndroidCXX::java_net_SocketAddress const& arg0,int const& arg1);
 	 bool isClosed();
 	 AndroidCXX::java_io_OutputStream getOutputStream();
-	 void bind(AndroidCXX::java_net_SocketAddress& arg0);
+	 void bind(AndroidCXX::java_net_SocketAddress const& arg0);
 	 AndroidCXX::java_net_InetAddress getInetAddress();
 	 AndroidCXX::java_net_InetAddress getLocalAddress();
 	 int getLocalPort();
 	 AndroidCXX::java_net_SocketAddress getRemoteSocketAddress();
 	 AndroidCXX::java_net_SocketAddress getLocalSocketAddress();
-	 void setTcpNoDelay(bool& arg0);
+	 void setTcpNoDelay(bool const& arg0);
 	 bool getTcpNoDelay();
-	 void setSoLinger(bool& arg0,int& arg1);
+	 void setSoLinger(bool const& arg0,int const& arg1);
 	 int getSoLinger();
-	 void sendUrgentData(int& arg0);
-	 void setOOBInline(bool& arg0);
+	 void sendUrgentData(int const& arg0);
+	 void setOOBInline(bool const& arg0);
 	 bool getOOBInline();
-	 void setSoTimeout(int& arg0);
+	 void setSoTimeout(int const& arg0);
 	 int getSoTimeout();
-	 void setSendBufferSize(int& arg0);
+	 void setSendBufferSize(int const& arg0);
 	 int getSendBufferSize();
-	 void setReceiveBufferSize(int& arg0);
+	 void setReceiveBufferSize(int const& arg0);
 	 int getReceiveBufferSize();
-	 void setKeepAlive(bool& arg0);
+	 void setKeepAlive(bool const& arg0);
 	 bool getKeepAlive();
-	 void setTrafficClass(int& arg0);
+	 void setTrafficClass(int const& arg0);
 	 int getTrafficClass();
-	 void setReuseAddress(bool& arg0);
+	 void setReuseAddress(bool const& arg0);
 	 bool getReuseAddress();
 	 void shutdownInput();
 	 void shutdownOutput();
@@ -202,8 +202,8 @@ public:
 	 bool isBound();
 	 bool isInputShutdown();
 	 bool isOutputShutdown();
-	static void setSocketImplFactory(AndroidCXX::java_net_SocketImplFactory& arg0);
-	 void setPerformancePreferences(int& arg0,int& arg1,int& arg2);
+	static void setSocketImplFactory(AndroidCXX::java_net_SocketImplFactory const& arg0);
+	 void setPerformancePreferences(int const& arg0,int const& arg1,int const& arg2);
 };	
 
 } // namespace

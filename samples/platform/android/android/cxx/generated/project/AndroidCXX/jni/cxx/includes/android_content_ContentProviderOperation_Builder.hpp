@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -91,21 +90,21 @@ class android_content_ContentProviderOperation_Builder
 public:
 
 	android_content_ContentProviderOperation_Builder(const android_content_ContentProviderOperation_Builder& cc);
-	android_content_ContentProviderOperation_Builder(void * proxy);
+	android_content_ContentProviderOperation_Builder(Proxy proxy);
 	// Public Constructors
-	android_content_ContentProviderOperation_Builder();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ContentProviderOperation_Builder();
 	// Functions
 	 AndroidCXX::android_content_ContentProviderOperation build();
-	 AndroidCXX::android_content_ContentProviderOperation_Builder withValueBackReferences(AndroidCXX::android_content_ContentValues& arg0);
-	 AndroidCXX::android_content_ContentProviderOperation_Builder withValueBackReference(AndroidCXX::java_lang_String& arg0,int& arg1);
-	 AndroidCXX::android_content_ContentProviderOperation_Builder withSelectionBackReference(int& arg0,int& arg1);
-	 AndroidCXX::android_content_ContentProviderOperation_Builder withValues(AndroidCXX::android_content_ContentValues& arg0);
-	 AndroidCXX::android_content_ContentProviderOperation_Builder withValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Object& arg1);
-	 AndroidCXX::android_content_ContentProviderOperation_Builder withSelection(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1);
-	 AndroidCXX::android_content_ContentProviderOperation_Builder withExpectedCount(int& arg0);
-	 AndroidCXX::android_content_ContentProviderOperation_Builder withYieldAllowed(bool& arg0);
+	 AndroidCXX::android_content_ContentProviderOperation_Builder withValueBackReferences(AndroidCXX::android_content_ContentValues const& arg0);
+	 AndroidCXX::android_content_ContentProviderOperation_Builder withValueBackReference(AndroidCXX::java_lang_String const& arg0,int const& arg1);
+	 AndroidCXX::android_content_ContentProviderOperation_Builder withSelectionBackReference(int const& arg0,int const& arg1);
+	 AndroidCXX::android_content_ContentProviderOperation_Builder withValues(AndroidCXX::android_content_ContentValues const& arg0);
+	 AndroidCXX::android_content_ContentProviderOperation_Builder withValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	 AndroidCXX::android_content_ContentProviderOperation_Builder withSelection(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1);
+	 AndroidCXX::android_content_ContentProviderOperation_Builder withExpectedCount(int const& arg0);
+	 AndroidCXX::android_content_ContentProviderOperation_Builder withYieldAllowed(bool const& arg0);
 };	
 
 } // namespace

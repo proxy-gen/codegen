@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
 	
@@ -70,17 +69,17 @@ class android_database_sqlite_SQLiteCursorDriver
 public:
 
 	android_database_sqlite_SQLiteCursorDriver(const android_database_sqlite_SQLiteCursorDriver& cc);
-	android_database_sqlite_SQLiteCursorDriver(void * proxy);
+	android_database_sqlite_SQLiteCursorDriver(Proxy proxy);
 	// Public Constructors
-	android_database_sqlite_SQLiteCursorDriver();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteCursorDriver();
 	// Functions
-	 AndroidCXX::android_database_Cursor query(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,std::vector<AndroidCXX::java_lang_String >& arg1);
+	 AndroidCXX::android_database_Cursor query(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1);
 	 void cursorDeactivated();
-	 void cursorRequeried(AndroidCXX::android_database_Cursor& arg0);
+	 void cursorRequeried(AndroidCXX::android_database_Cursor const& arg0);
 	 void cursorClosed();
-	 void setBindArguments(std::vector<AndroidCXX::java_lang_String >& arg0);
+	 void setBindArguments(std::vector<AndroidCXX::java_lang_String > const& arg0);
 };	
 
 } // namespace

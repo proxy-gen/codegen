@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -52,13 +51,13 @@ class java_nio_channels_WritableByteChannel
 public:
 
 	java_nio_channels_WritableByteChannel(const java_nio_channels_WritableByteChannel& cc);
-	java_nio_channels_WritableByteChannel(void * proxy);
+	java_nio_channels_WritableByteChannel(Proxy proxy);
 	// Public Constructors
-	java_nio_channels_WritableByteChannel();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_WritableByteChannel();
 	// Functions
-	 int write(AndroidCXX::java_nio_ByteBuffer& arg0);
+	 int write(AndroidCXX::java_nio_ByteBuffer const& arg0);
 };	
 
 } // namespace

@@ -9,7 +9,6 @@
 
 
 
-
  			
 		
 
@@ -31,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace JAVA_LANG_THREAD_STATE {
+namespace java_lang_Thread_State {
 
 enum java_lang_Thread_State
 {

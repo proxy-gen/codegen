@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -54,13 +53,13 @@ class android_animation_TypeEvaluator
 public:
 
 	android_animation_TypeEvaluator(const android_animation_TypeEvaluator& cc);
-	android_animation_TypeEvaluator(void * proxy);
+	android_animation_TypeEvaluator(Proxy proxy);
 	// Public Constructors
-	android_animation_TypeEvaluator();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_animation_TypeEvaluator();
 	// Functions
-	 AndroidCXX::java_lang_Object evaluate(float& arg0,AndroidCXX::java_lang_Object& arg1,AndroidCXX::java_lang_Object& arg2);
+	 AndroidCXX::java_lang_Object evaluate(float const& arg0,AndroidCXX::java_lang_Object const& arg1,AndroidCXX::java_lang_Object const& arg2);
 };	
 
 } // namespace

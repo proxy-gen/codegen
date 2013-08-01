@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 
@@ -54,15 +53,15 @@ class com_facebook_android_Facebook_SetterTokenCachingStrategy
 public:
 
 	com_facebook_android_Facebook_SetterTokenCachingStrategy(const com_facebook_android_Facebook_SetterTokenCachingStrategy& cc);
-	com_facebook_android_Facebook_SetterTokenCachingStrategy(void * proxy);
+	com_facebook_android_Facebook_SetterTokenCachingStrategy(Proxy proxy);
 	// Public Constructors
-	com_facebook_android_Facebook_SetterTokenCachingStrategy();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook_SetterTokenCachingStrategy();
 	// Functions
 	 void clear();
 	 AndroidCXX::android_os_Bundle load();
-	 void save(AndroidCXX::android_os_Bundle& arg0);
+	 void save(AndroidCXX::android_os_Bundle const& arg0);
 };	
 
 } // namespace

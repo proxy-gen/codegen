@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -64,16 +63,16 @@ class com_facebook_android_Facebook_DialogListener
 public:
 
 	com_facebook_android_Facebook_DialogListener(const com_facebook_android_Facebook_DialogListener& cc);
-	com_facebook_android_Facebook_DialogListener(void * proxy);
+	com_facebook_android_Facebook_DialogListener(Proxy proxy);
 	// Public Constructors
-	com_facebook_android_Facebook_DialogListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook_DialogListener();
 	// Functions
-	 void onComplete(AndroidCXX::android_os_Bundle& arg0);
+	 void onComplete(AndroidCXX::android_os_Bundle const& arg0);
 	 void onCancel();
-	 void onFacebookError(FacebookCXX::com_facebook_android_FacebookError& arg0);
-	 void onError(FacebookCXX::com_facebook_android_DialogError& arg0);
+	 void onFacebookError(FacebookCXX::com_facebook_android_FacebookError const& arg0);
+	 void onError(FacebookCXX::com_facebook_android_DialogError const& arg0);
 };	
 
 } // namespace

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -73,18 +72,15 @@ class java_net_Proxy
 public:
 
 	java_net_Proxy(const java_net_Proxy& cc);
-	java_net_Proxy(void * proxy);
+	java_net_Proxy(Proxy proxy);
 	// Public Constructors
-	java_net_Proxy(JAVA_NET_PROXY_TYPE::java_net_Proxy_Type& arg0,JDKCXX::java_net_SocketAddress& arg1);
-	// TODO: remove
-	// 
-	// java_net_Proxy();
-	// 
+	java_net_Proxy(java_net_Proxy_Type::java_net_Proxy_Type const& arg0,JDKCXX::java_net_SocketAddress const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_Proxy();
 	// Functions
-	 JAVA_NET_PROXY_TYPE::java_net_Proxy_Type type();
-	 bool equals(JDKCXX::java_lang_Object& arg0);
+	 java_net_Proxy_Type::java_net_Proxy_Type type();
+	 bool equals(JDKCXX::java_lang_Object const& arg0);
 	 JDKCXX::java_lang_String toString();
 	 int hashCode();
 	 JDKCXX::java_net_SocketAddress address();

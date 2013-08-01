@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -118,37 +117,38 @@ class android_animation_LayoutTransition
 public:
 
 	android_animation_LayoutTransition(const android_animation_LayoutTransition& cc);
-	android_animation_LayoutTransition(void * proxy);
+	android_animation_LayoutTransition(Proxy proxy);
 	// Public Constructors
 	android_animation_LayoutTransition();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_animation_LayoutTransition();
 	// Functions
-	 void setInterpolator(int& arg0,AndroidCXX::android_animation_TimeInterpolator& arg1);
-	 void setDuration(int& arg0,long& arg1);
-	 void setDuration(long& arg0);
-	 AndroidCXX::android_animation_TimeInterpolator getInterpolator(int& arg0);
-	 long getDuration(int& arg0);
-	 long getStartDelay(int& arg0);
-	 void setStartDelay(int& arg0,long& arg1);
-	 void addChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1);
-	 void enableTransitionType(int& arg0);
-	 void disableTransitionType(int& arg0);
-	 bool isTransitionTypeEnabled(int& arg0);
-	 void setStagger(int& arg0,long& arg1);
-	 long getStagger(int& arg0);
-	 void setAnimator(int& arg0,AndroidCXX::android_animation_Animator& arg1);
-	 AndroidCXX::android_animation_Animator getAnimator(int& arg0);
-	 void setAnimateParentHierarchy(bool& arg0);
+	 void setInterpolator(int const& arg0,AndroidCXX::android_animation_TimeInterpolator const& arg1);
+	 void setDuration(int const& arg0,long const& arg1);
+	 void setDuration(long const& arg0);
+	 AndroidCXX::android_animation_TimeInterpolator getInterpolator(int const& arg0);
+	 long getDuration(int const& arg0);
+	 long getStartDelay(int const& arg0);
+	 void setStartDelay(int const& arg0,long const& arg1);
+	 void addChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1);
+	 void enableTransitionType(int const& arg0);
+	 void disableTransitionType(int const& arg0);
+	 bool isTransitionTypeEnabled(int const& arg0);
+	 void setStagger(int const& arg0,long const& arg1);
+	 long getStagger(int const& arg0);
+	 void setAnimator(int const& arg0,AndroidCXX::android_animation_Animator const& arg1);
+	 AndroidCXX::android_animation_Animator getAnimator(int const& arg0);
+	 void setAnimateParentHierarchy(bool const& arg0);
 	 bool isChangingLayout();
 	 bool isRunning();
-	 void showChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1);
-	 void showChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1,int& arg2);
-	 void removeChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1);
-	 void hideChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1);
-	 void hideChild(AndroidCXX::android_view_ViewGroup& arg0,AndroidCXX::android_view_View& arg1,int& arg2);
-	 void addTransitionListener(AndroidCXX::android_animation_LayoutTransition_TransitionListener& arg0);
-	 void removeTransitionListener(AndroidCXX::android_animation_LayoutTransition_TransitionListener& arg0);
+	 void showChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1);
+	 void showChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2);
+	 void removeChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1);
+	 void hideChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1);
+	 void hideChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2);
+	 void addTransitionListener(AndroidCXX::android_animation_LayoutTransition_TransitionListener const& arg0);
+	 void removeTransitionListener(AndroidCXX::android_animation_LayoutTransition_TransitionListener const& arg0);
 	 AndroidCXX::java_util_List getTransitionListeners();
 };	
 

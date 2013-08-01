@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -111,33 +110,33 @@ class android_view_inputmethod_InputConnection
 public:
 
 	android_view_inputmethod_InputConnection(const android_view_inputmethod_InputConnection& cc);
-	android_view_inputmethod_InputConnection(void * proxy);
+	android_view_inputmethod_InputConnection(Proxy proxy);
 	// Public Constructors
-	android_view_inputmethod_InputConnection();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_inputmethod_InputConnection();
 	// Functions
-	 AndroidCXX::java_lang_CharSequence getTextBeforeCursor(int& arg0,int& arg1);
-	 AndroidCXX::java_lang_CharSequence getTextAfterCursor(int& arg0,int& arg1);
-	 AndroidCXX::java_lang_CharSequence getSelectedText(int& arg0);
-	 int getCursorCapsMode(int& arg0);
-	 AndroidCXX::android_view_inputmethod_ExtractedText getExtractedText(AndroidCXX::android_view_inputmethod_ExtractedTextRequest& arg0,int& arg1);
-	 bool deleteSurroundingText(int& arg0,int& arg1);
-	 bool setComposingText(AndroidCXX::java_lang_CharSequence& arg0,int& arg1);
-	 bool setComposingRegion(int& arg0,int& arg1);
+	 AndroidCXX::java_lang_CharSequence getTextBeforeCursor(int const& arg0,int const& arg1);
+	 AndroidCXX::java_lang_CharSequence getTextAfterCursor(int const& arg0,int const& arg1);
+	 AndroidCXX::java_lang_CharSequence getSelectedText(int const& arg0);
+	 int getCursorCapsMode(int const& arg0);
+	 AndroidCXX::android_view_inputmethod_ExtractedText getExtractedText(AndroidCXX::android_view_inputmethod_ExtractedTextRequest const& arg0,int const& arg1);
+	 bool deleteSurroundingText(int const& arg0,int const& arg1);
+	 bool setComposingText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1);
+	 bool setComposingRegion(int const& arg0,int const& arg1);
 	 bool finishComposingText();
-	 bool commitText(AndroidCXX::java_lang_CharSequence& arg0,int& arg1);
-	 bool commitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo& arg0);
-	 bool commitCorrection(AndroidCXX::android_view_inputmethod_CorrectionInfo& arg0);
-	 bool setSelection(int& arg0,int& arg1);
-	 bool performEditorAction(int& arg0);
-	 bool performContextMenuAction(int& arg0);
+	 bool commitText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1);
+	 bool commitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo const& arg0);
+	 bool commitCorrection(AndroidCXX::android_view_inputmethod_CorrectionInfo const& arg0);
+	 bool setSelection(int const& arg0,int const& arg1);
+	 bool performEditorAction(int const& arg0);
+	 bool performContextMenuAction(int const& arg0);
 	 bool beginBatchEdit();
 	 bool endBatchEdit();
-	 bool sendKeyEvent(AndroidCXX::android_view_KeyEvent& arg0);
-	 bool clearMetaKeyStates(int& arg0);
-	 bool reportFullscreenMode(bool& arg0);
-	 bool performPrivateCommand(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1);
+	 bool sendKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0);
+	 bool clearMetaKeyStates(int const& arg0);
+	 bool reportFullscreenMode(bool const& arg0);
+	 bool performPrivateCommand(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1);
 };	
 
 } // namespace

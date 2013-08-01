@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -72,15 +71,15 @@ class com_facebook_android_Facebook_TokenRefreshServiceConnection
 public:
 
 	com_facebook_android_Facebook_TokenRefreshServiceConnection(const com_facebook_android_Facebook_TokenRefreshServiceConnection& cc);
-	com_facebook_android_Facebook_TokenRefreshServiceConnection(void * proxy);
+	com_facebook_android_Facebook_TokenRefreshServiceConnection(Proxy proxy);
 	// Public Constructors
-	com_facebook_android_Facebook_TokenRefreshServiceConnection(FacebookCXX::com_facebook_android_Facebook& arg0,AndroidCXX::android_content_Context& arg1,FacebookCXX::com_facebook_android_Facebook_ServiceListener& arg2);
-	com_facebook_android_Facebook_TokenRefreshServiceConnection();
+	com_facebook_android_Facebook_TokenRefreshServiceConnection(FacebookCXX::com_facebook_android_Facebook const& arg0,AndroidCXX::android_content_Context const& arg1,FacebookCXX::com_facebook_android_Facebook_ServiceListener const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook_TokenRefreshServiceConnection();
 	// Functions
-	 void onServiceConnected(AndroidCXX::android_content_ComponentName& arg0,AndroidCXX::android_os_IBinder& arg1);
-	 void onServiceDisconnected(AndroidCXX::android_content_ComponentName& arg0);
+	 void onServiceConnected(AndroidCXX::android_content_ComponentName const& arg0,AndroidCXX::android_os_IBinder const& arg1);
+	 void onServiceDisconnected(AndroidCXX::android_content_ComponentName const& arg0);
 };	
 
 } // namespace

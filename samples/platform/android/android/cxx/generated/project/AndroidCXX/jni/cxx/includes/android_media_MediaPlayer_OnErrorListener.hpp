@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -52,13 +51,13 @@ class android_media_MediaPlayer_OnErrorListener
 public:
 
 	android_media_MediaPlayer_OnErrorListener(const android_media_MediaPlayer_OnErrorListener& cc);
-	android_media_MediaPlayer_OnErrorListener(void * proxy);
+	android_media_MediaPlayer_OnErrorListener(Proxy proxy);
 	// Public Constructors
-	android_media_MediaPlayer_OnErrorListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_OnErrorListener();
 	// Functions
-	 bool onError(AndroidCXX::android_media_MediaPlayer& arg0,int& arg1,int& arg2);
+	 bool onError(AndroidCXX::android_media_MediaPlayer const& arg0,int const& arg1,int const& arg2);
 };	
 
 } // namespace

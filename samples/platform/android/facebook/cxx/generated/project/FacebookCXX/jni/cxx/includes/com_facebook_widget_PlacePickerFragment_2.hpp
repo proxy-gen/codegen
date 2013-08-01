@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_widget_PlacePickerFragment_2
@@ -47,9 +46,9 @@ class com_facebook_widget_PlacePickerFragment_2
 public:
 
 	com_facebook_widget_PlacePickerFragment_2(const com_facebook_widget_PlacePickerFragment_2& cc);
-	com_facebook_widget_PlacePickerFragment_2(void * proxy);
+	com_facebook_widget_PlacePickerFragment_2(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_PlacePickerFragment_2();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PlacePickerFragment_2();
 	// Functions

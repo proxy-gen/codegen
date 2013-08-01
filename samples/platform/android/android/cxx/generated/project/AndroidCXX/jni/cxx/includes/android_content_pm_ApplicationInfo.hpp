@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -82,19 +81,19 @@ class android_content_pm_ApplicationInfo
 {
 public:
 
-	android_content_pm_ApplicationInfo(const android_content_pm_ApplicationInfo& cc);
-	android_content_pm_ApplicationInfo(void * proxy);
+	android_content_pm_ApplicationInfo(Proxy proxy);
 	// Public Constructors
 	android_content_pm_ApplicationInfo();
-	android_content_pm_ApplicationInfo(AndroidCXX::android_content_pm_ApplicationInfo& arg0);
+	android_content_pm_ApplicationInfo(AndroidCXX::android_content_pm_ApplicationInfo const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_pm_ApplicationInfo();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
-	 void dump(AndroidCXX::android_util_Printer& arg0,AndroidCXX::java_lang_String& arg1);
+	 void dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1);
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
-	 AndroidCXX::java_lang_CharSequence loadDescription(AndroidCXX::android_content_pm_PackageManager& arg0);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	 AndroidCXX::java_lang_CharSequence loadDescription(AndroidCXX::android_content_pm_PackageManager const& arg0);
 };	
 
 } // namespace

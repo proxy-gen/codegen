@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -42,7 +41,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_ActionProvider"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -76,8 +75,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_view_ActionProvider::android_view_ActionProvider(const android_view_ActionProvider& cc)
 {
 	LOGV("android_view_ActionProvider::android_view_ActionProvider(const android_view_ActionProvider& cc) enter");
@@ -101,9 +98,9 @@ android_view_ActionProvider::android_view_ActionProvider(const android_view_Acti
 
 	LOGV("android_view_ActionProvider::android_view_ActionProvider(const android_view_ActionProvider& cc) exit");
 }
-android_view_ActionProvider::android_view_ActionProvider(void * proxy)
+android_view_ActionProvider::android_view_ActionProvider(Proxy proxy)
 {
-	LOGV("android_view_ActionProvider::android_view_ActionProvider(void * proxy) enter");
+	LOGV("android_view_ActionProvider::android_view_ActionProvider(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -113,50 +110,34 @@ android_view_ActionProvider::android_view_ActionProvider(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_ActionProvider::android_view_ActionProvider(void * proxy) exit");
+	LOGV("android_view_ActionProvider::android_view_ActionProvider(Proxy proxy) exit");
 }
-android_view_ActionProvider::android_view_ActionProvider()
-{
-	LOGV("android_view_ActionProvider::android_view_ActionProvider() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/view/ActionProvider";
-
-	LOGV("android_view_ActionProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_view_ActionProvider::proxy() const
+{	
+	LOGV("android_view_ActionProvider::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_ActionProvider cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_view_ActionProvider jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_view_ActionProvider::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_view_ActionProvider::android_view_ActionProvider() exit");	
+	return proxy;
 }
-// Public Constructors
-android_view_ActionProvider::android_view_ActionProvider(AndroidCXX::android_content_Context& arg0)
+android_view_ActionProvider::android_view_ActionProvider(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_view_ActionProvider::android_view_ActionProvider(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_view_ActionProvider::android_view_ActionProvider(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -209,7 +190,7 @@ android_view_ActionProvider::android_view_ActionProvider(AndroidCXX::android_con
 
 	jni->popLocalFrame();
 
-	LOGV("android_view_ActionProvider::android_view_ActionProvider(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_view_ActionProvider::android_view_ActionProvider(AndroidCXX::android_content_Context const& arg0) exit");	
 }
 // Default Instance Destructor
 android_view_ActionProvider::~android_view_ActionProvider()
@@ -222,7 +203,7 @@ android_view_ActionProvider::~android_view_ActionProvider()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_ActionProvider::~android_view_ActionProvider() exit");
 }
 // Functions
@@ -239,15 +220,12 @@ bool android_view_ActionProvider::isVisible()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ActionProvider cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_view_ActionProvider jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -265,10 +243,10 @@ bool android_view_ActionProvider::isVisible()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_view_ActionProvider::isVisible() exit");
 
 	return result;
@@ -286,15 +264,12 @@ bool android_view_ActionProvider::hasSubMenu()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ActionProvider cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_view_ActionProvider jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -312,10 +287,10 @@ bool android_view_ActionProvider::hasSubMenu()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_view_ActionProvider::hasSubMenu() exit");
 
 	return result;
@@ -333,15 +308,12 @@ AndroidCXX::android_view_View android_view_ActionProvider::onCreateActionView()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ActionProvider cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_view_ActionProvider jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -359,17 +331,17 @@ AndroidCXX::android_view_View android_view_ActionProvider::onCreateActionView()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
+		
 	LOGV("AndroidCXX::android_view_View android_view_ActionProvider::onCreateActionView() exit");
 
 	return result;
 }
-AndroidCXX::android_view_View android_view_ActionProvider::onCreateActionView(AndroidCXX::android_view_MenuItem& arg0)
+AndroidCXX::android_view_View android_view_ActionProvider::onCreateActionView(AndroidCXX::android_view_MenuItem const& arg0)
 {
-	LOGV("AndroidCXX::android_view_View android_view_ActionProvider::onCreateActionView(AndroidCXX::android_view_MenuItem& arg0) enter");
+	LOGV("AndroidCXX::android_view_View android_view_ActionProvider::onCreateActionView(AndroidCXX::android_view_MenuItem const& arg0) enter");
 
 	const char *methodName = "onCreateActionView";
 	const char *methodSignature = "(Landroid/view/MenuItem;)Landroid/view/View;";
@@ -379,8 +351,6 @@ AndroidCXX::android_view_View android_view_ActionProvider::onCreateActionView(An
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_ActionProvider cxx address %d", cxxAddress);
@@ -409,7 +379,6 @@ AndroidCXX::android_view_View android_view_ActionProvider::onCreateActionView(An
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -427,11 +396,11 @@ AndroidCXX::android_view_View android_view_ActionProvider::onCreateActionView(An
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_view_View android_view_ActionProvider::onCreateActionView(AndroidCXX::android_view_MenuItem& arg0) exit");
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
+		
+	LOGV("AndroidCXX::android_view_View android_view_ActionProvider::onCreateActionView(AndroidCXX::android_view_MenuItem const& arg0) exit");
 
 	return result;
 }
@@ -448,15 +417,12 @@ bool android_view_ActionProvider::overridesItemVisibility()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ActionProvider cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_view_ActionProvider jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -474,10 +440,10 @@ bool android_view_ActionProvider::overridesItemVisibility()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_view_ActionProvider::overridesItemVisibility() exit");
 
 	return result;
@@ -495,8 +461,6 @@ void android_view_ActionProvider::refreshVisibility()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ActionProvider cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -505,8 +469,6 @@ void android_view_ActionProvider::refreshVisibility()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_view_ActionProvider::refreshVisibility() exit");
 
 }
@@ -523,15 +485,12 @@ bool android_view_ActionProvider::onPerformDefaultAction()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_ActionProvider cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_view_ActionProvider jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -549,17 +508,17 @@ bool android_view_ActionProvider::onPerformDefaultAction()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_view_ActionProvider::onPerformDefaultAction() exit");
 
 	return result;
 }
-void android_view_ActionProvider::onPrepareSubMenu(AndroidCXX::android_view_SubMenu& arg0)
+void android_view_ActionProvider::onPrepareSubMenu(AndroidCXX::android_view_SubMenu const& arg0)
 {
-	LOGV("void android_view_ActionProvider::onPrepareSubMenu(AndroidCXX::android_view_SubMenu& arg0) enter");
+	LOGV("void android_view_ActionProvider::onPrepareSubMenu(AndroidCXX::android_view_SubMenu const& arg0) enter");
 
 	const char *methodName = "onPrepareSubMenu";
 	const char *methodSignature = "(Landroid/view/SubMenu;)V";
@@ -569,8 +528,6 @@ void android_view_ActionProvider::onPrepareSubMenu(AndroidCXX::android_view_SubM
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_ActionProvider cxx address %d", cxxAddress);
@@ -601,14 +558,12 @@ void android_view_ActionProvider::onPrepareSubMenu(AndroidCXX::android_view_SubM
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_ActionProvider::onPrepareSubMenu(AndroidCXX::android_view_SubMenu& arg0) exit");
+	LOGV("void android_view_ActionProvider::onPrepareSubMenu(AndroidCXX::android_view_SubMenu const& arg0) exit");
 
 }
-void android_view_ActionProvider::setVisibilityListener(AndroidCXX::android_view_ActionProvider_VisibilityListener& arg0)
+void android_view_ActionProvider::setVisibilityListener(AndroidCXX::android_view_ActionProvider_VisibilityListener const& arg0)
 {
-	LOGV("void android_view_ActionProvider::setVisibilityListener(AndroidCXX::android_view_ActionProvider_VisibilityListener& arg0) enter");
+	LOGV("void android_view_ActionProvider::setVisibilityListener(AndroidCXX::android_view_ActionProvider_VisibilityListener const& arg0) enter");
 
 	const char *methodName = "setVisibilityListener";
 	const char *methodSignature = "(Landroid/view/ActionProvider$VisibilityListener;)V";
@@ -618,8 +573,6 @@ void android_view_ActionProvider::setVisibilityListener(AndroidCXX::android_view
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_ActionProvider cxx address %d", cxxAddress);
@@ -650,8 +603,6 @@ void android_view_ActionProvider::setVisibilityListener(AndroidCXX::android_view
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_ActionProvider::setVisibilityListener(AndroidCXX::android_view_ActionProvider_VisibilityListener& arg0) exit");
+	LOGV("void android_view_ActionProvider::setVisibilityListener(AndroidCXX::android_view_ActionProvider_VisibilityListener const& arg0) exit");
 
 }

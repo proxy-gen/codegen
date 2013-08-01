@@ -9,7 +9,6 @@
 
 
 
-
  			
 		
 
@@ -31,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace ANDROID_GRAPHICS_BITMAP_COMPRESSFORMAT {
+namespace android_graphics_Bitmap_CompressFormat {
 
 enum android_graphics_Bitmap_CompressFormat
 {

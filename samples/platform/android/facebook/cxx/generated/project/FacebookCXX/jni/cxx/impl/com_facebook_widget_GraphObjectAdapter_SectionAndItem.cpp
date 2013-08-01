@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -31,6 +30,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_GraphObjectAdapter_SectionAndItem"
@@ -44,7 +44,7 @@ using namespace FacebookCXX;
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_WIDGET_GRAPHOBJECTADAPTER_SECTIONANDITEM_TYPE;
+// using namespace com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type;
 // 
 // 
 // 
@@ -66,8 +66,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem(const com_facebook_widget_GraphObjectAdapter_SectionAndItem& cc)
 {
 	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem(const com_facebook_widget_GraphObjectAdapter_SectionAndItem& cc) enter");
@@ -91,9 +89,9 @@ com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_Graph
 
 	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem(const com_facebook_widget_GraphObjectAdapter_SectionAndItem& cc) exit");
 }
-com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem(void * proxy)
+com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem(Proxy proxy)
 {
-	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem(void * proxy) enter");
+	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -103,50 +101,34 @@ com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_Graph
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem(void * proxy) exit");
+	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem(Proxy proxy) exit");
 }
-com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem()
-{
-	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/widget/GraphObjectAdapter$SectionAndItem";
-
-	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_widget_GraphObjectAdapter_SectionAndItem::proxy() const
+{	
+	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem() exit");	
+	return proxy;
 }
-// Public Constructors
-com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_model_GraphObject& arg1)
+com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem(AndroidCXX::java_lang_String const& arg0,FacebookCXX::com_facebook_model_GraphObject const& arg1)
 {
-	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_model_GraphObject& arg1) enter");	
+	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem(AndroidCXX::java_lang_String const& arg0,FacebookCXX::com_facebook_model_GraphObject const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Lcom/facebook/model/GraphObject;)V";
@@ -220,7 +202,7 @@ com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_Graph
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_model_GraphObject& arg1) exit");	
+	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem(AndroidCXX::java_lang_String const& arg0,FacebookCXX::com_facebook_model_GraphObject const& arg1) exit");	
 }
 // Default Instance Destructor
 com_facebook_widget_GraphObjectAdapter_SectionAndItem::~com_facebook_widget_GraphObjectAdapter_SectionAndItem()
@@ -233,13 +215,13 @@ com_facebook_widget_GraphObjectAdapter_SectionAndItem::~com_facebook_widget_Grap
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem::~com_facebook_widget_GraphObjectAdapter_SectionAndItem() exit");
 }
 // Functions
-COM_FACEBOOK_WIDGET_GRAPHOBJECTADAPTER_SECTIONANDITEM_TYPE::com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type com_facebook_widget_GraphObjectAdapter_SectionAndItem::getType()
+com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type::com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type com_facebook_widget_GraphObjectAdapter_SectionAndItem::getType()
 {
-	LOGV("COM_FACEBOOK_WIDGET_GRAPHOBJECTADAPTER_SECTIONANDITEM_TYPE::com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type com_facebook_widget_GraphObjectAdapter_SectionAndItem::getType() enter");
+	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type::com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type com_facebook_widget_GraphObjectAdapter_SectionAndItem::getType() enter");
 
 	const char *methodName = "getType";
 	const char *methodSignature = "()Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;";
@@ -250,15 +232,12 @@ COM_FACEBOOK_WIDGET_GRAPHOBJECTADAPTER_SECTIONANDITEM_TYPE::com_facebook_widget_
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem jni address %d", javaObject);
 
 
-	COM_FACEBOOK_WIDGET_GRAPHOBJECTADAPTER_SECTIONANDITEM_TYPE::com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -276,11 +255,11 @@ COM_FACEBOOK_WIDGET_GRAPHOBJECTADAPTER_SECTIONANDITEM_TYPE::com_facebook_widget_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (COM_FACEBOOK_WIDGET_GRAPHOBJECTADAPTER_SECTIONANDITEM_TYPE::com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("COM_FACEBOOK_WIDGET_GRAPHOBJECTADAPTER_SECTIONANDITEM_TYPE::com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type com_facebook_widget_GraphObjectAdapter_SectionAndItem::getType() exit");
+	com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type::com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type result = (com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type::com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type) (cxx_value);
+	//
+		
+	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type::com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type com_facebook_widget_GraphObjectAdapter_SectionAndItem::getType() exit");
 
 	return result;
 }

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
  		 
@@ -63,13 +62,13 @@ class android_widget_AdapterView_OnItemLongClickListener
 public:
 
 	android_widget_AdapterView_OnItemLongClickListener(const android_widget_AdapterView_OnItemLongClickListener& cc);
-	android_widget_AdapterView_OnItemLongClickListener(void * proxy);
+	android_widget_AdapterView_OnItemLongClickListener(Proxy proxy);
 	// Public Constructors
-	android_widget_AdapterView_OnItemLongClickListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AdapterView_OnItemLongClickListener();
 	// Functions
-	 bool onItemLongClick(AndroidCXX::android_widget_AdapterView& arg0,AndroidCXX::android_view_View& arg1,int& arg2,long& arg3);
+	 bool onItemLongClick(AndroidCXX::android_widget_AdapterView const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2,long const& arg3);
 };	
 
 } // namespace

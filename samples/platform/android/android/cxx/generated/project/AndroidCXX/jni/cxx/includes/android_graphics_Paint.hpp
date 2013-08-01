@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -270,101 +269,101 @@ class android_graphics_Paint
 {
 public:
 
-	android_graphics_Paint(const android_graphics_Paint& cc);
-	android_graphics_Paint(void * proxy);
+	android_graphics_Paint(Proxy proxy);
 	// Public Constructors
 	android_graphics_Paint();
-	android_graphics_Paint(int& arg0);
-	android_graphics_Paint(AndroidCXX::android_graphics_Paint& arg0);
+	android_graphics_Paint(int const& arg0);
+	android_graphics_Paint(AndroidCXX::android_graphics_Paint const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Paint();
 	// Functions
-	 void set(AndroidCXX::android_graphics_Paint& arg0);
+	 void set(AndroidCXX::android_graphics_Paint const& arg0);
 	 void reset();
 	 int getColor();
 	 int getFlags();
-	 void setFlags(int& arg0);
+	 void setFlags(int const& arg0);
 	 int getAlpha();
-	 void setAlpha(int& arg0);
-	 void setDither(bool& arg0);
-	 void setFilterBitmap(bool& arg0);
-	 AndroidCXX::android_graphics_ColorFilter setColorFilter(AndroidCXX::android_graphics_ColorFilter& arg0);
+	 void setAlpha(int const& arg0);
+	 void setDither(bool const& arg0);
+	 void setFilterBitmap(bool const& arg0);
+	 AndroidCXX::android_graphics_ColorFilter setColorFilter(AndroidCXX::android_graphics_ColorFilter const& arg0);
 	 int getHinting();
-	 void setHinting(int& arg0);
+	 void setHinting(int const& arg0);
 	 bool isAntiAlias();
-	 void setAntiAlias(bool& arg0);
+	 void setAntiAlias(bool const& arg0);
 	 bool isDither();
 	 bool isLinearText();
-	 void setLinearText(bool& arg0);
+	 void setLinearText(bool const& arg0);
 	 bool isSubpixelText();
-	 void setSubpixelText(bool& arg0);
+	 void setSubpixelText(bool const& arg0);
 	 bool isUnderlineText();
-	 void setUnderlineText(bool& arg0);
+	 void setUnderlineText(bool const& arg0);
 	 bool isStrikeThruText();
-	 void setStrikeThruText(bool& arg0);
+	 void setStrikeThruText(bool const& arg0);
 	 bool isFakeBoldText();
-	 void setFakeBoldText(bool& arg0);
+	 void setFakeBoldText(bool const& arg0);
 	 bool isFilterBitmap();
-	 ANDROID_GRAPHICS_PAINT_STYLE::android_graphics_Paint_Style getStyle();
-	 void setStyle(ANDROID_GRAPHICS_PAINT_STYLE::android_graphics_Paint_Style& arg0);
-	 void setColor(int& arg0);
-	 void setARGB(int& arg0,int& arg1,int& arg2,int& arg3);
+	 android_graphics_Paint_Style::android_graphics_Paint_Style getStyle();
+	 void setStyle(android_graphics_Paint_Style::android_graphics_Paint_Style const& arg0);
+	 void setColor(int const& arg0);
+	 void setARGB(int const& arg0,int const& arg1,int const& arg2,int const& arg3);
 	 float getStrokeWidth();
-	 void setStrokeWidth(float& arg0);
+	 void setStrokeWidth(float const& arg0);
 	 float getStrokeMiter();
-	 void setStrokeMiter(float& arg0);
-	 ANDROID_GRAPHICS_PAINT_CAP::android_graphics_Paint_Cap getStrokeCap();
-	 void setStrokeCap(ANDROID_GRAPHICS_PAINT_CAP::android_graphics_Paint_Cap& arg0);
-	 ANDROID_GRAPHICS_PAINT_JOIN::android_graphics_Paint_Join getStrokeJoin();
-	 void setStrokeJoin(ANDROID_GRAPHICS_PAINT_JOIN::android_graphics_Paint_Join& arg0);
-	 bool getFillPath(AndroidCXX::android_graphics_Path& arg0,AndroidCXX::android_graphics_Path& arg1);
+	 void setStrokeMiter(float const& arg0);
+	 android_graphics_Paint_Cap::android_graphics_Paint_Cap getStrokeCap();
+	 void setStrokeCap(android_graphics_Paint_Cap::android_graphics_Paint_Cap const& arg0);
+	 android_graphics_Paint_Join::android_graphics_Paint_Join getStrokeJoin();
+	 void setStrokeJoin(android_graphics_Paint_Join::android_graphics_Paint_Join const& arg0);
+	 bool getFillPath(AndroidCXX::android_graphics_Path const& arg0,AndroidCXX::android_graphics_Path const& arg1);
 	 AndroidCXX::android_graphics_Shader getShader();
-	 AndroidCXX::android_graphics_Shader setShader(AndroidCXX::android_graphics_Shader& arg0);
+	 AndroidCXX::android_graphics_Shader setShader(AndroidCXX::android_graphics_Shader const& arg0);
 	 AndroidCXX::android_graphics_ColorFilter getColorFilter();
 	 AndroidCXX::android_graphics_Xfermode getXfermode();
-	 AndroidCXX::android_graphics_Xfermode setXfermode(AndroidCXX::android_graphics_Xfermode& arg0);
+	 AndroidCXX::android_graphics_Xfermode setXfermode(AndroidCXX::android_graphics_Xfermode const& arg0);
 	 AndroidCXX::android_graphics_PathEffect getPathEffect();
-	 AndroidCXX::android_graphics_PathEffect setPathEffect(AndroidCXX::android_graphics_PathEffect& arg0);
+	 AndroidCXX::android_graphics_PathEffect setPathEffect(AndroidCXX::android_graphics_PathEffect const& arg0);
 	 AndroidCXX::android_graphics_MaskFilter getMaskFilter();
-	 AndroidCXX::android_graphics_MaskFilter setMaskFilter(AndroidCXX::android_graphics_MaskFilter& arg0);
+	 AndroidCXX::android_graphics_MaskFilter setMaskFilter(AndroidCXX::android_graphics_MaskFilter const& arg0);
 	 AndroidCXX::android_graphics_Typeface getTypeface();
-	 AndroidCXX::android_graphics_Typeface setTypeface(AndroidCXX::android_graphics_Typeface& arg0);
+	 AndroidCXX::android_graphics_Typeface setTypeface(AndroidCXX::android_graphics_Typeface const& arg0);
 	 AndroidCXX::android_graphics_Rasterizer getRasterizer();
-	 AndroidCXX::android_graphics_Rasterizer setRasterizer(AndroidCXX::android_graphics_Rasterizer& arg0);
-	 void setShadowLayer(float& arg0,float& arg1,float& arg2,int& arg3);
+	 AndroidCXX::android_graphics_Rasterizer setRasterizer(AndroidCXX::android_graphics_Rasterizer const& arg0);
+	 void setShadowLayer(float const& arg0,float const& arg1,float const& arg2,int const& arg3);
 	 void clearShadowLayer();
-	 ANDROID_GRAPHICS_PAINT_ALIGN::android_graphics_Paint_Align getTextAlign();
-	 void setTextAlign(ANDROID_GRAPHICS_PAINT_ALIGN::android_graphics_Paint_Align& arg0);
+	 android_graphics_Paint_Align::android_graphics_Paint_Align getTextAlign();
+	 void setTextAlign(android_graphics_Paint_Align::android_graphics_Paint_Align const& arg0);
 	 AndroidCXX::java_util_Locale getTextLocale();
-	 void setTextLocale(AndroidCXX::java_util_Locale& arg0);
+	 void setTextLocale(AndroidCXX::java_util_Locale const& arg0);
 	 float getTextSize();
-	 void setTextSize(float& arg0);
+	 void setTextSize(float const& arg0);
 	 float getTextScaleX();
-	 void setTextScaleX(float& arg0);
+	 void setTextScaleX(float const& arg0);
 	 float getTextSkewX();
-	 void setTextSkewX(float& arg0);
+	 void setTextSkewX(float const& arg0);
 	 float ascent();
 	 float descent();
 	 AndroidCXX::android_graphics_Paint_FontMetrics getFontMetrics();
-	 float getFontMetrics(AndroidCXX::android_graphics_Paint_FontMetrics& arg0);
+	 float getFontMetrics(AndroidCXX::android_graphics_Paint_FontMetrics const& arg0);
 	 AndroidCXX::android_graphics_Paint_FontMetricsInt getFontMetricsInt();
-	 int getFontMetricsInt(AndroidCXX::android_graphics_Paint_FontMetricsInt& arg0);
+	 int getFontMetricsInt(AndroidCXX::android_graphics_Paint_FontMetricsInt const& arg0);
 	 float getFontSpacing();
-	 float measureText(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2);
-	 float measureText(AndroidCXX::java_lang_String& arg0);
-	 float measureText(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2);
-	 float measureText(std::vector<char>& arg0,int& arg1,int& arg2);
-	 int breakText(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,bool& arg3,float& arg4,std::vector<float>& arg5);
-	 int breakText(AndroidCXX::java_lang_String& arg0,bool& arg1,float& arg2,std::vector<float>& arg3);
-	 int breakText(std::vector<char>& arg0,int& arg1,int& arg2,float& arg3,std::vector<float>& arg4);
-	 int getTextWidths(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,std::vector<float>& arg3);
-	 int getTextWidths(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2,std::vector<float>& arg3);
-	 int getTextWidths(AndroidCXX::java_lang_String& arg0,std::vector<float>& arg1);
-	 int getTextWidths(std::vector<char>& arg0,int& arg1,int& arg2,std::vector<float>& arg3);
-	 void getTextPath(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2,float& arg3,float& arg4,AndroidCXX::android_graphics_Path& arg5);
-	 void getTextPath(std::vector<char>& arg0,int& arg1,int& arg2,float& arg3,float& arg4,AndroidCXX::android_graphics_Path& arg5);
-	 void getTextBounds(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2,AndroidCXX::android_graphics_Rect& arg3);
-	 void getTextBounds(std::vector<char>& arg0,int& arg1,int& arg2,AndroidCXX::android_graphics_Rect& arg3);
+	 float measureText(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2);
+	 float measureText(AndroidCXX::java_lang_String const& arg0);
+	 float measureText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2);
+	 float measureText(std::vector<char> const& arg0,int const& arg1,int const& arg2);
+	 int breakText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,bool const& arg3,float const& arg4,std::vector<float> const& arg5);
+	 int breakText(AndroidCXX::java_lang_String const& arg0,bool const& arg1,float const& arg2,std::vector<float> const& arg3);
+	 int breakText(std::vector<char> const& arg0,int const& arg1,int const& arg2,float const& arg3,std::vector<float> const& arg4);
+	 int getTextWidths(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3);
+	 int getTextWidths(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3);
+	 int getTextWidths(AndroidCXX::java_lang_String const& arg0,std::vector<float> const& arg1);
+	 int getTextWidths(std::vector<char> const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3);
+	 void getTextPath(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,AndroidCXX::android_graphics_Path const& arg5);
+	 void getTextPath(std::vector<char> const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,AndroidCXX::android_graphics_Path const& arg5);
+	 void getTextBounds(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_graphics_Rect const& arg3);
+	 void getTextBounds(std::vector<char> const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_graphics_Rect const& arg3);
 };	
 
 } // namespace

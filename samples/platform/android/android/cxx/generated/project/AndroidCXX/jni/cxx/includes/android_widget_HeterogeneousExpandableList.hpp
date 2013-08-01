@@ -19,7 +19,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_widget_HeterogeneousExpandableList
@@ -50,14 +49,14 @@ class android_widget_HeterogeneousExpandableList
 public:
 
 	android_widget_HeterogeneousExpandableList(const android_widget_HeterogeneousExpandableList& cc);
-	android_widget_HeterogeneousExpandableList(void * proxy);
+	android_widget_HeterogeneousExpandableList(Proxy proxy);
 	// Public Constructors
-	android_widget_HeterogeneousExpandableList();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_HeterogeneousExpandableList();
 	// Functions
-	 int getGroupType(int& arg0);
-	 int getChildType(int& arg0,int& arg1);
+	 int getGroupType(int const& arg0);
+	 int getChildType(int const& arg0,int const& arg1);
 	 int getGroupTypeCount();
 	 int getChildTypeCount();
 };	

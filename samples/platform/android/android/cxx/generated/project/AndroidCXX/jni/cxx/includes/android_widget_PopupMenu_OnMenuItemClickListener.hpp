@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -52,13 +51,13 @@ class android_widget_PopupMenu_OnMenuItemClickListener
 public:
 
 	android_widget_PopupMenu_OnMenuItemClickListener(const android_widget_PopupMenu_OnMenuItemClickListener& cc);
-	android_widget_PopupMenu_OnMenuItemClickListener(void * proxy);
+	android_widget_PopupMenu_OnMenuItemClickListener(Proxy proxy);
 	// Public Constructors
-	android_widget_PopupMenu_OnMenuItemClickListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_PopupMenu_OnMenuItemClickListener();
 	// Functions
-	 bool onMenuItemClick(AndroidCXX::android_view_MenuItem& arg0);
+	 bool onMenuItemClick(AndroidCXX::android_view_MenuItem const& arg0);
 };	
 
 } // namespace

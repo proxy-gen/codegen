@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -57,13 +56,14 @@ class com_facebook_LegacyHelper
 public:
 
 	com_facebook_LegacyHelper(const com_facebook_LegacyHelper& cc);
-	com_facebook_LegacyHelper(void * proxy);
+	com_facebook_LegacyHelper(Proxy proxy);
 	// Public Constructors
 	com_facebook_LegacyHelper();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_LegacyHelper();
 	// Functions
-	static void extendTokenCompleted(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_os_Bundle& arg1);
+	static void extendTokenCompleted(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_os_Bundle const& arg1);
 };	
 
 } // namespace

@@ -8,7 +8,6 @@
 //
 
 
-
  	
 	
  	
@@ -112,35 +111,32 @@ class java_nio_DoubleBuffer
 public:
 
 	java_nio_DoubleBuffer(const java_nio_DoubleBuffer& cc);
-	java_nio_DoubleBuffer(void * proxy);
+	java_nio_DoubleBuffer(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_nio_DoubleBuffer();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_DoubleBuffer();
 	// Functions
 	 double get();
-	 JDKCXX::java_nio_DoubleBuffer get(std::vector<double>& arg0);
-	 JDKCXX::java_nio_DoubleBuffer get(std::vector<double>& arg0,int& arg1,int& arg2);
-	 double get(int& arg0);
-	 JDKCXX::java_nio_DoubleBuffer put(JDKCXX::java_nio_DoubleBuffer& arg0);
-	 JDKCXX::java_nio_DoubleBuffer put(double& arg0);
-	 JDKCXX::java_nio_DoubleBuffer put(int& arg0,double& arg1);
-	 JDKCXX::java_nio_DoubleBuffer put(std::vector<double>& arg0,int& arg1,int& arg2);
-	 JDKCXX::java_nio_DoubleBuffer put(std::vector<double>& arg0);
-	 bool equals(JDKCXX::java_lang_Object& arg0);
+	 JDKCXX::java_nio_DoubleBuffer get(std::vector<double> const& arg0);
+	 JDKCXX::java_nio_DoubleBuffer get(std::vector<double> const& arg0,int const& arg1,int const& arg2);
+	 double get(int const& arg0);
+	 JDKCXX::java_nio_DoubleBuffer put(JDKCXX::java_nio_DoubleBuffer const& arg0);
+	 JDKCXX::java_nio_DoubleBuffer put(double const& arg0);
+	 JDKCXX::java_nio_DoubleBuffer put(int const& arg0,double const& arg1);
+	 JDKCXX::java_nio_DoubleBuffer put(std::vector<double> const& arg0,int const& arg1,int const& arg2);
+	 JDKCXX::java_nio_DoubleBuffer put(std::vector<double> const& arg0);
+	 bool equals(JDKCXX::java_lang_Object const& arg0);
 	 JDKCXX::java_lang_String toString();
 	 int hashCode();
-	 int compareTo(JDKCXX::java_nio_DoubleBuffer& arg0);
+	 int compareTo(JDKCXX::java_nio_DoubleBuffer const& arg0);
 	 bool isDirect();
 	 bool hasArray();
 	 std::vector<double> array();
 	 int arrayOffset();
-	static JDKCXX::java_nio_DoubleBuffer wrap(std::vector<double>& arg0,int& arg1,int& arg2);
-	static JDKCXX::java_nio_DoubleBuffer wrap(std::vector<double>& arg0);
-	static JDKCXX::java_nio_DoubleBuffer allocate(int& arg0);
+	static JDKCXX::java_nio_DoubleBuffer wrap(std::vector<double> const& arg0,int const& arg1,int const& arg2);
+	static JDKCXX::java_nio_DoubleBuffer wrap(std::vector<double> const& arg0);
+	static JDKCXX::java_nio_DoubleBuffer allocate(int const& arg0);
 	 JDKCXX::java_nio_DoubleBuffer duplicate();
 	 JDKCXX::java_nio_DoubleBuffer slice();
 	 JDKCXX::java_nio_DoubleBuffer asReadOnlyBuffer();

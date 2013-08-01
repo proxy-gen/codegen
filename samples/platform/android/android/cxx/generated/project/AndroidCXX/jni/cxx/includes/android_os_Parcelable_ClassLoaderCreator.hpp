@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -62,13 +61,13 @@ class android_os_Parcelable_ClassLoaderCreator
 public:
 
 	android_os_Parcelable_ClassLoaderCreator(const android_os_Parcelable_ClassLoaderCreator& cc);
-	android_os_Parcelable_ClassLoaderCreator(void * proxy);
+	android_os_Parcelable_ClassLoaderCreator(Proxy proxy);
 	// Public Constructors
-	android_os_Parcelable_ClassLoaderCreator();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_os_Parcelable_ClassLoaderCreator();
 	// Functions
-	 AndroidCXX::java_lang_Object createFromParcel(AndroidCXX::android_os_Parcel& arg0,AndroidCXX::java_lang_ClassLoader& arg1);
+	 AndroidCXX::java_lang_Object createFromParcel(AndroidCXX::android_os_Parcel const& arg0,AndroidCXX::java_lang_ClassLoader const& arg1);
 };	
 
 } // namespace

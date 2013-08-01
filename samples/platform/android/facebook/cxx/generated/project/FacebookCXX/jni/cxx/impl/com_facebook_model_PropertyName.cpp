@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -28,6 +27,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_model_PropertyName"
@@ -49,8 +49,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_model_PropertyName::com_facebook_model_PropertyName(const com_facebook_model_PropertyName& cc)
 {
 	LOGV("com_facebook_model_PropertyName::com_facebook_model_PropertyName(const com_facebook_model_PropertyName& cc) enter");
@@ -74,9 +72,9 @@ com_facebook_model_PropertyName::com_facebook_model_PropertyName(const com_faceb
 
 	LOGV("com_facebook_model_PropertyName::com_facebook_model_PropertyName(const com_facebook_model_PropertyName& cc) exit");
 }
-com_facebook_model_PropertyName::com_facebook_model_PropertyName(void * proxy)
+com_facebook_model_PropertyName::com_facebook_model_PropertyName(Proxy proxy)
 {
-	LOGV("com_facebook_model_PropertyName::com_facebook_model_PropertyName(void * proxy) enter");
+	LOGV("com_facebook_model_PropertyName::com_facebook_model_PropertyName(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -86,47 +84,31 @@ com_facebook_model_PropertyName::com_facebook_model_PropertyName(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_model_PropertyName::com_facebook_model_PropertyName(void * proxy) exit");
+	LOGV("com_facebook_model_PropertyName::com_facebook_model_PropertyName(Proxy proxy) exit");
 }
-com_facebook_model_PropertyName::com_facebook_model_PropertyName()
-{
-	LOGV("com_facebook_model_PropertyName::com_facebook_model_PropertyName() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/model/PropertyName";
-
-	LOGV("com_facebook_model_PropertyName className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_model_PropertyName::proxy() const
+{	
+	LOGV("com_facebook_model_PropertyName::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_model_PropertyName cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_model_PropertyName jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_model_PropertyName::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_model_PropertyName::com_facebook_model_PropertyName() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 com_facebook_model_PropertyName::~com_facebook_model_PropertyName()
 {
@@ -138,7 +120,7 @@ com_facebook_model_PropertyName::~com_facebook_model_PropertyName()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_model_PropertyName::~com_facebook_model_PropertyName() exit");
 }
 // Functions
@@ -155,15 +137,12 @@ AndroidCXX::java_lang_String com_facebook_model_PropertyName::value()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_model_PropertyName cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_model_PropertyName jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -181,10 +160,10 @@ AndroidCXX::java_lang_String com_facebook_model_PropertyName::value()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String com_facebook_model_PropertyName::value() exit");
 
 	return result;

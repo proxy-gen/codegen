@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -79,24 +78,24 @@ class java_lang_Boolean
 public:
 
 	java_lang_Boolean(const java_lang_Boolean& cc);
-	java_lang_Boolean(void * proxy);
+	java_lang_Boolean(Proxy proxy);
 	// Public Constructors
-	java_lang_Boolean(bool& arg0);
-	java_lang_Boolean(AndroidCXX::java_lang_String& arg0);
-	java_lang_Boolean();
+	java_lang_Boolean(bool const& arg0);
+	java_lang_Boolean(AndroidCXX::java_lang_String const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Boolean();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
-	static AndroidCXX::java_lang_String toString(bool& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
+	static AndroidCXX::java_lang_String toString(bool const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 int compareTo(AndroidCXX::java_lang_Boolean& arg0);
-	static bool getBoolean(AndroidCXX::java_lang_String& arg0);
+	 int compareTo(AndroidCXX::java_lang_Boolean const& arg0);
+	static bool getBoolean(AndroidCXX::java_lang_String const& arg0);
 	 bool booleanValue();
-	static AndroidCXX::java_lang_Boolean valueOf(AndroidCXX::java_lang_String& arg0);
-	static AndroidCXX::java_lang_Boolean valueOf(bool& arg0);
-	static bool parseBoolean(AndroidCXX::java_lang_String& arg0);
+	static AndroidCXX::java_lang_Boolean valueOf(AndroidCXX::java_lang_String const& arg0);
+	static AndroidCXX::java_lang_Boolean valueOf(bool const& arg0);
+	static bool parseBoolean(AndroidCXX::java_lang_String const& arg0);
 };	
 
 } // namespace

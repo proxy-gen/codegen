@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -90,19 +89,19 @@ class android_widget_TextSwitcher
 public:
 
 	android_widget_TextSwitcher(const android_widget_TextSwitcher& cc);
-	android_widget_TextSwitcher(void * proxy);
+	android_widget_TextSwitcher(Proxy proxy);
 	// Public Constructors
-	android_widget_TextSwitcher(AndroidCXX::android_content_Context& arg0);
-	android_widget_TextSwitcher(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_TextSwitcher();
+	android_widget_TextSwitcher(AndroidCXX::android_content_Context const& arg0);
+	android_widget_TextSwitcher(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TextSwitcher();
 	// Functions
-	 void setText(AndroidCXX::java_lang_CharSequence& arg0);
-	 void addView(AndroidCXX::android_view_View& arg0,int& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams& arg2);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 void setCurrentText(AndroidCXX::java_lang_CharSequence& arg0);
+	 void setText(AndroidCXX::java_lang_CharSequence const& arg0);
+	 void addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 void setCurrentText(AndroidCXX::java_lang_CharSequence const& arg0);
 };	
 
 } // namespace

@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
     }
     
     protected void testJDKCXX() {
-    	testJDKCXXFull();
+    	testJDKCXXFull();    	
     }
     
     public native void testJDKCXXFull();

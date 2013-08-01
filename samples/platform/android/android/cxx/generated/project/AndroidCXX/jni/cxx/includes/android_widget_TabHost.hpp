@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -133,34 +132,34 @@ class android_widget_TabHost
 public:
 
 	android_widget_TabHost(const android_widget_TabHost& cc);
-	android_widget_TabHost(void * proxy);
+	android_widget_TabHost(Proxy proxy);
 	// Public Constructors
-	android_widget_TabHost(AndroidCXX::android_content_Context& arg0);
-	android_widget_TabHost(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_TabHost();
+	android_widget_TabHost(AndroidCXX::android_content_Context const& arg0);
+	android_widget_TabHost(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TabHost();
 	// Functions
 	 void setup();
-	 void setup(AndroidCXX::android_app_LocalActivityManager& arg0);
-	 bool dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0);
-	 void dispatchWindowFocusChanged(bool& arg0);
-	 void sendAccessibilityEvent(int& arg0);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 void onTouchModeChanged(bool& arg0);
-	 void addTab(AndroidCXX::android_widget_TabHost_TabSpec& arg0);
+	 void setup(AndroidCXX::android_app_LocalActivityManager const& arg0);
+	 bool dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0);
+	 void dispatchWindowFocusChanged(bool const& arg0);
+	 void sendAccessibilityEvent(int const& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 void onTouchModeChanged(bool const& arg0);
+	 void addTab(AndroidCXX::android_widget_TabHost_TabSpec const& arg0);
 	 AndroidCXX::android_view_View getCurrentView();
-	 AndroidCXX::android_widget_TabHost_TabSpec newTabSpec(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::android_widget_TabHost_TabSpec newTabSpec(AndroidCXX::java_lang_String const& arg0);
 	 void clearAllTabs();
 	 AndroidCXX::android_widget_TabWidget getTabWidget();
 	 int getCurrentTab();
 	 AndroidCXX::java_lang_String getCurrentTabTag();
 	 AndroidCXX::android_view_View getCurrentTabView();
-	 void setCurrentTabByTag(AndroidCXX::java_lang_String& arg0);
+	 void setCurrentTabByTag(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::android_widget_FrameLayout getTabContentView();
-	 void setCurrentTab(int& arg0);
-	 void setOnTabChangedListener(AndroidCXX::android_widget_TabHost_OnTabChangeListener& arg0);
+	 void setCurrentTab(int const& arg0);
+	 void setOnTabChangedListener(AndroidCXX::android_widget_TabHost_OnTabChangeListener const& arg0);
 };	
 
 } // namespace

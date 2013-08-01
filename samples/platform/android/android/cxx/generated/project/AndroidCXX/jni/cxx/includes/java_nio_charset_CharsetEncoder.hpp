@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -109,28 +108,28 @@ class java_nio_charset_CharsetEncoder
 public:
 
 	java_nio_charset_CharsetEncoder(const java_nio_charset_CharsetEncoder& cc);
-	java_nio_charset_CharsetEncoder(void * proxy);
+	java_nio_charset_CharsetEncoder(Proxy proxy);
 	// Public Constructors
-	java_nio_charset_CharsetEncoder();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_charset_CharsetEncoder();
 	// Functions
 	 AndroidCXX::java_nio_charset_Charset charset();
-	 AndroidCXX::java_nio_charset_CoderResult encode(AndroidCXX::java_nio_CharBuffer& arg0,AndroidCXX::java_nio_ByteBuffer& arg1,bool& arg2);
-	 AndroidCXX::java_nio_ByteBuffer encode(AndroidCXX::java_nio_CharBuffer& arg0);
-	 AndroidCXX::java_nio_charset_CoderResult flush(AndroidCXX::java_nio_ByteBuffer& arg0);
+	 AndroidCXX::java_nio_charset_CoderResult encode(AndroidCXX::java_nio_CharBuffer const& arg0,AndroidCXX::java_nio_ByteBuffer const& arg1,bool const& arg2);
+	 AndroidCXX::java_nio_ByteBuffer encode(AndroidCXX::java_nio_CharBuffer const& arg0);
+	 AndroidCXX::java_nio_charset_CoderResult flush(AndroidCXX::java_nio_ByteBuffer const& arg0);
 	 AndroidCXX::java_nio_charset_CharsetEncoder reset();
-	 bool canEncode(char& arg0);
-	 bool canEncode(AndroidCXX::java_lang_CharSequence& arg0);
-	 AndroidCXX::java_nio_charset_CharsetEncoder onMalformedInput(AndroidCXX::java_nio_charset_CodingErrorAction& arg0);
-	 AndroidCXX::java_nio_charset_CharsetEncoder onUnmappableCharacter(AndroidCXX::java_nio_charset_CodingErrorAction& arg0);
+	 bool canEncode(char const& arg0);
+	 bool canEncode(AndroidCXX::java_lang_CharSequence const& arg0);
+	 AndroidCXX::java_nio_charset_CharsetEncoder onMalformedInput(AndroidCXX::java_nio_charset_CodingErrorAction const& arg0);
+	 AndroidCXX::java_nio_charset_CharsetEncoder onUnmappableCharacter(AndroidCXX::java_nio_charset_CodingErrorAction const& arg0);
 	 float maxBytesPerChar();
-	 bool isLegalReplacement(std::vector<byte>& arg0);
+	 bool isLegalReplacement(std::vector<byte> const& arg0);
 	 float averageBytesPerChar();
 	 std::vector<byte> replacement();
 	 AndroidCXX::java_nio_charset_CodingErrorAction malformedInputAction();
 	 AndroidCXX::java_nio_charset_CodingErrorAction unmappableCharacterAction();
-	 AndroidCXX::java_nio_charset_CharsetEncoder replaceWith(std::vector<byte>& arg0);
+	 AndroidCXX::java_nio_charset_CharsetEncoder replaceWith(std::vector<byte> const& arg0);
 };	
 
 } // namespace

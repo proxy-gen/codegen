@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_widget_ImageResponseCache_BufferedHttpInputStream
@@ -47,9 +46,9 @@ class com_facebook_widget_ImageResponseCache_BufferedHttpInputStream
 public:
 
 	com_facebook_widget_ImageResponseCache_BufferedHttpInputStream(const com_facebook_widget_ImageResponseCache_BufferedHttpInputStream& cc);
-	com_facebook_widget_ImageResponseCache_BufferedHttpInputStream(void * proxy);
+	com_facebook_widget_ImageResponseCache_BufferedHttpInputStream(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_ImageResponseCache_BufferedHttpInputStream();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageResponseCache_BufferedHttpInputStream();
 	// Functions

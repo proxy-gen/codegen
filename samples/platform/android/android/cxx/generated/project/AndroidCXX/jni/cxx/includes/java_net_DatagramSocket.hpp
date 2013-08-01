@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -113,45 +112,46 @@ class java_net_DatagramSocket
 public:
 
 	java_net_DatagramSocket(const java_net_DatagramSocket& cc);
-	java_net_DatagramSocket(void * proxy);
+	java_net_DatagramSocket(Proxy proxy);
 	// Public Constructors
-	java_net_DatagramSocket(int& arg0,AndroidCXX::java_net_InetAddress& arg1);
+	java_net_DatagramSocket(int const& arg0,AndroidCXX::java_net_InetAddress const& arg1);
 	java_net_DatagramSocket();
-	java_net_DatagramSocket(AndroidCXX::java_net_SocketAddress& arg0);
-	java_net_DatagramSocket(int& arg0);
+	java_net_DatagramSocket(AndroidCXX::java_net_SocketAddress const& arg0);
+	java_net_DatagramSocket(int const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_DatagramSocket();
 	// Functions
 	 void close();
-	 void send(AndroidCXX::java_net_DatagramPacket& arg0);
+	 void send(AndroidCXX::java_net_DatagramPacket const& arg0);
 	 int getPort();
 	 AndroidCXX::java_nio_channels_DatagramChannel getChannel();
-	 void connect(AndroidCXX::java_net_SocketAddress& arg0);
-	 void connect(AndroidCXX::java_net_InetAddress& arg0,int& arg1);
+	 void connect(AndroidCXX::java_net_SocketAddress const& arg0);
+	 void connect(AndroidCXX::java_net_InetAddress const& arg0,int const& arg1);
 	 bool isClosed();
 	 void disconnect();
-	 void bind(AndroidCXX::java_net_SocketAddress& arg0);
+	 void bind(AndroidCXX::java_net_SocketAddress const& arg0);
 	 AndroidCXX::java_net_InetAddress getInetAddress();
 	 AndroidCXX::java_net_InetAddress getLocalAddress();
 	 int getLocalPort();
 	 AndroidCXX::java_net_SocketAddress getRemoteSocketAddress();
 	 AndroidCXX::java_net_SocketAddress getLocalSocketAddress();
-	 void setSoTimeout(int& arg0);
+	 void setSoTimeout(int const& arg0);
 	 int getSoTimeout();
-	 void setSendBufferSize(int& arg0);
+	 void setSendBufferSize(int const& arg0);
 	 int getSendBufferSize();
-	 void setReceiveBufferSize(int& arg0);
+	 void setReceiveBufferSize(int const& arg0);
 	 int getReceiveBufferSize();
-	 void setTrafficClass(int& arg0);
+	 void setTrafficClass(int const& arg0);
 	 int getTrafficClass();
-	 void setReuseAddress(bool& arg0);
+	 void setReuseAddress(bool const& arg0);
 	 bool getReuseAddress();
 	 bool isConnected();
 	 bool isBound();
-	 void receive(AndroidCXX::java_net_DatagramPacket& arg0);
-	 void setBroadcast(bool& arg0);
+	 void receive(AndroidCXX::java_net_DatagramPacket const& arg0);
+	 void setBroadcast(bool const& arg0);
 	 bool getBroadcast();
-	static void setDatagramSocketImplFactory(AndroidCXX::java_net_DatagramSocketImplFactory& arg0);
+	static void setDatagramSocketImplFactory(AndroidCXX::java_net_DatagramSocketImplFactory const& arg0);
 };	
 
 } // namespace

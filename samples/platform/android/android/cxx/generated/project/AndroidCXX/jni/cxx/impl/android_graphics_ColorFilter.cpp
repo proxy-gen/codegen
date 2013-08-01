@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_graphics_ColorFilter.hpp>
@@ -27,7 +26,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_ColorFilter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -40,8 +39,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_graphics_ColorFilter::android_graphics_ColorFilter(const android_graphics_ColorFilter& cc)
 {
 	LOGV("android_graphics_ColorFilter::android_graphics_ColorFilter(const android_graphics_ColorFilter& cc) enter");
@@ -65,9 +62,9 @@ android_graphics_ColorFilter::android_graphics_ColorFilter(const android_graphic
 
 	LOGV("android_graphics_ColorFilter::android_graphics_ColorFilter(const android_graphics_ColorFilter& cc) exit");
 }
-android_graphics_ColorFilter::android_graphics_ColorFilter(void * proxy)
+android_graphics_ColorFilter::android_graphics_ColorFilter(Proxy proxy)
 {
-	LOGV("android_graphics_ColorFilter::android_graphics_ColorFilter(void * proxy) enter");
+	LOGV("android_graphics_ColorFilter::android_graphics_ColorFilter(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -77,13 +74,31 @@ android_graphics_ColorFilter::android_graphics_ColorFilter(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_graphics_ColorFilter::android_graphics_ColorFilter(void * proxy) exit");
+	LOGV("android_graphics_ColorFilter::android_graphics_ColorFilter(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy android_graphics_ColorFilter::proxy() const
+{	
+	LOGV("android_graphics_ColorFilter::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_graphics_ColorFilter cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_graphics_ColorFilter jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_graphics_ColorFilter::proxy() exit");	
+
+	return proxy;
+}
 android_graphics_ColorFilter::android_graphics_ColorFilter()
 {
 	LOGV("android_graphics_ColorFilter::android_graphics_ColorFilter() enter");	
@@ -131,7 +146,7 @@ android_graphics_ColorFilter::~android_graphics_ColorFilter()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_graphics_ColorFilter::~android_graphics_ColorFilter() exit");
 }
 // Functions

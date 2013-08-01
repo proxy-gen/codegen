@@ -9,7 +9,6 @@
 
 
 
-
  			
 		
 
@@ -31,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace ANDROID_WEBKIT_WEBSETTINGS_RENDERPRIORITY {
+namespace android_webkit_WebSettings_RenderPriority {
 
 enum android_webkit_WebSettings_RenderPriority
 {

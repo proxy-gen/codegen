@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #include <com_facebook_widget_PickerFragment_SelectionStrategy.hpp>
@@ -26,6 +25,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_PickerFragment_SelectionStrategy"
@@ -39,8 +39,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_widget_PickerFragment_SelectionStrategy::com_facebook_widget_PickerFragment_SelectionStrategy(const com_facebook_widget_PickerFragment_SelectionStrategy& cc)
 {
 	LOGV("com_facebook_widget_PickerFragment_SelectionStrategy::com_facebook_widget_PickerFragment_SelectionStrategy(const com_facebook_widget_PickerFragment_SelectionStrategy& cc) enter");
@@ -64,9 +62,9 @@ com_facebook_widget_PickerFragment_SelectionStrategy::com_facebook_widget_Picker
 
 	LOGV("com_facebook_widget_PickerFragment_SelectionStrategy::com_facebook_widget_PickerFragment_SelectionStrategy(const com_facebook_widget_PickerFragment_SelectionStrategy& cc) exit");
 }
-com_facebook_widget_PickerFragment_SelectionStrategy::com_facebook_widget_PickerFragment_SelectionStrategy(void * proxy)
+com_facebook_widget_PickerFragment_SelectionStrategy::com_facebook_widget_PickerFragment_SelectionStrategy(Proxy proxy)
 {
-	LOGV("com_facebook_widget_PickerFragment_SelectionStrategy::com_facebook_widget_PickerFragment_SelectionStrategy(void * proxy) enter");
+	LOGV("com_facebook_widget_PickerFragment_SelectionStrategy::com_facebook_widget_PickerFragment_SelectionStrategy(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -76,47 +74,31 @@ com_facebook_widget_PickerFragment_SelectionStrategy::com_facebook_widget_Picker
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_widget_PickerFragment_SelectionStrategy::com_facebook_widget_PickerFragment_SelectionStrategy(void * proxy) exit");
+	LOGV("com_facebook_widget_PickerFragment_SelectionStrategy::com_facebook_widget_PickerFragment_SelectionStrategy(Proxy proxy) exit");
 }
-com_facebook_widget_PickerFragment_SelectionStrategy::com_facebook_widget_PickerFragment_SelectionStrategy()
-{
-	LOGV("com_facebook_widget_PickerFragment_SelectionStrategy::com_facebook_widget_PickerFragment_SelectionStrategy() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/widget/PickerFragment$SelectionStrategy";
-
-	LOGV("com_facebook_widget_PickerFragment_SelectionStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_widget_PickerFragment_SelectionStrategy::proxy() const
+{	
+	LOGV("com_facebook_widget_PickerFragment_SelectionStrategy::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment_SelectionStrategy cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_PickerFragment_SelectionStrategy jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_widget_PickerFragment_SelectionStrategy::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_widget_PickerFragment_SelectionStrategy::com_facebook_widget_PickerFragment_SelectionStrategy() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 com_facebook_widget_PickerFragment_SelectionStrategy::~com_facebook_widget_PickerFragment_SelectionStrategy()
 {
@@ -128,7 +110,7 @@ com_facebook_widget_PickerFragment_SelectionStrategy::~com_facebook_widget_Picke
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_widget_PickerFragment_SelectionStrategy::~com_facebook_widget_PickerFragment_SelectionStrategy() exit");
 }
 // Functions

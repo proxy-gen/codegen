@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -32,6 +31,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_PlacePickerFragment_SearchTextWatcher"
@@ -59,8 +59,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_widget_PlacePickerFragment_SearchTextWatcher::com_facebook_widget_PlacePickerFragment_SearchTextWatcher(const com_facebook_widget_PlacePickerFragment_SearchTextWatcher& cc)
 {
 	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher::com_facebook_widget_PlacePickerFragment_SearchTextWatcher(const com_facebook_widget_PlacePickerFragment_SearchTextWatcher& cc) enter");
@@ -84,9 +82,9 @@ com_facebook_widget_PlacePickerFragment_SearchTextWatcher::com_facebook_widget_P
 
 	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher::com_facebook_widget_PlacePickerFragment_SearchTextWatcher(const com_facebook_widget_PlacePickerFragment_SearchTextWatcher& cc) exit");
 }
-com_facebook_widget_PlacePickerFragment_SearchTextWatcher::com_facebook_widget_PlacePickerFragment_SearchTextWatcher(void * proxy)
+com_facebook_widget_PlacePickerFragment_SearchTextWatcher::com_facebook_widget_PlacePickerFragment_SearchTextWatcher(Proxy proxy)
 {
-	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher::com_facebook_widget_PlacePickerFragment_SearchTextWatcher(void * proxy) enter");
+	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher::com_facebook_widget_PlacePickerFragment_SearchTextWatcher(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -96,47 +94,31 @@ com_facebook_widget_PlacePickerFragment_SearchTextWatcher::com_facebook_widget_P
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher::com_facebook_widget_PlacePickerFragment_SearchTextWatcher(void * proxy) exit");
+	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher::com_facebook_widget_PlacePickerFragment_SearchTextWatcher(Proxy proxy) exit");
 }
-com_facebook_widget_PlacePickerFragment_SearchTextWatcher::com_facebook_widget_PlacePickerFragment_SearchTextWatcher()
-{
-	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher::com_facebook_widget_PlacePickerFragment_SearchTextWatcher() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/widget/PlacePickerFragment$SearchTextWatcher";
-
-	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_widget_PlacePickerFragment_SearchTextWatcher::proxy() const
+{	
+	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher::com_facebook_widget_PlacePickerFragment_SearchTextWatcher() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 com_facebook_widget_PlacePickerFragment_SearchTextWatcher::~com_facebook_widget_PlacePickerFragment_SearchTextWatcher()
 {
@@ -148,13 +130,13 @@ com_facebook_widget_PlacePickerFragment_SearchTextWatcher::~com_facebook_widget_
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher::~com_facebook_widget_PlacePickerFragment_SearchTextWatcher() exit");
 }
 // Functions
-void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::onTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3)
+void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::onTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::onTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3) enter");
+	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::onTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3) enter");
 
 	const char *methodName = "onTextChanged";
 	const char *methodSignature = "(Ljava/lang/CharSequence;III)V";
@@ -165,8 +147,6 @@ void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::onTextChanged(An
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -259,14 +239,12 @@ void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::onTextChanged(An
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::onTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3) exit");
+	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::onTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3) exit");
 
 }
-void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::beforeTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3)
+void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::beforeTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::beforeTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3) enter");
+	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::beforeTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3) enter");
 
 	const char *methodName = "beforeTextChanged";
 	const char *methodSignature = "(Ljava/lang/CharSequence;III)V";
@@ -277,8 +255,6 @@ void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::beforeTextChange
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -371,14 +347,12 @@ void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::beforeTextChange
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::beforeTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3) exit");
+	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::beforeTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3) exit");
 
 }
-void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::afterTextChanged(AndroidCXX::android_text_Editable& arg0)
+void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::afterTextChanged(AndroidCXX::android_text_Editable const& arg0)
 {
-	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::afterTextChanged(AndroidCXX::android_text_Editable& arg0) enter");
+	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::afterTextChanged(AndroidCXX::android_text_Editable const& arg0) enter");
 
 	const char *methodName = "afterTextChanged";
 	const char *methodSignature = "(Landroid/text/Editable;)V";
@@ -388,8 +362,6 @@ void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::afterTextChanged
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher cxx address %d", cxxAddress);
@@ -420,8 +392,6 @@ void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::afterTextChanged
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::afterTextChanged(AndroidCXX::android_text_Editable& arg0) exit");
+	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::afterTextChanged(AndroidCXX::android_text_Editable const& arg0) exit");
 
 }

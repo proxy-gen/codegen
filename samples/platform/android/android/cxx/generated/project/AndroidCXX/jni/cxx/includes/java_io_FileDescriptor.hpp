@@ -18,7 +18,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _java_io_FileDescriptor
@@ -49,9 +48,10 @@ class java_io_FileDescriptor
 public:
 
 	java_io_FileDescriptor(const java_io_FileDescriptor& cc);
-	java_io_FileDescriptor(void * proxy);
+	java_io_FileDescriptor(Proxy proxy);
 	// Public Constructors
 	java_io_FileDescriptor();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_io_FileDescriptor();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 
@@ -29,7 +28,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_net_FileNameMap"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -51,8 +50,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_net_FileNameMap::java_net_FileNameMap(const java_net_FileNameMap& cc)
 {
 	LOGV("java_net_FileNameMap::java_net_FileNameMap(const java_net_FileNameMap& cc) enter");
@@ -76,9 +73,9 @@ java_net_FileNameMap::java_net_FileNameMap(const java_net_FileNameMap& cc)
 
 	LOGV("java_net_FileNameMap::java_net_FileNameMap(const java_net_FileNameMap& cc) exit");
 }
-java_net_FileNameMap::java_net_FileNameMap(void * proxy)
+java_net_FileNameMap::java_net_FileNameMap(Proxy proxy)
 {
-	LOGV("java_net_FileNameMap::java_net_FileNameMap(void * proxy) enter");
+	LOGV("java_net_FileNameMap::java_net_FileNameMap(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -88,47 +85,31 @@ java_net_FileNameMap::java_net_FileNameMap(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_net_FileNameMap::java_net_FileNameMap(void * proxy) exit");
+	LOGV("java_net_FileNameMap::java_net_FileNameMap(Proxy proxy) exit");
 }
-java_net_FileNameMap::java_net_FileNameMap()
-{
-	LOGV("java_net_FileNameMap::java_net_FileNameMap() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "java/net/FileNameMap";
-
-	LOGV("java_net_FileNameMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy java_net_FileNameMap::proxy() const
+{	
+	LOGV("java_net_FileNameMap::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_FileNameMap cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_FileNameMap jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("java_net_FileNameMap::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("java_net_FileNameMap::java_net_FileNameMap() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 java_net_FileNameMap::~java_net_FileNameMap()
 {
@@ -140,13 +121,13 @@ java_net_FileNameMap::~java_net_FileNameMap()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_net_FileNameMap::~java_net_FileNameMap() exit");
 }
 // Functions
-AndroidCXX::java_lang_String java_net_FileNameMap::getContentTypeFor(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_lang_String java_net_FileNameMap::getContentTypeFor(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String java_net_FileNameMap::getContentTypeFor(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String java_net_FileNameMap::getContentTypeFor(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getContentTypeFor";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
@@ -156,8 +137,6 @@ AndroidCXX::java_lang_String java_net_FileNameMap::getContentTypeFor(AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_FileNameMap cxx address %d", cxxAddress);
@@ -186,7 +165,6 @@ AndroidCXX::java_lang_String java_net_FileNameMap::getContentTypeFor(AndroidCXX:
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -204,11 +182,11 @@ AndroidCXX::java_lang_String java_net_FileNameMap::getContentTypeFor(AndroidCXX:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String java_net_FileNameMap::getContentTypeFor(AndroidCXX::java_lang_String& arg0) exit");
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_String java_net_FileNameMap::getContentTypeFor(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }

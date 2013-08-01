@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_widget_ImageResponse
@@ -46,9 +45,9 @@ class com_facebook_widget_ImageResponse
 public:
 
 	com_facebook_widget_ImageResponse(const com_facebook_widget_ImageResponse& cc);
-	com_facebook_widget_ImageResponse(void * proxy);
+	com_facebook_widget_ImageResponse(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_ImageResponse();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageResponse();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -54,9 +53,9 @@ class java_util_Iterator
 public:
 
 	java_util_Iterator(const java_util_Iterator& cc);
-	java_util_Iterator(void * proxy);
+	java_util_Iterator(Proxy proxy);
 	// Public Constructors
-	java_util_Iterator();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Iterator();
 	// Functions

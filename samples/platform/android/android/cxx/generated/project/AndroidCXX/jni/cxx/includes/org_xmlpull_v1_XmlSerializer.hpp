@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -131,37 +130,37 @@ class org_xmlpull_v1_XmlSerializer
 public:
 
 	org_xmlpull_v1_XmlSerializer(const org_xmlpull_v1_XmlSerializer& cc);
-	org_xmlpull_v1_XmlSerializer(void * proxy);
+	org_xmlpull_v1_XmlSerializer(Proxy proxy);
 	// Public Constructors
-	org_xmlpull_v1_XmlSerializer();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~org_xmlpull_v1_XmlSerializer();
 	// Functions
-	 void setProperty(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Object& arg1);
-	 AndroidCXX::java_lang_Object getProperty(AndroidCXX::java_lang_String& arg0);
+	 void setProperty(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	 AndroidCXX::java_lang_Object getProperty(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_lang_String getName();
 	 void flush();
-	 void comment(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::java_lang_String getPrefix(AndroidCXX::java_lang_String& arg0,bool& arg1);
-	 AndroidCXX::org_xmlpull_v1_XmlSerializer text(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::org_xmlpull_v1_XmlSerializer text(std::vector<char>& arg0,int& arg1,int& arg2);
-	 void setFeature(AndroidCXX::java_lang_String& arg0,bool& arg1);
-	 bool getFeature(AndroidCXX::java_lang_String& arg0);
+	 void comment(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::java_lang_String getPrefix(AndroidCXX::java_lang_String const& arg0,bool const& arg1);
+	 AndroidCXX::org_xmlpull_v1_XmlSerializer text(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::org_xmlpull_v1_XmlSerializer text(std::vector<char> const& arg0,int const& arg1,int const& arg2);
+	 void setFeature(AndroidCXX::java_lang_String const& arg0,bool const& arg1);
+	 bool getFeature(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_lang_String getNamespace();
 	 int getDepth();
-	 void setOutput(AndroidCXX::java_io_OutputStream& arg0,AndroidCXX::java_lang_String& arg1);
-	 void setOutput(AndroidCXX::java_io_Writer& arg0);
-	 void startDocument(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Boolean& arg1);
+	 void setOutput(AndroidCXX::java_io_OutputStream const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 void setOutput(AndroidCXX::java_io_Writer const& arg0);
+	 void startDocument(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Boolean const& arg1);
 	 void endDocument();
-	 void setPrefix(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
-	 AndroidCXX::org_xmlpull_v1_XmlSerializer startTag(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
-	 AndroidCXX::org_xmlpull_v1_XmlSerializer attribute(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2);
-	 AndroidCXX::org_xmlpull_v1_XmlSerializer endTag(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
-	 void cdsect(AndroidCXX::java_lang_String& arg0);
-	 void entityRef(AndroidCXX::java_lang_String& arg0);
-	 void processingInstruction(AndroidCXX::java_lang_String& arg0);
-	 void docdecl(AndroidCXX::java_lang_String& arg0);
-	 void ignorableWhitespace(AndroidCXX::java_lang_String& arg0);
+	 void setPrefix(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 AndroidCXX::org_xmlpull_v1_XmlSerializer startTag(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 AndroidCXX::org_xmlpull_v1_XmlSerializer attribute(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2);
+	 AndroidCXX::org_xmlpull_v1_XmlSerializer endTag(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 void cdsect(AndroidCXX::java_lang_String const& arg0);
+	 void entityRef(AndroidCXX::java_lang_String const& arg0);
+	 void processingInstruction(AndroidCXX::java_lang_String const& arg0);
+	 void docdecl(AndroidCXX::java_lang_String const& arg0);
+	 void ignorableWhitespace(AndroidCXX::java_lang_String const& arg0);
 };	
 
 } // namespace

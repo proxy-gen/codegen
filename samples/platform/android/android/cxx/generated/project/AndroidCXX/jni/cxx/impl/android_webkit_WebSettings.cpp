@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -153,7 +152,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_webkit_WebSettings"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -172,7 +171,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_WEBKIT_WEBSETTINGS_TEXTSIZE;
+// using namespace android_webkit_WebSettings_TextSize;
 // 
 // 
 // 
@@ -183,7 +182,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_WEBKIT_WEBSETTINGS_ZOOMDENSITY;
+// using namespace android_webkit_WebSettings_ZoomDensity;
 // 
 // 
 // 
@@ -194,7 +193,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_WEBKIT_WEBSETTINGS_LAYOUTALGORITHM;
+// using namespace android_webkit_WebSettings_LayoutAlgorithm;
 // 
 // 
 // 
@@ -241,7 +240,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_WEBKIT_WEBSETTINGS_PLUGINSTATE;
+// using namespace android_webkit_WebSettings_PluginState;
 // 
 // 
 // 
@@ -285,7 +284,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_WEBKIT_WEBSETTINGS_RENDERPRIORITY;
+// using namespace android_webkit_WebSettings_RenderPriority;
 // 
 // 
 // 
@@ -293,8 +292,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_webkit_WebSettings::android_webkit_WebSettings(const android_webkit_WebSettings& cc)
 {
 	LOGV("android_webkit_WebSettings::android_webkit_WebSettings(const android_webkit_WebSettings& cc) enter");
@@ -318,9 +315,9 @@ android_webkit_WebSettings::android_webkit_WebSettings(const android_webkit_WebS
 
 	LOGV("android_webkit_WebSettings::android_webkit_WebSettings(const android_webkit_WebSettings& cc) exit");
 }
-android_webkit_WebSettings::android_webkit_WebSettings(void * proxy)
+android_webkit_WebSettings::android_webkit_WebSettings(Proxy proxy)
 {
-	LOGV("android_webkit_WebSettings::android_webkit_WebSettings(void * proxy) enter");
+	LOGV("android_webkit_WebSettings::android_webkit_WebSettings(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -330,47 +327,31 @@ android_webkit_WebSettings::android_webkit_WebSettings(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_webkit_WebSettings::android_webkit_WebSettings(void * proxy) exit");
+	LOGV("android_webkit_WebSettings::android_webkit_WebSettings(Proxy proxy) exit");
 }
-android_webkit_WebSettings::android_webkit_WebSettings()
-{
-	LOGV("android_webkit_WebSettings::android_webkit_WebSettings() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/webkit/WebSettings";
-
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_webkit_WebSettings::proxy() const
+{	
+	LOGV("android_webkit_WebSettings::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_webkit_WebSettings::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_webkit_WebSettings::android_webkit_WebSettings() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_webkit_WebSettings::~android_webkit_WebSettings()
 {
@@ -382,7 +363,7 @@ android_webkit_WebSettings::~android_webkit_WebSettings()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_webkit_WebSettings::~android_webkit_WebSettings() exit");
 }
 // Functions
@@ -399,15 +380,12 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getDatabasePath()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -425,17 +403,17 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getDatabasePath()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_webkit_WebSettings::getDatabasePath() exit");
 
 	return result;
 }
-ANDROID_WEBKIT_WEBSETTINGS_TEXTSIZE::android_webkit_WebSettings_TextSize android_webkit_WebSettings::getTextSize()
+android_webkit_WebSettings_TextSize::android_webkit_WebSettings_TextSize android_webkit_WebSettings::getTextSize()
 {
-	LOGV("ANDROID_WEBKIT_WEBSETTINGS_TEXTSIZE::android_webkit_WebSettings_TextSize android_webkit_WebSettings::getTextSize() enter");
+	LOGV("android_webkit_WebSettings_TextSize::android_webkit_WebSettings_TextSize android_webkit_WebSettings::getTextSize() enter");
 
 	const char *methodName = "getTextSize";
 	const char *methodSignature = "()Landroid/webkit/WebSettings$TextSize;";
@@ -446,15 +424,12 @@ ANDROID_WEBKIT_WEBSETTINGS_TEXTSIZE::android_webkit_WebSettings_TextSize android
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	ANDROID_WEBKIT_WEBSETTINGS_TEXTSIZE::android_webkit_WebSettings_TextSize result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -472,17 +447,17 @@ ANDROID_WEBKIT_WEBSETTINGS_TEXTSIZE::android_webkit_WebSettings_TextSize android
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_webkit_WebSettings_TextSize(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (ANDROID_WEBKIT_WEBSETTINGS_TEXTSIZE::android_webkit_WebSettings_TextSize) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("ANDROID_WEBKIT_WEBSETTINGS_TEXTSIZE::android_webkit_WebSettings_TextSize android_webkit_WebSettings::getTextSize() exit");
+	android_webkit_WebSettings_TextSize::android_webkit_WebSettings_TextSize result = (android_webkit_WebSettings_TextSize::android_webkit_WebSettings_TextSize) (cxx_value);
+	//
+		
+	LOGV("android_webkit_WebSettings_TextSize::android_webkit_WebSettings_TextSize android_webkit_WebSettings::getTextSize() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setTextSize(ANDROID_WEBKIT_WEBSETTINGS_TEXTSIZE::android_webkit_WebSettings_TextSize& arg0)
+void android_webkit_WebSettings::setTextSize(android_webkit_WebSettings_TextSize::android_webkit_WebSettings_TextSize const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setTextSize(ANDROID_WEBKIT_WEBSETTINGS_TEXTSIZE::android_webkit_WebSettings_TextSize& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setTextSize(android_webkit_WebSettings_TextSize::android_webkit_WebSettings_TextSize const& arg0) enter");
 
 	const char *methodName = "setTextSize";
 	const char *methodSignature = "(Landroid/webkit/WebSettings$TextSize;)V";
@@ -492,8 +467,6 @@ void android_webkit_WebSettings::setTextSize(ANDROID_WEBKIT_WEBSETTINGS_TEXTSIZE
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -524,14 +497,12 @@ void android_webkit_WebSettings::setTextSize(ANDROID_WEBKIT_WEBSETTINGS_TEXTSIZE
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setTextSize(ANDROID_WEBKIT_WEBSETTINGS_TEXTSIZE::android_webkit_WebSettings_TextSize& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setTextSize(android_webkit_WebSettings_TextSize::android_webkit_WebSettings_TextSize const& arg0) exit");
 
 }
-void android_webkit_WebSettings::setSupportZoom(bool& arg0)
+void android_webkit_WebSettings::setSupportZoom(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setSupportZoom(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setSupportZoom(bool const& arg0) enter");
 
 	const char *methodName = "setSupportZoom";
 	const char *methodSignature = "(Z)V";
@@ -541,8 +512,6 @@ void android_webkit_WebSettings::setSupportZoom(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -573,9 +542,7 @@ void android_webkit_WebSettings::setSupportZoom(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setSupportZoom(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setSupportZoom(bool const& arg0) exit");
 
 }
 bool android_webkit_WebSettings::supportZoom()
@@ -591,15 +558,12 @@ bool android_webkit_WebSettings::supportZoom()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -617,17 +581,17 @@ bool android_webkit_WebSettings::supportZoom()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::supportZoom() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setMediaPlaybackRequiresUserGesture(bool& arg0)
+void android_webkit_WebSettings::setMediaPlaybackRequiresUserGesture(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setMediaPlaybackRequiresUserGesture(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setMediaPlaybackRequiresUserGesture(bool const& arg0) enter");
 
 	const char *methodName = "setMediaPlaybackRequiresUserGesture";
 	const char *methodSignature = "(Z)V";
@@ -637,8 +601,6 @@ void android_webkit_WebSettings::setMediaPlaybackRequiresUserGesture(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -669,9 +631,7 @@ void android_webkit_WebSettings::setMediaPlaybackRequiresUserGesture(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setMediaPlaybackRequiresUserGesture(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setMediaPlaybackRequiresUserGesture(bool const& arg0) exit");
 
 }
 bool android_webkit_WebSettings::getMediaPlaybackRequiresUserGesture()
@@ -687,15 +647,12 @@ bool android_webkit_WebSettings::getMediaPlaybackRequiresUserGesture()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -713,17 +670,17 @@ bool android_webkit_WebSettings::getMediaPlaybackRequiresUserGesture()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::getMediaPlaybackRequiresUserGesture() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setBuiltInZoomControls(bool& arg0)
+void android_webkit_WebSettings::setBuiltInZoomControls(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setBuiltInZoomControls(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setBuiltInZoomControls(bool const& arg0) enter");
 
 	const char *methodName = "setBuiltInZoomControls";
 	const char *methodSignature = "(Z)V";
@@ -733,8 +690,6 @@ void android_webkit_WebSettings::setBuiltInZoomControls(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -765,9 +720,7 @@ void android_webkit_WebSettings::setBuiltInZoomControls(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setBuiltInZoomControls(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setBuiltInZoomControls(bool const& arg0) exit");
 
 }
 bool android_webkit_WebSettings::getBuiltInZoomControls()
@@ -783,15 +736,12 @@ bool android_webkit_WebSettings::getBuiltInZoomControls()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -809,17 +759,17 @@ bool android_webkit_WebSettings::getBuiltInZoomControls()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::getBuiltInZoomControls() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setDisplayZoomControls(bool& arg0)
+void android_webkit_WebSettings::setDisplayZoomControls(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setDisplayZoomControls(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setDisplayZoomControls(bool const& arg0) enter");
 
 	const char *methodName = "setDisplayZoomControls";
 	const char *methodSignature = "(Z)V";
@@ -829,8 +779,6 @@ void android_webkit_WebSettings::setDisplayZoomControls(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -861,9 +809,7 @@ void android_webkit_WebSettings::setDisplayZoomControls(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setDisplayZoomControls(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setDisplayZoomControls(bool const& arg0) exit");
 
 }
 bool android_webkit_WebSettings::getDisplayZoomControls()
@@ -879,15 +825,12 @@ bool android_webkit_WebSettings::getDisplayZoomControls()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -905,17 +848,17 @@ bool android_webkit_WebSettings::getDisplayZoomControls()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::getDisplayZoomControls() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setAllowFileAccess(bool& arg0)
+void android_webkit_WebSettings::setAllowFileAccess(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setAllowFileAccess(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setAllowFileAccess(bool const& arg0) enter");
 
 	const char *methodName = "setAllowFileAccess";
 	const char *methodSignature = "(Z)V";
@@ -925,8 +868,6 @@ void android_webkit_WebSettings::setAllowFileAccess(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -957,9 +898,7 @@ void android_webkit_WebSettings::setAllowFileAccess(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setAllowFileAccess(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setAllowFileAccess(bool const& arg0) exit");
 
 }
 bool android_webkit_WebSettings::getAllowFileAccess()
@@ -975,15 +914,12 @@ bool android_webkit_WebSettings::getAllowFileAccess()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1001,17 +937,17 @@ bool android_webkit_WebSettings::getAllowFileAccess()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::getAllowFileAccess() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setAllowContentAccess(bool& arg0)
+void android_webkit_WebSettings::setAllowContentAccess(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setAllowContentAccess(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setAllowContentAccess(bool const& arg0) enter");
 
 	const char *methodName = "setAllowContentAccess";
 	const char *methodSignature = "(Z)V";
@@ -1021,8 +957,6 @@ void android_webkit_WebSettings::setAllowContentAccess(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -1053,9 +987,7 @@ void android_webkit_WebSettings::setAllowContentAccess(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setAllowContentAccess(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setAllowContentAccess(bool const& arg0) exit");
 
 }
 bool android_webkit_WebSettings::getAllowContentAccess()
@@ -1071,15 +1003,12 @@ bool android_webkit_WebSettings::getAllowContentAccess()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1097,17 +1026,17 @@ bool android_webkit_WebSettings::getAllowContentAccess()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::getAllowContentAccess() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setLoadWithOverviewMode(bool& arg0)
+void android_webkit_WebSettings::setLoadWithOverviewMode(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setLoadWithOverviewMode(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setLoadWithOverviewMode(bool const& arg0) enter");
 
 	const char *methodName = "setLoadWithOverviewMode";
 	const char *methodSignature = "(Z)V";
@@ -1117,8 +1046,6 @@ void android_webkit_WebSettings::setLoadWithOverviewMode(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -1149,9 +1076,7 @@ void android_webkit_WebSettings::setLoadWithOverviewMode(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setLoadWithOverviewMode(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setLoadWithOverviewMode(bool const& arg0) exit");
 
 }
 bool android_webkit_WebSettings::getLoadWithOverviewMode()
@@ -1167,15 +1092,12 @@ bool android_webkit_WebSettings::getLoadWithOverviewMode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1193,17 +1115,17 @@ bool android_webkit_WebSettings::getLoadWithOverviewMode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::getLoadWithOverviewMode() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setEnableSmoothTransition(bool& arg0)
+void android_webkit_WebSettings::setEnableSmoothTransition(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setEnableSmoothTransition(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setEnableSmoothTransition(bool const& arg0) enter");
 
 	const char *methodName = "setEnableSmoothTransition";
 	const char *methodSignature = "(Z)V";
@@ -1213,8 +1135,6 @@ void android_webkit_WebSettings::setEnableSmoothTransition(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -1245,9 +1165,7 @@ void android_webkit_WebSettings::setEnableSmoothTransition(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setEnableSmoothTransition(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setEnableSmoothTransition(bool const& arg0) exit");
 
 }
 bool android_webkit_WebSettings::enableSmoothTransition()
@@ -1263,15 +1181,12 @@ bool android_webkit_WebSettings::enableSmoothTransition()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1289,17 +1204,17 @@ bool android_webkit_WebSettings::enableSmoothTransition()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::enableSmoothTransition() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setSaveFormData(bool& arg0)
+void android_webkit_WebSettings::setSaveFormData(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setSaveFormData(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setSaveFormData(bool const& arg0) enter");
 
 	const char *methodName = "setSaveFormData";
 	const char *methodSignature = "(Z)V";
@@ -1309,8 +1224,6 @@ void android_webkit_WebSettings::setSaveFormData(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -1341,9 +1254,7 @@ void android_webkit_WebSettings::setSaveFormData(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setSaveFormData(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setSaveFormData(bool const& arg0) exit");
 
 }
 bool android_webkit_WebSettings::getSaveFormData()
@@ -1359,15 +1270,12 @@ bool android_webkit_WebSettings::getSaveFormData()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1385,17 +1293,17 @@ bool android_webkit_WebSettings::getSaveFormData()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::getSaveFormData() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setSavePassword(bool& arg0)
+void android_webkit_WebSettings::setSavePassword(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setSavePassword(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setSavePassword(bool const& arg0) enter");
 
 	const char *methodName = "setSavePassword";
 	const char *methodSignature = "(Z)V";
@@ -1405,8 +1313,6 @@ void android_webkit_WebSettings::setSavePassword(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -1437,9 +1343,7 @@ void android_webkit_WebSettings::setSavePassword(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setSavePassword(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setSavePassword(bool const& arg0) exit");
 
 }
 bool android_webkit_WebSettings::getSavePassword()
@@ -1455,15 +1359,12 @@ bool android_webkit_WebSettings::getSavePassword()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1481,17 +1382,17 @@ bool android_webkit_WebSettings::getSavePassword()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::getSavePassword() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setTextZoom(int& arg0)
+void android_webkit_WebSettings::setTextZoom(int const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setTextZoom(int& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setTextZoom(int const& arg0) enter");
 
 	const char *methodName = "setTextZoom";
 	const char *methodSignature = "(I)V";
@@ -1501,8 +1402,6 @@ void android_webkit_WebSettings::setTextZoom(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -1533,9 +1432,7 @@ void android_webkit_WebSettings::setTextZoom(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setTextZoom(int& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setTextZoom(int const& arg0) exit");
 
 }
 int android_webkit_WebSettings::getTextZoom()
@@ -1551,15 +1448,12 @@ int android_webkit_WebSettings::getTextZoom()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1577,17 +1471,17 @@ int android_webkit_WebSettings::getTextZoom()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_webkit_WebSettings::getTextZoom() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setDefaultZoom(ANDROID_WEBKIT_WEBSETTINGS_ZOOMDENSITY::android_webkit_WebSettings_ZoomDensity& arg0)
+void android_webkit_WebSettings::setDefaultZoom(android_webkit_WebSettings_ZoomDensity::android_webkit_WebSettings_ZoomDensity const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setDefaultZoom(ANDROID_WEBKIT_WEBSETTINGS_ZOOMDENSITY::android_webkit_WebSettings_ZoomDensity& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setDefaultZoom(android_webkit_WebSettings_ZoomDensity::android_webkit_WebSettings_ZoomDensity const& arg0) enter");
 
 	const char *methodName = "setDefaultZoom";
 	const char *methodSignature = "(Landroid/webkit/WebSettings$ZoomDensity;)V";
@@ -1597,8 +1491,6 @@ void android_webkit_WebSettings::setDefaultZoom(ANDROID_WEBKIT_WEBSETTINGS_ZOOMD
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -1629,14 +1521,12 @@ void android_webkit_WebSettings::setDefaultZoom(ANDROID_WEBKIT_WEBSETTINGS_ZOOMD
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setDefaultZoom(ANDROID_WEBKIT_WEBSETTINGS_ZOOMDENSITY::android_webkit_WebSettings_ZoomDensity& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setDefaultZoom(android_webkit_WebSettings_ZoomDensity::android_webkit_WebSettings_ZoomDensity const& arg0) exit");
 
 }
-ANDROID_WEBKIT_WEBSETTINGS_ZOOMDENSITY::android_webkit_WebSettings_ZoomDensity android_webkit_WebSettings::getDefaultZoom()
+android_webkit_WebSettings_ZoomDensity::android_webkit_WebSettings_ZoomDensity android_webkit_WebSettings::getDefaultZoom()
 {
-	LOGV("ANDROID_WEBKIT_WEBSETTINGS_ZOOMDENSITY::android_webkit_WebSettings_ZoomDensity android_webkit_WebSettings::getDefaultZoom() enter");
+	LOGV("android_webkit_WebSettings_ZoomDensity::android_webkit_WebSettings_ZoomDensity android_webkit_WebSettings::getDefaultZoom() enter");
 
 	const char *methodName = "getDefaultZoom";
 	const char *methodSignature = "()Landroid/webkit/WebSettings$ZoomDensity;";
@@ -1647,15 +1537,12 @@ ANDROID_WEBKIT_WEBSETTINGS_ZOOMDENSITY::android_webkit_WebSettings_ZoomDensity a
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	ANDROID_WEBKIT_WEBSETTINGS_ZOOMDENSITY::android_webkit_WebSettings_ZoomDensity result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1673,17 +1560,17 @@ ANDROID_WEBKIT_WEBSETTINGS_ZOOMDENSITY::android_webkit_WebSettings_ZoomDensity a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_webkit_WebSettings_ZoomDensity(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (ANDROID_WEBKIT_WEBSETTINGS_ZOOMDENSITY::android_webkit_WebSettings_ZoomDensity) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("ANDROID_WEBKIT_WEBSETTINGS_ZOOMDENSITY::android_webkit_WebSettings_ZoomDensity android_webkit_WebSettings::getDefaultZoom() exit");
+	android_webkit_WebSettings_ZoomDensity::android_webkit_WebSettings_ZoomDensity result = (android_webkit_WebSettings_ZoomDensity::android_webkit_WebSettings_ZoomDensity) (cxx_value);
+	//
+		
+	LOGV("android_webkit_WebSettings_ZoomDensity::android_webkit_WebSettings_ZoomDensity android_webkit_WebSettings::getDefaultZoom() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setLightTouchEnabled(bool& arg0)
+void android_webkit_WebSettings::setLightTouchEnabled(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setLightTouchEnabled(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setLightTouchEnabled(bool const& arg0) enter");
 
 	const char *methodName = "setLightTouchEnabled";
 	const char *methodSignature = "(Z)V";
@@ -1693,8 +1580,6 @@ void android_webkit_WebSettings::setLightTouchEnabled(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -1725,9 +1610,7 @@ void android_webkit_WebSettings::setLightTouchEnabled(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setLightTouchEnabled(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setLightTouchEnabled(bool const& arg0) exit");
 
 }
 bool android_webkit_WebSettings::getLightTouchEnabled()
@@ -1743,15 +1626,12 @@ bool android_webkit_WebSettings::getLightTouchEnabled()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1769,17 +1649,17 @@ bool android_webkit_WebSettings::getLightTouchEnabled()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::getLightTouchEnabled() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setUseWideViewPort(bool& arg0)
+void android_webkit_WebSettings::setUseWideViewPort(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setUseWideViewPort(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setUseWideViewPort(bool const& arg0) enter");
 
 	const char *methodName = "setUseWideViewPort";
 	const char *methodSignature = "(Z)V";
@@ -1789,8 +1669,6 @@ void android_webkit_WebSettings::setUseWideViewPort(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -1821,9 +1699,7 @@ void android_webkit_WebSettings::setUseWideViewPort(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setUseWideViewPort(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setUseWideViewPort(bool const& arg0) exit");
 
 }
 bool android_webkit_WebSettings::getUseWideViewPort()
@@ -1839,15 +1715,12 @@ bool android_webkit_WebSettings::getUseWideViewPort()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1865,17 +1738,17 @@ bool android_webkit_WebSettings::getUseWideViewPort()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::getUseWideViewPort() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setSupportMultipleWindows(bool& arg0)
+void android_webkit_WebSettings::setSupportMultipleWindows(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setSupportMultipleWindows(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setSupportMultipleWindows(bool const& arg0) enter");
 
 	const char *methodName = "setSupportMultipleWindows";
 	const char *methodSignature = "(Z)V";
@@ -1885,8 +1758,6 @@ void android_webkit_WebSettings::setSupportMultipleWindows(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -1917,9 +1788,7 @@ void android_webkit_WebSettings::setSupportMultipleWindows(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setSupportMultipleWindows(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setSupportMultipleWindows(bool const& arg0) exit");
 
 }
 bool android_webkit_WebSettings::supportMultipleWindows()
@@ -1935,15 +1804,12 @@ bool android_webkit_WebSettings::supportMultipleWindows()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1961,17 +1827,17 @@ bool android_webkit_WebSettings::supportMultipleWindows()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::supportMultipleWindows() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setLayoutAlgorithm(ANDROID_WEBKIT_WEBSETTINGS_LAYOUTALGORITHM::android_webkit_WebSettings_LayoutAlgorithm& arg0)
+void android_webkit_WebSettings::setLayoutAlgorithm(android_webkit_WebSettings_LayoutAlgorithm::android_webkit_WebSettings_LayoutAlgorithm const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setLayoutAlgorithm(ANDROID_WEBKIT_WEBSETTINGS_LAYOUTALGORITHM::android_webkit_WebSettings_LayoutAlgorithm& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setLayoutAlgorithm(android_webkit_WebSettings_LayoutAlgorithm::android_webkit_WebSettings_LayoutAlgorithm const& arg0) enter");
 
 	const char *methodName = "setLayoutAlgorithm";
 	const char *methodSignature = "(Landroid/webkit/WebSettings$LayoutAlgorithm;)V";
@@ -1981,8 +1847,6 @@ void android_webkit_WebSettings::setLayoutAlgorithm(ANDROID_WEBKIT_WEBSETTINGS_L
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -2013,14 +1877,12 @@ void android_webkit_WebSettings::setLayoutAlgorithm(ANDROID_WEBKIT_WEBSETTINGS_L
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setLayoutAlgorithm(ANDROID_WEBKIT_WEBSETTINGS_LAYOUTALGORITHM::android_webkit_WebSettings_LayoutAlgorithm& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setLayoutAlgorithm(android_webkit_WebSettings_LayoutAlgorithm::android_webkit_WebSettings_LayoutAlgorithm const& arg0) exit");
 
 }
-ANDROID_WEBKIT_WEBSETTINGS_LAYOUTALGORITHM::android_webkit_WebSettings_LayoutAlgorithm android_webkit_WebSettings::getLayoutAlgorithm()
+android_webkit_WebSettings_LayoutAlgorithm::android_webkit_WebSettings_LayoutAlgorithm android_webkit_WebSettings::getLayoutAlgorithm()
 {
-	LOGV("ANDROID_WEBKIT_WEBSETTINGS_LAYOUTALGORITHM::android_webkit_WebSettings_LayoutAlgorithm android_webkit_WebSettings::getLayoutAlgorithm() enter");
+	LOGV("android_webkit_WebSettings_LayoutAlgorithm::android_webkit_WebSettings_LayoutAlgorithm android_webkit_WebSettings::getLayoutAlgorithm() enter");
 
 	const char *methodName = "getLayoutAlgorithm";
 	const char *methodSignature = "()Landroid/webkit/WebSettings$LayoutAlgorithm;";
@@ -2031,15 +1893,12 @@ ANDROID_WEBKIT_WEBSETTINGS_LAYOUTALGORITHM::android_webkit_WebSettings_LayoutAlg
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	ANDROID_WEBKIT_WEBSETTINGS_LAYOUTALGORITHM::android_webkit_WebSettings_LayoutAlgorithm result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2057,17 +1916,17 @@ ANDROID_WEBKIT_WEBSETTINGS_LAYOUTALGORITHM::android_webkit_WebSettings_LayoutAlg
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_webkit_WebSettings_LayoutAlgorithm(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (ANDROID_WEBKIT_WEBSETTINGS_LAYOUTALGORITHM::android_webkit_WebSettings_LayoutAlgorithm) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("ANDROID_WEBKIT_WEBSETTINGS_LAYOUTALGORITHM::android_webkit_WebSettings_LayoutAlgorithm android_webkit_WebSettings::getLayoutAlgorithm() exit");
+	android_webkit_WebSettings_LayoutAlgorithm::android_webkit_WebSettings_LayoutAlgorithm result = (android_webkit_WebSettings_LayoutAlgorithm::android_webkit_WebSettings_LayoutAlgorithm) (cxx_value);
+	//
+		
+	LOGV("android_webkit_WebSettings_LayoutAlgorithm::android_webkit_WebSettings_LayoutAlgorithm android_webkit_WebSettings::getLayoutAlgorithm() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setStandardFontFamily(AndroidCXX::java_lang_String& arg0)
+void android_webkit_WebSettings::setStandardFontFamily(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setStandardFontFamily(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setStandardFontFamily(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setStandardFontFamily";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -2077,8 +1936,6 @@ void android_webkit_WebSettings::setStandardFontFamily(AndroidCXX::java_lang_Str
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -2109,9 +1966,7 @@ void android_webkit_WebSettings::setStandardFontFamily(AndroidCXX::java_lang_Str
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setStandardFontFamily(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setStandardFontFamily(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String android_webkit_WebSettings::getStandardFontFamily()
@@ -2127,15 +1982,12 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getStandardFontFamily()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2153,17 +2005,17 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getStandardFontFamily()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_webkit_WebSettings::getStandardFontFamily() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setFixedFontFamily(AndroidCXX::java_lang_String& arg0)
+void android_webkit_WebSettings::setFixedFontFamily(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setFixedFontFamily(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setFixedFontFamily(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setFixedFontFamily";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -2173,8 +2025,6 @@ void android_webkit_WebSettings::setFixedFontFamily(AndroidCXX::java_lang_String
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -2205,9 +2055,7 @@ void android_webkit_WebSettings::setFixedFontFamily(AndroidCXX::java_lang_String
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setFixedFontFamily(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setFixedFontFamily(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String android_webkit_WebSettings::getFixedFontFamily()
@@ -2223,15 +2071,12 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getFixedFontFamily()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2249,17 +2094,17 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getFixedFontFamily()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_webkit_WebSettings::getFixedFontFamily() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setSansSerifFontFamily(AndroidCXX::java_lang_String& arg0)
+void android_webkit_WebSettings::setSansSerifFontFamily(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setSansSerifFontFamily(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setSansSerifFontFamily(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setSansSerifFontFamily";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -2269,8 +2114,6 @@ void android_webkit_WebSettings::setSansSerifFontFamily(AndroidCXX::java_lang_St
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -2301,9 +2144,7 @@ void android_webkit_WebSettings::setSansSerifFontFamily(AndroidCXX::java_lang_St
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setSansSerifFontFamily(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setSansSerifFontFamily(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String android_webkit_WebSettings::getSansSerifFontFamily()
@@ -2319,15 +2160,12 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getSansSerifFontFamily(
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2345,17 +2183,17 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getSansSerifFontFamily(
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_webkit_WebSettings::getSansSerifFontFamily() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setSerifFontFamily(AndroidCXX::java_lang_String& arg0)
+void android_webkit_WebSettings::setSerifFontFamily(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setSerifFontFamily(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setSerifFontFamily(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setSerifFontFamily";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -2365,8 +2203,6 @@ void android_webkit_WebSettings::setSerifFontFamily(AndroidCXX::java_lang_String
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -2397,9 +2233,7 @@ void android_webkit_WebSettings::setSerifFontFamily(AndroidCXX::java_lang_String
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setSerifFontFamily(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setSerifFontFamily(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String android_webkit_WebSettings::getSerifFontFamily()
@@ -2415,15 +2249,12 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getSerifFontFamily()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2441,17 +2272,17 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getSerifFontFamily()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_webkit_WebSettings::getSerifFontFamily() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setCursiveFontFamily(AndroidCXX::java_lang_String& arg0)
+void android_webkit_WebSettings::setCursiveFontFamily(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setCursiveFontFamily(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setCursiveFontFamily(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setCursiveFontFamily";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -2461,8 +2292,6 @@ void android_webkit_WebSettings::setCursiveFontFamily(AndroidCXX::java_lang_Stri
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -2493,9 +2322,7 @@ void android_webkit_WebSettings::setCursiveFontFamily(AndroidCXX::java_lang_Stri
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setCursiveFontFamily(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setCursiveFontFamily(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String android_webkit_WebSettings::getCursiveFontFamily()
@@ -2511,15 +2338,12 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getCursiveFontFamily()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2537,17 +2361,17 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getCursiveFontFamily()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_webkit_WebSettings::getCursiveFontFamily() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setFantasyFontFamily(AndroidCXX::java_lang_String& arg0)
+void android_webkit_WebSettings::setFantasyFontFamily(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setFantasyFontFamily(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setFantasyFontFamily(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setFantasyFontFamily";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -2557,8 +2381,6 @@ void android_webkit_WebSettings::setFantasyFontFamily(AndroidCXX::java_lang_Stri
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -2589,9 +2411,7 @@ void android_webkit_WebSettings::setFantasyFontFamily(AndroidCXX::java_lang_Stri
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setFantasyFontFamily(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setFantasyFontFamily(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String android_webkit_WebSettings::getFantasyFontFamily()
@@ -2607,15 +2427,12 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getFantasyFontFamily()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2633,17 +2450,17 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getFantasyFontFamily()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_webkit_WebSettings::getFantasyFontFamily() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setMinimumFontSize(int& arg0)
+void android_webkit_WebSettings::setMinimumFontSize(int const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setMinimumFontSize(int& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setMinimumFontSize(int const& arg0) enter");
 
 	const char *methodName = "setMinimumFontSize";
 	const char *methodSignature = "(I)V";
@@ -2653,8 +2470,6 @@ void android_webkit_WebSettings::setMinimumFontSize(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -2685,9 +2500,7 @@ void android_webkit_WebSettings::setMinimumFontSize(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setMinimumFontSize(int& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setMinimumFontSize(int const& arg0) exit");
 
 }
 int android_webkit_WebSettings::getMinimumFontSize()
@@ -2703,15 +2516,12 @@ int android_webkit_WebSettings::getMinimumFontSize()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2729,17 +2539,17 @@ int android_webkit_WebSettings::getMinimumFontSize()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_webkit_WebSettings::getMinimumFontSize() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setMinimumLogicalFontSize(int& arg0)
+void android_webkit_WebSettings::setMinimumLogicalFontSize(int const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setMinimumLogicalFontSize(int& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setMinimumLogicalFontSize(int const& arg0) enter");
 
 	const char *methodName = "setMinimumLogicalFontSize";
 	const char *methodSignature = "(I)V";
@@ -2749,8 +2559,6 @@ void android_webkit_WebSettings::setMinimumLogicalFontSize(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -2781,9 +2589,7 @@ void android_webkit_WebSettings::setMinimumLogicalFontSize(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setMinimumLogicalFontSize(int& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setMinimumLogicalFontSize(int const& arg0) exit");
 
 }
 int android_webkit_WebSettings::getMinimumLogicalFontSize()
@@ -2799,15 +2605,12 @@ int android_webkit_WebSettings::getMinimumLogicalFontSize()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2825,17 +2628,17 @@ int android_webkit_WebSettings::getMinimumLogicalFontSize()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_webkit_WebSettings::getMinimumLogicalFontSize() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setDefaultFontSize(int& arg0)
+void android_webkit_WebSettings::setDefaultFontSize(int const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setDefaultFontSize(int& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setDefaultFontSize(int const& arg0) enter");
 
 	const char *methodName = "setDefaultFontSize";
 	const char *methodSignature = "(I)V";
@@ -2845,8 +2648,6 @@ void android_webkit_WebSettings::setDefaultFontSize(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -2877,9 +2678,7 @@ void android_webkit_WebSettings::setDefaultFontSize(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setDefaultFontSize(int& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setDefaultFontSize(int const& arg0) exit");
 
 }
 int android_webkit_WebSettings::getDefaultFontSize()
@@ -2895,15 +2694,12 @@ int android_webkit_WebSettings::getDefaultFontSize()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2921,17 +2717,17 @@ int android_webkit_WebSettings::getDefaultFontSize()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_webkit_WebSettings::getDefaultFontSize() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setDefaultFixedFontSize(int& arg0)
+void android_webkit_WebSettings::setDefaultFixedFontSize(int const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setDefaultFixedFontSize(int& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setDefaultFixedFontSize(int const& arg0) enter");
 
 	const char *methodName = "setDefaultFixedFontSize";
 	const char *methodSignature = "(I)V";
@@ -2941,8 +2737,6 @@ void android_webkit_WebSettings::setDefaultFixedFontSize(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -2973,9 +2767,7 @@ void android_webkit_WebSettings::setDefaultFixedFontSize(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setDefaultFixedFontSize(int& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setDefaultFixedFontSize(int const& arg0) exit");
 
 }
 int android_webkit_WebSettings::getDefaultFixedFontSize()
@@ -2991,15 +2783,12 @@ int android_webkit_WebSettings::getDefaultFixedFontSize()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -3017,17 +2806,17 @@ int android_webkit_WebSettings::getDefaultFixedFontSize()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_webkit_WebSettings::getDefaultFixedFontSize() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setLoadsImagesAutomatically(bool& arg0)
+void android_webkit_WebSettings::setLoadsImagesAutomatically(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setLoadsImagesAutomatically(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setLoadsImagesAutomatically(bool const& arg0) enter");
 
 	const char *methodName = "setLoadsImagesAutomatically";
 	const char *methodSignature = "(Z)V";
@@ -3037,8 +2826,6 @@ void android_webkit_WebSettings::setLoadsImagesAutomatically(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -3069,9 +2856,7 @@ void android_webkit_WebSettings::setLoadsImagesAutomatically(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setLoadsImagesAutomatically(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setLoadsImagesAutomatically(bool const& arg0) exit");
 
 }
 bool android_webkit_WebSettings::getLoadsImagesAutomatically()
@@ -3087,15 +2872,12 @@ bool android_webkit_WebSettings::getLoadsImagesAutomatically()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3113,17 +2895,17 @@ bool android_webkit_WebSettings::getLoadsImagesAutomatically()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::getLoadsImagesAutomatically() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setBlockNetworkImage(bool& arg0)
+void android_webkit_WebSettings::setBlockNetworkImage(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setBlockNetworkImage(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setBlockNetworkImage(bool const& arg0) enter");
 
 	const char *methodName = "setBlockNetworkImage";
 	const char *methodSignature = "(Z)V";
@@ -3133,8 +2915,6 @@ void android_webkit_WebSettings::setBlockNetworkImage(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -3165,9 +2945,7 @@ void android_webkit_WebSettings::setBlockNetworkImage(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setBlockNetworkImage(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setBlockNetworkImage(bool const& arg0) exit");
 
 }
 bool android_webkit_WebSettings::getBlockNetworkImage()
@@ -3183,15 +2961,12 @@ bool android_webkit_WebSettings::getBlockNetworkImage()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3209,17 +2984,17 @@ bool android_webkit_WebSettings::getBlockNetworkImage()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::getBlockNetworkImage() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setBlockNetworkLoads(bool& arg0)
+void android_webkit_WebSettings::setBlockNetworkLoads(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setBlockNetworkLoads(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setBlockNetworkLoads(bool const& arg0) enter");
 
 	const char *methodName = "setBlockNetworkLoads";
 	const char *methodSignature = "(Z)V";
@@ -3229,8 +3004,6 @@ void android_webkit_WebSettings::setBlockNetworkLoads(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -3261,9 +3034,7 @@ void android_webkit_WebSettings::setBlockNetworkLoads(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setBlockNetworkLoads(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setBlockNetworkLoads(bool const& arg0) exit");
 
 }
 bool android_webkit_WebSettings::getBlockNetworkLoads()
@@ -3279,15 +3050,12 @@ bool android_webkit_WebSettings::getBlockNetworkLoads()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3305,17 +3073,17 @@ bool android_webkit_WebSettings::getBlockNetworkLoads()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::getBlockNetworkLoads() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setJavaScriptEnabled(bool& arg0)
+void android_webkit_WebSettings::setJavaScriptEnabled(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setJavaScriptEnabled(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setJavaScriptEnabled(bool const& arg0) enter");
 
 	const char *methodName = "setJavaScriptEnabled";
 	const char *methodSignature = "(Z)V";
@@ -3326,8 +3094,6 @@ void android_webkit_WebSettings::setJavaScriptEnabled(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3357,14 +3123,12 @@ void android_webkit_WebSettings::setJavaScriptEnabled(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setJavaScriptEnabled(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setJavaScriptEnabled(bool const& arg0) exit");
 
 }
-void android_webkit_WebSettings::setAllowUniversalAccessFromFileURLs(bool& arg0)
+void android_webkit_WebSettings::setAllowUniversalAccessFromFileURLs(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setAllowUniversalAccessFromFileURLs(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setAllowUniversalAccessFromFileURLs(bool const& arg0) enter");
 
 	const char *methodName = "setAllowUniversalAccessFromFileURLs";
 	const char *methodSignature = "(Z)V";
@@ -3375,8 +3139,6 @@ void android_webkit_WebSettings::setAllowUniversalAccessFromFileURLs(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3406,14 +3168,12 @@ void android_webkit_WebSettings::setAllowUniversalAccessFromFileURLs(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setAllowUniversalAccessFromFileURLs(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setAllowUniversalAccessFromFileURLs(bool const& arg0) exit");
 
 }
-void android_webkit_WebSettings::setAllowFileAccessFromFileURLs(bool& arg0)
+void android_webkit_WebSettings::setAllowFileAccessFromFileURLs(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setAllowFileAccessFromFileURLs(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setAllowFileAccessFromFileURLs(bool const& arg0) enter");
 
 	const char *methodName = "setAllowFileAccessFromFileURLs";
 	const char *methodSignature = "(Z)V";
@@ -3424,8 +3184,6 @@ void android_webkit_WebSettings::setAllowFileAccessFromFileURLs(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3455,14 +3213,12 @@ void android_webkit_WebSettings::setAllowFileAccessFromFileURLs(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setAllowFileAccessFromFileURLs(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setAllowFileAccessFromFileURLs(bool const& arg0) exit");
 
 }
-void android_webkit_WebSettings::setPluginsEnabled(bool& arg0)
+void android_webkit_WebSettings::setPluginsEnabled(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setPluginsEnabled(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setPluginsEnabled(bool const& arg0) enter");
 
 	const char *methodName = "setPluginsEnabled";
 	const char *methodSignature = "(Z)V";
@@ -3473,8 +3229,6 @@ void android_webkit_WebSettings::setPluginsEnabled(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3504,14 +3258,12 @@ void android_webkit_WebSettings::setPluginsEnabled(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setPluginsEnabled(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setPluginsEnabled(bool const& arg0) exit");
 
 }
-void android_webkit_WebSettings::setPluginState(ANDROID_WEBKIT_WEBSETTINGS_PLUGINSTATE::android_webkit_WebSettings_PluginState& arg0)
+void android_webkit_WebSettings::setPluginState(android_webkit_WebSettings_PluginState::android_webkit_WebSettings_PluginState const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setPluginState(ANDROID_WEBKIT_WEBSETTINGS_PLUGINSTATE::android_webkit_WebSettings_PluginState& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setPluginState(android_webkit_WebSettings_PluginState::android_webkit_WebSettings_PluginState const& arg0) enter");
 
 	const char *methodName = "setPluginState";
 	const char *methodSignature = "(Landroid/webkit/WebSettings$PluginState;)V";
@@ -3521,8 +3273,6 @@ void android_webkit_WebSettings::setPluginState(ANDROID_WEBKIT_WEBSETTINGS_PLUGI
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -3553,14 +3303,12 @@ void android_webkit_WebSettings::setPluginState(ANDROID_WEBKIT_WEBSETTINGS_PLUGI
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setPluginState(ANDROID_WEBKIT_WEBSETTINGS_PLUGINSTATE::android_webkit_WebSettings_PluginState& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setPluginState(android_webkit_WebSettings_PluginState::android_webkit_WebSettings_PluginState const& arg0) exit");
 
 }
-void android_webkit_WebSettings::setPluginsPath(AndroidCXX::java_lang_String& arg0)
+void android_webkit_WebSettings::setPluginsPath(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setPluginsPath(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setPluginsPath(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setPluginsPath";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -3571,8 +3319,6 @@ void android_webkit_WebSettings::setPluginsPath(AndroidCXX::java_lang_String& ar
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3602,14 +3348,12 @@ void android_webkit_WebSettings::setPluginsPath(AndroidCXX::java_lang_String& ar
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setPluginsPath(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setPluginsPath(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-void android_webkit_WebSettings::setDatabasePath(AndroidCXX::java_lang_String& arg0)
+void android_webkit_WebSettings::setDatabasePath(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setDatabasePath(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setDatabasePath(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setDatabasePath";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -3620,8 +3364,6 @@ void android_webkit_WebSettings::setDatabasePath(AndroidCXX::java_lang_String& a
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3651,14 +3393,12 @@ void android_webkit_WebSettings::setDatabasePath(AndroidCXX::java_lang_String& a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setDatabasePath(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setDatabasePath(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-void android_webkit_WebSettings::setGeolocationDatabasePath(AndroidCXX::java_lang_String& arg0)
+void android_webkit_WebSettings::setGeolocationDatabasePath(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setGeolocationDatabasePath(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setGeolocationDatabasePath(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setGeolocationDatabasePath";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -3669,8 +3409,6 @@ void android_webkit_WebSettings::setGeolocationDatabasePath(AndroidCXX::java_lan
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3700,14 +3438,12 @@ void android_webkit_WebSettings::setGeolocationDatabasePath(AndroidCXX::java_lan
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setGeolocationDatabasePath(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setGeolocationDatabasePath(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-void android_webkit_WebSettings::setAppCacheEnabled(bool& arg0)
+void android_webkit_WebSettings::setAppCacheEnabled(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setAppCacheEnabled(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setAppCacheEnabled(bool const& arg0) enter");
 
 	const char *methodName = "setAppCacheEnabled";
 	const char *methodSignature = "(Z)V";
@@ -3717,8 +3453,6 @@ void android_webkit_WebSettings::setAppCacheEnabled(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -3749,14 +3483,12 @@ void android_webkit_WebSettings::setAppCacheEnabled(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setAppCacheEnabled(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setAppCacheEnabled(bool const& arg0) exit");
 
 }
-void android_webkit_WebSettings::setAppCachePath(AndroidCXX::java_lang_String& arg0)
+void android_webkit_WebSettings::setAppCachePath(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setAppCachePath(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setAppCachePath(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setAppCachePath";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -3766,8 +3498,6 @@ void android_webkit_WebSettings::setAppCachePath(AndroidCXX::java_lang_String& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -3798,14 +3528,12 @@ void android_webkit_WebSettings::setAppCachePath(AndroidCXX::java_lang_String& a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setAppCachePath(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setAppCachePath(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-void android_webkit_WebSettings::setAppCacheMaxSize(long& arg0)
+void android_webkit_WebSettings::setAppCacheMaxSize(long const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setAppCacheMaxSize(long& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setAppCacheMaxSize(long const& arg0) enter");
 
 	const char *methodName = "setAppCacheMaxSize";
 	const char *methodSignature = "(J)V";
@@ -3815,8 +3543,6 @@ void android_webkit_WebSettings::setAppCacheMaxSize(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -3847,14 +3573,12 @@ void android_webkit_WebSettings::setAppCacheMaxSize(long& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setAppCacheMaxSize(long& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setAppCacheMaxSize(long const& arg0) exit");
 
 }
-void android_webkit_WebSettings::setDatabaseEnabled(bool& arg0)
+void android_webkit_WebSettings::setDatabaseEnabled(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setDatabaseEnabled(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setDatabaseEnabled(bool const& arg0) enter");
 
 	const char *methodName = "setDatabaseEnabled";
 	const char *methodSignature = "(Z)V";
@@ -3865,8 +3589,6 @@ void android_webkit_WebSettings::setDatabaseEnabled(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3896,14 +3618,12 @@ void android_webkit_WebSettings::setDatabaseEnabled(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setDatabaseEnabled(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setDatabaseEnabled(bool const& arg0) exit");
 
 }
-void android_webkit_WebSettings::setDomStorageEnabled(bool& arg0)
+void android_webkit_WebSettings::setDomStorageEnabled(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setDomStorageEnabled(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setDomStorageEnabled(bool const& arg0) enter");
 
 	const char *methodName = "setDomStorageEnabled";
 	const char *methodSignature = "(Z)V";
@@ -3914,8 +3634,6 @@ void android_webkit_WebSettings::setDomStorageEnabled(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3945,9 +3663,7 @@ void android_webkit_WebSettings::setDomStorageEnabled(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setDomStorageEnabled(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setDomStorageEnabled(bool const& arg0) exit");
 
 }
 bool android_webkit_WebSettings::getDomStorageEnabled()
@@ -3963,15 +3679,12 @@ bool android_webkit_WebSettings::getDomStorageEnabled()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3989,10 +3702,10 @@ bool android_webkit_WebSettings::getDomStorageEnabled()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::getDomStorageEnabled() exit");
 
 	return result;
@@ -4010,15 +3723,12 @@ bool android_webkit_WebSettings::getDatabaseEnabled()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -4036,17 +3746,17 @@ bool android_webkit_WebSettings::getDatabaseEnabled()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::getDatabaseEnabled() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setGeolocationEnabled(bool& arg0)
+void android_webkit_WebSettings::setGeolocationEnabled(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setGeolocationEnabled(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setGeolocationEnabled(bool const& arg0) enter");
 
 	const char *methodName = "setGeolocationEnabled";
 	const char *methodSignature = "(Z)V";
@@ -4056,8 +3766,6 @@ void android_webkit_WebSettings::setGeolocationEnabled(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -4088,9 +3796,7 @@ void android_webkit_WebSettings::setGeolocationEnabled(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setGeolocationEnabled(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setGeolocationEnabled(bool const& arg0) exit");
 
 }
 bool android_webkit_WebSettings::getJavaScriptEnabled()
@@ -4106,15 +3812,12 @@ bool android_webkit_WebSettings::getJavaScriptEnabled()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -4132,10 +3835,10 @@ bool android_webkit_WebSettings::getJavaScriptEnabled()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::getJavaScriptEnabled() exit");
 
 	return result;
@@ -4153,15 +3856,12 @@ bool android_webkit_WebSettings::getAllowUniversalAccessFromFileURLs()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -4179,10 +3879,10 @@ bool android_webkit_WebSettings::getAllowUniversalAccessFromFileURLs()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::getAllowUniversalAccessFromFileURLs() exit");
 
 	return result;
@@ -4200,15 +3900,12 @@ bool android_webkit_WebSettings::getAllowFileAccessFromFileURLs()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -4226,10 +3923,10 @@ bool android_webkit_WebSettings::getAllowFileAccessFromFileURLs()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::getAllowFileAccessFromFileURLs() exit");
 
 	return result;
@@ -4247,15 +3944,12 @@ bool android_webkit_WebSettings::getPluginsEnabled()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -4273,17 +3967,17 @@ bool android_webkit_WebSettings::getPluginsEnabled()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::getPluginsEnabled() exit");
 
 	return result;
 }
-ANDROID_WEBKIT_WEBSETTINGS_PLUGINSTATE::android_webkit_WebSettings_PluginState android_webkit_WebSettings::getPluginState()
+android_webkit_WebSettings_PluginState::android_webkit_WebSettings_PluginState android_webkit_WebSettings::getPluginState()
 {
-	LOGV("ANDROID_WEBKIT_WEBSETTINGS_PLUGINSTATE::android_webkit_WebSettings_PluginState android_webkit_WebSettings::getPluginState() enter");
+	LOGV("android_webkit_WebSettings_PluginState::android_webkit_WebSettings_PluginState android_webkit_WebSettings::getPluginState() enter");
 
 	const char *methodName = "getPluginState";
 	const char *methodSignature = "()Landroid/webkit/WebSettings$PluginState;";
@@ -4294,15 +3988,12 @@ ANDROID_WEBKIT_WEBSETTINGS_PLUGINSTATE::android_webkit_WebSettings_PluginState a
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	ANDROID_WEBKIT_WEBSETTINGS_PLUGINSTATE::android_webkit_WebSettings_PluginState result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4320,11 +4011,11 @@ ANDROID_WEBKIT_WEBSETTINGS_PLUGINSTATE::android_webkit_WebSettings_PluginState a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_webkit_WebSettings_PluginState(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (ANDROID_WEBKIT_WEBSETTINGS_PLUGINSTATE::android_webkit_WebSettings_PluginState) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("ANDROID_WEBKIT_WEBSETTINGS_PLUGINSTATE::android_webkit_WebSettings_PluginState android_webkit_WebSettings::getPluginState() exit");
+	android_webkit_WebSettings_PluginState::android_webkit_WebSettings_PluginState result = (android_webkit_WebSettings_PluginState::android_webkit_WebSettings_PluginState) (cxx_value);
+	//
+		
+	LOGV("android_webkit_WebSettings_PluginState::android_webkit_WebSettings_PluginState android_webkit_WebSettings::getPluginState() exit");
 
 	return result;
 }
@@ -4341,15 +4032,12 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getPluginsPath()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -4367,17 +4055,17 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getPluginsPath()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_webkit_WebSettings::getPluginsPath() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setJavaScriptCanOpenWindowsAutomatically(bool& arg0)
+void android_webkit_WebSettings::setJavaScriptCanOpenWindowsAutomatically(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setJavaScriptCanOpenWindowsAutomatically(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setJavaScriptCanOpenWindowsAutomatically(bool const& arg0) enter");
 
 	const char *methodName = "setJavaScriptCanOpenWindowsAutomatically";
 	const char *methodSignature = "(Z)V";
@@ -4387,8 +4075,6 @@ void android_webkit_WebSettings::setJavaScriptCanOpenWindowsAutomatically(bool& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -4419,9 +4105,7 @@ void android_webkit_WebSettings::setJavaScriptCanOpenWindowsAutomatically(bool& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setJavaScriptCanOpenWindowsAutomatically(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setJavaScriptCanOpenWindowsAutomatically(bool const& arg0) exit");
 
 }
 bool android_webkit_WebSettings::getJavaScriptCanOpenWindowsAutomatically()
@@ -4437,15 +4121,12 @@ bool android_webkit_WebSettings::getJavaScriptCanOpenWindowsAutomatically()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -4463,17 +4144,17 @@ bool android_webkit_WebSettings::getJavaScriptCanOpenWindowsAutomatically()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebSettings::getJavaScriptCanOpenWindowsAutomatically() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setDefaultTextEncodingName(AndroidCXX::java_lang_String& arg0)
+void android_webkit_WebSettings::setDefaultTextEncodingName(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setDefaultTextEncodingName(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setDefaultTextEncodingName(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setDefaultTextEncodingName";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -4483,8 +4164,6 @@ void android_webkit_WebSettings::setDefaultTextEncodingName(AndroidCXX::java_lan
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -4515,9 +4194,7 @@ void android_webkit_WebSettings::setDefaultTextEncodingName(AndroidCXX::java_lan
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setDefaultTextEncodingName(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setDefaultTextEncodingName(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String android_webkit_WebSettings::getDefaultTextEncodingName()
@@ -4533,15 +4210,12 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getDefaultTextEncodingN
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -4559,17 +4233,17 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getDefaultTextEncodingN
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_webkit_WebSettings::getDefaultTextEncodingName() exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setUserAgentString(AndroidCXX::java_lang_String& arg0)
+void android_webkit_WebSettings::setUserAgentString(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setUserAgentString(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setUserAgentString(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setUserAgentString";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -4579,8 +4253,6 @@ void android_webkit_WebSettings::setUserAgentString(AndroidCXX::java_lang_String
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -4611,9 +4283,7 @@ void android_webkit_WebSettings::setUserAgentString(AndroidCXX::java_lang_String
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setUserAgentString(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setUserAgentString(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String android_webkit_WebSettings::getUserAgentString()
@@ -4629,15 +4299,12 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getUserAgentString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -4655,17 +4322,17 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getUserAgentString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_webkit_WebSettings::getUserAgentString() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_webkit_WebSettings::getDefaultUserAgent(AndroidCXX::android_content_Context& arg0)
+AndroidCXX::java_lang_String android_webkit_WebSettings::getDefaultUserAgent(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_webkit_WebSettings::getDefaultUserAgent(AndroidCXX::android_content_Context& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_webkit_WebSettings::getDefaultUserAgent(AndroidCXX::android_content_Context const& arg0) enter");
 
 	const char *methodName = "getDefaultUserAgent";
 	const char *methodSignature = "(Landroid/content/Context;)Ljava/lang/String;";
@@ -4675,8 +4342,6 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getDefaultUserAgent(And
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -4705,8 +4370,7 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getDefaultUserAgent(And
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
-	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jstring jni_result = (jstring) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
 	{
@@ -4723,17 +4387,17 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getDefaultUserAgent(And
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String android_webkit_WebSettings::getDefaultUserAgent(AndroidCXX::android_content_Context& arg0) exit");
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_String android_webkit_WebSettings::getDefaultUserAgent(AndroidCXX::android_content_Context const& arg0) exit");
 
 	return result;
 }
-void android_webkit_WebSettings::setNeedInitialFocus(bool& arg0)
+void android_webkit_WebSettings::setNeedInitialFocus(bool const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setNeedInitialFocus(bool& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setNeedInitialFocus(bool const& arg0) enter");
 
 	const char *methodName = "setNeedInitialFocus";
 	const char *methodSignature = "(Z)V";
@@ -4743,8 +4407,6 @@ void android_webkit_WebSettings::setNeedInitialFocus(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -4775,14 +4437,12 @@ void android_webkit_WebSettings::setNeedInitialFocus(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setNeedInitialFocus(bool& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setNeedInitialFocus(bool const& arg0) exit");
 
 }
-void android_webkit_WebSettings::setRenderPriority(ANDROID_WEBKIT_WEBSETTINGS_RENDERPRIORITY::android_webkit_WebSettings_RenderPriority& arg0)
+void android_webkit_WebSettings::setRenderPriority(android_webkit_WebSettings_RenderPriority::android_webkit_WebSettings_RenderPriority const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setRenderPriority(ANDROID_WEBKIT_WEBSETTINGS_RENDERPRIORITY::android_webkit_WebSettings_RenderPriority& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setRenderPriority(android_webkit_WebSettings_RenderPriority::android_webkit_WebSettings_RenderPriority const& arg0) enter");
 
 	const char *methodName = "setRenderPriority";
 	const char *methodSignature = "(Landroid/webkit/WebSettings$RenderPriority;)V";
@@ -4792,8 +4452,6 @@ void android_webkit_WebSettings::setRenderPriority(ANDROID_WEBKIT_WEBSETTINGS_RE
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -4824,14 +4482,12 @@ void android_webkit_WebSettings::setRenderPriority(ANDROID_WEBKIT_WEBSETTINGS_RE
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setRenderPriority(ANDROID_WEBKIT_WEBSETTINGS_RENDERPRIORITY::android_webkit_WebSettings_RenderPriority& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setRenderPriority(android_webkit_WebSettings_RenderPriority::android_webkit_WebSettings_RenderPriority const& arg0) exit");
 
 }
-void android_webkit_WebSettings::setCacheMode(int& arg0)
+void android_webkit_WebSettings::setCacheMode(int const& arg0)
 {
-	LOGV("void android_webkit_WebSettings::setCacheMode(int& arg0) enter");
+	LOGV("void android_webkit_WebSettings::setCacheMode(int const& arg0) enter");
 
 	const char *methodName = "setCacheMode";
 	const char *methodSignature = "(I)V";
@@ -4841,8 +4497,6 @@ void android_webkit_WebSettings::setCacheMode(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
@@ -4873,9 +4527,7 @@ void android_webkit_WebSettings::setCacheMode(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebSettings::setCacheMode(int& arg0) exit");
+	LOGV("void android_webkit_WebSettings::setCacheMode(int const& arg0) exit");
 
 }
 int android_webkit_WebSettings::getCacheMode()
@@ -4891,15 +4543,12 @@ int android_webkit_WebSettings::getCacheMode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -4917,10 +4566,10 @@ int android_webkit_WebSettings::getCacheMode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_webkit_WebSettings::getCacheMode() exit");
 
 	return result;

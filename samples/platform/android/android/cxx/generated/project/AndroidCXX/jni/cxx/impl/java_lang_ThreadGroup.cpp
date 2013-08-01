@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -61,7 +60,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_lang_ThreadGroup"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -104,8 +103,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_lang_ThreadGroup::java_lang_ThreadGroup(const java_lang_ThreadGroup& cc)
 {
 	LOGV("java_lang_ThreadGroup::java_lang_ThreadGroup(const java_lang_ThreadGroup& cc) enter");
@@ -129,9 +126,9 @@ java_lang_ThreadGroup::java_lang_ThreadGroup(const java_lang_ThreadGroup& cc)
 
 	LOGV("java_lang_ThreadGroup::java_lang_ThreadGroup(const java_lang_ThreadGroup& cc) exit");
 }
-java_lang_ThreadGroup::java_lang_ThreadGroup(void * proxy)
+java_lang_ThreadGroup::java_lang_ThreadGroup(Proxy proxy)
 {
-	LOGV("java_lang_ThreadGroup::java_lang_ThreadGroup(void * proxy) enter");
+	LOGV("java_lang_ThreadGroup::java_lang_ThreadGroup(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -141,50 +138,34 @@ java_lang_ThreadGroup::java_lang_ThreadGroup(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_lang_ThreadGroup::java_lang_ThreadGroup(void * proxy) exit");
+	LOGV("java_lang_ThreadGroup::java_lang_ThreadGroup(Proxy proxy) exit");
 }
-java_lang_ThreadGroup::java_lang_ThreadGroup()
-{
-	LOGV("java_lang_ThreadGroup::java_lang_ThreadGroup() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "java/lang/ThreadGroup";
-
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy java_lang_ThreadGroup::proxy() const
+{	
+	LOGV("java_lang_ThreadGroup::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_ThreadGroup jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("java_lang_ThreadGroup::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("java_lang_ThreadGroup::java_lang_ThreadGroup() exit");	
+	return proxy;
 }
-// Public Constructors
-java_lang_ThreadGroup::java_lang_ThreadGroup(AndroidCXX::java_lang_String& arg0)
+java_lang_ThreadGroup::java_lang_ThreadGroup(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("java_lang_ThreadGroup::java_lang_ThreadGroup(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("java_lang_ThreadGroup::java_lang_ThreadGroup(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -237,11 +218,11 @@ java_lang_ThreadGroup::java_lang_ThreadGroup(AndroidCXX::java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_ThreadGroup::java_lang_ThreadGroup(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("java_lang_ThreadGroup::java_lang_ThreadGroup(AndroidCXX::java_lang_String const& arg0) exit");	
 }
-java_lang_ThreadGroup::java_lang_ThreadGroup(AndroidCXX::java_lang_ThreadGroup& arg0,AndroidCXX::java_lang_String& arg1)
+java_lang_ThreadGroup::java_lang_ThreadGroup(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("java_lang_ThreadGroup::java_lang_ThreadGroup(AndroidCXX::java_lang_ThreadGroup& arg0,AndroidCXX::java_lang_String& arg1) enter");	
+	LOGV("java_lang_ThreadGroup::java_lang_ThreadGroup(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_String const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/ThreadGroup;Ljava/lang/String;)V";
@@ -315,7 +296,7 @@ java_lang_ThreadGroup::java_lang_ThreadGroup(AndroidCXX::java_lang_ThreadGroup& 
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_ThreadGroup::java_lang_ThreadGroup(AndroidCXX::java_lang_ThreadGroup& arg0,AndroidCXX::java_lang_String& arg1) exit");	
+	LOGV("java_lang_ThreadGroup::java_lang_ThreadGroup(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_String const& arg1) exit");	
 }
 // Default Instance Destructor
 java_lang_ThreadGroup::~java_lang_ThreadGroup()
@@ -328,13 +309,13 @@ java_lang_ThreadGroup::~java_lang_ThreadGroup()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_lang_ThreadGroup::~java_lang_ThreadGroup() exit");
 }
 // Functions
-void java_lang_ThreadGroup::uncaughtException(AndroidCXX::java_lang_Thread& arg0,AndroidCXX::java_lang_Throwable& arg1)
+void java_lang_ThreadGroup::uncaughtException(AndroidCXX::java_lang_Thread const& arg0,AndroidCXX::java_lang_Throwable const& arg1)
 {
-	LOGV("void java_lang_ThreadGroup::uncaughtException(AndroidCXX::java_lang_Thread& arg0,AndroidCXX::java_lang_Throwable& arg1) enter");
+	LOGV("void java_lang_ThreadGroup::uncaughtException(AndroidCXX::java_lang_Thread const& arg0,AndroidCXX::java_lang_Throwable const& arg1) enter");
 
 	const char *methodName = "uncaughtException";
 	const char *methodSignature = "(Ljava/lang/Thread;Ljava/lang/Throwable;)V";
@@ -344,8 +325,6 @@ void java_lang_ThreadGroup::uncaughtException(AndroidCXX::java_lang_Thread& arg0
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
@@ -397,9 +376,7 @@ void java_lang_ThreadGroup::uncaughtException(AndroidCXX::java_lang_Thread& arg0
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_ThreadGroup::uncaughtException(AndroidCXX::java_lang_Thread& arg0,AndroidCXX::java_lang_Throwable& arg1) exit");
+	LOGV("void java_lang_ThreadGroup::uncaughtException(AndroidCXX::java_lang_Thread const& arg0,AndroidCXX::java_lang_Throwable const& arg1) exit");
 
 }
 AndroidCXX::java_lang_String java_lang_ThreadGroup::toString()
@@ -415,15 +392,12 @@ AndroidCXX::java_lang_String java_lang_ThreadGroup::toString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_ThreadGroup jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -441,10 +415,10 @@ AndroidCXX::java_lang_String java_lang_ThreadGroup::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String java_lang_ThreadGroup::toString() exit");
 
 	return result;
@@ -462,15 +436,12 @@ AndroidCXX::java_lang_String java_lang_ThreadGroup::getName()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_ThreadGroup jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -488,10 +459,10 @@ AndroidCXX::java_lang_String java_lang_ThreadGroup::getName()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String java_lang_ThreadGroup::getName() exit");
 
 	return result;
@@ -509,15 +480,12 @@ AndroidCXX::java_lang_ThreadGroup java_lang_ThreadGroup::getParent()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_ThreadGroup jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_ThreadGroup result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -535,17 +503,17 @@ AndroidCXX::java_lang_ThreadGroup java_lang_ThreadGroup::getParent()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_ThreadGroup(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_ThreadGroup) (AndroidCXX::java_lang_ThreadGroup((AndroidCXX::java_lang_ThreadGroup *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_ThreadGroup result((AndroidCXX::java_lang_ThreadGroup) *((AndroidCXX::java_lang_ThreadGroup *) cxx_value));
+	delete ((AndroidCXX::java_lang_ThreadGroup *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_ThreadGroup java_lang_ThreadGroup::getParent() exit");
 
 	return result;
 }
-void java_lang_ThreadGroup::setDaemon(bool& arg0)
+void java_lang_ThreadGroup::setDaemon(bool const& arg0)
 {
-	LOGV("void java_lang_ThreadGroup::setDaemon(bool& arg0) enter");
+	LOGV("void java_lang_ThreadGroup::setDaemon(bool const& arg0) enter");
 
 	const char *methodName = "setDaemon";
 	const char *methodSignature = "(Z)V";
@@ -555,8 +523,6 @@ void java_lang_ThreadGroup::setDaemon(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
@@ -587,9 +553,7 @@ void java_lang_ThreadGroup::setDaemon(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_ThreadGroup::setDaemon(bool& arg0) exit");
+	LOGV("void java_lang_ThreadGroup::setDaemon(bool const& arg0) exit");
 
 }
 void java_lang_ThreadGroup::stop()
@@ -605,8 +569,6 @@ void java_lang_ThreadGroup::stop()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -615,8 +577,6 @@ void java_lang_ThreadGroup::stop()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_lang_ThreadGroup::stop() exit");
 
 }
@@ -633,8 +593,6 @@ void java_lang_ThreadGroup::interrupt()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -643,8 +601,6 @@ void java_lang_ThreadGroup::interrupt()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_lang_ThreadGroup::interrupt() exit");
 
 }
@@ -661,8 +617,6 @@ void java_lang_ThreadGroup::destroy()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -671,8 +625,6 @@ void java_lang_ThreadGroup::destroy()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_lang_ThreadGroup::destroy() exit");
 
 }
@@ -689,8 +641,6 @@ void java_lang_ThreadGroup::suspend()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -699,8 +649,6 @@ void java_lang_ThreadGroup::suspend()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_lang_ThreadGroup::suspend() exit");
 
 }
@@ -717,8 +665,6 @@ void java_lang_ThreadGroup::resume()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -727,8 +673,6 @@ void java_lang_ThreadGroup::resume()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_lang_ThreadGroup::resume() exit");
 
 }
@@ -745,15 +689,12 @@ int java_lang_ThreadGroup::activeCount()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_ThreadGroup jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -771,17 +712,17 @@ int java_lang_ThreadGroup::activeCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_lang_ThreadGroup::activeCount() exit");
 
 	return result;
 }
-int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup >& arg0)
+int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup > const& arg0)
 {
-	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup >& arg0) enter");
+	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup > const& arg0) enter");
 
 	const char *methodName = "enumerate";
 	const char *methodSignature = "([Ljava/lang/ThreadGroup;)I";
@@ -792,8 +733,6 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGro
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -839,7 +778,6 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGro
 		jarg0 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -857,17 +795,17 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGro
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup >& arg0) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup > const& arg0) exit");
 
 	return result;
 }
-int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup >& arg0,bool& arg1)
+int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup > const& arg0,bool const& arg1)
 {
-	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup >& arg0,bool& arg1) enter");
+	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup > const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "enumerate";
 	const char *methodSignature = "([Ljava/lang/ThreadGroup;Z)I";
@@ -878,8 +816,6 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGro
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -946,7 +882,6 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGro
 		jarg1 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -964,17 +899,17 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGro
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup >& arg0,bool& arg1) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup > const& arg0,bool const& arg1) exit");
 
 	return result;
 }
-int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread >& arg0,bool& arg1)
+int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread > const& arg0,bool const& arg1)
 {
-	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread >& arg0,bool& arg1) enter");
+	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread > const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "enumerate";
 	const char *methodSignature = "([Ljava/lang/Thread;Z)I";
@@ -984,8 +919,6 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread >&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
@@ -1053,7 +986,6 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread >&
 		jarg1 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1071,17 +1003,17 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread >&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread >& arg0,bool& arg1) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread > const& arg0,bool const& arg1) exit");
 
 	return result;
 }
-int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread >& arg0)
+int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread > const& arg0)
 {
-	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread >& arg0) enter");
+	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread > const& arg0) enter");
 
 	const char *methodName = "enumerate";
 	const char *methodSignature = "([Ljava/lang/Thread;)I";
@@ -1091,8 +1023,6 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread >&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
@@ -1139,7 +1069,6 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread >&
 		jarg0 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1157,11 +1086,11 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread >&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread >& arg0) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread > const& arg0) exit");
 
 	return result;
 }
@@ -1178,15 +1107,12 @@ bool java_lang_ThreadGroup::isDaemon()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_ThreadGroup jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1204,10 +1130,10 @@ bool java_lang_ThreadGroup::isDaemon()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool java_lang_ThreadGroup::isDaemon() exit");
 
 	return result;
@@ -1225,8 +1151,6 @@ void java_lang_ThreadGroup::checkAccess()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1235,8 +1159,6 @@ void java_lang_ThreadGroup::checkAccess()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_lang_ThreadGroup::checkAccess() exit");
 
 }
@@ -1253,15 +1175,12 @@ int java_lang_ThreadGroup::getMaxPriority()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_ThreadGroup jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1279,10 +1198,10 @@ int java_lang_ThreadGroup::getMaxPriority()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_lang_ThreadGroup::getMaxPriority() exit");
 
 	return result;
@@ -1300,15 +1219,12 @@ bool java_lang_ThreadGroup::isDestroyed()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_ThreadGroup jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1326,17 +1242,17 @@ bool java_lang_ThreadGroup::isDestroyed()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool java_lang_ThreadGroup::isDestroyed() exit");
 
 	return result;
 }
-void java_lang_ThreadGroup::setMaxPriority(int& arg0)
+void java_lang_ThreadGroup::setMaxPriority(int const& arg0)
 {
-	LOGV("void java_lang_ThreadGroup::setMaxPriority(int& arg0) enter");
+	LOGV("void java_lang_ThreadGroup::setMaxPriority(int const& arg0) enter");
 
 	const char *methodName = "setMaxPriority";
 	const char *methodSignature = "(I)V";
@@ -1346,8 +1262,6 @@ void java_lang_ThreadGroup::setMaxPriority(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
@@ -1378,14 +1292,12 @@ void java_lang_ThreadGroup::setMaxPriority(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_ThreadGroup::setMaxPriority(int& arg0) exit");
+	LOGV("void java_lang_ThreadGroup::setMaxPriority(int const& arg0) exit");
 
 }
-bool java_lang_ThreadGroup::parentOf(AndroidCXX::java_lang_ThreadGroup& arg0)
+bool java_lang_ThreadGroup::parentOf(AndroidCXX::java_lang_ThreadGroup const& arg0)
 {
-	LOGV("bool java_lang_ThreadGroup::parentOf(AndroidCXX::java_lang_ThreadGroup& arg0) enter");
+	LOGV("bool java_lang_ThreadGroup::parentOf(AndroidCXX::java_lang_ThreadGroup const& arg0) enter");
 
 	const char *methodName = "parentOf";
 	const char *methodSignature = "(Ljava/lang/ThreadGroup;)Z";
@@ -1395,8 +1307,6 @@ bool java_lang_ThreadGroup::parentOf(AndroidCXX::java_lang_ThreadGroup& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
@@ -1425,7 +1335,6 @@ bool java_lang_ThreadGroup::parentOf(AndroidCXX::java_lang_ThreadGroup& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1443,11 +1352,11 @@ bool java_lang_ThreadGroup::parentOf(AndroidCXX::java_lang_ThreadGroup& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool java_lang_ThreadGroup::parentOf(AndroidCXX::java_lang_ThreadGroup& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool java_lang_ThreadGroup::parentOf(AndroidCXX::java_lang_ThreadGroup const& arg0) exit");
 
 	return result;
 }
@@ -1464,15 +1373,12 @@ int java_lang_ThreadGroup::activeGroupCount()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_ThreadGroup jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1490,10 +1396,10 @@ int java_lang_ThreadGroup::activeGroupCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_lang_ThreadGroup::activeGroupCount() exit");
 
 	return result;
@@ -1511,8 +1417,6 @@ void java_lang_ThreadGroup::list()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1521,14 +1425,12 @@ void java_lang_ThreadGroup::list()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_lang_ThreadGroup::list() exit");
 
 }
-bool java_lang_ThreadGroup::allowThreadSuspension(bool& arg0)
+bool java_lang_ThreadGroup::allowThreadSuspension(bool const& arg0)
 {
-	LOGV("bool java_lang_ThreadGroup::allowThreadSuspension(bool& arg0) enter");
+	LOGV("bool java_lang_ThreadGroup::allowThreadSuspension(bool const& arg0) enter");
 
 	const char *methodName = "allowThreadSuspension";
 	const char *methodSignature = "(Z)Z";
@@ -1538,8 +1440,6 @@ bool java_lang_ThreadGroup::allowThreadSuspension(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
@@ -1568,7 +1468,6 @@ bool java_lang_ThreadGroup::allowThreadSuspension(bool& arg0)
 		jarg0 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1586,11 +1485,11 @@ bool java_lang_ThreadGroup::allowThreadSuspension(bool& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool java_lang_ThreadGroup::allowThreadSuspension(bool& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool java_lang_ThreadGroup::allowThreadSuspension(bool const& arg0) exit");
 
 	return result;
 }

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -63,18 +62,18 @@ class android_database_ContentObserver
 public:
 
 	android_database_ContentObserver(const android_database_ContentObserver& cc);
-	android_database_ContentObserver(void * proxy);
+	android_database_ContentObserver(Proxy proxy);
 	// Public Constructors
-	android_database_ContentObserver(AndroidCXX::android_os_Handler& arg0);
-	android_database_ContentObserver();
+	android_database_ContentObserver(AndroidCXX::android_os_Handler const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_database_ContentObserver();
 	// Functions
 	 bool deliverSelfNotifications();
-	 void onChange(bool& arg0);
-	 void onChange(bool& arg0,AndroidCXX::android_net_Uri& arg1);
-	 void dispatchChange(bool& arg0);
-	 void dispatchChange(bool& arg0,AndroidCXX::android_net_Uri& arg1);
+	 void onChange(bool const& arg0);
+	 void onChange(bool const& arg0,AndroidCXX::android_net_Uri const& arg1);
+	 void dispatchChange(bool const& arg0);
+	 void dispatchChange(bool const& arg0,AndroidCXX::android_net_Uri const& arg1);
 };	
 
 } // namespace

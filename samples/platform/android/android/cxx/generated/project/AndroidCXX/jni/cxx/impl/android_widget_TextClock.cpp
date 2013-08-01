@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -47,7 +46,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_TextClock"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -96,8 +95,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_widget_TextClock::android_widget_TextClock(const android_widget_TextClock& cc)
 {
 	LOGV("android_widget_TextClock::android_widget_TextClock(const android_widget_TextClock& cc) enter");
@@ -121,9 +118,9 @@ android_widget_TextClock::android_widget_TextClock(const android_widget_TextCloc
 
 	LOGV("android_widget_TextClock::android_widget_TextClock(const android_widget_TextClock& cc) exit");
 }
-android_widget_TextClock::android_widget_TextClock(void * proxy)
+android_widget_TextClock::android_widget_TextClock(Proxy proxy)
 {
-	LOGV("android_widget_TextClock::android_widget_TextClock(void * proxy) enter");
+	LOGV("android_widget_TextClock::android_widget_TextClock(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -133,50 +130,34 @@ android_widget_TextClock::android_widget_TextClock(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_TextClock::android_widget_TextClock(void * proxy) exit");
+	LOGV("android_widget_TextClock::android_widget_TextClock(Proxy proxy) exit");
 }
-android_widget_TextClock::android_widget_TextClock()
-{
-	LOGV("android_widget_TextClock::android_widget_TextClock() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/TextClock";
-
-	LOGV("android_widget_TextClock className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_widget_TextClock::proxy() const
+{	
+	LOGV("android_widget_TextClock::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextClock cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_TextClock jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_widget_TextClock::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_widget_TextClock::android_widget_TextClock() exit");	
+	return proxy;
 }
-// Public Constructors
-android_widget_TextClock::android_widget_TextClock(AndroidCXX::android_content_Context& arg0)
+android_widget_TextClock::android_widget_TextClock(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_TextClock::android_widget_TextClock(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_TextClock::android_widget_TextClock(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -229,11 +210,11 @@ android_widget_TextClock::android_widget_TextClock(AndroidCXX::android_content_C
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_TextClock::android_widget_TextClock(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_TextClock::android_widget_TextClock(AndroidCXX::android_content_Context const& arg0) exit");	
 }
-android_widget_TextClock::android_widget_TextClock(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+android_widget_TextClock::android_widget_TextClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_TextClock::android_widget_TextClock(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_TextClock::android_widget_TextClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -307,11 +288,11 @@ android_widget_TextClock::android_widget_TextClock(AndroidCXX::android_content_C
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_TextClock::android_widget_TextClock(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_TextClock::android_widget_TextClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_widget_TextClock::android_widget_TextClock(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
+android_widget_TextClock::android_widget_TextClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2)
 {
-	LOGV("android_widget_TextClock::android_widget_TextClock(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) enter");	
+	LOGV("android_widget_TextClock::android_widget_TextClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
@@ -406,7 +387,7 @@ android_widget_TextClock::android_widget_TextClock(AndroidCXX::android_content_C
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_TextClock::android_widget_TextClock(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) exit");	
+	LOGV("android_widget_TextClock::android_widget_TextClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) exit");	
 }
 // Default Instance Destructor
 android_widget_TextClock::~android_widget_TextClock()
@@ -419,7 +400,7 @@ android_widget_TextClock::~android_widget_TextClock()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_TextClock::~android_widget_TextClock() exit");
 }
 // Functions
@@ -436,15 +417,12 @@ AndroidCXX::java_lang_String android_widget_TextClock::getTimeZone()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextClock cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_TextClock jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -462,17 +440,17 @@ AndroidCXX::java_lang_String android_widget_TextClock::getTimeZone()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_widget_TextClock::getTimeZone() exit");
 
 	return result;
 }
-void android_widget_TextClock::setTimeZone(AndroidCXX::java_lang_String& arg0)
+void android_widget_TextClock::setTimeZone(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_widget_TextClock::setTimeZone(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_widget_TextClock::setTimeZone(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setTimeZone";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -482,8 +460,6 @@ void android_widget_TextClock::setTimeZone(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextClock cxx address %d", cxxAddress);
@@ -514,9 +490,7 @@ void android_widget_TextClock::setTimeZone(AndroidCXX::java_lang_String& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextClock::setTimeZone(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_widget_TextClock::setTimeZone(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 AndroidCXX::java_lang_CharSequence android_widget_TextClock::getFormat12Hour()
@@ -532,15 +506,12 @@ AndroidCXX::java_lang_CharSequence android_widget_TextClock::getFormat12Hour()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextClock cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_TextClock jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -558,17 +529,17 @@ AndroidCXX::java_lang_CharSequence android_widget_TextClock::getFormat12Hour()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_CharSequence) (AndroidCXX::java_lang_CharSequence((AndroidCXX::java_lang_CharSequence *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
+	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_CharSequence android_widget_TextClock::getFormat12Hour() exit");
 
 	return result;
 }
-void android_widget_TextClock::setFormat12Hour(AndroidCXX::java_lang_CharSequence& arg0)
+void android_widget_TextClock::setFormat12Hour(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_widget_TextClock::setFormat12Hour(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_widget_TextClock::setFormat12Hour(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setFormat12Hour";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -578,8 +549,6 @@ void android_widget_TextClock::setFormat12Hour(AndroidCXX::java_lang_CharSequenc
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextClock cxx address %d", cxxAddress);
@@ -610,9 +579,7 @@ void android_widget_TextClock::setFormat12Hour(AndroidCXX::java_lang_CharSequenc
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextClock::setFormat12Hour(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_widget_TextClock::setFormat12Hour(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }
 AndroidCXX::java_lang_CharSequence android_widget_TextClock::getFormat24Hour()
@@ -628,15 +595,12 @@ AndroidCXX::java_lang_CharSequence android_widget_TextClock::getFormat24Hour()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextClock cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_TextClock jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -654,17 +618,17 @@ AndroidCXX::java_lang_CharSequence android_widget_TextClock::getFormat24Hour()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_CharSequence) (AndroidCXX::java_lang_CharSequence((AndroidCXX::java_lang_CharSequence *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
+	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_CharSequence android_widget_TextClock::getFormat24Hour() exit");
 
 	return result;
 }
-void android_widget_TextClock::setFormat24Hour(AndroidCXX::java_lang_CharSequence& arg0)
+void android_widget_TextClock::setFormat24Hour(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_widget_TextClock::setFormat24Hour(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_widget_TextClock::setFormat24Hour(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setFormat24Hour";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -674,8 +638,6 @@ void android_widget_TextClock::setFormat24Hour(AndroidCXX::java_lang_CharSequenc
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextClock cxx address %d", cxxAddress);
@@ -706,9 +668,7 @@ void android_widget_TextClock::setFormat24Hour(AndroidCXX::java_lang_CharSequenc
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_TextClock::setFormat24Hour(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_widget_TextClock::setFormat24Hour(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }
 bool android_widget_TextClock::is24HourModeEnabled()
@@ -724,15 +684,12 @@ bool android_widget_TextClock::is24HourModeEnabled()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_TextClock cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_TextClock jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -750,10 +707,10 @@ bool android_widget_TextClock::is24HourModeEnabled()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_widget_TextClock::is24HourModeEnabled() exit");
 
 	return result;

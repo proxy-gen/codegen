@@ -141,7 +141,7 @@ using namespace JDKCXX;
 // 
 // 
 // 
-// using namespace JAVA_NET_PROXY_TYPE;
+// using namespace java_net_Proxy_Type;
 // 
 // 
 // 

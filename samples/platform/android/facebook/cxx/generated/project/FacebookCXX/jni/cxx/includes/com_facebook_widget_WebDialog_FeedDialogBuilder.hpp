@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -93,22 +92,22 @@ class com_facebook_widget_WebDialog_FeedDialogBuilder
 public:
 
 	com_facebook_widget_WebDialog_FeedDialogBuilder(const com_facebook_widget_WebDialog_FeedDialogBuilder& cc);
-	com_facebook_widget_WebDialog_FeedDialogBuilder(void * proxy);
+	com_facebook_widget_WebDialog_FeedDialogBuilder(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_WebDialog_FeedDialogBuilder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1,AndroidCXX::android_os_Bundle& arg2);
-	com_facebook_widget_WebDialog_FeedDialogBuilder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1);
-	com_facebook_widget_WebDialog_FeedDialogBuilder();
+	com_facebook_widget_WebDialog_FeedDialogBuilder(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_Session const& arg1,AndroidCXX::android_os_Bundle const& arg2);
+	com_facebook_widget_WebDialog_FeedDialogBuilder(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_Session const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog_FeedDialogBuilder();
 	// Functions
-	 FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder setName(AndroidCXX::java_lang_String& arg0);
-	 FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder setLink(AndroidCXX::java_lang_String& arg0);
-	 FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder setFrom(AndroidCXX::java_lang_String& arg0);
-	 FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder setTo(AndroidCXX::java_lang_String& arg0);
-	 FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder setPicture(AndroidCXX::java_lang_String& arg0);
-	 FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder setSource(AndroidCXX::java_lang_String& arg0);
-	 FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder setCaption(AndroidCXX::java_lang_String& arg0);
-	 FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder setDescription(AndroidCXX::java_lang_String& arg0);
+	 FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder setName(AndroidCXX::java_lang_String const& arg0);
+	 FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder setLink(AndroidCXX::java_lang_String const& arg0);
+	 FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder setFrom(AndroidCXX::java_lang_String const& arg0);
+	 FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder setTo(AndroidCXX::java_lang_String const& arg0);
+	 FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder setPicture(AndroidCXX::java_lang_String const& arg0);
+	 FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder setSource(AndroidCXX::java_lang_String const& arg0);
+	 FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder setCaption(AndroidCXX::java_lang_String const& arg0);
+	 FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder setDescription(AndroidCXX::java_lang_String const& arg0);
 };	
 
 } // namespace

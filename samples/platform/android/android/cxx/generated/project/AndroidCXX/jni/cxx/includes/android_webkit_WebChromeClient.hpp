@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -166,36 +165,37 @@ class android_webkit_WebChromeClient
 public:
 
 	android_webkit_WebChromeClient(const android_webkit_WebChromeClient& cc);
-	android_webkit_WebChromeClient(void * proxy);
+	android_webkit_WebChromeClient(Proxy proxy);
 	// Public Constructors
 	android_webkit_WebChromeClient();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebChromeClient();
 	// Functions
-	 void onProgressChanged(AndroidCXX::android_webkit_WebView& arg0,int& arg1);
-	 void onReceivedTitle(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1);
-	 void onReceivedIcon(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_graphics_Bitmap& arg1);
-	 void onReceivedTouchIconUrl(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2);
-	 void onShowCustomView(AndroidCXX::android_view_View& arg0,AndroidCXX::android_webkit_WebChromeClient_CustomViewCallback& arg1);
-	 void onShowCustomView(AndroidCXX::android_view_View& arg0,int& arg1,AndroidCXX::android_webkit_WebChromeClient_CustomViewCallback& arg2);
+	 void onProgressChanged(AndroidCXX::android_webkit_WebView const& arg0,int const& arg1);
+	 void onReceivedTitle(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 void onReceivedIcon(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_graphics_Bitmap const& arg1);
+	 void onReceivedTouchIconUrl(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2);
+	 void onShowCustomView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_webkit_WebChromeClient_CustomViewCallback const& arg1);
+	 void onShowCustomView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_webkit_WebChromeClient_CustomViewCallback const& arg2);
 	 void onHideCustomView();
-	 bool onCreateWindow(AndroidCXX::android_webkit_WebView& arg0,bool& arg1,bool& arg2,AndroidCXX::android_os_Message& arg3);
-	 void onRequestFocus(AndroidCXX::android_webkit_WebView& arg0);
-	 void onCloseWindow(AndroidCXX::android_webkit_WebView& arg0);
-	 bool onJsAlert(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_webkit_JsResult& arg3);
-	 bool onJsConfirm(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_webkit_JsResult& arg3);
-	 bool onJsPrompt(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::android_webkit_JsPromptResult& arg4);
-	 bool onJsBeforeUnload(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_webkit_JsResult& arg3);
-	 void onExceededDatabaseQuota(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,long& arg2,long& arg3,long& arg4,AndroidCXX::android_webkit_WebStorage_QuotaUpdater& arg5);
-	 void onReachedMaxAppCacheSize(long& arg0,long& arg1,AndroidCXX::android_webkit_WebStorage_QuotaUpdater& arg2);
-	 void onGeolocationPermissionsShowPrompt(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_webkit_GeolocationPermissions_Callback& arg1);
+	 bool onCreateWindow(AndroidCXX::android_webkit_WebView const& arg0,bool const& arg1,bool const& arg2,AndroidCXX::android_os_Message const& arg3);
+	 void onRequestFocus(AndroidCXX::android_webkit_WebView const& arg0);
+	 void onCloseWindow(AndroidCXX::android_webkit_WebView const& arg0);
+	 bool onJsAlert(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_webkit_JsResult const& arg3);
+	 bool onJsConfirm(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_webkit_JsResult const& arg3);
+	 bool onJsPrompt(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::android_webkit_JsPromptResult const& arg4);
+	 bool onJsBeforeUnload(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_webkit_JsResult const& arg3);
+	 void onExceededDatabaseQuota(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,long const& arg2,long const& arg3,long const& arg4,AndroidCXX::android_webkit_WebStorage_QuotaUpdater const& arg5);
+	 void onReachedMaxAppCacheSize(long const& arg0,long const& arg1,AndroidCXX::android_webkit_WebStorage_QuotaUpdater const& arg2);
+	 void onGeolocationPermissionsShowPrompt(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_webkit_GeolocationPermissions_Callback const& arg1);
 	 void onGeolocationPermissionsHidePrompt();
 	 bool onJsTimeout();
-	 void onConsoleMessage(AndroidCXX::java_lang_String& arg0,int& arg1,AndroidCXX::java_lang_String& arg2);
-	 bool onConsoleMessage(AndroidCXX::android_webkit_ConsoleMessage& arg0);
+	 void onConsoleMessage(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2);
+	 bool onConsoleMessage(AndroidCXX::android_webkit_ConsoleMessage const& arg0);
 	 AndroidCXX::android_graphics_Bitmap getDefaultVideoPoster();
 	 AndroidCXX::android_view_View getVideoLoadingProgressView();
-	 void getVisitedHistory(AndroidCXX::android_webkit_ValueCallback& arg0);
+	 void getVisitedHistory(AndroidCXX::android_webkit_ValueCallback const& arg0);
 };	
 
 } // namespace

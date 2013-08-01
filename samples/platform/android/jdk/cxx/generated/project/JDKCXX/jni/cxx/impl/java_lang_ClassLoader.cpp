@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -127,8 +126,6 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_lang_ClassLoader::java_lang_ClassLoader(const java_lang_ClassLoader& cc)
 {
 	LOGV("java_lang_ClassLoader::java_lang_ClassLoader(const java_lang_ClassLoader& cc) enter");
@@ -152,9 +149,9 @@ java_lang_ClassLoader::java_lang_ClassLoader(const java_lang_ClassLoader& cc)
 
 	LOGV("java_lang_ClassLoader::java_lang_ClassLoader(const java_lang_ClassLoader& cc) exit");
 }
-java_lang_ClassLoader::java_lang_ClassLoader(void * proxy)
+java_lang_ClassLoader::java_lang_ClassLoader(Proxy proxy)
 {
-	LOGV("java_lang_ClassLoader::java_lang_ClassLoader(void * proxy) enter");
+	LOGV("java_lang_ClassLoader::java_lang_ClassLoader(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -164,52 +161,31 @@ java_lang_ClassLoader::java_lang_ClassLoader(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_lang_ClassLoader::java_lang_ClassLoader(void * proxy) exit");
+	LOGV("java_lang_ClassLoader::java_lang_ClassLoader(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_lang_ClassLoader::java_lang_ClassLoader()
-// {
-// 	LOGV("java_lang_ClassLoader::java_lang_ClassLoader() enter");	
+Proxy java_lang_ClassLoader::proxy() const
+{	
+	LOGV("java_lang_ClassLoader::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/lang/ClassLoader";
+	long cxxAddress = (long) this;
+	LOGV("java_lang_ClassLoader cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_ClassLoader jni address %d", proxiedComponent);
 
-// 	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_lang_ClassLoader::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_lang_ClassLoader cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_lang_ClassLoader jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_lang_ClassLoader::java_lang_ClassLoader() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_lang_ClassLoader::~java_lang_ClassLoader()
 {
@@ -221,13 +197,13 @@ java_lang_ClassLoader::~java_lang_ClassLoader()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_lang_ClassLoader::~java_lang_ClassLoader() exit");
 }
 // Functions
-JDKCXX::java_lang_Class java_lang_ClassLoader::loadClass(JDKCXX::java_lang_String& arg0)
+JDKCXX::java_lang_Class java_lang_ClassLoader::loadClass(JDKCXX::java_lang_String const& arg0)
 {
-	LOGV("JDKCXX::java_lang_Class java_lang_ClassLoader::loadClass(JDKCXX::java_lang_String& arg0) enter");
+	LOGV("JDKCXX::java_lang_Class java_lang_ClassLoader::loadClass(JDKCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "loadClass";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Class;";
@@ -237,8 +213,6 @@ JDKCXX::java_lang_Class java_lang_ClassLoader::loadClass(JDKCXX::java_lang_Strin
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ClassLoader cxx address %d", cxxAddress);
@@ -306,9 +280,7 @@ JDKCXX::java_lang_Class java_lang_ClassLoader::loadClass(JDKCXX::java_lang_Strin
 	JDKCXX::java_lang_Class result((JDKCXX::java_lang_Class) *((JDKCXX::java_lang_Class *) cxx_value));
 	delete ((JDKCXX::java_lang_Class *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_Class java_lang_ClassLoader::loadClass(JDKCXX::java_lang_String& arg0) exit");
+	LOGV("JDKCXX::java_lang_Class java_lang_ClassLoader::loadClass(JDKCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
@@ -325,15 +297,13 @@ JDKCXX::java_lang_ClassLoader java_lang_ClassLoader::getSystemClassLoader()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_ClassLoader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_ClassLoader jni address %d", javaObject);
 
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -354,15 +324,13 @@ JDKCXX::java_lang_ClassLoader java_lang_ClassLoader::getSystemClassLoader()
 	JDKCXX::java_lang_ClassLoader result((JDKCXX::java_lang_ClassLoader) *((JDKCXX::java_lang_ClassLoader *) cxx_value));
 	delete ((JDKCXX::java_lang_ClassLoader *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_ClassLoader java_lang_ClassLoader::getSystemClassLoader() exit");
 
 	return result;
 }
-JDKCXX::java_io_InputStream java_lang_ClassLoader::getResourceAsStream(JDKCXX::java_lang_String& arg0)
+JDKCXX::java_io_InputStream java_lang_ClassLoader::getResourceAsStream(JDKCXX::java_lang_String const& arg0)
 {
-	LOGV("JDKCXX::java_io_InputStream java_lang_ClassLoader::getResourceAsStream(JDKCXX::java_lang_String& arg0) enter");
+	LOGV("JDKCXX::java_io_InputStream java_lang_ClassLoader::getResourceAsStream(JDKCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getResourceAsStream";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/io/InputStream;";
@@ -373,8 +341,6 @@ JDKCXX::java_io_InputStream java_lang_ClassLoader::getResourceAsStream(JDKCXX::j
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ClassLoader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -423,15 +389,13 @@ JDKCXX::java_io_InputStream java_lang_ClassLoader::getResourceAsStream(JDKCXX::j
 	JDKCXX::java_io_InputStream result((JDKCXX::java_io_InputStream) *((JDKCXX::java_io_InputStream *) cxx_value));
 	delete ((JDKCXX::java_io_InputStream *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_io_InputStream java_lang_ClassLoader::getResourceAsStream(JDKCXX::java_lang_String& arg0) exit");
+	LOGV("JDKCXX::java_io_InputStream java_lang_ClassLoader::getResourceAsStream(JDKCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_net_URL java_lang_ClassLoader::getResource(JDKCXX::java_lang_String& arg0)
+JDKCXX::java_net_URL java_lang_ClassLoader::getResource(JDKCXX::java_lang_String const& arg0)
 {
-	LOGV("JDKCXX::java_net_URL java_lang_ClassLoader::getResource(JDKCXX::java_lang_String& arg0) enter");
+	LOGV("JDKCXX::java_net_URL java_lang_ClassLoader::getResource(JDKCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getResource";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/URL;";
@@ -442,8 +406,6 @@ JDKCXX::java_net_URL java_lang_ClassLoader::getResource(JDKCXX::java_lang_String
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ClassLoader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -492,15 +454,13 @@ JDKCXX::java_net_URL java_lang_ClassLoader::getResource(JDKCXX::java_lang_String
 	JDKCXX::java_net_URL result((JDKCXX::java_net_URL) *((JDKCXX::java_net_URL *) cxx_value));
 	delete ((JDKCXX::java_net_URL *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_net_URL java_lang_ClassLoader::getResource(JDKCXX::java_lang_String& arg0) exit");
+	LOGV("JDKCXX::java_net_URL java_lang_ClassLoader::getResource(JDKCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_io_InputStream java_lang_ClassLoader::getSystemResourceAsStream(JDKCXX::java_lang_String& arg0)
+JDKCXX::java_io_InputStream java_lang_ClassLoader::getSystemResourceAsStream(JDKCXX::java_lang_String const& arg0)
 {
-	LOGV("JDKCXX::java_io_InputStream java_lang_ClassLoader::getSystemResourceAsStream(JDKCXX::java_lang_String& arg0) enter");
+	LOGV("JDKCXX::java_io_InputStream java_lang_ClassLoader::getSystemResourceAsStream(JDKCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getSystemResourceAsStream";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/io/InputStream;";
@@ -510,8 +470,6 @@ JDKCXX::java_io_InputStream java_lang_ClassLoader::getSystemResourceAsStream(JDK
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_ClassLoader cxx address %d", cxxAddress);
@@ -540,7 +498,7 @@ JDKCXX::java_io_InputStream java_lang_ClassLoader::getSystemResourceAsStream(JDK
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -561,15 +519,13 @@ JDKCXX::java_io_InputStream java_lang_ClassLoader::getSystemResourceAsStream(JDK
 	JDKCXX::java_io_InputStream result((JDKCXX::java_io_InputStream) *((JDKCXX::java_io_InputStream *) cxx_value));
 	delete ((JDKCXX::java_io_InputStream *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_io_InputStream java_lang_ClassLoader::getSystemResourceAsStream(JDKCXX::java_lang_String& arg0) exit");
+	LOGV("JDKCXX::java_io_InputStream java_lang_ClassLoader::getSystemResourceAsStream(JDKCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_net_URL java_lang_ClassLoader::getSystemResource(JDKCXX::java_lang_String& arg0)
+JDKCXX::java_net_URL java_lang_ClassLoader::getSystemResource(JDKCXX::java_lang_String const& arg0)
 {
-	LOGV("JDKCXX::java_net_URL java_lang_ClassLoader::getSystemResource(JDKCXX::java_lang_String& arg0) enter");
+	LOGV("JDKCXX::java_net_URL java_lang_ClassLoader::getSystemResource(JDKCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getSystemResource";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/URL;";
@@ -579,8 +535,6 @@ JDKCXX::java_net_URL java_lang_ClassLoader::getSystemResource(JDKCXX::java_lang_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_ClassLoader cxx address %d", cxxAddress);
@@ -609,7 +563,7 @@ JDKCXX::java_net_URL java_lang_ClassLoader::getSystemResource(JDKCXX::java_lang_
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -630,15 +584,13 @@ JDKCXX::java_net_URL java_lang_ClassLoader::getSystemResource(JDKCXX::java_lang_
 	JDKCXX::java_net_URL result((JDKCXX::java_net_URL) *((JDKCXX::java_net_URL *) cxx_value));
 	delete ((JDKCXX::java_net_URL *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_net_URL java_lang_ClassLoader::getSystemResource(JDKCXX::java_lang_String& arg0) exit");
+	LOGV("JDKCXX::java_net_URL java_lang_ClassLoader::getSystemResource(JDKCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_util_Enumeration java_lang_ClassLoader::getResources(JDKCXX::java_lang_String& arg0)
+JDKCXX::java_util_Enumeration java_lang_ClassLoader::getResources(JDKCXX::java_lang_String const& arg0)
 {
-	LOGV("JDKCXX::java_util_Enumeration java_lang_ClassLoader::getResources(JDKCXX::java_lang_String& arg0) enter");
+	LOGV("JDKCXX::java_util_Enumeration java_lang_ClassLoader::getResources(JDKCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getResources";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/util/Enumeration;";
@@ -648,8 +600,6 @@ JDKCXX::java_util_Enumeration java_lang_ClassLoader::getResources(JDKCXX::java_l
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ClassLoader cxx address %d", cxxAddress);
@@ -717,15 +667,13 @@ JDKCXX::java_util_Enumeration java_lang_ClassLoader::getResources(JDKCXX::java_l
 	JDKCXX::java_util_Enumeration result((JDKCXX::java_util_Enumeration) *((JDKCXX::java_util_Enumeration *) cxx_value));
 	delete ((JDKCXX::java_util_Enumeration *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_util_Enumeration java_lang_ClassLoader::getResources(JDKCXX::java_lang_String& arg0) exit");
+	LOGV("JDKCXX::java_util_Enumeration java_lang_ClassLoader::getResources(JDKCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_util_Enumeration java_lang_ClassLoader::getSystemResources(JDKCXX::java_lang_String& arg0)
+JDKCXX::java_util_Enumeration java_lang_ClassLoader::getSystemResources(JDKCXX::java_lang_String const& arg0)
 {
-	LOGV("JDKCXX::java_util_Enumeration java_lang_ClassLoader::getSystemResources(JDKCXX::java_lang_String& arg0) enter");
+	LOGV("JDKCXX::java_util_Enumeration java_lang_ClassLoader::getSystemResources(JDKCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getSystemResources";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/util/Enumeration;";
@@ -735,8 +683,6 @@ JDKCXX::java_util_Enumeration java_lang_ClassLoader::getSystemResources(JDKCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_ClassLoader cxx address %d", cxxAddress);
@@ -765,7 +711,7 @@ JDKCXX::java_util_Enumeration java_lang_ClassLoader::getSystemResources(JDKCXX::
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -804,9 +750,7 @@ JDKCXX::java_util_Enumeration java_lang_ClassLoader::getSystemResources(JDKCXX::
 	JDKCXX::java_util_Enumeration result((JDKCXX::java_util_Enumeration) *((JDKCXX::java_util_Enumeration *) cxx_value));
 	delete ((JDKCXX::java_util_Enumeration *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_util_Enumeration java_lang_ClassLoader::getSystemResources(JDKCXX::java_lang_String& arg0) exit");
+	LOGV("JDKCXX::java_util_Enumeration java_lang_ClassLoader::getSystemResources(JDKCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
@@ -823,8 +767,6 @@ JDKCXX::java_lang_ClassLoader java_lang_ClassLoader::getParent()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ClassLoader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -852,15 +794,13 @@ JDKCXX::java_lang_ClassLoader java_lang_ClassLoader::getParent()
 	JDKCXX::java_lang_ClassLoader result((JDKCXX::java_lang_ClassLoader) *((JDKCXX::java_lang_ClassLoader *) cxx_value));
 	delete ((JDKCXX::java_lang_ClassLoader *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_ClassLoader java_lang_ClassLoader::getParent() exit");
 
 	return result;
 }
-void java_lang_ClassLoader::setDefaultAssertionStatus(bool& arg0)
+void java_lang_ClassLoader::setDefaultAssertionStatus(bool const& arg0)
 {
-	LOGV("void java_lang_ClassLoader::setDefaultAssertionStatus(bool& arg0) enter");
+	LOGV("void java_lang_ClassLoader::setDefaultAssertionStatus(bool const& arg0) enter");
 
 	const char *methodName = "setDefaultAssertionStatus";
 	const char *methodSignature = "(Z)V";
@@ -870,8 +810,6 @@ void java_lang_ClassLoader::setDefaultAssertionStatus(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ClassLoader cxx address %d", cxxAddress);
@@ -902,14 +840,12 @@ void java_lang_ClassLoader::setDefaultAssertionStatus(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_ClassLoader::setDefaultAssertionStatus(bool& arg0) exit");
+	LOGV("void java_lang_ClassLoader::setDefaultAssertionStatus(bool const& arg0) exit");
 
 }
-void java_lang_ClassLoader::setPackageAssertionStatus(JDKCXX::java_lang_String& arg0,bool& arg1)
+void java_lang_ClassLoader::setPackageAssertionStatus(JDKCXX::java_lang_String const& arg0,bool const& arg1)
 {
-	LOGV("void java_lang_ClassLoader::setPackageAssertionStatus(JDKCXX::java_lang_String& arg0,bool& arg1) enter");
+	LOGV("void java_lang_ClassLoader::setPackageAssertionStatus(JDKCXX::java_lang_String const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "setPackageAssertionStatus";
 	const char *methodSignature = "(Ljava/lang/String;Z)V";
@@ -920,8 +856,6 @@ void java_lang_ClassLoader::setPackageAssertionStatus(JDKCXX::java_lang_String& 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ClassLoader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -972,14 +906,12 @@ void java_lang_ClassLoader::setPackageAssertionStatus(JDKCXX::java_lang_String& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_ClassLoader::setPackageAssertionStatus(JDKCXX::java_lang_String& arg0,bool& arg1) exit");
+	LOGV("void java_lang_ClassLoader::setPackageAssertionStatus(JDKCXX::java_lang_String const& arg0,bool const& arg1) exit");
 
 }
-void java_lang_ClassLoader::setClassAssertionStatus(JDKCXX::java_lang_String& arg0,bool& arg1)
+void java_lang_ClassLoader::setClassAssertionStatus(JDKCXX::java_lang_String const& arg0,bool const& arg1)
 {
-	LOGV("void java_lang_ClassLoader::setClassAssertionStatus(JDKCXX::java_lang_String& arg0,bool& arg1) enter");
+	LOGV("void java_lang_ClassLoader::setClassAssertionStatus(JDKCXX::java_lang_String const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "setClassAssertionStatus";
 	const char *methodSignature = "(Ljava/lang/String;Z)V";
@@ -990,8 +922,6 @@ void java_lang_ClassLoader::setClassAssertionStatus(JDKCXX::java_lang_String& ar
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ClassLoader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1042,9 +972,7 @@ void java_lang_ClassLoader::setClassAssertionStatus(JDKCXX::java_lang_String& ar
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_lang_ClassLoader::setClassAssertionStatus(JDKCXX::java_lang_String& arg0,bool& arg1) exit");
+	LOGV("void java_lang_ClassLoader::setClassAssertionStatus(JDKCXX::java_lang_String const& arg0,bool const& arg1) exit");
 
 }
 void java_lang_ClassLoader::clearAssertionStatus()
@@ -1060,8 +988,6 @@ void java_lang_ClassLoader::clearAssertionStatus()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_ClassLoader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1070,8 +996,6 @@ void java_lang_ClassLoader::clearAssertionStatus()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_lang_ClassLoader::clearAssertionStatus() exit");
 
 }

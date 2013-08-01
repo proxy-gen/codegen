@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  	
@@ -289,20 +288,17 @@ class java_lang_Class
 public:
 
 	java_lang_Class(const java_lang_Class& cc);
-	java_lang_Class(void * proxy);
+	java_lang_Class(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_lang_Class();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Class();
 	// Functions
-	static JDKCXX::java_lang_Class forName(JDKCXX::java_lang_String& arg0);
-	static JDKCXX::java_lang_Class forName(JDKCXX::java_lang_String& arg0,bool& arg1,JDKCXX::java_lang_ClassLoader& arg2);
+	static JDKCXX::java_lang_Class forName(JDKCXX::java_lang_String const& arg0);
+	static JDKCXX::java_lang_Class forName(JDKCXX::java_lang_String const& arg0,bool const& arg1,JDKCXX::java_lang_ClassLoader const& arg2);
 	 JDKCXX::java_lang_String toString();
-	 bool isAssignableFrom(JDKCXX::java_lang_Class& arg0);
-	 bool isInstance(JDKCXX::java_lang_Object& arg0);
+	 bool isAssignableFrom(JDKCXX::java_lang_Class const& arg0);
+	 bool isInstance(JDKCXX::java_lang_Object const& arg0);
 	 int getModifiers();
 	 bool isInterface();
 	 bool isArray();
@@ -333,26 +329,26 @@ public:
 	 std::vector<JDKCXX::java_lang_reflect_Field > getFields();
 	 std::vector<JDKCXX::java_lang_reflect_Method > getMethods();
 	 std::vector<JDKCXX::java_lang_reflect_Constructor > getConstructors();
-	 JDKCXX::java_lang_reflect_Field getField(JDKCXX::java_lang_String& arg0);
-	 JDKCXX::java_lang_reflect_Method getMethod(JDKCXX::java_lang_String& arg0,std::vector<JDKCXX::java_lang_Class >& arg1);
-	 JDKCXX::java_lang_reflect_Constructor getConstructor(std::vector<JDKCXX::java_lang_Class >& arg0);
+	 JDKCXX::java_lang_reflect_Field getField(JDKCXX::java_lang_String const& arg0);
+	 JDKCXX::java_lang_reflect_Method getMethod(JDKCXX::java_lang_String const& arg0,std::vector<JDKCXX::java_lang_Class > const& arg1);
+	 JDKCXX::java_lang_reflect_Constructor getConstructor(std::vector<JDKCXX::java_lang_Class > const& arg0);
 	 std::vector<JDKCXX::java_lang_Class > getDeclaredClasses();
 	 std::vector<JDKCXX::java_lang_reflect_Field > getDeclaredFields();
 	 std::vector<JDKCXX::java_lang_reflect_Method > getDeclaredMethods();
 	 std::vector<JDKCXX::java_lang_reflect_Constructor > getDeclaredConstructors();
-	 JDKCXX::java_lang_reflect_Field getDeclaredField(JDKCXX::java_lang_String& arg0);
-	 JDKCXX::java_lang_reflect_Method getDeclaredMethod(JDKCXX::java_lang_String& arg0,std::vector<JDKCXX::java_lang_Class >& arg1);
-	 JDKCXX::java_lang_reflect_Constructor getDeclaredConstructor(std::vector<JDKCXX::java_lang_Class >& arg0);
-	 JDKCXX::java_io_InputStream getResourceAsStream(JDKCXX::java_lang_String& arg0);
-	 JDKCXX::java_net_URL getResource(JDKCXX::java_lang_String& arg0);
+	 JDKCXX::java_lang_reflect_Field getDeclaredField(JDKCXX::java_lang_String const& arg0);
+	 JDKCXX::java_lang_reflect_Method getDeclaredMethod(JDKCXX::java_lang_String const& arg0,std::vector<JDKCXX::java_lang_Class > const& arg1);
+	 JDKCXX::java_lang_reflect_Constructor getDeclaredConstructor(std::vector<JDKCXX::java_lang_Class > const& arg0);
+	 JDKCXX::java_io_InputStream getResourceAsStream(JDKCXX::java_lang_String const& arg0);
+	 JDKCXX::java_net_URL getResource(JDKCXX::java_lang_String const& arg0);
 	 JDKCXX::java_security_ProtectionDomain getProtectionDomain();
 	 bool desiredAssertionStatus();
 	 bool isEnum();
 	 std::vector<JDKCXX::java_lang_Object > getEnumConstants();
-	 JDKCXX::java_lang_Object cast(JDKCXX::java_lang_Object& arg0);
-	 JDKCXX::java_lang_Class asSubclass(JDKCXX::java_lang_Class& arg0);
-	 JDKCXX::java_lang_annotation_Annotation getAnnotation(JDKCXX::java_lang_Class& arg0);
-	 bool isAnnotationPresent(JDKCXX::java_lang_Class& arg0);
+	 JDKCXX::java_lang_Object cast(JDKCXX::java_lang_Object const& arg0);
+	 JDKCXX::java_lang_Class asSubclass(JDKCXX::java_lang_Class const& arg0);
+	 JDKCXX::java_lang_annotation_Annotation getAnnotation(JDKCXX::java_lang_Class const& arg0);
+	 bool isAnnotationPresent(JDKCXX::java_lang_Class const& arg0);
 	 std::vector<JDKCXX::java_lang_annotation_Annotation > getAnnotations();
 	 std::vector<JDKCXX::java_lang_annotation_Annotation > getDeclaredAnnotations();
 };	

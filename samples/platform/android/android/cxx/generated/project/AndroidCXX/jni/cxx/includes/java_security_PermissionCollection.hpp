@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -71,15 +70,16 @@ class java_security_PermissionCollection
 public:
 
 	java_security_PermissionCollection(const java_security_PermissionCollection& cc);
-	java_security_PermissionCollection(void * proxy);
+	java_security_PermissionCollection(Proxy proxy);
 	// Public Constructors
 	java_security_PermissionCollection();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_security_PermissionCollection();
 	// Functions
-	 void add(AndroidCXX::java_security_Permission& arg0);
+	 void add(AndroidCXX::java_security_Permission const& arg0);
 	 AndroidCXX::java_lang_String toString();
-	 bool implies(AndroidCXX::java_security_Permission& arg0);
+	 bool implies(AndroidCXX::java_security_Permission const& arg0);
 	 void setReadOnly();
 	 AndroidCXX::java_util_Enumeration elements();
 	 bool isReadOnly();

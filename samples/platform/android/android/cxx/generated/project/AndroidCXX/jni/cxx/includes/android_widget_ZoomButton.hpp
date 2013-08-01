@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -96,23 +95,23 @@ class android_widget_ZoomButton
 public:
 
 	android_widget_ZoomButton(const android_widget_ZoomButton& cc);
-	android_widget_ZoomButton(void * proxy);
+	android_widget_ZoomButton(Proxy proxy);
 	// Public Constructors
-	android_widget_ZoomButton(AndroidCXX::android_content_Context& arg0);
-	android_widget_ZoomButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_ZoomButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_ZoomButton();
+	android_widget_ZoomButton(AndroidCXX::android_content_Context const& arg0);
+	android_widget_ZoomButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_ZoomButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ZoomButton();
 	// Functions
-	 bool onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1);
-	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0);
-	 bool dispatchUnhandledMove(AndroidCXX::android_view_View& arg0,int& arg1);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 void setEnabled(bool& arg0);
-	 bool onLongClick(AndroidCXX::android_view_View& arg0);
-	 void setZoomSpeed(long& arg0);
+	 bool onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
+	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0);
+	 bool dispatchUnhandledMove(AndroidCXX::android_view_View const& arg0,int const& arg1);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 void setEnabled(bool const& arg0);
+	 bool onLongClick(AndroidCXX::android_view_View const& arg0);
+	 void setZoomSpeed(long const& arg0);
 };	
 
 } // namespace

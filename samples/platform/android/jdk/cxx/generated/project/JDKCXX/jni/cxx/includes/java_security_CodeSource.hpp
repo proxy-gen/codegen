@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -92,23 +91,20 @@ class java_security_CodeSource
 public:
 
 	java_security_CodeSource(const java_security_CodeSource& cc);
-	java_security_CodeSource(void * proxy);
+	java_security_CodeSource(Proxy proxy);
 	// Public Constructors
-	java_security_CodeSource(JDKCXX::java_net_URL& arg0,std::vector<JDKCXX::java_security_CodeSigner >& arg1);
-	java_security_CodeSource(JDKCXX::java_net_URL& arg0,std::vector<JDKCXX::java_security_cert_Certificate >& arg1);
-	// TODO: remove
-	// 
-	// java_security_CodeSource();
-	// 
+	java_security_CodeSource(JDKCXX::java_net_URL const& arg0,std::vector<JDKCXX::java_security_CodeSigner > const& arg1);
+	java_security_CodeSource(JDKCXX::java_net_URL const& arg0,std::vector<JDKCXX::java_security_cert_Certificate > const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_security_CodeSource();
 	// Functions
-	 bool equals(JDKCXX::java_lang_Object& arg0);
+	 bool equals(JDKCXX::java_lang_Object const& arg0);
 	 JDKCXX::java_lang_String toString();
 	 int hashCode();
 	 JDKCXX::java_net_URL getLocation();
 	 std::vector<JDKCXX::java_security_cert_Certificate > getCertificates();
-	 bool implies(JDKCXX::java_security_CodeSource& arg0);
+	 bool implies(JDKCXX::java_security_CodeSource const& arg0);
 	 std::vector<JDKCXX::java_security_CodeSigner > getCodeSigners();
 };	
 

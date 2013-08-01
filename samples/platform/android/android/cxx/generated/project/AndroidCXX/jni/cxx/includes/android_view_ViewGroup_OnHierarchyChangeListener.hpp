@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -56,14 +55,14 @@ class android_view_ViewGroup_OnHierarchyChangeListener
 public:
 
 	android_view_ViewGroup_OnHierarchyChangeListener(const android_view_ViewGroup_OnHierarchyChangeListener& cc);
-	android_view_ViewGroup_OnHierarchyChangeListener(void * proxy);
+	android_view_ViewGroup_OnHierarchyChangeListener(Proxy proxy);
 	// Public Constructors
-	android_view_ViewGroup_OnHierarchyChangeListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewGroup_OnHierarchyChangeListener();
 	// Functions
-	 void onChildViewAdded(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_View& arg1);
-	 void onChildViewRemoved(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_View& arg1);
+	 void onChildViewAdded(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1);
+	 void onChildViewRemoved(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1);
 };	
 
 } // namespace

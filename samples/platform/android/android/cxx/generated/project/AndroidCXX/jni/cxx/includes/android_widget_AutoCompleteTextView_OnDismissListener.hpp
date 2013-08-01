@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_widget_AutoCompleteTextView_OnDismissListener
@@ -47,9 +46,9 @@ class android_widget_AutoCompleteTextView_OnDismissListener
 public:
 
 	android_widget_AutoCompleteTextView_OnDismissListener(const android_widget_AutoCompleteTextView_OnDismissListener& cc);
-	android_widget_AutoCompleteTextView_OnDismissListener(void * proxy);
+	android_widget_AutoCompleteTextView_OnDismissListener(Proxy proxy);
 	// Public Constructors
-	android_widget_AutoCompleteTextView_OnDismissListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AutoCompleteTextView_OnDismissListener();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -70,18 +69,18 @@ class android_text_style_URLSpan
 public:
 
 	android_text_style_URLSpan(const android_text_style_URLSpan& cc);
-	android_text_style_URLSpan(void * proxy);
+	android_text_style_URLSpan(Proxy proxy);
 	// Public Constructors
-	android_text_style_URLSpan(AndroidCXX::java_lang_String& arg0);
-	android_text_style_URLSpan(AndroidCXX::android_os_Parcel& arg0);
-	android_text_style_URLSpan();
+	android_text_style_URLSpan(AndroidCXX::java_lang_String const& arg0);
+	android_text_style_URLSpan(AndroidCXX::android_os_Parcel const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_text_style_URLSpan();
 	// Functions
 	 AndroidCXX::java_lang_String getURL();
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
-	 void onClick(AndroidCXX::android_view_View& arg0);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	 void onClick(AndroidCXX::android_view_View const& arg0);
 	 int getSpanTypeId();
 };	
 

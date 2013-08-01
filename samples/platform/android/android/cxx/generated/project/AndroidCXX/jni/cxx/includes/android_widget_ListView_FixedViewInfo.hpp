@@ -10,7 +10,6 @@
 
 
 
-
  		 
 
 
@@ -52,10 +51,10 @@ class android_widget_ListView_FixedViewInfo
 public:
 
 	android_widget_ListView_FixedViewInfo(const android_widget_ListView_FixedViewInfo& cc);
-	android_widget_ListView_FixedViewInfo(void * proxy);
+	android_widget_ListView_FixedViewInfo(Proxy proxy);
 	// Public Constructors
-	android_widget_ListView_FixedViewInfo(AndroidCXX::android_widget_ListView& arg0);
-	android_widget_ListView_FixedViewInfo();
+	android_widget_ListView_FixedViewInfo(AndroidCXX::android_widget_ListView const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ListView_FixedViewInfo();
 	// Functions

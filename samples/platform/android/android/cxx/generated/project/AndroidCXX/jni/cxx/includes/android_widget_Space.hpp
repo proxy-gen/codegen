@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -68,16 +67,16 @@ class android_widget_Space
 public:
 
 	android_widget_Space(const android_widget_Space& cc);
-	android_widget_Space(void * proxy);
+	android_widget_Space(Proxy proxy);
 	// Public Constructors
-	android_widget_Space(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_Space(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_Space(AndroidCXX::android_content_Context& arg0);
-	android_widget_Space();
+	android_widget_Space(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_Space(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_Space(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Space();
 	// Functions
-	 void draw(AndroidCXX::android_graphics_Canvas& arg0);
+	 void draw(AndroidCXX::android_graphics_Canvas const& arg0);
 };	
 
 } // namespace

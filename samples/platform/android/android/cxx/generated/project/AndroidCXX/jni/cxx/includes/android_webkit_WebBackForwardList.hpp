@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 
@@ -56,16 +55,16 @@ class android_webkit_WebBackForwardList
 public:
 
 	android_webkit_WebBackForwardList(const android_webkit_WebBackForwardList& cc);
-	android_webkit_WebBackForwardList(void * proxy);
+	android_webkit_WebBackForwardList(Proxy proxy);
 	// Public Constructors
-	android_webkit_WebBackForwardList();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebBackForwardList();
 	// Functions
 	 int getSize();
 	 AndroidCXX::android_webkit_WebHistoryItem getCurrentItem();
 	 int getCurrentIndex();
-	 AndroidCXX::android_webkit_WebHistoryItem getItemAtIndex(int& arg0);
+	 AndroidCXX::android_webkit_WebHistoryItem getItemAtIndex(int const& arg0);
 };	
 
 } // namespace

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -68,13 +67,13 @@ class java_net_InterfaceAddress
 public:
 
 	java_net_InterfaceAddress(const java_net_InterfaceAddress& cc);
-	java_net_InterfaceAddress(void * proxy);
+	java_net_InterfaceAddress(Proxy proxy);
 	// Public Constructors
-	java_net_InterfaceAddress();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_InterfaceAddress();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 AndroidCXX::java_net_InetAddress getAddress();

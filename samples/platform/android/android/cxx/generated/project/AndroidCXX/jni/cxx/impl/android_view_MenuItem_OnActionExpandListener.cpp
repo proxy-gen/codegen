@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -30,7 +29,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_MenuItem_OnActionExpandListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -52,8 +51,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener(const android_view_MenuItem_OnActionExpandListener& cc)
 {
 	LOGV("android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener(const android_view_MenuItem_OnActionExpandListener& cc) enter");
@@ -77,9 +74,9 @@ android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpa
 
 	LOGV("android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener(const android_view_MenuItem_OnActionExpandListener& cc) exit");
 }
-android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener(void * proxy)
+android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener(Proxy proxy)
 {
-	LOGV("android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener(void * proxy) enter");
+	LOGV("android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -89,47 +86,31 @@ android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpa
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener(void * proxy) exit");
+	LOGV("android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener(Proxy proxy) exit");
 }
-android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener()
-{
-	LOGV("android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/view/MenuItem$OnActionExpandListener";
-
-	LOGV("android_view_MenuItem_OnActionExpandListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_view_MenuItem_OnActionExpandListener::proxy() const
+{	
+	LOGV("android_view_MenuItem_OnActionExpandListener::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_MenuItem_OnActionExpandListener cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_view_MenuItem_OnActionExpandListener jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_view_MenuItem_OnActionExpandListener::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_view_MenuItem_OnActionExpandListener::android_view_MenuItem_OnActionExpandListener() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_view_MenuItem_OnActionExpandListener::~android_view_MenuItem_OnActionExpandListener()
 {
@@ -141,13 +122,13 @@ android_view_MenuItem_OnActionExpandListener::~android_view_MenuItem_OnActionExp
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_MenuItem_OnActionExpandListener::~android_view_MenuItem_OnActionExpandListener() exit");
 }
 // Functions
-bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionExpand(AndroidCXX::android_view_MenuItem& arg0)
+bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionExpand(AndroidCXX::android_view_MenuItem const& arg0)
 {
-	LOGV("bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionExpand(AndroidCXX::android_view_MenuItem& arg0) enter");
+	LOGV("bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionExpand(AndroidCXX::android_view_MenuItem const& arg0) enter");
 
 	const char *methodName = "onMenuItemActionExpand";
 	const char *methodSignature = "(Landroid/view/MenuItem;)Z";
@@ -158,8 +139,6 @@ bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionExpand(Androi
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_MenuItem_OnActionExpandListener cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -187,7 +166,6 @@ bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionExpand(Androi
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -205,17 +183,17 @@ bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionExpand(Androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionExpand(AndroidCXX::android_view_MenuItem& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionExpand(AndroidCXX::android_view_MenuItem const& arg0) exit");
 
 	return result;
 }
-bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionCollapse(AndroidCXX::android_view_MenuItem& arg0)
+bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionCollapse(AndroidCXX::android_view_MenuItem const& arg0)
 {
-	LOGV("bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionCollapse(AndroidCXX::android_view_MenuItem& arg0) enter");
+	LOGV("bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionCollapse(AndroidCXX::android_view_MenuItem const& arg0) enter");
 
 	const char *methodName = "onMenuItemActionCollapse";
 	const char *methodSignature = "(Landroid/view/MenuItem;)Z";
@@ -226,8 +204,6 @@ bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionCollapse(Andr
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_MenuItem_OnActionExpandListener cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -255,7 +231,6 @@ bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionCollapse(Andr
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -273,11 +248,11 @@ bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionCollapse(Andr
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionCollapse(AndroidCXX::android_view_MenuItem& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_view_MenuItem_OnActionExpandListener::onMenuItemActionCollapse(AndroidCXX::android_view_MenuItem const& arg0) exit");
 
 	return result;
 }

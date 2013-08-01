@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
  		 
@@ -67,17 +66,17 @@ class com_facebook_widget_PickerFragment_LoadingStrategy
 public:
 
 	com_facebook_widget_PickerFragment_LoadingStrategy(const com_facebook_widget_PickerFragment_LoadingStrategy& cc);
-	com_facebook_widget_PickerFragment_LoadingStrategy(void * proxy);
+	com_facebook_widget_PickerFragment_LoadingStrategy(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_PickerFragment_LoadingStrategy();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_LoadingStrategy();
 	// Functions
-	 void attach(FacebookCXX::com_facebook_widget_GraphObjectAdapter& arg0);
+	 void attach(FacebookCXX::com_facebook_widget_GraphObjectAdapter const& arg0);
 	 void detach();
 	 bool isDataPresentOrLoading();
 	 void clearResults();
-	 void startLoading(FacebookCXX::com_facebook_Request& arg0);
+	 void startLoading(FacebookCXX::com_facebook_Request const& arg0);
 };	
 
 } // namespace

@@ -20,6 +20,23 @@
 
 using namespace JDKCXX;
 
+class java_lang_object_Delegate : public java_lang_Object
+{
+	public:
+		JDKCXX::java_lang_String toString();
+};
+
+JDKCXX::java_lang_String java_lang_object_Delegate::toString()
+{
+	LOGI("java_lang_object_Delegate toString() invoked");
+	std::vector<char> message = to_std_vector("test callback");
+
+	java_lang_String str1(message);
+	LOGI("java_lang_object_Delegate toString() returning response");
+
+	return str1;
+}
+
 void test_java_lang_String()
 {
 	LOGI("test_java_lang_String enter");
@@ -151,6 +168,25 @@ void test_java_util_Map()
 	LOGI("test_java_util_Map exit");
 }
 
+void test_callbacks()
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	java_lang_object_Delegate receiver;
+	jobject proxyReceiver = ctx->findProxyComponent((long) &receiver);
+
+	jclass objectClass = jni->getClassRef("JDKCXX/java_lang_Object");
+	std::string toString = std::string("toString");
+	jobject method = jni->invokeObjectMethod(objectClass, "java/lang/Class", "getMethod", "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",jni->toJString(toString), (jobject) 0);
+
+	jobject callbackInvoker = jni->createNewObjectRef("com/cxx/bindings/samples/jdk/CallbackInvoker");
+	jstring str = (jstring) jni->invokeObjectMethod(callbackInvoker, "com/cxx/bindings/samples/jdk/CallbackInvoker", "invokeNoArg", "(Ljava/lang/reflect/Method;Ljava/lang/Object;)Ljava/lang/Object;",method, proxyReceiver);
+
+	LOGI("java.lang.Object.toString() callback returned [%s]", jni->getUTFString(str).c_str());
+
+}
+
 JNIEXPORT void JNICALL Java_com_cxx_bindings_samples_jdk_MainActivity_testJDKCXXFull(JNIEnv *env, jobject classRef)
 {
 	LOGI("Java_com_cxx_bindings_samples_jdk_MainActivity_testJDKCXXFull enter");
@@ -158,6 +194,7 @@ JNIEXPORT void JNICALL Java_com_cxx_bindings_samples_jdk_MainActivity_testJDKCXX
 	test_java_lang_String();
 	test_java_net_URLConnection();
 	test_java_util_Map();
+	test_callbacks();
 
 	LOGI("Java_com_cxx_bindings_samples_jdk_MainActivity_testJDKCXXFull exit");
 }

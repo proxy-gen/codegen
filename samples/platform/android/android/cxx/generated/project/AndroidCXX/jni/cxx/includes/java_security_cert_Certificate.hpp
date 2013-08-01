@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -74,19 +73,19 @@ class java_security_cert_Certificate
 public:
 
 	java_security_cert_Certificate(const java_security_cert_Certificate& cc);
-	java_security_cert_Certificate(void * proxy);
+	java_security_cert_Certificate(Proxy proxy);
 	// Public Constructors
-	java_security_cert_Certificate();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_security_cert_Certificate();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 AndroidCXX::java_lang_String getType();
 	 std::vector<byte> getEncoded();
-	 void verify(AndroidCXX::java_security_PublicKey& arg0);
-	 void verify(AndroidCXX::java_security_PublicKey& arg0,AndroidCXX::java_lang_String& arg1);
+	 void verify(AndroidCXX::java_security_PublicKey const& arg0);
+	 void verify(AndroidCXX::java_security_PublicKey const& arg0,AndroidCXX::java_lang_String const& arg1);
 	 AndroidCXX::java_security_PublicKey getPublicKey();
 };	
 

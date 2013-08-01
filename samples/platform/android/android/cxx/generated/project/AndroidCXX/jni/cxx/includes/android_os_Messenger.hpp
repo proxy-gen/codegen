@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -89,22 +88,22 @@ class android_os_Messenger
 public:
 
 	android_os_Messenger(const android_os_Messenger& cc);
-	android_os_Messenger(void * proxy);
+	android_os_Messenger(Proxy proxy);
 	// Public Constructors
-	android_os_Messenger(AndroidCXX::android_os_Handler& arg0);
-	android_os_Messenger(AndroidCXX::android_os_IBinder& arg0);
-	android_os_Messenger();
+	android_os_Messenger(AndroidCXX::android_os_Handler const& arg0);
+	android_os_Messenger(AndroidCXX::android_os_IBinder const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_os_Messenger();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 int hashCode();
-	 void send(AndroidCXX::android_os_Message& arg0);
+	 void send(AndroidCXX::android_os_Message const& arg0);
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 	 AndroidCXX::android_os_IBinder getBinder();
-	static void writeMessengerOrNullToParcel(AndroidCXX::android_os_Messenger& arg0,AndroidCXX::android_os_Parcel& arg1);
-	static AndroidCXX::android_os_Messenger readMessengerOrNullFromParcel(AndroidCXX::android_os_Parcel& arg0);
+	static void writeMessengerOrNullToParcel(AndroidCXX::android_os_Messenger const& arg0,AndroidCXX::android_os_Parcel const& arg1);
+	static AndroidCXX::android_os_Messenger readMessengerOrNullFromParcel(AndroidCXX::android_os_Parcel const& arg0);
 };	
 
 } // namespace

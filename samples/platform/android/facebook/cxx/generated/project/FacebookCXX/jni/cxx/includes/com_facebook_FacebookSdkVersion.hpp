@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_FacebookSdkVersion
@@ -46,9 +45,9 @@ class com_facebook_FacebookSdkVersion
 public:
 
 	com_facebook_FacebookSdkVersion(const com_facebook_FacebookSdkVersion& cc);
-	com_facebook_FacebookSdkVersion(void * proxy);
+	com_facebook_FacebookSdkVersion(Proxy proxy);
 	// Public Constructors
-	com_facebook_FacebookSdkVersion();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_FacebookSdkVersion();
 	// Functions

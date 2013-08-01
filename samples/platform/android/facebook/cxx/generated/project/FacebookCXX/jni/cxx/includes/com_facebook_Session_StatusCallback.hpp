@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -60,13 +59,14 @@ class com_facebook_Session_StatusCallback
 public:
 
 	com_facebook_Session_StatusCallback(const com_facebook_Session_StatusCallback& cc);
-	com_facebook_Session_StatusCallback(void * proxy);
+	com_facebook_Session_StatusCallback(Proxy proxy);
 	// Public Constructors
 	com_facebook_Session_StatusCallback();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_StatusCallback();
 	// Functions
-	 void call(FacebookCXX::com_facebook_Session& arg0,COM_FACEBOOK_SESSIONSTATE::com_facebook_SessionState& arg1,AndroidCXX::java_lang_Exception& arg2);
+	virtual void call(FacebookCXX::com_facebook_Session const& arg0,com_facebook_SessionState::com_facebook_SessionState const& arg1,AndroidCXX::java_lang_Exception const& arg2);
 };	
 
 } // namespace

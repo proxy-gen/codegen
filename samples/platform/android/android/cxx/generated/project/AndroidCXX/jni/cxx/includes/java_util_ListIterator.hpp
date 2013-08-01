@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -63,17 +62,17 @@ class java_util_ListIterator
 public:
 
 	java_util_ListIterator(const java_util_ListIterator& cc);
-	java_util_ListIterator(void * proxy);
+	java_util_ListIterator(Proxy proxy);
 	// Public Constructors
-	java_util_ListIterator();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_ListIterator();
 	// Functions
-	 void add(AndroidCXX::java_lang_Object& arg0);
+	 void add(AndroidCXX::java_lang_Object const& arg0);
 	 bool hasNext();
 	 AndroidCXX::java_lang_Object next();
 	 void remove();
-	 void set(AndroidCXX::java_lang_Object& arg0);
+	 void set(AndroidCXX::java_lang_Object const& arg0);
 	 int nextIndex();
 	 AndroidCXX::java_lang_Object previous();
 	 int previousIndex();

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -115,36 +114,36 @@ class android_widget_ViewAnimator
 public:
 
 	android_widget_ViewAnimator(const android_widget_ViewAnimator& cc);
-	android_widget_ViewAnimator(void * proxy);
+	android_widget_ViewAnimator(Proxy proxy);
 	// Public Constructors
-	android_widget_ViewAnimator(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_ViewAnimator(AndroidCXX::android_content_Context& arg0);
-	android_widget_ViewAnimator();
+	android_widget_ViewAnimator(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_ViewAnimator(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ViewAnimator();
 	// Functions
-	 void addView(AndroidCXX::android_view_View& arg0,int& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams& arg2);
-	 void removeView(AndroidCXX::android_view_View& arg0);
-	 void removeViewInLayout(AndroidCXX::android_view_View& arg0);
-	 void removeViewsInLayout(int& arg0,int& arg1);
-	 void removeViewAt(int& arg0);
-	 void removeViews(int& arg0,int& arg1);
+	 void addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2);
+	 void removeView(AndroidCXX::android_view_View const& arg0);
+	 void removeViewInLayout(AndroidCXX::android_view_View const& arg0);
+	 void removeViewsInLayout(int const& arg0,int const& arg1);
+	 void removeViewAt(int const& arg0);
+	 void removeViews(int const& arg0,int const& arg1);
 	 void removeAllViews();
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
 	 int getBaseline();
 	 void showNext();
 	 void showPrevious();
-	 void setDisplayedChild(int& arg0);
+	 void setDisplayedChild(int const& arg0);
 	 int getDisplayedChild();
 	 AndroidCXX::android_view_View getCurrentView();
 	 AndroidCXX::android_view_animation_Animation getInAnimation();
-	 void setInAnimation(AndroidCXX::android_view_animation_Animation& arg0);
-	 void setInAnimation(AndroidCXX::android_content_Context& arg0,int& arg1);
+	 void setInAnimation(AndroidCXX::android_view_animation_Animation const& arg0);
+	 void setInAnimation(AndroidCXX::android_content_Context const& arg0,int const& arg1);
 	 AndroidCXX::android_view_animation_Animation getOutAnimation();
-	 void setOutAnimation(AndroidCXX::android_content_Context& arg0,int& arg1);
-	 void setOutAnimation(AndroidCXX::android_view_animation_Animation& arg0);
-	 void setAnimateFirstView(bool& arg0);
+	 void setOutAnimation(AndroidCXX::android_content_Context const& arg0,int const& arg1);
+	 void setOutAnimation(AndroidCXX::android_view_animation_Animation const& arg0);
+	 void setAnimateFirstView(bool const& arg0);
 	 bool getAnimateFirstView();
 };	
 

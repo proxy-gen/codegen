@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -62,13 +61,13 @@ class android_view_View_OnCreateContextMenuListener
 public:
 
 	android_view_View_OnCreateContextMenuListener(const android_view_View_OnCreateContextMenuListener& cc);
-	android_view_View_OnCreateContextMenuListener(void * proxy);
+	android_view_View_OnCreateContextMenuListener(Proxy proxy);
 	// Public Constructors
-	android_view_View_OnCreateContextMenuListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnCreateContextMenuListener();
 	// Functions
-	 void onCreateContextMenu(AndroidCXX::android_view_ContextMenu& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ContextMenu_ContextMenuInfo& arg2);
+	 void onCreateContextMenu(AndroidCXX::android_view_ContextMenu const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ContextMenu_ContextMenuInfo const& arg2);
 };	
 
 } // namespace

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,14 +53,15 @@ class android_view_inputmethod_ExtractedTextRequest
 public:
 
 	android_view_inputmethod_ExtractedTextRequest(const android_view_inputmethod_ExtractedTextRequest& cc);
-	android_view_inputmethod_ExtractedTextRequest(void * proxy);
+	android_view_inputmethod_ExtractedTextRequest(Proxy proxy);
 	// Public Constructors
 	android_view_inputmethod_ExtractedTextRequest();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_inputmethod_ExtractedTextRequest();
 	// Functions
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 };	
 
 } // namespace

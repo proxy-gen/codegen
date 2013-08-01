@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -34,6 +33,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_FacebookException"
@@ -64,8 +64,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_FacebookException::com_facebook_FacebookException(const com_facebook_FacebookException& cc)
 {
 	LOGV("com_facebook_FacebookException::com_facebook_FacebookException(const com_facebook_FacebookException& cc) enter");
@@ -89,9 +87,9 @@ com_facebook_FacebookException::com_facebook_FacebookException(const com_faceboo
 
 	LOGV("com_facebook_FacebookException::com_facebook_FacebookException(const com_facebook_FacebookException& cc) exit");
 }
-com_facebook_FacebookException::com_facebook_FacebookException(void * proxy)
+com_facebook_FacebookException::com_facebook_FacebookException(Proxy proxy)
 {
-	LOGV("com_facebook_FacebookException::com_facebook_FacebookException(void * proxy) enter");
+	LOGV("com_facebook_FacebookException::com_facebook_FacebookException(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -101,13 +99,31 @@ com_facebook_FacebookException::com_facebook_FacebookException(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_FacebookException::com_facebook_FacebookException(void * proxy) exit");
+	LOGV("com_facebook_FacebookException::com_facebook_FacebookException(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy com_facebook_FacebookException::proxy() const
+{	
+	LOGV("com_facebook_FacebookException::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_FacebookException cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_FacebookException jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("com_facebook_FacebookException::proxy() exit");	
+
+	return proxy;
+}
 com_facebook_FacebookException::com_facebook_FacebookException()
 {
 	LOGV("com_facebook_FacebookException::com_facebook_FacebookException() enter");	
@@ -144,9 +160,9 @@ com_facebook_FacebookException::com_facebook_FacebookException()
 
 	LOGV("com_facebook_FacebookException::com_facebook_FacebookException() exit");	
 }
-com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_lang_String& arg0)
+com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -199,11 +215,11 @@ com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_lang_String const& arg0) exit");	
 }
-com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1)
+com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1)
 {
-	LOGV("com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1) enter");	
+	LOGV("com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/Throwable;)V";
@@ -277,11 +293,11 @@ com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1) exit");	
+	LOGV("com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1) exit");	
 }
-com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_lang_Throwable& arg0)
+com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_lang_Throwable const& arg0)
 {
-	LOGV("com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_lang_Throwable& arg0) enter");	
+	LOGV("com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_lang_Throwable const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/Throwable;)V";
@@ -334,7 +350,7 @@ com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_lang_Throwable& arg0) exit");	
+	LOGV("com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_lang_Throwable const& arg0) exit");	
 }
 // Default Instance Destructor
 com_facebook_FacebookException::~com_facebook_FacebookException()
@@ -347,7 +363,7 @@ com_facebook_FacebookException::~com_facebook_FacebookException()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_FacebookException::~com_facebook_FacebookException() exit");
 }
 // Functions

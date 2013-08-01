@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -128,22 +127,22 @@ class java_lang_reflect_Constructor
 public:
 
 	java_lang_reflect_Constructor(const java_lang_reflect_Constructor& cc);
-	java_lang_reflect_Constructor(void * proxy);
+	java_lang_reflect_Constructor(Proxy proxy);
 	// Public Constructors
-	java_lang_reflect_Constructor();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_reflect_Constructor();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 int getModifiers();
 	 AndroidCXX::java_lang_String getName();
-	 AndroidCXX::java_lang_Object newInstance(std::vector<AndroidCXX::java_lang_Object >& arg0);
+	 AndroidCXX::java_lang_Object newInstance(std::vector<AndroidCXX::java_lang_Object > const& arg0);
 	 bool isSynthetic();
 	 std::vector<AndroidCXX::java_lang_reflect_TypeVariable > getTypeParameters();
 	 AndroidCXX::java_lang_Class getDeclaringClass();
-	 AndroidCXX::java_lang_annotation_Annotation getAnnotation(AndroidCXX::java_lang_Class& arg0);
+	 AndroidCXX::java_lang_annotation_Annotation getAnnotation(AndroidCXX::java_lang_Class const& arg0);
 	 std::vector<AndroidCXX::java_lang_annotation_Annotation > getDeclaredAnnotations();
 	 std::vector<AndroidCXX::java_lang_Class > getParameterTypes();
 	 AndroidCXX::java_lang_String toGenericString();

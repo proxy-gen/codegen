@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -51,13 +50,13 @@ class com_facebook_widget_LoginButton_LoginClickListener
 public:
 
 	com_facebook_widget_LoginButton_LoginClickListener(const com_facebook_widget_LoginButton_LoginClickListener& cc);
-	com_facebook_widget_LoginButton_LoginClickListener(void * proxy);
+	com_facebook_widget_LoginButton_LoginClickListener(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_LoginButton_LoginClickListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_LoginButton_LoginClickListener();
 	// Functions
-	 void onClick(AndroidCXX::android_view_View& arg0);
+	 void onClick(AndroidCXX::android_view_View const& arg0);
 };	
 
 } // namespace

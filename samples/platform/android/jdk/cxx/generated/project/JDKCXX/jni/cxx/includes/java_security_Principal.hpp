@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -61,16 +60,13 @@ class java_security_Principal
 public:
 
 	java_security_Principal(const java_security_Principal& cc);
-	java_security_Principal(void * proxy);
+	java_security_Principal(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_security_Principal();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_security_Principal();
 	// Functions
-	 bool equals(JDKCXX::java_lang_Object& arg0);
+	 bool equals(JDKCXX::java_lang_Object const& arg0);
 	 JDKCXX::java_lang_String toString();
 	 int hashCode();
 	 JDKCXX::java_lang_String getName();

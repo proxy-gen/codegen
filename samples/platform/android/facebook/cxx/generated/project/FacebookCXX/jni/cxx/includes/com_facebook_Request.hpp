@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -343,73 +342,74 @@ class com_facebook_Request
 public:
 
 	com_facebook_Request(const com_facebook_Request& cc);
-	com_facebook_Request(void * proxy);
+	com_facebook_Request(Proxy proxy);
 	// Public Constructors
-	com_facebook_Request(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod& arg3,FacebookCXX::com_facebook_Request_Callback& arg4);
-	com_facebook_Request(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1);
-	com_facebook_Request(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod& arg3);
+	com_facebook_Request(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,com_facebook_HttpMethod::com_facebook_HttpMethod const& arg3,FacebookCXX::com_facebook_Request_Callback const& arg4);
+	com_facebook_Request(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1);
+	com_facebook_Request(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,com_facebook_HttpMethod::com_facebook_HttpMethod const& arg3);
 	com_facebook_Request();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Request();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
 	 AndroidCXX::android_os_Bundle getParameters();
 	 FacebookCXX::com_facebook_RequestAsyncTask executeAsync();
-	 void setCallback(FacebookCXX::com_facebook_Request_Callback& arg0);
+	 void setCallback(FacebookCXX::com_facebook_Request_Callback const& arg0);
 	 FacebookCXX::com_facebook_model_GraphObject getGraphObject();
 	 FacebookCXX::com_facebook_Session getSession();
-	 void setHttpMethod(COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod& arg0);
-	static FacebookCXX::com_facebook_Request newPostRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_model_GraphObject& arg2,FacebookCXX::com_facebook_Request_Callback& arg3);
-	 void setGraphObject(FacebookCXX::com_facebook_model_GraphObject& arg0);
-	static FacebookCXX::com_facebook_Request newRestRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod& arg3);
-	 void setRestMethod(AndroidCXX::java_lang_String& arg0);
-	static FacebookCXX::com_facebook_Request newMeRequest(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::com_facebook_Request_GraphUserCallback& arg1);
-	static FacebookCXX::com_facebook_Request newMyFriendsRequest(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::com_facebook_Request_GraphUserListCallback& arg1);
-	static FacebookCXX::com_facebook_Request newUploadPhotoRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_graphics_Bitmap& arg1,FacebookCXX::com_facebook_Request_Callback& arg2);
-	static FacebookCXX::com_facebook_Request newUploadPhotoRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_io_File& arg1,FacebookCXX::com_facebook_Request_Callback& arg2);
-	static FacebookCXX::com_facebook_Request newUploadVideoRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_io_File& arg1,FacebookCXX::com_facebook_Request_Callback& arg2);
-	static FacebookCXX::com_facebook_Request newGraphPathRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_Request_Callback& arg2);
-	static FacebookCXX::com_facebook_Request newPlacesSearchRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_location_Location& arg1,int& arg2,int& arg3,AndroidCXX::java_lang_String& arg4,FacebookCXX::com_facebook_Request_GraphPlaceListCallback& arg5);
-	static FacebookCXX::com_facebook_Request newStatusUpdateRequest(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_Request_Callback& arg2);
+	 void setHttpMethod(com_facebook_HttpMethod::com_facebook_HttpMethod const& arg0);
+	static FacebookCXX::com_facebook_Request newPostRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_model_GraphObject const& arg2,FacebookCXX::com_facebook_Request_Callback const& arg3);
+	 void setGraphObject(FacebookCXX::com_facebook_model_GraphObject const& arg0);
+	static FacebookCXX::com_facebook_Request newRestRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,com_facebook_HttpMethod::com_facebook_HttpMethod const& arg3);
+	 void setRestMethod(AndroidCXX::java_lang_String const& arg0);
+	static FacebookCXX::com_facebook_Request newMeRequest(FacebookCXX::com_facebook_Session const& arg0,FacebookCXX::com_facebook_Request_GraphUserCallback const& arg1);
+	static FacebookCXX::com_facebook_Request newMyFriendsRequest(FacebookCXX::com_facebook_Session const& arg0,FacebookCXX::com_facebook_Request_GraphUserListCallback const& arg1);
+	static FacebookCXX::com_facebook_Request newUploadPhotoRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_graphics_Bitmap const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2);
+	static FacebookCXX::com_facebook_Request newUploadPhotoRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_io_File const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2);
+	static FacebookCXX::com_facebook_Request newUploadVideoRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_io_File const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2);
+	static FacebookCXX::com_facebook_Request newGraphPathRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2);
+	static FacebookCXX::com_facebook_Request newPlacesSearchRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_location_Location const& arg1,int const& arg2,int const& arg3,AndroidCXX::java_lang_String const& arg4,FacebookCXX::com_facebook_Request_GraphPlaceListCallback const& arg5);
+	static FacebookCXX::com_facebook_Request newStatusUpdateRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2);
 	 AndroidCXX::java_lang_String getGraphPath();
-	 void setGraphPath(AndroidCXX::java_lang_String& arg0);
-	 COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod getHttpMethod();
-	 void setParameters(AndroidCXX::android_os_Bundle& arg0);
+	 void setGraphPath(AndroidCXX::java_lang_String const& arg0);
+	 com_facebook_HttpMethod::com_facebook_HttpMethod getHttpMethod();
+	 void setParameters(AndroidCXX::android_os_Bundle const& arg0);
 	 AndroidCXX::java_lang_String getRestMethod();
-	 void setSession(FacebookCXX::com_facebook_Session& arg0);
+	 void setSession(FacebookCXX::com_facebook_Session const& arg0);
 	 AndroidCXX::java_lang_String getBatchEntryName();
-	 void setBatchEntryName(AndroidCXX::java_lang_String& arg0);
+	 void setBatchEntryName(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_lang_String getBatchEntryDependsOn();
-	 void setBatchEntryDependsOn(AndroidCXX::java_lang_String& arg0);
+	 void setBatchEntryDependsOn(AndroidCXX::java_lang_String const& arg0);
 	 bool getBatchEntryOmitResultOnSuccess();
-	 void setBatchEntryOmitResultOnSuccess(bool& arg0);
+	 void setBatchEntryOmitResultOnSuccess(bool const& arg0);
 	static AndroidCXX::java_lang_String getDefaultBatchApplicationId();
-	static void setDefaultBatchApplicationId(AndroidCXX::java_lang_String& arg0);
+	static void setDefaultBatchApplicationId(AndroidCXX::java_lang_String const& arg0);
 	 FacebookCXX::com_facebook_Request_Callback getCallback();
-	static FacebookCXX::com_facebook_RequestAsyncTask executePostRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_model_GraphObject& arg2,FacebookCXX::com_facebook_Request_Callback& arg3);
-	static FacebookCXX::com_facebook_RequestAsyncTask executeRestRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod& arg3);
-	static FacebookCXX::com_facebook_RequestAsyncTask executeMeRequestAsync(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::com_facebook_Request_GraphUserCallback& arg1);
-	static FacebookCXX::com_facebook_RequestAsyncTask executeMyFriendsRequestAsync(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::com_facebook_Request_GraphUserListCallback& arg1);
-	static FacebookCXX::com_facebook_RequestAsyncTask executeUploadPhotoRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_io_File& arg1,FacebookCXX::com_facebook_Request_Callback& arg2);
-	static FacebookCXX::com_facebook_RequestAsyncTask executeUploadPhotoRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_graphics_Bitmap& arg1,FacebookCXX::com_facebook_Request_Callback& arg2);
-	static FacebookCXX::com_facebook_RequestAsyncTask executeGraphPathRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_Request_Callback& arg2);
-	static FacebookCXX::com_facebook_RequestAsyncTask executePlacesSearchRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_location_Location& arg1,int& arg2,int& arg3,AndroidCXX::java_lang_String& arg4,FacebookCXX::com_facebook_Request_GraphPlaceListCallback& arg5);
-	static FacebookCXX::com_facebook_RequestAsyncTask executeStatusUpdateRequestAsync(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_Request_Callback& arg2);
-	static FacebookCXX::com_facebook_Response executeAndWait(FacebookCXX::com_facebook_Request& arg0);
+	static FacebookCXX::com_facebook_RequestAsyncTask executePostRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_model_GraphObject const& arg2,FacebookCXX::com_facebook_Request_Callback const& arg3);
+	static FacebookCXX::com_facebook_RequestAsyncTask executeRestRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,com_facebook_HttpMethod::com_facebook_HttpMethod const& arg3);
+	static FacebookCXX::com_facebook_RequestAsyncTask executeMeRequestAsync(FacebookCXX::com_facebook_Session const& arg0,FacebookCXX::com_facebook_Request_GraphUserCallback const& arg1);
+	static FacebookCXX::com_facebook_RequestAsyncTask executeMyFriendsRequestAsync(FacebookCXX::com_facebook_Session const& arg0,FacebookCXX::com_facebook_Request_GraphUserListCallback const& arg1);
+	static FacebookCXX::com_facebook_RequestAsyncTask executeUploadPhotoRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_io_File const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2);
+	static FacebookCXX::com_facebook_RequestAsyncTask executeUploadPhotoRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_graphics_Bitmap const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2);
+	static FacebookCXX::com_facebook_RequestAsyncTask executeGraphPathRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2);
+	static FacebookCXX::com_facebook_RequestAsyncTask executePlacesSearchRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_location_Location const& arg1,int const& arg2,int const& arg3,AndroidCXX::java_lang_String const& arg4,FacebookCXX::com_facebook_Request_GraphPlaceListCallback const& arg5);
+	static FacebookCXX::com_facebook_RequestAsyncTask executeStatusUpdateRequestAsync(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2);
+	static FacebookCXX::com_facebook_Response executeAndWait(FacebookCXX::com_facebook_Request const& arg0);
 	 FacebookCXX::com_facebook_Response executeAndWait();
-	static FacebookCXX::com_facebook_RequestAsyncTask executeBatchAsync(FacebookCXX::com_facebook_RequestBatch& arg0);
-	static FacebookCXX::com_facebook_RequestAsyncTask executeBatchAsync(std::vector<FacebookCXX::com_facebook_Request >& arg0);
-	static FacebookCXX::com_facebook_RequestAsyncTask executeBatchAsync(AndroidCXX::java_util_Collection& arg0);
-	static AndroidCXX::java_net_HttpURLConnection toHttpConnection(FacebookCXX::com_facebook_RequestBatch& arg0);
-	static AndroidCXX::java_net_HttpURLConnection toHttpConnection(AndroidCXX::java_util_Collection& arg0);
-	static AndroidCXX::java_net_HttpURLConnection toHttpConnection(std::vector<FacebookCXX::com_facebook_Request >& arg0);
-	static AndroidCXX::java_util_List executeBatchAndWait(std::vector<FacebookCXX::com_facebook_Request >& arg0);
-	static AndroidCXX::java_util_List executeBatchAndWait(FacebookCXX::com_facebook_RequestBatch& arg0);
-	static AndroidCXX::java_util_List executeBatchAndWait(AndroidCXX::java_util_Collection& arg0);
-	static AndroidCXX::java_util_List executeConnectionAndWait(AndroidCXX::java_net_HttpURLConnection& arg0,FacebookCXX::com_facebook_RequestBatch& arg1);
-	static AndroidCXX::java_util_List executeConnectionAndWait(AndroidCXX::java_net_HttpURLConnection& arg0,AndroidCXX::java_util_Collection& arg1);
-	static FacebookCXX::com_facebook_RequestAsyncTask executeConnectionAsync(AndroidCXX::java_net_HttpURLConnection& arg0,FacebookCXX::com_facebook_RequestBatch& arg1);
-	static FacebookCXX::com_facebook_RequestAsyncTask executeConnectionAsync(AndroidCXX::android_os_Handler& arg0,AndroidCXX::java_net_HttpURLConnection& arg1,FacebookCXX::com_facebook_RequestBatch& arg2);
+	static FacebookCXX::com_facebook_RequestAsyncTask executeBatchAsync(FacebookCXX::com_facebook_RequestBatch const& arg0);
+	static FacebookCXX::com_facebook_RequestAsyncTask executeBatchAsync(std::vector<FacebookCXX::com_facebook_Request > const& arg0);
+	static FacebookCXX::com_facebook_RequestAsyncTask executeBatchAsync(AndroidCXX::java_util_Collection const& arg0);
+	static AndroidCXX::java_net_HttpURLConnection toHttpConnection(FacebookCXX::com_facebook_RequestBatch const& arg0);
+	static AndroidCXX::java_net_HttpURLConnection toHttpConnection(AndroidCXX::java_util_Collection const& arg0);
+	static AndroidCXX::java_net_HttpURLConnection toHttpConnection(std::vector<FacebookCXX::com_facebook_Request > const& arg0);
+	static AndroidCXX::java_util_List executeBatchAndWait(std::vector<FacebookCXX::com_facebook_Request > const& arg0);
+	static AndroidCXX::java_util_List executeBatchAndWait(FacebookCXX::com_facebook_RequestBatch const& arg0);
+	static AndroidCXX::java_util_List executeBatchAndWait(AndroidCXX::java_util_Collection const& arg0);
+	static AndroidCXX::java_util_List executeConnectionAndWait(AndroidCXX::java_net_HttpURLConnection const& arg0,FacebookCXX::com_facebook_RequestBatch const& arg1);
+	static AndroidCXX::java_util_List executeConnectionAndWait(AndroidCXX::java_net_HttpURLConnection const& arg0,AndroidCXX::java_util_Collection const& arg1);
+	static FacebookCXX::com_facebook_RequestAsyncTask executeConnectionAsync(AndroidCXX::java_net_HttpURLConnection const& arg0,FacebookCXX::com_facebook_RequestBatch const& arg1);
+	static FacebookCXX::com_facebook_RequestAsyncTask executeConnectionAsync(AndroidCXX::android_os_Handler const& arg0,AndroidCXX::java_net_HttpURLConnection const& arg1,FacebookCXX::com_facebook_RequestBatch const& arg2);
 };	
 
 } // namespace

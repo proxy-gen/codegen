@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -74,7 +73,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_CalendarView"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -120,8 +119,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_widget_CalendarView::android_widget_CalendarView(const android_widget_CalendarView& cc)
 {
 	LOGV("android_widget_CalendarView::android_widget_CalendarView(const android_widget_CalendarView& cc) enter");
@@ -145,9 +142,9 @@ android_widget_CalendarView::android_widget_CalendarView(const android_widget_Ca
 
 	LOGV("android_widget_CalendarView::android_widget_CalendarView(const android_widget_CalendarView& cc) exit");
 }
-android_widget_CalendarView::android_widget_CalendarView(void * proxy)
+android_widget_CalendarView::android_widget_CalendarView(Proxy proxy)
 {
-	LOGV("android_widget_CalendarView::android_widget_CalendarView(void * proxy) enter");
+	LOGV("android_widget_CalendarView::android_widget_CalendarView(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -157,50 +154,34 @@ android_widget_CalendarView::android_widget_CalendarView(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_CalendarView::android_widget_CalendarView(void * proxy) exit");
+	LOGV("android_widget_CalendarView::android_widget_CalendarView(Proxy proxy) exit");
 }
-android_widget_CalendarView::android_widget_CalendarView()
-{
-	LOGV("android_widget_CalendarView::android_widget_CalendarView() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/CalendarView";
-
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_widget_CalendarView::proxy() const
+{	
+	LOGV("android_widget_CalendarView::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_CalendarView jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_widget_CalendarView::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_widget_CalendarView::android_widget_CalendarView() exit");	
+	return proxy;
 }
-// Public Constructors
-android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -274,11 +255,11 @@ android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
+android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2)
 {
-	LOGV("android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) enter");	
+	LOGV("android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
@@ -373,11 +354,11 @@ android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) exit");	
+	LOGV("android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) exit");	
 }
-android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_content_Context& arg0)
+android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -430,7 +411,7 @@ android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_content_Context const& arg0) exit");	
 }
 // Default Instance Destructor
 android_widget_CalendarView::~android_widget_CalendarView()
@@ -443,7 +424,7 @@ android_widget_CalendarView::~android_widget_CalendarView()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_CalendarView::~android_widget_CalendarView() exit");
 }
 // Functions
@@ -460,15 +441,12 @@ long android_widget_CalendarView::getDate()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_CalendarView jni address %d", javaObject);
 
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -486,17 +464,17 @@ long android_widget_CalendarView::getDate()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	long result = (long) *((long *) cxx_value);
+	// 
+		
 	LOGV("long android_widget_CalendarView::getDate() exit");
 
 	return result;
 }
-void android_widget_CalendarView::setDate(long& arg0,bool& arg1,bool& arg2)
+void android_widget_CalendarView::setDate(long const& arg0,bool const& arg1,bool const& arg2)
 {
-	LOGV("void android_widget_CalendarView::setDate(long& arg0,bool& arg1,bool& arg2) enter");
+	LOGV("void android_widget_CalendarView::setDate(long const& arg0,bool const& arg1,bool const& arg2) enter");
 
 	const char *methodName = "setDate";
 	const char *methodSignature = "(JZZ)V";
@@ -506,8 +484,6 @@ void android_widget_CalendarView::setDate(long& arg0,bool& arg1,bool& arg2)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
@@ -580,14 +556,12 @@ void android_widget_CalendarView::setDate(long& arg0,bool& arg1,bool& arg2)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CalendarView::setDate(long& arg0,bool& arg1,bool& arg2) exit");
+	LOGV("void android_widget_CalendarView::setDate(long const& arg0,bool const& arg1,bool const& arg2) exit");
 
 }
-void android_widget_CalendarView::setDate(long& arg0)
+void android_widget_CalendarView::setDate(long const& arg0)
 {
-	LOGV("void android_widget_CalendarView::setDate(long& arg0) enter");
+	LOGV("void android_widget_CalendarView::setDate(long const& arg0) enter");
 
 	const char *methodName = "setDate";
 	const char *methodSignature = "(J)V";
@@ -597,8 +571,6 @@ void android_widget_CalendarView::setDate(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
@@ -629,9 +601,7 @@ void android_widget_CalendarView::setDate(long& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CalendarView::setDate(long& arg0) exit");
+	LOGV("void android_widget_CalendarView::setDate(long const& arg0) exit");
 
 }
 bool android_widget_CalendarView::isEnabled()
@@ -647,15 +617,12 @@ bool android_widget_CalendarView::isEnabled()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_CalendarView jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -673,17 +640,17 @@ bool android_widget_CalendarView::isEnabled()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_widget_CalendarView::isEnabled() exit");
 
 	return result;
 }
-void android_widget_CalendarView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_CalendarView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_CalendarView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_CalendarView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -693,8 +660,6 @@ void android_widget_CalendarView::onInitializeAccessibilityEvent(AndroidCXX::and
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
@@ -725,14 +690,12 @@ void android_widget_CalendarView::onInitializeAccessibilityEvent(AndroidCXX::and
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CalendarView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_CalendarView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_CalendarView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0)
+void android_widget_CalendarView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0)
 {
-	LOGV("void android_widget_CalendarView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) enter");
+	LOGV("void android_widget_CalendarView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityNodeInfo";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
@@ -742,8 +705,6 @@ void android_widget_CalendarView::onInitializeAccessibilityNodeInfo(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
@@ -774,14 +735,12 @@ void android_widget_CalendarView::onInitializeAccessibilityNodeInfo(AndroidCXX::
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CalendarView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) exit");
+	LOGV("void android_widget_CalendarView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) exit");
 
 }
-void android_widget_CalendarView::setEnabled(bool& arg0)
+void android_widget_CalendarView::setEnabled(bool const& arg0)
 {
-	LOGV("void android_widget_CalendarView::setEnabled(bool& arg0) enter");
+	LOGV("void android_widget_CalendarView::setEnabled(bool const& arg0) enter");
 
 	const char *methodName = "setEnabled";
 	const char *methodSignature = "(Z)V";
@@ -791,8 +750,6 @@ void android_widget_CalendarView::setEnabled(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
@@ -823,14 +780,12 @@ void android_widget_CalendarView::setEnabled(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CalendarView::setEnabled(bool& arg0) exit");
+	LOGV("void android_widget_CalendarView::setEnabled(bool const& arg0) exit");
 
 }
-void android_widget_CalendarView::setShownWeekCount(int& arg0)
+void android_widget_CalendarView::setShownWeekCount(int const& arg0)
 {
-	LOGV("void android_widget_CalendarView::setShownWeekCount(int& arg0) enter");
+	LOGV("void android_widget_CalendarView::setShownWeekCount(int const& arg0) enter");
 
 	const char *methodName = "setShownWeekCount";
 	const char *methodSignature = "(I)V";
@@ -840,8 +795,6 @@ void android_widget_CalendarView::setShownWeekCount(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
@@ -872,9 +825,7 @@ void android_widget_CalendarView::setShownWeekCount(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CalendarView::setShownWeekCount(int& arg0) exit");
+	LOGV("void android_widget_CalendarView::setShownWeekCount(int const& arg0) exit");
 
 }
 int android_widget_CalendarView::getShownWeekCount()
@@ -890,15 +841,12 @@ int android_widget_CalendarView::getShownWeekCount()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_CalendarView jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -916,17 +864,17 @@ int android_widget_CalendarView::getShownWeekCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_CalendarView::getShownWeekCount() exit");
 
 	return result;
 }
-void android_widget_CalendarView::setSelectedWeekBackgroundColor(int& arg0)
+void android_widget_CalendarView::setSelectedWeekBackgroundColor(int const& arg0)
 {
-	LOGV("void android_widget_CalendarView::setSelectedWeekBackgroundColor(int& arg0) enter");
+	LOGV("void android_widget_CalendarView::setSelectedWeekBackgroundColor(int const& arg0) enter");
 
 	const char *methodName = "setSelectedWeekBackgroundColor";
 	const char *methodSignature = "(I)V";
@@ -936,8 +884,6 @@ void android_widget_CalendarView::setSelectedWeekBackgroundColor(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
@@ -968,9 +914,7 @@ void android_widget_CalendarView::setSelectedWeekBackgroundColor(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CalendarView::setSelectedWeekBackgroundColor(int& arg0) exit");
+	LOGV("void android_widget_CalendarView::setSelectedWeekBackgroundColor(int const& arg0) exit");
 
 }
 int android_widget_CalendarView::getSelectedWeekBackgroundColor()
@@ -986,15 +930,12 @@ int android_widget_CalendarView::getSelectedWeekBackgroundColor()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_CalendarView jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1012,17 +953,17 @@ int android_widget_CalendarView::getSelectedWeekBackgroundColor()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_CalendarView::getSelectedWeekBackgroundColor() exit");
 
 	return result;
 }
-void android_widget_CalendarView::setFocusedMonthDateColor(int& arg0)
+void android_widget_CalendarView::setFocusedMonthDateColor(int const& arg0)
 {
-	LOGV("void android_widget_CalendarView::setFocusedMonthDateColor(int& arg0) enter");
+	LOGV("void android_widget_CalendarView::setFocusedMonthDateColor(int const& arg0) enter");
 
 	const char *methodName = "setFocusedMonthDateColor";
 	const char *methodSignature = "(I)V";
@@ -1032,8 +973,6 @@ void android_widget_CalendarView::setFocusedMonthDateColor(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
@@ -1064,9 +1003,7 @@ void android_widget_CalendarView::setFocusedMonthDateColor(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CalendarView::setFocusedMonthDateColor(int& arg0) exit");
+	LOGV("void android_widget_CalendarView::setFocusedMonthDateColor(int const& arg0) exit");
 
 }
 int android_widget_CalendarView::getFocusedMonthDateColor()
@@ -1082,15 +1019,12 @@ int android_widget_CalendarView::getFocusedMonthDateColor()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_CalendarView jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1108,17 +1042,17 @@ int android_widget_CalendarView::getFocusedMonthDateColor()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_CalendarView::getFocusedMonthDateColor() exit");
 
 	return result;
 }
-void android_widget_CalendarView::setUnfocusedMonthDateColor(int& arg0)
+void android_widget_CalendarView::setUnfocusedMonthDateColor(int const& arg0)
 {
-	LOGV("void android_widget_CalendarView::setUnfocusedMonthDateColor(int& arg0) enter");
+	LOGV("void android_widget_CalendarView::setUnfocusedMonthDateColor(int const& arg0) enter");
 
 	const char *methodName = "setUnfocusedMonthDateColor";
 	const char *methodSignature = "(I)V";
@@ -1128,8 +1062,6 @@ void android_widget_CalendarView::setUnfocusedMonthDateColor(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
@@ -1160,9 +1092,7 @@ void android_widget_CalendarView::setUnfocusedMonthDateColor(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CalendarView::setUnfocusedMonthDateColor(int& arg0) exit");
+	LOGV("void android_widget_CalendarView::setUnfocusedMonthDateColor(int const& arg0) exit");
 
 }
 int android_widget_CalendarView::getUnfocusedMonthDateColor()
@@ -1178,15 +1108,12 @@ int android_widget_CalendarView::getUnfocusedMonthDateColor()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_CalendarView jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1204,17 +1131,17 @@ int android_widget_CalendarView::getUnfocusedMonthDateColor()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_CalendarView::getUnfocusedMonthDateColor() exit");
 
 	return result;
 }
-void android_widget_CalendarView::setWeekNumberColor(int& arg0)
+void android_widget_CalendarView::setWeekNumberColor(int const& arg0)
 {
-	LOGV("void android_widget_CalendarView::setWeekNumberColor(int& arg0) enter");
+	LOGV("void android_widget_CalendarView::setWeekNumberColor(int const& arg0) enter");
 
 	const char *methodName = "setWeekNumberColor";
 	const char *methodSignature = "(I)V";
@@ -1224,8 +1151,6 @@ void android_widget_CalendarView::setWeekNumberColor(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
@@ -1256,9 +1181,7 @@ void android_widget_CalendarView::setWeekNumberColor(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CalendarView::setWeekNumberColor(int& arg0) exit");
+	LOGV("void android_widget_CalendarView::setWeekNumberColor(int const& arg0) exit");
 
 }
 int android_widget_CalendarView::getWeekNumberColor()
@@ -1274,15 +1197,12 @@ int android_widget_CalendarView::getWeekNumberColor()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_CalendarView jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1300,17 +1220,17 @@ int android_widget_CalendarView::getWeekNumberColor()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_CalendarView::getWeekNumberColor() exit");
 
 	return result;
 }
-void android_widget_CalendarView::setWeekSeparatorLineColor(int& arg0)
+void android_widget_CalendarView::setWeekSeparatorLineColor(int const& arg0)
 {
-	LOGV("void android_widget_CalendarView::setWeekSeparatorLineColor(int& arg0) enter");
+	LOGV("void android_widget_CalendarView::setWeekSeparatorLineColor(int const& arg0) enter");
 
 	const char *methodName = "setWeekSeparatorLineColor";
 	const char *methodSignature = "(I)V";
@@ -1320,8 +1240,6 @@ void android_widget_CalendarView::setWeekSeparatorLineColor(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
@@ -1352,9 +1270,7 @@ void android_widget_CalendarView::setWeekSeparatorLineColor(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CalendarView::setWeekSeparatorLineColor(int& arg0) exit");
+	LOGV("void android_widget_CalendarView::setWeekSeparatorLineColor(int const& arg0) exit");
 
 }
 int android_widget_CalendarView::getWeekSeparatorLineColor()
@@ -1370,15 +1286,12 @@ int android_widget_CalendarView::getWeekSeparatorLineColor()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_CalendarView jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1396,17 +1309,17 @@ int android_widget_CalendarView::getWeekSeparatorLineColor()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_CalendarView::getWeekSeparatorLineColor() exit");
 
 	return result;
 }
-void android_widget_CalendarView::setSelectedDateVerticalBar(AndroidCXX::android_graphics_drawable_Drawable& arg0)
+void android_widget_CalendarView::setSelectedDateVerticalBar(AndroidCXX::android_graphics_drawable_Drawable const& arg0)
 {
-	LOGV("void android_widget_CalendarView::setSelectedDateVerticalBar(AndroidCXX::android_graphics_drawable_Drawable& arg0) enter");
+	LOGV("void android_widget_CalendarView::setSelectedDateVerticalBar(AndroidCXX::android_graphics_drawable_Drawable const& arg0) enter");
 
 	const char *methodName = "setSelectedDateVerticalBar";
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
@@ -1416,8 +1329,6 @@ void android_widget_CalendarView::setSelectedDateVerticalBar(AndroidCXX::android
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
@@ -1448,14 +1359,12 @@ void android_widget_CalendarView::setSelectedDateVerticalBar(AndroidCXX::android
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CalendarView::setSelectedDateVerticalBar(AndroidCXX::android_graphics_drawable_Drawable& arg0) exit");
+	LOGV("void android_widget_CalendarView::setSelectedDateVerticalBar(AndroidCXX::android_graphics_drawable_Drawable const& arg0) exit");
 
 }
-void android_widget_CalendarView::setSelectedDateVerticalBar(int& arg0)
+void android_widget_CalendarView::setSelectedDateVerticalBar(int const& arg0)
 {
-	LOGV("void android_widget_CalendarView::setSelectedDateVerticalBar(int& arg0) enter");
+	LOGV("void android_widget_CalendarView::setSelectedDateVerticalBar(int const& arg0) enter");
 
 	const char *methodName = "setSelectedDateVerticalBar";
 	const char *methodSignature = "(I)V";
@@ -1465,8 +1374,6 @@ void android_widget_CalendarView::setSelectedDateVerticalBar(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
@@ -1497,9 +1404,7 @@ void android_widget_CalendarView::setSelectedDateVerticalBar(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CalendarView::setSelectedDateVerticalBar(int& arg0) exit");
+	LOGV("void android_widget_CalendarView::setSelectedDateVerticalBar(int const& arg0) exit");
 
 }
 AndroidCXX::android_graphics_drawable_Drawable android_widget_CalendarView::getSelectedDateVerticalBar()
@@ -1515,15 +1420,12 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_CalendarView::getS
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_CalendarView jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_drawable_Drawable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1541,17 +1443,17 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_CalendarView::getS
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_drawable_Drawable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_drawable_Drawable) (AndroidCXX::android_graphics_drawable_Drawable((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
+		
 	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_widget_CalendarView::getSelectedDateVerticalBar() exit");
 
 	return result;
 }
-void android_widget_CalendarView::setWeekDayTextAppearance(int& arg0)
+void android_widget_CalendarView::setWeekDayTextAppearance(int const& arg0)
 {
-	LOGV("void android_widget_CalendarView::setWeekDayTextAppearance(int& arg0) enter");
+	LOGV("void android_widget_CalendarView::setWeekDayTextAppearance(int const& arg0) enter");
 
 	const char *methodName = "setWeekDayTextAppearance";
 	const char *methodSignature = "(I)V";
@@ -1561,8 +1463,6 @@ void android_widget_CalendarView::setWeekDayTextAppearance(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
@@ -1593,9 +1493,7 @@ void android_widget_CalendarView::setWeekDayTextAppearance(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CalendarView::setWeekDayTextAppearance(int& arg0) exit");
+	LOGV("void android_widget_CalendarView::setWeekDayTextAppearance(int const& arg0) exit");
 
 }
 int android_widget_CalendarView::getWeekDayTextAppearance()
@@ -1611,15 +1509,12 @@ int android_widget_CalendarView::getWeekDayTextAppearance()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_CalendarView jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1637,17 +1532,17 @@ int android_widget_CalendarView::getWeekDayTextAppearance()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_CalendarView::getWeekDayTextAppearance() exit");
 
 	return result;
 }
-void android_widget_CalendarView::setDateTextAppearance(int& arg0)
+void android_widget_CalendarView::setDateTextAppearance(int const& arg0)
 {
-	LOGV("void android_widget_CalendarView::setDateTextAppearance(int& arg0) enter");
+	LOGV("void android_widget_CalendarView::setDateTextAppearance(int const& arg0) enter");
 
 	const char *methodName = "setDateTextAppearance";
 	const char *methodSignature = "(I)V";
@@ -1657,8 +1552,6 @@ void android_widget_CalendarView::setDateTextAppearance(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
@@ -1689,9 +1582,7 @@ void android_widget_CalendarView::setDateTextAppearance(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CalendarView::setDateTextAppearance(int& arg0) exit");
+	LOGV("void android_widget_CalendarView::setDateTextAppearance(int const& arg0) exit");
 
 }
 int android_widget_CalendarView::getDateTextAppearance()
@@ -1707,15 +1598,12 @@ int android_widget_CalendarView::getDateTextAppearance()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_CalendarView jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1733,10 +1621,10 @@ int android_widget_CalendarView::getDateTextAppearance()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_CalendarView::getDateTextAppearance() exit");
 
 	return result;
@@ -1754,15 +1642,12 @@ long android_widget_CalendarView::getMinDate()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_CalendarView jni address %d", javaObject);
 
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -1780,17 +1665,17 @@ long android_widget_CalendarView::getMinDate()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	long result = (long) *((long *) cxx_value);
+	// 
+		
 	LOGV("long android_widget_CalendarView::getMinDate() exit");
 
 	return result;
 }
-void android_widget_CalendarView::setMinDate(long& arg0)
+void android_widget_CalendarView::setMinDate(long const& arg0)
 {
-	LOGV("void android_widget_CalendarView::setMinDate(long& arg0) enter");
+	LOGV("void android_widget_CalendarView::setMinDate(long const& arg0) enter");
 
 	const char *methodName = "setMinDate";
 	const char *methodSignature = "(J)V";
@@ -1800,8 +1685,6 @@ void android_widget_CalendarView::setMinDate(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
@@ -1832,9 +1715,7 @@ void android_widget_CalendarView::setMinDate(long& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CalendarView::setMinDate(long& arg0) exit");
+	LOGV("void android_widget_CalendarView::setMinDate(long const& arg0) exit");
 
 }
 long android_widget_CalendarView::getMaxDate()
@@ -1850,15 +1731,12 @@ long android_widget_CalendarView::getMaxDate()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_CalendarView jni address %d", javaObject);
 
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -1876,17 +1754,17 @@ long android_widget_CalendarView::getMaxDate()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	long result = (long) *((long *) cxx_value);
+	// 
+		
 	LOGV("long android_widget_CalendarView::getMaxDate() exit");
 
 	return result;
 }
-void android_widget_CalendarView::setMaxDate(long& arg0)
+void android_widget_CalendarView::setMaxDate(long const& arg0)
 {
-	LOGV("void android_widget_CalendarView::setMaxDate(long& arg0) enter");
+	LOGV("void android_widget_CalendarView::setMaxDate(long const& arg0) enter");
 
 	const char *methodName = "setMaxDate";
 	const char *methodSignature = "(J)V";
@@ -1896,8 +1774,6 @@ void android_widget_CalendarView::setMaxDate(long& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
@@ -1928,14 +1804,12 @@ void android_widget_CalendarView::setMaxDate(long& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CalendarView::setMaxDate(long& arg0) exit");
+	LOGV("void android_widget_CalendarView::setMaxDate(long const& arg0) exit");
 
 }
-void android_widget_CalendarView::setShowWeekNumber(bool& arg0)
+void android_widget_CalendarView::setShowWeekNumber(bool const& arg0)
 {
-	LOGV("void android_widget_CalendarView::setShowWeekNumber(bool& arg0) enter");
+	LOGV("void android_widget_CalendarView::setShowWeekNumber(bool const& arg0) enter");
 
 	const char *methodName = "setShowWeekNumber";
 	const char *methodSignature = "(Z)V";
@@ -1945,8 +1819,6 @@ void android_widget_CalendarView::setShowWeekNumber(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
@@ -1977,9 +1849,7 @@ void android_widget_CalendarView::setShowWeekNumber(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CalendarView::setShowWeekNumber(bool& arg0) exit");
+	LOGV("void android_widget_CalendarView::setShowWeekNumber(bool const& arg0) exit");
 
 }
 bool android_widget_CalendarView::getShowWeekNumber()
@@ -1995,15 +1865,12 @@ bool android_widget_CalendarView::getShowWeekNumber()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_CalendarView jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2021,10 +1888,10 @@ bool android_widget_CalendarView::getShowWeekNumber()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_widget_CalendarView::getShowWeekNumber() exit");
 
 	return result;
@@ -2042,15 +1909,12 @@ int android_widget_CalendarView::getFirstDayOfWeek()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_CalendarView jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2068,17 +1932,17 @@ int android_widget_CalendarView::getFirstDayOfWeek()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_CalendarView::getFirstDayOfWeek() exit");
 
 	return result;
 }
-void android_widget_CalendarView::setFirstDayOfWeek(int& arg0)
+void android_widget_CalendarView::setFirstDayOfWeek(int const& arg0)
 {
-	LOGV("void android_widget_CalendarView::setFirstDayOfWeek(int& arg0) enter");
+	LOGV("void android_widget_CalendarView::setFirstDayOfWeek(int const& arg0) enter");
 
 	const char *methodName = "setFirstDayOfWeek";
 	const char *methodSignature = "(I)V";
@@ -2088,8 +1952,6 @@ void android_widget_CalendarView::setFirstDayOfWeek(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
@@ -2120,14 +1982,12 @@ void android_widget_CalendarView::setFirstDayOfWeek(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CalendarView::setFirstDayOfWeek(int& arg0) exit");
+	LOGV("void android_widget_CalendarView::setFirstDayOfWeek(int const& arg0) exit");
 
 }
-void android_widget_CalendarView::setOnDateChangeListener(AndroidCXX::android_widget_CalendarView_OnDateChangeListener& arg0)
+void android_widget_CalendarView::setOnDateChangeListener(AndroidCXX::android_widget_CalendarView_OnDateChangeListener const& arg0)
 {
-	LOGV("void android_widget_CalendarView::setOnDateChangeListener(AndroidCXX::android_widget_CalendarView_OnDateChangeListener& arg0) enter");
+	LOGV("void android_widget_CalendarView::setOnDateChangeListener(AndroidCXX::android_widget_CalendarView_OnDateChangeListener const& arg0) enter");
 
 	const char *methodName = "setOnDateChangeListener";
 	const char *methodSignature = "(Landroid/widget/CalendarView$OnDateChangeListener;)V";
@@ -2137,8 +1997,6 @@ void android_widget_CalendarView::setOnDateChangeListener(AndroidCXX::android_wi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_CalendarView cxx address %d", cxxAddress);
@@ -2169,8 +2027,6 @@ void android_widget_CalendarView::setOnDateChangeListener(AndroidCXX::android_wi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_CalendarView::setOnDateChangeListener(AndroidCXX::android_widget_CalendarView_OnDateChangeListener& arg0) exit");
+	LOGV("void android_widget_CalendarView::setOnDateChangeListener(AndroidCXX::android_widget_CalendarView_OnDateChangeListener const& arg0) exit");
 
 }

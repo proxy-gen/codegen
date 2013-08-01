@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -30,7 +29,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_View_OnAttachStateChangeListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -52,8 +51,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_view_View_OnAttachStateChangeListener::android_view_View_OnAttachStateChangeListener(const android_view_View_OnAttachStateChangeListener& cc)
 {
 	LOGV("android_view_View_OnAttachStateChangeListener::android_view_View_OnAttachStateChangeListener(const android_view_View_OnAttachStateChangeListener& cc) enter");
@@ -77,9 +74,9 @@ android_view_View_OnAttachStateChangeListener::android_view_View_OnAttachStateCh
 
 	LOGV("android_view_View_OnAttachStateChangeListener::android_view_View_OnAttachStateChangeListener(const android_view_View_OnAttachStateChangeListener& cc) exit");
 }
-android_view_View_OnAttachStateChangeListener::android_view_View_OnAttachStateChangeListener(void * proxy)
+android_view_View_OnAttachStateChangeListener::android_view_View_OnAttachStateChangeListener(Proxy proxy)
 {
-	LOGV("android_view_View_OnAttachStateChangeListener::android_view_View_OnAttachStateChangeListener(void * proxy) enter");
+	LOGV("android_view_View_OnAttachStateChangeListener::android_view_View_OnAttachStateChangeListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -89,47 +86,31 @@ android_view_View_OnAttachStateChangeListener::android_view_View_OnAttachStateCh
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_View_OnAttachStateChangeListener::android_view_View_OnAttachStateChangeListener(void * proxy) exit");
+	LOGV("android_view_View_OnAttachStateChangeListener::android_view_View_OnAttachStateChangeListener(Proxy proxy) exit");
 }
-android_view_View_OnAttachStateChangeListener::android_view_View_OnAttachStateChangeListener()
-{
-	LOGV("android_view_View_OnAttachStateChangeListener::android_view_View_OnAttachStateChangeListener() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/view/View$OnAttachStateChangeListener";
-
-	LOGV("android_view_View_OnAttachStateChangeListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_view_View_OnAttachStateChangeListener::proxy() const
+{	
+	LOGV("android_view_View_OnAttachStateChangeListener::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_View_OnAttachStateChangeListener cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_view_View_OnAttachStateChangeListener jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_view_View_OnAttachStateChangeListener::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_view_View_OnAttachStateChangeListener::android_view_View_OnAttachStateChangeListener() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_view_View_OnAttachStateChangeListener::~android_view_View_OnAttachStateChangeListener()
 {
@@ -141,13 +122,13 @@ android_view_View_OnAttachStateChangeListener::~android_view_View_OnAttachStateC
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_View_OnAttachStateChangeListener::~android_view_View_OnAttachStateChangeListener() exit");
 }
 // Functions
-void android_view_View_OnAttachStateChangeListener::onViewAttachedToWindow(AndroidCXX::android_view_View& arg0)
+void android_view_View_OnAttachStateChangeListener::onViewAttachedToWindow(AndroidCXX::android_view_View const& arg0)
 {
-	LOGV("void android_view_View_OnAttachStateChangeListener::onViewAttachedToWindow(AndroidCXX::android_view_View& arg0) enter");
+	LOGV("void android_view_View_OnAttachStateChangeListener::onViewAttachedToWindow(AndroidCXX::android_view_View const& arg0) enter");
 
 	const char *methodName = "onViewAttachedToWindow";
 	const char *methodSignature = "(Landroid/view/View;)V";
@@ -158,8 +139,6 @@ void android_view_View_OnAttachStateChangeListener::onViewAttachedToWindow(Andro
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_View_OnAttachStateChangeListener cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -189,14 +168,12 @@ void android_view_View_OnAttachStateChangeListener::onViewAttachedToWindow(Andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_View_OnAttachStateChangeListener::onViewAttachedToWindow(AndroidCXX::android_view_View& arg0) exit");
+	LOGV("void android_view_View_OnAttachStateChangeListener::onViewAttachedToWindow(AndroidCXX::android_view_View const& arg0) exit");
 
 }
-void android_view_View_OnAttachStateChangeListener::onViewDetachedFromWindow(AndroidCXX::android_view_View& arg0)
+void android_view_View_OnAttachStateChangeListener::onViewDetachedFromWindow(AndroidCXX::android_view_View const& arg0)
 {
-	LOGV("void android_view_View_OnAttachStateChangeListener::onViewDetachedFromWindow(AndroidCXX::android_view_View& arg0) enter");
+	LOGV("void android_view_View_OnAttachStateChangeListener::onViewDetachedFromWindow(AndroidCXX::android_view_View const& arg0) enter");
 
 	const char *methodName = "onViewDetachedFromWindow";
 	const char *methodSignature = "(Landroid/view/View;)V";
@@ -207,8 +184,6 @@ void android_view_View_OnAttachStateChangeListener::onViewDetachedFromWindow(And
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_View_OnAttachStateChangeListener cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -238,8 +213,6 @@ void android_view_View_OnAttachStateChangeListener::onViewDetachedFromWindow(And
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_View_OnAttachStateChangeListener::onViewDetachedFromWindow(AndroidCXX::android_view_View& arg0) exit");
+	LOGV("void android_view_View_OnAttachStateChangeListener::onViewDetachedFromWindow(AndroidCXX::android_view_View const& arg0) exit");
 
 }

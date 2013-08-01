@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -91,7 +90,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_Matrix"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -137,7 +136,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_MATRIX_SCALETOFIT;
+// using namespace android_graphics_Matrix_ScaleToFit;
 // 
 // 
 // 
@@ -160,34 +159,9 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
-android_graphics_Matrix::android_graphics_Matrix(const android_graphics_Matrix& cc)
+android_graphics_Matrix::android_graphics_Matrix(Proxy proxy)
 {
-	LOGV("android_graphics_Matrix::android_graphics_Matrix(const android_graphics_Matrix& cc) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	long ccaddress = (long) &cc;
-	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
-	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
-	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
-	long address = (long) this;
-	LOGV("registerProxyComponent address %ld", address);
-	jobject proxiedComponent = ctx->findProxyComponent(address);
-	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
-	if (proxiedComponent == 0)
-	{
-		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = proxiedCCComponent;
-		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
-		ctx->registerProxyComponent(address, proxiedComponent);
-	}
-
-	LOGV("android_graphics_Matrix::android_graphics_Matrix(const android_graphics_Matrix& cc) exit");
-}
-android_graphics_Matrix::android_graphics_Matrix(void * proxy)
-{
-	LOGV("android_graphics_Matrix::android_graphics_Matrix(void * proxy) enter");
+	LOGV("android_graphics_Matrix::android_graphics_Matrix(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -197,13 +171,31 @@ android_graphics_Matrix::android_graphics_Matrix(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_graphics_Matrix::android_graphics_Matrix(void * proxy) exit");
+	LOGV("android_graphics_Matrix::android_graphics_Matrix(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy android_graphics_Matrix::proxy() const
+{	
+	LOGV("android_graphics_Matrix::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_graphics_Matrix jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_graphics_Matrix::proxy() exit");	
+
+	return proxy;
+}
 android_graphics_Matrix::android_graphics_Matrix()
 {
 	LOGV("android_graphics_Matrix::android_graphics_Matrix() enter");	
@@ -240,9 +232,9 @@ android_graphics_Matrix::android_graphics_Matrix()
 
 	LOGV("android_graphics_Matrix::android_graphics_Matrix() exit");	
 }
-android_graphics_Matrix::android_graphics_Matrix(AndroidCXX::android_graphics_Matrix& arg0)
+android_graphics_Matrix::android_graphics_Matrix(AndroidCXX::android_graphics_Matrix const& arg0)
 {
-	LOGV("android_graphics_Matrix::android_graphics_Matrix(AndroidCXX::android_graphics_Matrix& arg0) enter");	
+	LOGV("android_graphics_Matrix::android_graphics_Matrix(AndroidCXX::android_graphics_Matrix const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/graphics/Matrix;)V";
@@ -295,7 +287,7 @@ android_graphics_Matrix::android_graphics_Matrix(AndroidCXX::android_graphics_Ma
 
 	jni->popLocalFrame();
 
-	LOGV("android_graphics_Matrix::android_graphics_Matrix(AndroidCXX::android_graphics_Matrix& arg0) exit");	
+	LOGV("android_graphics_Matrix::android_graphics_Matrix(AndroidCXX::android_graphics_Matrix const& arg0) exit");	
 }
 // Default Instance Destructor
 android_graphics_Matrix::~android_graphics_Matrix()
@@ -308,13 +300,13 @@ android_graphics_Matrix::~android_graphics_Matrix()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_graphics_Matrix::~android_graphics_Matrix() exit");
 }
 // Functions
-bool android_graphics_Matrix::equals(AndroidCXX::java_lang_Object& arg0)
+bool android_graphics_Matrix::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool android_graphics_Matrix::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool android_graphics_Matrix::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -324,8 +316,6 @@ bool android_graphics_Matrix::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -354,7 +344,6 @@ bool android_graphics_Matrix::equals(AndroidCXX::java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -372,11 +361,11 @@ bool android_graphics_Matrix::equals(AndroidCXX::java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -393,15 +382,12 @@ AndroidCXX::java_lang_String android_graphics_Matrix::toString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Matrix jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -419,17 +405,17 @@ AndroidCXX::java_lang_String android_graphics_Matrix::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_graphics_Matrix::toString() exit");
 
 	return result;
 }
-void android_graphics_Matrix::set(AndroidCXX::android_graphics_Matrix& arg0)
+void android_graphics_Matrix::set(AndroidCXX::android_graphics_Matrix const& arg0)
 {
-	LOGV("void android_graphics_Matrix::set(AndroidCXX::android_graphics_Matrix& arg0) enter");
+	LOGV("void android_graphics_Matrix::set(AndroidCXX::android_graphics_Matrix const& arg0) enter");
 
 	const char *methodName = "set";
 	const char *methodSignature = "(Landroid/graphics/Matrix;)V";
@@ -439,8 +425,6 @@ void android_graphics_Matrix::set(AndroidCXX::android_graphics_Matrix& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -471,9 +455,7 @@ void android_graphics_Matrix::set(AndroidCXX::android_graphics_Matrix& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Matrix::set(AndroidCXX::android_graphics_Matrix& arg0) exit");
+	LOGV("void android_graphics_Matrix::set(AndroidCXX::android_graphics_Matrix const& arg0) exit");
 
 }
 void android_graphics_Matrix::reset()
@@ -489,8 +471,6 @@ void android_graphics_Matrix::reset()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -499,14 +479,12 @@ void android_graphics_Matrix::reset()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_graphics_Matrix::reset() exit");
 
 }
-void android_graphics_Matrix::setScale(float& arg0,float& arg1,float& arg2,float& arg3)
+void android_graphics_Matrix::setScale(float const& arg0,float const& arg1,float const& arg2,float const& arg3)
 {
-	LOGV("void android_graphics_Matrix::setScale(float& arg0,float& arg1,float& arg2,float& arg3) enter");
+	LOGV("void android_graphics_Matrix::setScale(float const& arg0,float const& arg1,float const& arg2,float const& arg3) enter");
 
 	const char *methodName = "setScale";
 	const char *methodSignature = "(FFFF)V";
@@ -516,8 +494,6 @@ void android_graphics_Matrix::setScale(float& arg0,float& arg1,float& arg2,float
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -611,14 +587,12 @@ void android_graphics_Matrix::setScale(float& arg0,float& arg1,float& arg2,float
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Matrix::setScale(float& arg0,float& arg1,float& arg2,float& arg3) exit");
+	LOGV("void android_graphics_Matrix::setScale(float const& arg0,float const& arg1,float const& arg2,float const& arg3) exit");
 
 }
-void android_graphics_Matrix::setScale(float& arg0,float& arg1)
+void android_graphics_Matrix::setScale(float const& arg0,float const& arg1)
 {
-	LOGV("void android_graphics_Matrix::setScale(float& arg0,float& arg1) enter");
+	LOGV("void android_graphics_Matrix::setScale(float const& arg0,float const& arg1) enter");
 
 	const char *methodName = "setScale";
 	const char *methodSignature = "(FF)V";
@@ -628,8 +602,6 @@ void android_graphics_Matrix::setScale(float& arg0,float& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -681,9 +653,7 @@ void android_graphics_Matrix::setScale(float& arg0,float& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Matrix::setScale(float& arg0,float& arg1) exit");
+	LOGV("void android_graphics_Matrix::setScale(float const& arg0,float const& arg1) exit");
 
 }
 AndroidCXX::java_lang_String android_graphics_Matrix::toShortString()
@@ -699,15 +669,12 @@ AndroidCXX::java_lang_String android_graphics_Matrix::toShortString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Matrix jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -725,10 +692,10 @@ AndroidCXX::java_lang_String android_graphics_Matrix::toShortString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_graphics_Matrix::toShortString() exit");
 
 	return result;
@@ -746,15 +713,12 @@ bool android_graphics_Matrix::isIdentity()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Matrix jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -772,10 +736,10 @@ bool android_graphics_Matrix::isIdentity()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_graphics_Matrix::isIdentity() exit");
 
 	return result;
@@ -793,15 +757,12 @@ bool android_graphics_Matrix::rectStaysRect()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Matrix jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -819,17 +780,17 @@ bool android_graphics_Matrix::rectStaysRect()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_graphics_Matrix::rectStaysRect() exit");
 
 	return result;
 }
-void android_graphics_Matrix::setTranslate(float& arg0,float& arg1)
+void android_graphics_Matrix::setTranslate(float const& arg0,float const& arg1)
 {
-	LOGV("void android_graphics_Matrix::setTranslate(float& arg0,float& arg1) enter");
+	LOGV("void android_graphics_Matrix::setTranslate(float const& arg0,float const& arg1) enter");
 
 	const char *methodName = "setTranslate";
 	const char *methodSignature = "(FF)V";
@@ -839,8 +800,6 @@ void android_graphics_Matrix::setTranslate(float& arg0,float& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -892,14 +851,12 @@ void android_graphics_Matrix::setTranslate(float& arg0,float& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Matrix::setTranslate(float& arg0,float& arg1) exit");
+	LOGV("void android_graphics_Matrix::setTranslate(float const& arg0,float const& arg1) exit");
 
 }
-void android_graphics_Matrix::setRotate(float& arg0,float& arg1,float& arg2)
+void android_graphics_Matrix::setRotate(float const& arg0,float const& arg1,float const& arg2)
 {
-	LOGV("void android_graphics_Matrix::setRotate(float& arg0,float& arg1,float& arg2) enter");
+	LOGV("void android_graphics_Matrix::setRotate(float const& arg0,float const& arg1,float const& arg2) enter");
 
 	const char *methodName = "setRotate";
 	const char *methodSignature = "(FFF)V";
@@ -909,8 +866,6 @@ void android_graphics_Matrix::setRotate(float& arg0,float& arg1,float& arg2)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -983,14 +938,12 @@ void android_graphics_Matrix::setRotate(float& arg0,float& arg1,float& arg2)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Matrix::setRotate(float& arg0,float& arg1,float& arg2) exit");
+	LOGV("void android_graphics_Matrix::setRotate(float const& arg0,float const& arg1,float const& arg2) exit");
 
 }
-void android_graphics_Matrix::setRotate(float& arg0)
+void android_graphics_Matrix::setRotate(float const& arg0)
 {
-	LOGV("void android_graphics_Matrix::setRotate(float& arg0) enter");
+	LOGV("void android_graphics_Matrix::setRotate(float const& arg0) enter");
 
 	const char *methodName = "setRotate";
 	const char *methodSignature = "(F)V";
@@ -1000,8 +953,6 @@ void android_graphics_Matrix::setRotate(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -1032,14 +983,12 @@ void android_graphics_Matrix::setRotate(float& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Matrix::setRotate(float& arg0) exit");
+	LOGV("void android_graphics_Matrix::setRotate(float const& arg0) exit");
 
 }
-void android_graphics_Matrix::setSinCos(float& arg0,float& arg1)
+void android_graphics_Matrix::setSinCos(float const& arg0,float const& arg1)
 {
-	LOGV("void android_graphics_Matrix::setSinCos(float& arg0,float& arg1) enter");
+	LOGV("void android_graphics_Matrix::setSinCos(float const& arg0,float const& arg1) enter");
 
 	const char *methodName = "setSinCos";
 	const char *methodSignature = "(FF)V";
@@ -1049,8 +998,6 @@ void android_graphics_Matrix::setSinCos(float& arg0,float& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -1102,14 +1049,12 @@ void android_graphics_Matrix::setSinCos(float& arg0,float& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Matrix::setSinCos(float& arg0,float& arg1) exit");
+	LOGV("void android_graphics_Matrix::setSinCos(float const& arg0,float const& arg1) exit");
 
 }
-void android_graphics_Matrix::setSinCos(float& arg0,float& arg1,float& arg2,float& arg3)
+void android_graphics_Matrix::setSinCos(float const& arg0,float const& arg1,float const& arg2,float const& arg3)
 {
-	LOGV("void android_graphics_Matrix::setSinCos(float& arg0,float& arg1,float& arg2,float& arg3) enter");
+	LOGV("void android_graphics_Matrix::setSinCos(float const& arg0,float const& arg1,float const& arg2,float const& arg3) enter");
 
 	const char *methodName = "setSinCos";
 	const char *methodSignature = "(FFFF)V";
@@ -1119,8 +1064,6 @@ void android_graphics_Matrix::setSinCos(float& arg0,float& arg1,float& arg2,floa
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -1214,14 +1157,12 @@ void android_graphics_Matrix::setSinCos(float& arg0,float& arg1,float& arg2,floa
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Matrix::setSinCos(float& arg0,float& arg1,float& arg2,float& arg3) exit");
+	LOGV("void android_graphics_Matrix::setSinCos(float const& arg0,float const& arg1,float const& arg2,float const& arg3) exit");
 
 }
-void android_graphics_Matrix::setSkew(float& arg0,float& arg1)
+void android_graphics_Matrix::setSkew(float const& arg0,float const& arg1)
 {
-	LOGV("void android_graphics_Matrix::setSkew(float& arg0,float& arg1) enter");
+	LOGV("void android_graphics_Matrix::setSkew(float const& arg0,float const& arg1) enter");
 
 	const char *methodName = "setSkew";
 	const char *methodSignature = "(FF)V";
@@ -1231,8 +1172,6 @@ void android_graphics_Matrix::setSkew(float& arg0,float& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -1284,14 +1223,12 @@ void android_graphics_Matrix::setSkew(float& arg0,float& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Matrix::setSkew(float& arg0,float& arg1) exit");
+	LOGV("void android_graphics_Matrix::setSkew(float const& arg0,float const& arg1) exit");
 
 }
-void android_graphics_Matrix::setSkew(float& arg0,float& arg1,float& arg2,float& arg3)
+void android_graphics_Matrix::setSkew(float const& arg0,float const& arg1,float const& arg2,float const& arg3)
 {
-	LOGV("void android_graphics_Matrix::setSkew(float& arg0,float& arg1,float& arg2,float& arg3) enter");
+	LOGV("void android_graphics_Matrix::setSkew(float const& arg0,float const& arg1,float const& arg2,float const& arg3) enter");
 
 	const char *methodName = "setSkew";
 	const char *methodSignature = "(FFFF)V";
@@ -1301,8 +1238,6 @@ void android_graphics_Matrix::setSkew(float& arg0,float& arg1,float& arg2,float&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -1396,14 +1331,12 @@ void android_graphics_Matrix::setSkew(float& arg0,float& arg1,float& arg2,float&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Matrix::setSkew(float& arg0,float& arg1,float& arg2,float& arg3) exit");
+	LOGV("void android_graphics_Matrix::setSkew(float const& arg0,float const& arg1,float const& arg2,float const& arg3) exit");
 
 }
-bool android_graphics_Matrix::setConcat(AndroidCXX::android_graphics_Matrix& arg0,AndroidCXX::android_graphics_Matrix& arg1)
+bool android_graphics_Matrix::setConcat(AndroidCXX::android_graphics_Matrix const& arg0,AndroidCXX::android_graphics_Matrix const& arg1)
 {
-	LOGV("bool android_graphics_Matrix::setConcat(AndroidCXX::android_graphics_Matrix& arg0,AndroidCXX::android_graphics_Matrix& arg1) enter");
+	LOGV("bool android_graphics_Matrix::setConcat(AndroidCXX::android_graphics_Matrix const& arg0,AndroidCXX::android_graphics_Matrix const& arg1) enter");
 
 	const char *methodName = "setConcat";
 	const char *methodSignature = "(Landroid/graphics/Matrix;Landroid/graphics/Matrix;)Z";
@@ -1413,8 +1346,6 @@ bool android_graphics_Matrix::setConcat(AndroidCXX::android_graphics_Matrix& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -1464,7 +1395,6 @@ bool android_graphics_Matrix::setConcat(AndroidCXX::android_graphics_Matrix& arg
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1482,17 +1412,17 @@ bool android_graphics_Matrix::setConcat(AndroidCXX::android_graphics_Matrix& arg
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::setConcat(AndroidCXX::android_graphics_Matrix& arg0,AndroidCXX::android_graphics_Matrix& arg1) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::setConcat(AndroidCXX::android_graphics_Matrix const& arg0,AndroidCXX::android_graphics_Matrix const& arg1) exit");
 
 	return result;
 }
-bool android_graphics_Matrix::preTranslate(float& arg0,float& arg1)
+bool android_graphics_Matrix::preTranslate(float const& arg0,float const& arg1)
 {
-	LOGV("bool android_graphics_Matrix::preTranslate(float& arg0,float& arg1) enter");
+	LOGV("bool android_graphics_Matrix::preTranslate(float const& arg0,float const& arg1) enter");
 
 	const char *methodName = "preTranslate";
 	const char *methodSignature = "(FF)Z";
@@ -1503,8 +1433,6 @@ bool android_graphics_Matrix::preTranslate(float& arg0,float& arg1)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1553,7 +1481,6 @@ bool android_graphics_Matrix::preTranslate(float& arg0,float& arg1)
 		jarg1 = convert_jni_float_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1571,17 +1498,17 @@ bool android_graphics_Matrix::preTranslate(float& arg0,float& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::preTranslate(float& arg0,float& arg1) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::preTranslate(float const& arg0,float const& arg1) exit");
 
 	return result;
 }
-bool android_graphics_Matrix::preScale(float& arg0,float& arg1)
+bool android_graphics_Matrix::preScale(float const& arg0,float const& arg1)
 {
-	LOGV("bool android_graphics_Matrix::preScale(float& arg0,float& arg1) enter");
+	LOGV("bool android_graphics_Matrix::preScale(float const& arg0,float const& arg1) enter");
 
 	const char *methodName = "preScale";
 	const char *methodSignature = "(FF)Z";
@@ -1592,8 +1519,6 @@ bool android_graphics_Matrix::preScale(float& arg0,float& arg1)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1642,7 +1567,6 @@ bool android_graphics_Matrix::preScale(float& arg0,float& arg1)
 		jarg1 = convert_jni_float_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1660,17 +1584,17 @@ bool android_graphics_Matrix::preScale(float& arg0,float& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::preScale(float& arg0,float& arg1) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::preScale(float const& arg0,float const& arg1) exit");
 
 	return result;
 }
-bool android_graphics_Matrix::preScale(float& arg0,float& arg1,float& arg2,float& arg3)
+bool android_graphics_Matrix::preScale(float const& arg0,float const& arg1,float const& arg2,float const& arg3)
 {
-	LOGV("bool android_graphics_Matrix::preScale(float& arg0,float& arg1,float& arg2,float& arg3) enter");
+	LOGV("bool android_graphics_Matrix::preScale(float const& arg0,float const& arg1,float const& arg2,float const& arg3) enter");
 
 	const char *methodName = "preScale";
 	const char *methodSignature = "(FFFF)Z";
@@ -1680,8 +1604,6 @@ bool android_graphics_Matrix::preScale(float& arg0,float& arg1,float& arg2,float
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -1773,7 +1695,6 @@ bool android_graphics_Matrix::preScale(float& arg0,float& arg1,float& arg2,float
 		jarg3 = convert_jni_float_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1791,17 +1712,17 @@ bool android_graphics_Matrix::preScale(float& arg0,float& arg1,float& arg2,float
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::preScale(float& arg0,float& arg1,float& arg2,float& arg3) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::preScale(float const& arg0,float const& arg1,float const& arg2,float const& arg3) exit");
 
 	return result;
 }
-bool android_graphics_Matrix::preRotate(float& arg0)
+bool android_graphics_Matrix::preRotate(float const& arg0)
 {
-	LOGV("bool android_graphics_Matrix::preRotate(float& arg0) enter");
+	LOGV("bool android_graphics_Matrix::preRotate(float const& arg0) enter");
 
 	const char *methodName = "preRotate";
 	const char *methodSignature = "(F)Z";
@@ -1811,8 +1732,6 @@ bool android_graphics_Matrix::preRotate(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -1841,7 +1760,6 @@ bool android_graphics_Matrix::preRotate(float& arg0)
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1859,17 +1777,17 @@ bool android_graphics_Matrix::preRotate(float& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::preRotate(float& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::preRotate(float const& arg0) exit");
 
 	return result;
 }
-bool android_graphics_Matrix::preRotate(float& arg0,float& arg1,float& arg2)
+bool android_graphics_Matrix::preRotate(float const& arg0,float const& arg1,float const& arg2)
 {
-	LOGV("bool android_graphics_Matrix::preRotate(float& arg0,float& arg1,float& arg2) enter");
+	LOGV("bool android_graphics_Matrix::preRotate(float const& arg0,float const& arg1,float const& arg2) enter");
 
 	const char *methodName = "preRotate";
 	const char *methodSignature = "(FFF)Z";
@@ -1879,8 +1797,6 @@ bool android_graphics_Matrix::preRotate(float& arg0,float& arg1,float& arg2)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -1951,7 +1867,6 @@ bool android_graphics_Matrix::preRotate(float& arg0,float& arg1,float& arg2)
 		jarg2 = convert_jni_float_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1969,17 +1884,17 @@ bool android_graphics_Matrix::preRotate(float& arg0,float& arg1,float& arg2)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::preRotate(float& arg0,float& arg1,float& arg2) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::preRotate(float const& arg0,float const& arg1,float const& arg2) exit");
 
 	return result;
 }
-bool android_graphics_Matrix::preSkew(float& arg0,float& arg1)
+bool android_graphics_Matrix::preSkew(float const& arg0,float const& arg1)
 {
-	LOGV("bool android_graphics_Matrix::preSkew(float& arg0,float& arg1) enter");
+	LOGV("bool android_graphics_Matrix::preSkew(float const& arg0,float const& arg1) enter");
 
 	const char *methodName = "preSkew";
 	const char *methodSignature = "(FF)Z";
@@ -1989,8 +1904,6 @@ bool android_graphics_Matrix::preSkew(float& arg0,float& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -2040,7 +1953,6 @@ bool android_graphics_Matrix::preSkew(float& arg0,float& arg1)
 		jarg1 = convert_jni_float_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2058,17 +1970,17 @@ bool android_graphics_Matrix::preSkew(float& arg0,float& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::preSkew(float& arg0,float& arg1) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::preSkew(float const& arg0,float const& arg1) exit");
 
 	return result;
 }
-bool android_graphics_Matrix::preSkew(float& arg0,float& arg1,float& arg2,float& arg3)
+bool android_graphics_Matrix::preSkew(float const& arg0,float const& arg1,float const& arg2,float const& arg3)
 {
-	LOGV("bool android_graphics_Matrix::preSkew(float& arg0,float& arg1,float& arg2,float& arg3) enter");
+	LOGV("bool android_graphics_Matrix::preSkew(float const& arg0,float const& arg1,float const& arg2,float const& arg3) enter");
 
 	const char *methodName = "preSkew";
 	const char *methodSignature = "(FFFF)Z";
@@ -2078,8 +1990,6 @@ bool android_graphics_Matrix::preSkew(float& arg0,float& arg1,float& arg2,float&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -2171,7 +2081,6 @@ bool android_graphics_Matrix::preSkew(float& arg0,float& arg1,float& arg2,float&
 		jarg3 = convert_jni_float_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2189,17 +2098,17 @@ bool android_graphics_Matrix::preSkew(float& arg0,float& arg1,float& arg2,float&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::preSkew(float& arg0,float& arg1,float& arg2,float& arg3) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::preSkew(float const& arg0,float const& arg1,float const& arg2,float const& arg3) exit");
 
 	return result;
 }
-bool android_graphics_Matrix::preConcat(AndroidCXX::android_graphics_Matrix& arg0)
+bool android_graphics_Matrix::preConcat(AndroidCXX::android_graphics_Matrix const& arg0)
 {
-	LOGV("bool android_graphics_Matrix::preConcat(AndroidCXX::android_graphics_Matrix& arg0) enter");
+	LOGV("bool android_graphics_Matrix::preConcat(AndroidCXX::android_graphics_Matrix const& arg0) enter");
 
 	const char *methodName = "preConcat";
 	const char *methodSignature = "(Landroid/graphics/Matrix;)Z";
@@ -2210,8 +2119,6 @@ bool android_graphics_Matrix::preConcat(AndroidCXX::android_graphics_Matrix& arg
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2239,7 +2146,6 @@ bool android_graphics_Matrix::preConcat(AndroidCXX::android_graphics_Matrix& arg
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2257,17 +2163,17 @@ bool android_graphics_Matrix::preConcat(AndroidCXX::android_graphics_Matrix& arg
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::preConcat(AndroidCXX::android_graphics_Matrix& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::preConcat(AndroidCXX::android_graphics_Matrix const& arg0) exit");
 
 	return result;
 }
-bool android_graphics_Matrix::postTranslate(float& arg0,float& arg1)
+bool android_graphics_Matrix::postTranslate(float const& arg0,float const& arg1)
 {
-	LOGV("bool android_graphics_Matrix::postTranslate(float& arg0,float& arg1) enter");
+	LOGV("bool android_graphics_Matrix::postTranslate(float const& arg0,float const& arg1) enter");
 
 	const char *methodName = "postTranslate";
 	const char *methodSignature = "(FF)Z";
@@ -2278,8 +2184,6 @@ bool android_graphics_Matrix::postTranslate(float& arg0,float& arg1)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2328,7 +2232,6 @@ bool android_graphics_Matrix::postTranslate(float& arg0,float& arg1)
 		jarg1 = convert_jni_float_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2346,17 +2249,17 @@ bool android_graphics_Matrix::postTranslate(float& arg0,float& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::postTranslate(float& arg0,float& arg1) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::postTranslate(float const& arg0,float const& arg1) exit");
 
 	return result;
 }
-bool android_graphics_Matrix::postScale(float& arg0,float& arg1)
+bool android_graphics_Matrix::postScale(float const& arg0,float const& arg1)
 {
-	LOGV("bool android_graphics_Matrix::postScale(float& arg0,float& arg1) enter");
+	LOGV("bool android_graphics_Matrix::postScale(float const& arg0,float const& arg1) enter");
 
 	const char *methodName = "postScale";
 	const char *methodSignature = "(FF)Z";
@@ -2367,8 +2270,6 @@ bool android_graphics_Matrix::postScale(float& arg0,float& arg1)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2417,7 +2318,6 @@ bool android_graphics_Matrix::postScale(float& arg0,float& arg1)
 		jarg1 = convert_jni_float_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2435,17 +2335,17 @@ bool android_graphics_Matrix::postScale(float& arg0,float& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::postScale(float& arg0,float& arg1) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::postScale(float const& arg0,float const& arg1) exit");
 
 	return result;
 }
-bool android_graphics_Matrix::postScale(float& arg0,float& arg1,float& arg2,float& arg3)
+bool android_graphics_Matrix::postScale(float const& arg0,float const& arg1,float const& arg2,float const& arg3)
 {
-	LOGV("bool android_graphics_Matrix::postScale(float& arg0,float& arg1,float& arg2,float& arg3) enter");
+	LOGV("bool android_graphics_Matrix::postScale(float const& arg0,float const& arg1,float const& arg2,float const& arg3) enter");
 
 	const char *methodName = "postScale";
 	const char *methodSignature = "(FFFF)Z";
@@ -2455,8 +2355,6 @@ bool android_graphics_Matrix::postScale(float& arg0,float& arg1,float& arg2,floa
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -2548,7 +2446,6 @@ bool android_graphics_Matrix::postScale(float& arg0,float& arg1,float& arg2,floa
 		jarg3 = convert_jni_float_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2566,17 +2463,17 @@ bool android_graphics_Matrix::postScale(float& arg0,float& arg1,float& arg2,floa
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::postScale(float& arg0,float& arg1,float& arg2,float& arg3) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::postScale(float const& arg0,float const& arg1,float const& arg2,float const& arg3) exit");
 
 	return result;
 }
-bool android_graphics_Matrix::postRotate(float& arg0)
+bool android_graphics_Matrix::postRotate(float const& arg0)
 {
-	LOGV("bool android_graphics_Matrix::postRotate(float& arg0) enter");
+	LOGV("bool android_graphics_Matrix::postRotate(float const& arg0) enter");
 
 	const char *methodName = "postRotate";
 	const char *methodSignature = "(F)Z";
@@ -2586,8 +2483,6 @@ bool android_graphics_Matrix::postRotate(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -2616,7 +2511,6 @@ bool android_graphics_Matrix::postRotate(float& arg0)
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2634,17 +2528,17 @@ bool android_graphics_Matrix::postRotate(float& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::postRotate(float& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::postRotate(float const& arg0) exit");
 
 	return result;
 }
-bool android_graphics_Matrix::postRotate(float& arg0,float& arg1,float& arg2)
+bool android_graphics_Matrix::postRotate(float const& arg0,float const& arg1,float const& arg2)
 {
-	LOGV("bool android_graphics_Matrix::postRotate(float& arg0,float& arg1,float& arg2) enter");
+	LOGV("bool android_graphics_Matrix::postRotate(float const& arg0,float const& arg1,float const& arg2) enter");
 
 	const char *methodName = "postRotate";
 	const char *methodSignature = "(FFF)Z";
@@ -2654,8 +2548,6 @@ bool android_graphics_Matrix::postRotate(float& arg0,float& arg1,float& arg2)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -2726,7 +2618,6 @@ bool android_graphics_Matrix::postRotate(float& arg0,float& arg1,float& arg2)
 		jarg2 = convert_jni_float_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2744,17 +2635,17 @@ bool android_graphics_Matrix::postRotate(float& arg0,float& arg1,float& arg2)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::postRotate(float& arg0,float& arg1,float& arg2) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::postRotate(float const& arg0,float const& arg1,float const& arg2) exit");
 
 	return result;
 }
-bool android_graphics_Matrix::postSkew(float& arg0,float& arg1,float& arg2,float& arg3)
+bool android_graphics_Matrix::postSkew(float const& arg0,float const& arg1,float const& arg2,float const& arg3)
 {
-	LOGV("bool android_graphics_Matrix::postSkew(float& arg0,float& arg1,float& arg2,float& arg3) enter");
+	LOGV("bool android_graphics_Matrix::postSkew(float const& arg0,float const& arg1,float const& arg2,float const& arg3) enter");
 
 	const char *methodName = "postSkew";
 	const char *methodSignature = "(FFFF)Z";
@@ -2764,8 +2655,6 @@ bool android_graphics_Matrix::postSkew(float& arg0,float& arg1,float& arg2,float
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -2857,7 +2746,6 @@ bool android_graphics_Matrix::postSkew(float& arg0,float& arg1,float& arg2,float
 		jarg3 = convert_jni_float_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2875,17 +2763,17 @@ bool android_graphics_Matrix::postSkew(float& arg0,float& arg1,float& arg2,float
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::postSkew(float& arg0,float& arg1,float& arg2,float& arg3) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::postSkew(float const& arg0,float const& arg1,float const& arg2,float const& arg3) exit");
 
 	return result;
 }
-bool android_graphics_Matrix::postSkew(float& arg0,float& arg1)
+bool android_graphics_Matrix::postSkew(float const& arg0,float const& arg1)
 {
-	LOGV("bool android_graphics_Matrix::postSkew(float& arg0,float& arg1) enter");
+	LOGV("bool android_graphics_Matrix::postSkew(float const& arg0,float const& arg1) enter");
 
 	const char *methodName = "postSkew";
 	const char *methodSignature = "(FF)Z";
@@ -2895,8 +2783,6 @@ bool android_graphics_Matrix::postSkew(float& arg0,float& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -2946,7 +2832,6 @@ bool android_graphics_Matrix::postSkew(float& arg0,float& arg1)
 		jarg1 = convert_jni_float_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2964,17 +2849,17 @@ bool android_graphics_Matrix::postSkew(float& arg0,float& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::postSkew(float& arg0,float& arg1) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::postSkew(float const& arg0,float const& arg1) exit");
 
 	return result;
 }
-bool android_graphics_Matrix::postConcat(AndroidCXX::android_graphics_Matrix& arg0)
+bool android_graphics_Matrix::postConcat(AndroidCXX::android_graphics_Matrix const& arg0)
 {
-	LOGV("bool android_graphics_Matrix::postConcat(AndroidCXX::android_graphics_Matrix& arg0) enter");
+	LOGV("bool android_graphics_Matrix::postConcat(AndroidCXX::android_graphics_Matrix const& arg0) enter");
 
 	const char *methodName = "postConcat";
 	const char *methodSignature = "(Landroid/graphics/Matrix;)Z";
@@ -2984,8 +2869,6 @@ bool android_graphics_Matrix::postConcat(AndroidCXX::android_graphics_Matrix& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -3014,7 +2897,6 @@ bool android_graphics_Matrix::postConcat(AndroidCXX::android_graphics_Matrix& ar
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3032,17 +2914,17 @@ bool android_graphics_Matrix::postConcat(AndroidCXX::android_graphics_Matrix& ar
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::postConcat(AndroidCXX::android_graphics_Matrix& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::postConcat(AndroidCXX::android_graphics_Matrix const& arg0) exit");
 
 	return result;
 }
-bool android_graphics_Matrix::setRectToRect(AndroidCXX::android_graphics_RectF& arg0,AndroidCXX::android_graphics_RectF& arg1,ANDROID_GRAPHICS_MATRIX_SCALETOFIT::android_graphics_Matrix_ScaleToFit& arg2)
+bool android_graphics_Matrix::setRectToRect(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_RectF const& arg1,android_graphics_Matrix_ScaleToFit::android_graphics_Matrix_ScaleToFit const& arg2)
 {
-	LOGV("bool android_graphics_Matrix::setRectToRect(AndroidCXX::android_graphics_RectF& arg0,AndroidCXX::android_graphics_RectF& arg1,ANDROID_GRAPHICS_MATRIX_SCALETOFIT::android_graphics_Matrix_ScaleToFit& arg2) enter");
+	LOGV("bool android_graphics_Matrix::setRectToRect(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_RectF const& arg1,android_graphics_Matrix_ScaleToFit::android_graphics_Matrix_ScaleToFit const& arg2) enter");
 
 	const char *methodName = "setRectToRect";
 	const char *methodSignature = "(Landroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/Matrix$ScaleToFit;)Z";
@@ -3052,8 +2934,6 @@ bool android_graphics_Matrix::setRectToRect(AndroidCXX::android_graphics_RectF& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -3124,7 +3004,6 @@ bool android_graphics_Matrix::setRectToRect(AndroidCXX::android_graphics_RectF& 
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3142,17 +3021,17 @@ bool android_graphics_Matrix::setRectToRect(AndroidCXX::android_graphics_RectF& 
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::setRectToRect(AndroidCXX::android_graphics_RectF& arg0,AndroidCXX::android_graphics_RectF& arg1,ANDROID_GRAPHICS_MATRIX_SCALETOFIT::android_graphics_Matrix_ScaleToFit& arg2) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::setRectToRect(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_RectF const& arg1,android_graphics_Matrix_ScaleToFit::android_graphics_Matrix_ScaleToFit const& arg2) exit");
 
 	return result;
 }
-bool android_graphics_Matrix::setPolyToPoly(std::vector<float>& arg0,int& arg1,std::vector<float>& arg2,int& arg3,int& arg4)
+bool android_graphics_Matrix::setPolyToPoly(std::vector<float> const& arg0,int const& arg1,std::vector<float> const& arg2,int const& arg3,int const& arg4)
 {
-	LOGV("bool android_graphics_Matrix::setPolyToPoly(std::vector<float>& arg0,int& arg1,std::vector<float>& arg2,int& arg3,int& arg4) enter");
+	LOGV("bool android_graphics_Matrix::setPolyToPoly(std::vector<float> const& arg0,int const& arg1,std::vector<float> const& arg2,int const& arg3,int const& arg4) enter");
 
 	const char *methodName = "setPolyToPoly";
 	const char *methodSignature = "([FI[FII)Z";
@@ -3162,8 +3041,6 @@ bool android_graphics_Matrix::setPolyToPoly(std::vector<float>& arg0,int& arg1,s
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -3312,7 +3189,6 @@ bool android_graphics_Matrix::setPolyToPoly(std::vector<float>& arg0,int& arg1,s
 		jarg4 = convert_jni_int_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3330,17 +3206,17 @@ bool android_graphics_Matrix::setPolyToPoly(std::vector<float>& arg0,int& arg1,s
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::setPolyToPoly(std::vector<float>& arg0,int& arg1,std::vector<float>& arg2,int& arg3,int& arg4) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::setPolyToPoly(std::vector<float> const& arg0,int const& arg1,std::vector<float> const& arg2,int const& arg3,int const& arg4) exit");
 
 	return result;
 }
-bool android_graphics_Matrix::invert(AndroidCXX::android_graphics_Matrix& arg0)
+bool android_graphics_Matrix::invert(AndroidCXX::android_graphics_Matrix const& arg0)
 {
-	LOGV("bool android_graphics_Matrix::invert(AndroidCXX::android_graphics_Matrix& arg0) enter");
+	LOGV("bool android_graphics_Matrix::invert(AndroidCXX::android_graphics_Matrix const& arg0) enter");
 
 	const char *methodName = "invert";
 	const char *methodSignature = "(Landroid/graphics/Matrix;)Z";
@@ -3350,8 +3226,6 @@ bool android_graphics_Matrix::invert(AndroidCXX::android_graphics_Matrix& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -3380,7 +3254,6 @@ bool android_graphics_Matrix::invert(AndroidCXX::android_graphics_Matrix& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3398,17 +3271,17 @@ bool android_graphics_Matrix::invert(AndroidCXX::android_graphics_Matrix& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::invert(AndroidCXX::android_graphics_Matrix& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::invert(AndroidCXX::android_graphics_Matrix const& arg0) exit");
 
 	return result;
 }
-void android_graphics_Matrix::mapPoints(std::vector<float>& arg0,int& arg1,std::vector<float>& arg2,int& arg3,int& arg4)
+void android_graphics_Matrix::mapPoints(std::vector<float> const& arg0,int const& arg1,std::vector<float> const& arg2,int const& arg3,int const& arg4)
 {
-	LOGV("void android_graphics_Matrix::mapPoints(std::vector<float>& arg0,int& arg1,std::vector<float>& arg2,int& arg3,int& arg4) enter");
+	LOGV("void android_graphics_Matrix::mapPoints(std::vector<float> const& arg0,int const& arg1,std::vector<float> const& arg2,int const& arg3,int const& arg4) enter");
 
 	const char *methodName = "mapPoints";
 	const char *methodSignature = "([FI[FII)V";
@@ -3418,8 +3291,6 @@ void android_graphics_Matrix::mapPoints(std::vector<float>& arg0,int& arg1,std::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -3570,14 +3441,12 @@ void android_graphics_Matrix::mapPoints(std::vector<float>& arg0,int& arg1,std::
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Matrix::mapPoints(std::vector<float>& arg0,int& arg1,std::vector<float>& arg2,int& arg3,int& arg4) exit");
+	LOGV("void android_graphics_Matrix::mapPoints(std::vector<float> const& arg0,int const& arg1,std::vector<float> const& arg2,int const& arg3,int const& arg4) exit");
 
 }
-void android_graphics_Matrix::mapPoints(std::vector<float>& arg0)
+void android_graphics_Matrix::mapPoints(std::vector<float> const& arg0)
 {
-	LOGV("void android_graphics_Matrix::mapPoints(std::vector<float>& arg0) enter");
+	LOGV("void android_graphics_Matrix::mapPoints(std::vector<float> const& arg0) enter");
 
 	const char *methodName = "mapPoints";
 	const char *methodSignature = "([F)V";
@@ -3587,8 +3456,6 @@ void android_graphics_Matrix::mapPoints(std::vector<float>& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -3637,14 +3504,12 @@ void android_graphics_Matrix::mapPoints(std::vector<float>& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Matrix::mapPoints(std::vector<float>& arg0) exit");
+	LOGV("void android_graphics_Matrix::mapPoints(std::vector<float> const& arg0) exit");
 
 }
-void android_graphics_Matrix::mapPoints(std::vector<float>& arg0,std::vector<float>& arg1)
+void android_graphics_Matrix::mapPoints(std::vector<float> const& arg0,std::vector<float> const& arg1)
 {
-	LOGV("void android_graphics_Matrix::mapPoints(std::vector<float>& arg0,std::vector<float>& arg1) enter");
+	LOGV("void android_graphics_Matrix::mapPoints(std::vector<float> const& arg0,std::vector<float> const& arg1) enter");
 
 	const char *methodName = "mapPoints";
 	const char *methodSignature = "([F[F)V";
@@ -3654,8 +3519,6 @@ void android_graphics_Matrix::mapPoints(std::vector<float>& arg0,std::vector<flo
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -3743,14 +3606,12 @@ void android_graphics_Matrix::mapPoints(std::vector<float>& arg0,std::vector<flo
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Matrix::mapPoints(std::vector<float>& arg0,std::vector<float>& arg1) exit");
+	LOGV("void android_graphics_Matrix::mapPoints(std::vector<float> const& arg0,std::vector<float> const& arg1) exit");
 
 }
-void android_graphics_Matrix::mapVectors(std::vector<float>& arg0,int& arg1,std::vector<float>& arg2,int& arg3,int& arg4)
+void android_graphics_Matrix::mapVectors(std::vector<float> const& arg0,int const& arg1,std::vector<float> const& arg2,int const& arg3,int const& arg4)
 {
-	LOGV("void android_graphics_Matrix::mapVectors(std::vector<float>& arg0,int& arg1,std::vector<float>& arg2,int& arg3,int& arg4) enter");
+	LOGV("void android_graphics_Matrix::mapVectors(std::vector<float> const& arg0,int const& arg1,std::vector<float> const& arg2,int const& arg3,int const& arg4) enter");
 
 	const char *methodName = "mapVectors";
 	const char *methodSignature = "([FI[FII)V";
@@ -3760,8 +3621,6 @@ void android_graphics_Matrix::mapVectors(std::vector<float>& arg0,int& arg1,std:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -3912,14 +3771,12 @@ void android_graphics_Matrix::mapVectors(std::vector<float>& arg0,int& arg1,std:
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Matrix::mapVectors(std::vector<float>& arg0,int& arg1,std::vector<float>& arg2,int& arg3,int& arg4) exit");
+	LOGV("void android_graphics_Matrix::mapVectors(std::vector<float> const& arg0,int const& arg1,std::vector<float> const& arg2,int const& arg3,int const& arg4) exit");
 
 }
-void android_graphics_Matrix::mapVectors(std::vector<float>& arg0,std::vector<float>& arg1)
+void android_graphics_Matrix::mapVectors(std::vector<float> const& arg0,std::vector<float> const& arg1)
 {
-	LOGV("void android_graphics_Matrix::mapVectors(std::vector<float>& arg0,std::vector<float>& arg1) enter");
+	LOGV("void android_graphics_Matrix::mapVectors(std::vector<float> const& arg0,std::vector<float> const& arg1) enter");
 
 	const char *methodName = "mapVectors";
 	const char *methodSignature = "([F[F)V";
@@ -3929,8 +3786,6 @@ void android_graphics_Matrix::mapVectors(std::vector<float>& arg0,std::vector<fl
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -4018,14 +3873,12 @@ void android_graphics_Matrix::mapVectors(std::vector<float>& arg0,std::vector<fl
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Matrix::mapVectors(std::vector<float>& arg0,std::vector<float>& arg1) exit");
+	LOGV("void android_graphics_Matrix::mapVectors(std::vector<float> const& arg0,std::vector<float> const& arg1) exit");
 
 }
-void android_graphics_Matrix::mapVectors(std::vector<float>& arg0)
+void android_graphics_Matrix::mapVectors(std::vector<float> const& arg0)
 {
-	LOGV("void android_graphics_Matrix::mapVectors(std::vector<float>& arg0) enter");
+	LOGV("void android_graphics_Matrix::mapVectors(std::vector<float> const& arg0) enter");
 
 	const char *methodName = "mapVectors";
 	const char *methodSignature = "([F)V";
@@ -4035,8 +3888,6 @@ void android_graphics_Matrix::mapVectors(std::vector<float>& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -4085,14 +3936,12 @@ void android_graphics_Matrix::mapVectors(std::vector<float>& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Matrix::mapVectors(std::vector<float>& arg0) exit");
+	LOGV("void android_graphics_Matrix::mapVectors(std::vector<float> const& arg0) exit");
 
 }
-bool android_graphics_Matrix::mapRect(AndroidCXX::android_graphics_RectF& arg0)
+bool android_graphics_Matrix::mapRect(AndroidCXX::android_graphics_RectF const& arg0)
 {
-	LOGV("bool android_graphics_Matrix::mapRect(AndroidCXX::android_graphics_RectF& arg0) enter");
+	LOGV("bool android_graphics_Matrix::mapRect(AndroidCXX::android_graphics_RectF const& arg0) enter");
 
 	const char *methodName = "mapRect";
 	const char *methodSignature = "(Landroid/graphics/RectF;)Z";
@@ -4102,8 +3951,6 @@ bool android_graphics_Matrix::mapRect(AndroidCXX::android_graphics_RectF& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -4132,7 +3979,6 @@ bool android_graphics_Matrix::mapRect(AndroidCXX::android_graphics_RectF& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -4150,17 +3996,17 @@ bool android_graphics_Matrix::mapRect(AndroidCXX::android_graphics_RectF& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::mapRect(AndroidCXX::android_graphics_RectF& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::mapRect(AndroidCXX::android_graphics_RectF const& arg0) exit");
 
 	return result;
 }
-bool android_graphics_Matrix::mapRect(AndroidCXX::android_graphics_RectF& arg0,AndroidCXX::android_graphics_RectF& arg1)
+bool android_graphics_Matrix::mapRect(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_RectF const& arg1)
 {
-	LOGV("bool android_graphics_Matrix::mapRect(AndroidCXX::android_graphics_RectF& arg0,AndroidCXX::android_graphics_RectF& arg1) enter");
+	LOGV("bool android_graphics_Matrix::mapRect(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_RectF const& arg1) enter");
 
 	const char *methodName = "mapRect";
 	const char *methodSignature = "(Landroid/graphics/RectF;Landroid/graphics/RectF;)Z";
@@ -4170,8 +4016,6 @@ bool android_graphics_Matrix::mapRect(AndroidCXX::android_graphics_RectF& arg0,A
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -4221,7 +4065,6 @@ bool android_graphics_Matrix::mapRect(AndroidCXX::android_graphics_RectF& arg0,A
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -4239,17 +4082,17 @@ bool android_graphics_Matrix::mapRect(AndroidCXX::android_graphics_RectF& arg0,A
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Matrix::mapRect(AndroidCXX::android_graphics_RectF& arg0,AndroidCXX::android_graphics_RectF& arg1) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Matrix::mapRect(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_RectF const& arg1) exit");
 
 	return result;
 }
-float android_graphics_Matrix::mapRadius(float& arg0)
+float android_graphics_Matrix::mapRadius(float const& arg0)
 {
-	LOGV("float android_graphics_Matrix::mapRadius(float& arg0) enter");
+	LOGV("float android_graphics_Matrix::mapRadius(float const& arg0) enter");
 
 	const char *methodName = "mapRadius";
 	const char *methodSignature = "(F)F";
@@ -4259,8 +4102,6 @@ float android_graphics_Matrix::mapRadius(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
@@ -4289,7 +4130,6 @@ float android_graphics_Matrix::mapRadius(float& arg0)
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -4307,17 +4147,17 @@ float android_graphics_Matrix::mapRadius(float& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("float android_graphics_Matrix::mapRadius(float& arg0) exit");
+	float result = (float) *((float *) cxx_value);
+	// 
+		
+	LOGV("float android_graphics_Matrix::mapRadius(float const& arg0) exit");
 
 	return result;
 }
-void android_graphics_Matrix::getValues(std::vector<float>& arg0)
+void android_graphics_Matrix::getValues(std::vector<float> const& arg0)
 {
-	LOGV("void android_graphics_Matrix::getValues(std::vector<float>& arg0) enter");
+	LOGV("void android_graphics_Matrix::getValues(std::vector<float> const& arg0) enter");
 
 	const char *methodName = "getValues";
 	const char *methodSignature = "([F)V";
@@ -4328,8 +4168,6 @@ void android_graphics_Matrix::getValues(std::vector<float>& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -4377,14 +4215,12 @@ void android_graphics_Matrix::getValues(std::vector<float>& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Matrix::getValues(std::vector<float>& arg0) exit");
+	LOGV("void android_graphics_Matrix::getValues(std::vector<float> const& arg0) exit");
 
 }
-void android_graphics_Matrix::setValues(std::vector<float>& arg0)
+void android_graphics_Matrix::setValues(std::vector<float> const& arg0)
 {
-	LOGV("void android_graphics_Matrix::setValues(std::vector<float>& arg0) enter");
+	LOGV("void android_graphics_Matrix::setValues(std::vector<float> const& arg0) enter");
 
 	const char *methodName = "setValues";
 	const char *methodSignature = "([F)V";
@@ -4395,8 +4231,6 @@ void android_graphics_Matrix::setValues(std::vector<float>& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Matrix cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -4444,8 +4278,6 @@ void android_graphics_Matrix::setValues(std::vector<float>& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Matrix::setValues(std::vector<float>& arg0) exit");
+	LOGV("void android_graphics_Matrix::setValues(std::vector<float> const& arg0) exit");
 
 }

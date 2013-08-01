@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -57,13 +56,14 @@ class com_facebook_Request_GraphUserCallback
 public:
 
 	com_facebook_Request_GraphUserCallback(const com_facebook_Request_GraphUserCallback& cc);
-	com_facebook_Request_GraphUserCallback(void * proxy);
+	com_facebook_Request_GraphUserCallback(Proxy proxy);
 	// Public Constructors
 	com_facebook_Request_GraphUserCallback();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Request_GraphUserCallback();
 	// Functions
-	 void onCompleted(FacebookCXX::com_facebook_model_GraphUser& arg0,FacebookCXX::com_facebook_Response& arg1);
+	virtual void onCompleted(FacebookCXX::com_facebook_model_GraphUser const& arg0,FacebookCXX::com_facebook_Response const& arg1);
 };	
 
 } // namespace

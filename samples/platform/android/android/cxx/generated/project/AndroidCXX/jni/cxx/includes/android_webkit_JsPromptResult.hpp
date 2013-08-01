@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -52,13 +51,13 @@ class android_webkit_JsPromptResult
 public:
 
 	android_webkit_JsPromptResult(const android_webkit_JsPromptResult& cc);
-	android_webkit_JsPromptResult(void * proxy);
+	android_webkit_JsPromptResult(Proxy proxy);
 	// Public Constructors
-	android_webkit_JsPromptResult();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_JsPromptResult();
 	// Functions
-	 void confirm(AndroidCXX::java_lang_String& arg0);
+	 void confirm(AndroidCXX::java_lang_String const& arg0);
 };	
 
 } // namespace

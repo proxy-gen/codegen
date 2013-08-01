@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -105,29 +104,26 @@ class java_util_Map
 public:
 
 	java_util_Map(const java_util_Map& cc);
-	java_util_Map(void * proxy);
+	java_util_Map(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_util_Map();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Map();
 	// Functions
-	 JDKCXX::java_lang_Object get(JDKCXX::java_lang_Object& arg0);
-	 JDKCXX::java_lang_Object put(JDKCXX::java_lang_Object& arg0,JDKCXX::java_lang_Object& arg1);
-	 bool equals(JDKCXX::java_lang_Object& arg0);
+	 JDKCXX::java_lang_Object get(JDKCXX::java_lang_Object const& arg0);
+	 JDKCXX::java_lang_Object put(JDKCXX::java_lang_Object const& arg0,JDKCXX::java_lang_Object const& arg1);
+	 bool equals(JDKCXX::java_lang_Object const& arg0);
 	 JDKCXX::java_util_Collection values();
 	 int hashCode();
 	 void clear();
 	 bool isEmpty();
 	 int size();
 	 JDKCXX::java_util_Set entrySet();
-	 void putAll(JDKCXX::java_util_Map& arg0);
-	 JDKCXX::java_lang_Object remove(JDKCXX::java_lang_Object& arg0);
+	 void putAll(JDKCXX::java_util_Map const& arg0);
+	 JDKCXX::java_lang_Object remove(JDKCXX::java_lang_Object const& arg0);
 	 JDKCXX::java_util_Set keySet();
-	 bool containsValue(JDKCXX::java_lang_Object& arg0);
-	 bool containsKey(JDKCXX::java_lang_Object& arg0);
+	 bool containsValue(JDKCXX::java_lang_Object const& arg0);
+	 bool containsKey(JDKCXX::java_lang_Object const& arg0);
 };	
 
 } // namespace

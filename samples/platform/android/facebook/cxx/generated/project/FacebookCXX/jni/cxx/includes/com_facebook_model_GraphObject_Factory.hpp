@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -100,19 +99,19 @@ class com_facebook_model_GraphObject_Factory
 public:
 
 	com_facebook_model_GraphObject_Factory(const com_facebook_model_GraphObject_Factory& cc);
-	com_facebook_model_GraphObject_Factory(void * proxy);
+	com_facebook_model_GraphObject_Factory(Proxy proxy);
 	// Public Constructors
-	com_facebook_model_GraphObject_Factory();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphObject_Factory();
 	// Functions
-	static FacebookCXX::com_facebook_model_GraphObject create(AndroidCXX::org_json_JSONObject& arg0);
-	static FacebookCXX::com_facebook_model_GraphObject create(AndroidCXX::org_json_JSONObject& arg0,AndroidCXX::java_lang_Class& arg1);
+	static FacebookCXX::com_facebook_model_GraphObject create(AndroidCXX::org_json_JSONObject const& arg0);
+	static FacebookCXX::com_facebook_model_GraphObject create(AndroidCXX::org_json_JSONObject const& arg0,AndroidCXX::java_lang_Class const& arg1);
 	static FacebookCXX::com_facebook_model_GraphObject create();
-	static FacebookCXX::com_facebook_model_GraphObject create(AndroidCXX::java_lang_Class& arg0);
-	static FacebookCXX::com_facebook_model_GraphObjectList createList(AndroidCXX::org_json_JSONArray& arg0,AndroidCXX::java_lang_Class& arg1);
-	static FacebookCXX::com_facebook_model_GraphObjectList createList(AndroidCXX::java_lang_Class& arg0);
-	static bool hasSameId(FacebookCXX::com_facebook_model_GraphObject& arg0,FacebookCXX::com_facebook_model_GraphObject& arg1);
+	static FacebookCXX::com_facebook_model_GraphObject create(AndroidCXX::java_lang_Class const& arg0);
+	static FacebookCXX::com_facebook_model_GraphObjectList createList(AndroidCXX::org_json_JSONArray const& arg0,AndroidCXX::java_lang_Class const& arg1);
+	static FacebookCXX::com_facebook_model_GraphObjectList createList(AndroidCXX::java_lang_Class const& arg0);
+	static bool hasSameId(FacebookCXX::com_facebook_model_GraphObject const& arg0,FacebookCXX::com_facebook_model_GraphObject const& arg1);
 };	
 
 } // namespace

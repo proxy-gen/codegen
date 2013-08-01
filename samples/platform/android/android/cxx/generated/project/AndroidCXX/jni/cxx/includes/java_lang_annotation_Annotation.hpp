@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -70,13 +69,13 @@ class java_lang_annotation_Annotation
 public:
 
 	java_lang_annotation_Annotation(const java_lang_annotation_Annotation& cc);
-	java_lang_annotation_Annotation(void * proxy);
+	java_lang_annotation_Annotation(Proxy proxy);
 	// Public Constructors
-	java_lang_annotation_Annotation();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_annotation_Annotation();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 AndroidCXX::java_lang_Class annotationType();

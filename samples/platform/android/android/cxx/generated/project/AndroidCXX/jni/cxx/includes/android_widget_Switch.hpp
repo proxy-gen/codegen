@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -129,43 +128,43 @@ class android_widget_Switch
 public:
 
 	android_widget_Switch(const android_widget_Switch& cc);
-	android_widget_Switch(void * proxy);
+	android_widget_Switch(Proxy proxy);
 	// Public Constructors
-	android_widget_Switch(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_Switch(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_Switch(AndroidCXX::android_content_Context& arg0);
-	android_widget_Switch();
+	android_widget_Switch(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_Switch(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_Switch(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Switch();
 	// Functions
-	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0);
+	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0);
 	 void jumpDrawablesToCurrentState();
-	 void onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 void onMeasure(int& arg0,int& arg1);
-	 void setChecked(bool& arg0);
+	 void onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 void onMeasure(int const& arg0,int const& arg1);
+	 void setChecked(bool const& arg0);
 	 int getCompoundPaddingLeft();
 	 int getCompoundPaddingRight();
-	 void setSwitchTextAppearance(AndroidCXX::android_content_Context& arg0,int& arg1);
-	 void setSwitchTypeface(AndroidCXX::android_graphics_Typeface& arg0,int& arg1);
-	 void setSwitchTypeface(AndroidCXX::android_graphics_Typeface& arg0);
-	 void setSwitchPadding(int& arg0);
+	 void setSwitchTextAppearance(AndroidCXX::android_content_Context const& arg0,int const& arg1);
+	 void setSwitchTypeface(AndroidCXX::android_graphics_Typeface const& arg0,int const& arg1);
+	 void setSwitchTypeface(AndroidCXX::android_graphics_Typeface const& arg0);
+	 void setSwitchPadding(int const& arg0);
 	 int getSwitchPadding();
-	 void setSwitchMinWidth(int& arg0);
+	 void setSwitchMinWidth(int const& arg0);
 	 int getSwitchMinWidth();
-	 void setThumbTextPadding(int& arg0);
+	 void setThumbTextPadding(int const& arg0);
 	 int getThumbTextPadding();
-	 void setTrackDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0);
-	 void setTrackResource(int& arg0);
+	 void setTrackDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
+	 void setTrackResource(int const& arg0);
 	 AndroidCXX::android_graphics_drawable_Drawable getTrackDrawable();
-	 void setThumbDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0);
-	 void setThumbResource(int& arg0);
+	 void setThumbDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
+	 void setThumbResource(int const& arg0);
 	 AndroidCXX::android_graphics_drawable_Drawable getThumbDrawable();
 	 AndroidCXX::java_lang_CharSequence getTextOn();
-	 void setTextOn(AndroidCXX::java_lang_CharSequence& arg0);
+	 void setTextOn(AndroidCXX::java_lang_CharSequence const& arg0);
 	 AndroidCXX::java_lang_CharSequence getTextOff();
-	 void setTextOff(AndroidCXX::java_lang_CharSequence& arg0);
+	 void setTextOff(AndroidCXX::java_lang_CharSequence const& arg0);
 };	
 
 } // namespace

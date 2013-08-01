@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -74,7 +73,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_Gallery"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -159,8 +158,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_widget_Gallery::android_widget_Gallery(const android_widget_Gallery& cc)
 {
 	LOGV("android_widget_Gallery::android_widget_Gallery(const android_widget_Gallery& cc) enter");
@@ -184,9 +181,9 @@ android_widget_Gallery::android_widget_Gallery(const android_widget_Gallery& cc)
 
 	LOGV("android_widget_Gallery::android_widget_Gallery(const android_widget_Gallery& cc) exit");
 }
-android_widget_Gallery::android_widget_Gallery(void * proxy)
+android_widget_Gallery::android_widget_Gallery(Proxy proxy)
 {
-	LOGV("android_widget_Gallery::android_widget_Gallery(void * proxy) enter");
+	LOGV("android_widget_Gallery::android_widget_Gallery(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -196,50 +193,34 @@ android_widget_Gallery::android_widget_Gallery(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_Gallery::android_widget_Gallery(void * proxy) exit");
+	LOGV("android_widget_Gallery::android_widget_Gallery(Proxy proxy) exit");
 }
-android_widget_Gallery::android_widget_Gallery()
-{
-	LOGV("android_widget_Gallery::android_widget_Gallery() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/Gallery";
-
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_widget_Gallery::proxy() const
+{	
+	LOGV("android_widget_Gallery::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Gallery jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_widget_Gallery::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_widget_Gallery::android_widget_Gallery() exit");	
+	return proxy;
 }
-// Public Constructors
-android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -313,11 +294,11 @@ android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Conte
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
+android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2)
 {
-	LOGV("android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) enter");	
+	LOGV("android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
@@ -412,11 +393,11 @@ android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Conte
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) exit");	
+	LOGV("android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) exit");	
 }
-android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Context& arg0)
+android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -469,7 +450,7 @@ android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Conte
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Context const& arg0) exit");	
 }
 // Default Instance Destructor
 android_widget_Gallery::~android_widget_Gallery()
@@ -482,13 +463,13 @@ android_widget_Gallery::~android_widget_Gallery()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_Gallery::~android_widget_Gallery() exit");
 }
 // Functions
-bool android_widget_Gallery::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1)
+bool android_widget_Gallery::onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1)
 {
-	LOGV("bool android_widget_Gallery::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) enter");
+	LOGV("bool android_widget_Gallery::onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) enter");
 
 	const char *methodName = "onKeyDown";
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
@@ -499,8 +480,6 @@ bool android_widget_Gallery::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEve
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -549,7 +528,6 @@ bool android_widget_Gallery::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEve
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -567,17 +545,17 @@ bool android_widget_Gallery::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEve
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_Gallery::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_Gallery::onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) exit");
 
 	return result;
 }
-bool android_widget_Gallery::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1)
+bool android_widget_Gallery::onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1)
 {
-	LOGV("bool android_widget_Gallery::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) enter");
+	LOGV("bool android_widget_Gallery::onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) enter");
 
 	const char *methodName = "onKeyUp";
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
@@ -588,8 +566,6 @@ bool android_widget_Gallery::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -638,7 +614,6 @@ bool android_widget_Gallery::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -656,17 +631,17 @@ bool android_widget_Gallery::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_Gallery::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_Gallery::onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) exit");
 
 	return result;
 }
-bool android_widget_Gallery::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_Gallery::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_Gallery::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_Gallery::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onTouchEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -676,8 +651,6 @@ bool android_widget_Gallery::onTouchEvent(AndroidCXX::android_view_MotionEvent& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
@@ -706,7 +679,6 @@ bool android_widget_Gallery::onTouchEvent(AndroidCXX::android_view_MotionEvent& 
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -724,17 +696,17 @@ bool android_widget_Gallery::onTouchEvent(AndroidCXX::android_view_MotionEvent& 
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_Gallery::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_Gallery::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-bool android_widget_Gallery::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0)
+bool android_widget_Gallery::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0)
 {
-	LOGV("bool android_widget_Gallery::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0) enter");
+	LOGV("bool android_widget_Gallery::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) enter");
 
 	const char *methodName = "dispatchKeyEvent";
 	const char *methodSignature = "(Landroid/view/KeyEvent;)Z";
@@ -744,8 +716,6 @@ bool android_widget_Gallery::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
@@ -774,7 +744,6 @@ bool android_widget_Gallery::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent&
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -792,17 +761,17 @@ bool android_widget_Gallery::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_Gallery::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_Gallery::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) exit");
 
 	return result;
 }
-bool android_widget_Gallery::showContextMenuForChild(AndroidCXX::android_view_View& arg0)
+bool android_widget_Gallery::showContextMenuForChild(AndroidCXX::android_view_View const& arg0)
 {
-	LOGV("bool android_widget_Gallery::showContextMenuForChild(AndroidCXX::android_view_View& arg0) enter");
+	LOGV("bool android_widget_Gallery::showContextMenuForChild(AndroidCXX::android_view_View const& arg0) enter");
 
 	const char *methodName = "showContextMenuForChild";
 	const char *methodSignature = "(Landroid/view/View;)Z";
@@ -812,8 +781,6 @@ bool android_widget_Gallery::showContextMenuForChild(AndroidCXX::android_view_Vi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
@@ -842,7 +809,6 @@ bool android_widget_Gallery::showContextMenuForChild(AndroidCXX::android_view_Vi
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -860,17 +826,17 @@ bool android_widget_Gallery::showContextMenuForChild(AndroidCXX::android_view_Vi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_Gallery::showContextMenuForChild(AndroidCXX::android_view_View& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_Gallery::showContextMenuForChild(AndroidCXX::android_view_View const& arg0) exit");
 
 	return result;
 }
-void android_widget_Gallery::dispatchSetSelected(bool& arg0)
+void android_widget_Gallery::dispatchSetSelected(bool const& arg0)
 {
-	LOGV("void android_widget_Gallery::dispatchSetSelected(bool& arg0) enter");
+	LOGV("void android_widget_Gallery::dispatchSetSelected(bool const& arg0) enter");
 
 	const char *methodName = "dispatchSetSelected";
 	const char *methodSignature = "(Z)V";
@@ -880,8 +846,6 @@ void android_widget_Gallery::dispatchSetSelected(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
@@ -912,14 +876,12 @@ void android_widget_Gallery::dispatchSetSelected(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Gallery::dispatchSetSelected(bool& arg0) exit");
+	LOGV("void android_widget_Gallery::dispatchSetSelected(bool const& arg0) exit");
 
 }
-AndroidCXX::android_view_ViewGroup_LayoutParams android_widget_Gallery::generateLayoutParams(AndroidCXX::android_util_AttributeSet& arg0)
+AndroidCXX::android_view_ViewGroup_LayoutParams android_widget_Gallery::generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0)
 {
-	LOGV("AndroidCXX::android_view_ViewGroup_LayoutParams android_widget_Gallery::generateLayoutParams(AndroidCXX::android_util_AttributeSet& arg0) enter");
+	LOGV("AndroidCXX::android_view_ViewGroup_LayoutParams android_widget_Gallery::generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0) enter");
 
 	const char *methodName = "generateLayoutParams";
 	const char *methodSignature = "(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;";
@@ -929,8 +891,6 @@ AndroidCXX::android_view_ViewGroup_LayoutParams android_widget_Gallery::generate
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
@@ -959,7 +919,6 @@ AndroidCXX::android_view_ViewGroup_LayoutParams android_widget_Gallery::generate
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewGroup_LayoutParams result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -977,11 +936,11 @@ AndroidCXX::android_view_ViewGroup_LayoutParams android_widget_Gallery::generate
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewGroup_LayoutParams(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewGroup_LayoutParams) (AndroidCXX::android_view_ViewGroup_LayoutParams((AndroidCXX::android_view_ViewGroup_LayoutParams *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_view_ViewGroup_LayoutParams android_widget_Gallery::generateLayoutParams(AndroidCXX::android_util_AttributeSet& arg0) exit");
+	AndroidCXX::android_view_ViewGroup_LayoutParams result((AndroidCXX::android_view_ViewGroup_LayoutParams) *((AndroidCXX::android_view_ViewGroup_LayoutParams *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewGroup_LayoutParams *) cxx_value);
+		
+	LOGV("AndroidCXX::android_view_ViewGroup_LayoutParams android_widget_Gallery::generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0) exit");
 
 	return result;
 }
@@ -998,15 +957,12 @@ bool android_widget_Gallery::showContextMenu()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Gallery jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1024,17 +980,17 @@ bool android_widget_Gallery::showContextMenu()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_widget_Gallery::showContextMenu() exit");
 
 	return result;
 }
-void android_widget_Gallery::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_Gallery::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_Gallery::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_Gallery::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -1044,8 +1000,6 @@ void android_widget_Gallery::onInitializeAccessibilityEvent(AndroidCXX::android_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
@@ -1076,14 +1030,12 @@ void android_widget_Gallery::onInitializeAccessibilityEvent(AndroidCXX::android_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Gallery::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_Gallery::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_Gallery::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0)
+void android_widget_Gallery::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0)
 {
-	LOGV("void android_widget_Gallery::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) enter");
+	LOGV("void android_widget_Gallery::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityNodeInfo";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
@@ -1093,8 +1045,6 @@ void android_widget_Gallery::onInitializeAccessibilityNodeInfo(AndroidCXX::andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
@@ -1125,14 +1075,12 @@ void android_widget_Gallery::onInitializeAccessibilityNodeInfo(AndroidCXX::andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Gallery::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) exit");
+	LOGV("void android_widget_Gallery::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) exit");
 
 }
-bool android_widget_Gallery::performAccessibilityAction(int& arg0,AndroidCXX::android_os_Bundle& arg1)
+bool android_widget_Gallery::performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1)
 {
-	LOGV("bool android_widget_Gallery::performAccessibilityAction(int& arg0,AndroidCXX::android_os_Bundle& arg1) enter");
+	LOGV("bool android_widget_Gallery::performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) enter");
 
 	const char *methodName = "performAccessibilityAction";
 	const char *methodSignature = "(ILandroid/os/Bundle;)Z";
@@ -1142,8 +1090,6 @@ bool android_widget_Gallery::performAccessibilityAction(int& arg0,AndroidCXX::an
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
@@ -1193,7 +1139,6 @@ bool android_widget_Gallery::performAccessibilityAction(int& arg0,AndroidCXX::an
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1211,17 +1156,17 @@ bool android_widget_Gallery::performAccessibilityAction(int& arg0,AndroidCXX::an
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_Gallery::performAccessibilityAction(int& arg0,AndroidCXX::android_os_Bundle& arg1) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_Gallery::performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) exit");
 
 	return result;
 }
-void android_widget_Gallery::setGravity(int& arg0)
+void android_widget_Gallery::setGravity(int const& arg0)
 {
-	LOGV("void android_widget_Gallery::setGravity(int& arg0) enter");
+	LOGV("void android_widget_Gallery::setGravity(int const& arg0) enter");
 
 	const char *methodName = "setGravity";
 	const char *methodSignature = "(I)V";
@@ -1231,8 +1176,6 @@ void android_widget_Gallery::setGravity(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
@@ -1263,14 +1206,12 @@ void android_widget_Gallery::setGravity(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Gallery::setGravity(int& arg0) exit");
+	LOGV("void android_widget_Gallery::setGravity(int const& arg0) exit");
 
 }
-bool android_widget_Gallery::onScroll(AndroidCXX::android_view_MotionEvent& arg0,AndroidCXX::android_view_MotionEvent& arg1,float& arg2,float& arg3)
+bool android_widget_Gallery::onScroll(AndroidCXX::android_view_MotionEvent const& arg0,AndroidCXX::android_view_MotionEvent const& arg1,float const& arg2,float const& arg3)
 {
-	LOGV("bool android_widget_Gallery::onScroll(AndroidCXX::android_view_MotionEvent& arg0,AndroidCXX::android_view_MotionEvent& arg1,float& arg2,float& arg3) enter");
+	LOGV("bool android_widget_Gallery::onScroll(AndroidCXX::android_view_MotionEvent const& arg0,AndroidCXX::android_view_MotionEvent const& arg1,float const& arg2,float const& arg3) enter");
 
 	const char *methodName = "onScroll";
 	const char *methodSignature = "(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z";
@@ -1280,8 +1221,6 @@ bool android_widget_Gallery::onScroll(AndroidCXX::android_view_MotionEvent& arg0
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
@@ -1373,7 +1312,6 @@ bool android_widget_Gallery::onScroll(AndroidCXX::android_view_MotionEvent& arg0
 		jarg3 = convert_jni_float_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1391,17 +1329,17 @@ bool android_widget_Gallery::onScroll(AndroidCXX::android_view_MotionEvent& arg0
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_Gallery::onScroll(AndroidCXX::android_view_MotionEvent& arg0,AndroidCXX::android_view_MotionEvent& arg1,float& arg2,float& arg3) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_Gallery::onScroll(AndroidCXX::android_view_MotionEvent const& arg0,AndroidCXX::android_view_MotionEvent const& arg1,float const& arg2,float const& arg3) exit");
 
 	return result;
 }
-void android_widget_Gallery::setCallbackDuringFling(bool& arg0)
+void android_widget_Gallery::setCallbackDuringFling(bool const& arg0)
 {
-	LOGV("void android_widget_Gallery::setCallbackDuringFling(bool& arg0) enter");
+	LOGV("void android_widget_Gallery::setCallbackDuringFling(bool const& arg0) enter");
 
 	const char *methodName = "setCallbackDuringFling";
 	const char *methodSignature = "(Z)V";
@@ -1411,8 +1349,6 @@ void android_widget_Gallery::setCallbackDuringFling(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
@@ -1443,14 +1379,12 @@ void android_widget_Gallery::setCallbackDuringFling(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Gallery::setCallbackDuringFling(bool& arg0) exit");
+	LOGV("void android_widget_Gallery::setCallbackDuringFling(bool const& arg0) exit");
 
 }
-void android_widget_Gallery::setAnimationDuration(int& arg0)
+void android_widget_Gallery::setAnimationDuration(int const& arg0)
 {
-	LOGV("void android_widget_Gallery::setAnimationDuration(int& arg0) enter");
+	LOGV("void android_widget_Gallery::setAnimationDuration(int const& arg0) enter");
 
 	const char *methodName = "setAnimationDuration";
 	const char *methodSignature = "(I)V";
@@ -1461,8 +1395,6 @@ void android_widget_Gallery::setAnimationDuration(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1492,14 +1424,12 @@ void android_widget_Gallery::setAnimationDuration(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Gallery::setAnimationDuration(int& arg0) exit");
+	LOGV("void android_widget_Gallery::setAnimationDuration(int const& arg0) exit");
 
 }
-void android_widget_Gallery::setSpacing(int& arg0)
+void android_widget_Gallery::setSpacing(int const& arg0)
 {
-	LOGV("void android_widget_Gallery::setSpacing(int& arg0) enter");
+	LOGV("void android_widget_Gallery::setSpacing(int const& arg0) enter");
 
 	const char *methodName = "setSpacing";
 	const char *methodSignature = "(I)V";
@@ -1510,8 +1440,6 @@ void android_widget_Gallery::setSpacing(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1541,14 +1469,12 @@ void android_widget_Gallery::setSpacing(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Gallery::setSpacing(int& arg0) exit");
+	LOGV("void android_widget_Gallery::setSpacing(int const& arg0) exit");
 
 }
-void android_widget_Gallery::setUnselectedAlpha(float& arg0)
+void android_widget_Gallery::setUnselectedAlpha(float const& arg0)
 {
-	LOGV("void android_widget_Gallery::setUnselectedAlpha(float& arg0) enter");
+	LOGV("void android_widget_Gallery::setUnselectedAlpha(float const& arg0) enter");
 
 	const char *methodName = "setUnselectedAlpha";
 	const char *methodSignature = "(F)V";
@@ -1558,8 +1484,6 @@ void android_widget_Gallery::setUnselectedAlpha(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
@@ -1590,14 +1514,12 @@ void android_widget_Gallery::setUnselectedAlpha(float& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Gallery::setUnselectedAlpha(float& arg0) exit");
+	LOGV("void android_widget_Gallery::setUnselectedAlpha(float const& arg0) exit");
 
 }
-bool android_widget_Gallery::onSingleTapUp(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_Gallery::onSingleTapUp(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_Gallery::onSingleTapUp(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_Gallery::onSingleTapUp(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onSingleTapUp";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -1607,8 +1529,6 @@ bool android_widget_Gallery::onSingleTapUp(AndroidCXX::android_view_MotionEvent&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
@@ -1637,7 +1557,6 @@ bool android_widget_Gallery::onSingleTapUp(AndroidCXX::android_view_MotionEvent&
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1655,17 +1574,17 @@ bool android_widget_Gallery::onSingleTapUp(AndroidCXX::android_view_MotionEvent&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_Gallery::onSingleTapUp(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_Gallery::onSingleTapUp(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-bool android_widget_Gallery::onFling(AndroidCXX::android_view_MotionEvent& arg0,AndroidCXX::android_view_MotionEvent& arg1,float& arg2,float& arg3)
+bool android_widget_Gallery::onFling(AndroidCXX::android_view_MotionEvent const& arg0,AndroidCXX::android_view_MotionEvent const& arg1,float const& arg2,float const& arg3)
 {
-	LOGV("bool android_widget_Gallery::onFling(AndroidCXX::android_view_MotionEvent& arg0,AndroidCXX::android_view_MotionEvent& arg1,float& arg2,float& arg3) enter");
+	LOGV("bool android_widget_Gallery::onFling(AndroidCXX::android_view_MotionEvent const& arg0,AndroidCXX::android_view_MotionEvent const& arg1,float const& arg2,float const& arg3) enter");
 
 	const char *methodName = "onFling";
 	const char *methodSignature = "(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z";
@@ -1675,8 +1594,6 @@ bool android_widget_Gallery::onFling(AndroidCXX::android_view_MotionEvent& arg0,
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
@@ -1768,7 +1685,6 @@ bool android_widget_Gallery::onFling(AndroidCXX::android_view_MotionEvent& arg0,
 		jarg3 = convert_jni_float_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1786,17 +1702,17 @@ bool android_widget_Gallery::onFling(AndroidCXX::android_view_MotionEvent& arg0,
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_Gallery::onFling(AndroidCXX::android_view_MotionEvent& arg0,AndroidCXX::android_view_MotionEvent& arg1,float& arg2,float& arg3) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_Gallery::onFling(AndroidCXX::android_view_MotionEvent const& arg0,AndroidCXX::android_view_MotionEvent const& arg1,float const& arg2,float const& arg3) exit");
 
 	return result;
 }
-bool android_widget_Gallery::onDown(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_Gallery::onDown(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_Gallery::onDown(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_Gallery::onDown(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onDown";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -1806,8 +1722,6 @@ bool android_widget_Gallery::onDown(AndroidCXX::android_view_MotionEvent& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
@@ -1836,7 +1750,6 @@ bool android_widget_Gallery::onDown(AndroidCXX::android_view_MotionEvent& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1854,17 +1767,17 @@ bool android_widget_Gallery::onDown(AndroidCXX::android_view_MotionEvent& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_Gallery::onDown(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_Gallery::onDown(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-void android_widget_Gallery::onLongPress(AndroidCXX::android_view_MotionEvent& arg0)
+void android_widget_Gallery::onLongPress(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("void android_widget_Gallery::onLongPress(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("void android_widget_Gallery::onLongPress(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onLongPress";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)V";
@@ -1875,8 +1788,6 @@ void android_widget_Gallery::onLongPress(AndroidCXX::android_view_MotionEvent& a
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1906,14 +1817,12 @@ void android_widget_Gallery::onLongPress(AndroidCXX::android_view_MotionEvent& a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Gallery::onLongPress(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	LOGV("void android_widget_Gallery::onLongPress(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 }
-void android_widget_Gallery::onShowPress(AndroidCXX::android_view_MotionEvent& arg0)
+void android_widget_Gallery::onShowPress(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("void android_widget_Gallery::onShowPress(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("void android_widget_Gallery::onShowPress(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onShowPress";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)V";
@@ -1924,8 +1833,6 @@ void android_widget_Gallery::onShowPress(AndroidCXX::android_view_MotionEvent& a
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Gallery cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1955,8 +1862,6 @@ void android_widget_Gallery::onShowPress(AndroidCXX::android_view_MotionEvent& a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Gallery::onShowPress(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	LOGV("void android_widget_Gallery::onShowPress(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 }

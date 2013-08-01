@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -82,20 +81,20 @@ class android_widget_MultiAutoCompleteTextView
 public:
 
 	android_widget_MultiAutoCompleteTextView(const android_widget_MultiAutoCompleteTextView& cc);
-	android_widget_MultiAutoCompleteTextView(void * proxy);
+	android_widget_MultiAutoCompleteTextView(Proxy proxy);
 	// Public Constructors
-	android_widget_MultiAutoCompleteTextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_MultiAutoCompleteTextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_MultiAutoCompleteTextView(AndroidCXX::android_content_Context& arg0);
-	android_widget_MultiAutoCompleteTextView();
+	android_widget_MultiAutoCompleteTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_MultiAutoCompleteTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_MultiAutoCompleteTextView(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_MultiAutoCompleteTextView();
 	// Functions
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
 	 bool enoughToFilter();
 	 void performValidation();
-	 void setTokenizer(AndroidCXX::android_widget_MultiAutoCompleteTextView_Tokenizer& arg0);
+	 void setTokenizer(AndroidCXX::android_widget_MultiAutoCompleteTextView_Tokenizer const& arg0);
 };	
 
 } // namespace

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -90,20 +89,20 @@ class android_content_pm_ResolveInfo
 {
 public:
 
-	android_content_pm_ResolveInfo(const android_content_pm_ResolveInfo& cc);
-	android_content_pm_ResolveInfo(void * proxy);
+	android_content_pm_ResolveInfo(Proxy proxy);
 	// Public Constructors
 	android_content_pm_ResolveInfo();
-	android_content_pm_ResolveInfo(AndroidCXX::android_content_pm_ResolveInfo& arg0);
+	android_content_pm_ResolveInfo(AndroidCXX::android_content_pm_ResolveInfo const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_pm_ResolveInfo();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
-	 void dump(AndroidCXX::android_util_Printer& arg0,AndroidCXX::java_lang_String& arg1);
+	 void dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1);
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
-	 AndroidCXX::java_lang_CharSequence loadLabel(AndroidCXX::android_content_pm_PackageManager& arg0);
-	 AndroidCXX::android_graphics_drawable_Drawable loadIcon(AndroidCXX::android_content_pm_PackageManager& arg0);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	 AndroidCXX::java_lang_CharSequence loadLabel(AndroidCXX::android_content_pm_PackageManager const& arg0);
+	 AndroidCXX::android_graphics_drawable_Drawable loadIcon(AndroidCXX::android_content_pm_PackageManager const& arg0);
 	 int getIconResource();
 };	
 

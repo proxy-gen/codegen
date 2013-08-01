@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -169,45 +168,45 @@ class android_widget_AutoCompleteTextView
 public:
 
 	android_widget_AutoCompleteTextView(const android_widget_AutoCompleteTextView& cc);
-	android_widget_AutoCompleteTextView(void * proxy);
+	android_widget_AutoCompleteTextView(Proxy proxy);
 	// Public Constructors
-	android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context& arg0);
-	android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_AutoCompleteTextView();
+	android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context const& arg0);
+	android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AutoCompleteTextView();
 	// Functions
-	 void setThreshold(int& arg0);
-	 void setText(AndroidCXX::java_lang_CharSequence& arg0,bool& arg1);
-	 bool onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1);
-	 bool onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1);
-	 void onWindowFocusChanged(bool& arg0);
-	 void setOnClickListener(AndroidCXX::android_view_View_OnClickListener& arg0);
-	 bool onKeyPreIme(int& arg0,AndroidCXX::android_view_KeyEvent& arg1);
-	 void setOnDismissListener(AndroidCXX::android_widget_AutoCompleteTextView_OnDismissListener& arg0);
-	 void setAdapter(AndroidCXX::android_widget_ListAdapter& arg0);
-	 void onFilterComplete(int& arg0);
-	 void setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener& arg0);
+	 void setThreshold(int const& arg0);
+	 void setText(AndroidCXX::java_lang_CharSequence const& arg0,bool const& arg1);
+	 bool onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
+	 bool onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
+	 void onWindowFocusChanged(bool const& arg0);
+	 void setOnClickListener(AndroidCXX::android_view_View_OnClickListener const& arg0);
+	 bool onKeyPreIme(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
+	 void setOnDismissListener(AndroidCXX::android_widget_AutoCompleteTextView_OnDismissListener const& arg0);
+	 void setAdapter(AndroidCXX::android_widget_ListAdapter const& arg0);
+	 void onFilterComplete(int const& arg0);
+	 void setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener const& arg0);
 	 AndroidCXX::android_widget_AdapterView_OnItemClickListener getOnItemClickListener();
-	 void setOnItemSelectedListener(AndroidCXX::android_widget_AdapterView_OnItemSelectedListener& arg0);
+	 void setOnItemSelectedListener(AndroidCXX::android_widget_AdapterView_OnItemSelectedListener const& arg0);
 	 AndroidCXX::android_widget_AdapterView_OnItemSelectedListener getOnItemSelectedListener();
 	 AndroidCXX::android_widget_ListAdapter getAdapter();
-	 void onCommitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo& arg0);
-	 void setCompletionHint(AndroidCXX::java_lang_CharSequence& arg0);
+	 void onCommitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo const& arg0);
+	 void setCompletionHint(AndroidCXX::java_lang_CharSequence const& arg0);
 	 AndroidCXX::java_lang_CharSequence getCompletionHint();
 	 int getDropDownWidth();
-	 void setDropDownWidth(int& arg0);
+	 void setDropDownWidth(int const& arg0);
 	 int getDropDownHeight();
-	 void setDropDownHeight(int& arg0);
+	 void setDropDownHeight(int const& arg0);
 	 int getDropDownAnchor();
-	 void setDropDownAnchor(int& arg0);
+	 void setDropDownAnchor(int const& arg0);
 	 AndroidCXX::android_graphics_drawable_Drawable getDropDownBackground();
-	 void setDropDownBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0);
-	 void setDropDownBackgroundResource(int& arg0);
-	 void setDropDownVerticalOffset(int& arg0);
+	 void setDropDownBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
+	 void setDropDownBackgroundResource(int const& arg0);
+	 void setDropDownVerticalOffset(int const& arg0);
 	 int getDropDownVerticalOffset();
-	 void setDropDownHorizontalOffset(int& arg0);
+	 void setDropDownHorizontalOffset(int const& arg0);
 	 int getDropDownHorizontalOffset();
 	 int getThreshold();
 	 AndroidCXX::android_widget_AdapterView_OnItemClickListener getItemClickListener();
@@ -215,13 +214,13 @@ public:
 	 bool enoughToFilter();
 	 bool isPopupShowing();
 	 void clearListSelection();
-	 void setListSelection(int& arg0);
+	 void setListSelection(int const& arg0);
 	 int getListSelection();
 	 void performCompletion();
 	 bool isPerformingCompletion();
 	 void dismissDropDown();
 	 void showDropDown();
-	 void setValidator(AndroidCXX::android_widget_AutoCompleteTextView_Validator& arg0);
+	 void setValidator(AndroidCXX::android_widget_AutoCompleteTextView_Validator const& arg0);
 	 AndroidCXX::android_widget_AutoCompleteTextView_Validator getValidator();
 	 void performValidation();
 };	

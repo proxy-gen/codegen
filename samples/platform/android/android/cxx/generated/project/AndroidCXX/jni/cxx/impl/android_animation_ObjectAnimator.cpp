@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -78,7 +77,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_animation_ObjectAnimator"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -184,8 +183,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_animation_ObjectAnimator::android_animation_ObjectAnimator(const android_animation_ObjectAnimator& cc)
 {
 	LOGV("android_animation_ObjectAnimator::android_animation_ObjectAnimator(const android_animation_ObjectAnimator& cc) enter");
@@ -209,9 +206,9 @@ android_animation_ObjectAnimator::android_animation_ObjectAnimator(const android
 
 	LOGV("android_animation_ObjectAnimator::android_animation_ObjectAnimator(const android_animation_ObjectAnimator& cc) exit");
 }
-android_animation_ObjectAnimator::android_animation_ObjectAnimator(void * proxy)
+android_animation_ObjectAnimator::android_animation_ObjectAnimator(Proxy proxy)
 {
-	LOGV("android_animation_ObjectAnimator::android_animation_ObjectAnimator(void * proxy) enter");
+	LOGV("android_animation_ObjectAnimator::android_animation_ObjectAnimator(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -221,13 +218,31 @@ android_animation_ObjectAnimator::android_animation_ObjectAnimator(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_animation_ObjectAnimator::android_animation_ObjectAnimator(void * proxy) exit");
+	LOGV("android_animation_ObjectAnimator::android_animation_ObjectAnimator(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy android_animation_ObjectAnimator::proxy() const
+{	
+	LOGV("android_animation_ObjectAnimator::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_animation_ObjectAnimator cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_animation_ObjectAnimator jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_animation_ObjectAnimator::proxy() exit");	
+
+	return proxy;
+}
 android_animation_ObjectAnimator::android_animation_ObjectAnimator()
 {
 	LOGV("android_animation_ObjectAnimator::android_animation_ObjectAnimator() enter");	
@@ -275,13 +290,13 @@ android_animation_ObjectAnimator::~android_animation_ObjectAnimator()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_animation_ObjectAnimator::~android_animation_ObjectAnimator() exit");
 }
 // Functions
-void android_animation_ObjectAnimator::setProperty(AndroidCXX::android_util_Property& arg0)
+void android_animation_ObjectAnimator::setProperty(AndroidCXX::android_util_Property const& arg0)
 {
-	LOGV("void android_animation_ObjectAnimator::setProperty(AndroidCXX::android_util_Property& arg0) enter");
+	LOGV("void android_animation_ObjectAnimator::setProperty(AndroidCXX::android_util_Property const& arg0) enter");
 
 	const char *methodName = "setProperty";
 	const char *methodSignature = "(Landroid/util/Property;)V";
@@ -291,8 +306,6 @@ void android_animation_ObjectAnimator::setProperty(AndroidCXX::android_util_Prop
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_ObjectAnimator cxx address %d", cxxAddress);
@@ -323,9 +336,7 @@ void android_animation_ObjectAnimator::setProperty(AndroidCXX::android_util_Prop
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_ObjectAnimator::setProperty(AndroidCXX::android_util_Property& arg0) exit");
+	LOGV("void android_animation_ObjectAnimator::setProperty(AndroidCXX::android_util_Property const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String android_animation_ObjectAnimator::toString()
@@ -341,15 +352,12 @@ AndroidCXX::java_lang_String android_animation_ObjectAnimator::toString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_ObjectAnimator cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_animation_ObjectAnimator jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -367,10 +375,10 @@ AndroidCXX::java_lang_String android_animation_ObjectAnimator::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_animation_ObjectAnimator::toString() exit");
 
 	return result;
@@ -388,15 +396,12 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::c
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_ObjectAnimator cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_animation_ObjectAnimator jni address %d", javaObject);
 
 
-	AndroidCXX::android_animation_ObjectAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -414,10 +419,10 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::c
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_animation_ObjectAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_animation_ObjectAnimator) (AndroidCXX::android_animation_ObjectAnimator((AndroidCXX::android_animation_ObjectAnimator *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_animation_ObjectAnimator result((AndroidCXX::android_animation_ObjectAnimator) *((AndroidCXX::android_animation_ObjectAnimator *) cxx_value));
+	delete ((AndroidCXX::android_animation_ObjectAnimator *) cxx_value);
+		
 	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::clone() exit");
 
 	return result;
@@ -435,8 +440,6 @@ void android_animation_ObjectAnimator::start()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_ObjectAnimator cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -445,14 +448,12 @@ void android_animation_ObjectAnimator::start()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_animation_ObjectAnimator::start() exit");
 
 }
-AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::setDuration(long& arg0)
+AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::setDuration(long const& arg0)
 {
-	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::setDuration(long& arg0) enter");
+	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::setDuration(long const& arg0) enter");
 
 	const char *methodName = "setDuration";
 	const char *methodSignature = "(J)Landroid/animation/ObjectAnimator;";
@@ -462,8 +463,6 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::s
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_ObjectAnimator cxx address %d", cxxAddress);
@@ -492,7 +491,6 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::s
 		jarg0 = convert_jni_long_to_jni(java_value);
 	}
 
-	AndroidCXX::android_animation_ObjectAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -510,17 +508,17 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::s
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_animation_ObjectAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_animation_ObjectAnimator) (AndroidCXX::android_animation_ObjectAnimator((AndroidCXX::android_animation_ObjectAnimator *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::setDuration(long& arg0) exit");
+	AndroidCXX::android_animation_ObjectAnimator result((AndroidCXX::android_animation_ObjectAnimator) *((AndroidCXX::android_animation_ObjectAnimator *) cxx_value));
+	delete ((AndroidCXX::android_animation_ObjectAnimator *) cxx_value);
+		
+	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::setDuration(long const& arg0) exit");
 
 	return result;
 }
-void android_animation_ObjectAnimator::setTarget(AndroidCXX::java_lang_Object& arg0)
+void android_animation_ObjectAnimator::setTarget(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("void android_animation_ObjectAnimator::setTarget(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("void android_animation_ObjectAnimator::setTarget(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "setTarget";
 	const char *methodSignature = "(Ljava/lang/Object;)V";
@@ -530,8 +528,6 @@ void android_animation_ObjectAnimator::setTarget(AndroidCXX::java_lang_Object& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_ObjectAnimator cxx address %d", cxxAddress);
@@ -562,9 +558,7 @@ void android_animation_ObjectAnimator::setTarget(AndroidCXX::java_lang_Object& a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_ObjectAnimator::setTarget(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("void android_animation_ObjectAnimator::setTarget(AndroidCXX::java_lang_Object const& arg0) exit");
 
 }
 AndroidCXX::java_lang_Object android_animation_ObjectAnimator::getTarget()
@@ -580,15 +574,12 @@ AndroidCXX::java_lang_Object android_animation_ObjectAnimator::getTarget()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_ObjectAnimator cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_animation_ObjectAnimator jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -606,10 +597,10 @@ AndroidCXX::java_lang_Object android_animation_ObjectAnimator::getTarget()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_Object android_animation_ObjectAnimator::getTarget() exit");
 
 	return result;
@@ -627,8 +618,6 @@ void android_animation_ObjectAnimator::setupStartValues()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_ObjectAnimator cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -637,8 +626,6 @@ void android_animation_ObjectAnimator::setupStartValues()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_animation_ObjectAnimator::setupStartValues() exit");
 
 }
@@ -655,8 +642,6 @@ void android_animation_ObjectAnimator::setupEndValues()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_ObjectAnimator cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -665,14 +650,12 @@ void android_animation_ObjectAnimator::setupEndValues()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_animation_ObjectAnimator::setupEndValues() exit");
 
 }
-void android_animation_ObjectAnimator::setPropertyName(AndroidCXX::java_lang_String& arg0)
+void android_animation_ObjectAnimator::setPropertyName(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_animation_ObjectAnimator::setPropertyName(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_animation_ObjectAnimator::setPropertyName(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setPropertyName";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -682,8 +665,6 @@ void android_animation_ObjectAnimator::setPropertyName(AndroidCXX::java_lang_Str
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_ObjectAnimator cxx address %d", cxxAddress);
@@ -714,9 +695,7 @@ void android_animation_ObjectAnimator::setPropertyName(AndroidCXX::java_lang_Str
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_ObjectAnimator::setPropertyName(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_animation_ObjectAnimator::setPropertyName(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String android_animation_ObjectAnimator::getPropertyName()
@@ -732,15 +711,12 @@ AndroidCXX::java_lang_String android_animation_ObjectAnimator::getPropertyName()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_ObjectAnimator cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_animation_ObjectAnimator jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -758,17 +734,17 @@ AndroidCXX::java_lang_String android_animation_ObjectAnimator::getPropertyName()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_animation_ObjectAnimator::getPropertyName() exit");
 
 	return result;
 }
-AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofInt(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_String& arg1,std::vector<int>& arg2)
+AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofInt(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<int> const& arg2)
 {
-	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofInt(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_String& arg1,std::vector<int>& arg2) enter");
+	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofInt(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<int> const& arg2) enter");
 
 	const char *methodName = "ofInt";
 	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/String;[I)Landroid/animation/ObjectAnimator;";
@@ -778,8 +754,6 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_animation_ObjectAnimator cxx address %d", cxxAddress);
@@ -868,8 +842,7 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 		jarg2 = convert_jni__int_array_type_to_jni(java_value);
 	}
 
-	AndroidCXX::android_animation_ObjectAnimator result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -886,17 +859,17 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_animation_ObjectAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_animation_ObjectAnimator) (AndroidCXX::android_animation_ObjectAnimator((AndroidCXX::android_animation_ObjectAnimator *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofInt(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_String& arg1,std::vector<int>& arg2) exit");
+	AndroidCXX::android_animation_ObjectAnimator result((AndroidCXX::android_animation_ObjectAnimator) *((AndroidCXX::android_animation_ObjectAnimator *) cxx_value));
+	delete ((AndroidCXX::android_animation_ObjectAnimator *) cxx_value);
+		
+	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofInt(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<int> const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofInt(AndroidCXX::java_lang_Object& arg0,AndroidCXX::android_util_Property& arg1,std::vector<int>& arg2)
+AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofInt(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::android_util_Property const& arg1,std::vector<int> const& arg2)
 {
-	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofInt(AndroidCXX::java_lang_Object& arg0,AndroidCXX::android_util_Property& arg1,std::vector<int>& arg2) enter");
+	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofInt(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::android_util_Property const& arg1,std::vector<int> const& arg2) enter");
 
 	const char *methodName = "ofInt";
 	const char *methodSignature = "(Ljava/lang/Object;Landroid/util/Property;[I)Landroid/animation/ObjectAnimator;";
@@ -906,8 +879,6 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_animation_ObjectAnimator cxx address %d", cxxAddress);
@@ -1029,8 +1000,7 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 		jarg2 = convert_jni__int_array_type_to_jni(java_value);
 	}
 
-	AndroidCXX::android_animation_ObjectAnimator result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1047,17 +1017,17 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_animation_ObjectAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_animation_ObjectAnimator) (AndroidCXX::android_animation_ObjectAnimator((AndroidCXX::android_animation_ObjectAnimator *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofInt(AndroidCXX::java_lang_Object& arg0,AndroidCXX::android_util_Property& arg1,std::vector<int>& arg2) exit");
+	AndroidCXX::android_animation_ObjectAnimator result((AndroidCXX::android_animation_ObjectAnimator) *((AndroidCXX::android_animation_ObjectAnimator *) cxx_value));
+	delete ((AndroidCXX::android_animation_ObjectAnimator *) cxx_value);
+		
+	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofInt(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::android_util_Property const& arg1,std::vector<int> const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofFloat(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_String& arg1,std::vector<float>& arg2)
+AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofFloat(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<float> const& arg2)
 {
-	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofFloat(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_String& arg1,std::vector<float>& arg2) enter");
+	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofFloat(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<float> const& arg2) enter");
 
 	const char *methodName = "ofFloat";
 	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;";
@@ -1067,8 +1037,6 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_animation_ObjectAnimator cxx address %d", cxxAddress);
@@ -1157,8 +1125,7 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 		jarg2 = convert_jni__float_array_type_to_jni(java_value);
 	}
 
-	AndroidCXX::android_animation_ObjectAnimator result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1175,17 +1142,17 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_animation_ObjectAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_animation_ObjectAnimator) (AndroidCXX::android_animation_ObjectAnimator((AndroidCXX::android_animation_ObjectAnimator *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofFloat(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_String& arg1,std::vector<float>& arg2) exit");
+	AndroidCXX::android_animation_ObjectAnimator result((AndroidCXX::android_animation_ObjectAnimator) *((AndroidCXX::android_animation_ObjectAnimator *) cxx_value));
+	delete ((AndroidCXX::android_animation_ObjectAnimator *) cxx_value);
+		
+	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofFloat(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<float> const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofFloat(AndroidCXX::java_lang_Object& arg0,AndroidCXX::android_util_Property& arg1,std::vector<float>& arg2)
+AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofFloat(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::android_util_Property const& arg1,std::vector<float> const& arg2)
 {
-	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofFloat(AndroidCXX::java_lang_Object& arg0,AndroidCXX::android_util_Property& arg1,std::vector<float>& arg2) enter");
+	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofFloat(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::android_util_Property const& arg1,std::vector<float> const& arg2) enter");
 
 	const char *methodName = "ofFloat";
 	const char *methodSignature = "(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;";
@@ -1195,8 +1162,6 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_animation_ObjectAnimator cxx address %d", cxxAddress);
@@ -1318,8 +1283,7 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 		jarg2 = convert_jni__float_array_type_to_jni(java_value);
 	}
 
-	AndroidCXX::android_animation_ObjectAnimator result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1336,17 +1300,17 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_animation_ObjectAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_animation_ObjectAnimator) (AndroidCXX::android_animation_ObjectAnimator((AndroidCXX::android_animation_ObjectAnimator *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofFloat(AndroidCXX::java_lang_Object& arg0,AndroidCXX::android_util_Property& arg1,std::vector<float>& arg2) exit");
+	AndroidCXX::android_animation_ObjectAnimator result((AndroidCXX::android_animation_ObjectAnimator) *((AndroidCXX::android_animation_ObjectAnimator *) cxx_value));
+	delete ((AndroidCXX::android_animation_ObjectAnimator *) cxx_value);
+		
+	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofFloat(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::android_util_Property const& arg1,std::vector<float> const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object& arg0,AndroidCXX::android_util_Property& arg1,AndroidCXX::android_animation_TypeEvaluator& arg2,std::vector<AndroidCXX::java_lang_Object >& arg3)
+AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::android_util_Property const& arg1,AndroidCXX::android_animation_TypeEvaluator const& arg2,std::vector<AndroidCXX::java_lang_Object > const& arg3)
 {
-	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object& arg0,AndroidCXX::android_util_Property& arg1,AndroidCXX::android_animation_TypeEvaluator& arg2,std::vector<AndroidCXX::java_lang_Object >& arg3) enter");
+	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::android_util_Property const& arg1,AndroidCXX::android_animation_TypeEvaluator const& arg2,std::vector<AndroidCXX::java_lang_Object > const& arg3) enter");
 
 	const char *methodName = "ofObject";
 	const char *methodSignature = "(Ljava/lang/Object;Landroid/util/Property;Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/ObjectAnimator;";
@@ -1356,8 +1320,6 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_animation_ObjectAnimator cxx address %d", cxxAddress);
@@ -1518,8 +1480,7 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 		jarg3 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	AndroidCXX::android_animation_ObjectAnimator result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1536,17 +1497,17 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_animation_ObjectAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_animation_ObjectAnimator) (AndroidCXX::android_animation_ObjectAnimator((AndroidCXX::android_animation_ObjectAnimator *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object& arg0,AndroidCXX::android_util_Property& arg1,AndroidCXX::android_animation_TypeEvaluator& arg2,std::vector<AndroidCXX::java_lang_Object >& arg3) exit");
+	AndroidCXX::android_animation_ObjectAnimator result((AndroidCXX::android_animation_ObjectAnimator) *((AndroidCXX::android_animation_ObjectAnimator *) cxx_value));
+	delete ((AndroidCXX::android_animation_ObjectAnimator *) cxx_value);
+		
+	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::android_util_Property const& arg1,AndroidCXX::android_animation_TypeEvaluator const& arg2,std::vector<AndroidCXX::java_lang_Object > const& arg3) exit");
 
 	return result;
 }
-AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_animation_TypeEvaluator& arg2,std::vector<AndroidCXX::java_lang_Object >& arg3)
+AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_animation_TypeEvaluator const& arg2,std::vector<AndroidCXX::java_lang_Object > const& arg3)
 {
-	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_animation_TypeEvaluator& arg2,std::vector<AndroidCXX::java_lang_Object >& arg3) enter");
+	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_animation_TypeEvaluator const& arg2,std::vector<AndroidCXX::java_lang_Object > const& arg3) enter");
 
 	const char *methodName = "ofObject";
 	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/String;Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/ObjectAnimator;";
@@ -1556,8 +1517,6 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_animation_ObjectAnimator cxx address %d", cxxAddress);
@@ -1667,8 +1626,7 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 		jarg3 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	AndroidCXX::android_animation_ObjectAnimator result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1685,17 +1643,17 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_animation_ObjectAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_animation_ObjectAnimator) (AndroidCXX::android_animation_ObjectAnimator((AndroidCXX::android_animation_ObjectAnimator *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_animation_TypeEvaluator& arg2,std::vector<AndroidCXX::java_lang_Object >& arg3) exit");
+	AndroidCXX::android_animation_ObjectAnimator result((AndroidCXX::android_animation_ObjectAnimator) *((AndroidCXX::android_animation_ObjectAnimator *) cxx_value));
+	delete ((AndroidCXX::android_animation_ObjectAnimator *) cxx_value);
+		
+	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_animation_TypeEvaluator const& arg2,std::vector<AndroidCXX::java_lang_Object > const& arg3) exit");
 
 	return result;
 }
-AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofPropertyValuesHolder(AndroidCXX::java_lang_Object& arg0,std::vector<AndroidCXX::android_animation_PropertyValuesHolder >& arg1)
+AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofPropertyValuesHolder(AndroidCXX::java_lang_Object const& arg0,std::vector<AndroidCXX::android_animation_PropertyValuesHolder > const& arg1)
 {
-	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofPropertyValuesHolder(AndroidCXX::java_lang_Object& arg0,std::vector<AndroidCXX::android_animation_PropertyValuesHolder >& arg1) enter");
+	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofPropertyValuesHolder(AndroidCXX::java_lang_Object const& arg0,std::vector<AndroidCXX::android_animation_PropertyValuesHolder > const& arg1) enter");
 
 	const char *methodName = "ofPropertyValuesHolder";
 	const char *methodSignature = "(Ljava/lang/Object;[Landroid/animation/PropertyValuesHolder;)Landroid/animation/ObjectAnimator;";
@@ -1705,8 +1663,6 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_animation_ObjectAnimator cxx address %d", cxxAddress);
@@ -1774,8 +1730,7 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 		jarg1 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	AndroidCXX::android_animation_ObjectAnimator result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1792,17 +1747,17 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_animation_ObjectAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_animation_ObjectAnimator) (AndroidCXX::android_animation_ObjectAnimator((AndroidCXX::android_animation_ObjectAnimator *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofPropertyValuesHolder(AndroidCXX::java_lang_Object& arg0,std::vector<AndroidCXX::android_animation_PropertyValuesHolder >& arg1) exit");
+	AndroidCXX::android_animation_ObjectAnimator result((AndroidCXX::android_animation_ObjectAnimator) *((AndroidCXX::android_animation_ObjectAnimator *) cxx_value));
+	delete ((AndroidCXX::android_animation_ObjectAnimator *) cxx_value);
+		
+	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofPropertyValuesHolder(AndroidCXX::java_lang_Object const& arg0,std::vector<AndroidCXX::android_animation_PropertyValuesHolder > const& arg1) exit");
 
 	return result;
 }
-void android_animation_ObjectAnimator::setIntValues(std::vector<int>& arg0)
+void android_animation_ObjectAnimator::setIntValues(std::vector<int> const& arg0)
 {
-	LOGV("void android_animation_ObjectAnimator::setIntValues(std::vector<int>& arg0) enter");
+	LOGV("void android_animation_ObjectAnimator::setIntValues(std::vector<int> const& arg0) enter");
 
 	const char *methodName = "setIntValues";
 	const char *methodSignature = "([I)V";
@@ -1812,8 +1767,6 @@ void android_animation_ObjectAnimator::setIntValues(std::vector<int>& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_ObjectAnimator cxx address %d", cxxAddress);
@@ -1862,14 +1815,12 @@ void android_animation_ObjectAnimator::setIntValues(std::vector<int>& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_ObjectAnimator::setIntValues(std::vector<int>& arg0) exit");
+	LOGV("void android_animation_ObjectAnimator::setIntValues(std::vector<int> const& arg0) exit");
 
 }
-void android_animation_ObjectAnimator::setFloatValues(std::vector<float>& arg0)
+void android_animation_ObjectAnimator::setFloatValues(std::vector<float> const& arg0)
 {
-	LOGV("void android_animation_ObjectAnimator::setFloatValues(std::vector<float>& arg0) enter");
+	LOGV("void android_animation_ObjectAnimator::setFloatValues(std::vector<float> const& arg0) enter");
 
 	const char *methodName = "setFloatValues";
 	const char *methodSignature = "([F)V";
@@ -1879,8 +1830,6 @@ void android_animation_ObjectAnimator::setFloatValues(std::vector<float>& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_ObjectAnimator cxx address %d", cxxAddress);
@@ -1929,14 +1878,12 @@ void android_animation_ObjectAnimator::setFloatValues(std::vector<float>& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_ObjectAnimator::setFloatValues(std::vector<float>& arg0) exit");
+	LOGV("void android_animation_ObjectAnimator::setFloatValues(std::vector<float> const& arg0) exit");
 
 }
-void android_animation_ObjectAnimator::setObjectValues(std::vector<AndroidCXX::java_lang_Object >& arg0)
+void android_animation_ObjectAnimator::setObjectValues(std::vector<AndroidCXX::java_lang_Object > const& arg0)
 {
-	LOGV("void android_animation_ObjectAnimator::setObjectValues(std::vector<AndroidCXX::java_lang_Object >& arg0) enter");
+	LOGV("void android_animation_ObjectAnimator::setObjectValues(std::vector<AndroidCXX::java_lang_Object > const& arg0) enter");
 
 	const char *methodName = "setObjectValues";
 	const char *methodSignature = "([Ljava/lang/Object;)V";
@@ -1946,8 +1893,6 @@ void android_animation_ObjectAnimator::setObjectValues(std::vector<AndroidCXX::j
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_ObjectAnimator cxx address %d", cxxAddress);
@@ -1996,8 +1941,6 @@ void android_animation_ObjectAnimator::setObjectValues(std::vector<AndroidCXX::j
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_ObjectAnimator::setObjectValues(std::vector<AndroidCXX::java_lang_Object >& arg0) exit");
+	LOGV("void android_animation_ObjectAnimator::setObjectValues(std::vector<AndroidCXX::java_lang_Object > const& arg0) exit");
 
 }

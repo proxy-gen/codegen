@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -30,6 +29,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback"
@@ -49,7 +49,7 @@ using namespace FacebookCXX;
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_SESSIONSTATE;
+// using namespace com_facebook_SessionState;
 // 
 // 
 // 
@@ -65,8 +65,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback(const com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback& cc)
 {
 	LOGV("com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback(const com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback& cc) enter");
@@ -90,9 +88,9 @@ com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::com_facebook_
 
 	LOGV("com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback(const com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback& cc) exit");
 }
-com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback(void * proxy)
+com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback(Proxy proxy)
 {
-	LOGV("com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback(void * proxy) enter");
+	LOGV("com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -102,47 +100,31 @@ com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::com_facebook_
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback(void * proxy) exit");
+	LOGV("com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback(Proxy proxy) exit");
 }
-com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback()
-{
-	LOGV("com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/widget/FacebookFragment$DefaultSessionStatusCallback";
-
-	LOGV("com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::proxy() const
+{	
+	LOGV("com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::~com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback()
 {
@@ -154,13 +136,13 @@ com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::~com_facebook
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::~com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback() exit");
 }
 // Functions
-void com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::call(FacebookCXX::com_facebook_Session& arg0,COM_FACEBOOK_SESSIONSTATE::com_facebook_SessionState& arg1,AndroidCXX::java_lang_Exception& arg2)
+void com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::call(FacebookCXX::com_facebook_Session const& arg0,com_facebook_SessionState::com_facebook_SessionState const& arg1,AndroidCXX::java_lang_Exception const& arg2)
 {
-	LOGV("void com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::call(FacebookCXX::com_facebook_Session& arg0,COM_FACEBOOK_SESSIONSTATE::com_facebook_SessionState& arg1,AndroidCXX::java_lang_Exception& arg2) enter");
+	LOGV("void com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::call(FacebookCXX::com_facebook_Session const& arg0,com_facebook_SessionState::com_facebook_SessionState const& arg1,AndroidCXX::java_lang_Exception const& arg2) enter");
 
 	const char *methodName = "call";
 	const char *methodSignature = "(Lcom/facebook/Session;Lcom/facebook/SessionState;Ljava/lang/Exception;)V";
@@ -170,8 +152,6 @@ void com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::call(Fac
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback cxx address %d", cxxAddress);
@@ -244,8 +224,6 @@ void com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::call(Fac
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::call(FacebookCXX::com_facebook_Session& arg0,COM_FACEBOOK_SESSIONSTATE::com_facebook_SessionState& arg1,AndroidCXX::java_lang_Exception& arg2) exit");
+	LOGV("void com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::call(FacebookCXX::com_facebook_Session const& arg0,com_facebook_SessionState::com_facebook_SessionState const& arg1,AndroidCXX::java_lang_Exception const& arg2) exit");
 
 }

@@ -9,10 +9,10 @@ LOCAL_MODULE := JDKCXXTest
 LOCAL_SRC_FILES := JDKCXXTest.cpp 
 LOCAL_C_INCLUDES := $(LOCAL_PATH) $(LOCAL_PATH)/includes
 LOCAL_LDLIBS := -llog
-LOCAL_WHOLE_STATIC_LIBRARIES += JDKCXX_static
+LOCAL_WHOLE_STATIC_LIBRARIES += JDKCXX
 LOCAL_WHOLE_STATIC_LIBRARIES += ZyngaCXX_static
 include $(BUILD_SHARED_LIBRARY)
 
-$(call import-module, jdk/cxx/generated/project/JDKCXX/jni)
-$(call import-module, runtime/ZyngaCXX/jni)
+$(call import-module, jdk/cxx/generated/project/exported/cxx/JDKCXX)
+$(call import-module, generator/platform/android/runtime/ZyngaCXX/jni)
 

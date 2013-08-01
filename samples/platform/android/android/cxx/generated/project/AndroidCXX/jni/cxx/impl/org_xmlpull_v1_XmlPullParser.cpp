@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -95,7 +94,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "org_xmlpull_v1_XmlPullParser"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -207,8 +206,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 org_xmlpull_v1_XmlPullParser::org_xmlpull_v1_XmlPullParser(const org_xmlpull_v1_XmlPullParser& cc)
 {
 	LOGV("org_xmlpull_v1_XmlPullParser::org_xmlpull_v1_XmlPullParser(const org_xmlpull_v1_XmlPullParser& cc) enter");
@@ -232,9 +229,9 @@ org_xmlpull_v1_XmlPullParser::org_xmlpull_v1_XmlPullParser(const org_xmlpull_v1_
 
 	LOGV("org_xmlpull_v1_XmlPullParser::org_xmlpull_v1_XmlPullParser(const org_xmlpull_v1_XmlPullParser& cc) exit");
 }
-org_xmlpull_v1_XmlPullParser::org_xmlpull_v1_XmlPullParser(void * proxy)
+org_xmlpull_v1_XmlPullParser::org_xmlpull_v1_XmlPullParser(Proxy proxy)
 {
-	LOGV("org_xmlpull_v1_XmlPullParser::org_xmlpull_v1_XmlPullParser(void * proxy) enter");
+	LOGV("org_xmlpull_v1_XmlPullParser::org_xmlpull_v1_XmlPullParser(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -244,47 +241,31 @@ org_xmlpull_v1_XmlPullParser::org_xmlpull_v1_XmlPullParser(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("org_xmlpull_v1_XmlPullParser::org_xmlpull_v1_XmlPullParser(void * proxy) exit");
+	LOGV("org_xmlpull_v1_XmlPullParser::org_xmlpull_v1_XmlPullParser(Proxy proxy) exit");
 }
-org_xmlpull_v1_XmlPullParser::org_xmlpull_v1_XmlPullParser()
-{
-	LOGV("org_xmlpull_v1_XmlPullParser::org_xmlpull_v1_XmlPullParser() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "org/xmlpull/v1/XmlPullParser";
-
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy org_xmlpull_v1_XmlPullParser::proxy() const
+{	
+	LOGV("org_xmlpull_v1_XmlPullParser::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("org_xmlpull_v1_XmlPullParser jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("org_xmlpull_v1_XmlPullParser::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("org_xmlpull_v1_XmlPullParser::org_xmlpull_v1_XmlPullParser() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 org_xmlpull_v1_XmlPullParser::~org_xmlpull_v1_XmlPullParser()
 {
@@ -296,13 +277,13 @@ org_xmlpull_v1_XmlPullParser::~org_xmlpull_v1_XmlPullParser()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("org_xmlpull_v1_XmlPullParser::~org_xmlpull_v1_XmlPullParser() exit");
 }
 // Functions
-void org_xmlpull_v1_XmlPullParser::setProperty(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Object& arg1)
+void org_xmlpull_v1_XmlPullParser::setProperty(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1)
 {
-	LOGV("void org_xmlpull_v1_XmlPullParser::setProperty(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Object& arg1) enter");
+	LOGV("void org_xmlpull_v1_XmlPullParser::setProperty(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1) enter");
 
 	const char *methodName = "setProperty";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/Object;)V";
@@ -312,8 +293,6 @@ void org_xmlpull_v1_XmlPullParser::setProperty(AndroidCXX::java_lang_String& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
@@ -365,14 +344,12 @@ void org_xmlpull_v1_XmlPullParser::setProperty(AndroidCXX::java_lang_String& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void org_xmlpull_v1_XmlPullParser::setProperty(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Object& arg1) exit");
+	LOGV("void org_xmlpull_v1_XmlPullParser::setProperty(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1) exit");
 
 }
-AndroidCXX::java_lang_Object org_xmlpull_v1_XmlPullParser::getProperty(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_lang_Object org_xmlpull_v1_XmlPullParser::getProperty(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Object org_xmlpull_v1_XmlPullParser::getProperty(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Object org_xmlpull_v1_XmlPullParser::getProperty(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getProperty";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Object;";
@@ -382,8 +359,6 @@ AndroidCXX::java_lang_Object org_xmlpull_v1_XmlPullParser::getProperty(AndroidCX
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
@@ -412,7 +387,6 @@ AndroidCXX::java_lang_Object org_xmlpull_v1_XmlPullParser::getProperty(AndroidCX
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -430,11 +404,11 @@ AndroidCXX::java_lang_Object org_xmlpull_v1_XmlPullParser::getProperty(AndroidCX
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_Object org_xmlpull_v1_XmlPullParser::getProperty(AndroidCXX::java_lang_String& arg0) exit");
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_Object org_xmlpull_v1_XmlPullParser::getProperty(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
@@ -451,15 +425,12 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getName()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("org_xmlpull_v1_XmlPullParser jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -477,10 +448,10 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getName()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getName() exit");
 
 	return result;
@@ -498,15 +469,12 @@ int org_xmlpull_v1_XmlPullParser::next()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("org_xmlpull_v1_XmlPullParser jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -524,10 +492,10 @@ int org_xmlpull_v1_XmlPullParser::next()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int org_xmlpull_v1_XmlPullParser::next() exit");
 
 	return result;
@@ -545,15 +513,12 @@ int org_xmlpull_v1_XmlPullParser::getLineNumber()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("org_xmlpull_v1_XmlPullParser jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -571,10 +536,10 @@ int org_xmlpull_v1_XmlPullParser::getLineNumber()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int org_xmlpull_v1_XmlPullParser::getLineNumber() exit");
 
 	return result;
@@ -592,15 +557,12 @@ bool org_xmlpull_v1_XmlPullParser::isWhitespace()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("org_xmlpull_v1_XmlPullParser jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -618,10 +580,10 @@ bool org_xmlpull_v1_XmlPullParser::isWhitespace()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool org_xmlpull_v1_XmlPullParser::isWhitespace() exit");
 
 	return result;
@@ -639,15 +601,12 @@ int org_xmlpull_v1_XmlPullParser::nextToken()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("org_xmlpull_v1_XmlPullParser jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -665,17 +624,17 @@ int org_xmlpull_v1_XmlPullParser::nextToken()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int org_xmlpull_v1_XmlPullParser::nextToken() exit");
 
 	return result;
 }
-void org_xmlpull_v1_XmlPullParser::setInput(AndroidCXX::java_io_InputStream& arg0,AndroidCXX::java_lang_String& arg1)
+void org_xmlpull_v1_XmlPullParser::setInput(AndroidCXX::java_io_InputStream const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("void org_xmlpull_v1_XmlPullParser::setInput(AndroidCXX::java_io_InputStream& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("void org_xmlpull_v1_XmlPullParser::setInput(AndroidCXX::java_io_InputStream const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "setInput";
 	const char *methodSignature = "(Ljava/io/InputStream;Ljava/lang/String;)V";
@@ -685,8 +644,6 @@ void org_xmlpull_v1_XmlPullParser::setInput(AndroidCXX::java_io_InputStream& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
@@ -738,14 +695,12 @@ void org_xmlpull_v1_XmlPullParser::setInput(AndroidCXX::java_io_InputStream& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void org_xmlpull_v1_XmlPullParser::setInput(AndroidCXX::java_io_InputStream& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("void org_xmlpull_v1_XmlPullParser::setInput(AndroidCXX::java_io_InputStream const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 }
-void org_xmlpull_v1_XmlPullParser::setInput(AndroidCXX::java_io_Reader& arg0)
+void org_xmlpull_v1_XmlPullParser::setInput(AndroidCXX::java_io_Reader const& arg0)
 {
-	LOGV("void org_xmlpull_v1_XmlPullParser::setInput(AndroidCXX::java_io_Reader& arg0) enter");
+	LOGV("void org_xmlpull_v1_XmlPullParser::setInput(AndroidCXX::java_io_Reader const& arg0) enter");
 
 	const char *methodName = "setInput";
 	const char *methodSignature = "(Ljava/io/Reader;)V";
@@ -755,8 +710,6 @@ void org_xmlpull_v1_XmlPullParser::setInput(AndroidCXX::java_io_Reader& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
@@ -787,9 +740,7 @@ void org_xmlpull_v1_XmlPullParser::setInput(AndroidCXX::java_io_Reader& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void org_xmlpull_v1_XmlPullParser::setInput(AndroidCXX::java_io_Reader& arg0) exit");
+	LOGV("void org_xmlpull_v1_XmlPullParser::setInput(AndroidCXX::java_io_Reader const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getPrefix()
@@ -805,15 +756,12 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getPrefix()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("org_xmlpull_v1_XmlPullParser jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -831,17 +779,17 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getPrefix()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getPrefix() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
+AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "getAttributeValue";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;";
@@ -851,8 +799,6 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeValue(And
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
@@ -902,7 +848,6 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeValue(And
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -920,17 +865,17 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeValue(And
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeValue(int& arg0)
+AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeValue(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeValue(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeValue(int const& arg0) enter");
 
 	const char *methodName = "getAttributeValue";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -940,8 +885,6 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeValue(int
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
@@ -970,7 +913,6 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeValue(int
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -988,11 +930,11 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeValue(int
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeValue(int& arg0) exit");
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeValue(int const& arg0) exit");
 
 	return result;
 }
@@ -1009,15 +951,12 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getText()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("org_xmlpull_v1_XmlPullParser jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1035,10 +974,10 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getText()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getText() exit");
 
 	return result;
@@ -1056,15 +995,12 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getPositionDescriptio
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("org_xmlpull_v1_XmlPullParser jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1082,10 +1018,10 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getPositionDescriptio
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getPositionDescription() exit");
 
 	return result;
@@ -1103,15 +1039,12 @@ int org_xmlpull_v1_XmlPullParser::getAttributeCount()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("org_xmlpull_v1_XmlPullParser jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1129,17 +1062,17 @@ int org_xmlpull_v1_XmlPullParser::getAttributeCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int org_xmlpull_v1_XmlPullParser::getAttributeCount() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeName(int& arg0)
+AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeName(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeName(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeName(int const& arg0) enter");
 
 	const char *methodName = "getAttributeName";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -1149,8 +1082,6 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeName(int&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
@@ -1179,7 +1110,6 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeName(int&
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1197,17 +1127,17 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeName(int&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeName(int& arg0) exit");
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeName(int const& arg0) exit");
 
 	return result;
 }
-void org_xmlpull_v1_XmlPullParser::setFeature(AndroidCXX::java_lang_String& arg0,bool& arg1)
+void org_xmlpull_v1_XmlPullParser::setFeature(AndroidCXX::java_lang_String const& arg0,bool const& arg1)
 {
-	LOGV("void org_xmlpull_v1_XmlPullParser::setFeature(AndroidCXX::java_lang_String& arg0,bool& arg1) enter");
+	LOGV("void org_xmlpull_v1_XmlPullParser::setFeature(AndroidCXX::java_lang_String const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "setFeature";
 	const char *methodSignature = "(Ljava/lang/String;Z)V";
@@ -1217,8 +1147,6 @@ void org_xmlpull_v1_XmlPullParser::setFeature(AndroidCXX::java_lang_String& arg0
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
@@ -1270,14 +1198,12 @@ void org_xmlpull_v1_XmlPullParser::setFeature(AndroidCXX::java_lang_String& arg0
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void org_xmlpull_v1_XmlPullParser::setFeature(AndroidCXX::java_lang_String& arg0,bool& arg1) exit");
+	LOGV("void org_xmlpull_v1_XmlPullParser::setFeature(AndroidCXX::java_lang_String const& arg0,bool const& arg1) exit");
 
 }
-bool org_xmlpull_v1_XmlPullParser::getFeature(AndroidCXX::java_lang_String& arg0)
+bool org_xmlpull_v1_XmlPullParser::getFeature(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("bool org_xmlpull_v1_XmlPullParser::getFeature(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("bool org_xmlpull_v1_XmlPullParser::getFeature(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getFeature";
 	const char *methodSignature = "(Ljava/lang/String;)Z";
@@ -1287,8 +1213,6 @@ bool org_xmlpull_v1_XmlPullParser::getFeature(AndroidCXX::java_lang_String& arg0
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
@@ -1317,7 +1241,6 @@ bool org_xmlpull_v1_XmlPullParser::getFeature(AndroidCXX::java_lang_String& arg0
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1335,11 +1258,11 @@ bool org_xmlpull_v1_XmlPullParser::getFeature(AndroidCXX::java_lang_String& arg0
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool org_xmlpull_v1_XmlPullParser::getFeature(AndroidCXX::java_lang_String& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool org_xmlpull_v1_XmlPullParser::getFeature(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
@@ -1356,15 +1279,12 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getInputEncoding()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("org_xmlpull_v1_XmlPullParser jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1382,17 +1302,17 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getInputEncoding()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getInputEncoding() exit");
 
 	return result;
 }
-void org_xmlpull_v1_XmlPullParser::defineEntityReplacementText(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
+void org_xmlpull_v1_XmlPullParser::defineEntityReplacementText(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("void org_xmlpull_v1_XmlPullParser::defineEntityReplacementText(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("void org_xmlpull_v1_XmlPullParser::defineEntityReplacementText(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "defineEntityReplacementText";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
@@ -1402,8 +1322,6 @@ void org_xmlpull_v1_XmlPullParser::defineEntityReplacementText(AndroidCXX::java_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
@@ -1455,14 +1373,12 @@ void org_xmlpull_v1_XmlPullParser::defineEntityReplacementText(AndroidCXX::java_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void org_xmlpull_v1_XmlPullParser::defineEntityReplacementText(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("void org_xmlpull_v1_XmlPullParser::defineEntityReplacementText(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 }
-int org_xmlpull_v1_XmlPullParser::getNamespaceCount(int& arg0)
+int org_xmlpull_v1_XmlPullParser::getNamespaceCount(int const& arg0)
 {
-	LOGV("int org_xmlpull_v1_XmlPullParser::getNamespaceCount(int& arg0) enter");
+	LOGV("int org_xmlpull_v1_XmlPullParser::getNamespaceCount(int const& arg0) enter");
 
 	const char *methodName = "getNamespaceCount";
 	const char *methodSignature = "(I)I";
@@ -1472,8 +1388,6 @@ int org_xmlpull_v1_XmlPullParser::getNamespaceCount(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
@@ -1502,7 +1416,6 @@ int org_xmlpull_v1_XmlPullParser::getNamespaceCount(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1520,17 +1433,17 @@ int org_xmlpull_v1_XmlPullParser::getNamespaceCount(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int org_xmlpull_v1_XmlPullParser::getNamespaceCount(int& arg0) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int org_xmlpull_v1_XmlPullParser::getNamespaceCount(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespacePrefix(int& arg0)
+AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespacePrefix(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespacePrefix(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespacePrefix(int const& arg0) enter");
 
 	const char *methodName = "getNamespacePrefix";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -1541,8 +1454,6 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespacePrefix(in
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1570,7 +1481,6 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespacePrefix(in
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1588,17 +1498,17 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespacePrefix(in
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespacePrefix(int& arg0) exit");
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespacePrefix(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespaceUri(int& arg0)
+AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespaceUri(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespaceUri(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespaceUri(int const& arg0) enter");
 
 	const char *methodName = "getNamespaceUri";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -1609,8 +1519,6 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespaceUri(int& 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1638,7 +1546,6 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespaceUri(int& 
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1656,17 +1563,17 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespaceUri(int& 
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespaceUri(int& arg0) exit");
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespaceUri(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespace(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespace(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespace(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespace(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getNamespace";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
@@ -1676,8 +1583,6 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespace(AndroidC
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
@@ -1706,7 +1611,6 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespace(AndroidC
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1724,11 +1628,11 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespace(AndroidC
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespace(AndroidCXX::java_lang_String& arg0) exit");
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespace(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
@@ -1745,15 +1649,12 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespace()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("org_xmlpull_v1_XmlPullParser jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1771,10 +1672,10 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespace()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespace() exit");
 
 	return result;
@@ -1792,15 +1693,12 @@ int org_xmlpull_v1_XmlPullParser::getDepth()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("org_xmlpull_v1_XmlPullParser jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1818,10 +1716,10 @@ int org_xmlpull_v1_XmlPullParser::getDepth()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int org_xmlpull_v1_XmlPullParser::getDepth() exit");
 
 	return result;
@@ -1839,15 +1737,12 @@ int org_xmlpull_v1_XmlPullParser::getColumnNumber()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("org_xmlpull_v1_XmlPullParser jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1865,17 +1760,17 @@ int org_xmlpull_v1_XmlPullParser::getColumnNumber()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int org_xmlpull_v1_XmlPullParser::getColumnNumber() exit");
 
 	return result;
 }
-std::vector<char> org_xmlpull_v1_XmlPullParser::getTextCharacters(std::vector<int>& arg0)
+std::vector<char> org_xmlpull_v1_XmlPullParser::getTextCharacters(std::vector<int> const& arg0)
 {
-	LOGV("std::vector<char> org_xmlpull_v1_XmlPullParser::getTextCharacters(std::vector<int>& arg0) enter");
+	LOGV("std::vector<char> org_xmlpull_v1_XmlPullParser::getTextCharacters(std::vector<int> const& arg0) enter");
 
 	const char *methodName = "getTextCharacters";
 	const char *methodSignature = "([I)[C";
@@ -1885,8 +1780,6 @@ std::vector<char> org_xmlpull_v1_XmlPullParser::getTextCharacters(std::vector<in
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
@@ -1933,7 +1826,6 @@ std::vector<char> org_xmlpull_v1_XmlPullParser::getTextCharacters(std::vector<in
 		jarg0 = convert_jni__int_array_type_to_jni(java_value);
 	}
 
-	std::vector<char> result;
 	jcharArray jni_result = (jcharArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__char_array_type_to_java(jni_result);
@@ -1969,11 +1861,11 @@ std::vector<char> org_xmlpull_v1_XmlPullParser::getTextCharacters(std::vector<in
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__char_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<char>) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("std::vector<char> org_xmlpull_v1_XmlPullParser::getTextCharacters(std::vector<int>& arg0) exit");
+	std::vector<char> result = (std::vector<char>) *((std::vector<char> *) cxx_value);
+	delete ((std::vector<char> *) cxx_value);
+		
+	LOGV("std::vector<char> org_xmlpull_v1_XmlPullParser::getTextCharacters(std::vector<int> const& arg0) exit");
 
 	return result;
 }
@@ -1990,15 +1882,12 @@ bool org_xmlpull_v1_XmlPullParser::isEmptyElementTag()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("org_xmlpull_v1_XmlPullParser jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2016,17 +1905,17 @@ bool org_xmlpull_v1_XmlPullParser::isEmptyElementTag()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool org_xmlpull_v1_XmlPullParser::isEmptyElementTag() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeNamespace(int& arg0)
+AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeNamespace(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeNamespace(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeNamespace(int const& arg0) enter");
 
 	const char *methodName = "getAttributeNamespace";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -2037,8 +1926,6 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeNamespace
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2066,7 +1953,6 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeNamespace
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2084,17 +1970,17 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeNamespace
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeNamespace(int& arg0) exit");
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeNamespace(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributePrefix(int& arg0)
+AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributePrefix(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributePrefix(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributePrefix(int const& arg0) enter");
 
 	const char *methodName = "getAttributePrefix";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -2105,8 +1991,6 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributePrefix(in
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2134,7 +2018,6 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributePrefix(in
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2152,17 +2035,17 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributePrefix(in
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributePrefix(int& arg0) exit");
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributePrefix(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeType(int& arg0)
+AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeType(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeType(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeType(int const& arg0) enter");
 
 	const char *methodName = "getAttributeType";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -2173,8 +2056,6 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeType(int&
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2202,7 +2083,6 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeType(int&
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2220,17 +2100,17 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeType(int&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeType(int& arg0) exit");
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeType(int const& arg0) exit");
 
 	return result;
 }
-bool org_xmlpull_v1_XmlPullParser::isAttributeDefault(int& arg0)
+bool org_xmlpull_v1_XmlPullParser::isAttributeDefault(int const& arg0)
 {
-	LOGV("bool org_xmlpull_v1_XmlPullParser::isAttributeDefault(int& arg0) enter");
+	LOGV("bool org_xmlpull_v1_XmlPullParser::isAttributeDefault(int const& arg0) enter");
 
 	const char *methodName = "isAttributeDefault";
 	const char *methodSignature = "(I)Z";
@@ -2240,8 +2120,6 @@ bool org_xmlpull_v1_XmlPullParser::isAttributeDefault(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
@@ -2270,7 +2148,6 @@ bool org_xmlpull_v1_XmlPullParser::isAttributeDefault(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2288,11 +2165,11 @@ bool org_xmlpull_v1_XmlPullParser::isAttributeDefault(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool org_xmlpull_v1_XmlPullParser::isAttributeDefault(int& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool org_xmlpull_v1_XmlPullParser::isAttributeDefault(int const& arg0) exit");
 
 	return result;
 }
@@ -2309,15 +2186,12 @@ int org_xmlpull_v1_XmlPullParser::getEventType()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("org_xmlpull_v1_XmlPullParser jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2335,17 +2209,17 @@ int org_xmlpull_v1_XmlPullParser::getEventType()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int org_xmlpull_v1_XmlPullParser::getEventType() exit");
 
 	return result;
 }
-void org_xmlpull_v1_XmlPullParser::require(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2)
+void org_xmlpull_v1_XmlPullParser::require(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2)
 {
-	LOGV("void org_xmlpull_v1_XmlPullParser::require(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2) enter");
+	LOGV("void org_xmlpull_v1_XmlPullParser::require(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) enter");
 
 	const char *methodName = "require";
 	const char *methodSignature = "(ILjava/lang/String;Ljava/lang/String;)V";
@@ -2355,8 +2229,6 @@ void org_xmlpull_v1_XmlPullParser::require(int& arg0,AndroidCXX::java_lang_Strin
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
@@ -2429,9 +2301,7 @@ void org_xmlpull_v1_XmlPullParser::require(int& arg0,AndroidCXX::java_lang_Strin
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void org_xmlpull_v1_XmlPullParser::require(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2) exit");
+	LOGV("void org_xmlpull_v1_XmlPullParser::require(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) exit");
 
 }
 AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::nextText()
@@ -2447,15 +2317,12 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::nextText()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("org_xmlpull_v1_XmlPullParser jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2473,10 +2340,10 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::nextText()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::nextText() exit");
 
 	return result;
@@ -2494,15 +2361,12 @@ int org_xmlpull_v1_XmlPullParser::nextTag()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("org_xmlpull_v1_XmlPullParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("org_xmlpull_v1_XmlPullParser jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2520,10 +2384,10 @@ int org_xmlpull_v1_XmlPullParser::nextTag()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int org_xmlpull_v1_XmlPullParser::nextTag() exit");
 
 	return result;

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -52,13 +51,14 @@ class com_facebook_Request_Callback
 public:
 
 	com_facebook_Request_Callback(const com_facebook_Request_Callback& cc);
-	com_facebook_Request_Callback(void * proxy);
+	com_facebook_Request_Callback(Proxy proxy);
 	// Public Constructors
 	com_facebook_Request_Callback();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Request_Callback();
 	// Functions
-	 void onCompleted(FacebookCXX::com_facebook_Response& arg0);
+	virtual void onCompleted(FacebookCXX::com_facebook_Response const& arg0);
 };	
 
 } // namespace

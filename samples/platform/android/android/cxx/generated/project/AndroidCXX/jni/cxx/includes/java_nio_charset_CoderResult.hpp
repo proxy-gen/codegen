@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -66,9 +65,9 @@ class java_nio_charset_CoderResult
 public:
 
 	java_nio_charset_CoderResult(const java_nio_charset_CoderResult& cc);
-	java_nio_charset_CoderResult(void * proxy);
+	java_nio_charset_CoderResult(Proxy proxy);
 	// Public Constructors
-	java_nio_charset_CoderResult();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_charset_CoderResult();
 	// Functions
@@ -78,10 +77,10 @@ public:
 	 bool isUnderflow();
 	 bool isError();
 	 bool isOverflow();
-	static AndroidCXX::java_nio_charset_CoderResult malformedForLength(int& arg0);
+	static AndroidCXX::java_nio_charset_CoderResult malformedForLength(int const& arg0);
 	 bool isMalformed();
 	 bool isUnmappable();
-	static AndroidCXX::java_nio_charset_CoderResult unmappableForLength(int& arg0);
+	static AndroidCXX::java_nio_charset_CoderResult unmappableForLength(int const& arg0);
 };	
 
 } // namespace

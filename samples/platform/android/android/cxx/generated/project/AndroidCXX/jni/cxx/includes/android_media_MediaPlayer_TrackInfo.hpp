@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 
@@ -60,15 +59,15 @@ class android_media_MediaPlayer_TrackInfo
 public:
 
 	android_media_MediaPlayer_TrackInfo(const android_media_MediaPlayer_TrackInfo& cc);
-	android_media_MediaPlayer_TrackInfo(void * proxy);
+	android_media_MediaPlayer_TrackInfo(Proxy proxy);
 	// Public Constructors
-	android_media_MediaPlayer_TrackInfo();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_TrackInfo();
 	// Functions
 	 AndroidCXX::java_lang_String getLanguage();
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 	 int getTrackType();
 };	
 

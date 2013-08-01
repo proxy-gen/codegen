@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -33,6 +32,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_LoginActivity"
@@ -57,8 +57,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_LoginActivity::com_facebook_LoginActivity(const com_facebook_LoginActivity& cc)
 {
 	LOGV("com_facebook_LoginActivity::com_facebook_LoginActivity(const com_facebook_LoginActivity& cc) enter");
@@ -82,9 +80,9 @@ com_facebook_LoginActivity::com_facebook_LoginActivity(const com_facebook_LoginA
 
 	LOGV("com_facebook_LoginActivity::com_facebook_LoginActivity(const com_facebook_LoginActivity& cc) exit");
 }
-com_facebook_LoginActivity::com_facebook_LoginActivity(void * proxy)
+com_facebook_LoginActivity::com_facebook_LoginActivity(Proxy proxy)
 {
-	LOGV("com_facebook_LoginActivity::com_facebook_LoginActivity(void * proxy) enter");
+	LOGV("com_facebook_LoginActivity::com_facebook_LoginActivity(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -94,13 +92,31 @@ com_facebook_LoginActivity::com_facebook_LoginActivity(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_LoginActivity::com_facebook_LoginActivity(void * proxy) exit");
+	LOGV("com_facebook_LoginActivity::com_facebook_LoginActivity(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy com_facebook_LoginActivity::proxy() const
+{	
+	LOGV("com_facebook_LoginActivity::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_LoginActivity cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_LoginActivity jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("com_facebook_LoginActivity::proxy() exit");	
+
+	return proxy;
+}
 com_facebook_LoginActivity::com_facebook_LoginActivity()
 {
 	LOGV("com_facebook_LoginActivity::com_facebook_LoginActivity() enter");	
@@ -148,13 +164,13 @@ com_facebook_LoginActivity::~com_facebook_LoginActivity()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_LoginActivity::~com_facebook_LoginActivity() exit");
 }
 // Functions
-void com_facebook_LoginActivity::onCreate(AndroidCXX::android_os_Bundle& arg0)
+void com_facebook_LoginActivity::onCreate(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("void com_facebook_LoginActivity::onCreate(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_LoginActivity::onCreate(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "onCreate";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -164,8 +180,6 @@ void com_facebook_LoginActivity::onCreate(AndroidCXX::android_os_Bundle& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_LoginActivity cxx address %d", cxxAddress);
@@ -196,9 +210,7 @@ void com_facebook_LoginActivity::onCreate(AndroidCXX::android_os_Bundle& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_LoginActivity::onCreate(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_LoginActivity::onCreate(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 }
 void com_facebook_LoginActivity::onResume()
@@ -214,8 +226,6 @@ void com_facebook_LoginActivity::onResume()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_LoginActivity cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -224,14 +234,12 @@ void com_facebook_LoginActivity::onResume()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void com_facebook_LoginActivity::onResume() exit");
 
 }
-void com_facebook_LoginActivity::onSaveInstanceState(AndroidCXX::android_os_Bundle& arg0)
+void com_facebook_LoginActivity::onSaveInstanceState(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("void com_facebook_LoginActivity::onSaveInstanceState(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_LoginActivity::onSaveInstanceState(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "onSaveInstanceState";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -241,8 +249,6 @@ void com_facebook_LoginActivity::onSaveInstanceState(AndroidCXX::android_os_Bund
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_LoginActivity cxx address %d", cxxAddress);
@@ -273,9 +279,7 @@ void com_facebook_LoginActivity::onSaveInstanceState(AndroidCXX::android_os_Bund
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_LoginActivity::onSaveInstanceState(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_LoginActivity::onSaveInstanceState(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 }
 void com_facebook_LoginActivity::onPause()
@@ -291,8 +295,6 @@ void com_facebook_LoginActivity::onPause()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_LoginActivity cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -301,8 +303,6 @@ void com_facebook_LoginActivity::onPause()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void com_facebook_LoginActivity::onPause() exit");
 
 }

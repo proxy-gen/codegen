@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_widget_SlidingDrawer_OnDrawerOpenListener
@@ -47,9 +46,9 @@ class android_widget_SlidingDrawer_OnDrawerOpenListener
 public:
 
 	android_widget_SlidingDrawer_OnDrawerOpenListener(const android_widget_SlidingDrawer_OnDrawerOpenListener& cc);
-	android_widget_SlidingDrawer_OnDrawerOpenListener(void * proxy);
+	android_widget_SlidingDrawer_OnDrawerOpenListener(Proxy proxy);
 	// Public Constructors
-	android_widget_SlidingDrawer_OnDrawerOpenListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SlidingDrawer_OnDrawerOpenListener();
 	// Functions

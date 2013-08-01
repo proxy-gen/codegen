@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -62,12 +61,13 @@ class java_io_IOException
 public:
 
 	java_io_IOException(const java_io_IOException& cc);
-	java_io_IOException(void * proxy);
+	java_io_IOException(Proxy proxy);
 	// Public Constructors
 	java_io_IOException();
-	java_io_IOException(AndroidCXX::java_lang_String& arg0);
-	java_io_IOException(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1);
-	java_io_IOException(AndroidCXX::java_lang_Throwable& arg0);
+	java_io_IOException(AndroidCXX::java_lang_String const& arg0);
+	java_io_IOException(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1);
+	java_io_IOException(AndroidCXX::java_lang_Throwable const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_io_IOException();
 	// Functions

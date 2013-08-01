@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -31,7 +30,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_util_Comparator"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -56,8 +55,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_util_Comparator::java_util_Comparator(const java_util_Comparator& cc)
 {
 	LOGV("java_util_Comparator::java_util_Comparator(const java_util_Comparator& cc) enter");
@@ -81,9 +78,9 @@ java_util_Comparator::java_util_Comparator(const java_util_Comparator& cc)
 
 	LOGV("java_util_Comparator::java_util_Comparator(const java_util_Comparator& cc) exit");
 }
-java_util_Comparator::java_util_Comparator(void * proxy)
+java_util_Comparator::java_util_Comparator(Proxy proxy)
 {
-	LOGV("java_util_Comparator::java_util_Comparator(void * proxy) enter");
+	LOGV("java_util_Comparator::java_util_Comparator(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -93,47 +90,31 @@ java_util_Comparator::java_util_Comparator(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_util_Comparator::java_util_Comparator(void * proxy) exit");
+	LOGV("java_util_Comparator::java_util_Comparator(Proxy proxy) exit");
 }
-java_util_Comparator::java_util_Comparator()
-{
-	LOGV("java_util_Comparator::java_util_Comparator() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "java/util/Comparator";
-
-	LOGV("java_util_Comparator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy java_util_Comparator::proxy() const
+{	
+	LOGV("java_util_Comparator::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Comparator cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Comparator jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("java_util_Comparator::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("java_util_Comparator::java_util_Comparator() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 java_util_Comparator::~java_util_Comparator()
 {
@@ -145,13 +126,13 @@ java_util_Comparator::~java_util_Comparator()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_util_Comparator::~java_util_Comparator() exit");
 }
 // Functions
-bool java_util_Comparator::equals(AndroidCXX::java_lang_Object& arg0)
+bool java_util_Comparator::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_util_Comparator::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_util_Comparator::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -161,8 +142,6 @@ bool java_util_Comparator::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Comparator cxx address %d", cxxAddress);
@@ -191,7 +170,6 @@ bool java_util_Comparator::equals(AndroidCXX::java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -209,17 +187,17 @@ bool java_util_Comparator::equals(AndroidCXX::java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool java_util_Comparator::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool java_util_Comparator::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-int java_util_Comparator::compare(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1)
+int java_util_Comparator::compare(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1)
 {
-	LOGV("int java_util_Comparator::compare(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1) enter");
+	LOGV("int java_util_Comparator::compare(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1) enter");
 
 	const char *methodName = "compare";
 	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/Object;)I";
@@ -229,8 +207,6 @@ int java_util_Comparator::compare(AndroidCXX::java_lang_Object& arg0,AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Comparator cxx address %d", cxxAddress);
@@ -280,7 +256,6 @@ int java_util_Comparator::compare(AndroidCXX::java_lang_Object& arg0,AndroidCXX:
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -298,11 +273,11 @@ int java_util_Comparator::compare(AndroidCXX::java_lang_Object& arg0,AndroidCXX:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int java_util_Comparator::compare(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int java_util_Comparator::compare(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1) exit");
 
 	return result;
 }

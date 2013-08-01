@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_app_ActionBar_OnMenuVisibilityListener
@@ -47,13 +46,13 @@ class android_app_ActionBar_OnMenuVisibilityListener
 public:
 
 	android_app_ActionBar_OnMenuVisibilityListener(const android_app_ActionBar_OnMenuVisibilityListener& cc);
-	android_app_ActionBar_OnMenuVisibilityListener(void * proxy);
+	android_app_ActionBar_OnMenuVisibilityListener(Proxy proxy);
 	// Public Constructors
-	android_app_ActionBar_OnMenuVisibilityListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_ActionBar_OnMenuVisibilityListener();
 	// Functions
-	 void onMenuVisibilityChanged(bool& arg0);
+	 void onMenuVisibilityChanged(bool const& arg0);
 };	
 
 } // namespace

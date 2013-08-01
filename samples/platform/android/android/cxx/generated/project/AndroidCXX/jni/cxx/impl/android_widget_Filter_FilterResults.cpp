@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_widget_Filter_FilterResults.hpp>
@@ -27,7 +26,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_Filter_FilterResults"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -40,8 +39,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_widget_Filter_FilterResults::android_widget_Filter_FilterResults(const android_widget_Filter_FilterResults& cc)
 {
 	LOGV("android_widget_Filter_FilterResults::android_widget_Filter_FilterResults(const android_widget_Filter_FilterResults& cc) enter");
@@ -65,9 +62,9 @@ android_widget_Filter_FilterResults::android_widget_Filter_FilterResults(const a
 
 	LOGV("android_widget_Filter_FilterResults::android_widget_Filter_FilterResults(const android_widget_Filter_FilterResults& cc) exit");
 }
-android_widget_Filter_FilterResults::android_widget_Filter_FilterResults(void * proxy)
+android_widget_Filter_FilterResults::android_widget_Filter_FilterResults(Proxy proxy)
 {
-	LOGV("android_widget_Filter_FilterResults::android_widget_Filter_FilterResults(void * proxy) enter");
+	LOGV("android_widget_Filter_FilterResults::android_widget_Filter_FilterResults(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -77,13 +74,31 @@ android_widget_Filter_FilterResults::android_widget_Filter_FilterResults(void * 
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_Filter_FilterResults::android_widget_Filter_FilterResults(void * proxy) exit");
+	LOGV("android_widget_Filter_FilterResults::android_widget_Filter_FilterResults(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy android_widget_Filter_FilterResults::proxy() const
+{	
+	LOGV("android_widget_Filter_FilterResults::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_widget_Filter_FilterResults cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_Filter_FilterResults jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_widget_Filter_FilterResults::proxy() exit");	
+
+	return proxy;
+}
 android_widget_Filter_FilterResults::android_widget_Filter_FilterResults()
 {
 	LOGV("android_widget_Filter_FilterResults::android_widget_Filter_FilterResults() enter");	
@@ -131,7 +146,7 @@ android_widget_Filter_FilterResults::~android_widget_Filter_FilterResults()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_Filter_FilterResults::~android_widget_Filter_FilterResults() exit");
 }
 // Functions

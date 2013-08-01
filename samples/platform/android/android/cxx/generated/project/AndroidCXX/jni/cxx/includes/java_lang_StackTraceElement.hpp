@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -71,14 +70,14 @@ class java_lang_StackTraceElement
 public:
 
 	java_lang_StackTraceElement(const java_lang_StackTraceElement& cc);
-	java_lang_StackTraceElement(void * proxy);
+	java_lang_StackTraceElement(Proxy proxy);
 	// Public Constructors
-	java_lang_StackTraceElement(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,int& arg3);
-	java_lang_StackTraceElement();
+	java_lang_StackTraceElement(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,int const& arg3);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_StackTraceElement();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 AndroidCXX::java_lang_String getFileName();

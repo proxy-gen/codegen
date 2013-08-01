@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_widget_ImageDownloader_DownloadImageWorkItem
@@ -47,9 +46,9 @@ class com_facebook_widget_ImageDownloader_DownloadImageWorkItem
 public:
 
 	com_facebook_widget_ImageDownloader_DownloadImageWorkItem(const com_facebook_widget_ImageDownloader_DownloadImageWorkItem& cc);
-	com_facebook_widget_ImageDownloader_DownloadImageWorkItem(void * proxy);
+	com_facebook_widget_ImageDownloader_DownloadImageWorkItem(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_ImageDownloader_DownloadImageWorkItem();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageDownloader_DownloadImageWorkItem();
 	// Functions

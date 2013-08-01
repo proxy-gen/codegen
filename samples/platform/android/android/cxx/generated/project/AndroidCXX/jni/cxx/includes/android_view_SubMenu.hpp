@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -86,20 +85,20 @@ class android_view_SubMenu
 public:
 
 	android_view_SubMenu(const android_view_SubMenu& cc);
-	android_view_SubMenu(void * proxy);
+	android_view_SubMenu(Proxy proxy);
 	// Public Constructors
-	android_view_SubMenu();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_SubMenu();
 	// Functions
 	 AndroidCXX::android_view_MenuItem getItem();
-	 AndroidCXX::android_view_SubMenu setIcon(AndroidCXX::android_graphics_drawable_Drawable& arg0);
-	 AndroidCXX::android_view_SubMenu setIcon(int& arg0);
-	 AndroidCXX::android_view_SubMenu setHeaderTitle(int& arg0);
-	 AndroidCXX::android_view_SubMenu setHeaderTitle(AndroidCXX::java_lang_CharSequence& arg0);
-	 AndroidCXX::android_view_SubMenu setHeaderIcon(AndroidCXX::android_graphics_drawable_Drawable& arg0);
-	 AndroidCXX::android_view_SubMenu setHeaderIcon(int& arg0);
-	 AndroidCXX::android_view_SubMenu setHeaderView(AndroidCXX::android_view_View& arg0);
+	 AndroidCXX::android_view_SubMenu setIcon(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
+	 AndroidCXX::android_view_SubMenu setIcon(int const& arg0);
+	 AndroidCXX::android_view_SubMenu setHeaderTitle(int const& arg0);
+	 AndroidCXX::android_view_SubMenu setHeaderTitle(AndroidCXX::java_lang_CharSequence const& arg0);
+	 AndroidCXX::android_view_SubMenu setHeaderIcon(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
+	 AndroidCXX::android_view_SubMenu setHeaderIcon(int const& arg0);
+	 AndroidCXX::android_view_SubMenu setHeaderView(AndroidCXX::android_view_View const& arg0);
 	 void clearHeader();
 };	
 

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -138,59 +137,59 @@ class android_view_accessibility_AccessibilityRecord
 public:
 
 	android_view_accessibility_AccessibilityRecord(const android_view_accessibility_AccessibilityRecord& cc);
-	android_view_accessibility_AccessibilityRecord(void * proxy);
+	android_view_accessibility_AccessibilityRecord(Proxy proxy);
 	// Public Constructors
-	android_view_accessibility_AccessibilityRecord();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_accessibility_AccessibilityRecord();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
 	 AndroidCXX::java_lang_CharSequence getClassName();
 	static AndroidCXX::android_view_accessibility_AccessibilityRecord obtain();
-	static AndroidCXX::android_view_accessibility_AccessibilityRecord obtain(AndroidCXX::android_view_accessibility_AccessibilityRecord& arg0);
+	static AndroidCXX::android_view_accessibility_AccessibilityRecord obtain(AndroidCXX::android_view_accessibility_AccessibilityRecord const& arg0);
 	 void recycle();
 	 AndroidCXX::java_util_List getText();
 	 bool isEnabled();
-	 void setClassName(AndroidCXX::java_lang_CharSequence& arg0);
+	 void setClassName(AndroidCXX::java_lang_CharSequence const& arg0);
 	 AndroidCXX::java_lang_CharSequence getContentDescription();
-	 void setContentDescription(AndroidCXX::java_lang_CharSequence& arg0);
-	 void setEnabled(bool& arg0);
-	 void setScrollX(int& arg0);
-	 void setScrollY(int& arg0);
+	 void setContentDescription(AndroidCXX::java_lang_CharSequence const& arg0);
+	 void setEnabled(bool const& arg0);
+	 void setScrollX(int const& arg0);
+	 void setScrollY(int const& arg0);
 	 int getScrollX();
 	 int getScrollY();
-	 void setChecked(bool& arg0);
+	 void setChecked(bool const& arg0);
 	 bool isChecked();
 	 int getItemCount();
 	 AndroidCXX::android_view_accessibility_AccessibilityNodeInfo getSource();
-	 void setSource(AndroidCXX::android_view_View& arg0);
-	 void setSource(AndroidCXX::android_view_View& arg0,int& arg1);
+	 void setSource(AndroidCXX::android_view_View const& arg0);
+	 void setSource(AndroidCXX::android_view_View const& arg0,int const& arg1);
 	 int getWindowId();
 	 bool isPassword();
-	 void setPassword(bool& arg0);
+	 void setPassword(bool const& arg0);
 	 bool isFullScreen();
-	 void setFullScreen(bool& arg0);
+	 void setFullScreen(bool const& arg0);
 	 bool isScrollable();
-	 void setScrollable(bool& arg0);
-	 void setItemCount(int& arg0);
+	 void setScrollable(bool const& arg0);
+	 void setItemCount(int const& arg0);
 	 int getCurrentItemIndex();
-	 void setCurrentItemIndex(int& arg0);
+	 void setCurrentItemIndex(int const& arg0);
 	 int getFromIndex();
-	 void setFromIndex(int& arg0);
+	 void setFromIndex(int const& arg0);
 	 int getToIndex();
-	 void setToIndex(int& arg0);
+	 void setToIndex(int const& arg0);
 	 int getMaxScrollX();
-	 void setMaxScrollX(int& arg0);
+	 void setMaxScrollX(int const& arg0);
 	 int getMaxScrollY();
-	 void setMaxScrollY(int& arg0);
+	 void setMaxScrollY(int const& arg0);
 	 int getAddedCount();
-	 void setAddedCount(int& arg0);
+	 void setAddedCount(int const& arg0);
 	 int getRemovedCount();
-	 void setRemovedCount(int& arg0);
+	 void setRemovedCount(int const& arg0);
 	 AndroidCXX::java_lang_CharSequence getBeforeText();
-	 void setBeforeText(AndroidCXX::java_lang_CharSequence& arg0);
+	 void setBeforeText(AndroidCXX::java_lang_CharSequence const& arg0);
 	 AndroidCXX::android_os_Parcelable getParcelableData();
-	 void setParcelableData(AndroidCXX::android_os_Parcelable& arg0);
+	 void setParcelableData(AndroidCXX::android_os_Parcelable const& arg0);
 };	
 
 } // namespace

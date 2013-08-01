@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -71,16 +70,16 @@ class android_widget_DigitalClock
 public:
 
 	android_widget_DigitalClock(const android_widget_DigitalClock& cc);
-	android_widget_DigitalClock(void * proxy);
+	android_widget_DigitalClock(Proxy proxy);
 	// Public Constructors
-	android_widget_DigitalClock(AndroidCXX::android_content_Context& arg0);
-	android_widget_DigitalClock(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_DigitalClock();
+	android_widget_DigitalClock(AndroidCXX::android_content_Context const& arg0);
+	android_widget_DigitalClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_DigitalClock();
 	// Functions
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
 };	
 
 } // namespace

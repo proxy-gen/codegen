@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 
@@ -32,7 +31,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_lang_CharSequence"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -54,8 +53,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_lang_CharSequence::java_lang_CharSequence(const java_lang_CharSequence& cc)
 {
 	LOGV("java_lang_CharSequence::java_lang_CharSequence(const java_lang_CharSequence& cc) enter");
@@ -79,9 +76,9 @@ java_lang_CharSequence::java_lang_CharSequence(const java_lang_CharSequence& cc)
 
 	LOGV("java_lang_CharSequence::java_lang_CharSequence(const java_lang_CharSequence& cc) exit");
 }
-java_lang_CharSequence::java_lang_CharSequence(void * proxy)
+java_lang_CharSequence::java_lang_CharSequence(Proxy proxy)
 {
-	LOGV("java_lang_CharSequence::java_lang_CharSequence(void * proxy) enter");
+	LOGV("java_lang_CharSequence::java_lang_CharSequence(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -91,47 +88,31 @@ java_lang_CharSequence::java_lang_CharSequence(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_lang_CharSequence::java_lang_CharSequence(void * proxy) exit");
+	LOGV("java_lang_CharSequence::java_lang_CharSequence(Proxy proxy) exit");
 }
-java_lang_CharSequence::java_lang_CharSequence()
-{
-	LOGV("java_lang_CharSequence::java_lang_CharSequence() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "java/lang/CharSequence";
-
-	LOGV("java_lang_CharSequence className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy java_lang_CharSequence::proxy() const
+{	
+	LOGV("java_lang_CharSequence::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_CharSequence cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_CharSequence jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("java_lang_CharSequence::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("java_lang_CharSequence::java_lang_CharSequence() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 java_lang_CharSequence::~java_lang_CharSequence()
 {
@@ -143,7 +124,7 @@ java_lang_CharSequence::~java_lang_CharSequence()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_lang_CharSequence::~java_lang_CharSequence() exit");
 }
 // Functions
@@ -160,15 +141,12 @@ AndroidCXX::java_lang_String java_lang_CharSequence::toString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_CharSequence cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_CharSequence jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -186,10 +164,10 @@ AndroidCXX::java_lang_String java_lang_CharSequence::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String java_lang_CharSequence::toString() exit");
 
 	return result;
@@ -207,15 +185,12 @@ int java_lang_CharSequence::length()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_CharSequence cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_CharSequence jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -233,17 +208,17 @@ int java_lang_CharSequence::length()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_lang_CharSequence::length() exit");
 
 	return result;
 }
-char java_lang_CharSequence::charAt(int& arg0)
+char java_lang_CharSequence::charAt(int const& arg0)
 {
-	LOGV("char java_lang_CharSequence::charAt(int& arg0) enter");
+	LOGV("char java_lang_CharSequence::charAt(int const& arg0) enter");
 
 	const char *methodName = "charAt";
 	const char *methodSignature = "(I)C";
@@ -253,8 +228,6 @@ char java_lang_CharSequence::charAt(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_CharSequence cxx address %d", cxxAddress);
@@ -283,7 +256,6 @@ char java_lang_CharSequence::charAt(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	char result;
 	jchar jni_result = (jchar) jni->invokeCharMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_char_to_java(jni_result);
@@ -301,17 +273,17 @@ char java_lang_CharSequence::charAt(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_char(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (char) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("char java_lang_CharSequence::charAt(int& arg0) exit");
+	char result = (char) *((char *) cxx_value);
+	// 
+		
+	LOGV("char java_lang_CharSequence::charAt(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_CharSequence java_lang_CharSequence::subSequence(int& arg0,int& arg1)
+AndroidCXX::java_lang_CharSequence java_lang_CharSequence::subSequence(int const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::java_lang_CharSequence java_lang_CharSequence::subSequence(int& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::java_lang_CharSequence java_lang_CharSequence::subSequence(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "subSequence";
 	const char *methodSignature = "(II)Ljava/lang/CharSequence;";
@@ -321,8 +293,6 @@ AndroidCXX::java_lang_CharSequence java_lang_CharSequence::subSequence(int& arg0
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_CharSequence cxx address %d", cxxAddress);
@@ -372,7 +342,6 @@ AndroidCXX::java_lang_CharSequence java_lang_CharSequence::subSequence(int& arg0
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -390,11 +359,11 @@ AndroidCXX::java_lang_CharSequence java_lang_CharSequence::subSequence(int& arg0
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_CharSequence) (AndroidCXX::java_lang_CharSequence((AndroidCXX::java_lang_CharSequence *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_CharSequence java_lang_CharSequence::subSequence(int& arg0,int& arg1) exit");
+	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
+	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_CharSequence java_lang_CharSequence::subSequence(int const& arg0,int const& arg1) exit");
 
 	return result;
 }

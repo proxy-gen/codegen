@@ -10,7 +10,6 @@
 
 
 
-
  		 
 
 
@@ -52,10 +51,10 @@ class org_json_JSONException
 public:
 
 	org_json_JSONException(const org_json_JSONException& cc);
-	org_json_JSONException(void * proxy);
+	org_json_JSONException(Proxy proxy);
 	// Public Constructors
-	org_json_JSONException(AndroidCXX::java_lang_String& arg0);
-	org_json_JSONException();
+	org_json_JSONException(AndroidCXX::java_lang_String const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~org_json_JSONException();
 	// Functions

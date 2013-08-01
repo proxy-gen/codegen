@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 
@@ -52,8 +51,6 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_nio_ByteOrder::java_nio_ByteOrder(const java_nio_ByteOrder& cc)
 {
 	LOGV("java_nio_ByteOrder::java_nio_ByteOrder(const java_nio_ByteOrder& cc) enter");
@@ -77,9 +74,9 @@ java_nio_ByteOrder::java_nio_ByteOrder(const java_nio_ByteOrder& cc)
 
 	LOGV("java_nio_ByteOrder::java_nio_ByteOrder(const java_nio_ByteOrder& cc) exit");
 }
-java_nio_ByteOrder::java_nio_ByteOrder(void * proxy)
+java_nio_ByteOrder::java_nio_ByteOrder(Proxy proxy)
 {
-	LOGV("java_nio_ByteOrder::java_nio_ByteOrder(void * proxy) enter");
+	LOGV("java_nio_ByteOrder::java_nio_ByteOrder(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -89,52 +86,31 @@ java_nio_ByteOrder::java_nio_ByteOrder(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_nio_ByteOrder::java_nio_ByteOrder(void * proxy) exit");
+	LOGV("java_nio_ByteOrder::java_nio_ByteOrder(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_nio_ByteOrder::java_nio_ByteOrder()
-// {
-// 	LOGV("java_nio_ByteOrder::java_nio_ByteOrder() enter");	
+Proxy java_nio_ByteOrder::proxy() const
+{	
+	LOGV("java_nio_ByteOrder::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/nio/ByteOrder";
+	long cxxAddress = (long) this;
+	LOGV("java_nio_ByteOrder cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_ByteOrder jni address %d", proxiedComponent);
 
-// 	LOGV("java_nio_ByteOrder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_nio_ByteOrder::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_nio_ByteOrder cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_nio_ByteOrder jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_nio_ByteOrder::java_nio_ByteOrder() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_nio_ByteOrder::~java_nio_ByteOrder()
 {
@@ -146,7 +122,7 @@ java_nio_ByteOrder::~java_nio_ByteOrder()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_nio_ByteOrder::~java_nio_ByteOrder() exit");
 }
 // Functions
@@ -162,8 +138,6 @@ JDKCXX::java_lang_String java_nio_ByteOrder::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_ByteOrder cxx address %d", cxxAddress);
@@ -192,8 +166,6 @@ JDKCXX::java_lang_String java_nio_ByteOrder::toString()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_nio_ByteOrder::toString() exit");
 
 	return result;
@@ -211,15 +183,13 @@ JDKCXX::java_nio_ByteOrder java_nio_ByteOrder::nativeOrder()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_nio_ByteOrder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_nio_ByteOrder jni address %d", javaObject);
 
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -240,8 +210,6 @@ JDKCXX::java_nio_ByteOrder java_nio_ByteOrder::nativeOrder()
 	JDKCXX::java_nio_ByteOrder result((JDKCXX::java_nio_ByteOrder) *((JDKCXX::java_nio_ByteOrder *) cxx_value));
 	delete ((JDKCXX::java_nio_ByteOrder *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_nio_ByteOrder java_nio_ByteOrder::nativeOrder() exit");
 
 	return result;

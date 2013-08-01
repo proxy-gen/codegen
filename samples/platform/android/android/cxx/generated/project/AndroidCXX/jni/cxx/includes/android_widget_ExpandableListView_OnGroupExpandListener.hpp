@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_widget_ExpandableListView_OnGroupExpandListener
@@ -47,13 +46,13 @@ class android_widget_ExpandableListView_OnGroupExpandListener
 public:
 
 	android_widget_ExpandableListView_OnGroupExpandListener(const android_widget_ExpandableListView_OnGroupExpandListener& cc);
-	android_widget_ExpandableListView_OnGroupExpandListener(void * proxy);
+	android_widget_ExpandableListView_OnGroupExpandListener(Proxy proxy);
 	// Public Constructors
-	android_widget_ExpandableListView_OnGroupExpandListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ExpandableListView_OnGroupExpandListener();
 	// Functions
-	 void onGroupExpand(int& arg0);
+	 void onGroupExpand(int const& arg0);
 };	
 
 } // namespace

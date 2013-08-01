@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -83,21 +82,21 @@ class android_widget_TextClock
 public:
 
 	android_widget_TextClock(const android_widget_TextClock& cc);
-	android_widget_TextClock(void * proxy);
+	android_widget_TextClock(Proxy proxy);
 	// Public Constructors
-	android_widget_TextClock(AndroidCXX::android_content_Context& arg0);
-	android_widget_TextClock(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_TextClock(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_TextClock();
+	android_widget_TextClock(AndroidCXX::android_content_Context const& arg0);
+	android_widget_TextClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_TextClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TextClock();
 	// Functions
 	 AndroidCXX::java_lang_String getTimeZone();
-	 void setTimeZone(AndroidCXX::java_lang_String& arg0);
+	 void setTimeZone(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_lang_CharSequence getFormat12Hour();
-	 void setFormat12Hour(AndroidCXX::java_lang_CharSequence& arg0);
+	 void setFormat12Hour(AndroidCXX::java_lang_CharSequence const& arg0);
 	 AndroidCXX::java_lang_CharSequence getFormat24Hour();
-	 void setFormat24Hour(AndroidCXX::java_lang_CharSequence& arg0);
+	 void setFormat24Hour(AndroidCXX::java_lang_CharSequence const& arg0);
 	 bool is24HourModeEnabled();
 };	
 

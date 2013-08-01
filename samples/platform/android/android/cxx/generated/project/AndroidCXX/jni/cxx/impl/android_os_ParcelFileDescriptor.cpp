@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -58,7 +57,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_os_ParcelFileDescriptor"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -119,34 +118,9 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
-android_os_ParcelFileDescriptor::android_os_ParcelFileDescriptor(const android_os_ParcelFileDescriptor& cc)
+android_os_ParcelFileDescriptor::android_os_ParcelFileDescriptor(Proxy proxy)
 {
-	LOGV("android_os_ParcelFileDescriptor::android_os_ParcelFileDescriptor(const android_os_ParcelFileDescriptor& cc) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	long ccaddress = (long) &cc;
-	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
-	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
-	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
-	long address = (long) this;
-	LOGV("registerProxyComponent address %ld", address);
-	jobject proxiedComponent = ctx->findProxyComponent(address);
-	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
-	if (proxiedComponent == 0)
-	{
-		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = proxiedCCComponent;
-		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
-		ctx->registerProxyComponent(address, proxiedComponent);
-	}
-
-	LOGV("android_os_ParcelFileDescriptor::android_os_ParcelFileDescriptor(const android_os_ParcelFileDescriptor& cc) exit");
-}
-android_os_ParcelFileDescriptor::android_os_ParcelFileDescriptor(void * proxy)
-{
-	LOGV("android_os_ParcelFileDescriptor::android_os_ParcelFileDescriptor(void * proxy) enter");
+	LOGV("android_os_ParcelFileDescriptor::android_os_ParcelFileDescriptor(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -156,50 +130,34 @@ android_os_ParcelFileDescriptor::android_os_ParcelFileDescriptor(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_os_ParcelFileDescriptor::android_os_ParcelFileDescriptor(void * proxy) exit");
+	LOGV("android_os_ParcelFileDescriptor::android_os_ParcelFileDescriptor(Proxy proxy) exit");
 }
-android_os_ParcelFileDescriptor::android_os_ParcelFileDescriptor()
-{
-	LOGV("android_os_ParcelFileDescriptor::android_os_ParcelFileDescriptor() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/os/ParcelFileDescriptor";
-
-	LOGV("android_os_ParcelFileDescriptor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_os_ParcelFileDescriptor::proxy() const
+{	
+	LOGV("android_os_ParcelFileDescriptor::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_os_ParcelFileDescriptor cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_ParcelFileDescriptor jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_os_ParcelFileDescriptor::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_os_ParcelFileDescriptor::android_os_ParcelFileDescriptor() exit");	
+	return proxy;
 }
-// Public Constructors
-android_os_ParcelFileDescriptor::android_os_ParcelFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor& arg0)
+android_os_ParcelFileDescriptor::android_os_ParcelFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor const& arg0)
 {
-	LOGV("android_os_ParcelFileDescriptor::android_os_ParcelFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor& arg0) enter");	
+	LOGV("android_os_ParcelFileDescriptor::android_os_ParcelFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/os/ParcelFileDescriptor;)V";
@@ -252,7 +210,7 @@ android_os_ParcelFileDescriptor::android_os_ParcelFileDescriptor(AndroidCXX::and
 
 	jni->popLocalFrame();
 
-	LOGV("android_os_ParcelFileDescriptor::android_os_ParcelFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor& arg0) exit");	
+	LOGV("android_os_ParcelFileDescriptor::android_os_ParcelFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor const& arg0) exit");	
 }
 // Default Instance Destructor
 android_os_ParcelFileDescriptor::~android_os_ParcelFileDescriptor()
@@ -265,7 +223,7 @@ android_os_ParcelFileDescriptor::~android_os_ParcelFileDescriptor()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_os_ParcelFileDescriptor::~android_os_ParcelFileDescriptor() exit");
 }
 // Functions
@@ -282,15 +240,12 @@ AndroidCXX::java_lang_String android_os_ParcelFileDescriptor::toString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_os_ParcelFileDescriptor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_ParcelFileDescriptor jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -308,10 +263,10 @@ AndroidCXX::java_lang_String android_os_ParcelFileDescriptor::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_os_ParcelFileDescriptor::toString() exit");
 
 	return result;
@@ -329,8 +284,6 @@ void android_os_ParcelFileDescriptor::close()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_os_ParcelFileDescriptor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -339,14 +292,12 @@ void android_os_ParcelFileDescriptor::close()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_os_ParcelFileDescriptor::close() exit");
 
 }
-AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::open(AndroidCXX::java_io_File& arg0,int& arg1)
+AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::open(AndroidCXX::java_io_File const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::open(AndroidCXX::java_io_File& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::open(AndroidCXX::java_io_File const& arg0,int const& arg1) enter");
 
 	const char *methodName = "open";
 	const char *methodSignature = "(Ljava/io/File;I)Landroid/os/ParcelFileDescriptor;";
@@ -356,8 +307,6 @@ AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::ope
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_os_ParcelFileDescriptor cxx address %d", cxxAddress);
@@ -407,8 +356,7 @@ AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::ope
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_os_ParcelFileDescriptor result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -425,17 +373,17 @@ AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::ope
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_ParcelFileDescriptor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_ParcelFileDescriptor) (AndroidCXX::android_os_ParcelFileDescriptor((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::open(AndroidCXX::java_io_File& arg0,int& arg1) exit");
+	AndroidCXX::android_os_ParcelFileDescriptor result((AndroidCXX::android_os_ParcelFileDescriptor) *((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value));
+	delete ((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value);
+		
+	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::open(AndroidCXX::java_io_File const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::dup(AndroidCXX::java_io_FileDescriptor& arg0)
+AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::dup(AndroidCXX::java_io_FileDescriptor const& arg0)
 {
-	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::dup(AndroidCXX::java_io_FileDescriptor& arg0) enter");
+	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::dup(AndroidCXX::java_io_FileDescriptor const& arg0) enter");
 
 	const char *methodName = "dup";
 	const char *methodSignature = "(Ljava/io/FileDescriptor;)Landroid/os/ParcelFileDescriptor;";
@@ -445,8 +393,6 @@ AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::dup
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_os_ParcelFileDescriptor cxx address %d", cxxAddress);
@@ -475,8 +421,7 @@ AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::dup
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_os_ParcelFileDescriptor result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -493,11 +438,11 @@ AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::dup
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_ParcelFileDescriptor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_ParcelFileDescriptor) (AndroidCXX::android_os_ParcelFileDescriptor((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::dup(AndroidCXX::java_io_FileDescriptor& arg0) exit");
+	AndroidCXX::android_os_ParcelFileDescriptor result((AndroidCXX::android_os_ParcelFileDescriptor) *((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value));
+	delete ((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value);
+		
+	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::dup(AndroidCXX::java_io_FileDescriptor const& arg0) exit");
 
 	return result;
 }
@@ -514,15 +459,12 @@ AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::dup
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_os_ParcelFileDescriptor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_ParcelFileDescriptor jni address %d", javaObject);
 
 
-	AndroidCXX::android_os_ParcelFileDescriptor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -540,10 +482,10 @@ AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::dup
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_ParcelFileDescriptor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_ParcelFileDescriptor) (AndroidCXX::android_os_ParcelFileDescriptor((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_os_ParcelFileDescriptor result((AndroidCXX::android_os_ParcelFileDescriptor) *((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value));
+	delete ((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value);
+		
 	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::dup() exit");
 
 	return result;
@@ -561,15 +503,12 @@ int android_os_ParcelFileDescriptor::describeContents()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_os_ParcelFileDescriptor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_ParcelFileDescriptor jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -587,17 +526,17 @@ int android_os_ParcelFileDescriptor::describeContents()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_os_ParcelFileDescriptor::describeContents() exit");
 
 	return result;
 }
-void android_os_ParcelFileDescriptor::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_os_ParcelFileDescriptor::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_os_ParcelFileDescriptor::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_os_ParcelFileDescriptor::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -607,8 +546,6 @@ void android_os_ParcelFileDescriptor::writeToParcel(AndroidCXX::android_os_Parce
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_os_ParcelFileDescriptor cxx address %d", cxxAddress);
@@ -660,14 +597,12 @@ void android_os_ParcelFileDescriptor::writeToParcel(AndroidCXX::android_os_Parce
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_os_ParcelFileDescriptor::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_os_ParcelFileDescriptor::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }
-AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fromFd(int& arg0)
+AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fromFd(int const& arg0)
 {
-	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fromFd(int& arg0) enter");
+	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fromFd(int const& arg0) enter");
 
 	const char *methodName = "fromFd";
 	const char *methodSignature = "(I)Landroid/os/ParcelFileDescriptor;";
@@ -678,8 +613,6 @@ AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fro
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_os_ParcelFileDescriptor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -707,8 +640,7 @@ AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fro
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_os_ParcelFileDescriptor result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -725,17 +657,17 @@ AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fro
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_ParcelFileDescriptor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_ParcelFileDescriptor) (AndroidCXX::android_os_ParcelFileDescriptor((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fromFd(int& arg0) exit");
+	AndroidCXX::android_os_ParcelFileDescriptor result((AndroidCXX::android_os_ParcelFileDescriptor) *((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value));
+	delete ((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value);
+		
+	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fromFd(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::adoptFd(int& arg0)
+AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::adoptFd(int const& arg0)
 {
-	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::adoptFd(int& arg0) enter");
+	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::adoptFd(int const& arg0) enter");
 
 	const char *methodName = "adoptFd";
 	const char *methodSignature = "(I)Landroid/os/ParcelFileDescriptor;";
@@ -746,8 +678,6 @@ AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::ado
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_os_ParcelFileDescriptor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -775,8 +705,7 @@ AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::ado
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_os_ParcelFileDescriptor result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -793,17 +722,17 @@ AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::ado
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_ParcelFileDescriptor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_ParcelFileDescriptor) (AndroidCXX::android_os_ParcelFileDescriptor((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::adoptFd(int& arg0) exit");
+	AndroidCXX::android_os_ParcelFileDescriptor result((AndroidCXX::android_os_ParcelFileDescriptor) *((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value));
+	delete ((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value);
+		
+	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::adoptFd(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fromSocket(AndroidCXX::java_net_Socket& arg0)
+AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fromSocket(AndroidCXX::java_net_Socket const& arg0)
 {
-	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fromSocket(AndroidCXX::java_net_Socket& arg0) enter");
+	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fromSocket(AndroidCXX::java_net_Socket const& arg0) enter");
 
 	const char *methodName = "fromSocket";
 	const char *methodSignature = "(Ljava/net/Socket;)Landroid/os/ParcelFileDescriptor;";
@@ -813,8 +742,6 @@ AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_os_ParcelFileDescriptor cxx address %d", cxxAddress);
@@ -843,8 +770,7 @@ AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fro
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_os_ParcelFileDescriptor result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -861,17 +787,17 @@ AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fro
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_ParcelFileDescriptor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_ParcelFileDescriptor) (AndroidCXX::android_os_ParcelFileDescriptor((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fromSocket(AndroidCXX::java_net_Socket& arg0) exit");
+	AndroidCXX::android_os_ParcelFileDescriptor result((AndroidCXX::android_os_ParcelFileDescriptor) *((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value));
+	delete ((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value);
+		
+	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fromSocket(AndroidCXX::java_net_Socket const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fromDatagramSocket(AndroidCXX::java_net_DatagramSocket& arg0)
+AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fromDatagramSocket(AndroidCXX::java_net_DatagramSocket const& arg0)
 {
-	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fromDatagramSocket(AndroidCXX::java_net_DatagramSocket& arg0) enter");
+	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fromDatagramSocket(AndroidCXX::java_net_DatagramSocket const& arg0) enter");
 
 	const char *methodName = "fromDatagramSocket";
 	const char *methodSignature = "(Ljava/net/DatagramSocket;)Landroid/os/ParcelFileDescriptor;";
@@ -881,8 +807,6 @@ AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_os_ParcelFileDescriptor cxx address %d", cxxAddress);
@@ -911,8 +835,7 @@ AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fro
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_os_ParcelFileDescriptor result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -929,11 +852,11 @@ AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fro
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_ParcelFileDescriptor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_ParcelFileDescriptor) (AndroidCXX::android_os_ParcelFileDescriptor((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fromDatagramSocket(AndroidCXX::java_net_DatagramSocket& arg0) exit");
+	AndroidCXX::android_os_ParcelFileDescriptor result((AndroidCXX::android_os_ParcelFileDescriptor) *((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value));
+	delete ((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value);
+		
+	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fromDatagramSocket(AndroidCXX::java_net_DatagramSocket const& arg0) exit");
 
 	return result;
 }
@@ -950,16 +873,13 @@ std::vector<AndroidCXX::android_os_ParcelFileDescriptor > android_os_ParcelFileD
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_os_ParcelFileDescriptor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_ParcelFileDescriptor jni address %d", javaObject);
 
 
-	std::vector<AndroidCXX::android_os_ParcelFileDescriptor > result;
-	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jobjectArray jni_result = (jobjectArray) jni->invokeStaticObjectMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
 	{
@@ -994,10 +914,10 @@ std::vector<AndroidCXX::android_os_ParcelFileDescriptor > android_os_ParcelFileD
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<AndroidCXX::android_os_ParcelFileDescriptor >) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	std::vector<AndroidCXX::android_os_ParcelFileDescriptor > result = (std::vector<AndroidCXX::android_os_ParcelFileDescriptor >) *((std::vector<AndroidCXX::android_os_ParcelFileDescriptor > *) cxx_value);
+	delete ((std::vector<AndroidCXX::android_os_ParcelFileDescriptor > *) cxx_value);
+		
 	LOGV("std::vector<AndroidCXX::android_os_ParcelFileDescriptor > android_os_ParcelFileDescriptor::createPipe() exit");
 
 	return result;
@@ -1015,15 +935,12 @@ AndroidCXX::java_io_FileDescriptor android_os_ParcelFileDescriptor::getFileDescr
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_os_ParcelFileDescriptor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_ParcelFileDescriptor jni address %d", javaObject);
 
 
-	AndroidCXX::java_io_FileDescriptor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1041,10 +958,10 @@ AndroidCXX::java_io_FileDescriptor android_os_ParcelFileDescriptor::getFileDescr
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_io_FileDescriptor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_io_FileDescriptor) (AndroidCXX::java_io_FileDescriptor((AndroidCXX::java_io_FileDescriptor *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_io_FileDescriptor result((AndroidCXX::java_io_FileDescriptor) *((AndroidCXX::java_io_FileDescriptor *) cxx_value));
+	delete ((AndroidCXX::java_io_FileDescriptor *) cxx_value);
+		
 	LOGV("AndroidCXX::java_io_FileDescriptor android_os_ParcelFileDescriptor::getFileDescriptor() exit");
 
 	return result;
@@ -1062,15 +979,12 @@ long android_os_ParcelFileDescriptor::getStatSize()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_os_ParcelFileDescriptor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_ParcelFileDescriptor jni address %d", javaObject);
 
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -1088,10 +1002,10 @@ long android_os_ParcelFileDescriptor::getStatSize()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	long result = (long) *((long *) cxx_value);
+	// 
+		
 	LOGV("long android_os_ParcelFileDescriptor::getStatSize() exit");
 
 	return result;
@@ -1109,15 +1023,12 @@ int android_os_ParcelFileDescriptor::getFd()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_os_ParcelFileDescriptor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_ParcelFileDescriptor jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1135,10 +1046,10 @@ int android_os_ParcelFileDescriptor::getFd()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_os_ParcelFileDescriptor::getFd() exit");
 
 	return result;
@@ -1156,15 +1067,12 @@ int android_os_ParcelFileDescriptor::detachFd()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_os_ParcelFileDescriptor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_ParcelFileDescriptor jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1182,10 +1090,10 @@ int android_os_ParcelFileDescriptor::detachFd()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_os_ParcelFileDescriptor::detachFd() exit");
 
 	return result;

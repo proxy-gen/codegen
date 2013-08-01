@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -90,30 +89,30 @@ class android_widget_ExpandableListAdapter
 public:
 
 	android_widget_ExpandableListAdapter(const android_widget_ExpandableListAdapter& cc);
-	android_widget_ExpandableListAdapter(void * proxy);
+	android_widget_ExpandableListAdapter(Proxy proxy);
 	// Public Constructors
-	android_widget_ExpandableListAdapter();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ExpandableListAdapter();
 	// Functions
 	 bool isEmpty();
-	 long getGroupId(int& arg0);
-	 void registerDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0);
-	 void unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0);
-	 AndroidCXX::java_lang_Object getChild(int& arg0,int& arg1);
+	 long getGroupId(int const& arg0);
+	 void registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0);
+	 void unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0);
+	 AndroidCXX::java_lang_Object getChild(int const& arg0,int const& arg1);
 	 bool hasStableIds();
 	 bool areAllItemsEnabled();
 	 int getGroupCount();
-	 int getChildrenCount(int& arg0);
-	 AndroidCXX::java_lang_Object getGroup(int& arg0);
-	 long getChildId(int& arg0,int& arg1);
-	 AndroidCXX::android_view_View getGroupView(int& arg0,bool& arg1,AndroidCXX::android_view_View& arg2,AndroidCXX::android_view_ViewGroup& arg3);
-	 AndroidCXX::android_view_View getChildView(int& arg0,int& arg1,bool& arg2,AndroidCXX::android_view_View& arg3,AndroidCXX::android_view_ViewGroup& arg4);
-	 bool isChildSelectable(int& arg0,int& arg1);
-	 void onGroupExpanded(int& arg0);
-	 void onGroupCollapsed(int& arg0);
-	 long getCombinedChildId(long& arg0,long& arg1);
-	 long getCombinedGroupId(long& arg0);
+	 int getChildrenCount(int const& arg0);
+	 AndroidCXX::java_lang_Object getGroup(int const& arg0);
+	 long getChildId(int const& arg0,int const& arg1);
+	 AndroidCXX::android_view_View getGroupView(int const& arg0,bool const& arg1,AndroidCXX::android_view_View const& arg2,AndroidCXX::android_view_ViewGroup const& arg3);
+	 AndroidCXX::android_view_View getChildView(int const& arg0,int const& arg1,bool const& arg2,AndroidCXX::android_view_View const& arg3,AndroidCXX::android_view_ViewGroup const& arg4);
+	 bool isChildSelectable(int const& arg0,int const& arg1);
+	 void onGroupExpanded(int const& arg0);
+	 void onGroupCollapsed(int const& arg0);
+	 long getCombinedChildId(long const& arg0,long const& arg1);
+	 long getCombinedGroupId(long const& arg0);
 };	
 
 } // namespace

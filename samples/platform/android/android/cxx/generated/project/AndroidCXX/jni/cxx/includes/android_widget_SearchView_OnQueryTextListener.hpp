@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -54,14 +53,14 @@ class android_widget_SearchView_OnQueryTextListener
 public:
 
 	android_widget_SearchView_OnQueryTextListener(const android_widget_SearchView_OnQueryTextListener& cc);
-	android_widget_SearchView_OnQueryTextListener(void * proxy);
+	android_widget_SearchView_OnQueryTextListener(Proxy proxy);
 	// Public Constructors
-	android_widget_SearchView_OnQueryTextListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SearchView_OnQueryTextListener();
 	// Functions
-	 bool onQueryTextSubmit(AndroidCXX::java_lang_String& arg0);
-	 bool onQueryTextChange(AndroidCXX::java_lang_String& arg0);
+	 bool onQueryTextSubmit(AndroidCXX::java_lang_String const& arg0);
+	 bool onQueryTextChange(AndroidCXX::java_lang_String const& arg0);
 };	
 
 } // namespace

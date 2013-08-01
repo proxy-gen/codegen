@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -32,6 +31,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_android_Facebook_ServiceListener"
@@ -62,8 +62,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_android_Facebook_ServiceListener::com_facebook_android_Facebook_ServiceListener(const com_facebook_android_Facebook_ServiceListener& cc)
 {
 	LOGV("com_facebook_android_Facebook_ServiceListener::com_facebook_android_Facebook_ServiceListener(const com_facebook_android_Facebook_ServiceListener& cc) enter");
@@ -87,9 +85,9 @@ com_facebook_android_Facebook_ServiceListener::com_facebook_android_Facebook_Ser
 
 	LOGV("com_facebook_android_Facebook_ServiceListener::com_facebook_android_Facebook_ServiceListener(const com_facebook_android_Facebook_ServiceListener& cc) exit");
 }
-com_facebook_android_Facebook_ServiceListener::com_facebook_android_Facebook_ServiceListener(void * proxy)
+com_facebook_android_Facebook_ServiceListener::com_facebook_android_Facebook_ServiceListener(Proxy proxy)
 {
-	LOGV("com_facebook_android_Facebook_ServiceListener::com_facebook_android_Facebook_ServiceListener(void * proxy) enter");
+	LOGV("com_facebook_android_Facebook_ServiceListener::com_facebook_android_Facebook_ServiceListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -99,47 +97,31 @@ com_facebook_android_Facebook_ServiceListener::com_facebook_android_Facebook_Ser
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_android_Facebook_ServiceListener::com_facebook_android_Facebook_ServiceListener(void * proxy) exit");
+	LOGV("com_facebook_android_Facebook_ServiceListener::com_facebook_android_Facebook_ServiceListener(Proxy proxy) exit");
 }
-com_facebook_android_Facebook_ServiceListener::com_facebook_android_Facebook_ServiceListener()
-{
-	LOGV("com_facebook_android_Facebook_ServiceListener::com_facebook_android_Facebook_ServiceListener() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/android/Facebook$ServiceListener";
-
-	LOGV("com_facebook_android_Facebook_ServiceListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_android_Facebook_ServiceListener::proxy() const
+{	
+	LOGV("com_facebook_android_Facebook_ServiceListener::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook_ServiceListener cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_android_Facebook_ServiceListener jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_android_Facebook_ServiceListener::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_android_Facebook_ServiceListener::com_facebook_android_Facebook_ServiceListener() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 com_facebook_android_Facebook_ServiceListener::~com_facebook_android_Facebook_ServiceListener()
 {
@@ -151,13 +133,13 @@ com_facebook_android_Facebook_ServiceListener::~com_facebook_android_Facebook_Se
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_android_Facebook_ServiceListener::~com_facebook_android_Facebook_ServiceListener() exit");
 }
 // Functions
-void com_facebook_android_Facebook_ServiceListener::onComplete(AndroidCXX::android_os_Bundle& arg0)
+void com_facebook_android_Facebook_ServiceListener::onComplete(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("void com_facebook_android_Facebook_ServiceListener::onComplete(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_android_Facebook_ServiceListener::onComplete(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "onComplete";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -167,8 +149,6 @@ void com_facebook_android_Facebook_ServiceListener::onComplete(AndroidCXX::andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook_ServiceListener cxx address %d", cxxAddress);
@@ -199,14 +179,12 @@ void com_facebook_android_Facebook_ServiceListener::onComplete(AndroidCXX::andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_Facebook_ServiceListener::onComplete(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_android_Facebook_ServiceListener::onComplete(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 }
-void com_facebook_android_Facebook_ServiceListener::onFacebookError(FacebookCXX::com_facebook_android_FacebookError& arg0)
+void com_facebook_android_Facebook_ServiceListener::onFacebookError(FacebookCXX::com_facebook_android_FacebookError const& arg0)
 {
-	LOGV("void com_facebook_android_Facebook_ServiceListener::onFacebookError(FacebookCXX::com_facebook_android_FacebookError& arg0) enter");
+	LOGV("void com_facebook_android_Facebook_ServiceListener::onFacebookError(FacebookCXX::com_facebook_android_FacebookError const& arg0) enter");
 
 	const char *methodName = "onFacebookError";
 	const char *methodSignature = "(Lcom/facebook/android/FacebookError;)V";
@@ -216,8 +194,6 @@ void com_facebook_android_Facebook_ServiceListener::onFacebookError(FacebookCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook_ServiceListener cxx address %d", cxxAddress);
@@ -248,14 +224,12 @@ void com_facebook_android_Facebook_ServiceListener::onFacebookError(FacebookCXX:
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_Facebook_ServiceListener::onFacebookError(FacebookCXX::com_facebook_android_FacebookError& arg0) exit");
+	LOGV("void com_facebook_android_Facebook_ServiceListener::onFacebookError(FacebookCXX::com_facebook_android_FacebookError const& arg0) exit");
 
 }
-void com_facebook_android_Facebook_ServiceListener::onError(AndroidCXX::java_lang_Error& arg0)
+void com_facebook_android_Facebook_ServiceListener::onError(AndroidCXX::java_lang_Error const& arg0)
 {
-	LOGV("void com_facebook_android_Facebook_ServiceListener::onError(AndroidCXX::java_lang_Error& arg0) enter");
+	LOGV("void com_facebook_android_Facebook_ServiceListener::onError(AndroidCXX::java_lang_Error const& arg0) enter");
 
 	const char *methodName = "onError";
 	const char *methodSignature = "(Ljava/lang/Error;)V";
@@ -265,8 +239,6 @@ void com_facebook_android_Facebook_ServiceListener::onError(AndroidCXX::java_lan
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook_ServiceListener cxx address %d", cxxAddress);
@@ -297,8 +269,6 @@ void com_facebook_android_Facebook_ServiceListener::onError(AndroidCXX::java_lan
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_Facebook_ServiceListener::onError(AndroidCXX::java_lang_Error& arg0) exit");
+	LOGV("void com_facebook_android_Facebook_ServiceListener::onError(AndroidCXX::java_lang_Error const& arg0) exit");
 
 }

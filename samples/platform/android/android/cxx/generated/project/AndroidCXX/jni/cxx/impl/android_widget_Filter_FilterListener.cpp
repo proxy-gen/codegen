@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_widget_Filter_FilterListener.hpp>
@@ -27,7 +26,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_Filter_FilterListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -40,8 +39,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_widget_Filter_FilterListener::android_widget_Filter_FilterListener(const android_widget_Filter_FilterListener& cc)
 {
 	LOGV("android_widget_Filter_FilterListener::android_widget_Filter_FilterListener(const android_widget_Filter_FilterListener& cc) enter");
@@ -65,9 +62,9 @@ android_widget_Filter_FilterListener::android_widget_Filter_FilterListener(const
 
 	LOGV("android_widget_Filter_FilterListener::android_widget_Filter_FilterListener(const android_widget_Filter_FilterListener& cc) exit");
 }
-android_widget_Filter_FilterListener::android_widget_Filter_FilterListener(void * proxy)
+android_widget_Filter_FilterListener::android_widget_Filter_FilterListener(Proxy proxy)
 {
-	LOGV("android_widget_Filter_FilterListener::android_widget_Filter_FilterListener(void * proxy) enter");
+	LOGV("android_widget_Filter_FilterListener::android_widget_Filter_FilterListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -77,47 +74,31 @@ android_widget_Filter_FilterListener::android_widget_Filter_FilterListener(void 
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_Filter_FilterListener::android_widget_Filter_FilterListener(void * proxy) exit");
+	LOGV("android_widget_Filter_FilterListener::android_widget_Filter_FilterListener(Proxy proxy) exit");
 }
-android_widget_Filter_FilterListener::android_widget_Filter_FilterListener()
-{
-	LOGV("android_widget_Filter_FilterListener::android_widget_Filter_FilterListener() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/Filter$FilterListener";
-
-	LOGV("android_widget_Filter_FilterListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_widget_Filter_FilterListener::proxy() const
+{	
+	LOGV("android_widget_Filter_FilterListener::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Filter_FilterListener cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Filter_FilterListener jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_widget_Filter_FilterListener::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_widget_Filter_FilterListener::android_widget_Filter_FilterListener() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_widget_Filter_FilterListener::~android_widget_Filter_FilterListener()
 {
@@ -129,13 +110,13 @@ android_widget_Filter_FilterListener::~android_widget_Filter_FilterListener()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_Filter_FilterListener::~android_widget_Filter_FilterListener() exit");
 }
 // Functions
-void android_widget_Filter_FilterListener::onFilterComplete(int& arg0)
+void android_widget_Filter_FilterListener::onFilterComplete(int const& arg0)
 {
-	LOGV("void android_widget_Filter_FilterListener::onFilterComplete(int& arg0) enter");
+	LOGV("void android_widget_Filter_FilterListener::onFilterComplete(int const& arg0) enter");
 
 	const char *methodName = "onFilterComplete";
 	const char *methodSignature = "(I)V";
@@ -145,8 +126,6 @@ void android_widget_Filter_FilterListener::onFilterComplete(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Filter_FilterListener cxx address %d", cxxAddress);
@@ -177,8 +156,6 @@ void android_widget_Filter_FilterListener::onFilterComplete(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Filter_FilterListener::onFilterComplete(int& arg0) exit");
+	LOGV("void android_widget_Filter_FilterListener::onFilterComplete(int const& arg0) exit");
 
 }

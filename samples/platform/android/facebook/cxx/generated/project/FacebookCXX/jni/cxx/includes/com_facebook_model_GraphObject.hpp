@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -84,18 +83,18 @@ class com_facebook_model_GraphObject
 public:
 
 	com_facebook_model_GraphObject(const com_facebook_model_GraphObject& cc);
-	com_facebook_model_GraphObject(void * proxy);
+	com_facebook_model_GraphObject(Proxy proxy);
 	// Public Constructors
-	com_facebook_model_GraphObject();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphObject();
 	// Functions
-	 void setProperty(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Object& arg1);
-	 AndroidCXX::java_lang_Object getProperty(AndroidCXX::java_lang_String& arg0);
-	 FacebookCXX::com_facebook_model_GraphObject cast(AndroidCXX::java_lang_Class& arg0);
+	 void setProperty(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	 AndroidCXX::java_lang_Object getProperty(AndroidCXX::java_lang_String const& arg0);
+	 FacebookCXX::com_facebook_model_GraphObject cast(AndroidCXX::java_lang_Class const& arg0);
 	 AndroidCXX::java_util_Map asMap();
 	 AndroidCXX::org_json_JSONObject getInnerJSONObject();
-	 void removeProperty(AndroidCXX::java_lang_String& arg0);
+	 void removeProperty(AndroidCXX::java_lang_String const& arg0);
 };	
 
 } // namespace

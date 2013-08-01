@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_content_SyncStatusObserver
@@ -47,13 +46,13 @@ class android_content_SyncStatusObserver
 public:
 
 	android_content_SyncStatusObserver(const android_content_SyncStatusObserver& cc);
-	android_content_SyncStatusObserver(void * proxy);
+	android_content_SyncStatusObserver(Proxy proxy);
 	// Public Constructors
-	android_content_SyncStatusObserver();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_SyncStatusObserver();
 	// Functions
-	 void onStatusChanged(int& arg0);
+	 void onStatusChanged(int const& arg0);
 };	
 
 } // namespace

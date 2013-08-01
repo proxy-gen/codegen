@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -111,40 +110,40 @@ class android_content_res_TypedArray
 public:
 
 	android_content_res_TypedArray(const android_content_res_TypedArray& cc);
-	android_content_res_TypedArray(void * proxy);
+	android_content_res_TypedArray(Proxy proxy);
 	// Public Constructors
-	android_content_res_TypedArray();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_res_TypedArray();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
-	 bool getBoolean(int& arg0,bool& arg1);
-	 int getInt(int& arg0,int& arg1);
-	 float getFloat(int& arg0,float& arg1);
+	 bool getBoolean(int const& arg0,bool const& arg1);
+	 int getInt(int const& arg0,int const& arg1);
+	 float getFloat(int const& arg0,float const& arg1);
 	 int length();
-	 bool getValue(int& arg0,AndroidCXX::android_util_TypedValue& arg1);
+	 bool getValue(int const& arg0,AndroidCXX::android_util_TypedValue const& arg1);
 	 AndroidCXX::android_content_res_Resources getResources();
-	 int getInteger(int& arg0,int& arg1);
-	 AndroidCXX::java_lang_String getString(int& arg0);
-	 int getIndex(int& arg0);
+	 int getInteger(int const& arg0,int const& arg1);
+	 AndroidCXX::java_lang_String getString(int const& arg0);
+	 int getIndex(int const& arg0);
 	 void recycle();
-	 AndroidCXX::java_lang_CharSequence getText(int& arg0);
-	 std::vector<AndroidCXX::java_lang_CharSequence > getTextArray(int& arg0);
-	 float getDimension(int& arg0,float& arg1);
-	 int getDimensionPixelOffset(int& arg0,int& arg1);
-	 int getDimensionPixelSize(int& arg0,int& arg1);
-	 float getFraction(int& arg0,int& arg1,int& arg2,float& arg3);
-	 AndroidCXX::android_graphics_drawable_Drawable getDrawable(int& arg0);
-	 int getColor(int& arg0,int& arg1);
-	 AndroidCXX::android_content_res_ColorStateList getColorStateList(int& arg0);
-	 int getResourceId(int& arg0,int& arg1);
+	 AndroidCXX::java_lang_CharSequence getText(int const& arg0);
+	 std::vector<AndroidCXX::java_lang_CharSequence > getTextArray(int const& arg0);
+	 float getDimension(int const& arg0,float const& arg1);
+	 int getDimensionPixelOffset(int const& arg0,int const& arg1);
+	 int getDimensionPixelSize(int const& arg0,int const& arg1);
+	 float getFraction(int const& arg0,int const& arg1,int const& arg2,float const& arg3);
+	 AndroidCXX::android_graphics_drawable_Drawable getDrawable(int const& arg0);
+	 int getColor(int const& arg0,int const& arg1);
+	 AndroidCXX::android_content_res_ColorStateList getColorStateList(int const& arg0);
+	 int getResourceId(int const& arg0,int const& arg1);
 	 AndroidCXX::java_lang_String getPositionDescription();
 	 int getIndexCount();
-	 AndroidCXX::java_lang_String getNonResourceString(int& arg0);
-	 int getLayoutDimension(int& arg0,int& arg1);
-	 int getLayoutDimension(int& arg0,AndroidCXX::java_lang_String& arg1);
-	 bool hasValue(int& arg0);
-	 AndroidCXX::android_util_TypedValue peekValue(int& arg0);
+	 AndroidCXX::java_lang_String getNonResourceString(int const& arg0);
+	 int getLayoutDimension(int const& arg0,int const& arg1);
+	 int getLayoutDimension(int const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 bool hasValue(int const& arg0);
+	 AndroidCXX::android_util_TypedValue peekValue(int const& arg0);
 };	
 
 } // namespace

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -91,32 +90,32 @@ class java_lang_Short
 public:
 
 	java_lang_Short(const java_lang_Short& cc);
-	java_lang_Short(void * proxy);
+	java_lang_Short(Proxy proxy);
 	// Public Constructors
-	java_lang_Short(short& arg0);
-	java_lang_Short(AndroidCXX::java_lang_String& arg0);
-	java_lang_Short();
+	java_lang_Short(short const& arg0);
+	java_lang_Short(AndroidCXX::java_lang_String const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Short();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
-	static AndroidCXX::java_lang_String toString(short& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
+	static AndroidCXX::java_lang_String toString(short const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	static short reverseBytes(short& arg0);
-	 int compareTo(AndroidCXX::java_lang_Short& arg0);
+	static short reverseBytes(short const& arg0);
+	 int compareTo(AndroidCXX::java_lang_Short const& arg0);
 	 byte byteValue();
 	 short shortValue();
 	 int intValue();
 	 long longValue();
 	 float floatValue();
 	 double doubleValue();
-	static AndroidCXX::java_lang_Short valueOf(short& arg0);
-	static AndroidCXX::java_lang_Short valueOf(AndroidCXX::java_lang_String& arg0);
-	static AndroidCXX::java_lang_Short valueOf(AndroidCXX::java_lang_String& arg0,int& arg1);
-	static AndroidCXX::java_lang_Short decode(AndroidCXX::java_lang_String& arg0);
-	static short parseShort(AndroidCXX::java_lang_String& arg0,int& arg1);
-	static short parseShort(AndroidCXX::java_lang_String& arg0);
+	static AndroidCXX::java_lang_Short valueOf(short const& arg0);
+	static AndroidCXX::java_lang_Short valueOf(AndroidCXX::java_lang_String const& arg0);
+	static AndroidCXX::java_lang_Short valueOf(AndroidCXX::java_lang_String const& arg0,int const& arg1);
+	static AndroidCXX::java_lang_Short decode(AndroidCXX::java_lang_String const& arg0);
+	static short parseShort(AndroidCXX::java_lang_String const& arg0,int const& arg1);
+	static short parseShort(AndroidCXX::java_lang_String const& arg0);
 };	
 
 } // namespace

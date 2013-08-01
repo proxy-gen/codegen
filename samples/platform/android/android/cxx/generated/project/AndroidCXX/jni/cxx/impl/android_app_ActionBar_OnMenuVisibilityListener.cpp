@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_app_ActionBar_OnMenuVisibilityListener.hpp>
@@ -27,7 +26,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_app_ActionBar_OnMenuVisibilityListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -40,8 +39,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_app_ActionBar_OnMenuVisibilityListener::android_app_ActionBar_OnMenuVisibilityListener(const android_app_ActionBar_OnMenuVisibilityListener& cc)
 {
 	LOGV("android_app_ActionBar_OnMenuVisibilityListener::android_app_ActionBar_OnMenuVisibilityListener(const android_app_ActionBar_OnMenuVisibilityListener& cc) enter");
@@ -65,9 +62,9 @@ android_app_ActionBar_OnMenuVisibilityListener::android_app_ActionBar_OnMenuVisi
 
 	LOGV("android_app_ActionBar_OnMenuVisibilityListener::android_app_ActionBar_OnMenuVisibilityListener(const android_app_ActionBar_OnMenuVisibilityListener& cc) exit");
 }
-android_app_ActionBar_OnMenuVisibilityListener::android_app_ActionBar_OnMenuVisibilityListener(void * proxy)
+android_app_ActionBar_OnMenuVisibilityListener::android_app_ActionBar_OnMenuVisibilityListener(Proxy proxy)
 {
-	LOGV("android_app_ActionBar_OnMenuVisibilityListener::android_app_ActionBar_OnMenuVisibilityListener(void * proxy) enter");
+	LOGV("android_app_ActionBar_OnMenuVisibilityListener::android_app_ActionBar_OnMenuVisibilityListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -77,47 +74,31 @@ android_app_ActionBar_OnMenuVisibilityListener::android_app_ActionBar_OnMenuVisi
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_app_ActionBar_OnMenuVisibilityListener::android_app_ActionBar_OnMenuVisibilityListener(void * proxy) exit");
+	LOGV("android_app_ActionBar_OnMenuVisibilityListener::android_app_ActionBar_OnMenuVisibilityListener(Proxy proxy) exit");
 }
-android_app_ActionBar_OnMenuVisibilityListener::android_app_ActionBar_OnMenuVisibilityListener()
-{
-	LOGV("android_app_ActionBar_OnMenuVisibilityListener::android_app_ActionBar_OnMenuVisibilityListener() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/app/ActionBar$OnMenuVisibilityListener";
-
-	LOGV("android_app_ActionBar_OnMenuVisibilityListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_app_ActionBar_OnMenuVisibilityListener::proxy() const
+{	
+	LOGV("android_app_ActionBar_OnMenuVisibilityListener::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_ActionBar_OnMenuVisibilityListener cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_app_ActionBar_OnMenuVisibilityListener jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_app_ActionBar_OnMenuVisibilityListener::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_app_ActionBar_OnMenuVisibilityListener::android_app_ActionBar_OnMenuVisibilityListener() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_app_ActionBar_OnMenuVisibilityListener::~android_app_ActionBar_OnMenuVisibilityListener()
 {
@@ -129,13 +110,13 @@ android_app_ActionBar_OnMenuVisibilityListener::~android_app_ActionBar_OnMenuVis
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_app_ActionBar_OnMenuVisibilityListener::~android_app_ActionBar_OnMenuVisibilityListener() exit");
 }
 // Functions
-void android_app_ActionBar_OnMenuVisibilityListener::onMenuVisibilityChanged(bool& arg0)
+void android_app_ActionBar_OnMenuVisibilityListener::onMenuVisibilityChanged(bool const& arg0)
 {
-	LOGV("void android_app_ActionBar_OnMenuVisibilityListener::onMenuVisibilityChanged(bool& arg0) enter");
+	LOGV("void android_app_ActionBar_OnMenuVisibilityListener::onMenuVisibilityChanged(bool const& arg0) enter");
 
 	const char *methodName = "onMenuVisibilityChanged";
 	const char *methodSignature = "(Z)V";
@@ -145,8 +126,6 @@ void android_app_ActionBar_OnMenuVisibilityListener::onMenuVisibilityChanged(boo
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_ActionBar_OnMenuVisibilityListener cxx address %d", cxxAddress);
@@ -177,8 +156,6 @@ void android_app_ActionBar_OnMenuVisibilityListener::onMenuVisibilityChanged(boo
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_app_ActionBar_OnMenuVisibilityListener::onMenuVisibilityChanged(bool& arg0) exit");
+	LOGV("void android_app_ActionBar_OnMenuVisibilityListener::onMenuVisibilityChanged(bool const& arg0) exit");
 
 }

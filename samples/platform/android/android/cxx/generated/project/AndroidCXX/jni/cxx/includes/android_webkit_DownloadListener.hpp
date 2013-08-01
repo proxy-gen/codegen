@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -55,13 +54,13 @@ class android_webkit_DownloadListener
 public:
 
 	android_webkit_DownloadListener(const android_webkit_DownloadListener& cc);
-	android_webkit_DownloadListener(void * proxy);
+	android_webkit_DownloadListener(Proxy proxy);
 	// Public Constructors
-	android_webkit_DownloadListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_DownloadListener();
 	// Functions
-	 void onDownloadStart(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3,long& arg4);
+	 void onDownloadStart(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3,long const& arg4);
 };	
 
 } // namespace

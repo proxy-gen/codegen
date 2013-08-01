@@ -9,7 +9,6 @@
 
 
 
-
  			
 		
 
@@ -31,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace COM_FACEBOOK_RESPONSE_PAGINGDIRECTION {
+namespace com_facebook_Response_PagingDirection {
 
 enum com_facebook_Response_PagingDirection
 {

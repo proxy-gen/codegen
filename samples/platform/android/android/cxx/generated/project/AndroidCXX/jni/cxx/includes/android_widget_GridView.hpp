@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -115,39 +114,39 @@ class android_widget_GridView
 public:
 
 	android_widget_GridView(const android_widget_GridView& cc);
-	android_widget_GridView(void * proxy);
+	android_widget_GridView(Proxy proxy);
 	// Public Constructors
-	android_widget_GridView(AndroidCXX::android_content_Context& arg0);
-	android_widget_GridView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_GridView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_GridView();
+	android_widget_GridView(AndroidCXX::android_content_Context const& arg0);
+	android_widget_GridView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_GridView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_GridView();
 	// Functions
-	 bool onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1);
-	 bool onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1);
-	 bool onKeyMultiple(int& arg0,int& arg1,AndroidCXX::android_view_KeyEvent& arg2);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 void setSelection(int& arg0);
-	 void setGravity(int& arg0);
-	 void setAdapter(AndroidCXX::android_widget_ListAdapter& arg0);
-	 void smoothScrollToPosition(int& arg0);
-	 void setRemoteViewsAdapter(AndroidCXX::android_content_Intent& arg0);
+	 bool onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
+	 bool onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
+	 bool onKeyMultiple(int const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 void setSelection(int const& arg0);
+	 void setGravity(int const& arg0);
+	 void setAdapter(AndroidCXX::android_widget_ListAdapter const& arg0);
+	 void smoothScrollToPosition(int const& arg0);
+	 void setRemoteViewsAdapter(AndroidCXX::android_content_Intent const& arg0);
 	 AndroidCXX::android_widget_ListAdapter getAdapter();
 	 int getGravity();
-	 void smoothScrollByOffset(int& arg0);
-	 void setHorizontalSpacing(int& arg0);
+	 void smoothScrollByOffset(int const& arg0);
+	 void setHorizontalSpacing(int const& arg0);
 	 int getHorizontalSpacing();
 	 int getRequestedHorizontalSpacing();
-	 void setVerticalSpacing(int& arg0);
+	 void setVerticalSpacing(int const& arg0);
 	 int getVerticalSpacing();
-	 void setStretchMode(int& arg0);
+	 void setStretchMode(int const& arg0);
 	 int getStretchMode();
-	 void setColumnWidth(int& arg0);
+	 void setColumnWidth(int const& arg0);
 	 int getColumnWidth();
 	 int getRequestedColumnWidth();
-	 void setNumColumns(int& arg0);
+	 void setNumColumns(int const& arg0);
 	 int getNumColumns();
 };	
 

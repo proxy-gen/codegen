@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -79,23 +78,23 @@ class com_facebook_widget_ProfilePictureView
 public:
 
 	com_facebook_widget_ProfilePictureView(const com_facebook_widget_ProfilePictureView& cc);
-	com_facebook_widget_ProfilePictureView(void * proxy);
+	com_facebook_widget_ProfilePictureView(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context& arg0);
-	com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	com_facebook_widget_ProfilePictureView();
+	com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context const& arg0);
+	com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_ProfilePictureView();
 	// Functions
 	 FacebookCXX::com_facebook_widget_ProfilePictureView_OnErrorListener getOnErrorListener();
-	 void setOnErrorListener(FacebookCXX::com_facebook_widget_ProfilePictureView_OnErrorListener& arg0);
+	 void setOnErrorListener(FacebookCXX::com_facebook_widget_ProfilePictureView_OnErrorListener const& arg0);
 	 bool isCropped();
 	 int getPresetSize();
-	 void setPresetSize(int& arg0);
-	 void setCropped(bool& arg0);
+	 void setPresetSize(int const& arg0);
+	 void setCropped(bool const& arg0);
 	 AndroidCXX::java_lang_String getProfileId();
-	 void setProfileId(AndroidCXX::java_lang_String& arg0);
+	 void setProfileId(AndroidCXX::java_lang_String const& arg0);
 };	
 
 } // namespace

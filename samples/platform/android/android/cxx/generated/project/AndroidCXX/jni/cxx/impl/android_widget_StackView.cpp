@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -49,7 +48,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_StackView"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -98,8 +97,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_widget_StackView::android_widget_StackView(const android_widget_StackView& cc)
 {
 	LOGV("android_widget_StackView::android_widget_StackView(const android_widget_StackView& cc) enter");
@@ -123,9 +120,9 @@ android_widget_StackView::android_widget_StackView(const android_widget_StackVie
 
 	LOGV("android_widget_StackView::android_widget_StackView(const android_widget_StackView& cc) exit");
 }
-android_widget_StackView::android_widget_StackView(void * proxy)
+android_widget_StackView::android_widget_StackView(Proxy proxy)
 {
-	LOGV("android_widget_StackView::android_widget_StackView(void * proxy) enter");
+	LOGV("android_widget_StackView::android_widget_StackView(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -135,50 +132,34 @@ android_widget_StackView::android_widget_StackView(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_StackView::android_widget_StackView(void * proxy) exit");
+	LOGV("android_widget_StackView::android_widget_StackView(Proxy proxy) exit");
 }
-android_widget_StackView::android_widget_StackView()
-{
-	LOGV("android_widget_StackView::android_widget_StackView() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/StackView";
-
-	LOGV("android_widget_StackView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_widget_StackView::proxy() const
+{	
+	LOGV("android_widget_StackView::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_StackView cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_StackView jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_widget_StackView::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_widget_StackView::android_widget_StackView() exit");	
+	return proxy;
 }
-// Public Constructors
-android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -252,11 +233,11 @@ android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_C
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
+android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2)
 {
-	LOGV("android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) enter");	
+	LOGV("android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
@@ -351,11 +332,11 @@ android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_C
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) exit");	
+	LOGV("android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) exit");	
 }
-android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_Context& arg0)
+android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -408,7 +389,7 @@ android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_C
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_Context const& arg0) exit");	
 }
 // Default Instance Destructor
 android_widget_StackView::~android_widget_StackView()
@@ -421,7 +402,7 @@ android_widget_StackView::~android_widget_StackView()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_StackView::~android_widget_StackView() exit");
 }
 // Functions
@@ -438,8 +419,6 @@ void android_widget_StackView::advance()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_StackView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -448,14 +427,12 @@ void android_widget_StackView::advance()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_StackView::advance() exit");
 
 }
-bool android_widget_StackView::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_StackView::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_StackView::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_StackView::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onTouchEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -466,8 +443,6 @@ bool android_widget_StackView::onTouchEvent(AndroidCXX::android_view_MotionEvent
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_StackView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -495,7 +470,6 @@ bool android_widget_StackView::onTouchEvent(AndroidCXX::android_view_MotionEvent
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -513,17 +487,17 @@ bool android_widget_StackView::onTouchEvent(AndroidCXX::android_view_MotionEvent
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_StackView::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_StackView::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-bool android_widget_StackView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_StackView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_StackView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_StackView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onGenericMotionEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -534,8 +508,6 @@ bool android_widget_StackView::onGenericMotionEvent(AndroidCXX::android_view_Mot
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_StackView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -563,7 +535,6 @@ bool android_widget_StackView::onGenericMotionEvent(AndroidCXX::android_view_Mot
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -581,17 +552,17 @@ bool android_widget_StackView::onGenericMotionEvent(AndroidCXX::android_view_Mot
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_StackView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_StackView::onGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-bool android_widget_StackView::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_StackView::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_StackView::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_StackView::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onInterceptTouchEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -602,8 +573,6 @@ bool android_widget_StackView::onInterceptTouchEvent(AndroidCXX::android_view_Mo
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_StackView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -631,7 +600,6 @@ bool android_widget_StackView::onInterceptTouchEvent(AndroidCXX::android_view_Mo
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -649,17 +617,17 @@ bool android_widget_StackView::onInterceptTouchEvent(AndroidCXX::android_view_Mo
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_StackView::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_StackView::onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
-void android_widget_StackView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_StackView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_StackView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_StackView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -669,8 +637,6 @@ void android_widget_StackView::onInitializeAccessibilityEvent(AndroidCXX::androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_StackView cxx address %d", cxxAddress);
@@ -701,14 +667,12 @@ void android_widget_StackView::onInitializeAccessibilityEvent(AndroidCXX::androi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_StackView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_StackView::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_StackView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0)
+void android_widget_StackView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0)
 {
-	LOGV("void android_widget_StackView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) enter");
+	LOGV("void android_widget_StackView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityNodeInfo";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
@@ -718,8 +682,6 @@ void android_widget_StackView::onInitializeAccessibilityNodeInfo(AndroidCXX::and
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_StackView cxx address %d", cxxAddress);
@@ -750,14 +712,12 @@ void android_widget_StackView::onInitializeAccessibilityNodeInfo(AndroidCXX::and
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_StackView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) exit");
+	LOGV("void android_widget_StackView::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) exit");
 
 }
-bool android_widget_StackView::performAccessibilityAction(int& arg0,AndroidCXX::android_os_Bundle& arg1)
+bool android_widget_StackView::performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1)
 {
-	LOGV("bool android_widget_StackView::performAccessibilityAction(int& arg0,AndroidCXX::android_os_Bundle& arg1) enter");
+	LOGV("bool android_widget_StackView::performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) enter");
 
 	const char *methodName = "performAccessibilityAction";
 	const char *methodSignature = "(ILandroid/os/Bundle;)Z";
@@ -767,8 +727,6 @@ bool android_widget_StackView::performAccessibilityAction(int& arg0,AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_StackView cxx address %d", cxxAddress);
@@ -818,7 +776,6 @@ bool android_widget_StackView::performAccessibilityAction(int& arg0,AndroidCXX::
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -836,11 +793,11 @@ bool android_widget_StackView::performAccessibilityAction(int& arg0,AndroidCXX::
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_StackView::performAccessibilityAction(int& arg0,AndroidCXX::android_os_Bundle& arg1) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_StackView::performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) exit");
 
 	return result;
 }
@@ -857,8 +814,6 @@ void android_widget_StackView::showNext()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_StackView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -867,8 +822,6 @@ void android_widget_StackView::showNext()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_StackView::showNext() exit");
 
 }
@@ -885,8 +838,6 @@ void android_widget_StackView::showPrevious()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_StackView cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -895,8 +846,6 @@ void android_widget_StackView::showPrevious()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_StackView::showPrevious() exit");
 
 }

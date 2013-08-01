@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -54,14 +53,14 @@ class android_view_InputQueue_Callback
 public:
 
 	android_view_InputQueue_Callback(const android_view_InputQueue_Callback& cc);
-	android_view_InputQueue_Callback(void * proxy);
+	android_view_InputQueue_Callback(Proxy proxy);
 	// Public Constructors
-	android_view_InputQueue_Callback();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_InputQueue_Callback();
 	// Functions
-	 void onInputQueueCreated(AndroidCXX::android_view_InputQueue& arg0);
-	 void onInputQueueDestroyed(AndroidCXX::android_view_InputQueue& arg0);
+	 void onInputQueueCreated(AndroidCXX::android_view_InputQueue const& arg0);
+	 void onInputQueueDestroyed(AndroidCXX::android_view_InputQueue const& arg0);
 };	
 
 } // namespace

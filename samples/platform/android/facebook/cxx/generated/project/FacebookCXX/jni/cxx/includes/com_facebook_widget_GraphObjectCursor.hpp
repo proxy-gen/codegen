@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -68,9 +67,9 @@ class com_facebook_widget_GraphObjectCursor
 public:
 
 	com_facebook_widget_GraphObjectCursor(const com_facebook_widget_GraphObjectCursor& cc);
-	com_facebook_widget_GraphObjectCursor(void * proxy);
+	com_facebook_widget_GraphObjectCursor(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_GraphObjectCursor();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectCursor();
 	// Functions
@@ -84,8 +83,8 @@ public:
 	 int getCount();
 	 bool areMoreObjectsAvailable();
 	 bool moveToNext();
-	 bool move(int& arg0);
-	 bool moveToPosition(int& arg0);
+	 bool move(int const& arg0);
+	 bool moveToPosition(int const& arg0);
 	 bool moveToLast();
 	 bool moveToPrevious();
 	 bool isLast();

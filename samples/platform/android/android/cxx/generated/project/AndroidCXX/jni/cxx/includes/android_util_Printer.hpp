@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -52,13 +51,13 @@ class android_util_Printer
 public:
 
 	android_util_Printer(const android_util_Printer& cc);
-	android_util_Printer(void * proxy);
+	android_util_Printer(Proxy proxy);
 	// Public Constructors
-	android_util_Printer();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_util_Printer();
 	// Functions
-	 void println(AndroidCXX::java_lang_String& arg0);
+	 void println(AndroidCXX::java_lang_String const& arg0);
 };	
 
 } // namespace

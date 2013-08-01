@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -52,13 +51,13 @@ class android_os_Handler_Callback
 public:
 
 	android_os_Handler_Callback(const android_os_Handler_Callback& cc);
-	android_os_Handler_Callback(void * proxy);
+	android_os_Handler_Callback(Proxy proxy);
 	// Public Constructors
-	android_os_Handler_Callback();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_os_Handler_Callback();
 	// Functions
-	 bool handleMessage(AndroidCXX::android_os_Message& arg0);
+	 bool handleMessage(AndroidCXX::android_os_Message const& arg0);
 };	
 
 } // namespace

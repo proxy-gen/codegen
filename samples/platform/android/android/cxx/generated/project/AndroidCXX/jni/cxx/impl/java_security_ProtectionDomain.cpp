@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -46,7 +45,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_security_ProtectionDomain"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -95,8 +94,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_security_ProtectionDomain::java_security_ProtectionDomain(const java_security_ProtectionDomain& cc)
 {
 	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(const java_security_ProtectionDomain& cc) enter");
@@ -120,9 +117,9 @@ java_security_ProtectionDomain::java_security_ProtectionDomain(const java_securi
 
 	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(const java_security_ProtectionDomain& cc) exit");
 }
-java_security_ProtectionDomain::java_security_ProtectionDomain(void * proxy)
+java_security_ProtectionDomain::java_security_ProtectionDomain(Proxy proxy)
 {
-	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(void * proxy) enter");
+	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -132,50 +129,34 @@ java_security_ProtectionDomain::java_security_ProtectionDomain(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(void * proxy) exit");
+	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(Proxy proxy) exit");
 }
-java_security_ProtectionDomain::java_security_ProtectionDomain()
-{
-	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "java/security/ProtectionDomain";
-
-	LOGV("java_security_ProtectionDomain className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy java_security_ProtectionDomain::proxy() const
+{	
+	LOGV("java_security_ProtectionDomain::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_ProtectionDomain cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("java_security_ProtectionDomain jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("java_security_ProtectionDomain::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain() exit");	
+	return proxy;
 }
-// Public Constructors
-java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource& arg0,AndroidCXX::java_security_PermissionCollection& arg1)
+java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource const& arg0,AndroidCXX::java_security_PermissionCollection const& arg1)
 {
-	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource& arg0,AndroidCXX::java_security_PermissionCollection& arg1) enter");	
+	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource const& arg0,AndroidCXX::java_security_PermissionCollection const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/security/CodeSource;Ljava/security/PermissionCollection;)V";
@@ -249,11 +230,11 @@ java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_
 
 	jni->popLocalFrame();
 
-	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource& arg0,AndroidCXX::java_security_PermissionCollection& arg1) exit");	
+	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource const& arg0,AndroidCXX::java_security_PermissionCollection const& arg1) exit");	
 }
-java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource& arg0,AndroidCXX::java_security_PermissionCollection& arg1,AndroidCXX::java_lang_ClassLoader& arg2,std::vector<AndroidCXX::java_security_Principal >& arg3)
+java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource const& arg0,AndroidCXX::java_security_PermissionCollection const& arg1,AndroidCXX::java_lang_ClassLoader const& arg2,std::vector<AndroidCXX::java_security_Principal > const& arg3)
 {
-	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource& arg0,AndroidCXX::java_security_PermissionCollection& arg1,AndroidCXX::java_lang_ClassLoader& arg2,std::vector<AndroidCXX::java_security_Principal >& arg3) enter");	
+	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource const& arg0,AndroidCXX::java_security_PermissionCollection const& arg1,AndroidCXX::java_lang_ClassLoader const& arg2,std::vector<AndroidCXX::java_security_Principal > const& arg3) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/security/CodeSource;Ljava/security/PermissionCollection;Ljava/lang/ClassLoader;[Ljava/security/Principal;)V";
@@ -387,7 +368,7 @@ java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_
 
 	jni->popLocalFrame();
 
-	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource& arg0,AndroidCXX::java_security_PermissionCollection& arg1,AndroidCXX::java_lang_ClassLoader& arg2,std::vector<AndroidCXX::java_security_Principal >& arg3) exit");	
+	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource const& arg0,AndroidCXX::java_security_PermissionCollection const& arg1,AndroidCXX::java_lang_ClassLoader const& arg2,std::vector<AndroidCXX::java_security_Principal > const& arg3) exit");	
 }
 // Default Instance Destructor
 java_security_ProtectionDomain::~java_security_ProtectionDomain()
@@ -400,7 +381,7 @@ java_security_ProtectionDomain::~java_security_ProtectionDomain()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_security_ProtectionDomain::~java_security_ProtectionDomain() exit");
 }
 // Functions
@@ -417,15 +398,12 @@ AndroidCXX::java_lang_String java_security_ProtectionDomain::toString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_security_ProtectionDomain cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_security_ProtectionDomain jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -443,10 +421,10 @@ AndroidCXX::java_lang_String java_security_ProtectionDomain::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String java_security_ProtectionDomain::toString() exit");
 
 	return result;
@@ -464,15 +442,12 @@ AndroidCXX::java_lang_ClassLoader java_security_ProtectionDomain::getClassLoader
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_security_ProtectionDomain cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_security_ProtectionDomain jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_ClassLoader result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -490,10 +465,10 @@ AndroidCXX::java_lang_ClassLoader java_security_ProtectionDomain::getClassLoader
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_ClassLoader(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_ClassLoader) (AndroidCXX::java_lang_ClassLoader((AndroidCXX::java_lang_ClassLoader *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_ClassLoader result((AndroidCXX::java_lang_ClassLoader) *((AndroidCXX::java_lang_ClassLoader *) cxx_value));
+	delete ((AndroidCXX::java_lang_ClassLoader *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_ClassLoader java_security_ProtectionDomain::getClassLoader() exit");
 
 	return result;
@@ -511,15 +486,12 @@ AndroidCXX::java_security_CodeSource java_security_ProtectionDomain::getCodeSour
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_security_ProtectionDomain cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_security_ProtectionDomain jni address %d", javaObject);
 
 
-	AndroidCXX::java_security_CodeSource result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -537,10 +509,10 @@ AndroidCXX::java_security_CodeSource java_security_ProtectionDomain::getCodeSour
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_security_CodeSource(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_security_CodeSource) (AndroidCXX::java_security_CodeSource((AndroidCXX::java_security_CodeSource *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_security_CodeSource result((AndroidCXX::java_security_CodeSource) *((AndroidCXX::java_security_CodeSource *) cxx_value));
+	delete ((AndroidCXX::java_security_CodeSource *) cxx_value);
+		
 	LOGV("AndroidCXX::java_security_CodeSource java_security_ProtectionDomain::getCodeSource() exit");
 
 	return result;
@@ -558,15 +530,12 @@ std::vector<AndroidCXX::java_security_Principal > java_security_ProtectionDomain
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_security_ProtectionDomain cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_security_ProtectionDomain jni address %d", javaObject);
 
 
-	std::vector<AndroidCXX::java_security_Principal > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -602,10 +571,10 @@ std::vector<AndroidCXX::java_security_Principal > java_security_ProtectionDomain
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<AndroidCXX::java_security_Principal >) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	std::vector<AndroidCXX::java_security_Principal > result = (std::vector<AndroidCXX::java_security_Principal >) *((std::vector<AndroidCXX::java_security_Principal > *) cxx_value);
+	delete ((std::vector<AndroidCXX::java_security_Principal > *) cxx_value);
+		
 	LOGV("std::vector<AndroidCXX::java_security_Principal > java_security_ProtectionDomain::getPrincipals() exit");
 
 	return result;
@@ -623,15 +592,12 @@ AndroidCXX::java_security_PermissionCollection java_security_ProtectionDomain::g
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_security_ProtectionDomain cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_security_ProtectionDomain jni address %d", javaObject);
 
 
-	AndroidCXX::java_security_PermissionCollection result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -649,17 +615,17 @@ AndroidCXX::java_security_PermissionCollection java_security_ProtectionDomain::g
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_security_PermissionCollection(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_security_PermissionCollection) (AndroidCXX::java_security_PermissionCollection((AndroidCXX::java_security_PermissionCollection *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_security_PermissionCollection result((AndroidCXX::java_security_PermissionCollection) *((AndroidCXX::java_security_PermissionCollection *) cxx_value));
+	delete ((AndroidCXX::java_security_PermissionCollection *) cxx_value);
+		
 	LOGV("AndroidCXX::java_security_PermissionCollection java_security_ProtectionDomain::getPermissions() exit");
 
 	return result;
 }
-bool java_security_ProtectionDomain::implies(AndroidCXX::java_security_Permission& arg0)
+bool java_security_ProtectionDomain::implies(AndroidCXX::java_security_Permission const& arg0)
 {
-	LOGV("bool java_security_ProtectionDomain::implies(AndroidCXX::java_security_Permission& arg0) enter");
+	LOGV("bool java_security_ProtectionDomain::implies(AndroidCXX::java_security_Permission const& arg0) enter");
 
 	const char *methodName = "implies";
 	const char *methodSignature = "(Ljava/security/Permission;)Z";
@@ -669,8 +635,6 @@ bool java_security_ProtectionDomain::implies(AndroidCXX::java_security_Permissio
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_ProtectionDomain cxx address %d", cxxAddress);
@@ -699,7 +663,6 @@ bool java_security_ProtectionDomain::implies(AndroidCXX::java_security_Permissio
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -717,11 +680,11 @@ bool java_security_ProtectionDomain::implies(AndroidCXX::java_security_Permissio
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool java_security_ProtectionDomain::implies(AndroidCXX::java_security_Permission& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool java_security_ProtectionDomain::implies(AndroidCXX::java_security_Permission const& arg0) exit");
 
 	return result;
 }

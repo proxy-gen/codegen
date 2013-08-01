@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_view_View_OnSystemUiVisibilityChangeListener
@@ -47,13 +46,13 @@ class android_view_View_OnSystemUiVisibilityChangeListener
 public:
 
 	android_view_View_OnSystemUiVisibilityChangeListener(const android_view_View_OnSystemUiVisibilityChangeListener& cc);
-	android_view_View_OnSystemUiVisibilityChangeListener(void * proxy);
+	android_view_View_OnSystemUiVisibilityChangeListener(Proxy proxy);
 	// Public Constructors
-	android_view_View_OnSystemUiVisibilityChangeListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnSystemUiVisibilityChangeListener();
 	// Functions
-	 void onSystemUiVisibilityChange(int& arg0);
+	 void onSystemUiVisibilityChange(int const& arg0);
 };	
 
 } // namespace

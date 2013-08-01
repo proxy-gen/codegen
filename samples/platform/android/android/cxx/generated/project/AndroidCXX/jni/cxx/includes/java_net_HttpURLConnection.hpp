@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -83,23 +82,23 @@ class java_net_HttpURLConnection
 public:
 
 	java_net_HttpURLConnection(const java_net_HttpURLConnection& cc);
-	java_net_HttpURLConnection(void * proxy);
+	java_net_HttpURLConnection(Proxy proxy);
 	// Public Constructors
-	java_net_HttpURLConnection();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_HttpURLConnection();
 	// Functions
 	 AndroidCXX::java_security_Permission getPermission();
-	 void setRequestMethod(AndroidCXX::java_lang_String& arg0);
+	 void setRequestMethod(AndroidCXX::java_lang_String const& arg0);
 	 int getResponseCode();
-	 AndroidCXX::java_lang_String getHeaderField(int& arg0);
-	 AndroidCXX::java_lang_String getHeaderFieldKey(int& arg0);
-	 long getHeaderFieldDate(AndroidCXX::java_lang_String& arg0,long& arg1);
-	 void setFixedLengthStreamingMode(int& arg0);
-	 void setChunkedStreamingMode(int& arg0);
-	static void setFollowRedirects(bool& arg0);
+	 AndroidCXX::java_lang_String getHeaderField(int const& arg0);
+	 AndroidCXX::java_lang_String getHeaderFieldKey(int const& arg0);
+	 long getHeaderFieldDate(AndroidCXX::java_lang_String const& arg0,long const& arg1);
+	 void setFixedLengthStreamingMode(int const& arg0);
+	 void setChunkedStreamingMode(int const& arg0);
+	static void setFollowRedirects(bool const& arg0);
 	static bool getFollowRedirects();
-	 void setInstanceFollowRedirects(bool& arg0);
+	 void setInstanceFollowRedirects(bool const& arg0);
 	 bool getInstanceFollowRedirects();
 	 AndroidCXX::java_lang_String getRequestMethod();
 	 AndroidCXX::java_lang_String getResponseMessage();

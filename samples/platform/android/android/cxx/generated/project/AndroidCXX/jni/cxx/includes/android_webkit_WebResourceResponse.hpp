@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -70,19 +69,19 @@ class android_webkit_WebResourceResponse
 public:
 
 	android_webkit_WebResourceResponse(const android_webkit_WebResourceResponse& cc);
-	android_webkit_WebResourceResponse(void * proxy);
+	android_webkit_WebResourceResponse(Proxy proxy);
 	// Public Constructors
-	android_webkit_WebResourceResponse(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_io_InputStream& arg2);
-	android_webkit_WebResourceResponse();
+	android_webkit_WebResourceResponse(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_io_InputStream const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebResourceResponse();
 	// Functions
 	 AndroidCXX::java_lang_String getEncoding();
 	 AndroidCXX::java_io_InputStream getData();
-	 void setData(AndroidCXX::java_io_InputStream& arg0);
+	 void setData(AndroidCXX::java_io_InputStream const& arg0);
 	 AndroidCXX::java_lang_String getMimeType();
-	 void setMimeType(AndroidCXX::java_lang_String& arg0);
-	 void setEncoding(AndroidCXX::java_lang_String& arg0);
+	 void setMimeType(AndroidCXX::java_lang_String const& arg0);
+	 void setEncoding(AndroidCXX::java_lang_String const& arg0);
 };	
 
 } // namespace

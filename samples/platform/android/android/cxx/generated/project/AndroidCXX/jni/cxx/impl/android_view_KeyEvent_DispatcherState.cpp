@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -39,7 +38,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_KeyEvent_DispatcherState"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -73,8 +72,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_view_KeyEvent_DispatcherState::android_view_KeyEvent_DispatcherState(const android_view_KeyEvent_DispatcherState& cc)
 {
 	LOGV("android_view_KeyEvent_DispatcherState::android_view_KeyEvent_DispatcherState(const android_view_KeyEvent_DispatcherState& cc) enter");
@@ -98,9 +95,9 @@ android_view_KeyEvent_DispatcherState::android_view_KeyEvent_DispatcherState(con
 
 	LOGV("android_view_KeyEvent_DispatcherState::android_view_KeyEvent_DispatcherState(const android_view_KeyEvent_DispatcherState& cc) exit");
 }
-android_view_KeyEvent_DispatcherState::android_view_KeyEvent_DispatcherState(void * proxy)
+android_view_KeyEvent_DispatcherState::android_view_KeyEvent_DispatcherState(Proxy proxy)
 {
-	LOGV("android_view_KeyEvent_DispatcherState::android_view_KeyEvent_DispatcherState(void * proxy) enter");
+	LOGV("android_view_KeyEvent_DispatcherState::android_view_KeyEvent_DispatcherState(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -110,13 +107,31 @@ android_view_KeyEvent_DispatcherState::android_view_KeyEvent_DispatcherState(voi
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_KeyEvent_DispatcherState::android_view_KeyEvent_DispatcherState(void * proxy) exit");
+	LOGV("android_view_KeyEvent_DispatcherState::android_view_KeyEvent_DispatcherState(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy android_view_KeyEvent_DispatcherState::proxy() const
+{	
+	LOGV("android_view_KeyEvent_DispatcherState::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_view_KeyEvent_DispatcherState cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_KeyEvent_DispatcherState jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_view_KeyEvent_DispatcherState::proxy() exit");	
+
+	return proxy;
+}
 android_view_KeyEvent_DispatcherState::android_view_KeyEvent_DispatcherState()
 {
 	LOGV("android_view_KeyEvent_DispatcherState::android_view_KeyEvent_DispatcherState() enter");	
@@ -164,7 +179,7 @@ android_view_KeyEvent_DispatcherState::~android_view_KeyEvent_DispatcherState()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_KeyEvent_DispatcherState::~android_view_KeyEvent_DispatcherState() exit");
 }
 // Functions
@@ -181,8 +196,6 @@ void android_view_KeyEvent_DispatcherState::reset()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_KeyEvent_DispatcherState cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -191,14 +204,12 @@ void android_view_KeyEvent_DispatcherState::reset()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_view_KeyEvent_DispatcherState::reset() exit");
 
 }
-void android_view_KeyEvent_DispatcherState::reset(AndroidCXX::java_lang_Object& arg0)
+void android_view_KeyEvent_DispatcherState::reset(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("void android_view_KeyEvent_DispatcherState::reset(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("void android_view_KeyEvent_DispatcherState::reset(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "reset";
 	const char *methodSignature = "(Ljava/lang/Object;)V";
@@ -208,8 +219,6 @@ void android_view_KeyEvent_DispatcherState::reset(AndroidCXX::java_lang_Object& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_KeyEvent_DispatcherState cxx address %d", cxxAddress);
@@ -240,14 +249,12 @@ void android_view_KeyEvent_DispatcherState::reset(AndroidCXX::java_lang_Object& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_KeyEvent_DispatcherState::reset(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("void android_view_KeyEvent_DispatcherState::reset(AndroidCXX::java_lang_Object const& arg0) exit");
 
 }
-void android_view_KeyEvent_DispatcherState::startTracking(AndroidCXX::android_view_KeyEvent& arg0,AndroidCXX::java_lang_Object& arg1)
+void android_view_KeyEvent_DispatcherState::startTracking(AndroidCXX::android_view_KeyEvent const& arg0,AndroidCXX::java_lang_Object const& arg1)
 {
-	LOGV("void android_view_KeyEvent_DispatcherState::startTracking(AndroidCXX::android_view_KeyEvent& arg0,AndroidCXX::java_lang_Object& arg1) enter");
+	LOGV("void android_view_KeyEvent_DispatcherState::startTracking(AndroidCXX::android_view_KeyEvent const& arg0,AndroidCXX::java_lang_Object const& arg1) enter");
 
 	const char *methodName = "startTracking";
 	const char *methodSignature = "(Landroid/view/KeyEvent;Ljava/lang/Object;)V";
@@ -257,8 +264,6 @@ void android_view_KeyEvent_DispatcherState::startTracking(AndroidCXX::android_vi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_KeyEvent_DispatcherState cxx address %d", cxxAddress);
@@ -310,14 +315,12 @@ void android_view_KeyEvent_DispatcherState::startTracking(AndroidCXX::android_vi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_KeyEvent_DispatcherState::startTracking(AndroidCXX::android_view_KeyEvent& arg0,AndroidCXX::java_lang_Object& arg1) exit");
+	LOGV("void android_view_KeyEvent_DispatcherState::startTracking(AndroidCXX::android_view_KeyEvent const& arg0,AndroidCXX::java_lang_Object const& arg1) exit");
 
 }
-bool android_view_KeyEvent_DispatcherState::isTracking(AndroidCXX::android_view_KeyEvent& arg0)
+bool android_view_KeyEvent_DispatcherState::isTracking(AndroidCXX::android_view_KeyEvent const& arg0)
 {
-	LOGV("bool android_view_KeyEvent_DispatcherState::isTracking(AndroidCXX::android_view_KeyEvent& arg0) enter");
+	LOGV("bool android_view_KeyEvent_DispatcherState::isTracking(AndroidCXX::android_view_KeyEvent const& arg0) enter");
 
 	const char *methodName = "isTracking";
 	const char *methodSignature = "(Landroid/view/KeyEvent;)Z";
@@ -327,8 +330,6 @@ bool android_view_KeyEvent_DispatcherState::isTracking(AndroidCXX::android_view_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_KeyEvent_DispatcherState cxx address %d", cxxAddress);
@@ -357,7 +358,6 @@ bool android_view_KeyEvent_DispatcherState::isTracking(AndroidCXX::android_view_
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -375,17 +375,17 @@ bool android_view_KeyEvent_DispatcherState::isTracking(AndroidCXX::android_view_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_view_KeyEvent_DispatcherState::isTracking(AndroidCXX::android_view_KeyEvent& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_view_KeyEvent_DispatcherState::isTracking(AndroidCXX::android_view_KeyEvent const& arg0) exit");
 
 	return result;
 }
-void android_view_KeyEvent_DispatcherState::performedLongPress(AndroidCXX::android_view_KeyEvent& arg0)
+void android_view_KeyEvent_DispatcherState::performedLongPress(AndroidCXX::android_view_KeyEvent const& arg0)
 {
-	LOGV("void android_view_KeyEvent_DispatcherState::performedLongPress(AndroidCXX::android_view_KeyEvent& arg0) enter");
+	LOGV("void android_view_KeyEvent_DispatcherState::performedLongPress(AndroidCXX::android_view_KeyEvent const& arg0) enter");
 
 	const char *methodName = "performedLongPress";
 	const char *methodSignature = "(Landroid/view/KeyEvent;)V";
@@ -396,8 +396,6 @@ void android_view_KeyEvent_DispatcherState::performedLongPress(AndroidCXX::andro
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_KeyEvent_DispatcherState cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -427,14 +425,12 @@ void android_view_KeyEvent_DispatcherState::performedLongPress(AndroidCXX::andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_KeyEvent_DispatcherState::performedLongPress(AndroidCXX::android_view_KeyEvent& arg0) exit");
+	LOGV("void android_view_KeyEvent_DispatcherState::performedLongPress(AndroidCXX::android_view_KeyEvent const& arg0) exit");
 
 }
-void android_view_KeyEvent_DispatcherState::handleUpEvent(AndroidCXX::android_view_KeyEvent& arg0)
+void android_view_KeyEvent_DispatcherState::handleUpEvent(AndroidCXX::android_view_KeyEvent const& arg0)
 {
-	LOGV("void android_view_KeyEvent_DispatcherState::handleUpEvent(AndroidCXX::android_view_KeyEvent& arg0) enter");
+	LOGV("void android_view_KeyEvent_DispatcherState::handleUpEvent(AndroidCXX::android_view_KeyEvent const& arg0) enter");
 
 	const char *methodName = "handleUpEvent";
 	const char *methodSignature = "(Landroid/view/KeyEvent;)V";
@@ -445,8 +441,6 @@ void android_view_KeyEvent_DispatcherState::handleUpEvent(AndroidCXX::android_vi
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_KeyEvent_DispatcherState cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -476,8 +470,6 @@ void android_view_KeyEvent_DispatcherState::handleUpEvent(AndroidCXX::android_vi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_KeyEvent_DispatcherState::handleUpEvent(AndroidCXX::android_view_KeyEvent& arg0) exit");
+	LOGV("void android_view_KeyEvent_DispatcherState::handleUpEvent(AndroidCXX::android_view_KeyEvent const& arg0) exit");
 
 }

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -43,7 +42,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_io_Writer"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -80,8 +79,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_io_Writer::java_io_Writer(const java_io_Writer& cc)
 {
 	LOGV("java_io_Writer::java_io_Writer(const java_io_Writer& cc) enter");
@@ -105,9 +102,9 @@ java_io_Writer::java_io_Writer(const java_io_Writer& cc)
 
 	LOGV("java_io_Writer::java_io_Writer(const java_io_Writer& cc) exit");
 }
-java_io_Writer::java_io_Writer(void * proxy)
+java_io_Writer::java_io_Writer(Proxy proxy)
 {
-	LOGV("java_io_Writer::java_io_Writer(void * proxy) enter");
+	LOGV("java_io_Writer::java_io_Writer(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -117,47 +114,31 @@ java_io_Writer::java_io_Writer(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_io_Writer::java_io_Writer(void * proxy) exit");
+	LOGV("java_io_Writer::java_io_Writer(Proxy proxy) exit");
 }
-java_io_Writer::java_io_Writer()
-{
-	LOGV("java_io_Writer::java_io_Writer() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "java/io/Writer";
-
-	LOGV("java_io_Writer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy java_io_Writer::proxy() const
+{	
+	LOGV("java_io_Writer::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_Writer cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("java_io_Writer jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("java_io_Writer::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("java_io_Writer::java_io_Writer() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 java_io_Writer::~java_io_Writer()
 {
@@ -169,13 +150,13 @@ java_io_Writer::~java_io_Writer()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_io_Writer::~java_io_Writer() exit");
 }
 // Functions
-AndroidCXX::java_io_Writer java_io_Writer::append(AndroidCXX::java_lang_CharSequence& arg0)
+AndroidCXX::java_io_Writer java_io_Writer::append(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("AndroidCXX::java_io_Writer java_io_Writer::append(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("AndroidCXX::java_io_Writer java_io_Writer::append(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Ljava/io/Writer;";
@@ -185,8 +166,6 @@ AndroidCXX::java_io_Writer java_io_Writer::append(AndroidCXX::java_lang_CharSequ
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_Writer cxx address %d", cxxAddress);
@@ -215,7 +194,6 @@ AndroidCXX::java_io_Writer java_io_Writer::append(AndroidCXX::java_lang_CharSequ
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_io_Writer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -233,17 +211,17 @@ AndroidCXX::java_io_Writer java_io_Writer::append(AndroidCXX::java_lang_CharSequ
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_io_Writer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_io_Writer) (AndroidCXX::java_io_Writer((AndroidCXX::java_io_Writer *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_io_Writer java_io_Writer::append(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	AndroidCXX::java_io_Writer result((AndroidCXX::java_io_Writer) *((AndroidCXX::java_io_Writer *) cxx_value));
+	delete ((AndroidCXX::java_io_Writer *) cxx_value);
+		
+	LOGV("AndroidCXX::java_io_Writer java_io_Writer::append(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_io_Writer java_io_Writer::append(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2)
+AndroidCXX::java_io_Writer java_io_Writer::append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("AndroidCXX::java_io_Writer java_io_Writer::append(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2) enter");
+	LOGV("AndroidCXX::java_io_Writer java_io_Writer::append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/CharSequence;II)Ljava/io/Writer;";
@@ -253,8 +231,6 @@ AndroidCXX::java_io_Writer java_io_Writer::append(AndroidCXX::java_lang_CharSequ
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_Writer cxx address %d", cxxAddress);
@@ -325,7 +301,6 @@ AndroidCXX::java_io_Writer java_io_Writer::append(AndroidCXX::java_lang_CharSequ
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_io_Writer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -343,17 +318,17 @@ AndroidCXX::java_io_Writer java_io_Writer::append(AndroidCXX::java_lang_CharSequ
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_io_Writer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_io_Writer) (AndroidCXX::java_io_Writer((AndroidCXX::java_io_Writer *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_io_Writer java_io_Writer::append(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2) exit");
+	AndroidCXX::java_io_Writer result((AndroidCXX::java_io_Writer) *((AndroidCXX::java_io_Writer *) cxx_value));
+	delete ((AndroidCXX::java_io_Writer *) cxx_value);
+		
+	LOGV("AndroidCXX::java_io_Writer java_io_Writer::append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::java_io_Writer java_io_Writer::append(char& arg0)
+AndroidCXX::java_io_Writer java_io_Writer::append(char const& arg0)
 {
-	LOGV("AndroidCXX::java_io_Writer java_io_Writer::append(char& arg0) enter");
+	LOGV("AndroidCXX::java_io_Writer java_io_Writer::append(char const& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(C)Ljava/io/Writer;";
@@ -363,8 +338,6 @@ AndroidCXX::java_io_Writer java_io_Writer::append(char& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_Writer cxx address %d", cxxAddress);
@@ -393,7 +366,6 @@ AndroidCXX::java_io_Writer java_io_Writer::append(char& arg0)
 		jarg0 = convert_jni_char_to_jni(java_value);
 	}
 
-	AndroidCXX::java_io_Writer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -411,17 +383,17 @@ AndroidCXX::java_io_Writer java_io_Writer::append(char& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_io_Writer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_io_Writer) (AndroidCXX::java_io_Writer((AndroidCXX::java_io_Writer *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_io_Writer java_io_Writer::append(char& arg0) exit");
+	AndroidCXX::java_io_Writer result((AndroidCXX::java_io_Writer) *((AndroidCXX::java_io_Writer *) cxx_value));
+	delete ((AndroidCXX::java_io_Writer *) cxx_value);
+		
+	LOGV("AndroidCXX::java_io_Writer java_io_Writer::append(char const& arg0) exit");
 
 	return result;
 }
-void java_io_Writer::write(std::vector<char>& arg0,int& arg1,int& arg2)
+void java_io_Writer::write(std::vector<char> const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("void java_io_Writer::write(std::vector<char>& arg0,int& arg1,int& arg2) enter");
+	LOGV("void java_io_Writer::write(std::vector<char> const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "write";
 	const char *methodSignature = "([CII)V";
@@ -431,8 +403,6 @@ void java_io_Writer::write(std::vector<char>& arg0,int& arg1,int& arg2)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_Writer cxx address %d", cxxAddress);
@@ -523,14 +493,12 @@ void java_io_Writer::write(std::vector<char>& arg0,int& arg1,int& arg2)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_Writer::write(std::vector<char>& arg0,int& arg1,int& arg2) exit");
+	LOGV("void java_io_Writer::write(std::vector<char> const& arg0,int const& arg1,int const& arg2) exit");
 
 }
-void java_io_Writer::write(int& arg0)
+void java_io_Writer::write(int const& arg0)
 {
-	LOGV("void java_io_Writer::write(int& arg0) enter");
+	LOGV("void java_io_Writer::write(int const& arg0) enter");
 
 	const char *methodName = "write";
 	const char *methodSignature = "(I)V";
@@ -540,8 +508,6 @@ void java_io_Writer::write(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_Writer cxx address %d", cxxAddress);
@@ -572,14 +538,12 @@ void java_io_Writer::write(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_Writer::write(int& arg0) exit");
+	LOGV("void java_io_Writer::write(int const& arg0) exit");
 
 }
-void java_io_Writer::write(std::vector<char>& arg0)
+void java_io_Writer::write(std::vector<char> const& arg0)
 {
-	LOGV("void java_io_Writer::write(std::vector<char>& arg0) enter");
+	LOGV("void java_io_Writer::write(std::vector<char> const& arg0) enter");
 
 	const char *methodName = "write";
 	const char *methodSignature = "([C)V";
@@ -589,8 +553,6 @@ void java_io_Writer::write(std::vector<char>& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_Writer cxx address %d", cxxAddress);
@@ -639,14 +601,12 @@ void java_io_Writer::write(std::vector<char>& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_Writer::write(std::vector<char>& arg0) exit");
+	LOGV("void java_io_Writer::write(std::vector<char> const& arg0) exit");
 
 }
-void java_io_Writer::write(AndroidCXX::java_lang_String& arg0)
+void java_io_Writer::write(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void java_io_Writer::write(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void java_io_Writer::write(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "write";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -656,8 +616,6 @@ void java_io_Writer::write(AndroidCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_Writer cxx address %d", cxxAddress);
@@ -688,14 +646,12 @@ void java_io_Writer::write(AndroidCXX::java_lang_String& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_Writer::write(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void java_io_Writer::write(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-void java_io_Writer::write(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2)
+void java_io_Writer::write(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("void java_io_Writer::write(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2) enter");
+	LOGV("void java_io_Writer::write(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "write";
 	const char *methodSignature = "(Ljava/lang/String;II)V";
@@ -705,8 +661,6 @@ void java_io_Writer::write(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_Writer cxx address %d", cxxAddress);
@@ -779,9 +733,7 @@ void java_io_Writer::write(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_io_Writer::write(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2) exit");
+	LOGV("void java_io_Writer::write(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2) exit");
 
 }
 void java_io_Writer::flush()
@@ -797,8 +749,6 @@ void java_io_Writer::flush()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_io_Writer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -807,8 +757,6 @@ void java_io_Writer::flush()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_io_Writer::flush() exit");
 
 }
@@ -825,8 +773,6 @@ void java_io_Writer::close()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_io_Writer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -835,8 +781,6 @@ void java_io_Writer::close()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_io_Writer::close() exit");
 
 }

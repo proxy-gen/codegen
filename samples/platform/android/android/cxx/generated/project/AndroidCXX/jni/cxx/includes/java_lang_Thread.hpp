@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -175,16 +174,17 @@ class java_lang_Thread
 public:
 
 	java_lang_Thread(const java_lang_Thread& cc);
-	java_lang_Thread(void * proxy);
+	java_lang_Thread(Proxy proxy);
 	// Public Constructors
-	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup& arg0,AndroidCXX::java_lang_Runnable& arg1,AndroidCXX::java_lang_String& arg2,long& arg3);
+	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_Runnable const& arg1,AndroidCXX::java_lang_String const& arg2,long const& arg3);
 	java_lang_Thread();
-	java_lang_Thread(AndroidCXX::java_lang_Runnable& arg0);
-	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup& arg0,AndroidCXX::java_lang_Runnable& arg1);
-	java_lang_Thread(AndroidCXX::java_lang_String& arg0);
-	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup& arg0,AndroidCXX::java_lang_String& arg1);
-	java_lang_Thread(AndroidCXX::java_lang_Runnable& arg0,AndroidCXX::java_lang_String& arg1);
-	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup& arg0,AndroidCXX::java_lang_Runnable& arg1,AndroidCXX::java_lang_String& arg2);
+	java_lang_Thread(AndroidCXX::java_lang_Runnable const& arg0);
+	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_Runnable const& arg1);
+	java_lang_Thread(AndroidCXX::java_lang_String const& arg0);
+	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_String const& arg1);
+	java_lang_Thread(AndroidCXX::java_lang_Runnable const& arg0,AndroidCXX::java_lang_String const& arg1);
+	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_Runnable const& arg1,AndroidCXX::java_lang_String const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Thread();
 	// Functions
@@ -196,14 +196,14 @@ public:
 	 AndroidCXX::java_lang_ThreadGroup getThreadGroup();
 	 std::vector<AndroidCXX::java_lang_StackTraceElement > getStackTrace();
 	static void dumpStack();
-	 void setPriority(int& arg0);
-	 void setDaemon(bool& arg0);
+	 void setPriority(int const& arg0);
+	 void setDaemon(bool const& arg0);
 	 void start();
 	static void yield();
-	static void sleep(long& arg0);
-	static void sleep(long& arg0,int& arg1);
+	static void sleep(long const& arg0);
+	static void sleep(long const& arg0,int const& arg1);
 	 void stop();
-	 void stop(AndroidCXX::java_lang_Throwable& arg0);
+	 void stop(AndroidCXX::java_lang_Throwable const& arg0);
 	 void interrupt();
 	static bool interrupted();
 	 void destroy();
@@ -211,25 +211,25 @@ public:
 	 void suspend();
 	 void resume();
 	 int getPriority();
-	 void setName(AndroidCXX::java_lang_String& arg0);
+	 void setName(AndroidCXX::java_lang_String const& arg0);
 	static int activeCount();
-	static int enumerate(std::vector<AndroidCXX::java_lang_Thread >& arg0);
+	static int enumerate(std::vector<AndroidCXX::java_lang_Thread > const& arg0);
 	 int countStackFrames();
 	 void join();
-	 void join(long& arg0,int& arg1);
-	 void join(long& arg0);
+	 void join(long const& arg0,int const& arg1);
+	 void join(long const& arg0);
 	 bool isDaemon();
 	 void checkAccess();
 	 AndroidCXX::java_lang_ClassLoader getContextClassLoader();
-	 void setContextClassLoader(AndroidCXX::java_lang_ClassLoader& arg0);
-	static bool holdsLock(AndroidCXX::java_lang_Object& arg0);
+	 void setContextClassLoader(AndroidCXX::java_lang_ClassLoader const& arg0);
+	static bool holdsLock(AndroidCXX::java_lang_Object const& arg0);
 	static AndroidCXX::java_util_Map getAllStackTraces();
 	 long getId();
-	 JAVA_LANG_THREAD_STATE::java_lang_Thread_State getState();
-	static void setDefaultUncaughtExceptionHandler(AndroidCXX::java_lang_Thread_UncaughtExceptionHandler& arg0);
+	 java_lang_Thread_State::java_lang_Thread_State getState();
+	static void setDefaultUncaughtExceptionHandler(AndroidCXX::java_lang_Thread_UncaughtExceptionHandler const& arg0);
 	static AndroidCXX::java_lang_Thread_UncaughtExceptionHandler getDefaultUncaughtExceptionHandler();
 	 AndroidCXX::java_lang_Thread_UncaughtExceptionHandler getUncaughtExceptionHandler();
-	 void setUncaughtExceptionHandler(AndroidCXX::java_lang_Thread_UncaughtExceptionHandler& arg0);
+	 void setUncaughtExceptionHandler(AndroidCXX::java_lang_Thread_UncaughtExceptionHandler const& arg0);
 };	
 
 } // namespace

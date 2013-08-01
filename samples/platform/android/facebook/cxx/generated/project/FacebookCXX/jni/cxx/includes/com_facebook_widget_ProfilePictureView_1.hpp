@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -52,13 +51,13 @@ class com_facebook_widget_ProfilePictureView_1
 public:
 
 	com_facebook_widget_ProfilePictureView_1(const com_facebook_widget_ProfilePictureView_1& cc);
-	com_facebook_widget_ProfilePictureView_1(void * proxy);
+	com_facebook_widget_ProfilePictureView_1(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_ProfilePictureView_1();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_ProfilePictureView_1();
 	// Functions
-	 void onCompleted(FacebookCXX::com_facebook_widget_ImageResponse& arg0);
+	 void onCompleted(FacebookCXX::com_facebook_widget_ImageResponse const& arg0);
 };	
 
 } // namespace

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
  		 
@@ -62,13 +61,14 @@ class com_facebook_Request_GraphPlaceListCallback
 public:
 
 	com_facebook_Request_GraphPlaceListCallback(const com_facebook_Request_GraphPlaceListCallback& cc);
-	com_facebook_Request_GraphPlaceListCallback(void * proxy);
+	com_facebook_Request_GraphPlaceListCallback(Proxy proxy);
 	// Public Constructors
 	com_facebook_Request_GraphPlaceListCallback();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Request_GraphPlaceListCallback();
 	// Functions
-	 void onCompleted(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Response& arg1);
+	virtual void onCompleted(AndroidCXX::java_util_List const& arg0,FacebookCXX::com_facebook_Response const& arg1);
 };	
 
 } // namespace

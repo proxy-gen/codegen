@@ -8,7 +8,6 @@
 //
 
 
-
  	
  	
  		 
@@ -198,56 +197,57 @@ class android_graphics_drawable_Drawable
 public:
 
 	android_graphics_drawable_Drawable(const android_graphics_drawable_Drawable& cc);
-	android_graphics_drawable_Drawable(void * proxy);
+	android_graphics_drawable_Drawable(Proxy proxy);
 	// Public Constructors
 	android_graphics_drawable_Drawable();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_drawable_Drawable();
 	// Functions
 	 std::vector<int> getState();
-	 bool setState(std::vector<int>& arg0);
-	 void inflate(AndroidCXX::android_content_res_Resources& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser& arg1,AndroidCXX::android_util_AttributeSet& arg2);
+	 bool setState(std::vector<int> const& arg0);
+	 void inflate(AndroidCXX::android_content_res_Resources const& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser const& arg1,AndroidCXX::android_util_AttributeSet const& arg2);
 	 AndroidCXX::android_graphics_Rect getBounds();
 	 bool isVisible();
 	 int getChangingConfigurations();
-	 bool setVisible(bool& arg0,bool& arg1);
-	 void setAlpha(int& arg0);
-	 void draw(AndroidCXX::android_graphics_Canvas& arg0);
+	 bool setVisible(bool const& arg0,bool const& arg1);
+	 void setAlpha(int const& arg0);
+	 void draw(AndroidCXX::android_graphics_Canvas const& arg0);
 	 int getMinimumHeight();
 	 int getMinimumWidth();
-	 void setBounds(int& arg0,int& arg1,int& arg2,int& arg3);
-	 void setBounds(AndroidCXX::android_graphics_Rect& arg0);
-	 void copyBounds(AndroidCXX::android_graphics_Rect& arg0);
+	 void setBounds(int const& arg0,int const& arg1,int const& arg2,int const& arg3);
+	 void setBounds(AndroidCXX::android_graphics_Rect const& arg0);
+	 void copyBounds(AndroidCXX::android_graphics_Rect const& arg0);
 	 AndroidCXX::android_graphics_Rect copyBounds();
-	 void setChangingConfigurations(int& arg0);
-	 void setDither(bool& arg0);
-	 void setFilterBitmap(bool& arg0);
-	 void setCallback(AndroidCXX::android_graphics_drawable_Drawable_Callback& arg0);
+	 void setChangingConfigurations(int const& arg0);
+	 void setDither(bool const& arg0);
+	 void setFilterBitmap(bool const& arg0);
+	 void setCallback(AndroidCXX::android_graphics_drawable_Drawable_Callback const& arg0);
 	 AndroidCXX::android_graphics_drawable_Drawable_Callback getCallback();
 	 void invalidateSelf();
-	 void scheduleSelf(AndroidCXX::java_lang_Runnable& arg0,long& arg1);
-	 void unscheduleSelf(AndroidCXX::java_lang_Runnable& arg0);
-	 void setColorFilter(AndroidCXX::android_graphics_ColorFilter& arg0);
-	 void setColorFilter(int& arg0,ANDROID_GRAPHICS_PORTERDUFF_MODE::android_graphics_PorterDuff_Mode& arg1);
+	 void scheduleSelf(AndroidCXX::java_lang_Runnable const& arg0,long const& arg1);
+	 void unscheduleSelf(AndroidCXX::java_lang_Runnable const& arg0);
+	 void setColorFilter(AndroidCXX::android_graphics_ColorFilter const& arg0);
+	 void setColorFilter(int const& arg0,android_graphics_PorterDuff_Mode::android_graphics_PorterDuff_Mode const& arg1);
 	 void clearColorFilter();
 	 bool isStateful();
 	 void jumpToCurrentState();
 	 AndroidCXX::android_graphics_drawable_Drawable getCurrent();
-	 bool setLevel(int& arg0);
+	 bool setLevel(int const& arg0);
 	 int getLevel();
 	 int getOpacity();
-	static int resolveOpacity(int& arg0,int& arg1);
+	static int resolveOpacity(int const& arg0,int const& arg1);
 	 AndroidCXX::android_graphics_Region getTransparentRegion();
 	 int getIntrinsicWidth();
 	 int getIntrinsicHeight();
-	 bool getPadding(AndroidCXX::android_graphics_Rect& arg0);
+	 bool getPadding(AndroidCXX::android_graphics_Rect const& arg0);
 	 AndroidCXX::android_graphics_drawable_Drawable mutate();
-	static AndroidCXX::android_graphics_drawable_Drawable createFromStream(AndroidCXX::java_io_InputStream& arg0,AndroidCXX::java_lang_String& arg1);
-	static AndroidCXX::android_graphics_drawable_Drawable createFromResourceStream(AndroidCXX::android_content_res_Resources& arg0,AndroidCXX::android_util_TypedValue& arg1,AndroidCXX::java_io_InputStream& arg2,AndroidCXX::java_lang_String& arg3);
-	static AndroidCXX::android_graphics_drawable_Drawable createFromResourceStream(AndroidCXX::android_content_res_Resources& arg0,AndroidCXX::android_util_TypedValue& arg1,AndroidCXX::java_io_InputStream& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::android_graphics_BitmapFactory_Options& arg4);
-	static AndroidCXX::android_graphics_drawable_Drawable createFromXml(AndroidCXX::android_content_res_Resources& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser& arg1);
-	static AndroidCXX::android_graphics_drawable_Drawable createFromXmlInner(AndroidCXX::android_content_res_Resources& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser& arg1,AndroidCXX::android_util_AttributeSet& arg2);
-	static AndroidCXX::android_graphics_drawable_Drawable createFromPath(AndroidCXX::java_lang_String& arg0);
+	static AndroidCXX::android_graphics_drawable_Drawable createFromStream(AndroidCXX::java_io_InputStream const& arg0,AndroidCXX::java_lang_String const& arg1);
+	static AndroidCXX::android_graphics_drawable_Drawable createFromResourceStream(AndroidCXX::android_content_res_Resources const& arg0,AndroidCXX::android_util_TypedValue const& arg1,AndroidCXX::java_io_InputStream const& arg2,AndroidCXX::java_lang_String const& arg3);
+	static AndroidCXX::android_graphics_drawable_Drawable createFromResourceStream(AndroidCXX::android_content_res_Resources const& arg0,AndroidCXX::android_util_TypedValue const& arg1,AndroidCXX::java_io_InputStream const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::android_graphics_BitmapFactory_Options const& arg4);
+	static AndroidCXX::android_graphics_drawable_Drawable createFromXml(AndroidCXX::android_content_res_Resources const& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser const& arg1);
+	static AndroidCXX::android_graphics_drawable_Drawable createFromXmlInner(AndroidCXX::android_content_res_Resources const& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser const& arg1,AndroidCXX::android_util_AttributeSet const& arg2);
+	static AndroidCXX::android_graphics_drawable_Drawable createFromPath(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::android_graphics_drawable_Drawable_ConstantState getConstantState();
 };	
 

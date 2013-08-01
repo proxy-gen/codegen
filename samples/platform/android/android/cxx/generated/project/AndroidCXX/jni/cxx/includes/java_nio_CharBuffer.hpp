@@ -8,7 +8,6 @@
 //
 
 
-
  	
 	
  	
@@ -142,43 +141,43 @@ class java_nio_CharBuffer
 public:
 
 	java_nio_CharBuffer(const java_nio_CharBuffer& cc);
-	java_nio_CharBuffer(void * proxy);
+	java_nio_CharBuffer(Proxy proxy);
 	// Public Constructors
-	java_nio_CharBuffer();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_CharBuffer();
 	// Functions
-	 AndroidCXX::java_nio_CharBuffer get(std::vector<char>& arg0);
-	 AndroidCXX::java_nio_CharBuffer get(std::vector<char>& arg0,int& arg1,int& arg2);
+	 AndroidCXX::java_nio_CharBuffer get(std::vector<char> const& arg0);
+	 AndroidCXX::java_nio_CharBuffer get(std::vector<char> const& arg0,int const& arg1,int const& arg2);
 	 char get();
-	 char get(int& arg0);
-	 AndroidCXX::java_nio_CharBuffer put(int& arg0,char& arg1);
-	 AndroidCXX::java_nio_CharBuffer put(char& arg0);
-	 AndroidCXX::java_nio_CharBuffer put(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::java_nio_CharBuffer put(AndroidCXX::java_lang_String& arg0,int& arg1,int& arg2);
-	 AndroidCXX::java_nio_CharBuffer put(std::vector<char>& arg0);
-	 AndroidCXX::java_nio_CharBuffer put(std::vector<char>& arg0,int& arg1,int& arg2);
-	 AndroidCXX::java_nio_CharBuffer put(AndroidCXX::java_nio_CharBuffer& arg0);
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 char get(int const& arg0);
+	 AndroidCXX::java_nio_CharBuffer put(int const& arg0,char const& arg1);
+	 AndroidCXX::java_nio_CharBuffer put(char const& arg0);
+	 AndroidCXX::java_nio_CharBuffer put(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::java_nio_CharBuffer put(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2);
+	 AndroidCXX::java_nio_CharBuffer put(std::vector<char> const& arg0);
+	 AndroidCXX::java_nio_CharBuffer put(std::vector<char> const& arg0,int const& arg1,int const& arg2);
+	 AndroidCXX::java_nio_CharBuffer put(AndroidCXX::java_nio_CharBuffer const& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
-	 AndroidCXX::java_nio_CharBuffer append(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2);
-	 AndroidCXX::java_nio_CharBuffer append(char& arg0);
-	 AndroidCXX::java_nio_CharBuffer append(AndroidCXX::java_lang_CharSequence& arg0);
+	 AndroidCXX::java_nio_CharBuffer append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2);
+	 AndroidCXX::java_nio_CharBuffer append(char const& arg0);
+	 AndroidCXX::java_nio_CharBuffer append(AndroidCXX::java_lang_CharSequence const& arg0);
 	 int hashCode();
-	 int compareTo(AndroidCXX::java_nio_CharBuffer& arg0);
+	 int compareTo(AndroidCXX::java_nio_CharBuffer const& arg0);
 	 int length();
-	 char charAt(int& arg0);
-	 AndroidCXX::java_lang_CharSequence subSequence(int& arg0,int& arg1);
+	 char charAt(int const& arg0);
+	 AndroidCXX::java_lang_CharSequence subSequence(int const& arg0,int const& arg1);
 	 bool isDirect();
 	 bool hasArray();
 	 std::vector<char> array();
 	 int arrayOffset();
-	static AndroidCXX::java_nio_CharBuffer wrap(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2);
-	static AndroidCXX::java_nio_CharBuffer wrap(std::vector<char>& arg0,int& arg1,int& arg2);
-	static AndroidCXX::java_nio_CharBuffer wrap(std::vector<char>& arg0);
-	static AndroidCXX::java_nio_CharBuffer wrap(AndroidCXX::java_lang_CharSequence& arg0);
-	 int read(AndroidCXX::java_nio_CharBuffer& arg0);
-	static AndroidCXX::java_nio_CharBuffer allocate(int& arg0);
+	static AndroidCXX::java_nio_CharBuffer wrap(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2);
+	static AndroidCXX::java_nio_CharBuffer wrap(std::vector<char> const& arg0,int const& arg1,int const& arg2);
+	static AndroidCXX::java_nio_CharBuffer wrap(std::vector<char> const& arg0);
+	static AndroidCXX::java_nio_CharBuffer wrap(AndroidCXX::java_lang_CharSequence const& arg0);
+	 int read(AndroidCXX::java_nio_CharBuffer const& arg0);
+	static AndroidCXX::java_nio_CharBuffer allocate(int const& arg0);
 	 AndroidCXX::java_nio_CharBuffer duplicate();
 	 AndroidCXX::java_nio_CharBuffer slice();
 	 AndroidCXX::java_nio_CharBuffer asReadOnlyBuffer();

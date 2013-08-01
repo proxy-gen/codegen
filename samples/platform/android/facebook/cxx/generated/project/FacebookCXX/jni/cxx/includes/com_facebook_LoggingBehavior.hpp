@@ -9,7 +9,6 @@
 
 
 
-
  			
 		
 
@@ -31,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace COM_FACEBOOK_LOGGINGBEHAVIOR {
+namespace com_facebook_LoggingBehavior {
 
 enum com_facebook_LoggingBehavior
 {

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -52,13 +51,13 @@ class com_facebook_widget_LoginButton_UserInfoChangedCallback
 public:
 
 	com_facebook_widget_LoginButton_UserInfoChangedCallback(const com_facebook_widget_LoginButton_UserInfoChangedCallback& cc);
-	com_facebook_widget_LoginButton_UserInfoChangedCallback(void * proxy);
+	com_facebook_widget_LoginButton_UserInfoChangedCallback(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_LoginButton_UserInfoChangedCallback();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_LoginButton_UserInfoChangedCallback();
 	// Functions
-	 void onUserInfoFetched(FacebookCXX::com_facebook_model_GraphUser& arg0);
+	 void onUserInfoFetched(FacebookCXX::com_facebook_model_GraphUser const& arg0);
 };	
 
 } // namespace

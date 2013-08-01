@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -38,6 +37,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_UiLifecycleHelper"
@@ -74,8 +74,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(const com_facebook_UiLifecycleHelper& cc)
 {
 	LOGV("com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(const com_facebook_UiLifecycleHelper& cc) enter");
@@ -99,9 +97,9 @@ com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(const com_faceboo
 
 	LOGV("com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(const com_facebook_UiLifecycleHelper& cc) exit");
 }
-com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(void * proxy)
+com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(Proxy proxy)
 {
-	LOGV("com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(void * proxy) enter");
+	LOGV("com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -111,50 +109,34 @@ com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(void * proxy) exit");
+	LOGV("com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(Proxy proxy) exit");
 }
-com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper()
-{
-	LOGV("com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/UiLifecycleHelper";
-
-	LOGV("com_facebook_UiLifecycleHelper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_UiLifecycleHelper::proxy() const
+{	
+	LOGV("com_facebook_UiLifecycleHelper::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_UiLifecycleHelper cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_UiLifecycleHelper jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_UiLifecycleHelper::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper() exit");	
+	return proxy;
 }
-// Public Constructors
-com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(AndroidCXX::android_app_Activity& arg0,FacebookCXX::com_facebook_Session_StatusCallback& arg1)
+com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(AndroidCXX::android_app_Activity const& arg0,FacebookCXX::com_facebook_Session_StatusCallback const& arg1)
 {
-	LOGV("com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(AndroidCXX::android_app_Activity& arg0,FacebookCXX::com_facebook_Session_StatusCallback& arg1) enter");	
+	LOGV("com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(AndroidCXX::android_app_Activity const& arg0,FacebookCXX::com_facebook_Session_StatusCallback const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/app/Activity;Lcom/facebook/Session$StatusCallback;)V";
@@ -228,7 +210,7 @@ com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(AndroidCXX::andro
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(AndroidCXX::android_app_Activity& arg0,FacebookCXX::com_facebook_Session_StatusCallback& arg1) exit");	
+	LOGV("com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(AndroidCXX::android_app_Activity const& arg0,FacebookCXX::com_facebook_Session_StatusCallback const& arg1) exit");	
 }
 // Default Instance Destructor
 com_facebook_UiLifecycleHelper::~com_facebook_UiLifecycleHelper()
@@ -241,13 +223,13 @@ com_facebook_UiLifecycleHelper::~com_facebook_UiLifecycleHelper()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_UiLifecycleHelper::~com_facebook_UiLifecycleHelper() exit");
 }
 // Functions
-void com_facebook_UiLifecycleHelper::onCreate(AndroidCXX::android_os_Bundle& arg0)
+void com_facebook_UiLifecycleHelper::onCreate(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("void com_facebook_UiLifecycleHelper::onCreate(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_UiLifecycleHelper::onCreate(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "onCreate";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -257,8 +239,6 @@ void com_facebook_UiLifecycleHelper::onCreate(AndroidCXX::android_os_Bundle& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_UiLifecycleHelper cxx address %d", cxxAddress);
@@ -289,9 +269,7 @@ void com_facebook_UiLifecycleHelper::onCreate(AndroidCXX::android_os_Bundle& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_UiLifecycleHelper::onCreate(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_UiLifecycleHelper::onCreate(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 }
 void com_facebook_UiLifecycleHelper::onResume()
@@ -307,8 +285,6 @@ void com_facebook_UiLifecycleHelper::onResume()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_UiLifecycleHelper cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -317,14 +293,12 @@ void com_facebook_UiLifecycleHelper::onResume()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void com_facebook_UiLifecycleHelper::onResume() exit");
 
 }
-void com_facebook_UiLifecycleHelper::onSaveInstanceState(AndroidCXX::android_os_Bundle& arg0)
+void com_facebook_UiLifecycleHelper::onSaveInstanceState(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("void com_facebook_UiLifecycleHelper::onSaveInstanceState(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_UiLifecycleHelper::onSaveInstanceState(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "onSaveInstanceState";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -334,8 +308,6 @@ void com_facebook_UiLifecycleHelper::onSaveInstanceState(AndroidCXX::android_os_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_UiLifecycleHelper cxx address %d", cxxAddress);
@@ -366,9 +338,7 @@ void com_facebook_UiLifecycleHelper::onSaveInstanceState(AndroidCXX::android_os_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_UiLifecycleHelper::onSaveInstanceState(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_UiLifecycleHelper::onSaveInstanceState(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 }
 void com_facebook_UiLifecycleHelper::onPause()
@@ -384,8 +354,6 @@ void com_facebook_UiLifecycleHelper::onPause()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_UiLifecycleHelper cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -394,8 +362,6 @@ void com_facebook_UiLifecycleHelper::onPause()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void com_facebook_UiLifecycleHelper::onPause() exit");
 
 }
@@ -412,8 +378,6 @@ void com_facebook_UiLifecycleHelper::onDestroy()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_UiLifecycleHelper cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -422,14 +386,12 @@ void com_facebook_UiLifecycleHelper::onDestroy()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void com_facebook_UiLifecycleHelper::onDestroy() exit");
 
 }
-void com_facebook_UiLifecycleHelper::onActivityResult(int& arg0,int& arg1,AndroidCXX::android_content_Intent& arg2)
+void com_facebook_UiLifecycleHelper::onActivityResult(int const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2)
 {
-	LOGV("void com_facebook_UiLifecycleHelper::onActivityResult(int& arg0,int& arg1,AndroidCXX::android_content_Intent& arg2) enter");
+	LOGV("void com_facebook_UiLifecycleHelper::onActivityResult(int const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2) enter");
 
 	const char *methodName = "onActivityResult";
 	const char *methodSignature = "(IILandroid/content/Intent;)V";
@@ -439,8 +401,6 @@ void com_facebook_UiLifecycleHelper::onActivityResult(int& arg0,int& arg1,Androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_UiLifecycleHelper cxx address %d", cxxAddress);
@@ -513,8 +473,6 @@ void com_facebook_UiLifecycleHelper::onActivityResult(int& arg0,int& arg1,Androi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_UiLifecycleHelper::onActivityResult(int& arg0,int& arg1,AndroidCXX::android_content_Intent& arg2) exit");
+	LOGV("void com_facebook_UiLifecycleHelper::onActivityResult(int const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2) exit");
 
 }

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -95,8 +94,6 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_security_ProtectionDomain::java_security_ProtectionDomain(const java_security_ProtectionDomain& cc)
 {
 	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(const java_security_ProtectionDomain& cc) enter");
@@ -120,9 +117,9 @@ java_security_ProtectionDomain::java_security_ProtectionDomain(const java_securi
 
 	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(const java_security_ProtectionDomain& cc) exit");
 }
-java_security_ProtectionDomain::java_security_ProtectionDomain(void * proxy)
+java_security_ProtectionDomain::java_security_ProtectionDomain(Proxy proxy)
 {
-	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(void * proxy) enter");
+	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -132,55 +129,34 @@ java_security_ProtectionDomain::java_security_ProtectionDomain(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(void * proxy) exit");
+	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_security_ProtectionDomain::java_security_ProtectionDomain()
-// {
-// 	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain() enter");	
+Proxy java_security_ProtectionDomain::proxy() const
+{	
+	LOGV("java_security_ProtectionDomain::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/security/ProtectionDomain";
+	long cxxAddress = (long) this;
+	LOGV("java_security_ProtectionDomain cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_security_ProtectionDomain jni address %d", proxiedComponent);
 
-// 	LOGV("java_security_ProtectionDomain className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_security_ProtectionDomain::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_security_ProtectionDomain cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_security_ProtectionDomain jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain() exit");	
-// }
-// 
-// 
-// Public Constructors
-java_security_ProtectionDomain::java_security_ProtectionDomain(JDKCXX::java_security_CodeSource& arg0,JDKCXX::java_security_PermissionCollection& arg1)
+	return proxy;
+}
+java_security_ProtectionDomain::java_security_ProtectionDomain(JDKCXX::java_security_CodeSource const& arg0,JDKCXX::java_security_PermissionCollection const& arg1)
 {
-	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(JDKCXX::java_security_CodeSource& arg0,JDKCXX::java_security_PermissionCollection& arg1) enter");	
+	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(JDKCXX::java_security_CodeSource const& arg0,JDKCXX::java_security_PermissionCollection const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/security/CodeSource;Ljava/security/PermissionCollection;)V";
@@ -254,11 +230,11 @@ java_security_ProtectionDomain::java_security_ProtectionDomain(JDKCXX::java_secu
 
 	jni->popLocalFrame();
 
-	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(JDKCXX::java_security_CodeSource& arg0,JDKCXX::java_security_PermissionCollection& arg1) exit");	
+	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(JDKCXX::java_security_CodeSource const& arg0,JDKCXX::java_security_PermissionCollection const& arg1) exit");	
 }
-java_security_ProtectionDomain::java_security_ProtectionDomain(JDKCXX::java_security_CodeSource& arg0,JDKCXX::java_security_PermissionCollection& arg1,JDKCXX::java_lang_ClassLoader& arg2,std::vector<JDKCXX::java_security_Principal >& arg3)
+java_security_ProtectionDomain::java_security_ProtectionDomain(JDKCXX::java_security_CodeSource const& arg0,JDKCXX::java_security_PermissionCollection const& arg1,JDKCXX::java_lang_ClassLoader const& arg2,std::vector<JDKCXX::java_security_Principal > const& arg3)
 {
-	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(JDKCXX::java_security_CodeSource& arg0,JDKCXX::java_security_PermissionCollection& arg1,JDKCXX::java_lang_ClassLoader& arg2,std::vector<JDKCXX::java_security_Principal >& arg3) enter");	
+	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(JDKCXX::java_security_CodeSource const& arg0,JDKCXX::java_security_PermissionCollection const& arg1,JDKCXX::java_lang_ClassLoader const& arg2,std::vector<JDKCXX::java_security_Principal > const& arg3) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/security/CodeSource;Ljava/security/PermissionCollection;Ljava/lang/ClassLoader;[Ljava/security/Principal;)V";
@@ -392,7 +368,7 @@ java_security_ProtectionDomain::java_security_ProtectionDomain(JDKCXX::java_secu
 
 	jni->popLocalFrame();
 
-	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(JDKCXX::java_security_CodeSource& arg0,JDKCXX::java_security_PermissionCollection& arg1,JDKCXX::java_lang_ClassLoader& arg2,std::vector<JDKCXX::java_security_Principal >& arg3) exit");	
+	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(JDKCXX::java_security_CodeSource const& arg0,JDKCXX::java_security_PermissionCollection const& arg1,JDKCXX::java_lang_ClassLoader const& arg2,std::vector<JDKCXX::java_security_Principal > const& arg3) exit");	
 }
 // Default Instance Destructor
 java_security_ProtectionDomain::~java_security_ProtectionDomain()
@@ -405,7 +381,7 @@ java_security_ProtectionDomain::~java_security_ProtectionDomain()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_security_ProtectionDomain::~java_security_ProtectionDomain() exit");
 }
 // Functions
@@ -421,8 +397,6 @@ JDKCXX::java_lang_String java_security_ProtectionDomain::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_ProtectionDomain cxx address %d", cxxAddress);
@@ -451,8 +425,6 @@ JDKCXX::java_lang_String java_security_ProtectionDomain::toString()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_security_ProtectionDomain::toString() exit");
 
 	return result;
@@ -469,8 +441,6 @@ JDKCXX::java_lang_ClassLoader java_security_ProtectionDomain::getClassLoader()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_ProtectionDomain cxx address %d", cxxAddress);
@@ -499,8 +469,6 @@ JDKCXX::java_lang_ClassLoader java_security_ProtectionDomain::getClassLoader()
 	JDKCXX::java_lang_ClassLoader result((JDKCXX::java_lang_ClassLoader) *((JDKCXX::java_lang_ClassLoader *) cxx_value));
 	delete ((JDKCXX::java_lang_ClassLoader *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_ClassLoader java_security_ProtectionDomain::getClassLoader() exit");
 
 	return result;
@@ -517,8 +485,6 @@ JDKCXX::java_security_CodeSource java_security_ProtectionDomain::getCodeSource()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_ProtectionDomain cxx address %d", cxxAddress);
@@ -547,8 +513,6 @@ JDKCXX::java_security_CodeSource java_security_ProtectionDomain::getCodeSource()
 	JDKCXX::java_security_CodeSource result((JDKCXX::java_security_CodeSource) *((JDKCXX::java_security_CodeSource *) cxx_value));
 	delete ((JDKCXX::java_security_CodeSource *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_security_CodeSource java_security_ProtectionDomain::getCodeSource() exit");
 
 	return result;
@@ -565,8 +529,6 @@ std::vector<JDKCXX::java_security_Principal > java_security_ProtectionDomain::ge
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_ProtectionDomain cxx address %d", cxxAddress);
@@ -613,8 +575,6 @@ std::vector<JDKCXX::java_security_Principal > java_security_ProtectionDomain::ge
 	std::vector<JDKCXX::java_security_Principal > result = (std::vector<JDKCXX::java_security_Principal >) *((std::vector<JDKCXX::java_security_Principal > *) cxx_value);
 	delete ((std::vector<JDKCXX::java_security_Principal > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<JDKCXX::java_security_Principal > java_security_ProtectionDomain::getPrincipals() exit");
 
 	return result;
@@ -631,8 +591,6 @@ JDKCXX::java_security_PermissionCollection java_security_ProtectionDomain::getPe
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_ProtectionDomain cxx address %d", cxxAddress);
@@ -661,15 +619,13 @@ JDKCXX::java_security_PermissionCollection java_security_ProtectionDomain::getPe
 	JDKCXX::java_security_PermissionCollection result((JDKCXX::java_security_PermissionCollection) *((JDKCXX::java_security_PermissionCollection *) cxx_value));
 	delete ((JDKCXX::java_security_PermissionCollection *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_security_PermissionCollection java_security_ProtectionDomain::getPermissions() exit");
 
 	return result;
 }
-bool java_security_ProtectionDomain::implies(JDKCXX::java_security_Permission& arg0)
+bool java_security_ProtectionDomain::implies(JDKCXX::java_security_Permission const& arg0)
 {
-	LOGV("bool java_security_ProtectionDomain::implies(JDKCXX::java_security_Permission& arg0) enter");
+	LOGV("bool java_security_ProtectionDomain::implies(JDKCXX::java_security_Permission const& arg0) enter");
 
 	const char *methodName = "implies";
 	const char *methodSignature = "(Ljava/security/Permission;)Z";
@@ -679,8 +635,6 @@ bool java_security_ProtectionDomain::implies(JDKCXX::java_security_Permission& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_ProtectionDomain cxx address %d", cxxAddress);
@@ -730,9 +684,7 @@ bool java_security_ProtectionDomain::implies(JDKCXX::java_security_Permission& a
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_security_ProtectionDomain::implies(JDKCXX::java_security_Permission& arg0) exit");
+	LOGV("bool java_security_ProtectionDomain::implies(JDKCXX::java_security_Permission const& arg0) exit");
 
 	return result;
 }

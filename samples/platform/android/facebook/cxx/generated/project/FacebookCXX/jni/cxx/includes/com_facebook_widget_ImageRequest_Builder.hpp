@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_widget_ImageRequest_Builder
@@ -46,9 +45,9 @@ class com_facebook_widget_ImageRequest_Builder
 public:
 
 	com_facebook_widget_ImageRequest_Builder(const com_facebook_widget_ImageRequest_Builder& cc);
-	com_facebook_widget_ImageRequest_Builder(void * proxy);
+	com_facebook_widget_ImageRequest_Builder(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_ImageRequest_Builder();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageRequest_Builder();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -53,7 +52,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_content_SharedPreferences_Editor"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -120,8 +119,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_content_SharedPreferences_Editor::android_content_SharedPreferences_Editor(const android_content_SharedPreferences_Editor& cc)
 {
 	LOGV("android_content_SharedPreferences_Editor::android_content_SharedPreferences_Editor(const android_content_SharedPreferences_Editor& cc) enter");
@@ -145,9 +142,9 @@ android_content_SharedPreferences_Editor::android_content_SharedPreferences_Edit
 
 	LOGV("android_content_SharedPreferences_Editor::android_content_SharedPreferences_Editor(const android_content_SharedPreferences_Editor& cc) exit");
 }
-android_content_SharedPreferences_Editor::android_content_SharedPreferences_Editor(void * proxy)
+android_content_SharedPreferences_Editor::android_content_SharedPreferences_Editor(Proxy proxy)
 {
-	LOGV("android_content_SharedPreferences_Editor::android_content_SharedPreferences_Editor(void * proxy) enter");
+	LOGV("android_content_SharedPreferences_Editor::android_content_SharedPreferences_Editor(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -157,47 +154,31 @@ android_content_SharedPreferences_Editor::android_content_SharedPreferences_Edit
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_content_SharedPreferences_Editor::android_content_SharedPreferences_Editor(void * proxy) exit");
+	LOGV("android_content_SharedPreferences_Editor::android_content_SharedPreferences_Editor(Proxy proxy) exit");
 }
-android_content_SharedPreferences_Editor::android_content_SharedPreferences_Editor()
-{
-	LOGV("android_content_SharedPreferences_Editor::android_content_SharedPreferences_Editor() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/content/SharedPreferences$Editor";
-
-	LOGV("android_content_SharedPreferences_Editor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_content_SharedPreferences_Editor::proxy() const
+{	
+	LOGV("android_content_SharedPreferences_Editor::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SharedPreferences_Editor cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_SharedPreferences_Editor jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_content_SharedPreferences_Editor::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_content_SharedPreferences_Editor::android_content_SharedPreferences_Editor() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_content_SharedPreferences_Editor::~android_content_SharedPreferences_Editor()
 {
@@ -209,13 +190,13 @@ android_content_SharedPreferences_Editor::~android_content_SharedPreferences_Edi
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_content_SharedPreferences_Editor::~android_content_SharedPreferences_Editor() exit");
 }
 // Functions
-AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putBoolean(AndroidCXX::java_lang_String& arg0,bool& arg1)
+AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putBoolean(AndroidCXX::java_lang_String const& arg0,bool const& arg1)
 {
-	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putBoolean(AndroidCXX::java_lang_String& arg0,bool& arg1) enter");
+	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putBoolean(AndroidCXX::java_lang_String const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "putBoolean";
 	const char *methodSignature = "(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;";
@@ -225,8 +206,6 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SharedPreferences_Editor cxx address %d", cxxAddress);
@@ -276,7 +255,6 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 		jarg1 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_SharedPreferences_Editor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -294,17 +272,17 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_SharedPreferences_Editor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_SharedPreferences_Editor) (AndroidCXX::android_content_SharedPreferences_Editor((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putBoolean(AndroidCXX::java_lang_String& arg0,bool& arg1) exit");
+	AndroidCXX::android_content_SharedPreferences_Editor result((AndroidCXX::android_content_SharedPreferences_Editor) *((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value));
+	delete ((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value);
+		
+	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putBoolean(AndroidCXX::java_lang_String const& arg0,bool const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putInt(AndroidCXX::java_lang_String& arg0,int& arg1)
+AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putInt(AndroidCXX::java_lang_String const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putInt(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putInt(AndroidCXX::java_lang_String const& arg0,int const& arg1) enter");
 
 	const char *methodName = "putInt";
 	const char *methodSignature = "(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;";
@@ -314,8 +292,6 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SharedPreferences_Editor cxx address %d", cxxAddress);
@@ -365,7 +341,6 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_SharedPreferences_Editor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -383,17 +358,17 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_SharedPreferences_Editor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_SharedPreferences_Editor) (AndroidCXX::android_content_SharedPreferences_Editor((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putInt(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
+	AndroidCXX::android_content_SharedPreferences_Editor result((AndroidCXX::android_content_SharedPreferences_Editor) *((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value));
+	delete ((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value);
+		
+	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putInt(AndroidCXX::java_lang_String const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putLong(AndroidCXX::java_lang_String& arg0,long& arg1)
+AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putLong(AndroidCXX::java_lang_String const& arg0,long const& arg1)
 {
-	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putLong(AndroidCXX::java_lang_String& arg0,long& arg1) enter");
+	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putLong(AndroidCXX::java_lang_String const& arg0,long const& arg1) enter");
 
 	const char *methodName = "putLong";
 	const char *methodSignature = "(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;";
@@ -403,8 +378,6 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SharedPreferences_Editor cxx address %d", cxxAddress);
@@ -454,7 +427,6 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 		jarg1 = convert_jni_long_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_SharedPreferences_Editor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -472,17 +444,17 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_SharedPreferences_Editor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_SharedPreferences_Editor) (AndroidCXX::android_content_SharedPreferences_Editor((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putLong(AndroidCXX::java_lang_String& arg0,long& arg1) exit");
+	AndroidCXX::android_content_SharedPreferences_Editor result((AndroidCXX::android_content_SharedPreferences_Editor) *((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value));
+	delete ((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value);
+		
+	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putLong(AndroidCXX::java_lang_String const& arg0,long const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putFloat(AndroidCXX::java_lang_String& arg0,float& arg1)
+AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putFloat(AndroidCXX::java_lang_String const& arg0,float const& arg1)
 {
-	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putFloat(AndroidCXX::java_lang_String& arg0,float& arg1) enter");
+	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putFloat(AndroidCXX::java_lang_String const& arg0,float const& arg1) enter");
 
 	const char *methodName = "putFloat";
 	const char *methodSignature = "(Ljava/lang/String;F)Landroid/content/SharedPreferences$Editor;";
@@ -492,8 +464,6 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SharedPreferences_Editor cxx address %d", cxxAddress);
@@ -543,7 +513,6 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 		jarg1 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_SharedPreferences_Editor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -561,11 +530,11 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_SharedPreferences_Editor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_SharedPreferences_Editor) (AndroidCXX::android_content_SharedPreferences_Editor((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putFloat(AndroidCXX::java_lang_String& arg0,float& arg1) exit");
+	AndroidCXX::android_content_SharedPreferences_Editor result((AndroidCXX::android_content_SharedPreferences_Editor) *((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value));
+	delete ((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value);
+		
+	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putFloat(AndroidCXX::java_lang_String const& arg0,float const& arg1) exit");
 
 	return result;
 }
@@ -582,15 +551,12 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_SharedPreferences_Editor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_SharedPreferences_Editor jni address %d", javaObject);
 
 
-	AndroidCXX::android_content_SharedPreferences_Editor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -608,17 +574,17 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_SharedPreferences_Editor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_SharedPreferences_Editor) (AndroidCXX::android_content_SharedPreferences_Editor((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_content_SharedPreferences_Editor result((AndroidCXX::android_content_SharedPreferences_Editor) *((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value));
+	delete ((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value);
+		
 	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::clear() exit");
 
 	return result;
 }
-AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::remove(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::remove(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::remove(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::remove(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "remove";
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;";
@@ -628,8 +594,6 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SharedPreferences_Editor cxx address %d", cxxAddress);
@@ -658,7 +622,6 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_SharedPreferences_Editor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -676,17 +639,17 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_SharedPreferences_Editor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_SharedPreferences_Editor) (AndroidCXX::android_content_SharedPreferences_Editor((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::remove(AndroidCXX::java_lang_String& arg0) exit");
+	AndroidCXX::android_content_SharedPreferences_Editor result((AndroidCXX::android_content_SharedPreferences_Editor) *((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value));
+	delete ((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value);
+		
+	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::remove(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putString(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
+AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putString(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putString(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putString(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "putString";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;";
@@ -696,8 +659,6 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SharedPreferences_Editor cxx address %d", cxxAddress);
@@ -747,7 +708,6 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_SharedPreferences_Editor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -765,11 +725,11 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_SharedPreferences_Editor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_SharedPreferences_Editor) (AndroidCXX::android_content_SharedPreferences_Editor((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putString(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	AndroidCXX::android_content_SharedPreferences_Editor result((AndroidCXX::android_content_SharedPreferences_Editor) *((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value));
+	delete ((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value);
+		
+	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putString(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
@@ -786,8 +746,6 @@ void android_content_SharedPreferences_Editor::apply()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_SharedPreferences_Editor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -796,14 +754,12 @@ void android_content_SharedPreferences_Editor::apply()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_content_SharedPreferences_Editor::apply() exit");
 
 }
-AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putStringSet(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_Set& arg1)
+AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putStringSet(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Set const& arg1)
 {
-	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putStringSet(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_Set& arg1) enter");
+	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putStringSet(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Set const& arg1) enter");
 
 	const char *methodName = "putStringSet";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/util/Set;)Landroid/content/SharedPreferences$Editor;";
@@ -813,8 +769,6 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_SharedPreferences_Editor cxx address %d", cxxAddress);
@@ -882,7 +836,6 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_SharedPreferences_Editor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -900,11 +853,11 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_SharedPreferences_Editor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_SharedPreferences_Editor) (AndroidCXX::android_content_SharedPreferences_Editor((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putStringSet(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_Set& arg1) exit");
+	AndroidCXX::android_content_SharedPreferences_Editor result((AndroidCXX::android_content_SharedPreferences_Editor) *((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value));
+	delete ((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value);
+		
+	LOGV("AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPreferences_Editor::putStringSet(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Set const& arg1) exit");
 
 	return result;
 }
@@ -921,15 +874,12 @@ bool android_content_SharedPreferences_Editor::commit()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_SharedPreferences_Editor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_SharedPreferences_Editor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -947,10 +897,10 @@ bool android_content_SharedPreferences_Editor::commit()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_content_SharedPreferences_Editor::commit() exit");
 
 	return result;

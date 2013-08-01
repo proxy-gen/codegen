@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  	
@@ -77,9 +76,9 @@ class com_facebook_widget_SimpleGraphObjectCursor
 public:
 
 	com_facebook_widget_SimpleGraphObjectCursor(const com_facebook_widget_SimpleGraphObjectCursor& cc);
-	com_facebook_widget_SimpleGraphObjectCursor(void * proxy);
+	com_facebook_widget_SimpleGraphObjectCursor(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_SimpleGraphObjectCursor();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_SimpleGraphObjectCursor();
 	// Functions
@@ -93,16 +92,16 @@ public:
 	 int getCount();
 	 bool areMoreObjectsAvailable();
 	 bool moveToNext();
-	 bool move(int& arg0);
-	 bool moveToPosition(int& arg0);
+	 bool move(int const& arg0);
+	 bool moveToPosition(int const& arg0);
 	 bool moveToLast();
 	 bool moveToPrevious();
 	 bool isLast();
 	 bool isBeforeFirst();
 	 bool isAfterLast();
-	 void addGraphObjects(AndroidCXX::java_util_Collection& arg0,bool& arg1);
-	 void setMoreObjectsAvailable(bool& arg0);
-	 void setFromCache(bool& arg0);
+	 void addGraphObjects(AndroidCXX::java_util_Collection const& arg0,bool const& arg1);
+	 void setMoreObjectsAvailable(bool const& arg0);
+	 void setFromCache(bool const& arg0);
 };	
 
 } // namespace

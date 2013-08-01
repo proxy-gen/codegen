@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -91,10 +90,10 @@ class com_facebook_FacebookRequestError
 public:
 
 	com_facebook_FacebookRequestError(const com_facebook_FacebookRequestError& cc);
-	com_facebook_FacebookRequestError(void * proxy);
+	com_facebook_FacebookRequestError(Proxy proxy);
 	// Public Constructors
-	com_facebook_FacebookRequestError(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2);
-	com_facebook_FacebookRequestError();
+	com_facebook_FacebookRequestError(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_FacebookRequestError();
 	// Functions
@@ -104,7 +103,7 @@ public:
 	 int getErrorCode();
 	 bool shouldNotifyUser();
 	 int getUserActionMessageId();
-	 COM_FACEBOOK_FACEBOOKREQUESTERROR_CATEGORY::com_facebook_FacebookRequestError_Category getCategory();
+	 com_facebook_FacebookRequestError_Category::com_facebook_FacebookRequestError_Category getCategory();
 	 int getRequestStatusCode();
 	 int getSubErrorCode();
 	 AndroidCXX::java_lang_String getErrorType();

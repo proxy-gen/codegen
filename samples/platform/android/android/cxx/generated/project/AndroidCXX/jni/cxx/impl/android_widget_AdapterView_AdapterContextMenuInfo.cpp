@@ -10,7 +10,6 @@
 
 
 
-
  		 
 
 
@@ -28,7 +27,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_AdapterView_AdapterContextMenuInfo"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -47,8 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_widget_AdapterView_AdapterContextMenuInfo::android_widget_AdapterView_AdapterContextMenuInfo(const android_widget_AdapterView_AdapterContextMenuInfo& cc)
 {
 	LOGV("android_widget_AdapterView_AdapterContextMenuInfo::android_widget_AdapterView_AdapterContextMenuInfo(const android_widget_AdapterView_AdapterContextMenuInfo& cc) enter");
@@ -72,9 +69,9 @@ android_widget_AdapterView_AdapterContextMenuInfo::android_widget_AdapterView_Ad
 
 	LOGV("android_widget_AdapterView_AdapterContextMenuInfo::android_widget_AdapterView_AdapterContextMenuInfo(const android_widget_AdapterView_AdapterContextMenuInfo& cc) exit");
 }
-android_widget_AdapterView_AdapterContextMenuInfo::android_widget_AdapterView_AdapterContextMenuInfo(void * proxy)
+android_widget_AdapterView_AdapterContextMenuInfo::android_widget_AdapterView_AdapterContextMenuInfo(Proxy proxy)
 {
-	LOGV("android_widget_AdapterView_AdapterContextMenuInfo::android_widget_AdapterView_AdapterContextMenuInfo(void * proxy) enter");
+	LOGV("android_widget_AdapterView_AdapterContextMenuInfo::android_widget_AdapterView_AdapterContextMenuInfo(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -84,50 +81,34 @@ android_widget_AdapterView_AdapterContextMenuInfo::android_widget_AdapterView_Ad
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_AdapterView_AdapterContextMenuInfo::android_widget_AdapterView_AdapterContextMenuInfo(void * proxy) exit");
+	LOGV("android_widget_AdapterView_AdapterContextMenuInfo::android_widget_AdapterView_AdapterContextMenuInfo(Proxy proxy) exit");
 }
-android_widget_AdapterView_AdapterContextMenuInfo::android_widget_AdapterView_AdapterContextMenuInfo()
-{
-	LOGV("android_widget_AdapterView_AdapterContextMenuInfo::android_widget_AdapterView_AdapterContextMenuInfo() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/AdapterView$AdapterContextMenuInfo";
-
-	LOGV("android_widget_AdapterView_AdapterContextMenuInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_widget_AdapterView_AdapterContextMenuInfo::proxy() const
+{	
+	LOGV("android_widget_AdapterView_AdapterContextMenuInfo::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_AdapterView_AdapterContextMenuInfo cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_AdapterView_AdapterContextMenuInfo jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_widget_AdapterView_AdapterContextMenuInfo::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_widget_AdapterView_AdapterContextMenuInfo::android_widget_AdapterView_AdapterContextMenuInfo() exit");	
+	return proxy;
 }
-// Public Constructors
-android_widget_AdapterView_AdapterContextMenuInfo::android_widget_AdapterView_AdapterContextMenuInfo(AndroidCXX::android_view_View& arg0,int& arg1,long& arg2)
+android_widget_AdapterView_AdapterContextMenuInfo::android_widget_AdapterView_AdapterContextMenuInfo(AndroidCXX::android_view_View const& arg0,int const& arg1,long const& arg2)
 {
-	LOGV("android_widget_AdapterView_AdapterContextMenuInfo::android_widget_AdapterView_AdapterContextMenuInfo(AndroidCXX::android_view_View& arg0,int& arg1,long& arg2) enter");	
+	LOGV("android_widget_AdapterView_AdapterContextMenuInfo::android_widget_AdapterView_AdapterContextMenuInfo(AndroidCXX::android_view_View const& arg0,int const& arg1,long const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/view/View;IJ)V";
@@ -222,7 +203,7 @@ android_widget_AdapterView_AdapterContextMenuInfo::android_widget_AdapterView_Ad
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_AdapterView_AdapterContextMenuInfo::android_widget_AdapterView_AdapterContextMenuInfo(AndroidCXX::android_view_View& arg0,int& arg1,long& arg2) exit");	
+	LOGV("android_widget_AdapterView_AdapterContextMenuInfo::android_widget_AdapterView_AdapterContextMenuInfo(AndroidCXX::android_view_View const& arg0,int const& arg1,long const& arg2) exit");	
 }
 // Default Instance Destructor
 android_widget_AdapterView_AdapterContextMenuInfo::~android_widget_AdapterView_AdapterContextMenuInfo()
@@ -235,7 +216,7 @@ android_widget_AdapterView_AdapterContextMenuInfo::~android_widget_AdapterView_A
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_AdapterView_AdapterContextMenuInfo::~android_widget_AdapterView_AdapterContextMenuInfo() exit");
 }
 // Functions

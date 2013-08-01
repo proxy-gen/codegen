@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -36,7 +35,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_util_Map_Entry"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -67,8 +66,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_util_Map_Entry::java_util_Map_Entry(const java_util_Map_Entry& cc)
 {
 	LOGV("java_util_Map_Entry::java_util_Map_Entry(const java_util_Map_Entry& cc) enter");
@@ -92,9 +89,9 @@ java_util_Map_Entry::java_util_Map_Entry(const java_util_Map_Entry& cc)
 
 	LOGV("java_util_Map_Entry::java_util_Map_Entry(const java_util_Map_Entry& cc) exit");
 }
-java_util_Map_Entry::java_util_Map_Entry(void * proxy)
+java_util_Map_Entry::java_util_Map_Entry(Proxy proxy)
 {
-	LOGV("java_util_Map_Entry::java_util_Map_Entry(void * proxy) enter");
+	LOGV("java_util_Map_Entry::java_util_Map_Entry(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -104,47 +101,31 @@ java_util_Map_Entry::java_util_Map_Entry(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_util_Map_Entry::java_util_Map_Entry(void * proxy) exit");
+	LOGV("java_util_Map_Entry::java_util_Map_Entry(Proxy proxy) exit");
 }
-java_util_Map_Entry::java_util_Map_Entry()
-{
-	LOGV("java_util_Map_Entry::java_util_Map_Entry() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "java/util/Map$Entry";
-
-	LOGV("java_util_Map_Entry className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy java_util_Map_Entry::proxy() const
+{	
+	LOGV("java_util_Map_Entry::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Map_Entry cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Map_Entry jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("java_util_Map_Entry::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("java_util_Map_Entry::java_util_Map_Entry() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 java_util_Map_Entry::~java_util_Map_Entry()
 {
@@ -156,13 +137,13 @@ java_util_Map_Entry::~java_util_Map_Entry()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_util_Map_Entry::~java_util_Map_Entry() exit");
 }
 // Functions
-bool java_util_Map_Entry::equals(AndroidCXX::java_lang_Object& arg0)
+bool java_util_Map_Entry::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_util_Map_Entry::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_util_Map_Entry::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -172,8 +153,6 @@ bool java_util_Map_Entry::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Map_Entry cxx address %d", cxxAddress);
@@ -202,7 +181,6 @@ bool java_util_Map_Entry::equals(AndroidCXX::java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -220,11 +198,11 @@ bool java_util_Map_Entry::equals(AndroidCXX::java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool java_util_Map_Entry::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool java_util_Map_Entry::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -241,15 +219,12 @@ int java_util_Map_Entry::hashCode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Map_Entry cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Map_Entry jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -267,10 +242,10 @@ int java_util_Map_Entry::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_util_Map_Entry::hashCode() exit");
 
 	return result;
@@ -288,15 +263,12 @@ AndroidCXX::java_lang_Object java_util_Map_Entry::getValue()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Map_Entry cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Map_Entry jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -314,10 +286,10 @@ AndroidCXX::java_lang_Object java_util_Map_Entry::getValue()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_Object java_util_Map_Entry::getValue() exit");
 
 	return result;
@@ -335,15 +307,12 @@ AndroidCXX::java_lang_Object java_util_Map_Entry::getKey()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Map_Entry cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Map_Entry jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -361,17 +330,17 @@ AndroidCXX::java_lang_Object java_util_Map_Entry::getKey()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_Object java_util_Map_Entry::getKey() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_Object java_util_Map_Entry::setValue(AndroidCXX::java_lang_Object& arg0)
+AndroidCXX::java_lang_Object java_util_Map_Entry::setValue(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Object java_util_Map_Entry::setValue(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Object java_util_Map_Entry::setValue(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "setValue";
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/Object;";
@@ -381,8 +350,6 @@ AndroidCXX::java_lang_Object java_util_Map_Entry::setValue(AndroidCXX::java_lang
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Map_Entry cxx address %d", cxxAddress);
@@ -411,7 +378,6 @@ AndroidCXX::java_lang_Object java_util_Map_Entry::setValue(AndroidCXX::java_lang
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -429,11 +395,11 @@ AndroidCXX::java_lang_Object java_util_Map_Entry::setValue(AndroidCXX::java_lang
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_Object java_util_Map_Entry::setValue(AndroidCXX::java_lang_Object& arg0) exit");
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_Object java_util_Map_Entry::setValue(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }

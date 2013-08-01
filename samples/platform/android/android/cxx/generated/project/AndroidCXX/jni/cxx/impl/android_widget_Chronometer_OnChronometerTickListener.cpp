@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -28,7 +27,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_Chronometer_OnChronometerTickListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -47,8 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_widget_Chronometer_OnChronometerTickListener::android_widget_Chronometer_OnChronometerTickListener(const android_widget_Chronometer_OnChronometerTickListener& cc)
 {
 	LOGV("android_widget_Chronometer_OnChronometerTickListener::android_widget_Chronometer_OnChronometerTickListener(const android_widget_Chronometer_OnChronometerTickListener& cc) enter");
@@ -72,9 +69,9 @@ android_widget_Chronometer_OnChronometerTickListener::android_widget_Chronometer
 
 	LOGV("android_widget_Chronometer_OnChronometerTickListener::android_widget_Chronometer_OnChronometerTickListener(const android_widget_Chronometer_OnChronometerTickListener& cc) exit");
 }
-android_widget_Chronometer_OnChronometerTickListener::android_widget_Chronometer_OnChronometerTickListener(void * proxy)
+android_widget_Chronometer_OnChronometerTickListener::android_widget_Chronometer_OnChronometerTickListener(Proxy proxy)
 {
-	LOGV("android_widget_Chronometer_OnChronometerTickListener::android_widget_Chronometer_OnChronometerTickListener(void * proxy) enter");
+	LOGV("android_widget_Chronometer_OnChronometerTickListener::android_widget_Chronometer_OnChronometerTickListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -84,47 +81,31 @@ android_widget_Chronometer_OnChronometerTickListener::android_widget_Chronometer
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_Chronometer_OnChronometerTickListener::android_widget_Chronometer_OnChronometerTickListener(void * proxy) exit");
+	LOGV("android_widget_Chronometer_OnChronometerTickListener::android_widget_Chronometer_OnChronometerTickListener(Proxy proxy) exit");
 }
-android_widget_Chronometer_OnChronometerTickListener::android_widget_Chronometer_OnChronometerTickListener()
-{
-	LOGV("android_widget_Chronometer_OnChronometerTickListener::android_widget_Chronometer_OnChronometerTickListener() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/Chronometer$OnChronometerTickListener";
-
-	LOGV("android_widget_Chronometer_OnChronometerTickListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_widget_Chronometer_OnChronometerTickListener::proxy() const
+{	
+	LOGV("android_widget_Chronometer_OnChronometerTickListener::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Chronometer_OnChronometerTickListener cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Chronometer_OnChronometerTickListener jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_widget_Chronometer_OnChronometerTickListener::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_widget_Chronometer_OnChronometerTickListener::android_widget_Chronometer_OnChronometerTickListener() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_widget_Chronometer_OnChronometerTickListener::~android_widget_Chronometer_OnChronometerTickListener()
 {
@@ -136,13 +117,13 @@ android_widget_Chronometer_OnChronometerTickListener::~android_widget_Chronomete
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_Chronometer_OnChronometerTickListener::~android_widget_Chronometer_OnChronometerTickListener() exit");
 }
 // Functions
-void android_widget_Chronometer_OnChronometerTickListener::onChronometerTick(AndroidCXX::android_widget_Chronometer& arg0)
+void android_widget_Chronometer_OnChronometerTickListener::onChronometerTick(AndroidCXX::android_widget_Chronometer const& arg0)
 {
-	LOGV("void android_widget_Chronometer_OnChronometerTickListener::onChronometerTick(AndroidCXX::android_widget_Chronometer& arg0) enter");
+	LOGV("void android_widget_Chronometer_OnChronometerTickListener::onChronometerTick(AndroidCXX::android_widget_Chronometer const& arg0) enter");
 
 	const char *methodName = "onChronometerTick";
 	const char *methodSignature = "(Landroid/widget/Chronometer;)V";
@@ -152,8 +133,6 @@ void android_widget_Chronometer_OnChronometerTickListener::onChronometerTick(And
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Chronometer_OnChronometerTickListener cxx address %d", cxxAddress);
@@ -184,8 +163,6 @@ void android_widget_Chronometer_OnChronometerTickListener::onChronometerTick(And
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Chronometer_OnChronometerTickListener::onChronometerTick(AndroidCXX::android_widget_Chronometer& arg0) exit");
+	LOGV("void android_widget_Chronometer_OnChronometerTickListener::onChronometerTick(AndroidCXX::android_widget_Chronometer const& arg0) exit");
 
 }

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 
@@ -51,8 +50,6 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_net_ContentHandlerFactory::java_net_ContentHandlerFactory(const java_net_ContentHandlerFactory& cc)
 {
 	LOGV("java_net_ContentHandlerFactory::java_net_ContentHandlerFactory(const java_net_ContentHandlerFactory& cc) enter");
@@ -76,9 +73,9 @@ java_net_ContentHandlerFactory::java_net_ContentHandlerFactory(const java_net_Co
 
 	LOGV("java_net_ContentHandlerFactory::java_net_ContentHandlerFactory(const java_net_ContentHandlerFactory& cc) exit");
 }
-java_net_ContentHandlerFactory::java_net_ContentHandlerFactory(void * proxy)
+java_net_ContentHandlerFactory::java_net_ContentHandlerFactory(Proxy proxy)
 {
-	LOGV("java_net_ContentHandlerFactory::java_net_ContentHandlerFactory(void * proxy) enter");
+	LOGV("java_net_ContentHandlerFactory::java_net_ContentHandlerFactory(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -88,52 +85,31 @@ java_net_ContentHandlerFactory::java_net_ContentHandlerFactory(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_net_ContentHandlerFactory::java_net_ContentHandlerFactory(void * proxy) exit");
+	LOGV("java_net_ContentHandlerFactory::java_net_ContentHandlerFactory(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_net_ContentHandlerFactory::java_net_ContentHandlerFactory()
-// {
-// 	LOGV("java_net_ContentHandlerFactory::java_net_ContentHandlerFactory() enter");	
+Proxy java_net_ContentHandlerFactory::proxy() const
+{	
+	LOGV("java_net_ContentHandlerFactory::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/net/ContentHandlerFactory";
+	long cxxAddress = (long) this;
+	LOGV("java_net_ContentHandlerFactory cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_ContentHandlerFactory jni address %d", proxiedComponent);
 
-// 	LOGV("java_net_ContentHandlerFactory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_net_ContentHandlerFactory::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_net_ContentHandlerFactory cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_net_ContentHandlerFactory jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_net_ContentHandlerFactory::java_net_ContentHandlerFactory() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_net_ContentHandlerFactory::~java_net_ContentHandlerFactory()
 {
@@ -145,13 +121,13 @@ java_net_ContentHandlerFactory::~java_net_ContentHandlerFactory()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_net_ContentHandlerFactory::~java_net_ContentHandlerFactory() exit");
 }
 // Functions
-JDKCXX::java_net_ContentHandler java_net_ContentHandlerFactory::createContentHandler(JDKCXX::java_lang_String& arg0)
+JDKCXX::java_net_ContentHandler java_net_ContentHandlerFactory::createContentHandler(JDKCXX::java_lang_String const& arg0)
 {
-	LOGV("JDKCXX::java_net_ContentHandler java_net_ContentHandlerFactory::createContentHandler(JDKCXX::java_lang_String& arg0) enter");
+	LOGV("JDKCXX::java_net_ContentHandler java_net_ContentHandlerFactory::createContentHandler(JDKCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "createContentHandler";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/ContentHandler;";
@@ -161,8 +137,6 @@ JDKCXX::java_net_ContentHandler java_net_ContentHandlerFactory::createContentHan
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_ContentHandlerFactory cxx address %d", cxxAddress);
@@ -212,9 +186,7 @@ JDKCXX::java_net_ContentHandler java_net_ContentHandlerFactory::createContentHan
 	JDKCXX::java_net_ContentHandler result((JDKCXX::java_net_ContentHandler) *((JDKCXX::java_net_ContentHandler *) cxx_value));
 	delete ((JDKCXX::java_net_ContentHandler *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_net_ContentHandler java_net_ContentHandlerFactory::createContentHandler(JDKCXX::java_lang_String& arg0) exit");
+	LOGV("JDKCXX::java_net_ContentHandler java_net_ContentHandlerFactory::createContentHandler(JDKCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -125,26 +124,26 @@ class android_widget_SimpleCursorAdapter
 public:
 
 	android_widget_SimpleCursorAdapter(const android_widget_SimpleCursorAdapter& cc);
-	android_widget_SimpleCursorAdapter(void * proxy);
+	android_widget_SimpleCursorAdapter(Proxy proxy);
 	// Public Constructors
-	android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,AndroidCXX::android_database_Cursor& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4);
-	android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,AndroidCXX::android_database_Cursor& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4,int& arg5);
-	android_widget_SimpleCursorAdapter();
+	android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_database_Cursor const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,std::vector<int> const& arg4);
+	android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_database_Cursor const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,std::vector<int> const& arg4,int const& arg5);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SimpleCursorAdapter();
 	// Functions
-	 AndroidCXX::java_lang_CharSequence convertToString(AndroidCXX::android_database_Cursor& arg0);
-	 void bindView(AndroidCXX::android_view_View& arg0,AndroidCXX::android_content_Context& arg1,AndroidCXX::android_database_Cursor& arg2);
-	 AndroidCXX::android_database_Cursor swapCursor(AndroidCXX::android_database_Cursor& arg0);
+	 AndroidCXX::java_lang_CharSequence convertToString(AndroidCXX::android_database_Cursor const& arg0);
+	 void bindView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_content_Context const& arg1,AndroidCXX::android_database_Cursor const& arg2);
+	 AndroidCXX::android_database_Cursor swapCursor(AndroidCXX::android_database_Cursor const& arg0);
 	 AndroidCXX::android_widget_SimpleCursorAdapter_ViewBinder getViewBinder();
-	 void setViewBinder(AndroidCXX::android_widget_SimpleCursorAdapter_ViewBinder& arg0);
-	 void setViewImage(AndroidCXX::android_widget_ImageView& arg0,AndroidCXX::java_lang_String& arg1);
-	 void setViewText(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::java_lang_String& arg1);
+	 void setViewBinder(AndroidCXX::android_widget_SimpleCursorAdapter_ViewBinder const& arg0);
+	 void setViewImage(AndroidCXX::android_widget_ImageView const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 void setViewText(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::java_lang_String const& arg1);
 	 int getStringConversionColumn();
-	 void setStringConversionColumn(int& arg0);
+	 void setStringConversionColumn(int const& arg0);
 	 AndroidCXX::android_widget_SimpleCursorAdapter_CursorToStringConverter getCursorToStringConverter();
-	 void setCursorToStringConverter(AndroidCXX::android_widget_SimpleCursorAdapter_CursorToStringConverter& arg0);
-	 void changeCursorAndColumns(AndroidCXX::android_database_Cursor& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,std::vector<int>& arg2);
+	 void setCursorToStringConverter(AndroidCXX::android_widget_SimpleCursorAdapter_CursorToStringConverter const& arg0);
+	 void changeCursorAndColumns(AndroidCXX::android_database_Cursor const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,std::vector<int> const& arg2);
 };	
 
 } // namespace

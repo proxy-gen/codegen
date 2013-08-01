@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -55,7 +54,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_animation_Keyframe"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -110,8 +109,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_animation_Keyframe::android_animation_Keyframe(const android_animation_Keyframe& cc)
 {
 	LOGV("android_animation_Keyframe::android_animation_Keyframe(const android_animation_Keyframe& cc) enter");
@@ -135,9 +132,9 @@ android_animation_Keyframe::android_animation_Keyframe(const android_animation_K
 
 	LOGV("android_animation_Keyframe::android_animation_Keyframe(const android_animation_Keyframe& cc) exit");
 }
-android_animation_Keyframe::android_animation_Keyframe(void * proxy)
+android_animation_Keyframe::android_animation_Keyframe(Proxy proxy)
 {
-	LOGV("android_animation_Keyframe::android_animation_Keyframe(void * proxy) enter");
+	LOGV("android_animation_Keyframe::android_animation_Keyframe(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -147,13 +144,31 @@ android_animation_Keyframe::android_animation_Keyframe(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_animation_Keyframe::android_animation_Keyframe(void * proxy) exit");
+	LOGV("android_animation_Keyframe::android_animation_Keyframe(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy android_animation_Keyframe::proxy() const
+{	
+	LOGV("android_animation_Keyframe::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_animation_Keyframe cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_animation_Keyframe jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_animation_Keyframe::proxy() exit");	
+
+	return proxy;
+}
 android_animation_Keyframe::android_animation_Keyframe()
 {
 	LOGV("android_animation_Keyframe::android_animation_Keyframe() enter");	
@@ -201,7 +216,7 @@ android_animation_Keyframe::~android_animation_Keyframe()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_animation_Keyframe::~android_animation_Keyframe() exit");
 }
 // Functions
@@ -218,15 +233,12 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::clone()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_Keyframe cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_animation_Keyframe jni address %d", javaObject);
 
 
-	AndroidCXX::android_animation_Keyframe result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -244,10 +256,10 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::clone()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_animation_Keyframe(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_animation_Keyframe) (AndroidCXX::android_animation_Keyframe((AndroidCXX::android_animation_Keyframe *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_animation_Keyframe result((AndroidCXX::android_animation_Keyframe) *((AndroidCXX::android_animation_Keyframe *) cxx_value));
+	delete ((AndroidCXX::android_animation_Keyframe *) cxx_value);
+		
 	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::clone() exit");
 
 	return result;
@@ -265,15 +277,12 @@ AndroidCXX::java_lang_Object android_animation_Keyframe::getValue()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_Keyframe cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_animation_Keyframe jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -291,10 +300,10 @@ AndroidCXX::java_lang_Object android_animation_Keyframe::getValue()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_Object android_animation_Keyframe::getValue() exit");
 
 	return result;
@@ -312,15 +321,12 @@ AndroidCXX::java_lang_Class android_animation_Keyframe::getType()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_Keyframe cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_animation_Keyframe jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_Class result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -338,17 +344,17 @@ AndroidCXX::java_lang_Class android_animation_Keyframe::getType()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Class(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Class) (AndroidCXX::java_lang_Class((AndroidCXX::java_lang_Class *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_Class result((AndroidCXX::java_lang_Class) *((AndroidCXX::java_lang_Class *) cxx_value));
+	delete ((AndroidCXX::java_lang_Class *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_Class android_animation_Keyframe::getType() exit");
 
 	return result;
 }
-void android_animation_Keyframe::setValue(AndroidCXX::java_lang_Object& arg0)
+void android_animation_Keyframe::setValue(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("void android_animation_Keyframe::setValue(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("void android_animation_Keyframe::setValue(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "setValue";
 	const char *methodSignature = "(Ljava/lang/Object;)V";
@@ -358,8 +364,6 @@ void android_animation_Keyframe::setValue(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_Keyframe cxx address %d", cxxAddress);
@@ -390,14 +394,12 @@ void android_animation_Keyframe::setValue(AndroidCXX::java_lang_Object& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_Keyframe::setValue(AndroidCXX::java_lang_Object& arg0) exit");
+	LOGV("void android_animation_Keyframe::setValue(AndroidCXX::java_lang_Object const& arg0) exit");
 
 }
-void android_animation_Keyframe::setInterpolator(AndroidCXX::android_animation_TimeInterpolator& arg0)
+void android_animation_Keyframe::setInterpolator(AndroidCXX::android_animation_TimeInterpolator const& arg0)
 {
-	LOGV("void android_animation_Keyframe::setInterpolator(AndroidCXX::android_animation_TimeInterpolator& arg0) enter");
+	LOGV("void android_animation_Keyframe::setInterpolator(AndroidCXX::android_animation_TimeInterpolator const& arg0) enter");
 
 	const char *methodName = "setInterpolator";
 	const char *methodSignature = "(Landroid/animation/TimeInterpolator;)V";
@@ -407,8 +409,6 @@ void android_animation_Keyframe::setInterpolator(AndroidCXX::android_animation_T
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_Keyframe cxx address %d", cxxAddress);
@@ -439,9 +439,7 @@ void android_animation_Keyframe::setInterpolator(AndroidCXX::android_animation_T
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_Keyframe::setInterpolator(AndroidCXX::android_animation_TimeInterpolator& arg0) exit");
+	LOGV("void android_animation_Keyframe::setInterpolator(AndroidCXX::android_animation_TimeInterpolator const& arg0) exit");
 
 }
 float android_animation_Keyframe::getFraction()
@@ -457,15 +455,12 @@ float android_animation_Keyframe::getFraction()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_Keyframe cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_animation_Keyframe jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -483,10 +478,10 @@ float android_animation_Keyframe::getFraction()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	float result = (float) *((float *) cxx_value);
+	// 
+		
 	LOGV("float android_animation_Keyframe::getFraction() exit");
 
 	return result;
@@ -504,15 +499,12 @@ AndroidCXX::android_animation_TimeInterpolator android_animation_Keyframe::getIn
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_Keyframe cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_animation_Keyframe jni address %d", javaObject);
 
 
-	AndroidCXX::android_animation_TimeInterpolator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -530,10 +522,10 @@ AndroidCXX::android_animation_TimeInterpolator android_animation_Keyframe::getIn
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_animation_TimeInterpolator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_animation_TimeInterpolator) (AndroidCXX::android_animation_TimeInterpolator((AndroidCXX::android_animation_TimeInterpolator *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_animation_TimeInterpolator result((AndroidCXX::android_animation_TimeInterpolator) *((AndroidCXX::android_animation_TimeInterpolator *) cxx_value));
+	delete ((AndroidCXX::android_animation_TimeInterpolator *) cxx_value);
+		
 	LOGV("AndroidCXX::android_animation_TimeInterpolator android_animation_Keyframe::getInterpolator() exit");
 
 	return result;
@@ -551,15 +543,12 @@ bool android_animation_Keyframe::hasValue()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_animation_Keyframe cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_animation_Keyframe jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -577,17 +566,17 @@ bool android_animation_Keyframe::hasValue()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_animation_Keyframe::hasValue() exit");
 
 	return result;
 }
-AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofInt(float& arg0)
+AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofInt(float const& arg0)
 {
-	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofInt(float& arg0) enter");
+	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofInt(float const& arg0) enter");
 
 	const char *methodName = "ofInt";
 	const char *methodSignature = "(F)Landroid/animation/Keyframe;";
@@ -597,8 +586,6 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofInt(float& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_animation_Keyframe cxx address %d", cxxAddress);
@@ -627,8 +614,7 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofInt(float& 
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_animation_Keyframe result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -645,17 +631,17 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofInt(float& 
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_animation_Keyframe(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_animation_Keyframe) (AndroidCXX::android_animation_Keyframe((AndroidCXX::android_animation_Keyframe *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofInt(float& arg0) exit");
+	AndroidCXX::android_animation_Keyframe result((AndroidCXX::android_animation_Keyframe) *((AndroidCXX::android_animation_Keyframe *) cxx_value));
+	delete ((AndroidCXX::android_animation_Keyframe *) cxx_value);
+		
+	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofInt(float const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofInt(float& arg0,int& arg1)
+AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofInt(float const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofInt(float& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofInt(float const& arg0,int const& arg1) enter");
 
 	const char *methodName = "ofInt";
 	const char *methodSignature = "(FI)Landroid/animation/Keyframe;";
@@ -665,8 +651,6 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofInt(float& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_animation_Keyframe cxx address %d", cxxAddress);
@@ -716,8 +700,7 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofInt(float& 
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_animation_Keyframe result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -734,17 +717,17 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofInt(float& 
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_animation_Keyframe(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_animation_Keyframe) (AndroidCXX::android_animation_Keyframe((AndroidCXX::android_animation_Keyframe *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofInt(float& arg0,int& arg1) exit");
+	AndroidCXX::android_animation_Keyframe result((AndroidCXX::android_animation_Keyframe) *((AndroidCXX::android_animation_Keyframe *) cxx_value));
+	delete ((AndroidCXX::android_animation_Keyframe *) cxx_value);
+		
+	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofInt(float const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofFloat(float& arg0)
+AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofFloat(float const& arg0)
 {
-	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofFloat(float& arg0) enter");
+	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofFloat(float const& arg0) enter");
 
 	const char *methodName = "ofFloat";
 	const char *methodSignature = "(F)Landroid/animation/Keyframe;";
@@ -754,8 +737,6 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofFloat(float
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_animation_Keyframe cxx address %d", cxxAddress);
@@ -784,8 +765,7 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofFloat(float
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_animation_Keyframe result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -802,17 +782,17 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofFloat(float
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_animation_Keyframe(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_animation_Keyframe) (AndroidCXX::android_animation_Keyframe((AndroidCXX::android_animation_Keyframe *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofFloat(float& arg0) exit");
+	AndroidCXX::android_animation_Keyframe result((AndroidCXX::android_animation_Keyframe) *((AndroidCXX::android_animation_Keyframe *) cxx_value));
+	delete ((AndroidCXX::android_animation_Keyframe *) cxx_value);
+		
+	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofFloat(float const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofFloat(float& arg0,float& arg1)
+AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofFloat(float const& arg0,float const& arg1)
 {
-	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofFloat(float& arg0,float& arg1) enter");
+	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofFloat(float const& arg0,float const& arg1) enter");
 
 	const char *methodName = "ofFloat";
 	const char *methodSignature = "(FF)Landroid/animation/Keyframe;";
@@ -822,8 +802,6 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofFloat(float
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_animation_Keyframe cxx address %d", cxxAddress);
@@ -873,8 +851,7 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofFloat(float
 		jarg1 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_animation_Keyframe result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -891,17 +868,17 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofFloat(float
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_animation_Keyframe(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_animation_Keyframe) (AndroidCXX::android_animation_Keyframe((AndroidCXX::android_animation_Keyframe *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofFloat(float& arg0,float& arg1) exit");
+	AndroidCXX::android_animation_Keyframe result((AndroidCXX::android_animation_Keyframe) *((AndroidCXX::android_animation_Keyframe *) cxx_value));
+	delete ((AndroidCXX::android_animation_Keyframe *) cxx_value);
+		
+	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofFloat(float const& arg0,float const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofObject(float& arg0)
+AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofObject(float const& arg0)
 {
-	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofObject(float& arg0) enter");
+	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofObject(float const& arg0) enter");
 
 	const char *methodName = "ofObject";
 	const char *methodSignature = "(F)Landroid/animation/Keyframe;";
@@ -911,8 +888,6 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofObject(floa
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_animation_Keyframe cxx address %d", cxxAddress);
@@ -941,8 +916,7 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofObject(floa
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_animation_Keyframe result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -959,17 +933,17 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofObject(floa
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_animation_Keyframe(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_animation_Keyframe) (AndroidCXX::android_animation_Keyframe((AndroidCXX::android_animation_Keyframe *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofObject(float& arg0) exit");
+	AndroidCXX::android_animation_Keyframe result((AndroidCXX::android_animation_Keyframe) *((AndroidCXX::android_animation_Keyframe *) cxx_value));
+	delete ((AndroidCXX::android_animation_Keyframe *) cxx_value);
+		
+	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofObject(float const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofObject(float& arg0,AndroidCXX::java_lang_Object& arg1)
+AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofObject(float const& arg0,AndroidCXX::java_lang_Object const& arg1)
 {
-	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofObject(float& arg0,AndroidCXX::java_lang_Object& arg1) enter");
+	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofObject(float const& arg0,AndroidCXX::java_lang_Object const& arg1) enter");
 
 	const char *methodName = "ofObject";
 	const char *methodSignature = "(FLjava/lang/Object;)Landroid/animation/Keyframe;";
@@ -979,8 +953,6 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofObject(floa
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_animation_Keyframe cxx address %d", cxxAddress);
@@ -1030,8 +1002,7 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofObject(floa
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_animation_Keyframe result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1048,17 +1019,17 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofObject(floa
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_animation_Keyframe(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_animation_Keyframe) (AndroidCXX::android_animation_Keyframe((AndroidCXX::android_animation_Keyframe *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofObject(float& arg0,AndroidCXX::java_lang_Object& arg1) exit");
+	AndroidCXX::android_animation_Keyframe result((AndroidCXX::android_animation_Keyframe) *((AndroidCXX::android_animation_Keyframe *) cxx_value));
+	delete ((AndroidCXX::android_animation_Keyframe *) cxx_value);
+		
+	LOGV("AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofObject(float const& arg0,AndroidCXX::java_lang_Object const& arg1) exit");
 
 	return result;
 }
-void android_animation_Keyframe::setFraction(float& arg0)
+void android_animation_Keyframe::setFraction(float const& arg0)
 {
-	LOGV("void android_animation_Keyframe::setFraction(float& arg0) enter");
+	LOGV("void android_animation_Keyframe::setFraction(float const& arg0) enter");
 
 	const char *methodName = "setFraction";
 	const char *methodSignature = "(F)V";
@@ -1068,8 +1039,6 @@ void android_animation_Keyframe::setFraction(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_Keyframe cxx address %d", cxxAddress);
@@ -1100,8 +1069,6 @@ void android_animation_Keyframe::setFraction(float& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_animation_Keyframe::setFraction(float& arg0) exit");
+	LOGV("void android_animation_Keyframe::setFraction(float const& arg0) exit");
 
 }

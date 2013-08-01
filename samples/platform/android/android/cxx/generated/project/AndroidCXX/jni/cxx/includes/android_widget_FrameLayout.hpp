@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -108,27 +107,27 @@ class android_widget_FrameLayout
 public:
 
 	android_widget_FrameLayout(const android_widget_FrameLayout& cc);
-	android_widget_FrameLayout(void * proxy);
+	android_widget_FrameLayout(Proxy proxy);
 	// Public Constructors
-	android_widget_FrameLayout(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_FrameLayout(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_FrameLayout(AndroidCXX::android_content_Context& arg0);
-	android_widget_FrameLayout();
+	android_widget_FrameLayout(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_FrameLayout(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_FrameLayout(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_FrameLayout();
 	// Functions
-	 AndroidCXX::android_widget_FrameLayout_LayoutParams generateLayoutParams(AndroidCXX::android_util_AttributeSet& arg0);
-	 bool gatherTransparentRegion(AndroidCXX::android_graphics_Region& arg0);
+	 AndroidCXX::android_widget_FrameLayout_LayoutParams generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0);
+	 bool gatherTransparentRegion(AndroidCXX::android_graphics_Region const& arg0);
 	 void jumpDrawablesToCurrentState();
 	 bool shouldDelayChildPressedState();
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 void draw(AndroidCXX::android_graphics_Canvas& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 void draw(AndroidCXX::android_graphics_Canvas const& arg0);
 	 int getForegroundGravity();
-	 void setForegroundGravity(int& arg0);
-	 void setForeground(AndroidCXX::android_graphics_drawable_Drawable& arg0);
+	 void setForegroundGravity(int const& arg0);
+	 void setForeground(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
 	 AndroidCXX::android_graphics_drawable_Drawable getForeground();
-	 void setMeasureAllChildren(bool& arg0);
+	 void setMeasureAllChildren(bool const& arg0);
 	 bool getConsiderGoneChildrenWhenMeasuring();
 	 bool getMeasureAllChildren();
 };	

@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_view_animation_LayoutAnimationController_AnimationParameters
@@ -47,9 +46,10 @@ class android_view_animation_LayoutAnimationController_AnimationParameters
 public:
 
 	android_view_animation_LayoutAnimationController_AnimationParameters(const android_view_animation_LayoutAnimationController_AnimationParameters& cc);
-	android_view_animation_LayoutAnimationController_AnimationParameters(void * proxy);
+	android_view_animation_LayoutAnimationController_AnimationParameters(Proxy proxy);
 	// Public Constructors
 	android_view_animation_LayoutAnimationController_AnimationParameters();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_animation_LayoutAnimationController_AnimationParameters();
 	// Functions

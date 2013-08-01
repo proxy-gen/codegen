@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -112,8 +111,6 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_lang_reflect_Method::java_lang_reflect_Method(const java_lang_reflect_Method& cc)
 {
 	LOGV("java_lang_reflect_Method::java_lang_reflect_Method(const java_lang_reflect_Method& cc) enter");
@@ -137,9 +134,9 @@ java_lang_reflect_Method::java_lang_reflect_Method(const java_lang_reflect_Metho
 
 	LOGV("java_lang_reflect_Method::java_lang_reflect_Method(const java_lang_reflect_Method& cc) exit");
 }
-java_lang_reflect_Method::java_lang_reflect_Method(void * proxy)
+java_lang_reflect_Method::java_lang_reflect_Method(Proxy proxy)
 {
-	LOGV("java_lang_reflect_Method::java_lang_reflect_Method(void * proxy) enter");
+	LOGV("java_lang_reflect_Method::java_lang_reflect_Method(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -149,52 +146,31 @@ java_lang_reflect_Method::java_lang_reflect_Method(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_lang_reflect_Method::java_lang_reflect_Method(void * proxy) exit");
+	LOGV("java_lang_reflect_Method::java_lang_reflect_Method(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_lang_reflect_Method::java_lang_reflect_Method()
-// {
-// 	LOGV("java_lang_reflect_Method::java_lang_reflect_Method() enter");	
+Proxy java_lang_reflect_Method::proxy() const
+{	
+	LOGV("java_lang_reflect_Method::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/lang/reflect/Method";
+	long cxxAddress = (long) this;
+	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_reflect_Method jni address %d", proxiedComponent);
 
-// 	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_lang_reflect_Method::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_lang_reflect_Method jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_lang_reflect_Method::java_lang_reflect_Method() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_lang_reflect_Method::~java_lang_reflect_Method()
 {
@@ -206,13 +182,13 @@ java_lang_reflect_Method::~java_lang_reflect_Method()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_lang_reflect_Method::~java_lang_reflect_Method() exit");
 }
 // Functions
-JDKCXX::java_lang_Object java_lang_reflect_Method::invoke(JDKCXX::java_lang_Object& arg0,std::vector<JDKCXX::java_lang_Object >& arg1)
+JDKCXX::java_lang_Object java_lang_reflect_Method::invoke(JDKCXX::java_lang_Object const& arg0,std::vector<JDKCXX::java_lang_Object > const& arg1)
 {
-	LOGV("JDKCXX::java_lang_Object java_lang_reflect_Method::invoke(JDKCXX::java_lang_Object& arg0,std::vector<JDKCXX::java_lang_Object >& arg1) enter");
+	LOGV("JDKCXX::java_lang_Object java_lang_reflect_Method::invoke(JDKCXX::java_lang_Object const& arg0,std::vector<JDKCXX::java_lang_Object > const& arg1) enter");
 
 	const char *methodName = "invoke";
 	const char *methodSignature = "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;";
@@ -222,8 +198,6 @@ JDKCXX::java_lang_Object java_lang_reflect_Method::invoke(JDKCXX::java_lang_Obje
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
@@ -312,15 +286,13 @@ JDKCXX::java_lang_Object java_lang_reflect_Method::invoke(JDKCXX::java_lang_Obje
 	JDKCXX::java_lang_Object result((JDKCXX::java_lang_Object) *((JDKCXX::java_lang_Object *) cxx_value));
 	delete ((JDKCXX::java_lang_Object *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_Object java_lang_reflect_Method::invoke(JDKCXX::java_lang_Object& arg0,std::vector<JDKCXX::java_lang_Object >& arg1) exit");
+	LOGV("JDKCXX::java_lang_Object java_lang_reflect_Method::invoke(JDKCXX::java_lang_Object const& arg0,std::vector<JDKCXX::java_lang_Object > const& arg1) exit");
 
 	return result;
 }
-bool java_lang_reflect_Method::equals(JDKCXX::java_lang_Object& arg0)
+bool java_lang_reflect_Method::equals(JDKCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_lang_reflect_Method::equals(JDKCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_lang_reflect_Method::equals(JDKCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -330,8 +302,6 @@ bool java_lang_reflect_Method::equals(JDKCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
@@ -381,9 +351,7 @@ bool java_lang_reflect_Method::equals(JDKCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_lang_reflect_Method::equals(JDKCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_lang_reflect_Method::equals(JDKCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -399,8 +367,6 @@ JDKCXX::java_lang_String java_lang_reflect_Method::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
@@ -429,8 +395,6 @@ JDKCXX::java_lang_String java_lang_reflect_Method::toString()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_lang_reflect_Method::toString() exit");
 
 	return result;
@@ -448,8 +412,6 @@ int java_lang_reflect_Method::hashCode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -477,8 +439,6 @@ int java_lang_reflect_Method::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_lang_reflect_Method::hashCode() exit");
 
 	return result;
@@ -496,8 +456,6 @@ int java_lang_reflect_Method::getModifiers()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -525,8 +483,6 @@ int java_lang_reflect_Method::getModifiers()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_lang_reflect_Method::getModifiers() exit");
 
 	return result;
@@ -543,8 +499,6 @@ JDKCXX::java_lang_String java_lang_reflect_Method::getName()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
@@ -573,8 +527,6 @@ JDKCXX::java_lang_String java_lang_reflect_Method::getName()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_lang_reflect_Method::getName() exit");
 
 	return result;
@@ -591,8 +543,6 @@ bool java_lang_reflect_Method::isSynthetic()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
@@ -621,8 +571,6 @@ bool java_lang_reflect_Method::isSynthetic()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_lang_reflect_Method::isSynthetic() exit");
 
 	return result;
@@ -639,8 +587,6 @@ std::vector<JDKCXX::java_lang_reflect_TypeVariable > java_lang_reflect_Method::g
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
@@ -705,8 +651,6 @@ std::vector<JDKCXX::java_lang_reflect_TypeVariable > java_lang_reflect_Method::g
 	std::vector<JDKCXX::java_lang_reflect_TypeVariable > result = (std::vector<JDKCXX::java_lang_reflect_TypeVariable >) *((std::vector<JDKCXX::java_lang_reflect_TypeVariable > *) cxx_value);
 	delete ((std::vector<JDKCXX::java_lang_reflect_TypeVariable > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<JDKCXX::java_lang_reflect_TypeVariable > java_lang_reflect_Method::getTypeParameters() exit");
 
 	return result;
@@ -723,8 +667,6 @@ JDKCXX::java_lang_Class java_lang_reflect_Method::getDeclaringClass()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
@@ -771,15 +713,13 @@ JDKCXX::java_lang_Class java_lang_reflect_Method::getDeclaringClass()
 	JDKCXX::java_lang_Class result((JDKCXX::java_lang_Class) *((JDKCXX::java_lang_Class *) cxx_value));
 	delete ((JDKCXX::java_lang_Class *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_Class java_lang_reflect_Method::getDeclaringClass() exit");
 
 	return result;
 }
-JDKCXX::java_lang_annotation_Annotation java_lang_reflect_Method::getAnnotation(JDKCXX::java_lang_Class& arg0)
+JDKCXX::java_lang_annotation_Annotation java_lang_reflect_Method::getAnnotation(JDKCXX::java_lang_Class const& arg0)
 {
-	LOGV("JDKCXX::java_lang_annotation_Annotation java_lang_reflect_Method::getAnnotation(JDKCXX::java_lang_Class& arg0) enter");
+	LOGV("JDKCXX::java_lang_annotation_Annotation java_lang_reflect_Method::getAnnotation(JDKCXX::java_lang_Class const& arg0) enter");
 
 	const char *methodName = "getAnnotation";
 	const char *methodSignature = "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;";
@@ -789,8 +729,6 @@ JDKCXX::java_lang_annotation_Annotation java_lang_reflect_Method::getAnnotation(
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
@@ -858,9 +796,7 @@ JDKCXX::java_lang_annotation_Annotation java_lang_reflect_Method::getAnnotation(
 	JDKCXX::java_lang_annotation_Annotation result((JDKCXX::java_lang_annotation_Annotation) *((JDKCXX::java_lang_annotation_Annotation *) cxx_value));
 	delete ((JDKCXX::java_lang_annotation_Annotation *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_annotation_Annotation java_lang_reflect_Method::getAnnotation(JDKCXX::java_lang_Class& arg0) exit");
+	LOGV("JDKCXX::java_lang_annotation_Annotation java_lang_reflect_Method::getAnnotation(JDKCXX::java_lang_Class const& arg0) exit");
 
 	return result;
 }
@@ -876,8 +812,6 @@ std::vector<JDKCXX::java_lang_annotation_Annotation > java_lang_reflect_Method::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
@@ -924,8 +858,6 @@ std::vector<JDKCXX::java_lang_annotation_Annotation > java_lang_reflect_Method::
 	std::vector<JDKCXX::java_lang_annotation_Annotation > result = (std::vector<JDKCXX::java_lang_annotation_Annotation >) *((std::vector<JDKCXX::java_lang_annotation_Annotation > *) cxx_value);
 	delete ((std::vector<JDKCXX::java_lang_annotation_Annotation > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<JDKCXX::java_lang_annotation_Annotation > java_lang_reflect_Method::getDeclaredAnnotations() exit");
 
 	return result;
@@ -942,8 +874,6 @@ JDKCXX::java_lang_Class java_lang_reflect_Method::getReturnType()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
@@ -990,8 +920,6 @@ JDKCXX::java_lang_Class java_lang_reflect_Method::getReturnType()
 	JDKCXX::java_lang_Class result((JDKCXX::java_lang_Class) *((JDKCXX::java_lang_Class *) cxx_value));
 	delete ((JDKCXX::java_lang_Class *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_Class java_lang_reflect_Method::getReturnType() exit");
 
 	return result;
@@ -1008,8 +936,6 @@ std::vector<JDKCXX::java_lang_Class > java_lang_reflect_Method::getParameterType
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
@@ -1074,8 +1000,6 @@ std::vector<JDKCXX::java_lang_Class > java_lang_reflect_Method::getParameterType
 	std::vector<JDKCXX::java_lang_Class > result = (std::vector<JDKCXX::java_lang_Class >) *((std::vector<JDKCXX::java_lang_Class > *) cxx_value);
 	delete ((std::vector<JDKCXX::java_lang_Class > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<JDKCXX::java_lang_Class > java_lang_reflect_Method::getParameterTypes() exit");
 
 	return result;
@@ -1092,8 +1016,6 @@ JDKCXX::java_lang_String java_lang_reflect_Method::toGenericString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
@@ -1122,8 +1044,6 @@ JDKCXX::java_lang_String java_lang_reflect_Method::toGenericString()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_lang_reflect_Method::toGenericString() exit");
 
 	return result;
@@ -1140,8 +1060,6 @@ JDKCXX::java_lang_reflect_Type java_lang_reflect_Method::getGenericReturnType()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
@@ -1170,8 +1088,6 @@ JDKCXX::java_lang_reflect_Type java_lang_reflect_Method::getGenericReturnType()
 	JDKCXX::java_lang_reflect_Type result((JDKCXX::java_lang_reflect_Type) *((JDKCXX::java_lang_reflect_Type *) cxx_value));
 	delete ((JDKCXX::java_lang_reflect_Type *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_reflect_Type java_lang_reflect_Method::getGenericReturnType() exit");
 
 	return result;
@@ -1188,8 +1104,6 @@ std::vector<JDKCXX::java_lang_reflect_Type > java_lang_reflect_Method::getGeneri
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
@@ -1236,8 +1150,6 @@ std::vector<JDKCXX::java_lang_reflect_Type > java_lang_reflect_Method::getGeneri
 	std::vector<JDKCXX::java_lang_reflect_Type > result = (std::vector<JDKCXX::java_lang_reflect_Type >) *((std::vector<JDKCXX::java_lang_reflect_Type > *) cxx_value);
 	delete ((std::vector<JDKCXX::java_lang_reflect_Type > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<JDKCXX::java_lang_reflect_Type > java_lang_reflect_Method::getGenericParameterTypes() exit");
 
 	return result;
@@ -1254,8 +1166,6 @@ std::vector<JDKCXX::java_lang_Class > java_lang_reflect_Method::getExceptionType
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
@@ -1320,8 +1230,6 @@ std::vector<JDKCXX::java_lang_Class > java_lang_reflect_Method::getExceptionType
 	std::vector<JDKCXX::java_lang_Class > result = (std::vector<JDKCXX::java_lang_Class >) *((std::vector<JDKCXX::java_lang_Class > *) cxx_value);
 	delete ((std::vector<JDKCXX::java_lang_Class > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<JDKCXX::java_lang_Class > java_lang_reflect_Method::getExceptionTypes() exit");
 
 	return result;
@@ -1338,8 +1246,6 @@ std::vector<JDKCXX::java_lang_reflect_Type > java_lang_reflect_Method::getGeneri
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
@@ -1386,8 +1292,6 @@ std::vector<JDKCXX::java_lang_reflect_Type > java_lang_reflect_Method::getGeneri
 	std::vector<JDKCXX::java_lang_reflect_Type > result = (std::vector<JDKCXX::java_lang_reflect_Type >) *((std::vector<JDKCXX::java_lang_reflect_Type > *) cxx_value);
 	delete ((std::vector<JDKCXX::java_lang_reflect_Type > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<JDKCXX::java_lang_reflect_Type > java_lang_reflect_Method::getGenericExceptionTypes() exit");
 
 	return result;
@@ -1405,8 +1309,6 @@ bool java_lang_reflect_Method::isBridge()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1434,8 +1336,6 @@ bool java_lang_reflect_Method::isBridge()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_lang_reflect_Method::isBridge() exit");
 
 	return result;
@@ -1453,8 +1353,6 @@ bool java_lang_reflect_Method::isVarArgs()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1482,8 +1380,6 @@ bool java_lang_reflect_Method::isVarArgs()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_lang_reflect_Method::isVarArgs() exit");
 
 	return result;
@@ -1500,8 +1396,6 @@ JDKCXX::java_lang_Object java_lang_reflect_Method::getDefaultValue()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
@@ -1530,8 +1424,6 @@ JDKCXX::java_lang_Object java_lang_reflect_Method::getDefaultValue()
 	JDKCXX::java_lang_Object result((JDKCXX::java_lang_Object) *((JDKCXX::java_lang_Object *) cxx_value));
 	delete ((JDKCXX::java_lang_Object *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_Object java_lang_reflect_Method::getDefaultValue() exit");
 
 	return result;
@@ -1548,8 +1440,6 @@ std::vector<std::vector<JDKCXX::java_lang_annotation_Annotation > > java_lang_re
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_Method cxx address %d", cxxAddress);
@@ -1614,8 +1504,6 @@ std::vector<std::vector<JDKCXX::java_lang_annotation_Annotation > > java_lang_re
 	std::vector<std::vector<JDKCXX::java_lang_annotation_Annotation > > result = (std::vector<std::vector<JDKCXX::java_lang_annotation_Annotation > >) *((std::vector<std::vector<JDKCXX::java_lang_annotation_Annotation > > *) cxx_value);
 	delete ((std::vector<std::vector<JDKCXX::java_lang_annotation_Annotation > > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<std::vector<JDKCXX::java_lang_annotation_Annotation > > java_lang_reflect_Method::getParameterAnnotations() exit");
 
 	return result;

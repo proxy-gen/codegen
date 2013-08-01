@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -52,13 +51,13 @@ class com_facebook_widget_UserSettingsFragment_2
 public:
 
 	com_facebook_widget_UserSettingsFragment_2(const com_facebook_widget_UserSettingsFragment_2& cc);
-	com_facebook_widget_UserSettingsFragment_2(void * proxy);
+	com_facebook_widget_UserSettingsFragment_2(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_UserSettingsFragment_2();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_UserSettingsFragment_2();
 	// Functions
-	 void onCompleted(FacebookCXX::com_facebook_widget_ImageResponse& arg0);
+	 void onCompleted(FacebookCXX::com_facebook_widget_ImageResponse const& arg0);
 };	
 
 } // namespace

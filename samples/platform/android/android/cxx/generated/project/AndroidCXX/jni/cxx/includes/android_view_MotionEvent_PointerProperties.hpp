@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -61,18 +60,18 @@ class android_view_MotionEvent_PointerProperties
 {
 public:
 
-	android_view_MotionEvent_PointerProperties(const android_view_MotionEvent_PointerProperties& cc);
-	android_view_MotionEvent_PointerProperties(void * proxy);
+	android_view_MotionEvent_PointerProperties(Proxy proxy);
 	// Public Constructors
 	android_view_MotionEvent_PointerProperties();
-	android_view_MotionEvent_PointerProperties(AndroidCXX::android_view_MotionEvent_PointerProperties& arg0);
+	android_view_MotionEvent_PointerProperties(AndroidCXX::android_view_MotionEvent_PointerProperties const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_MotionEvent_PointerProperties();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 int hashCode();
 	 void clear();
-	 void copyFrom(AndroidCXX::android_view_MotionEvent_PointerProperties& arg0);
+	 void copyFrom(AndroidCXX::android_view_MotionEvent_PointerProperties const& arg0);
 };	
 
 } // namespace

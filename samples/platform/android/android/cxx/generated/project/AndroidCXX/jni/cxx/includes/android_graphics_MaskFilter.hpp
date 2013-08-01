@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_graphics_MaskFilter
@@ -47,9 +46,10 @@ class android_graphics_MaskFilter
 public:
 
 	android_graphics_MaskFilter(const android_graphics_MaskFilter& cc);
-	android_graphics_MaskFilter(void * proxy);
+	android_graphics_MaskFilter(Proxy proxy);
 	// Public Constructors
 	android_graphics_MaskFilter();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_MaskFilter();
 	// Functions

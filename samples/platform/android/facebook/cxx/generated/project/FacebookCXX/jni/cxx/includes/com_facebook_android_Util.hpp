@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -84,19 +83,20 @@ class com_facebook_android_Util
 public:
 
 	com_facebook_android_Util(const com_facebook_android_Util& cc);
-	com_facebook_android_Util(void * proxy);
+	com_facebook_android_Util(Proxy proxy);
 	// Public Constructors
 	com_facebook_android_Util();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_Util();
 	// Functions
-	static AndroidCXX::android_os_Bundle parseUrl(AndroidCXX::java_lang_String& arg0);
-	static AndroidCXX::java_lang_String openUrl(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2);
-	static void showAlert(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2);
-	static AndroidCXX::java_lang_String encodePostBody(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_lang_String& arg1);
-	static AndroidCXX::java_lang_String encodeUrl(AndroidCXX::android_os_Bundle& arg0);
-	static AndroidCXX::android_os_Bundle decodeUrl(AndroidCXX::java_lang_String& arg0);
-	static AndroidCXX::org_json_JSONObject parseJson(AndroidCXX::java_lang_String& arg0);
+	static AndroidCXX::android_os_Bundle parseUrl(AndroidCXX::java_lang_String const& arg0);
+	static AndroidCXX::java_lang_String openUrl(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2);
+	static void showAlert(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2);
+	static AndroidCXX::java_lang_String encodePostBody(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_lang_String const& arg1);
+	static AndroidCXX::java_lang_String encodeUrl(AndroidCXX::android_os_Bundle const& arg0);
+	static AndroidCXX::android_os_Bundle decodeUrl(AndroidCXX::java_lang_String const& arg0);
+	static AndroidCXX::org_json_JSONObject parseJson(AndroidCXX::java_lang_String const& arg0);
 };	
 
 } // namespace

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -87,6 +86,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_PickerFragment"
@@ -198,8 +198,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_widget_PickerFragment::com_facebook_widget_PickerFragment(const com_facebook_widget_PickerFragment& cc)
 {
 	LOGV("com_facebook_widget_PickerFragment::com_facebook_widget_PickerFragment(const com_facebook_widget_PickerFragment& cc) enter");
@@ -223,9 +221,9 @@ com_facebook_widget_PickerFragment::com_facebook_widget_PickerFragment(const com
 
 	LOGV("com_facebook_widget_PickerFragment::com_facebook_widget_PickerFragment(const com_facebook_widget_PickerFragment& cc) exit");
 }
-com_facebook_widget_PickerFragment::com_facebook_widget_PickerFragment(void * proxy)
+com_facebook_widget_PickerFragment::com_facebook_widget_PickerFragment(Proxy proxy)
 {
-	LOGV("com_facebook_widget_PickerFragment::com_facebook_widget_PickerFragment(void * proxy) enter");
+	LOGV("com_facebook_widget_PickerFragment::com_facebook_widget_PickerFragment(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -235,47 +233,31 @@ com_facebook_widget_PickerFragment::com_facebook_widget_PickerFragment(void * pr
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_widget_PickerFragment::com_facebook_widget_PickerFragment(void * proxy) exit");
+	LOGV("com_facebook_widget_PickerFragment::com_facebook_widget_PickerFragment(Proxy proxy) exit");
 }
-com_facebook_widget_PickerFragment::com_facebook_widget_PickerFragment()
-{
-	LOGV("com_facebook_widget_PickerFragment::com_facebook_widget_PickerFragment() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/widget/PickerFragment";
-
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_widget_PickerFragment::proxy() const
+{	
+	LOGV("com_facebook_widget_PickerFragment::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_PickerFragment jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_widget_PickerFragment::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_widget_PickerFragment::com_facebook_widget_PickerFragment() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 com_facebook_widget_PickerFragment::~com_facebook_widget_PickerFragment()
 {
@@ -287,13 +269,13 @@ com_facebook_widget_PickerFragment::~com_facebook_widget_PickerFragment()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_widget_PickerFragment::~com_facebook_widget_PickerFragment() exit");
 }
 // Functions
-void com_facebook_widget_PickerFragment::onCreate(AndroidCXX::android_os_Bundle& arg0)
+void com_facebook_widget_PickerFragment::onCreate(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("void com_facebook_widget_PickerFragment::onCreate(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_widget_PickerFragment::onCreate(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "onCreate";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -304,8 +286,6 @@ void com_facebook_widget_PickerFragment::onCreate(AndroidCXX::android_os_Bundle&
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -335,14 +315,12 @@ void com_facebook_widget_PickerFragment::onCreate(AndroidCXX::android_os_Bundle&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PickerFragment::onCreate(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_widget_PickerFragment::onCreate(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 }
-void com_facebook_widget_PickerFragment::onSaveInstanceState(AndroidCXX::android_os_Bundle& arg0)
+void com_facebook_widget_PickerFragment::onSaveInstanceState(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("void com_facebook_widget_PickerFragment::onSaveInstanceState(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_widget_PickerFragment::onSaveInstanceState(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "onSaveInstanceState";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -353,8 +331,6 @@ void com_facebook_widget_PickerFragment::onSaveInstanceState(AndroidCXX::android
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -384,14 +360,12 @@ void com_facebook_widget_PickerFragment::onSaveInstanceState(AndroidCXX::android
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PickerFragment::onSaveInstanceState(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_widget_PickerFragment::onSaveInstanceState(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 }
-AndroidCXX::android_view_View com_facebook_widget_PickerFragment::onCreateView(AndroidCXX::android_view_LayoutInflater& arg0,AndroidCXX::android_view_ViewGroup& arg1,AndroidCXX::android_os_Bundle& arg2)
+AndroidCXX::android_view_View com_facebook_widget_PickerFragment::onCreateView(AndroidCXX::android_view_LayoutInflater const& arg0,AndroidCXX::android_view_ViewGroup const& arg1,AndroidCXX::android_os_Bundle const& arg2)
 {
-	LOGV("AndroidCXX::android_view_View com_facebook_widget_PickerFragment::onCreateView(AndroidCXX::android_view_LayoutInflater& arg0,AndroidCXX::android_view_ViewGroup& arg1,AndroidCXX::android_os_Bundle& arg2) enter");
+	LOGV("AndroidCXX::android_view_View com_facebook_widget_PickerFragment::onCreateView(AndroidCXX::android_view_LayoutInflater const& arg0,AndroidCXX::android_view_ViewGroup const& arg1,AndroidCXX::android_os_Bundle const& arg2) enter");
 
 	const char *methodName = "onCreateView";
 	const char *methodSignature = "(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;";
@@ -401,8 +375,6 @@ AndroidCXX::android_view_View com_facebook_widget_PickerFragment::onCreateView(A
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
@@ -473,7 +445,6 @@ AndroidCXX::android_view_View com_facebook_widget_PickerFragment::onCreateView(A
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -491,11 +462,11 @@ AndroidCXX::android_view_View com_facebook_widget_PickerFragment::onCreateView(A
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_view_View com_facebook_widget_PickerFragment::onCreateView(AndroidCXX::android_view_LayoutInflater& arg0,AndroidCXX::android_view_ViewGroup& arg1,AndroidCXX::android_os_Bundle& arg2) exit");
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
+		
+	LOGV("AndroidCXX::android_view_View com_facebook_widget_PickerFragment::onCreateView(AndroidCXX::android_view_LayoutInflater const& arg0,AndroidCXX::android_view_ViewGroup const& arg1,AndroidCXX::android_os_Bundle const& arg2) exit");
 
 	return result;
 }
@@ -512,15 +483,12 @@ FacebookCXX::com_facebook_Session com_facebook_widget_PickerFragment::getSession
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_PickerFragment jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_Session result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -538,17 +506,17 @@ FacebookCXX::com_facebook_Session com_facebook_widget_PickerFragment::getSession
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_Session(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_Session) (FacebookCXX::com_facebook_Session((FacebookCXX::com_facebook_Session *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	FacebookCXX::com_facebook_Session result((FacebookCXX::com_facebook_Session) *((FacebookCXX::com_facebook_Session *) cxx_value));
+	delete ((FacebookCXX::com_facebook_Session *) cxx_value);
+		
 	LOGV("FacebookCXX::com_facebook_Session com_facebook_widget_PickerFragment::getSession() exit");
 
 	return result;
 }
-void com_facebook_widget_PickerFragment::setSession(FacebookCXX::com_facebook_Session& arg0)
+void com_facebook_widget_PickerFragment::setSession(FacebookCXX::com_facebook_Session const& arg0)
 {
-	LOGV("void com_facebook_widget_PickerFragment::setSession(FacebookCXX::com_facebook_Session& arg0) enter");
+	LOGV("void com_facebook_widget_PickerFragment::setSession(FacebookCXX::com_facebook_Session const& arg0) enter");
 
 	const char *methodName = "setSession";
 	const char *methodSignature = "(Lcom/facebook/Session;)V";
@@ -558,8 +526,6 @@ void com_facebook_widget_PickerFragment::setSession(FacebookCXX::com_facebook_Se
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
@@ -590,14 +556,12 @@ void com_facebook_widget_PickerFragment::setSession(FacebookCXX::com_facebook_Se
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PickerFragment::setSession(FacebookCXX::com_facebook_Session& arg0) exit");
+	LOGV("void com_facebook_widget_PickerFragment::setSession(FacebookCXX::com_facebook_Session const& arg0) exit");
 
 }
-void com_facebook_widget_PickerFragment::setArguments(AndroidCXX::android_os_Bundle& arg0)
+void com_facebook_widget_PickerFragment::setArguments(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("void com_facebook_widget_PickerFragment::setArguments(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_widget_PickerFragment::setArguments(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "setArguments";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -607,8 +571,6 @@ void com_facebook_widget_PickerFragment::setArguments(AndroidCXX::android_os_Bun
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
@@ -639,14 +601,12 @@ void com_facebook_widget_PickerFragment::setArguments(AndroidCXX::android_os_Bun
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PickerFragment::setArguments(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_widget_PickerFragment::setArguments(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 }
-void com_facebook_widget_PickerFragment::onInflate(AndroidCXX::android_app_Activity& arg0,AndroidCXX::android_util_AttributeSet& arg1,AndroidCXX::android_os_Bundle& arg2)
+void com_facebook_widget_PickerFragment::onInflate(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,AndroidCXX::android_os_Bundle const& arg2)
 {
-	LOGV("void com_facebook_widget_PickerFragment::onInflate(AndroidCXX::android_app_Activity& arg0,AndroidCXX::android_util_AttributeSet& arg1,AndroidCXX::android_os_Bundle& arg2) enter");
+	LOGV("void com_facebook_widget_PickerFragment::onInflate(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,AndroidCXX::android_os_Bundle const& arg2) enter");
 
 	const char *methodName = "onInflate";
 	const char *methodSignature = "(Landroid/app/Activity;Landroid/util/AttributeSet;Landroid/os/Bundle;)V";
@@ -656,8 +616,6 @@ void com_facebook_widget_PickerFragment::onInflate(AndroidCXX::android_app_Activ
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
@@ -730,14 +688,12 @@ void com_facebook_widget_PickerFragment::onInflate(AndroidCXX::android_app_Activ
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PickerFragment::onInflate(AndroidCXX::android_app_Activity& arg0,AndroidCXX::android_util_AttributeSet& arg1,AndroidCXX::android_os_Bundle& arg2) exit");
+	LOGV("void com_facebook_widget_PickerFragment::onInflate(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,AndroidCXX::android_os_Bundle const& arg2) exit");
 
 }
-void com_facebook_widget_PickerFragment::onActivityCreated(AndroidCXX::android_os_Bundle& arg0)
+void com_facebook_widget_PickerFragment::onActivityCreated(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("void com_facebook_widget_PickerFragment::onActivityCreated(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_widget_PickerFragment::onActivityCreated(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "onActivityCreated";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -747,8 +703,6 @@ void com_facebook_widget_PickerFragment::onActivityCreated(AndroidCXX::android_o
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
@@ -779,9 +733,7 @@ void com_facebook_widget_PickerFragment::onActivityCreated(AndroidCXX::android_o
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PickerFragment::onActivityCreated(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_widget_PickerFragment::onActivityCreated(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 }
 void com_facebook_widget_PickerFragment::onDetach()
@@ -797,8 +749,6 @@ void com_facebook_widget_PickerFragment::onDetach()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -807,14 +757,12 @@ void com_facebook_widget_PickerFragment::onDetach()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void com_facebook_widget_PickerFragment::onDetach() exit");
 
 }
-void com_facebook_widget_PickerFragment::loadData(bool& arg0)
+void com_facebook_widget_PickerFragment::loadData(bool const& arg0)
 {
-	LOGV("void com_facebook_widget_PickerFragment::loadData(bool& arg0) enter");
+	LOGV("void com_facebook_widget_PickerFragment::loadData(bool const& arg0) enter");
 
 	const char *methodName = "loadData";
 	const char *methodSignature = "(Z)V";
@@ -824,8 +772,6 @@ void com_facebook_widget_PickerFragment::loadData(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
@@ -856,9 +802,7 @@ void com_facebook_widget_PickerFragment::loadData(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PickerFragment::loadData(bool& arg0) exit");
+	LOGV("void com_facebook_widget_PickerFragment::loadData(bool const& arg0) exit");
 
 }
 FacebookCXX::com_facebook_widget_PickerFragment_OnErrorListener com_facebook_widget_PickerFragment::getOnErrorListener()
@@ -874,15 +818,12 @@ FacebookCXX::com_facebook_widget_PickerFragment_OnErrorListener com_facebook_wid
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_PickerFragment jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_widget_PickerFragment_OnErrorListener result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -900,17 +841,17 @@ FacebookCXX::com_facebook_widget_PickerFragment_OnErrorListener com_facebook_wid
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_widget_PickerFragment_OnErrorListener(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_widget_PickerFragment_OnErrorListener) (FacebookCXX::com_facebook_widget_PickerFragment_OnErrorListener((FacebookCXX::com_facebook_widget_PickerFragment_OnErrorListener *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	FacebookCXX::com_facebook_widget_PickerFragment_OnErrorListener result((FacebookCXX::com_facebook_widget_PickerFragment_OnErrorListener) *((FacebookCXX::com_facebook_widget_PickerFragment_OnErrorListener *) cxx_value));
+	delete ((FacebookCXX::com_facebook_widget_PickerFragment_OnErrorListener *) cxx_value);
+		
 	LOGV("FacebookCXX::com_facebook_widget_PickerFragment_OnErrorListener com_facebook_widget_PickerFragment::getOnErrorListener() exit");
 
 	return result;
 }
-void com_facebook_widget_PickerFragment::setOnErrorListener(FacebookCXX::com_facebook_widget_PickerFragment_OnErrorListener& arg0)
+void com_facebook_widget_PickerFragment::setOnErrorListener(FacebookCXX::com_facebook_widget_PickerFragment_OnErrorListener const& arg0)
 {
-	LOGV("void com_facebook_widget_PickerFragment::setOnErrorListener(FacebookCXX::com_facebook_widget_PickerFragment_OnErrorListener& arg0) enter");
+	LOGV("void com_facebook_widget_PickerFragment::setOnErrorListener(FacebookCXX::com_facebook_widget_PickerFragment_OnErrorListener const& arg0) enter");
 
 	const char *methodName = "setOnErrorListener";
 	const char *methodSignature = "(Lcom/facebook/widget/PickerFragment$OnErrorListener;)V";
@@ -920,8 +861,6 @@ void com_facebook_widget_PickerFragment::setOnErrorListener(FacebookCXX::com_fac
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
@@ -952,9 +891,7 @@ void com_facebook_widget_PickerFragment::setOnErrorListener(FacebookCXX::com_fac
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PickerFragment::setOnErrorListener(FacebookCXX::com_facebook_widget_PickerFragment_OnErrorListener& arg0) exit");
+	LOGV("void com_facebook_widget_PickerFragment::setOnErrorListener(FacebookCXX::com_facebook_widget_PickerFragment_OnErrorListener const& arg0) exit");
 
 }
 FacebookCXX::com_facebook_widget_PickerFragment_GraphObjectFilter com_facebook_widget_PickerFragment::getFilter()
@@ -970,15 +907,12 @@ FacebookCXX::com_facebook_widget_PickerFragment_GraphObjectFilter com_facebook_w
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_PickerFragment jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_widget_PickerFragment_GraphObjectFilter result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1014,17 +948,17 @@ FacebookCXX::com_facebook_widget_PickerFragment_GraphObjectFilter com_facebook_w
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_widget_PickerFragment_GraphObjectFilter(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_widget_PickerFragment_GraphObjectFilter) (FacebookCXX::com_facebook_widget_PickerFragment_GraphObjectFilter((FacebookCXX::com_facebook_widget_PickerFragment_GraphObjectFilter *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	FacebookCXX::com_facebook_widget_PickerFragment_GraphObjectFilter result((FacebookCXX::com_facebook_widget_PickerFragment_GraphObjectFilter) *((FacebookCXX::com_facebook_widget_PickerFragment_GraphObjectFilter *) cxx_value));
+	delete ((FacebookCXX::com_facebook_widget_PickerFragment_GraphObjectFilter *) cxx_value);
+		
 	LOGV("FacebookCXX::com_facebook_widget_PickerFragment_GraphObjectFilter com_facebook_widget_PickerFragment::getFilter() exit");
 
 	return result;
 }
-void com_facebook_widget_PickerFragment::setFilter(FacebookCXX::com_facebook_widget_PickerFragment_GraphObjectFilter& arg0)
+void com_facebook_widget_PickerFragment::setFilter(FacebookCXX::com_facebook_widget_PickerFragment_GraphObjectFilter const& arg0)
 {
-	LOGV("void com_facebook_widget_PickerFragment::setFilter(FacebookCXX::com_facebook_widget_PickerFragment_GraphObjectFilter& arg0) enter");
+	LOGV("void com_facebook_widget_PickerFragment::setFilter(FacebookCXX::com_facebook_widget_PickerFragment_GraphObjectFilter const& arg0) enter");
 
 	const char *methodName = "setFilter";
 	const char *methodSignature = "(Lcom/facebook/widget/PickerFragment$GraphObjectFilter;)V";
@@ -1034,8 +968,6 @@ void com_facebook_widget_PickerFragment::setFilter(FacebookCXX::com_facebook_wid
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
@@ -1084,14 +1016,12 @@ void com_facebook_widget_PickerFragment::setFilter(FacebookCXX::com_facebook_wid
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PickerFragment::setFilter(FacebookCXX::com_facebook_widget_PickerFragment_GraphObjectFilter& arg0) exit");
+	LOGV("void com_facebook_widget_PickerFragment::setFilter(FacebookCXX::com_facebook_widget_PickerFragment_GraphObjectFilter const& arg0) exit");
 
 }
-void com_facebook_widget_PickerFragment::setSettingsFromBundle(AndroidCXX::android_os_Bundle& arg0)
+void com_facebook_widget_PickerFragment::setSettingsFromBundle(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("void com_facebook_widget_PickerFragment::setSettingsFromBundle(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_widget_PickerFragment::setSettingsFromBundle(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "setSettingsFromBundle";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -1101,8 +1031,6 @@ void com_facebook_widget_PickerFragment::setSettingsFromBundle(AndroidCXX::andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
@@ -1133,9 +1061,7 @@ void com_facebook_widget_PickerFragment::setSettingsFromBundle(AndroidCXX::andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PickerFragment::setSettingsFromBundle(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_widget_PickerFragment::setSettingsFromBundle(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 }
 bool com_facebook_widget_PickerFragment::getShowPictures()
@@ -1151,15 +1077,12 @@ bool com_facebook_widget_PickerFragment::getShowPictures()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_PickerFragment jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1177,17 +1100,17 @@ bool com_facebook_widget_PickerFragment::getShowPictures()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool com_facebook_widget_PickerFragment::getShowPictures() exit");
 
 	return result;
 }
-void com_facebook_widget_PickerFragment::setShowPictures(bool& arg0)
+void com_facebook_widget_PickerFragment::setShowPictures(bool const& arg0)
 {
-	LOGV("void com_facebook_widget_PickerFragment::setShowPictures(bool& arg0) enter");
+	LOGV("void com_facebook_widget_PickerFragment::setShowPictures(bool const& arg0) enter");
 
 	const char *methodName = "setShowPictures";
 	const char *methodSignature = "(Z)V";
@@ -1197,8 +1120,6 @@ void com_facebook_widget_PickerFragment::setShowPictures(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
@@ -1229,14 +1150,12 @@ void com_facebook_widget_PickerFragment::setShowPictures(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PickerFragment::setShowPictures(bool& arg0) exit");
+	LOGV("void com_facebook_widget_PickerFragment::setShowPictures(bool const& arg0) exit");
 
 }
-void com_facebook_widget_PickerFragment::setExtraFields(AndroidCXX::java_util_Collection& arg0)
+void com_facebook_widget_PickerFragment::setExtraFields(AndroidCXX::java_util_Collection const& arg0)
 {
-	LOGV("void com_facebook_widget_PickerFragment::setExtraFields(AndroidCXX::java_util_Collection& arg0) enter");
+	LOGV("void com_facebook_widget_PickerFragment::setExtraFields(AndroidCXX::java_util_Collection const& arg0) enter");
 
 	const char *methodName = "setExtraFields";
 	const char *methodSignature = "(Ljava/util/Collection;)V";
@@ -1246,8 +1165,6 @@ void com_facebook_widget_PickerFragment::setExtraFields(AndroidCXX::java_util_Co
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
@@ -1296,9 +1213,7 @@ void com_facebook_widget_PickerFragment::setExtraFields(AndroidCXX::java_util_Co
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PickerFragment::setExtraFields(AndroidCXX::java_util_Collection& arg0) exit");
+	LOGV("void com_facebook_widget_PickerFragment::setExtraFields(AndroidCXX::java_util_Collection const& arg0) exit");
 
 }
 FacebookCXX::com_facebook_widget_PickerFragment_OnDataChangedListener com_facebook_widget_PickerFragment::getOnDataChangedListener()
@@ -1314,15 +1229,12 @@ FacebookCXX::com_facebook_widget_PickerFragment_OnDataChangedListener com_facebo
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_PickerFragment jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_widget_PickerFragment_OnDataChangedListener result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1340,17 +1252,17 @@ FacebookCXX::com_facebook_widget_PickerFragment_OnDataChangedListener com_facebo
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_widget_PickerFragment_OnDataChangedListener(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_widget_PickerFragment_OnDataChangedListener) (FacebookCXX::com_facebook_widget_PickerFragment_OnDataChangedListener((FacebookCXX::com_facebook_widget_PickerFragment_OnDataChangedListener *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	FacebookCXX::com_facebook_widget_PickerFragment_OnDataChangedListener result((FacebookCXX::com_facebook_widget_PickerFragment_OnDataChangedListener) *((FacebookCXX::com_facebook_widget_PickerFragment_OnDataChangedListener *) cxx_value));
+	delete ((FacebookCXX::com_facebook_widget_PickerFragment_OnDataChangedListener *) cxx_value);
+		
 	LOGV("FacebookCXX::com_facebook_widget_PickerFragment_OnDataChangedListener com_facebook_widget_PickerFragment::getOnDataChangedListener() exit");
 
 	return result;
 }
-void com_facebook_widget_PickerFragment::setOnDataChangedListener(FacebookCXX::com_facebook_widget_PickerFragment_OnDataChangedListener& arg0)
+void com_facebook_widget_PickerFragment::setOnDataChangedListener(FacebookCXX::com_facebook_widget_PickerFragment_OnDataChangedListener const& arg0)
 {
-	LOGV("void com_facebook_widget_PickerFragment::setOnDataChangedListener(FacebookCXX::com_facebook_widget_PickerFragment_OnDataChangedListener& arg0) enter");
+	LOGV("void com_facebook_widget_PickerFragment::setOnDataChangedListener(FacebookCXX::com_facebook_widget_PickerFragment_OnDataChangedListener const& arg0) enter");
 
 	const char *methodName = "setOnDataChangedListener";
 	const char *methodSignature = "(Lcom/facebook/widget/PickerFragment$OnDataChangedListener;)V";
@@ -1360,8 +1272,6 @@ void com_facebook_widget_PickerFragment::setOnDataChangedListener(FacebookCXX::c
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
@@ -1392,9 +1302,7 @@ void com_facebook_widget_PickerFragment::setOnDataChangedListener(FacebookCXX::c
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PickerFragment::setOnDataChangedListener(FacebookCXX::com_facebook_widget_PickerFragment_OnDataChangedListener& arg0) exit");
+	LOGV("void com_facebook_widget_PickerFragment::setOnDataChangedListener(FacebookCXX::com_facebook_widget_PickerFragment_OnDataChangedListener const& arg0) exit");
 
 }
 FacebookCXX::com_facebook_widget_PickerFragment_OnSelectionChangedListener com_facebook_widget_PickerFragment::getOnSelectionChangedListener()
@@ -1410,15 +1318,12 @@ FacebookCXX::com_facebook_widget_PickerFragment_OnSelectionChangedListener com_f
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_PickerFragment jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_widget_PickerFragment_OnSelectionChangedListener result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1436,17 +1341,17 @@ FacebookCXX::com_facebook_widget_PickerFragment_OnSelectionChangedListener com_f
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_widget_PickerFragment_OnSelectionChangedListener(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_widget_PickerFragment_OnSelectionChangedListener) (FacebookCXX::com_facebook_widget_PickerFragment_OnSelectionChangedListener((FacebookCXX::com_facebook_widget_PickerFragment_OnSelectionChangedListener *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	FacebookCXX::com_facebook_widget_PickerFragment_OnSelectionChangedListener result((FacebookCXX::com_facebook_widget_PickerFragment_OnSelectionChangedListener) *((FacebookCXX::com_facebook_widget_PickerFragment_OnSelectionChangedListener *) cxx_value));
+	delete ((FacebookCXX::com_facebook_widget_PickerFragment_OnSelectionChangedListener *) cxx_value);
+		
 	LOGV("FacebookCXX::com_facebook_widget_PickerFragment_OnSelectionChangedListener com_facebook_widget_PickerFragment::getOnSelectionChangedListener() exit");
 
 	return result;
 }
-void com_facebook_widget_PickerFragment::setOnSelectionChangedListener(FacebookCXX::com_facebook_widget_PickerFragment_OnSelectionChangedListener& arg0)
+void com_facebook_widget_PickerFragment::setOnSelectionChangedListener(FacebookCXX::com_facebook_widget_PickerFragment_OnSelectionChangedListener const& arg0)
 {
-	LOGV("void com_facebook_widget_PickerFragment::setOnSelectionChangedListener(FacebookCXX::com_facebook_widget_PickerFragment_OnSelectionChangedListener& arg0) enter");
+	LOGV("void com_facebook_widget_PickerFragment::setOnSelectionChangedListener(FacebookCXX::com_facebook_widget_PickerFragment_OnSelectionChangedListener const& arg0) enter");
 
 	const char *methodName = "setOnSelectionChangedListener";
 	const char *methodSignature = "(Lcom/facebook/widget/PickerFragment$OnSelectionChangedListener;)V";
@@ -1456,8 +1361,6 @@ void com_facebook_widget_PickerFragment::setOnSelectionChangedListener(FacebookC
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
@@ -1488,9 +1391,7 @@ void com_facebook_widget_PickerFragment::setOnSelectionChangedListener(FacebookC
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PickerFragment::setOnSelectionChangedListener(FacebookCXX::com_facebook_widget_PickerFragment_OnSelectionChangedListener& arg0) exit");
+	LOGV("void com_facebook_widget_PickerFragment::setOnSelectionChangedListener(FacebookCXX::com_facebook_widget_PickerFragment_OnSelectionChangedListener const& arg0) exit");
 
 }
 FacebookCXX::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener com_facebook_widget_PickerFragment::getOnDoneButtonClickedListener()
@@ -1506,15 +1407,12 @@ FacebookCXX::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener com_
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_PickerFragment jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1532,17 +1430,17 @@ FacebookCXX::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener com_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_widget_PickerFragment_OnDoneButtonClickedListener(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener) (FacebookCXX::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener((FacebookCXX::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	FacebookCXX::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener result((FacebookCXX::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener) *((FacebookCXX::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener *) cxx_value));
+	delete ((FacebookCXX::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener *) cxx_value);
+		
 	LOGV("FacebookCXX::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener com_facebook_widget_PickerFragment::getOnDoneButtonClickedListener() exit");
 
 	return result;
 }
-void com_facebook_widget_PickerFragment::setOnDoneButtonClickedListener(FacebookCXX::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener& arg0)
+void com_facebook_widget_PickerFragment::setOnDoneButtonClickedListener(FacebookCXX::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener const& arg0)
 {
-	LOGV("void com_facebook_widget_PickerFragment::setOnDoneButtonClickedListener(FacebookCXX::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener& arg0) enter");
+	LOGV("void com_facebook_widget_PickerFragment::setOnDoneButtonClickedListener(FacebookCXX::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener const& arg0) enter");
 
 	const char *methodName = "setOnDoneButtonClickedListener";
 	const char *methodSignature = "(Lcom/facebook/widget/PickerFragment$OnDoneButtonClickedListener;)V";
@@ -1552,8 +1450,6 @@ void com_facebook_widget_PickerFragment::setOnDoneButtonClickedListener(Facebook
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
@@ -1584,9 +1480,7 @@ void com_facebook_widget_PickerFragment::setOnDoneButtonClickedListener(Facebook
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PickerFragment::setOnDoneButtonClickedListener(FacebookCXX::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener& arg0) exit");
+	LOGV("void com_facebook_widget_PickerFragment::setOnDoneButtonClickedListener(FacebookCXX::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener const& arg0) exit");
 
 }
 AndroidCXX::java_util_Set com_facebook_widget_PickerFragment::getExtraFields()
@@ -1602,15 +1496,12 @@ AndroidCXX::java_util_Set com_facebook_widget_PickerFragment::getExtraFields()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_PickerFragment jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_Set result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1646,17 +1537,17 @@ AndroidCXX::java_util_Set com_facebook_widget_PickerFragment::getExtraFields()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Set(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Set) (AndroidCXX::java_util_Set((AndroidCXX::java_util_Set *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_util_Set result((AndroidCXX::java_util_Set) *((AndroidCXX::java_util_Set *) cxx_value));
+	delete ((AndroidCXX::java_util_Set *) cxx_value);
+		
 	LOGV("AndroidCXX::java_util_Set com_facebook_widget_PickerFragment::getExtraFields() exit");
 
 	return result;
 }
-void com_facebook_widget_PickerFragment::setShowTitleBar(bool& arg0)
+void com_facebook_widget_PickerFragment::setShowTitleBar(bool const& arg0)
 {
-	LOGV("void com_facebook_widget_PickerFragment::setShowTitleBar(bool& arg0) enter");
+	LOGV("void com_facebook_widget_PickerFragment::setShowTitleBar(bool const& arg0) enter");
 
 	const char *methodName = "setShowTitleBar";
 	const char *methodSignature = "(Z)V";
@@ -1666,8 +1557,6 @@ void com_facebook_widget_PickerFragment::setShowTitleBar(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
@@ -1698,9 +1587,7 @@ void com_facebook_widget_PickerFragment::setShowTitleBar(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PickerFragment::setShowTitleBar(bool& arg0) exit");
+	LOGV("void com_facebook_widget_PickerFragment::setShowTitleBar(bool const& arg0) exit");
 
 }
 bool com_facebook_widget_PickerFragment::getShowTitleBar()
@@ -1716,15 +1603,12 @@ bool com_facebook_widget_PickerFragment::getShowTitleBar()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_PickerFragment jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1742,17 +1626,17 @@ bool com_facebook_widget_PickerFragment::getShowTitleBar()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool com_facebook_widget_PickerFragment::getShowTitleBar() exit");
 
 	return result;
 }
-void com_facebook_widget_PickerFragment::setTitleText(AndroidCXX::java_lang_String& arg0)
+void com_facebook_widget_PickerFragment::setTitleText(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void com_facebook_widget_PickerFragment::setTitleText(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_widget_PickerFragment::setTitleText(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setTitleText";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -1762,8 +1646,6 @@ void com_facebook_widget_PickerFragment::setTitleText(AndroidCXX::java_lang_Stri
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
@@ -1794,9 +1676,7 @@ void com_facebook_widget_PickerFragment::setTitleText(AndroidCXX::java_lang_Stri
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PickerFragment::setTitleText(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_widget_PickerFragment::setTitleText(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String com_facebook_widget_PickerFragment::getTitleText()
@@ -1812,15 +1692,12 @@ AndroidCXX::java_lang_String com_facebook_widget_PickerFragment::getTitleText()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_PickerFragment jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1838,17 +1715,17 @@ AndroidCXX::java_lang_String com_facebook_widget_PickerFragment::getTitleText()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String com_facebook_widget_PickerFragment::getTitleText() exit");
 
 	return result;
 }
-void com_facebook_widget_PickerFragment::setDoneButtonText(AndroidCXX::java_lang_String& arg0)
+void com_facebook_widget_PickerFragment::setDoneButtonText(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void com_facebook_widget_PickerFragment::setDoneButtonText(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_widget_PickerFragment::setDoneButtonText(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "setDoneButtonText";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -1858,8 +1735,6 @@ void com_facebook_widget_PickerFragment::setDoneButtonText(AndroidCXX::java_lang
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
@@ -1890,9 +1765,7 @@ void com_facebook_widget_PickerFragment::setDoneButtonText(AndroidCXX::java_lang
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PickerFragment::setDoneButtonText(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_widget_PickerFragment::setDoneButtonText(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 AndroidCXX::java_lang_String com_facebook_widget_PickerFragment::getDoneButtonText()
@@ -1908,15 +1781,12 @@ AndroidCXX::java_lang_String com_facebook_widget_PickerFragment::getDoneButtonTe
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_PickerFragment jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1934,10 +1804,10 @@ AndroidCXX::java_lang_String com_facebook_widget_PickerFragment::getDoneButtonTe
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String com_facebook_widget_PickerFragment::getDoneButtonText() exit");
 
 	return result;

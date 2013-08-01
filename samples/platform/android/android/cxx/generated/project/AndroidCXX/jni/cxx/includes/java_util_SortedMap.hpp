@@ -8,7 +8,6 @@
 //
 
 
-
 	
  	
  		 
@@ -111,9 +110,9 @@ class java_util_SortedMap
 public:
 
 	java_util_SortedMap(const java_util_SortedMap& cc);
-	java_util_SortedMap(void * proxy);
+	java_util_SortedMap(Proxy proxy);
 	// Public Constructors
-	java_util_SortedMap();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_SortedMap();
 	// Functions
@@ -121,9 +120,9 @@ public:
 	 AndroidCXX::java_util_Set entrySet();
 	 AndroidCXX::java_util_Set keySet();
 	 AndroidCXX::java_util_Comparator comparator();
-	 AndroidCXX::java_util_SortedMap subMap(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1);
-	 AndroidCXX::java_util_SortedMap headMap(AndroidCXX::java_lang_Object& arg0);
-	 AndroidCXX::java_util_SortedMap tailMap(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_util_SortedMap subMap(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	 AndroidCXX::java_util_SortedMap headMap(AndroidCXX::java_lang_Object const& arg0);
+	 AndroidCXX::java_util_SortedMap tailMap(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_Object firstKey();
 	 AndroidCXX::java_lang_Object lastKey();
 };	

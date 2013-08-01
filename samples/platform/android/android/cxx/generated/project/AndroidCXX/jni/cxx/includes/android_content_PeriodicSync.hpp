@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -75,16 +74,16 @@ class android_content_PeriodicSync
 public:
 
 	android_content_PeriodicSync(const android_content_PeriodicSync& cc);
-	android_content_PeriodicSync(void * proxy);
+	android_content_PeriodicSync(Proxy proxy);
 	// Public Constructors
-	android_content_PeriodicSync(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,long& arg3);
-	android_content_PeriodicSync();
+	android_content_PeriodicSync(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,long const& arg3);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_PeriodicSync();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 };	
 
 } // namespace

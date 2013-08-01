@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -52,13 +51,13 @@ class android_widget_CompoundButton_OnCheckedChangeListener
 public:
 
 	android_widget_CompoundButton_OnCheckedChangeListener(const android_widget_CompoundButton_OnCheckedChangeListener& cc);
-	android_widget_CompoundButton_OnCheckedChangeListener(void * proxy);
+	android_widget_CompoundButton_OnCheckedChangeListener(Proxy proxy);
 	// Public Constructors
-	android_widget_CompoundButton_OnCheckedChangeListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_CompoundButton_OnCheckedChangeListener();
 	// Functions
-	 void onCheckedChanged(AndroidCXX::android_widget_CompoundButton& arg0,bool& arg1);
+	 void onCheckedChanged(AndroidCXX::android_widget_CompoundButton const& arg0,bool const& arg1);
 };	
 
 } // namespace

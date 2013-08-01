@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -52,6 +51,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_FacebookRequestError"
@@ -82,7 +82,7 @@ using namespace FacebookCXX;
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_FACEBOOKREQUESTERROR_CATEGORY;
+// using namespace com_facebook_FacebookRequestError_Category;
 // 
 // 
 // 
@@ -111,8 +111,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(const com_facebook_FacebookRequestError& cc)
 {
 	LOGV("com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(const com_facebook_FacebookRequestError& cc) enter");
@@ -136,9 +134,9 @@ com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(const com_f
 
 	LOGV("com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(const com_facebook_FacebookRequestError& cc) exit");
 }
-com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(void * proxy)
+com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(Proxy proxy)
 {
-	LOGV("com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(void * proxy) enter");
+	LOGV("com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -148,50 +146,34 @@ com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(void * prox
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(void * proxy) exit");
+	LOGV("com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(Proxy proxy) exit");
 }
-com_facebook_FacebookRequestError::com_facebook_FacebookRequestError()
-{
-	LOGV("com_facebook_FacebookRequestError::com_facebook_FacebookRequestError() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/FacebookRequestError";
-
-	LOGV("com_facebook_FacebookRequestError className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_FacebookRequestError::proxy() const
+{	
+	LOGV("com_facebook_FacebookRequestError::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_FacebookRequestError cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_FacebookRequestError jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_FacebookRequestError::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_FacebookRequestError::com_facebook_FacebookRequestError() exit");	
+	return proxy;
 }
-// Public Constructors
-com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2)
+com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2)
 {
-	LOGV("com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2) enter");	
+	LOGV("com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(ILjava/lang/String;Ljava/lang/String;)V";
@@ -286,7 +268,7 @@ com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(int& arg0,A
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2) exit");	
+	LOGV("com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) exit");	
 }
 // Default Instance Destructor
 com_facebook_FacebookRequestError::~com_facebook_FacebookRequestError()
@@ -299,7 +281,7 @@ com_facebook_FacebookRequestError::~com_facebook_FacebookRequestError()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_FacebookRequestError::~com_facebook_FacebookRequestError() exit");
 }
 // Functions
@@ -316,15 +298,12 @@ AndroidCXX::java_lang_String com_facebook_FacebookRequestError::toString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_FacebookRequestError cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_FacebookRequestError jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -342,10 +321,10 @@ AndroidCXX::java_lang_String com_facebook_FacebookRequestError::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String com_facebook_FacebookRequestError::toString() exit");
 
 	return result;
@@ -363,15 +342,12 @@ FacebookCXX::com_facebook_FacebookException com_facebook_FacebookRequestError::g
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_FacebookRequestError cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_FacebookRequestError jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_FacebookException result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -389,10 +365,10 @@ FacebookCXX::com_facebook_FacebookException com_facebook_FacebookRequestError::g
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_FacebookException(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_FacebookException) (FacebookCXX::com_facebook_FacebookException((FacebookCXX::com_facebook_FacebookException *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	FacebookCXX::com_facebook_FacebookException result((FacebookCXX::com_facebook_FacebookException) *((FacebookCXX::com_facebook_FacebookException *) cxx_value));
+	delete ((FacebookCXX::com_facebook_FacebookException *) cxx_value);
+		
 	LOGV("FacebookCXX::com_facebook_FacebookException com_facebook_FacebookRequestError::getException() exit");
 
 	return result;
@@ -410,15 +386,12 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_FacebookRequestError::getCon
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_FacebookRequestError cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_FacebookRequestError jni address %d", javaObject);
 
 
-	AndroidCXX::java_net_HttpURLConnection result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -436,10 +409,10 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_FacebookRequestError::getCon
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_HttpURLConnection(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_net_HttpURLConnection) (AndroidCXX::java_net_HttpURLConnection((AndroidCXX::java_net_HttpURLConnection *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_net_HttpURLConnection result((AndroidCXX::java_net_HttpURLConnection) *((AndroidCXX::java_net_HttpURLConnection *) cxx_value));
+	delete ((AndroidCXX::java_net_HttpURLConnection *) cxx_value);
+		
 	LOGV("AndroidCXX::java_net_HttpURLConnection com_facebook_FacebookRequestError::getConnection() exit");
 
 	return result;
@@ -457,15 +430,12 @@ int com_facebook_FacebookRequestError::getErrorCode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_FacebookRequestError cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_FacebookRequestError jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -483,10 +453,10 @@ int com_facebook_FacebookRequestError::getErrorCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int com_facebook_FacebookRequestError::getErrorCode() exit");
 
 	return result;
@@ -504,15 +474,12 @@ bool com_facebook_FacebookRequestError::shouldNotifyUser()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_FacebookRequestError cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_FacebookRequestError jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -530,10 +497,10 @@ bool com_facebook_FacebookRequestError::shouldNotifyUser()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool com_facebook_FacebookRequestError::shouldNotifyUser() exit");
 
 	return result;
@@ -551,15 +518,12 @@ int com_facebook_FacebookRequestError::getUserActionMessageId()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_FacebookRequestError cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_FacebookRequestError jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -577,17 +541,17 @@ int com_facebook_FacebookRequestError::getUserActionMessageId()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int com_facebook_FacebookRequestError::getUserActionMessageId() exit");
 
 	return result;
 }
-COM_FACEBOOK_FACEBOOKREQUESTERROR_CATEGORY::com_facebook_FacebookRequestError_Category com_facebook_FacebookRequestError::getCategory()
+com_facebook_FacebookRequestError_Category::com_facebook_FacebookRequestError_Category com_facebook_FacebookRequestError::getCategory()
 {
-	LOGV("COM_FACEBOOK_FACEBOOKREQUESTERROR_CATEGORY::com_facebook_FacebookRequestError_Category com_facebook_FacebookRequestError::getCategory() enter");
+	LOGV("com_facebook_FacebookRequestError_Category::com_facebook_FacebookRequestError_Category com_facebook_FacebookRequestError::getCategory() enter");
 
 	const char *methodName = "getCategory";
 	const char *methodSignature = "()Lcom/facebook/FacebookRequestError$Category;";
@@ -598,15 +562,12 @@ COM_FACEBOOK_FACEBOOKREQUESTERROR_CATEGORY::com_facebook_FacebookRequestError_Ca
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_FacebookRequestError cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_FacebookRequestError jni address %d", javaObject);
 
 
-	COM_FACEBOOK_FACEBOOKREQUESTERROR_CATEGORY::com_facebook_FacebookRequestError_Category result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -624,11 +585,11 @@ COM_FACEBOOK_FACEBOOKREQUESTERROR_CATEGORY::com_facebook_FacebookRequestError_Ca
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_FacebookRequestError_Category(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (COM_FACEBOOK_FACEBOOKREQUESTERROR_CATEGORY::com_facebook_FacebookRequestError_Category) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("COM_FACEBOOK_FACEBOOKREQUESTERROR_CATEGORY::com_facebook_FacebookRequestError_Category com_facebook_FacebookRequestError::getCategory() exit");
+	com_facebook_FacebookRequestError_Category::com_facebook_FacebookRequestError_Category result = (com_facebook_FacebookRequestError_Category::com_facebook_FacebookRequestError_Category) (cxx_value);
+	//
+		
+	LOGV("com_facebook_FacebookRequestError_Category::com_facebook_FacebookRequestError_Category com_facebook_FacebookRequestError::getCategory() exit");
 
 	return result;
 }
@@ -645,15 +606,12 @@ int com_facebook_FacebookRequestError::getRequestStatusCode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_FacebookRequestError cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_FacebookRequestError jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -671,10 +629,10 @@ int com_facebook_FacebookRequestError::getRequestStatusCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int com_facebook_FacebookRequestError::getRequestStatusCode() exit");
 
 	return result;
@@ -692,15 +650,12 @@ int com_facebook_FacebookRequestError::getSubErrorCode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_FacebookRequestError cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_FacebookRequestError jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -718,10 +673,10 @@ int com_facebook_FacebookRequestError::getSubErrorCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int com_facebook_FacebookRequestError::getSubErrorCode() exit");
 
 	return result;
@@ -739,15 +694,12 @@ AndroidCXX::java_lang_String com_facebook_FacebookRequestError::getErrorType()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_FacebookRequestError cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_FacebookRequestError jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -765,10 +717,10 @@ AndroidCXX::java_lang_String com_facebook_FacebookRequestError::getErrorType()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String com_facebook_FacebookRequestError::getErrorType() exit");
 
 	return result;
@@ -786,15 +738,12 @@ AndroidCXX::java_lang_String com_facebook_FacebookRequestError::getErrorMessage(
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_FacebookRequestError cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_FacebookRequestError jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -812,10 +761,10 @@ AndroidCXX::java_lang_String com_facebook_FacebookRequestError::getErrorMessage(
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String com_facebook_FacebookRequestError::getErrorMessage() exit");
 
 	return result;
@@ -833,15 +782,12 @@ AndroidCXX::org_json_JSONObject com_facebook_FacebookRequestError::getRequestRes
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_FacebookRequestError cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_FacebookRequestError jni address %d", javaObject);
 
 
-	AndroidCXX::org_json_JSONObject result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -859,10 +805,10 @@ AndroidCXX::org_json_JSONObject com_facebook_FacebookRequestError::getRequestRes
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_json_JSONObject(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::org_json_JSONObject) (AndroidCXX::org_json_JSONObject((AndroidCXX::org_json_JSONObject *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::org_json_JSONObject result((AndroidCXX::org_json_JSONObject) *((AndroidCXX::org_json_JSONObject *) cxx_value));
+	delete ((AndroidCXX::org_json_JSONObject *) cxx_value);
+		
 	LOGV("AndroidCXX::org_json_JSONObject com_facebook_FacebookRequestError::getRequestResultBody() exit");
 
 	return result;
@@ -880,15 +826,12 @@ AndroidCXX::org_json_JSONObject com_facebook_FacebookRequestError::getRequestRes
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_FacebookRequestError cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_FacebookRequestError jni address %d", javaObject);
 
 
-	AndroidCXX::org_json_JSONObject result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -906,10 +849,10 @@ AndroidCXX::org_json_JSONObject com_facebook_FacebookRequestError::getRequestRes
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_json_JSONObject(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::org_json_JSONObject) (AndroidCXX::org_json_JSONObject((AndroidCXX::org_json_JSONObject *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::org_json_JSONObject result((AndroidCXX::org_json_JSONObject) *((AndroidCXX::org_json_JSONObject *) cxx_value));
+	delete ((AndroidCXX::org_json_JSONObject *) cxx_value);
+		
 	LOGV("AndroidCXX::org_json_JSONObject com_facebook_FacebookRequestError::getRequestResult() exit");
 
 	return result;
@@ -927,15 +870,12 @@ AndroidCXX::java_lang_Object com_facebook_FacebookRequestError::getBatchRequestR
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_FacebookRequestError cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_FacebookRequestError jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -953,10 +893,10 @@ AndroidCXX::java_lang_Object com_facebook_FacebookRequestError::getBatchRequestR
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_Object com_facebook_FacebookRequestError::getBatchRequestResult() exit");
 
 	return result;

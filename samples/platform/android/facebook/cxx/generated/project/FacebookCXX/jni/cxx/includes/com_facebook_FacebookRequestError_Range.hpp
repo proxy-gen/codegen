@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_FacebookRequestError_Range
@@ -46,9 +45,9 @@ class com_facebook_FacebookRequestError_Range
 public:
 
 	com_facebook_FacebookRequestError_Range(const com_facebook_FacebookRequestError_Range& cc);
-	com_facebook_FacebookRequestError_Range(void * proxy);
+	com_facebook_FacebookRequestError_Range(Proxy proxy);
 	// Public Constructors
-	com_facebook_FacebookRequestError_Range();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_FacebookRequestError_Range();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -77,20 +76,20 @@ class android_os_UserHandle
 public:
 
 	android_os_UserHandle(const android_os_UserHandle& cc);
-	android_os_UserHandle(void * proxy);
+	android_os_UserHandle(Proxy proxy);
 	// Public Constructors
-	android_os_UserHandle(AndroidCXX::android_os_Parcel& arg0);
-	android_os_UserHandle();
+	android_os_UserHandle(AndroidCXX::android_os_Parcel const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_os_UserHandle();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
-	static void writeToParcel(AndroidCXX::android_os_UserHandle& arg0,AndroidCXX::android_os_Parcel& arg1);
-	static AndroidCXX::android_os_UserHandle readFromParcel(AndroidCXX::android_os_Parcel& arg0);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	static void writeToParcel(AndroidCXX::android_os_UserHandle const& arg0,AndroidCXX::android_os_Parcel const& arg1);
+	static AndroidCXX::android_os_UserHandle readFromParcel(AndroidCXX::android_os_Parcel const& arg0);
 };	
 
 } // namespace

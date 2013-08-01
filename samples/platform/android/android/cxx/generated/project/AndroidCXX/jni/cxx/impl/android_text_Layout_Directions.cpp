@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_text_Layout_Directions.hpp>
@@ -26,7 +25,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_text_Layout_Directions"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -39,8 +38,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_text_Layout_Directions::android_text_Layout_Directions(const android_text_Layout_Directions& cc)
 {
 	LOGV("android_text_Layout_Directions::android_text_Layout_Directions(const android_text_Layout_Directions& cc) enter");
@@ -64,9 +61,9 @@ android_text_Layout_Directions::android_text_Layout_Directions(const android_tex
 
 	LOGV("android_text_Layout_Directions::android_text_Layout_Directions(const android_text_Layout_Directions& cc) exit");
 }
-android_text_Layout_Directions::android_text_Layout_Directions(void * proxy)
+android_text_Layout_Directions::android_text_Layout_Directions(Proxy proxy)
 {
-	LOGV("android_text_Layout_Directions::android_text_Layout_Directions(void * proxy) enter");
+	LOGV("android_text_Layout_Directions::android_text_Layout_Directions(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -76,47 +73,31 @@ android_text_Layout_Directions::android_text_Layout_Directions(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_text_Layout_Directions::android_text_Layout_Directions(void * proxy) exit");
+	LOGV("android_text_Layout_Directions::android_text_Layout_Directions(Proxy proxy) exit");
 }
-android_text_Layout_Directions::android_text_Layout_Directions()
-{
-	LOGV("android_text_Layout_Directions::android_text_Layout_Directions() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/text/Layout$Directions";
-
-	LOGV("android_text_Layout_Directions className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_text_Layout_Directions::proxy() const
+{	
+	LOGV("android_text_Layout_Directions::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_Layout_Directions cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_text_Layout_Directions jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_text_Layout_Directions::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_text_Layout_Directions::android_text_Layout_Directions() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_text_Layout_Directions::~android_text_Layout_Directions()
 {
@@ -128,7 +109,7 @@ android_text_Layout_Directions::~android_text_Layout_Directions()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_text_Layout_Directions::~android_text_Layout_Directions() exit");
 }
 // Functions

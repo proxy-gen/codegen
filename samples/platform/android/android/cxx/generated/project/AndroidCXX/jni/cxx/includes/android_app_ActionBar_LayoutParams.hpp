@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -70,16 +69,15 @@ class android_app_ActionBar_LayoutParams
 {
 public:
 
-	android_app_ActionBar_LayoutParams(const android_app_ActionBar_LayoutParams& cc);
-	android_app_ActionBar_LayoutParams(void * proxy);
+	android_app_ActionBar_LayoutParams(Proxy proxy);
 	// Public Constructors
-	android_app_ActionBar_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_app_ActionBar_LayoutParams(int& arg0,int& arg1);
-	android_app_ActionBar_LayoutParams(int& arg0,int& arg1,int& arg2);
-	android_app_ActionBar_LayoutParams(int& arg0);
-	android_app_ActionBar_LayoutParams(AndroidCXX::android_app_ActionBar_LayoutParams& arg0);
-	android_app_ActionBar_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0);
-	android_app_ActionBar_LayoutParams();
+	android_app_ActionBar_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_app_ActionBar_LayoutParams(int const& arg0,int const& arg1);
+	android_app_ActionBar_LayoutParams(int const& arg0,int const& arg1,int const& arg2);
+	android_app_ActionBar_LayoutParams(int const& arg0);
+	android_app_ActionBar_LayoutParams(AndroidCXX::android_app_ActionBar_LayoutParams const& arg0);
+	android_app_ActionBar_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_ActionBar_LayoutParams();
 	// Functions

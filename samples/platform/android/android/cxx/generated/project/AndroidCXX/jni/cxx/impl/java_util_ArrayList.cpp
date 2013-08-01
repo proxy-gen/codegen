@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -64,7 +63,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_util_ArrayList"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -125,8 +124,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_util_ArrayList::java_util_ArrayList(const java_util_ArrayList& cc)
 {
 	LOGV("java_util_ArrayList::java_util_ArrayList(const java_util_ArrayList& cc) enter");
@@ -150,9 +147,9 @@ java_util_ArrayList::java_util_ArrayList(const java_util_ArrayList& cc)
 
 	LOGV("java_util_ArrayList::java_util_ArrayList(const java_util_ArrayList& cc) exit");
 }
-java_util_ArrayList::java_util_ArrayList(void * proxy)
+java_util_ArrayList::java_util_ArrayList(Proxy proxy)
 {
-	LOGV("java_util_ArrayList::java_util_ArrayList(void * proxy) enter");
+	LOGV("java_util_ArrayList::java_util_ArrayList(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -162,16 +159,34 @@ java_util_ArrayList::java_util_ArrayList(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_util_ArrayList::java_util_ArrayList(void * proxy) exit");
+	LOGV("java_util_ArrayList::java_util_ArrayList(Proxy proxy) exit");
 }
-// Public Constructors
-java_util_ArrayList::java_util_ArrayList(int& arg0)
+Proxy java_util_ArrayList::proxy() const
+{	
+	LOGV("java_util_ArrayList::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("java_util_ArrayList cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_util_ArrayList jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("java_util_ArrayList::proxy() exit");	
+
+	return proxy;
+}
+java_util_ArrayList::java_util_ArrayList(int const& arg0)
 {
-	LOGV("java_util_ArrayList::java_util_ArrayList(int& arg0) enter");	
+	LOGV("java_util_ArrayList::java_util_ArrayList(int const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(I)V";
@@ -224,7 +239,7 @@ java_util_ArrayList::java_util_ArrayList(int& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_ArrayList::java_util_ArrayList(int& arg0) exit");	
+	LOGV("java_util_ArrayList::java_util_ArrayList(int const& arg0) exit");	
 }
 java_util_ArrayList::java_util_ArrayList()
 {
@@ -262,9 +277,9 @@ java_util_ArrayList::java_util_ArrayList()
 
 	LOGV("java_util_ArrayList::java_util_ArrayList() exit");	
 }
-java_util_ArrayList::java_util_ArrayList(AndroidCXX::java_util_Collection& arg0)
+java_util_ArrayList::java_util_ArrayList(AndroidCXX::java_util_Collection const& arg0)
 {
-	LOGV("java_util_ArrayList::java_util_ArrayList(AndroidCXX::java_util_Collection& arg0) enter");	
+	LOGV("java_util_ArrayList::java_util_ArrayList(AndroidCXX::java_util_Collection const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/util/Collection;)V";
@@ -335,7 +350,7 @@ java_util_ArrayList::java_util_ArrayList(AndroidCXX::java_util_Collection& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_ArrayList::java_util_ArrayList(AndroidCXX::java_util_Collection& arg0) exit");	
+	LOGV("java_util_ArrayList::java_util_ArrayList(AndroidCXX::java_util_Collection const& arg0) exit");	
 }
 // Default Instance Destructor
 java_util_ArrayList::~java_util_ArrayList()
@@ -348,13 +363,13 @@ java_util_ArrayList::~java_util_ArrayList()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_util_ArrayList::~java_util_ArrayList() exit");
 }
 // Functions
-void java_util_ArrayList::add(int& arg0,AndroidCXX::java_lang_Object& arg1)
+void java_util_ArrayList::add(int const& arg0,AndroidCXX::java_lang_Object const& arg1)
 {
-	LOGV("void java_util_ArrayList::add(int& arg0,AndroidCXX::java_lang_Object& arg1) enter");
+	LOGV("void java_util_ArrayList::add(int const& arg0,AndroidCXX::java_lang_Object const& arg1) enter");
 
 	const char *methodName = "add";
 	const char *methodSignature = "(ILjava/lang/Object;)V";
@@ -364,8 +379,6 @@ void java_util_ArrayList::add(int& arg0,AndroidCXX::java_lang_Object& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_ArrayList cxx address %d", cxxAddress);
@@ -417,14 +430,12 @@ void java_util_ArrayList::add(int& arg0,AndroidCXX::java_lang_Object& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_util_ArrayList::add(int& arg0,AndroidCXX::java_lang_Object& arg1) exit");
+	LOGV("void java_util_ArrayList::add(int const& arg0,AndroidCXX::java_lang_Object const& arg1) exit");
 
 }
-bool java_util_ArrayList::add(AndroidCXX::java_lang_Object& arg0)
+bool java_util_ArrayList::add(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_util_ArrayList::add(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_util_ArrayList::add(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "add";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -434,8 +445,6 @@ bool java_util_ArrayList::add(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_ArrayList cxx address %d", cxxAddress);
@@ -464,7 +473,6 @@ bool java_util_ArrayList::add(AndroidCXX::java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -482,17 +490,17 @@ bool java_util_ArrayList::add(AndroidCXX::java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool java_util_ArrayList::add(AndroidCXX::java_lang_Object& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool java_util_ArrayList::add(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_Object java_util_ArrayList::get(int& arg0)
+AndroidCXX::java_lang_Object java_util_ArrayList::get(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Object java_util_ArrayList::get(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Object java_util_ArrayList::get(int const& arg0) enter");
 
 	const char *methodName = "get";
 	const char *methodSignature = "(I)Ljava/lang/Object;";
@@ -502,8 +510,6 @@ AndroidCXX::java_lang_Object java_util_ArrayList::get(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_ArrayList cxx address %d", cxxAddress);
@@ -532,7 +538,6 @@ AndroidCXX::java_lang_Object java_util_ArrayList::get(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -550,11 +555,11 @@ AndroidCXX::java_lang_Object java_util_ArrayList::get(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_Object java_util_ArrayList::get(int& arg0) exit");
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_Object java_util_ArrayList::get(int const& arg0) exit");
 
 	return result;
 }
@@ -571,15 +576,12 @@ AndroidCXX::java_lang_Object java_util_ArrayList::clone()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_ArrayList cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_ArrayList jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -597,17 +599,17 @@ AndroidCXX::java_lang_Object java_util_ArrayList::clone()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_Object java_util_ArrayList::clone() exit");
 
 	return result;
 }
-int java_util_ArrayList::indexOf(AndroidCXX::java_lang_Object& arg0)
+int java_util_ArrayList::indexOf(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("int java_util_ArrayList::indexOf(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("int java_util_ArrayList::indexOf(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "indexOf";
 	const char *methodSignature = "(Ljava/lang/Object;)I";
@@ -617,8 +619,6 @@ int java_util_ArrayList::indexOf(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_ArrayList cxx address %d", cxxAddress);
@@ -647,7 +647,6 @@ int java_util_ArrayList::indexOf(AndroidCXX::java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -665,11 +664,11 @@ int java_util_ArrayList::indexOf(AndroidCXX::java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int java_util_ArrayList::indexOf(AndroidCXX::java_lang_Object& arg0) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int java_util_ArrayList::indexOf(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -686,8 +685,6 @@ void java_util_ArrayList::clear()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_ArrayList cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -696,8 +693,6 @@ void java_util_ArrayList::clear()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_util_ArrayList::clear() exit");
 
 }
@@ -714,15 +709,12 @@ bool java_util_ArrayList::isEmpty()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_ArrayList cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_ArrayList jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -740,17 +732,17 @@ bool java_util_ArrayList::isEmpty()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool java_util_ArrayList::isEmpty() exit");
 
 	return result;
 }
-int java_util_ArrayList::lastIndexOf(AndroidCXX::java_lang_Object& arg0)
+int java_util_ArrayList::lastIndexOf(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("int java_util_ArrayList::lastIndexOf(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("int java_util_ArrayList::lastIndexOf(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "lastIndexOf";
 	const char *methodSignature = "(Ljava/lang/Object;)I";
@@ -760,8 +752,6 @@ int java_util_ArrayList::lastIndexOf(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_ArrayList cxx address %d", cxxAddress);
@@ -790,7 +780,6 @@ int java_util_ArrayList::lastIndexOf(AndroidCXX::java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -808,17 +797,17 @@ int java_util_ArrayList::lastIndexOf(AndroidCXX::java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int java_util_ArrayList::lastIndexOf(AndroidCXX::java_lang_Object& arg0) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int java_util_ArrayList::lastIndexOf(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-bool java_util_ArrayList::contains(AndroidCXX::java_lang_Object& arg0)
+bool java_util_ArrayList::contains(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_util_ArrayList::contains(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_util_ArrayList::contains(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "contains";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -828,8 +817,6 @@ bool java_util_ArrayList::contains(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_ArrayList cxx address %d", cxxAddress);
@@ -858,7 +845,6 @@ bool java_util_ArrayList::contains(AndroidCXX::java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -876,17 +862,17 @@ bool java_util_ArrayList::contains(AndroidCXX::java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool java_util_ArrayList::contains(AndroidCXX::java_lang_Object& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool java_util_ArrayList::contains(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-bool java_util_ArrayList::addAll(AndroidCXX::java_util_Collection& arg0)
+bool java_util_ArrayList::addAll(AndroidCXX::java_util_Collection const& arg0)
 {
-	LOGV("bool java_util_ArrayList::addAll(AndroidCXX::java_util_Collection& arg0) enter");
+	LOGV("bool java_util_ArrayList::addAll(AndroidCXX::java_util_Collection const& arg0) enter");
 
 	const char *methodName = "addAll";
 	const char *methodSignature = "(Ljava/util/Collection;)Z";
@@ -896,8 +882,6 @@ bool java_util_ArrayList::addAll(AndroidCXX::java_util_Collection& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_ArrayList cxx address %d", cxxAddress);
@@ -944,7 +928,6 @@ bool java_util_ArrayList::addAll(AndroidCXX::java_util_Collection& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -962,17 +945,17 @@ bool java_util_ArrayList::addAll(AndroidCXX::java_util_Collection& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool java_util_ArrayList::addAll(AndroidCXX::java_util_Collection& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool java_util_ArrayList::addAll(AndroidCXX::java_util_Collection const& arg0) exit");
 
 	return result;
 }
-bool java_util_ArrayList::addAll(int& arg0,AndroidCXX::java_util_Collection& arg1)
+bool java_util_ArrayList::addAll(int const& arg0,AndroidCXX::java_util_Collection const& arg1)
 {
-	LOGV("bool java_util_ArrayList::addAll(int& arg0,AndroidCXX::java_util_Collection& arg1) enter");
+	LOGV("bool java_util_ArrayList::addAll(int const& arg0,AndroidCXX::java_util_Collection const& arg1) enter");
 
 	const char *methodName = "addAll";
 	const char *methodSignature = "(ILjava/util/Collection;)Z";
@@ -982,8 +965,6 @@ bool java_util_ArrayList::addAll(int& arg0,AndroidCXX::java_util_Collection& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_ArrayList cxx address %d", cxxAddress);
@@ -1051,7 +1032,6 @@ bool java_util_ArrayList::addAll(int& arg0,AndroidCXX::java_util_Collection& arg
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1069,11 +1049,11 @@ bool java_util_ArrayList::addAll(int& arg0,AndroidCXX::java_util_Collection& arg
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool java_util_ArrayList::addAll(int& arg0,AndroidCXX::java_util_Collection& arg1) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool java_util_ArrayList::addAll(int const& arg0,AndroidCXX::java_util_Collection const& arg1) exit");
 
 	return result;
 }
@@ -1090,15 +1070,12 @@ int java_util_ArrayList::size()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_ArrayList cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_ArrayList jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1116,17 +1093,17 @@ int java_util_ArrayList::size()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_util_ArrayList::size() exit");
 
 	return result;
 }
-std::vector<AndroidCXX::java_lang_Object > java_util_ArrayList::toArray(std::vector<AndroidCXX::java_lang_Object >& arg0)
+std::vector<AndroidCXX::java_lang_Object > java_util_ArrayList::toArray(std::vector<AndroidCXX::java_lang_Object > const& arg0)
 {
-	LOGV("std::vector<AndroidCXX::java_lang_Object > java_util_ArrayList::toArray(std::vector<AndroidCXX::java_lang_Object >& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_Object > java_util_ArrayList::toArray(std::vector<AndroidCXX::java_lang_Object > const& arg0) enter");
 
 	const char *methodName = "toArray";
 	const char *methodSignature = "([Ljava/lang/Object;)[Ljava/lang/Object;";
@@ -1136,8 +1113,6 @@ std::vector<AndroidCXX::java_lang_Object > java_util_ArrayList::toArray(std::vec
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_ArrayList cxx address %d", cxxAddress);
@@ -1184,7 +1159,6 @@ std::vector<AndroidCXX::java_lang_Object > java_util_ArrayList::toArray(std::vec
 		jarg0 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	std::vector<AndroidCXX::java_lang_Object > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1220,11 +1194,11 @@ std::vector<AndroidCXX::java_lang_Object > java_util_ArrayList::toArray(std::vec
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<AndroidCXX::java_lang_Object >) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("std::vector<AndroidCXX::java_lang_Object > java_util_ArrayList::toArray(std::vector<AndroidCXX::java_lang_Object >& arg0) exit");
+	std::vector<AndroidCXX::java_lang_Object > result = (std::vector<AndroidCXX::java_lang_Object >) *((std::vector<AndroidCXX::java_lang_Object > *) cxx_value);
+	delete ((std::vector<AndroidCXX::java_lang_Object > *) cxx_value);
+		
+	LOGV("std::vector<AndroidCXX::java_lang_Object > java_util_ArrayList::toArray(std::vector<AndroidCXX::java_lang_Object > const& arg0) exit");
 
 	return result;
 }
@@ -1241,15 +1215,12 @@ std::vector<AndroidCXX::java_lang_Object > java_util_ArrayList::toArray()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_ArrayList cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_ArrayList jni address %d", javaObject);
 
 
-	std::vector<AndroidCXX::java_lang_Object > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1285,17 +1256,17 @@ std::vector<AndroidCXX::java_lang_Object > java_util_ArrayList::toArray()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<AndroidCXX::java_lang_Object >) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	std::vector<AndroidCXX::java_lang_Object > result = (std::vector<AndroidCXX::java_lang_Object >) *((std::vector<AndroidCXX::java_lang_Object > *) cxx_value);
+	delete ((std::vector<AndroidCXX::java_lang_Object > *) cxx_value);
+		
 	LOGV("std::vector<AndroidCXX::java_lang_Object > java_util_ArrayList::toArray() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_Object java_util_ArrayList::remove(int& arg0)
+AndroidCXX::java_lang_Object java_util_ArrayList::remove(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Object java_util_ArrayList::remove(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Object java_util_ArrayList::remove(int const& arg0) enter");
 
 	const char *methodName = "remove";
 	const char *methodSignature = "(I)Ljava/lang/Object;";
@@ -1305,8 +1276,6 @@ AndroidCXX::java_lang_Object java_util_ArrayList::remove(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_ArrayList cxx address %d", cxxAddress);
@@ -1335,7 +1304,6 @@ AndroidCXX::java_lang_Object java_util_ArrayList::remove(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1353,17 +1321,17 @@ AndroidCXX::java_lang_Object java_util_ArrayList::remove(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_Object java_util_ArrayList::remove(int& arg0) exit");
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_Object java_util_ArrayList::remove(int const& arg0) exit");
 
 	return result;
 }
-bool java_util_ArrayList::remove(AndroidCXX::java_lang_Object& arg0)
+bool java_util_ArrayList::remove(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_util_ArrayList::remove(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_util_ArrayList::remove(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "remove";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -1373,8 +1341,6 @@ bool java_util_ArrayList::remove(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_ArrayList cxx address %d", cxxAddress);
@@ -1403,7 +1369,6 @@ bool java_util_ArrayList::remove(AndroidCXX::java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1421,17 +1386,17 @@ bool java_util_ArrayList::remove(AndroidCXX::java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool java_util_ArrayList::remove(AndroidCXX::java_lang_Object& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool java_util_ArrayList::remove(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_Object java_util_ArrayList::set(int& arg0,AndroidCXX::java_lang_Object& arg1)
+AndroidCXX::java_lang_Object java_util_ArrayList::set(int const& arg0,AndroidCXX::java_lang_Object const& arg1)
 {
-	LOGV("AndroidCXX::java_lang_Object java_util_ArrayList::set(int& arg0,AndroidCXX::java_lang_Object& arg1) enter");
+	LOGV("AndroidCXX::java_lang_Object java_util_ArrayList::set(int const& arg0,AndroidCXX::java_lang_Object const& arg1) enter");
 
 	const char *methodName = "set";
 	const char *methodSignature = "(ILjava/lang/Object;)Ljava/lang/Object;";
@@ -1441,8 +1406,6 @@ AndroidCXX::java_lang_Object java_util_ArrayList::set(int& arg0,AndroidCXX::java
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_ArrayList cxx address %d", cxxAddress);
@@ -1492,7 +1455,6 @@ AndroidCXX::java_lang_Object java_util_ArrayList::set(int& arg0,AndroidCXX::java
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1510,17 +1472,17 @@ AndroidCXX::java_lang_Object java_util_ArrayList::set(int& arg0,AndroidCXX::java
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_Object java_util_ArrayList::set(int& arg0,AndroidCXX::java_lang_Object& arg1) exit");
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_Object java_util_ArrayList::set(int const& arg0,AndroidCXX::java_lang_Object const& arg1) exit");
 
 	return result;
 }
-void java_util_ArrayList::ensureCapacity(int& arg0)
+void java_util_ArrayList::ensureCapacity(int const& arg0)
 {
-	LOGV("void java_util_ArrayList::ensureCapacity(int& arg0) enter");
+	LOGV("void java_util_ArrayList::ensureCapacity(int const& arg0) enter");
 
 	const char *methodName = "ensureCapacity";
 	const char *methodSignature = "(I)V";
@@ -1530,8 +1492,6 @@ void java_util_ArrayList::ensureCapacity(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_ArrayList cxx address %d", cxxAddress);
@@ -1562,9 +1522,7 @@ void java_util_ArrayList::ensureCapacity(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_util_ArrayList::ensureCapacity(int& arg0) exit");
+	LOGV("void java_util_ArrayList::ensureCapacity(int const& arg0) exit");
 
 }
 void java_util_ArrayList::trimToSize()
@@ -1580,8 +1538,6 @@ void java_util_ArrayList::trimToSize()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_ArrayList cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1590,8 +1546,6 @@ void java_util_ArrayList::trimToSize()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void java_util_ArrayList::trimToSize() exit");
 
 }

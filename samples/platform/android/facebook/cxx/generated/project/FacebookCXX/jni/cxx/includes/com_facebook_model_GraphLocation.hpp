@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -73,26 +72,26 @@ class com_facebook_model_GraphLocation
 public:
 
 	com_facebook_model_GraphLocation(const com_facebook_model_GraphLocation& cc);
-	com_facebook_model_GraphLocation(void * proxy);
+	com_facebook_model_GraphLocation(Proxy proxy);
 	// Public Constructors
-	com_facebook_model_GraphLocation();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphLocation();
 	// Functions
 	 AndroidCXX::java_lang_String getState();
-	 void setState(AndroidCXX::java_lang_String& arg0);
+	 void setState(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_lang_String getCountry();
 	 double getLatitude();
 	 double getLongitude();
-	 void setLatitude(double& arg0);
-	 void setLongitude(double& arg0);
+	 void setLatitude(double const& arg0);
+	 void setLongitude(double const& arg0);
 	 AndroidCXX::java_lang_String getStreet();
-	 void setStreet(AndroidCXX::java_lang_String& arg0);
+	 void setStreet(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_lang_String getCity();
-	 void setCity(AndroidCXX::java_lang_String& arg0);
-	 void setCountry(AndroidCXX::java_lang_String& arg0);
+	 void setCity(AndroidCXX::java_lang_String const& arg0);
+	 void setCountry(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_lang_String getZip();
-	 void setZip(AndroidCXX::java_lang_String& arg0);
+	 void setZip(AndroidCXX::java_lang_String const& arg0);
 };	
 
 } // namespace

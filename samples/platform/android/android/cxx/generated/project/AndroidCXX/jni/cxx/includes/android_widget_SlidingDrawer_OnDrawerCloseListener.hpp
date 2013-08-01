@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_widget_SlidingDrawer_OnDrawerCloseListener
@@ -47,9 +46,9 @@ class android_widget_SlidingDrawer_OnDrawerCloseListener
 public:
 
 	android_widget_SlidingDrawer_OnDrawerCloseListener(const android_widget_SlidingDrawer_OnDrawerCloseListener& cc);
-	android_widget_SlidingDrawer_OnDrawerCloseListener(void * proxy);
+	android_widget_SlidingDrawer_OnDrawerCloseListener(Proxy proxy);
 	// Public Constructors
-	android_widget_SlidingDrawer_OnDrawerCloseListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SlidingDrawer_OnDrawerCloseListener();
 	// Functions

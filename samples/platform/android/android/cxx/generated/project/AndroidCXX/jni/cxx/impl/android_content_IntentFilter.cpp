@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -127,7 +126,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_content_IntentFilter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -302,34 +301,9 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
-android_content_IntentFilter::android_content_IntentFilter(const android_content_IntentFilter& cc)
+android_content_IntentFilter::android_content_IntentFilter(Proxy proxy)
 {
-	LOGV("android_content_IntentFilter::android_content_IntentFilter(const android_content_IntentFilter& cc) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	long ccaddress = (long) &cc;
-	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
-	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
-	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
-	long address = (long) this;
-	LOGV("registerProxyComponent address %ld", address);
-	jobject proxiedComponent = ctx->findProxyComponent(address);
-	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
-	if (proxiedComponent == 0)
-	{
-		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = proxiedCCComponent;
-		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
-		ctx->registerProxyComponent(address, proxiedComponent);
-	}
-
-	LOGV("android_content_IntentFilter::android_content_IntentFilter(const android_content_IntentFilter& cc) exit");
-}
-android_content_IntentFilter::android_content_IntentFilter(void * proxy)
-{
-	LOGV("android_content_IntentFilter::android_content_IntentFilter(void * proxy) enter");
+	LOGV("android_content_IntentFilter::android_content_IntentFilter(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -339,13 +313,31 @@ android_content_IntentFilter::android_content_IntentFilter(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_content_IntentFilter::android_content_IntentFilter(void * proxy) exit");
+	LOGV("android_content_IntentFilter::android_content_IntentFilter(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy android_content_IntentFilter::proxy() const
+{	
+	LOGV("android_content_IntentFilter::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_content_IntentFilter jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_content_IntentFilter::proxy() exit");	
+
+	return proxy;
+}
 android_content_IntentFilter::android_content_IntentFilter()
 {
 	LOGV("android_content_IntentFilter::android_content_IntentFilter() enter");	
@@ -382,9 +374,9 @@ android_content_IntentFilter::android_content_IntentFilter()
 
 	LOGV("android_content_IntentFilter::android_content_IntentFilter() exit");	
 }
-android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::java_lang_String& arg0)
+android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::java_lang_String& arg0) enter");	
+	LOGV("android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -437,11 +429,11 @@ android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::java_lang
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::java_lang_String& arg0) exit");	
+	LOGV("android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::java_lang_String const& arg0) exit");	
 }
-android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
+android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");	
+	LOGV("android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
@@ -515,11 +507,11 @@ android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::java_lang
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");	
+	LOGV("android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) exit");	
 }
-android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::android_content_IntentFilter& arg0)
+android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::android_content_IntentFilter const& arg0)
 {
-	LOGV("android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::android_content_IntentFilter& arg0) enter");	
+	LOGV("android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::android_content_IntentFilter const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/IntentFilter;)V";
@@ -572,7 +564,7 @@ android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::android_c
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::android_content_IntentFilter& arg0) exit");	
+	LOGV("android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::android_content_IntentFilter const& arg0) exit");	
 }
 // Default Instance Destructor
 android_content_IntentFilter::~android_content_IntentFilter()
@@ -585,13 +577,13 @@ android_content_IntentFilter::~android_content_IntentFilter()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_content_IntentFilter::~android_content_IntentFilter() exit");
 }
 // Functions
-void android_content_IntentFilter::setPriority(int& arg0)
+void android_content_IntentFilter::setPriority(int const& arg0)
 {
-	LOGV("void android_content_IntentFilter::setPriority(int& arg0) enter");
+	LOGV("void android_content_IntentFilter::setPriority(int const& arg0) enter");
 
 	const char *methodName = "setPriority";
 	const char *methodSignature = "(I)V";
@@ -601,8 +593,6 @@ void android_content_IntentFilter::setPriority(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -633,9 +623,7 @@ void android_content_IntentFilter::setPriority(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_IntentFilter::setPriority(int& arg0) exit");
+	LOGV("void android_content_IntentFilter::setPriority(int const& arg0) exit");
 
 }
 int android_content_IntentFilter::getPriority()
@@ -651,15 +639,12 @@ int android_content_IntentFilter::getPriority()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_IntentFilter jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -677,17 +662,17 @@ int android_content_IntentFilter::getPriority()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_content_IntentFilter::getPriority() exit");
 
 	return result;
 }
-AndroidCXX::android_content_IntentFilter android_content_IntentFilter::create(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
+AndroidCXX::android_content_IntentFilter android_content_IntentFilter::create(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("AndroidCXX::android_content_IntentFilter android_content_IntentFilter::create(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("AndroidCXX::android_content_IntentFilter android_content_IntentFilter::create(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "create";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/IntentFilter;";
@@ -697,8 +682,6 @@ AndroidCXX::android_content_IntentFilter android_content_IntentFilter::create(An
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -748,8 +731,7 @@ AndroidCXX::android_content_IntentFilter android_content_IntentFilter::create(An
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_IntentFilter result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -766,17 +748,17 @@ AndroidCXX::android_content_IntentFilter android_content_IntentFilter::create(An
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_IntentFilter(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_IntentFilter) (AndroidCXX::android_content_IntentFilter((AndroidCXX::android_content_IntentFilter *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_content_IntentFilter android_content_IntentFilter::create(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	AndroidCXX::android_content_IntentFilter result((AndroidCXX::android_content_IntentFilter) *((AndroidCXX::android_content_IntentFilter *) cxx_value));
+	delete ((AndroidCXX::android_content_IntentFilter *) cxx_value);
+		
+	LOGV("AndroidCXX::android_content_IntentFilter android_content_IntentFilter::create(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
-int android_content_IntentFilter::match(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_net_Uri& arg3,AndroidCXX::java_util_Set& arg4,AndroidCXX::java_lang_String& arg5)
+int android_content_IntentFilter::match(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_net_Uri const& arg3,AndroidCXX::java_util_Set const& arg4,AndroidCXX::java_lang_String const& arg5)
 {
-	LOGV("int android_content_IntentFilter::match(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_net_Uri& arg3,AndroidCXX::java_util_Set& arg4,AndroidCXX::java_lang_String& arg5) enter");
+	LOGV("int android_content_IntentFilter::match(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_net_Uri const& arg3,AndroidCXX::java_util_Set const& arg4,AndroidCXX::java_lang_String const& arg5) enter");
 
 	const char *methodName = "match";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;Ljava/util/Set;Ljava/lang/String;)I";
@@ -786,8 +768,6 @@ int android_content_IntentFilter::match(AndroidCXX::java_lang_String& arg0,Andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -939,7 +919,6 @@ int android_content_IntentFilter::match(AndroidCXX::java_lang_String& arg0,Andro
 		jarg5 = convert_jni_string_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -957,17 +936,17 @@ int android_content_IntentFilter::match(AndroidCXX::java_lang_String& arg0,Andro
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_content_IntentFilter::match(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_net_Uri& arg3,AndroidCXX::java_util_Set& arg4,AndroidCXX::java_lang_String& arg5) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_content_IntentFilter::match(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_net_Uri const& arg3,AndroidCXX::java_util_Set const& arg4,AndroidCXX::java_lang_String const& arg5) exit");
 
 	return result;
 }
-int android_content_IntentFilter::match(AndroidCXX::android_content_ContentResolver& arg0,AndroidCXX::android_content_Intent& arg1,bool& arg2,AndroidCXX::java_lang_String& arg3)
+int android_content_IntentFilter::match(AndroidCXX::android_content_ContentResolver const& arg0,AndroidCXX::android_content_Intent const& arg1,bool const& arg2,AndroidCXX::java_lang_String const& arg3)
 {
-	LOGV("int android_content_IntentFilter::match(AndroidCXX::android_content_ContentResolver& arg0,AndroidCXX::android_content_Intent& arg1,bool& arg2,AndroidCXX::java_lang_String& arg3) enter");
+	LOGV("int android_content_IntentFilter::match(AndroidCXX::android_content_ContentResolver const& arg0,AndroidCXX::android_content_Intent const& arg1,bool const& arg2,AndroidCXX::java_lang_String const& arg3) enter");
 
 	const char *methodName = "match";
 	const char *methodSignature = "(Landroid/content/ContentResolver;Landroid/content/Intent;ZLjava/lang/String;)I";
@@ -977,8 +956,6 @@ int android_content_IntentFilter::match(AndroidCXX::android_content_ContentResol
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -1070,7 +1047,6 @@ int android_content_IntentFilter::match(AndroidCXX::android_content_ContentResol
 		jarg3 = convert_jni_string_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1088,17 +1064,17 @@ int android_content_IntentFilter::match(AndroidCXX::android_content_ContentResol
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_content_IntentFilter::match(AndroidCXX::android_content_ContentResolver& arg0,AndroidCXX::android_content_Intent& arg1,bool& arg2,AndroidCXX::java_lang_String& arg3) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_content_IntentFilter::match(AndroidCXX::android_content_ContentResolver const& arg0,AndroidCXX::android_content_Intent const& arg1,bool const& arg2,AndroidCXX::java_lang_String const& arg3) exit");
 
 	return result;
 }
-void android_content_IntentFilter::dump(AndroidCXX::android_util_Printer& arg0,AndroidCXX::java_lang_String& arg1)
+void android_content_IntentFilter::dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("void android_content_IntentFilter::dump(AndroidCXX::android_util_Printer& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("void android_content_IntentFilter::dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "dump";
 	const char *methodSignature = "(Landroid/util/Printer;Ljava/lang/String;)V";
@@ -1108,8 +1084,6 @@ void android_content_IntentFilter::dump(AndroidCXX::android_util_Printer& arg0,A
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -1161,9 +1135,7 @@ void android_content_IntentFilter::dump(AndroidCXX::android_util_Printer& arg0,A
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_IntentFilter::dump(AndroidCXX::android_util_Printer& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("void android_content_IntentFilter::dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 }
 int android_content_IntentFilter::describeContents()
@@ -1179,15 +1151,12 @@ int android_content_IntentFilter::describeContents()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_IntentFilter jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1205,17 +1174,17 @@ int android_content_IntentFilter::describeContents()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_content_IntentFilter::describeContents() exit");
 
 	return result;
 }
-void android_content_IntentFilter::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_content_IntentFilter::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_content_IntentFilter::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_content_IntentFilter::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -1225,8 +1194,6 @@ void android_content_IntentFilter::writeToParcel(AndroidCXX::android_os_Parcel& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -1278,14 +1245,12 @@ void android_content_IntentFilter::writeToParcel(AndroidCXX::android_os_Parcel& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_IntentFilter::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_content_IntentFilter::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }
-AndroidCXX::java_lang_String android_content_IntentFilter::getAction(int& arg0)
+AndroidCXX::java_lang_String android_content_IntentFilter::getAction(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_IntentFilter::getAction(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_IntentFilter::getAction(int const& arg0) enter");
 
 	const char *methodName = "getAction";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -1295,8 +1260,6 @@ AndroidCXX::java_lang_String android_content_IntentFilter::getAction(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -1325,7 +1288,6 @@ AndroidCXX::java_lang_String android_content_IntentFilter::getAction(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1343,17 +1305,17 @@ AndroidCXX::java_lang_String android_content_IntentFilter::getAction(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String android_content_IntentFilter::getAction(int& arg0) exit");
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_String android_content_IntentFilter::getAction(int const& arg0) exit");
 
 	return result;
 }
-bool android_content_IntentFilter::hasCategory(AndroidCXX::java_lang_String& arg0)
+bool android_content_IntentFilter::hasCategory(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("bool android_content_IntentFilter::hasCategory(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("bool android_content_IntentFilter::hasCategory(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "hasCategory";
 	const char *methodSignature = "(Ljava/lang/String;)Z";
@@ -1363,8 +1325,6 @@ bool android_content_IntentFilter::hasCategory(AndroidCXX::java_lang_String& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -1393,7 +1353,6 @@ bool android_content_IntentFilter::hasCategory(AndroidCXX::java_lang_String& arg
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1411,17 +1370,17 @@ bool android_content_IntentFilter::hasCategory(AndroidCXX::java_lang_String& arg
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_content_IntentFilter::hasCategory(AndroidCXX::java_lang_String& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_content_IntentFilter::hasCategory(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-void android_content_IntentFilter::addCategory(AndroidCXX::java_lang_String& arg0)
+void android_content_IntentFilter::addCategory(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_content_IntentFilter::addCategory(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_content_IntentFilter::addCategory(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "addCategory";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -1432,8 +1391,6 @@ void android_content_IntentFilter::addCategory(AndroidCXX::java_lang_String& arg
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1463,14 +1420,12 @@ void android_content_IntentFilter::addCategory(AndroidCXX::java_lang_String& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_IntentFilter::addCategory(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_content_IntentFilter::addCategory(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-void android_content_IntentFilter::addAction(AndroidCXX::java_lang_String& arg0)
+void android_content_IntentFilter::addAction(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_content_IntentFilter::addAction(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_content_IntentFilter::addAction(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "addAction";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -1481,8 +1436,6 @@ void android_content_IntentFilter::addAction(AndroidCXX::java_lang_String& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1512,9 +1465,7 @@ void android_content_IntentFilter::addAction(AndroidCXX::java_lang_String& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_IntentFilter::addAction(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_content_IntentFilter::addAction(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 int android_content_IntentFilter::countActions()
@@ -1530,15 +1481,12 @@ int android_content_IntentFilter::countActions()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_IntentFilter jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1556,17 +1504,17 @@ int android_content_IntentFilter::countActions()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_content_IntentFilter::countActions() exit");
 
 	return result;
 }
-bool android_content_IntentFilter::hasAction(AndroidCXX::java_lang_String& arg0)
+bool android_content_IntentFilter::hasAction(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("bool android_content_IntentFilter::hasAction(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("bool android_content_IntentFilter::hasAction(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "hasAction";
 	const char *methodSignature = "(Ljava/lang/String;)Z";
@@ -1577,8 +1525,6 @@ bool android_content_IntentFilter::hasAction(AndroidCXX::java_lang_String& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1606,7 +1552,6 @@ bool android_content_IntentFilter::hasAction(AndroidCXX::java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1624,17 +1569,17 @@ bool android_content_IntentFilter::hasAction(AndroidCXX::java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_content_IntentFilter::hasAction(AndroidCXX::java_lang_String& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_content_IntentFilter::hasAction(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-bool android_content_IntentFilter::matchAction(AndroidCXX::java_lang_String& arg0)
+bool android_content_IntentFilter::matchAction(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("bool android_content_IntentFilter::matchAction(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("bool android_content_IntentFilter::matchAction(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "matchAction";
 	const char *methodSignature = "(Ljava/lang/String;)Z";
@@ -1645,8 +1590,6 @@ bool android_content_IntentFilter::matchAction(AndroidCXX::java_lang_String& arg
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1674,7 +1617,6 @@ bool android_content_IntentFilter::matchAction(AndroidCXX::java_lang_String& arg
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1692,11 +1634,11 @@ bool android_content_IntentFilter::matchAction(AndroidCXX::java_lang_String& arg
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_content_IntentFilter::matchAction(AndroidCXX::java_lang_String& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_content_IntentFilter::matchAction(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
@@ -1713,15 +1655,12 @@ AndroidCXX::java_util_Iterator android_content_IntentFilter::actionsIterator()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_IntentFilter jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_Iterator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1757,17 +1696,17 @@ AndroidCXX::java_util_Iterator android_content_IntentFilter::actionsIterator()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Iterator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Iterator) (AndroidCXX::java_util_Iterator((AndroidCXX::java_util_Iterator *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_util_Iterator result((AndroidCXX::java_util_Iterator) *((AndroidCXX::java_util_Iterator *) cxx_value));
+	delete ((AndroidCXX::java_util_Iterator *) cxx_value);
+		
 	LOGV("AndroidCXX::java_util_Iterator android_content_IntentFilter::actionsIterator() exit");
 
 	return result;
 }
-void android_content_IntentFilter::addDataType(AndroidCXX::java_lang_String& arg0)
+void android_content_IntentFilter::addDataType(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_content_IntentFilter::addDataType(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_content_IntentFilter::addDataType(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "addDataType";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -1777,8 +1716,6 @@ void android_content_IntentFilter::addDataType(AndroidCXX::java_lang_String& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -1809,14 +1746,12 @@ void android_content_IntentFilter::addDataType(AndroidCXX::java_lang_String& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_IntentFilter::addDataType(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_content_IntentFilter::addDataType(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
-bool android_content_IntentFilter::hasDataType(AndroidCXX::java_lang_String& arg0)
+bool android_content_IntentFilter::hasDataType(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("bool android_content_IntentFilter::hasDataType(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("bool android_content_IntentFilter::hasDataType(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "hasDataType";
 	const char *methodSignature = "(Ljava/lang/String;)Z";
@@ -1826,8 +1761,6 @@ bool android_content_IntentFilter::hasDataType(AndroidCXX::java_lang_String& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -1856,7 +1789,6 @@ bool android_content_IntentFilter::hasDataType(AndroidCXX::java_lang_String& arg
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1874,11 +1806,11 @@ bool android_content_IntentFilter::hasDataType(AndroidCXX::java_lang_String& arg
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_content_IntentFilter::hasDataType(AndroidCXX::java_lang_String& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_content_IntentFilter::hasDataType(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
@@ -1895,15 +1827,12 @@ int android_content_IntentFilter::countDataTypes()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_IntentFilter jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1921,17 +1850,17 @@ int android_content_IntentFilter::countDataTypes()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_content_IntentFilter::countDataTypes() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_IntentFilter::getDataType(int& arg0)
+AndroidCXX::java_lang_String android_content_IntentFilter::getDataType(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_IntentFilter::getDataType(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_IntentFilter::getDataType(int const& arg0) enter");
 
 	const char *methodName = "getDataType";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -1941,8 +1870,6 @@ AndroidCXX::java_lang_String android_content_IntentFilter::getDataType(int& arg0
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -1971,7 +1898,6 @@ AndroidCXX::java_lang_String android_content_IntentFilter::getDataType(int& arg0
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1989,11 +1915,11 @@ AndroidCXX::java_lang_String android_content_IntentFilter::getDataType(int& arg0
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String android_content_IntentFilter::getDataType(int& arg0) exit");
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_String android_content_IntentFilter::getDataType(int const& arg0) exit");
 
 	return result;
 }
@@ -2010,15 +1936,12 @@ AndroidCXX::java_util_Iterator android_content_IntentFilter::typesIterator()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_IntentFilter jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_Iterator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2054,17 +1977,17 @@ AndroidCXX::java_util_Iterator android_content_IntentFilter::typesIterator()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Iterator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Iterator) (AndroidCXX::java_util_Iterator((AndroidCXX::java_util_Iterator *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_util_Iterator result((AndroidCXX::java_util_Iterator) *((AndroidCXX::java_util_Iterator *) cxx_value));
+	delete ((AndroidCXX::java_util_Iterator *) cxx_value);
+		
 	LOGV("AndroidCXX::java_util_Iterator android_content_IntentFilter::typesIterator() exit");
 
 	return result;
 }
-void android_content_IntentFilter::addDataScheme(AndroidCXX::java_lang_String& arg0)
+void android_content_IntentFilter::addDataScheme(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("void android_content_IntentFilter::addDataScheme(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("void android_content_IntentFilter::addDataScheme(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "addDataScheme";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -2074,8 +1997,6 @@ void android_content_IntentFilter::addDataScheme(AndroidCXX::java_lang_String& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -2106,9 +2027,7 @@ void android_content_IntentFilter::addDataScheme(AndroidCXX::java_lang_String& a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_IntentFilter::addDataScheme(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("void android_content_IntentFilter::addDataScheme(AndroidCXX::java_lang_String const& arg0) exit");
 
 }
 int android_content_IntentFilter::countDataSchemes()
@@ -2124,15 +2043,12 @@ int android_content_IntentFilter::countDataSchemes()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_IntentFilter jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2150,17 +2066,17 @@ int android_content_IntentFilter::countDataSchemes()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_content_IntentFilter::countDataSchemes() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_IntentFilter::getDataScheme(int& arg0)
+AndroidCXX::java_lang_String android_content_IntentFilter::getDataScheme(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_IntentFilter::getDataScheme(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_IntentFilter::getDataScheme(int const& arg0) enter");
 
 	const char *methodName = "getDataScheme";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -2170,8 +2086,6 @@ AndroidCXX::java_lang_String android_content_IntentFilter::getDataScheme(int& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -2200,7 +2114,6 @@ AndroidCXX::java_lang_String android_content_IntentFilter::getDataScheme(int& ar
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2218,17 +2131,17 @@ AndroidCXX::java_lang_String android_content_IntentFilter::getDataScheme(int& ar
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String android_content_IntentFilter::getDataScheme(int& arg0) exit");
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_String android_content_IntentFilter::getDataScheme(int const& arg0) exit");
 
 	return result;
 }
-bool android_content_IntentFilter::hasDataScheme(AndroidCXX::java_lang_String& arg0)
+bool android_content_IntentFilter::hasDataScheme(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("bool android_content_IntentFilter::hasDataScheme(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("bool android_content_IntentFilter::hasDataScheme(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "hasDataScheme";
 	const char *methodSignature = "(Ljava/lang/String;)Z";
@@ -2238,8 +2151,6 @@ bool android_content_IntentFilter::hasDataScheme(AndroidCXX::java_lang_String& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -2268,7 +2179,6 @@ bool android_content_IntentFilter::hasDataScheme(AndroidCXX::java_lang_String& a
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2286,11 +2196,11 @@ bool android_content_IntentFilter::hasDataScheme(AndroidCXX::java_lang_String& a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_content_IntentFilter::hasDataScheme(AndroidCXX::java_lang_String& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_content_IntentFilter::hasDataScheme(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
@@ -2307,15 +2217,12 @@ AndroidCXX::java_util_Iterator android_content_IntentFilter::schemesIterator()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_IntentFilter jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_Iterator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2351,17 +2258,17 @@ AndroidCXX::java_util_Iterator android_content_IntentFilter::schemesIterator()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Iterator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Iterator) (AndroidCXX::java_util_Iterator((AndroidCXX::java_util_Iterator *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_util_Iterator result((AndroidCXX::java_util_Iterator) *((AndroidCXX::java_util_Iterator *) cxx_value));
+	delete ((AndroidCXX::java_util_Iterator *) cxx_value);
+		
 	LOGV("AndroidCXX::java_util_Iterator android_content_IntentFilter::schemesIterator() exit");
 
 	return result;
 }
-void android_content_IntentFilter::addDataAuthority(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
+void android_content_IntentFilter::addDataAuthority(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("void android_content_IntentFilter::addDataAuthority(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("void android_content_IntentFilter::addDataAuthority(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "addDataAuthority";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
@@ -2371,8 +2278,6 @@ void android_content_IntentFilter::addDataAuthority(AndroidCXX::java_lang_String
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -2424,9 +2329,7 @@ void android_content_IntentFilter::addDataAuthority(AndroidCXX::java_lang_String
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_IntentFilter::addDataAuthority(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("void android_content_IntentFilter::addDataAuthority(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 }
 int android_content_IntentFilter::countDataAuthorities()
@@ -2442,15 +2345,12 @@ int android_content_IntentFilter::countDataAuthorities()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_IntentFilter jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2468,17 +2368,17 @@ int android_content_IntentFilter::countDataAuthorities()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_content_IntentFilter::countDataAuthorities() exit");
 
 	return result;
 }
-AndroidCXX::android_content_IntentFilter_AuthorityEntry android_content_IntentFilter::getDataAuthority(int& arg0)
+AndroidCXX::android_content_IntentFilter_AuthorityEntry android_content_IntentFilter::getDataAuthority(int const& arg0)
 {
-	LOGV("AndroidCXX::android_content_IntentFilter_AuthorityEntry android_content_IntentFilter::getDataAuthority(int& arg0) enter");
+	LOGV("AndroidCXX::android_content_IntentFilter_AuthorityEntry android_content_IntentFilter::getDataAuthority(int const& arg0) enter");
 
 	const char *methodName = "getDataAuthority";
 	const char *methodSignature = "(I)Landroid/content/IntentFilter$AuthorityEntry;";
@@ -2488,8 +2388,6 @@ AndroidCXX::android_content_IntentFilter_AuthorityEntry android_content_IntentFi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -2518,7 +2416,6 @@ AndroidCXX::android_content_IntentFilter_AuthorityEntry android_content_IntentFi
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_IntentFilter_AuthorityEntry result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2536,17 +2433,17 @@ AndroidCXX::android_content_IntentFilter_AuthorityEntry android_content_IntentFi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_IntentFilter_AuthorityEntry(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_IntentFilter_AuthorityEntry) (AndroidCXX::android_content_IntentFilter_AuthorityEntry((AndroidCXX::android_content_IntentFilter_AuthorityEntry *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_content_IntentFilter_AuthorityEntry android_content_IntentFilter::getDataAuthority(int& arg0) exit");
+	AndroidCXX::android_content_IntentFilter_AuthorityEntry result((AndroidCXX::android_content_IntentFilter_AuthorityEntry) *((AndroidCXX::android_content_IntentFilter_AuthorityEntry *) cxx_value));
+	delete ((AndroidCXX::android_content_IntentFilter_AuthorityEntry *) cxx_value);
+		
+	LOGV("AndroidCXX::android_content_IntentFilter_AuthorityEntry android_content_IntentFilter::getDataAuthority(int const& arg0) exit");
 
 	return result;
 }
-bool android_content_IntentFilter::hasDataAuthority(AndroidCXX::android_net_Uri& arg0)
+bool android_content_IntentFilter::hasDataAuthority(AndroidCXX::android_net_Uri const& arg0)
 {
-	LOGV("bool android_content_IntentFilter::hasDataAuthority(AndroidCXX::android_net_Uri& arg0) enter");
+	LOGV("bool android_content_IntentFilter::hasDataAuthority(AndroidCXX::android_net_Uri const& arg0) enter");
 
 	const char *methodName = "hasDataAuthority";
 	const char *methodSignature = "(Landroid/net/Uri;)Z";
@@ -2556,8 +2453,6 @@ bool android_content_IntentFilter::hasDataAuthority(AndroidCXX::android_net_Uri&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -2586,7 +2481,6 @@ bool android_content_IntentFilter::hasDataAuthority(AndroidCXX::android_net_Uri&
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2604,11 +2498,11 @@ bool android_content_IntentFilter::hasDataAuthority(AndroidCXX::android_net_Uri&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_content_IntentFilter::hasDataAuthority(AndroidCXX::android_net_Uri& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_content_IntentFilter::hasDataAuthority(AndroidCXX::android_net_Uri const& arg0) exit");
 
 	return result;
 }
@@ -2625,15 +2519,12 @@ AndroidCXX::java_util_Iterator android_content_IntentFilter::authoritiesIterator
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_IntentFilter jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_Iterator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2669,17 +2560,17 @@ AndroidCXX::java_util_Iterator android_content_IntentFilter::authoritiesIterator
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Iterator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Iterator) (AndroidCXX::java_util_Iterator((AndroidCXX::java_util_Iterator *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_util_Iterator result((AndroidCXX::java_util_Iterator) *((AndroidCXX::java_util_Iterator *) cxx_value));
+	delete ((AndroidCXX::java_util_Iterator *) cxx_value);
+		
 	LOGV("AndroidCXX::java_util_Iterator android_content_IntentFilter::authoritiesIterator() exit");
 
 	return result;
 }
-void android_content_IntentFilter::addDataPath(AndroidCXX::java_lang_String& arg0,int& arg1)
+void android_content_IntentFilter::addDataPath(AndroidCXX::java_lang_String const& arg0,int const& arg1)
 {
-	LOGV("void android_content_IntentFilter::addDataPath(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
+	LOGV("void android_content_IntentFilter::addDataPath(AndroidCXX::java_lang_String const& arg0,int const& arg1) enter");
 
 	const char *methodName = "addDataPath";
 	const char *methodSignature = "(Ljava/lang/String;I)V";
@@ -2689,8 +2580,6 @@ void android_content_IntentFilter::addDataPath(AndroidCXX::java_lang_String& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -2742,9 +2631,7 @@ void android_content_IntentFilter::addDataPath(AndroidCXX::java_lang_String& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_IntentFilter::addDataPath(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
+	LOGV("void android_content_IntentFilter::addDataPath(AndroidCXX::java_lang_String const& arg0,int const& arg1) exit");
 
 }
 int android_content_IntentFilter::countDataPaths()
@@ -2760,15 +2647,12 @@ int android_content_IntentFilter::countDataPaths()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_IntentFilter jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2786,17 +2670,17 @@ int android_content_IntentFilter::countDataPaths()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_content_IntentFilter::countDataPaths() exit");
 
 	return result;
 }
-AndroidCXX::android_os_PatternMatcher android_content_IntentFilter::getDataPath(int& arg0)
+AndroidCXX::android_os_PatternMatcher android_content_IntentFilter::getDataPath(int const& arg0)
 {
-	LOGV("AndroidCXX::android_os_PatternMatcher android_content_IntentFilter::getDataPath(int& arg0) enter");
+	LOGV("AndroidCXX::android_os_PatternMatcher android_content_IntentFilter::getDataPath(int const& arg0) enter");
 
 	const char *methodName = "getDataPath";
 	const char *methodSignature = "(I)Landroid/os/PatternMatcher;";
@@ -2806,8 +2690,6 @@ AndroidCXX::android_os_PatternMatcher android_content_IntentFilter::getDataPath(
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -2836,7 +2718,6 @@ AndroidCXX::android_os_PatternMatcher android_content_IntentFilter::getDataPath(
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_os_PatternMatcher result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2854,17 +2735,17 @@ AndroidCXX::android_os_PatternMatcher android_content_IntentFilter::getDataPath(
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_PatternMatcher(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_PatternMatcher) (AndroidCXX::android_os_PatternMatcher((AndroidCXX::android_os_PatternMatcher *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_os_PatternMatcher android_content_IntentFilter::getDataPath(int& arg0) exit");
+	AndroidCXX::android_os_PatternMatcher result((AndroidCXX::android_os_PatternMatcher) *((AndroidCXX::android_os_PatternMatcher *) cxx_value));
+	delete ((AndroidCXX::android_os_PatternMatcher *) cxx_value);
+		
+	LOGV("AndroidCXX::android_os_PatternMatcher android_content_IntentFilter::getDataPath(int const& arg0) exit");
 
 	return result;
 }
-bool android_content_IntentFilter::hasDataPath(AndroidCXX::java_lang_String& arg0)
+bool android_content_IntentFilter::hasDataPath(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("bool android_content_IntentFilter::hasDataPath(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("bool android_content_IntentFilter::hasDataPath(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "hasDataPath";
 	const char *methodSignature = "(Ljava/lang/String;)Z";
@@ -2874,8 +2755,6 @@ bool android_content_IntentFilter::hasDataPath(AndroidCXX::java_lang_String& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -2904,7 +2783,6 @@ bool android_content_IntentFilter::hasDataPath(AndroidCXX::java_lang_String& arg
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2922,11 +2800,11 @@ bool android_content_IntentFilter::hasDataPath(AndroidCXX::java_lang_String& arg
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_content_IntentFilter::hasDataPath(AndroidCXX::java_lang_String& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_content_IntentFilter::hasDataPath(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
@@ -2943,15 +2821,12 @@ AndroidCXX::java_util_Iterator android_content_IntentFilter::pathsIterator()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_IntentFilter jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_Iterator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2987,17 +2862,17 @@ AndroidCXX::java_util_Iterator android_content_IntentFilter::pathsIterator()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Iterator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Iterator) (AndroidCXX::java_util_Iterator((AndroidCXX::java_util_Iterator *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_util_Iterator result((AndroidCXX::java_util_Iterator) *((AndroidCXX::java_util_Iterator *) cxx_value));
+	delete ((AndroidCXX::java_util_Iterator *) cxx_value);
+		
 	LOGV("AndroidCXX::java_util_Iterator android_content_IntentFilter::pathsIterator() exit");
 
 	return result;
 }
-int android_content_IntentFilter::matchDataAuthority(AndroidCXX::android_net_Uri& arg0)
+int android_content_IntentFilter::matchDataAuthority(AndroidCXX::android_net_Uri const& arg0)
 {
-	LOGV("int android_content_IntentFilter::matchDataAuthority(AndroidCXX::android_net_Uri& arg0) enter");
+	LOGV("int android_content_IntentFilter::matchDataAuthority(AndroidCXX::android_net_Uri const& arg0) enter");
 
 	const char *methodName = "matchDataAuthority";
 	const char *methodSignature = "(Landroid/net/Uri;)I";
@@ -3007,8 +2882,6 @@ int android_content_IntentFilter::matchDataAuthority(AndroidCXX::android_net_Uri
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -3037,7 +2910,6 @@ int android_content_IntentFilter::matchDataAuthority(AndroidCXX::android_net_Uri
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -3055,17 +2927,17 @@ int android_content_IntentFilter::matchDataAuthority(AndroidCXX::android_net_Uri
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_content_IntentFilter::matchDataAuthority(AndroidCXX::android_net_Uri& arg0) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_content_IntentFilter::matchDataAuthority(AndroidCXX::android_net_Uri const& arg0) exit");
 
 	return result;
 }
-int android_content_IntentFilter::matchData(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_net_Uri& arg2)
+int android_content_IntentFilter::matchData(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_net_Uri const& arg2)
 {
-	LOGV("int android_content_IntentFilter::matchData(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_net_Uri& arg2) enter");
+	LOGV("int android_content_IntentFilter::matchData(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_net_Uri const& arg2) enter");
 
 	const char *methodName = "matchData";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;)I";
@@ -3075,8 +2947,6 @@ int android_content_IntentFilter::matchData(AndroidCXX::java_lang_String& arg0,A
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -3147,7 +3017,6 @@ int android_content_IntentFilter::matchData(AndroidCXX::java_lang_String& arg0,A
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -3165,11 +3034,11 @@ int android_content_IntentFilter::matchData(AndroidCXX::java_lang_String& arg0,A
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_content_IntentFilter::matchData(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_net_Uri& arg2) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_content_IntentFilter::matchData(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_net_Uri const& arg2) exit");
 
 	return result;
 }
@@ -3186,15 +3055,12 @@ int android_content_IntentFilter::countCategories()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_IntentFilter jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -3212,17 +3078,17 @@ int android_content_IntentFilter::countCategories()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_content_IntentFilter::countCategories() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_IntentFilter::getCategory(int& arg0)
+AndroidCXX::java_lang_String android_content_IntentFilter::getCategory(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_IntentFilter::getCategory(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_IntentFilter::getCategory(int const& arg0) enter");
 
 	const char *methodName = "getCategory";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -3232,8 +3098,6 @@ AndroidCXX::java_lang_String android_content_IntentFilter::getCategory(int& arg0
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -3262,7 +3126,6 @@ AndroidCXX::java_lang_String android_content_IntentFilter::getCategory(int& arg0
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -3280,11 +3143,11 @@ AndroidCXX::java_lang_String android_content_IntentFilter::getCategory(int& arg0
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String android_content_IntentFilter::getCategory(int& arg0) exit");
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_String android_content_IntentFilter::getCategory(int const& arg0) exit");
 
 	return result;
 }
@@ -3301,15 +3164,12 @@ AndroidCXX::java_util_Iterator android_content_IntentFilter::categoriesIterator(
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_IntentFilter jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_Iterator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3345,17 +3205,17 @@ AndroidCXX::java_util_Iterator android_content_IntentFilter::categoriesIterator(
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Iterator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Iterator) (AndroidCXX::java_util_Iterator((AndroidCXX::java_util_Iterator *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_util_Iterator result((AndroidCXX::java_util_Iterator) *((AndroidCXX::java_util_Iterator *) cxx_value));
+	delete ((AndroidCXX::java_util_Iterator *) cxx_value);
+		
 	LOGV("AndroidCXX::java_util_Iterator android_content_IntentFilter::categoriesIterator() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_IntentFilter::matchCategories(AndroidCXX::java_util_Set& arg0)
+AndroidCXX::java_lang_String android_content_IntentFilter::matchCategories(AndroidCXX::java_util_Set const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_IntentFilter::matchCategories(AndroidCXX::java_util_Set& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_IntentFilter::matchCategories(AndroidCXX::java_util_Set const& arg0) enter");
 
 	const char *methodName = "matchCategories";
 	const char *methodSignature = "(Ljava/util/Set;)Ljava/lang/String;";
@@ -3365,8 +3225,6 @@ AndroidCXX::java_lang_String android_content_IntentFilter::matchCategories(Andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -3413,7 +3271,6 @@ AndroidCXX::java_lang_String android_content_IntentFilter::matchCategories(Andro
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -3431,17 +3288,17 @@ AndroidCXX::java_lang_String android_content_IntentFilter::matchCategories(Andro
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String android_content_IntentFilter::matchCategories(AndroidCXX::java_util_Set& arg0) exit");
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_String android_content_IntentFilter::matchCategories(AndroidCXX::java_util_Set const& arg0) exit");
 
 	return result;
 }
-void android_content_IntentFilter::writeToXml(AndroidCXX::org_xmlpull_v1_XmlSerializer& arg0)
+void android_content_IntentFilter::writeToXml(AndroidCXX::org_xmlpull_v1_XmlSerializer const& arg0)
 {
-	LOGV("void android_content_IntentFilter::writeToXml(AndroidCXX::org_xmlpull_v1_XmlSerializer& arg0) enter");
+	LOGV("void android_content_IntentFilter::writeToXml(AndroidCXX::org_xmlpull_v1_XmlSerializer const& arg0) enter");
 
 	const char *methodName = "writeToXml";
 	const char *methodSignature = "(Lorg/xmlpull/v1/XmlSerializer;)V";
@@ -3451,8 +3308,6 @@ void android_content_IntentFilter::writeToXml(AndroidCXX::org_xmlpull_v1_XmlSeri
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -3483,14 +3338,12 @@ void android_content_IntentFilter::writeToXml(AndroidCXX::org_xmlpull_v1_XmlSeri
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_IntentFilter::writeToXml(AndroidCXX::org_xmlpull_v1_XmlSerializer& arg0) exit");
+	LOGV("void android_content_IntentFilter::writeToXml(AndroidCXX::org_xmlpull_v1_XmlSerializer const& arg0) exit");
 
 }
-void android_content_IntentFilter::readFromXml(AndroidCXX::org_xmlpull_v1_XmlPullParser& arg0)
+void android_content_IntentFilter::readFromXml(AndroidCXX::org_xmlpull_v1_XmlPullParser const& arg0)
 {
-	LOGV("void android_content_IntentFilter::readFromXml(AndroidCXX::org_xmlpull_v1_XmlPullParser& arg0) enter");
+	LOGV("void android_content_IntentFilter::readFromXml(AndroidCXX::org_xmlpull_v1_XmlPullParser const& arg0) enter");
 
 	const char *methodName = "readFromXml";
 	const char *methodSignature = "(Lorg/xmlpull/v1/XmlPullParser;)V";
@@ -3500,8 +3353,6 @@ void android_content_IntentFilter::readFromXml(AndroidCXX::org_xmlpull_v1_XmlPul
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_IntentFilter cxx address %d", cxxAddress);
@@ -3532,8 +3383,6 @@ void android_content_IntentFilter::readFromXml(AndroidCXX::org_xmlpull_v1_XmlPul
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_IntentFilter::readFromXml(AndroidCXX::org_xmlpull_v1_XmlPullParser& arg0) exit");
+	LOGV("void android_content_IntentFilter::readFromXml(AndroidCXX::org_xmlpull_v1_XmlPullParser const& arg0) exit");
 
 }

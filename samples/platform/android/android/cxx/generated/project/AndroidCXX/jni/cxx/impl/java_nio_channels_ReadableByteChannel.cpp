@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -28,7 +27,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_nio_channels_ReadableByteChannel"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -47,8 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_nio_channels_ReadableByteChannel::java_nio_channels_ReadableByteChannel(const java_nio_channels_ReadableByteChannel& cc)
 {
 	LOGV("java_nio_channels_ReadableByteChannel::java_nio_channels_ReadableByteChannel(const java_nio_channels_ReadableByteChannel& cc) enter");
@@ -72,9 +69,9 @@ java_nio_channels_ReadableByteChannel::java_nio_channels_ReadableByteChannel(con
 
 	LOGV("java_nio_channels_ReadableByteChannel::java_nio_channels_ReadableByteChannel(const java_nio_channels_ReadableByteChannel& cc) exit");
 }
-java_nio_channels_ReadableByteChannel::java_nio_channels_ReadableByteChannel(void * proxy)
+java_nio_channels_ReadableByteChannel::java_nio_channels_ReadableByteChannel(Proxy proxy)
 {
-	LOGV("java_nio_channels_ReadableByteChannel::java_nio_channels_ReadableByteChannel(void * proxy) enter");
+	LOGV("java_nio_channels_ReadableByteChannel::java_nio_channels_ReadableByteChannel(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -84,47 +81,31 @@ java_nio_channels_ReadableByteChannel::java_nio_channels_ReadableByteChannel(voi
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_nio_channels_ReadableByteChannel::java_nio_channels_ReadableByteChannel(void * proxy) exit");
+	LOGV("java_nio_channels_ReadableByteChannel::java_nio_channels_ReadableByteChannel(Proxy proxy) exit");
 }
-java_nio_channels_ReadableByteChannel::java_nio_channels_ReadableByteChannel()
-{
-	LOGV("java_nio_channels_ReadableByteChannel::java_nio_channels_ReadableByteChannel() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "java/nio/channels/ReadableByteChannel";
-
-	LOGV("java_nio_channels_ReadableByteChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy java_nio_channels_ReadableByteChannel::proxy() const
+{	
+	LOGV("java_nio_channels_ReadableByteChannel::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_ReadableByteChannel cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("java_nio_channels_ReadableByteChannel jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("java_nio_channels_ReadableByteChannel::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("java_nio_channels_ReadableByteChannel::java_nio_channels_ReadableByteChannel() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 java_nio_channels_ReadableByteChannel::~java_nio_channels_ReadableByteChannel()
 {
@@ -136,13 +117,13 @@ java_nio_channels_ReadableByteChannel::~java_nio_channels_ReadableByteChannel()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_nio_channels_ReadableByteChannel::~java_nio_channels_ReadableByteChannel() exit");
 }
 // Functions
-int java_nio_channels_ReadableByteChannel::read(AndroidCXX::java_nio_ByteBuffer& arg0)
+int java_nio_channels_ReadableByteChannel::read(AndroidCXX::java_nio_ByteBuffer const& arg0)
 {
-	LOGV("int java_nio_channels_ReadableByteChannel::read(AndroidCXX::java_nio_ByteBuffer& arg0) enter");
+	LOGV("int java_nio_channels_ReadableByteChannel::read(AndroidCXX::java_nio_ByteBuffer const& arg0) enter");
 
 	const char *methodName = "read";
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;)I";
@@ -152,8 +133,6 @@ int java_nio_channels_ReadableByteChannel::read(AndroidCXX::java_nio_ByteBuffer&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_channels_ReadableByteChannel cxx address %d", cxxAddress);
@@ -182,7 +161,6 @@ int java_nio_channels_ReadableByteChannel::read(AndroidCXX::java_nio_ByteBuffer&
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -200,11 +178,11 @@ int java_nio_channels_ReadableByteChannel::read(AndroidCXX::java_nio_ByteBuffer&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int java_nio_channels_ReadableByteChannel::read(AndroidCXX::java_nio_ByteBuffer& arg0) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int java_nio_channels_ReadableByteChannel::read(AndroidCXX::java_nio_ByteBuffer const& arg0) exit");
 
 	return result;
 }

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -81,28 +80,29 @@ class android_util_SparseArray
 public:
 
 	android_util_SparseArray(const android_util_SparseArray& cc);
-	android_util_SparseArray(void * proxy);
+	android_util_SparseArray(Proxy proxy);
 	// Public Constructors
-	android_util_SparseArray(int& arg0);
+	android_util_SparseArray(int const& arg0);
 	android_util_SparseArray();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_util_SparseArray();
 	// Functions
-	 AndroidCXX::java_lang_Object get(int& arg0);
-	 AndroidCXX::java_lang_Object get(int& arg0,AndroidCXX::java_lang_Object& arg1);
-	 void put(int& arg0,AndroidCXX::java_lang_Object& arg1);
-	 void append(int& arg0,AndroidCXX::java_lang_Object& arg1);
+	 AndroidCXX::java_lang_Object get(int const& arg0);
+	 AndroidCXX::java_lang_Object get(int const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	 void put(int const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	 void append(int const& arg0,AndroidCXX::java_lang_Object const& arg1);
 	 AndroidCXX::android_util_SparseArray clone();
 	 void clear();
 	 int size();
-	 void remove(int& arg0);
-	 void _delete(int& arg0);
-	 void removeAt(int& arg0);
-	 int keyAt(int& arg0);
-	 AndroidCXX::java_lang_Object valueAt(int& arg0);
-	 void setValueAt(int& arg0,AndroidCXX::java_lang_Object& arg1);
-	 int indexOfKey(int& arg0);
-	 int indexOfValue(AndroidCXX::java_lang_Object& arg0);
+	 void remove(int const& arg0);
+	 void _delete(int const& arg0);
+	 void removeAt(int const& arg0);
+	 int keyAt(int const& arg0);
+	 AndroidCXX::java_lang_Object valueAt(int const& arg0);
+	 void setValueAt(int const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	 int indexOfKey(int const& arg0);
+	 int indexOfValue(AndroidCXX::java_lang_Object const& arg0);
 };	
 
 } // namespace

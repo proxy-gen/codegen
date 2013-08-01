@@ -1,11 +1,11 @@
 APP_PLATFORM=android-8
-APP_ABI := all
+APP_ABI := armeabi
 APP_STL := gnustl_static
 #set $working_dir = $CONFIG.working_dir
 #set $output_dir_name = $CONFIG.output_dir_name
 #set $config_data = $CONFIG.config_module.config_data
 #set $package = $config_data['package']
-NDK_MODULE_PATH := ${working_dir}:${output_dir_name}
+NDK_MODULE_PATH := ${working_dir}/../../..:${output_dir_name}
 #NDKR8 bug? the list of modules has to be explicitly listed to compile static
-APP_MODULES := ${package}_static ${package}_shared
+APP_MODULES := ${package}_static
 APP_CPPFLAGS := -fpermissive

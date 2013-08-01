@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -32,7 +31,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_text_TextPaint"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -54,8 +53,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_text_TextPaint::android_text_TextPaint(const android_text_TextPaint& cc)
 {
 	LOGV("android_text_TextPaint::android_text_TextPaint(const android_text_TextPaint& cc) enter");
@@ -79,9 +76,9 @@ android_text_TextPaint::android_text_TextPaint(const android_text_TextPaint& cc)
 
 	LOGV("android_text_TextPaint::android_text_TextPaint(const android_text_TextPaint& cc) exit");
 }
-android_text_TextPaint::android_text_TextPaint(void * proxy)
+android_text_TextPaint::android_text_TextPaint(Proxy proxy)
 {
-	LOGV("android_text_TextPaint::android_text_TextPaint(void * proxy) enter");
+	LOGV("android_text_TextPaint::android_text_TextPaint(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -91,13 +88,31 @@ android_text_TextPaint::android_text_TextPaint(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_text_TextPaint::android_text_TextPaint(void * proxy) exit");
+	LOGV("android_text_TextPaint::android_text_TextPaint(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy android_text_TextPaint::proxy() const
+{	
+	LOGV("android_text_TextPaint::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_text_TextPaint cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_text_TextPaint jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_text_TextPaint::proxy() exit");	
+
+	return proxy;
+}
 android_text_TextPaint::android_text_TextPaint()
 {
 	LOGV("android_text_TextPaint::android_text_TextPaint() enter");	
@@ -134,9 +149,9 @@ android_text_TextPaint::android_text_TextPaint()
 
 	LOGV("android_text_TextPaint::android_text_TextPaint() exit");	
 }
-android_text_TextPaint::android_text_TextPaint(int& arg0)
+android_text_TextPaint::android_text_TextPaint(int const& arg0)
 {
-	LOGV("android_text_TextPaint::android_text_TextPaint(int& arg0) enter");	
+	LOGV("android_text_TextPaint::android_text_TextPaint(int const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(I)V";
@@ -189,11 +204,11 @@ android_text_TextPaint::android_text_TextPaint(int& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("android_text_TextPaint::android_text_TextPaint(int& arg0) exit");	
+	LOGV("android_text_TextPaint::android_text_TextPaint(int const& arg0) exit");	
 }
-android_text_TextPaint::android_text_TextPaint(AndroidCXX::android_graphics_Paint& arg0)
+android_text_TextPaint::android_text_TextPaint(AndroidCXX::android_graphics_Paint const& arg0)
 {
-	LOGV("android_text_TextPaint::android_text_TextPaint(AndroidCXX::android_graphics_Paint& arg0) enter");	
+	LOGV("android_text_TextPaint::android_text_TextPaint(AndroidCXX::android_graphics_Paint const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/graphics/Paint;)V";
@@ -246,7 +261,7 @@ android_text_TextPaint::android_text_TextPaint(AndroidCXX::android_graphics_Pain
 
 	jni->popLocalFrame();
 
-	LOGV("android_text_TextPaint::android_text_TextPaint(AndroidCXX::android_graphics_Paint& arg0) exit");	
+	LOGV("android_text_TextPaint::android_text_TextPaint(AndroidCXX::android_graphics_Paint const& arg0) exit");	
 }
 // Default Instance Destructor
 android_text_TextPaint::~android_text_TextPaint()
@@ -259,13 +274,13 @@ android_text_TextPaint::~android_text_TextPaint()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_text_TextPaint::~android_text_TextPaint() exit");
 }
 // Functions
-void android_text_TextPaint::set(AndroidCXX::android_text_TextPaint& arg0)
+void android_text_TextPaint::set(AndroidCXX::android_text_TextPaint const& arg0)
 {
-	LOGV("void android_text_TextPaint::set(AndroidCXX::android_text_TextPaint& arg0) enter");
+	LOGV("void android_text_TextPaint::set(AndroidCXX::android_text_TextPaint const& arg0) enter");
 
 	const char *methodName = "set";
 	const char *methodSignature = "(Landroid/text/TextPaint;)V";
@@ -275,8 +290,6 @@ void android_text_TextPaint::set(AndroidCXX::android_text_TextPaint& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_text_TextPaint cxx address %d", cxxAddress);
@@ -307,8 +320,6 @@ void android_text_TextPaint::set(AndroidCXX::android_text_TextPaint& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_text_TextPaint::set(AndroidCXX::android_text_TextPaint& arg0) exit");
+	LOGV("void android_text_TextPaint::set(AndroidCXX::android_text_TextPaint const& arg0) exit");
 
 }

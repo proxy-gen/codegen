@@ -8,7 +8,6 @@
 //
 
 
-
 	
  	
  		 
@@ -57,9 +56,9 @@ class com_facebook_widget_PickerFragment_MultiSelectionStrategy
 public:
 
 	com_facebook_widget_PickerFragment_MultiSelectionStrategy(const com_facebook_widget_PickerFragment_MultiSelectionStrategy& cc);
-	com_facebook_widget_PickerFragment_MultiSelectionStrategy(void * proxy);
+	com_facebook_widget_PickerFragment_MultiSelectionStrategy(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_PickerFragment_MultiSelectionStrategy();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_MultiSelectionStrategy();
 	// Functions

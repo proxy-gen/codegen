@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 
@@ -29,7 +28,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_FilterQueryProvider"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -51,8 +50,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_widget_FilterQueryProvider::android_widget_FilterQueryProvider(const android_widget_FilterQueryProvider& cc)
 {
 	LOGV("android_widget_FilterQueryProvider::android_widget_FilterQueryProvider(const android_widget_FilterQueryProvider& cc) enter");
@@ -76,9 +73,9 @@ android_widget_FilterQueryProvider::android_widget_FilterQueryProvider(const and
 
 	LOGV("android_widget_FilterQueryProvider::android_widget_FilterQueryProvider(const android_widget_FilterQueryProvider& cc) exit");
 }
-android_widget_FilterQueryProvider::android_widget_FilterQueryProvider(void * proxy)
+android_widget_FilterQueryProvider::android_widget_FilterQueryProvider(Proxy proxy)
 {
-	LOGV("android_widget_FilterQueryProvider::android_widget_FilterQueryProvider(void * proxy) enter");
+	LOGV("android_widget_FilterQueryProvider::android_widget_FilterQueryProvider(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -88,47 +85,31 @@ android_widget_FilterQueryProvider::android_widget_FilterQueryProvider(void * pr
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_FilterQueryProvider::android_widget_FilterQueryProvider(void * proxy) exit");
+	LOGV("android_widget_FilterQueryProvider::android_widget_FilterQueryProvider(Proxy proxy) exit");
 }
-android_widget_FilterQueryProvider::android_widget_FilterQueryProvider()
-{
-	LOGV("android_widget_FilterQueryProvider::android_widget_FilterQueryProvider() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/FilterQueryProvider";
-
-	LOGV("android_widget_FilterQueryProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_widget_FilterQueryProvider::proxy() const
+{	
+	LOGV("android_widget_FilterQueryProvider::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_FilterQueryProvider cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_FilterQueryProvider jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_widget_FilterQueryProvider::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_widget_FilterQueryProvider::android_widget_FilterQueryProvider() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_widget_FilterQueryProvider::~android_widget_FilterQueryProvider()
 {
@@ -140,13 +121,13 @@ android_widget_FilterQueryProvider::~android_widget_FilterQueryProvider()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_FilterQueryProvider::~android_widget_FilterQueryProvider() exit");
 }
 // Functions
-AndroidCXX::android_database_Cursor android_widget_FilterQueryProvider::runQuery(AndroidCXX::java_lang_CharSequence& arg0)
+AndroidCXX::android_database_Cursor android_widget_FilterQueryProvider::runQuery(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("AndroidCXX::android_database_Cursor android_widget_FilterQueryProvider::runQuery(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("AndroidCXX::android_database_Cursor android_widget_FilterQueryProvider::runQuery(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "runQuery";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Landroid/database/Cursor;";
@@ -156,8 +137,6 @@ AndroidCXX::android_database_Cursor android_widget_FilterQueryProvider::runQuery
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_FilterQueryProvider cxx address %d", cxxAddress);
@@ -186,7 +165,6 @@ AndroidCXX::android_database_Cursor android_widget_FilterQueryProvider::runQuery
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_database_Cursor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -204,11 +182,11 @@ AndroidCXX::android_database_Cursor android_widget_FilterQueryProvider::runQuery
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_database_Cursor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_database_Cursor) (AndroidCXX::android_database_Cursor((AndroidCXX::android_database_Cursor *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_database_Cursor android_widget_FilterQueryProvider::runQuery(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	AndroidCXX::android_database_Cursor result((AndroidCXX::android_database_Cursor) *((AndroidCXX::android_database_Cursor *) cxx_value));
+	delete ((AndroidCXX::android_database_Cursor *) cxx_value);
+		
+	LOGV("AndroidCXX::android_database_Cursor android_widget_FilterQueryProvider::runQuery(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 	return result;
 }

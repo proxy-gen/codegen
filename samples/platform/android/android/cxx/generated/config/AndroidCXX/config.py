@@ -15,9 +15,10 @@
 #		_instance											Tag to indicate class is an instance
 #		_singleton											Tag to indicate class instance is a singleton (field or instance)									
 #		_static 											Tag to indicate class has only static methods
-#		_callback 											Tag to indicate class is a callback
 #		_proxy 												Tag to indicate class will be proxied
 #		_no_proxy											Tag to indicate class will not be proxied
+#		_callback 											Tag to indicate class is a callback
+#		_no_callback										Tag to indicate class will not be made a callback
 #	Special Field Tags
 #		_static												Tag to indicate field is a static field
 #		_instance 											Tag to indicate field is an instance field
@@ -30,6 +31,8 @@
 #		_singleton											Tag to indicate method returns a singleton instance
 #		_proxy 												Tag to indicate method will be proxied
 #		_no_proxy											Tag to indicate method will not be proxied
+#		_callback											Tag to indicate method will be made a callback
+#		_no_callback										Tag to indicate method will not be made a callback
 
 config = {
 	'namespace' : 'AndroidCXX',
@@ -6760,7 +6763,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'writeInt',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -6776,7 +6779,7 @@ config = {
 				},
 				{
 					'name' : 'readInt',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -6788,7 +6791,7 @@ config = {
 				},
 				{
 					'name' : 'readLong',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -6800,7 +6803,7 @@ config = {
 				},
 				{
 					'name' : 'readByte',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -6812,7 +6815,7 @@ config = {
 				},
 				{
 					'name' : 'writeLong',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -6828,7 +6831,7 @@ config = {
 				},
 				{
 					'name' : 'writeByte',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'byte',
@@ -6844,7 +6847,7 @@ config = {
 				},
 				{
 					'name' : 'writeFloat',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'float',
@@ -6860,7 +6863,7 @@ config = {
 				},
 				{
 					'name' : 'readFloat',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -6872,7 +6875,7 @@ config = {
 				},
 				{
 					'name' : 'writeDouble',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'double',
@@ -6888,7 +6891,7 @@ config = {
 				},
 				{
 					'name' : 'writeString',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -6904,7 +6907,7 @@ config = {
 				},
 				{
 					'name' : 'writeArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_object_array_type',
@@ -6921,7 +6924,7 @@ config = {
 				},
 				{
 					'name' : 'readDouble',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -6933,7 +6936,7 @@ config = {
 				},
 				{
 					'name' : 'readString',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -6945,7 +6948,7 @@ config = {
 				},
 				{
 					'name' : 'readArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.ClassLoader',
@@ -6962,7 +6965,7 @@ config = {
 				},
 				{
 					'name' : 'dataSize',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -6974,7 +6977,7 @@ config = {
 				},
 				{
 					'name' : 'writeValue',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Object',
@@ -6990,7 +6993,7 @@ config = {
 				},
 				{
 					'name' : 'readFileDescriptor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -7002,7 +7005,7 @@ config = {
 				},
 				{
 					'name' : 'writeFileDescriptor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.io.FileDescriptor',
@@ -7018,7 +7021,7 @@ config = {
 				},
 				{
 					'name' : 'hasFileDescriptors',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -7042,7 +7045,7 @@ config = {
 				},
 				{
 					'name' : 'recycle',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -7054,7 +7057,7 @@ config = {
 				},
 				{
 					'name' : 'dataAvail',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -7066,7 +7069,7 @@ config = {
 				},
 				{
 					'name' : 'dataPosition',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -7078,7 +7081,7 @@ config = {
 				},
 				{
 					'name' : 'dataCapacity',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -7090,7 +7093,7 @@ config = {
 				},
 				{
 					'name' : 'setDataSize',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -7106,7 +7109,7 @@ config = {
 				},
 				{
 					'name' : 'setDataPosition',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -7122,7 +7125,7 @@ config = {
 				},
 				{
 					'name' : 'setDataCapacity',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -7138,7 +7141,7 @@ config = {
 				},
 				{
 					'name' : 'marshall',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -7151,7 +7154,7 @@ config = {
 				},
 				{
 					'name' : 'unmarshall',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_byte_array_type',
@@ -7176,7 +7179,7 @@ config = {
 				},
 				{
 					'name' : 'appendFrom',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.Parcel',
@@ -7200,7 +7203,7 @@ config = {
 				},
 				{
 					'name' : 'writeInterfaceToken',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -7216,7 +7219,7 @@ config = {
 				},
 				{
 					'name' : 'enforceInterface',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -7232,7 +7235,7 @@ config = {
 				},
 				{
 					'name' : 'writeByteArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_byte_array_type',
@@ -7249,7 +7252,7 @@ config = {
 				},
 				{
 					'name' : 'writeByteArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_byte_array_type',
@@ -7274,7 +7277,7 @@ config = {
 				},
 				{
 					'name' : 'writeStrongBinder',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.IBinder',
@@ -7290,7 +7293,7 @@ config = {
 				},
 				{
 					'name' : 'writeStrongInterface',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.IInterface',
@@ -7306,7 +7309,7 @@ config = {
 				},
 				{
 					'name' : 'writeMap',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.util.Map',
@@ -7322,7 +7325,7 @@ config = {
 				},
 				{
 					'name' : 'writeBundle',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -7338,7 +7341,7 @@ config = {
 				},
 				{
 					'name' : 'writeList',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.util.List',
@@ -7354,7 +7357,7 @@ config = {
 				},
 				{
 					'name' : 'writeSparseArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.util.SparseArray',
@@ -7371,7 +7374,7 @@ config = {
 				},
 				{
 					'name' : 'writeSparseBooleanArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.util.SparseBooleanArray',
@@ -7387,7 +7390,7 @@ config = {
 				},
 				{
 					'name' : 'writeBooleanArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_boolean_array_type',
@@ -7404,7 +7407,7 @@ config = {
 				},
 				{
 					'name' : 'createBooleanArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -7417,7 +7420,7 @@ config = {
 				},
 				{
 					'name' : 'readBooleanArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_boolean_array_type',
@@ -7434,7 +7437,7 @@ config = {
 				},
 				{
 					'name' : 'writeCharArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_char_array_type',
@@ -7451,7 +7454,7 @@ config = {
 				},
 				{
 					'name' : 'createCharArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -7464,7 +7467,7 @@ config = {
 				},
 				{
 					'name' : 'readCharArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_char_array_type',
@@ -7481,7 +7484,7 @@ config = {
 				},
 				{
 					'name' : 'writeIntArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_int_array_type',
@@ -7498,7 +7501,7 @@ config = {
 				},
 				{
 					'name' : 'createIntArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -7511,7 +7514,7 @@ config = {
 				},
 				{
 					'name' : 'readIntArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_int_array_type',
@@ -7528,7 +7531,7 @@ config = {
 				},
 				{
 					'name' : 'writeLongArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_long_array_type',
@@ -7545,7 +7548,7 @@ config = {
 				},
 				{
 					'name' : 'createLongArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -7558,7 +7561,7 @@ config = {
 				},
 				{
 					'name' : 'readLongArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_long_array_type',
@@ -7575,7 +7578,7 @@ config = {
 				},
 				{
 					'name' : 'writeFloatArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_float_array_type',
@@ -7592,7 +7595,7 @@ config = {
 				},
 				{
 					'name' : 'createFloatArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -7605,7 +7608,7 @@ config = {
 				},
 				{
 					'name' : 'readFloatArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_float_array_type',
@@ -7622,7 +7625,7 @@ config = {
 				},
 				{
 					'name' : 'writeDoubleArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_double_array_type',
@@ -7639,7 +7642,7 @@ config = {
 				},
 				{
 					'name' : 'createDoubleArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -7652,7 +7655,7 @@ config = {
 				},
 				{
 					'name' : 'readDoubleArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_double_array_type',
@@ -7669,7 +7672,7 @@ config = {
 				},
 				{
 					'name' : 'writeStringArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_object_array_type',
@@ -7686,7 +7689,7 @@ config = {
 				},
 				{
 					'name' : 'createStringArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -7699,7 +7702,7 @@ config = {
 				},
 				{
 					'name' : 'readStringArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_object_array_type',
@@ -7716,7 +7719,7 @@ config = {
 				},
 				{
 					'name' : 'writeBinderArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_object_array_type',
@@ -7733,7 +7736,7 @@ config = {
 				},
 				{
 					'name' : 'createBinderArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -7746,7 +7749,7 @@ config = {
 				},
 				{
 					'name' : 'readBinderArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_object_array_type',
@@ -7763,7 +7766,7 @@ config = {
 				},
 				{
 					'name' : 'writeTypedList',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.util.List',
@@ -7780,7 +7783,7 @@ config = {
 				},
 				{
 					'name' : 'writeStringList',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.util.List',
@@ -7797,7 +7800,7 @@ config = {
 				},
 				{
 					'name' : 'writeBinderList',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.util.List',
@@ -7814,7 +7817,7 @@ config = {
 				},
 				{
 					'name' : 'writeTypedArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_object_array_type',
@@ -7835,7 +7838,7 @@ config = {
 				},
 				{
 					'name' : 'writeParcelable',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.Parcelable',
@@ -7855,7 +7858,7 @@ config = {
 				},
 				{
 					'name' : 'writeSerializable',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.io.Serializable',
@@ -7871,7 +7874,7 @@ config = {
 				},
 				{
 					'name' : 'writeException',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Exception',
@@ -7887,7 +7890,7 @@ config = {
 				},
 				{
 					'name' : 'writeNoException',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -7899,7 +7902,7 @@ config = {
 				},
 				{
 					'name' : 'readException',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -7911,7 +7914,7 @@ config = {
 				},
 				{
 					'name' : 'readException',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -7931,7 +7934,7 @@ config = {
 				},
 				{
 					'name' : 'readStrongBinder',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -7943,7 +7946,7 @@ config = {
 				},
 				{
 					'name' : 'readMap',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.util.Map',
@@ -7963,7 +7966,7 @@ config = {
 				},
 				{
 					'name' : 'readList',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.util.List',
@@ -7983,7 +7986,7 @@ config = {
 				},
 				{
 					'name' : 'readHashMap',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.ClassLoader',
@@ -7999,7 +8002,7 @@ config = {
 				},
 				{
 					'name' : 'readBundle',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8011,7 +8014,7 @@ config = {
 				},
 				{
 					'name' : 'readBundle',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.ClassLoader',
@@ -8027,7 +8030,7 @@ config = {
 				},
 				{
 					'name' : 'createByteArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8040,7 +8043,7 @@ config = {
 				},
 				{
 					'name' : 'readByteArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_byte_array_type',
@@ -8057,7 +8060,7 @@ config = {
 				},
 				{
 					'name' : 'readArrayList',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.ClassLoader',
@@ -8073,7 +8076,7 @@ config = {
 				},
 				{
 					'name' : 'readSparseArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.ClassLoader',
@@ -8089,7 +8092,7 @@ config = {
 				},
 				{
 					'name' : 'readSparseBooleanArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8101,7 +8104,7 @@ config = {
 				},
 				{
 					'name' : 'createTypedArrayList',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.Parcelable$Creator',
@@ -8119,7 +8122,7 @@ config = {
 				},
 				{
 					'name' : 'readTypedList',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.util.List',
@@ -8141,7 +8144,7 @@ config = {
 				},
 				{
 					'name' : 'createStringArrayList',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8154,7 +8157,7 @@ config = {
 				},
 				{
 					'name' : 'createBinderArrayList',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8167,7 +8170,7 @@ config = {
 				},
 				{
 					'name' : 'readStringList',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.util.List',
@@ -8184,7 +8187,7 @@ config = {
 				},
 				{
 					'name' : 'readBinderList',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.util.List',
@@ -8201,7 +8204,7 @@ config = {
 				},
 				{
 					'name' : 'createTypedArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.Parcelable$Creator',
@@ -8219,7 +8222,7 @@ config = {
 				},
 				{
 					'name' : 'readTypedArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_object_array_type',
@@ -8241,7 +8244,7 @@ config = {
 				},
 				{
 					'name' : 'writeParcelableArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_object_array_type',
@@ -8262,7 +8265,7 @@ config = {
 				},
 				{
 					'name' : 'readValue',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.ClassLoader',
@@ -8278,7 +8281,7 @@ config = {
 				},
 				{
 					'name' : 'readParcelable',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.ClassLoader',
@@ -8294,7 +8297,7 @@ config = {
 				},
 				{
 					'name' : 'readParcelableArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.ClassLoader',
@@ -8311,7 +8314,7 @@ config = {
 				},
 				{
 					'name' : 'readSerializable',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8333,7 +8336,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'equals',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Object',
@@ -8361,7 +8364,7 @@ config = {
 				},
 				{
 					'name' : 'hashCode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8373,7 +8376,7 @@ config = {
 				},
 				{
 					'name' : 'getResources',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8385,7 +8388,7 @@ config = {
 				},
 				{
 					'name' : 'getId',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8397,7 +8400,7 @@ config = {
 				},
 				{
 					'name' : 'isHidden',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8409,7 +8412,7 @@ config = {
 				},
 				{
 					'name' : 'getString',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -8430,7 +8433,7 @@ config = {
 				},
 				{
 					'name' : 'getString',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -8446,7 +8449,7 @@ config = {
 				},
 				{
 					'name' : 'getTag',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8547,7 +8550,7 @@ config = {
 				},
 				{
 					'name' : 'getArguments',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8595,7 +8598,7 @@ config = {
 				},
 				{
 					'name' : 'getTargetFragment',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8607,7 +8610,7 @@ config = {
 				},
 				{
 					'name' : 'getTargetRequestCode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8619,7 +8622,7 @@ config = {
 				},
 				{
 					'name' : 'getActivity',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8631,7 +8634,7 @@ config = {
 				},
 				{
 					'name' : 'getText',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -8647,7 +8650,7 @@ config = {
 				},
 				{
 					'name' : 'getFragmentManager',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8659,7 +8662,7 @@ config = {
 				},
 				{
 					'name' : 'getChildFragmentManager',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8671,7 +8674,7 @@ config = {
 				},
 				{
 					'name' : 'getParentFragment',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8683,7 +8686,7 @@ config = {
 				},
 				{
 					'name' : 'isAdded',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8695,7 +8698,7 @@ config = {
 				},
 				{
 					'name' : 'isDetached',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8707,7 +8710,7 @@ config = {
 				},
 				{
 					'name' : 'isRemoving',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8719,7 +8722,7 @@ config = {
 				},
 				{
 					'name' : 'isInLayout',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8731,7 +8734,7 @@ config = {
 				},
 				{
 					'name' : 'isResumed',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8743,7 +8746,7 @@ config = {
 				},
 				{
 					'name' : 'isVisible',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8787,7 +8790,7 @@ config = {
 				},
 				{
 					'name' : 'getRetainInstance',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -16485,7 +16488,7 @@ config = {
 				},
 				{
 					'name' : 'getOnItemClickListener',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -16513,7 +16516,7 @@ config = {
 				},
 				{
 					'name' : 'getOnItemLongClickListener',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -16541,7 +16544,7 @@ config = {
 				},
 				{
 					'name' : 'getOnItemSelectedListener',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -23070,7 +23073,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'filter',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
@@ -23086,7 +23089,7 @@ config = {
 				},
 				{
 					'name' : 'filter',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
@@ -25802,7 +25805,7 @@ config = {
 				},
 				{
 					'name' : 'smoothScrollBy',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -25970,7 +25973,7 @@ config = {
 				},
 				{
 					'name' : 'smoothScrollTo',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -26417,7 +26420,7 @@ config = {
 				},
 				{
 					'name' : 'setColorFilter',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -26437,7 +26440,7 @@ config = {
 				},
 				{
 					'name' : 'setColorFilter',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -26469,7 +26472,7 @@ config = {
 				},
 				{
 					'name' : 'clearColorFilter',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -29829,7 +29832,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'setFriction',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'float',
@@ -29845,7 +29848,7 @@ config = {
 				},
 				{
 					'name' : 'isFinished',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -29857,7 +29860,7 @@ config = {
 				},
 				{
 					'name' : 'forceFinished',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -29873,7 +29876,7 @@ config = {
 				},
 				{
 					'name' : 'getCurrX',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -29885,7 +29888,7 @@ config = {
 				},
 				{
 					'name' : 'getCurrY',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -29909,7 +29912,7 @@ config = {
 				},
 				{
 					'name' : 'getStartX',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -29921,7 +29924,7 @@ config = {
 				},
 				{
 					'name' : 'getStartY',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -29933,7 +29936,7 @@ config = {
 				},
 				{
 					'name' : 'getFinalX',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -29945,7 +29948,7 @@ config = {
 				},
 				{
 					'name' : 'getFinalY',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -31626,7 +31629,7 @@ config = {
 				},
 				{
 					'name' : 'incrementProgressBy',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -31642,7 +31645,7 @@ config = {
 				},
 				{
 					'name' : 'incrementSecondaryProgressBy',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -34550,7 +34553,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'getDuration',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -34562,7 +34565,7 @@ config = {
 				},
 				{
 					'name' : 'setFriction',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'float',
@@ -34578,7 +34581,7 @@ config = {
 				},
 				{
 					'name' : 'isFinished',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -34590,7 +34593,7 @@ config = {
 				},
 				{
 					'name' : 'forceFinished',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -34606,7 +34609,7 @@ config = {
 				},
 				{
 					'name' : 'getCurrX',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -34618,7 +34621,7 @@ config = {
 				},
 				{
 					'name' : 'getCurrY',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -34642,7 +34645,7 @@ config = {
 				},
 				{
 					'name' : 'getStartX',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -34654,7 +34657,7 @@ config = {
 				},
 				{
 					'name' : 'getStartY',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -34666,7 +34669,7 @@ config = {
 				},
 				{
 					'name' : 'getFinalX',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -34678,7 +34681,7 @@ config = {
 				},
 				{
 					'name' : 'getFinalY',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -35274,7 +35277,7 @@ config = {
 				},
 				{
 					'name' : 'smoothScrollBy',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -35442,7 +35445,7 @@ config = {
 				},
 				{
 					'name' : 'smoothScrollTo',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -40644,7 +40647,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'append',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
@@ -40768,7 +40771,7 @@ config = {
 				},
 				{
 					'name' : 'setText',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
@@ -40784,7 +40787,7 @@ config = {
 				},
 				{
 					'name' : 'setText',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_char_array_type',
@@ -40809,7 +40812,7 @@ config = {
 				},
 				{
 					'name' : 'setText',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -40825,7 +40828,7 @@ config = {
 				},
 				{
 					'name' : 'setText',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -40869,7 +40872,7 @@ config = {
 				},
 				{
 					'name' : 'getLayout',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -41732,7 +41735,7 @@ config = {
 				},
 				{
 					'name' : 'getKeyListener',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -41760,7 +41763,7 @@ config = {
 				},
 				{
 					'name' : 'getMovementMethod',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -41772,7 +41775,7 @@ config = {
 				},
 				{
 					'name' : 'setMovementMethod',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.text.method.MovementMethod',
@@ -41788,7 +41791,7 @@ config = {
 				},
 				{
 					'name' : 'getTransformationMethod',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -41800,7 +41803,7 @@ config = {
 				},
 				{
 					'name' : 'setTransformationMethod',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.text.method.TransformationMethod',
@@ -42206,7 +42209,7 @@ config = {
 				},
 				{
 					'name' : 'getAutoLinkMask',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -42290,7 +42293,7 @@ config = {
 				},
 				{
 					'name' : 'getTextColors',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -42302,7 +42305,7 @@ config = {
 				},
 				{
 					'name' : 'getCurrentTextColor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -42402,7 +42405,7 @@ config = {
 				},
 				{
 					'name' : 'setAutoLinkMask',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -42418,7 +42421,7 @@ config = {
 				},
 				{
 					'name' : 'setLinksClickable',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -42434,7 +42437,7 @@ config = {
 				},
 				{
 					'name' : 'getLinksClickable',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -42459,7 +42462,7 @@ config = {
 				},
 				{
 					'name' : 'setHintTextColor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.res.ColorStateList',
@@ -42475,7 +42478,7 @@ config = {
 				},
 				{
 					'name' : 'setHintTextColor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -42491,7 +42494,7 @@ config = {
 				},
 				{
 					'name' : 'getHintTextColors',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -42503,7 +42506,7 @@ config = {
 				},
 				{
 					'name' : 'getCurrentHintTextColor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -42515,7 +42518,7 @@ config = {
 				},
 				{
 					'name' : 'setLinkTextColor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -42531,7 +42534,7 @@ config = {
 				},
 				{
 					'name' : 'setLinkTextColor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.res.ColorStateList',
@@ -42547,7 +42550,7 @@ config = {
 				},
 				{
 					'name' : 'getLinkTextColors',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -42975,7 +42978,7 @@ config = {
 				},
 				{
 					'name' : 'setEditableFactory',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.text.Editable$Factory',
@@ -42991,7 +42994,7 @@ config = {
 				},
 				{
 					'name' : 'setSpannableFactory',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.text.Spannable$Factory',
@@ -43007,7 +43010,7 @@ config = {
 				},
 				{
 					'name' : 'setTextKeepState',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
@@ -43027,7 +43030,7 @@ config = {
 				},
 				{
 					'name' : 'setTextKeepState',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
@@ -43043,7 +43046,7 @@ config = {
 				},
 				{
 					'name' : 'setHint',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
@@ -43059,7 +43062,7 @@ config = {
 				},
 				{
 					'name' : 'setHint',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -46999,7 +47002,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'name',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -47027,7 +47030,7 @@ config = {
 				},
 				{
 					'name' : 'equals',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Object',
@@ -47043,7 +47046,7 @@ config = {
 				},
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -47055,7 +47058,7 @@ config = {
 				},
 				{
 					'name' : 'hashCode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -47067,7 +47070,7 @@ config = {
 				},
 				{
 					'name' : 'compareTo',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.nio.charset.Charset',
@@ -47099,7 +47102,7 @@ config = {
 				},
 				{
 					'name' : 'decode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.nio.ByteBuffer',
@@ -47115,7 +47118,7 @@ config = {
 				},
 				{
 					'name' : 'encode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.nio.CharBuffer',
@@ -47131,7 +47134,7 @@ config = {
 				},
 				{
 					'name' : 'encode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -47175,7 +47178,7 @@ config = {
 				},
 				{
 					'name' : 'aliases',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -47229,7 +47232,7 @@ config = {
 				},
 				{
 					'name' : 'isRegistered',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -47287,7 +47290,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'wait',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -47299,7 +47302,7 @@ config = {
 				},
 				{
 					'name' : 'wait',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -47315,7 +47318,7 @@ config = {
 				},
 				{
 					'name' : 'wait',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -47375,7 +47378,7 @@ config = {
 				},
 				{
 					'name' : 'getClass',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -47388,7 +47391,7 @@ config = {
 				},
 				{
 					'name' : 'notify',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -47400,7 +47403,7 @@ config = {
 				},
 				{
 					'name' : 'notifyAll',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -48362,7 +48365,7 @@ config = {
 				},
 				{
 					'name' : 'getParent',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -48642,7 +48645,7 @@ config = {
 				},
 				{
 					'name' : 'openStream',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -48842,7 +48845,7 @@ config = {
 				},
 				{
 					'name' : 'getContent',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_object_array_type',
@@ -48859,7 +48862,7 @@ config = {
 				},
 				{
 					'name' : 'getContent',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -49534,7 +49537,7 @@ config = {
 				},
 				{
 					'name' : 'equals',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Object',
@@ -49562,7 +49565,7 @@ config = {
 				},
 				{
 					'name' : 'hashCode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -50383,7 +50386,7 @@ config = {
 				},
 				{
 					'name' : 'getName',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -53630,7 +53633,7 @@ config = {
 				},
 				{
 					'name' : 'getClassLoader',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -53642,7 +53645,7 @@ config = {
 				},
 				{
 					'name' : 'getCodeSource',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -53654,7 +53657,7 @@ config = {
 				},
 				{
 					'name' : 'getPrincipals',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -53667,7 +53670,7 @@ config = {
 				},
 				{
 					'name' : 'getPermissions',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -53782,7 +53785,7 @@ config = {
 				},
 				{
 					'name' : 'getLocation',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -53794,7 +53797,7 @@ config = {
 				},
 				{
 					'name' : 'getCertificates',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -53823,7 +53826,7 @@ config = {
 				},
 				{
 					'name' : 'getCodeSigners',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -54122,7 +54125,7 @@ config = {
 				},
 				{
 					'name' : 'getType',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -54966,7 +54969,7 @@ config = {
 				},
 				{
 					'name' : 'put',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_byte_array_type',
@@ -55496,7 +55499,7 @@ config = {
 				},
 				{
 					'name' : 'hasArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -55508,7 +55511,7 @@ config = {
 				},
 				{
 					'name' : 'array',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -55521,7 +55524,7 @@ config = {
 				},
 				{
 					'name' : 'arrayOffset',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -55655,7 +55658,7 @@ config = {
 				},
 				{
 					'name' : 'order',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.nio.ByteOrder',
@@ -55671,7 +55674,7 @@ config = {
 				},
 				{
 					'name' : 'order',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -55923,7 +55926,7 @@ config = {
 				},
 				{
 					'name' : 'put',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -55963,7 +55966,7 @@ config = {
 				},
 				{
 					'name' : 'put',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_char_array_type',
@@ -56133,7 +56136,7 @@ config = {
 				},
 				{
 					'name' : 'length',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -56145,7 +56148,7 @@ config = {
 				},
 				{
 					'name' : 'charAt',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -56193,7 +56196,7 @@ config = {
 				},
 				{
 					'name' : 'hasArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -56205,7 +56208,7 @@ config = {
 				},
 				{
 					'name' : 'array',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -56218,7 +56221,7 @@ config = {
 				},
 				{
 					'name' : 'arrayOffset',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -56631,7 +56634,7 @@ config = {
 				},
 				{
 					'name' : 'put',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_short_array_type',
@@ -56716,7 +56719,7 @@ config = {
 				},
 				{
 					'name' : 'hasArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -56728,7 +56731,7 @@ config = {
 				},
 				{
 					'name' : 'array',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -56741,7 +56744,7 @@ config = {
 				},
 				{
 					'name' : 'arrayOffset',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -57028,7 +57031,7 @@ config = {
 				},
 				{
 					'name' : 'put',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_int_array_type',
@@ -57113,7 +57116,7 @@ config = {
 				},
 				{
 					'name' : 'hasArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -57125,7 +57128,7 @@ config = {
 				},
 				{
 					'name' : 'array',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -57138,7 +57141,7 @@ config = {
 				},
 				{
 					'name' : 'arrayOffset',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -57425,7 +57428,7 @@ config = {
 				},
 				{
 					'name' : 'put',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_long_array_type',
@@ -57510,7 +57513,7 @@ config = {
 				},
 				{
 					'name' : 'hasArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -57522,7 +57525,7 @@ config = {
 				},
 				{
 					'name' : 'array',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -57535,7 +57538,7 @@ config = {
 				},
 				{
 					'name' : 'arrayOffset',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -57822,7 +57825,7 @@ config = {
 				},
 				{
 					'name' : 'put',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_float_array_type',
@@ -57907,7 +57910,7 @@ config = {
 				},
 				{
 					'name' : 'hasArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -57919,7 +57922,7 @@ config = {
 				},
 				{
 					'name' : 'array',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -57932,7 +57935,7 @@ config = {
 				},
 				{
 					'name' : 'arrayOffset',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -58219,7 +58222,7 @@ config = {
 				},
 				{
 					'name' : 'put',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_double_array_type',
@@ -58304,7 +58307,7 @@ config = {
 				},
 				{
 					'name' : 'hasArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -58316,7 +58319,7 @@ config = {
 				},
 				{
 					'name' : 'array',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -58329,7 +58332,7 @@ config = {
 				},
 				{
 					'name' : 'arrayOffset',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -58870,7 +58873,7 @@ config = {
 				},
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -59049,7 +59052,7 @@ config = {
 				},
 				{
 					'name' : 'getDisplayLanguage',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -59077,7 +59080,7 @@ config = {
 				},
 				{
 					'name' : 'getDisplayCountry',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -59089,7 +59092,7 @@ config = {
 				},
 				{
 					'name' : 'getDisplayVariant',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -59133,7 +59136,7 @@ config = {
 				},
 				{
 					'name' : 'getDisplayName',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -59197,7 +59200,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'charset',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -59209,7 +59212,7 @@ config = {
 				},
 				{
 					'name' : 'decode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.nio.ByteBuffer',
@@ -59233,7 +59236,7 @@ config = {
 				},
 				{
 					'name' : 'decode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.nio.ByteBuffer',
@@ -59249,7 +59252,7 @@ config = {
 				},
 				{
 					'name' : 'flush',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.nio.CharBuffer',
@@ -59265,7 +59268,7 @@ config = {
 				},
 				{
 					'name' : 'reset',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -59277,7 +59280,7 @@ config = {
 				},
 				{
 					'name' : 'onMalformedInput',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.nio.charset.CodingErrorAction',
@@ -59293,7 +59296,7 @@ config = {
 				},
 				{
 					'name' : 'onUnmappableCharacter',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.nio.charset.CodingErrorAction',
@@ -59309,7 +59312,7 @@ config = {
 				},
 				{
 					'name' : 'replacement',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -59345,7 +59348,7 @@ config = {
 				},
 				{
 					'name' : 'replaceWith',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -59361,7 +59364,7 @@ config = {
 				},
 				{
 					'name' : 'maxCharsPerByte',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -59373,7 +59376,7 @@ config = {
 				},
 				{
 					'name' : 'averageCharsPerByte',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -59636,7 +59639,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'charset',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -59648,7 +59651,7 @@ config = {
 				},
 				{
 					'name' : 'encode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.nio.CharBuffer',
@@ -59672,7 +59675,7 @@ config = {
 				},
 				{
 					'name' : 'encode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.nio.CharBuffer',
@@ -59688,7 +59691,7 @@ config = {
 				},
 				{
 					'name' : 'flush',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.nio.ByteBuffer',
@@ -59704,7 +59707,7 @@ config = {
 				},
 				{
 					'name' : 'reset',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -59748,7 +59751,7 @@ config = {
 				},
 				{
 					'name' : 'onMalformedInput',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.nio.charset.CodingErrorAction',
@@ -59764,7 +59767,7 @@ config = {
 				},
 				{
 					'name' : 'onUnmappableCharacter',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.nio.charset.CodingErrorAction',
@@ -59780,7 +59783,7 @@ config = {
 				},
 				{
 					'name' : 'maxBytesPerChar',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -59809,7 +59812,7 @@ config = {
 				},
 				{
 					'name' : 'averageBytesPerChar',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -59821,7 +59824,7 @@ config = {
 				},
 				{
 					'name' : 'replacement',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -59858,7 +59861,7 @@ config = {
 				},
 				{
 					'name' : 'replaceWith',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_byte_array_type',
@@ -69177,7 +69180,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'write',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_object_array_type',
@@ -69260,7 +69263,7 @@ config = {
 				},
 				{
 					'name' : 'read',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_object_array_type',
@@ -69361,7 +69364,7 @@ config = {
 				},
 				{
 					'name' : 'validOps',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -70234,7 +70237,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'write',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_object_array_type',
@@ -70353,7 +70356,7 @@ config = {
 				},
 				{
 					'name' : 'read',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_object_array_type',
@@ -70450,7 +70453,7 @@ config = {
 				},
 				{
 					'name' : 'validOps',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -74001,7 +74004,7 @@ config = {
 				},
 				{
 					'name' : 'newTheme',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -74170,7 +74173,7 @@ config = {
 				},
 				{
 					'name' : 'getAssets',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -74182,7 +74185,7 @@ config = {
 				},
 				{
 					'name' : 'flushLayoutCache',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -74194,7 +74197,7 @@ config = {
 				},
 				{
 					'name' : 'finishPreloading',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -74270,7 +74273,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'list',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -74299,7 +74302,7 @@ config = {
 				},
 				{
 					'name' : 'open',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -74319,7 +74322,7 @@ config = {
 				},
 				{
 					'name' : 'open',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -74335,7 +74338,7 @@ config = {
 				},
 				{
 					'name' : 'openFd',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -74351,7 +74354,7 @@ config = {
 				},
 				{
 					'name' : 'openNonAssetFd',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -74367,7 +74370,7 @@ config = {
 				},
 				{
 					'name' : 'openNonAssetFd',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -74387,7 +74390,7 @@ config = {
 				},
 				{
 					'name' : 'openXmlResourceParser',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -74407,7 +74410,7 @@ config = {
 				},
 				{
 					'name' : 'openXmlResourceParser',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -74423,7 +74426,7 @@ config = {
 				},
 				{
 					'name' : 'getLocales',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -74727,7 +74730,7 @@ config = {
 				},
 				{
 					'name' : 'getFD',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -74791,7 +74794,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'lock',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -74908,7 +74911,7 @@ config = {
 				},
 				{
 					'name' : 'write',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_object_array_type',
@@ -75046,7 +75049,7 @@ config = {
 				},
 				{
 					'name' : 'read',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_object_array_type',
@@ -75063,7 +75066,7 @@ config = {
 				},
 				{
 					'name' : 'tryLock',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -75173,7 +75176,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -75185,7 +75188,7 @@ config = {
 				},
 				{
 					'name' : 'size',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -75197,7 +75200,7 @@ config = {
 				},
 				{
 					'name' : 'position',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -75221,7 +75224,7 @@ config = {
 				},
 				{
 					'name' : 'channel',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -75233,7 +75236,7 @@ config = {
 				},
 				{
 					'name' : 'isShared',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -75257,7 +75260,7 @@ config = {
 				},
 				{
 					'name' : 'overlaps',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -75336,7 +75339,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'load',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -75348,7 +75351,7 @@ config = {
 				},
 				{
 					'name' : 'isLoaded',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -75360,7 +75363,7 @@ config = {
 				},
 				{
 					'name' : 'force',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -75504,7 +75507,7 @@ config = {
 				},
 				{
 					'name' : 'getFD',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -77223,7 +77226,7 @@ config = {
 				},
 				{
 					'name' : 'getFloat',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -77431,7 +77434,7 @@ config = {
 				},
 				{
 					'name' : 'coerceToString',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -77443,7 +77446,7 @@ config = {
 				},
 				{
 					'name' : 'coerceToString',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_no_callback', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -78028,7 +78031,7 @@ config = {
 				},
 				{
 					'name' : 'getBounds',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -78040,7 +78043,7 @@ config = {
 				},
 				{
 					'name' : 'isVisible',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -78184,7 +78187,7 @@ config = {
 				},
 				{
 					'name' : 'copyBounds',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.graphics.Rect',
@@ -78200,7 +78203,7 @@ config = {
 				},
 				{
 					'name' : 'copyBounds',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -78260,7 +78263,7 @@ config = {
 				},
 				{
 					'name' : 'setCallback',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.graphics.drawable.Drawable$Callback',
@@ -78420,7 +78423,7 @@ config = {
 				},
 				{
 					'name' : 'setLevel',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -78436,7 +78439,7 @@ config = {
 				},
 				{
 					'name' : 'getLevel',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -80124,7 +80127,7 @@ config = {
 				},
 				{
 					'name' : 'isEmpty',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -80416,7 +80419,7 @@ config = {
 				},
 				{
 					'name' : 'width',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -80428,7 +80431,7 @@ config = {
 				},
 				{
 					'name' : 'height',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -80480,7 +80483,7 @@ config = {
 				},
 				{
 					'name' : 'centerX',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -80492,7 +80495,7 @@ config = {
 				},
 				{
 					'name' : 'centerY',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -80504,7 +80507,7 @@ config = {
 				},
 				{
 					'name' : 'exactCenterX',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -80516,7 +80519,7 @@ config = {
 				},
 				{
 					'name' : 'exactCenterY',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -80790,7 +80793,7 @@ config = {
 				},
 				{
 					'name' : 'rotate',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'float',
@@ -80842,7 +80845,7 @@ config = {
 				},
 				{
 					'name' : 'scale',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'float',
@@ -80914,7 +80917,7 @@ config = {
 				},
 				{
 					'name' : 'getMatrix',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -81586,7 +81589,7 @@ config = {
 				},
 				{
 					'name' : 'getClipBounds',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -82808,7 +82811,7 @@ config = {
 				},
 				{
 					'name' : 'getWidth',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -82820,7 +82823,7 @@ config = {
 				},
 				{
 					'name' : 'getHeight',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -82860,7 +82863,7 @@ config = {
 				},
 				{
 					'name' : 'hasAlpha',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -82872,7 +82875,7 @@ config = {
 				},
 				{
 					'name' : 'isRecycled',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -82928,7 +82931,7 @@ config = {
 				},
 				{
 					'name' : 'isMutable',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -83285,7 +83288,7 @@ config = {
 				},
 				{
 					'name' : 'isPremultiplied',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -83393,7 +83396,7 @@ config = {
 				},
 				{
 					'name' : 'getRowBytes',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -83405,7 +83408,7 @@ config = {
 				},
 				{
 					'name' : 'getByteCount',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -83417,7 +83420,7 @@ config = {
 				},
 				{
 					'name' : 'getConfig',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -83445,7 +83448,7 @@ config = {
 				},
 				{
 					'name' : 'hasMipMap',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -83457,7 +83460,7 @@ config = {
 				},
 				{
 					'name' : 'setHasMipMap',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -83761,7 +83764,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'limit',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -83773,7 +83776,7 @@ config = {
 				},
 				{
 					'name' : 'limit',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -83789,7 +83792,7 @@ config = {
 				},
 				{
 					'name' : 'clear',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -83801,7 +83804,7 @@ config = {
 				},
 				{
 					'name' : 'remaining',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -83849,7 +83852,7 @@ config = {
 				},
 				{
 					'name' : 'position',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -83865,7 +83868,7 @@ config = {
 				},
 				{
 					'name' : 'position',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -83889,7 +83892,7 @@ config = {
 				},
 				{
 					'name' : 'capacity',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -83901,7 +83904,7 @@ config = {
 				},
 				{
 					'name' : 'mark',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -83913,7 +83916,7 @@ config = {
 				},
 				{
 					'name' : 'reset',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -83925,7 +83928,7 @@ config = {
 				},
 				{
 					'name' : 'flip',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -83937,7 +83940,7 @@ config = {
 				},
 				{
 					'name' : 'rewind',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -83949,7 +83952,7 @@ config = {
 				},
 				{
 					'name' : 'hasRemaining',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -85162,7 +85165,7 @@ config = {
 				},
 				{
 					'name' : 'isEmpty',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -85486,7 +85489,7 @@ config = {
 				},
 				{
 					'name' : 'width',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -85498,7 +85501,7 @@ config = {
 				},
 				{
 					'name' : 'height',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -85522,7 +85525,7 @@ config = {
 				},
 				{
 					'name' : 'centerX',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -85534,7 +85537,7 @@ config = {
 				},
 				{
 					'name' : 'centerY',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -86148,7 +86151,7 @@ config = {
 				},
 				{
 					'name' : 'isAntiAlias',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -86176,7 +86179,7 @@ config = {
 				},
 				{
 					'name' : 'isDither',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -86188,7 +86191,7 @@ config = {
 				},
 				{
 					'name' : 'isLinearText',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -86216,7 +86219,7 @@ config = {
 				},
 				{
 					'name' : 'isSubpixelText',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -86244,7 +86247,7 @@ config = {
 				},
 				{
 					'name' : 'isUnderlineText',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -86272,7 +86275,7 @@ config = {
 				},
 				{
 					'name' : 'isStrikeThruText',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -86300,7 +86303,7 @@ config = {
 				},
 				{
 					'name' : 'isFakeBoldText',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -86328,7 +86331,7 @@ config = {
 				},
 				{
 					'name' : 'isFilterBitmap',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -88854,7 +88857,7 @@ config = {
 				},
 				{
 					'name' : 'isBold',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -88866,7 +88869,7 @@ config = {
 				},
 				{
 					'name' : 'isItalic',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -89395,7 +89398,7 @@ config = {
 				},
 				{
 					'name' : 'union',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.graphics.Rect',
@@ -91708,7 +91711,7 @@ config = {
 				},
 				{
 					'name' : 'getString',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -91724,7 +91727,7 @@ config = {
 				},
 				{
 					'name' : 'getString',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -91745,7 +91748,7 @@ config = {
 				},
 				{
 					'name' : 'getText',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -91917,7 +91920,7 @@ config = {
 				},
 				{
 					'name' : 'obtainStyledAttributes',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : '_int_array_type',
@@ -91934,7 +91937,7 @@ config = {
 				},
 				{
 					'name' : 'obtainStyledAttributes',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -91955,7 +91958,7 @@ config = {
 				},
 				{
 					'name' : 'obtainStyledAttributes',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.util.AttributeSet',
@@ -91976,7 +91979,7 @@ config = {
 				},
 				{
 					'name' : 'obtainStyledAttributes',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.util.AttributeSet',
@@ -98618,7 +98621,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'getType',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -98634,7 +98637,7 @@ config = {
 				},
 				{
 					'name' : 'delete',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -98659,7 +98662,7 @@ config = {
 				},
 				{
 					'name' : 'insert',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -98679,7 +98682,7 @@ config = {
 				},
 				{
 					'name' : 'query',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -98717,7 +98720,7 @@ config = {
 				},
 				{
 					'name' : 'query',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -98751,7 +98754,7 @@ config = {
 				},
 				{
 					'name' : 'update',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -98801,7 +98804,7 @@ config = {
 				},
 				{
 					'name' : 'openInputStream',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -98817,7 +98820,7 @@ config = {
 				},
 				{
 					'name' : 'openOutputStream',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -98833,7 +98836,7 @@ config = {
 				},
 				{
 					'name' : 'openOutputStream',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -98853,7 +98856,7 @@ config = {
 				},
 				{
 					'name' : 'openFileDescriptor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -98873,7 +98876,7 @@ config = {
 				},
 				{
 					'name' : 'openAssetFileDescriptor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -98893,7 +98896,7 @@ config = {
 				},
 				{
 					'name' : 'openTypedAssetFileDescriptor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -98939,7 +98942,7 @@ config = {
 				},
 				{
 					'name' : 'bulkInsert',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -98960,7 +98963,7 @@ config = {
 				},
 				{
 					'name' : 'call',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -98988,7 +98991,7 @@ config = {
 				},
 				{
 					'name' : 'acquireContentProviderClient',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -99004,7 +99007,7 @@ config = {
 				},
 				{
 					'name' : 'acquireContentProviderClient',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -99020,7 +99023,7 @@ config = {
 				},
 				{
 					'name' : 'acquireUnstableContentProviderClient',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -99036,7 +99039,7 @@ config = {
 				},
 				{
 					'name' : 'acquireUnstableContentProviderClient',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -99052,7 +99055,7 @@ config = {
 				},
 				{
 					'name' : 'registerContentObserver',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -99076,7 +99079,7 @@ config = {
 				},
 				{
 					'name' : 'unregisterContentObserver',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.database.ContentObserver',
@@ -102953,7 +102956,7 @@ config = {
 				},
 				{
 					'name' : 'dispatchChange',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -102969,7 +102972,7 @@ config = {
 				},
 				{
 					'name' : 'dispatchChange',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -103021,7 +103024,7 @@ config = {
 				},
 				{
 					'name' : 'dump',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.util.Printer',
@@ -103041,7 +103044,7 @@ config = {
 				},
 				{
 					'name' : 'removeCallbacks',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Runnable',
@@ -103057,7 +103060,7 @@ config = {
 				},
 				{
 					'name' : 'removeCallbacks',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Runnable',
@@ -103077,7 +103080,7 @@ config = {
 				},
 				{
 					'name' : 'post',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Runnable',
@@ -103093,7 +103096,7 @@ config = {
 				},
 				{
 					'name' : 'getLooper',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -103105,7 +103108,7 @@ config = {
 				},
 				{
 					'name' : 'hasMessages',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -103121,7 +103124,7 @@ config = {
 				},
 				{
 					'name' : 'hasMessages',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -103141,7 +103144,7 @@ config = {
 				},
 				{
 					'name' : 'removeMessages',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -103161,7 +103164,7 @@ config = {
 				},
 				{
 					'name' : 'removeMessages',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -103177,7 +103180,7 @@ config = {
 				},
 				{
 					'name' : 'sendEmptyMessage',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -103193,7 +103196,7 @@ config = {
 				},
 				{
 					'name' : 'postDelayed',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Runnable',
@@ -103261,7 +103264,7 @@ config = {
 				},
 				{
 					'name' : 'obtainMessage',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -103285,7 +103288,7 @@ config = {
 				},
 				{
 					'name' : 'obtainMessage',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -103301,7 +103304,7 @@ config = {
 				},
 				{
 					'name' : 'obtainMessage',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -103321,7 +103324,7 @@ config = {
 				},
 				{
 					'name' : 'obtainMessage',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -103349,7 +103352,7 @@ config = {
 				},
 				{
 					'name' : 'obtainMessage',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -103361,7 +103364,7 @@ config = {
 				},
 				{
 					'name' : 'postAtTime',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Runnable',
@@ -103385,7 +103388,7 @@ config = {
 				},
 				{
 					'name' : 'postAtTime',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Runnable',
@@ -103405,7 +103408,7 @@ config = {
 				},
 				{
 					'name' : 'postAtFrontOfQueue',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Runnable',
@@ -103421,7 +103424,7 @@ config = {
 				},
 				{
 					'name' : 'runWithScissors',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Runnable',
@@ -103441,7 +103444,7 @@ config = {
 				},
 				{
 					'name' : 'sendMessage',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.Message',
@@ -103457,7 +103460,7 @@ config = {
 				},
 				{
 					'name' : 'sendEmptyMessageDelayed',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -103477,7 +103480,7 @@ config = {
 				},
 				{
 					'name' : 'sendEmptyMessageAtTime',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -103497,7 +103500,7 @@ config = {
 				},
 				{
 					'name' : 'sendMessageDelayed',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.Message',
@@ -103537,7 +103540,7 @@ config = {
 				},
 				{
 					'name' : 'sendMessageAtFrontOfQueue',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.Message',
@@ -103553,7 +103556,7 @@ config = {
 				},
 				{
 					'name' : 'removeCallbacksAndMessages',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Object',
@@ -103569,7 +103572,7 @@ config = {
 				},
 				{
 					'name' : 'hasCallbacks',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Runnable',
@@ -103831,7 +103834,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'addIdleHandler',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.MessageQueue$IdleHandler',
@@ -103847,7 +103850,7 @@ config = {
 				},
 				{
 					'name' : 'removeIdleHandler',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.MessageQueue$IdleHandler',
@@ -103970,7 +103973,7 @@ config = {
 				},
 				{
 					'name' : 'getName',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -103982,7 +103985,7 @@ config = {
 				},
 				{
 					'name' : 'getThreadGroup',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -104019,7 +104022,7 @@ config = {
 				},
 				{
 					'name' : 'setPriority',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -104035,7 +104038,7 @@ config = {
 				},
 				{
 					'name' : 'setDaemon',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -104111,7 +104114,7 @@ config = {
 				},
 				{
 					'name' : 'stop',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -104123,7 +104126,7 @@ config = {
 				},
 				{
 					'name' : 'stop',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Throwable',
@@ -104175,7 +104178,7 @@ config = {
 				},
 				{
 					'name' : 'isAlive',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -104187,7 +104190,7 @@ config = {
 				},
 				{
 					'name' : 'suspend',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -104199,7 +104202,7 @@ config = {
 				},
 				{
 					'name' : 'resume',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -104211,7 +104214,7 @@ config = {
 				},
 				{
 					'name' : 'getPriority',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -104223,7 +104226,7 @@ config = {
 				},
 				{
 					'name' : 'setName',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -104280,7 +104283,7 @@ config = {
 				},
 				{
 					'name' : 'join',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -104292,7 +104295,7 @@ config = {
 				},
 				{
 					'name' : 'join',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -104312,7 +104315,7 @@ config = {
 				},
 				{
 					'name' : 'join',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -104328,7 +104331,7 @@ config = {
 				},
 				{
 					'name' : 'isDaemon',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -104340,7 +104343,7 @@ config = {
 				},
 				{
 					'name' : 'checkAccess',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -104639,7 +104642,7 @@ config = {
 				},
 				{
 					'name' : 'getName',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -104651,7 +104654,7 @@ config = {
 				},
 				{
 					'name' : 'getParent',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -104663,7 +104666,7 @@ config = {
 				},
 				{
 					'name' : 'setDaemon',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -104679,7 +104682,7 @@ config = {
 				},
 				{
 					'name' : 'stop',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -104691,7 +104694,7 @@ config = {
 				},
 				{
 					'name' : 'interrupt',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -104703,7 +104706,7 @@ config = {
 				},
 				{
 					'name' : 'destroy',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -104715,7 +104718,7 @@ config = {
 				},
 				{
 					'name' : 'suspend',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -104727,7 +104730,7 @@ config = {
 				},
 				{
 					'name' : 'resume',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -104827,7 +104830,7 @@ config = {
 				},
 				{
 					'name' : 'isDaemon',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -104839,7 +104842,7 @@ config = {
 				},
 				{
 					'name' : 'checkAccess',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -104851,7 +104854,7 @@ config = {
 				},
 				{
 					'name' : 'getMaxPriority',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -104875,7 +104878,7 @@ config = {
 				},
 				{
 					'name' : 'setMaxPriority',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -104891,7 +104894,7 @@ config = {
 				},
 				{
 					'name' : 'parentOf',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.ThreadGroup',
@@ -106222,7 +106225,7 @@ config = {
 				},
 				{
 					'name' : 'getContext',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -106576,7 +106579,7 @@ config = {
 				},
 				{
 					'name' : 'getReadPermission',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -106588,7 +106591,7 @@ config = {
 				},
 				{
 					'name' : 'getWritePermission',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -106600,7 +106603,7 @@ config = {
 				},
 				{
 					'name' : 'getPathPermissions',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -107186,7 +107189,7 @@ config = {
 				},
 				{
 					'name' : 'getType',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -107198,7 +107201,7 @@ config = {
 				},
 				{
 					'name' : 'getPath',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -107487,7 +107490,7 @@ config = {
 				},
 				{
 					'name' : 'openTypedAssetFileDescriptor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -112248,7 +112251,7 @@ config = {
 				},
 				{
 					'name' : 'getThemeResource',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -113464,7 +113467,7 @@ config = {
 				},
 				{
 					'name' : 'getIconResource',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -113647,7 +113650,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'setPriority',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -113663,7 +113666,7 @@ config = {
 				},
 				{
 					'name' : 'getPriority',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -113695,7 +113698,7 @@ config = {
 				},
 				{
 					'name' : 'match',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -113732,7 +113735,7 @@ config = {
 				},
 				{
 					'name' : 'match',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.ContentResolver',
@@ -113780,7 +113783,7 @@ config = {
 				},
 				{
 					'name' : 'describeContents',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -113792,7 +113795,7 @@ config = {
 				},
 				{
 					'name' : 'writeToParcel',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.Parcel',
@@ -113812,7 +113815,7 @@ config = {
 				},
 				{
 					'name' : 'getAction',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -113828,7 +113831,7 @@ config = {
 				},
 				{
 					'name' : 'hasCategory',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -113844,7 +113847,7 @@ config = {
 				},
 				{
 					'name' : 'addCategory',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -113860,7 +113863,7 @@ config = {
 				},
 				{
 					'name' : 'addAction',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -113876,7 +113879,7 @@ config = {
 				},
 				{
 					'name' : 'countActions',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -113888,7 +113891,7 @@ config = {
 				},
 				{
 					'name' : 'hasAction',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -113904,7 +113907,7 @@ config = {
 				},
 				{
 					'name' : 'matchAction',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -113920,7 +113923,7 @@ config = {
 				},
 				{
 					'name' : 'actionsIterator',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -113933,7 +113936,7 @@ config = {
 				},
 				{
 					'name' : 'addDataType',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -113949,7 +113952,7 @@ config = {
 				},
 				{
 					'name' : 'hasDataType',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -113965,7 +113968,7 @@ config = {
 				},
 				{
 					'name' : 'countDataTypes',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -113977,7 +113980,7 @@ config = {
 				},
 				{
 					'name' : 'getDataType',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -113993,7 +113996,7 @@ config = {
 				},
 				{
 					'name' : 'typesIterator',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -114006,7 +114009,7 @@ config = {
 				},
 				{
 					'name' : 'addDataScheme',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -114022,7 +114025,7 @@ config = {
 				},
 				{
 					'name' : 'countDataSchemes',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -114034,7 +114037,7 @@ config = {
 				},
 				{
 					'name' : 'getDataScheme',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -114050,7 +114053,7 @@ config = {
 				},
 				{
 					'name' : 'hasDataScheme',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -114066,7 +114069,7 @@ config = {
 				},
 				{
 					'name' : 'schemesIterator',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -114079,7 +114082,7 @@ config = {
 				},
 				{
 					'name' : 'addDataAuthority',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -114099,7 +114102,7 @@ config = {
 				},
 				{
 					'name' : 'countDataAuthorities',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -114111,7 +114114,7 @@ config = {
 				},
 				{
 					'name' : 'getDataAuthority',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -114127,7 +114130,7 @@ config = {
 				},
 				{
 					'name' : 'hasDataAuthority',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -114143,7 +114146,7 @@ config = {
 				},
 				{
 					'name' : 'authoritiesIterator',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -114156,7 +114159,7 @@ config = {
 				},
 				{
 					'name' : 'addDataPath',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -114176,7 +114179,7 @@ config = {
 				},
 				{
 					'name' : 'countDataPaths',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -114188,7 +114191,7 @@ config = {
 				},
 				{
 					'name' : 'getDataPath',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -114204,7 +114207,7 @@ config = {
 				},
 				{
 					'name' : 'hasDataPath',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -114220,7 +114223,7 @@ config = {
 				},
 				{
 					'name' : 'pathsIterator',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -114233,7 +114236,7 @@ config = {
 				},
 				{
 					'name' : 'matchDataAuthority',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -114249,7 +114252,7 @@ config = {
 				},
 				{
 					'name' : 'matchData',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -114273,7 +114276,7 @@ config = {
 				},
 				{
 					'name' : 'countCategories',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -114285,7 +114288,7 @@ config = {
 				},
 				{
 					'name' : 'getCategory',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -114301,7 +114304,7 @@ config = {
 				},
 				{
 					'name' : 'categoriesIterator',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -114314,7 +114317,7 @@ config = {
 				},
 				{
 					'name' : 'matchCategories',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.util.Set',
@@ -115765,7 +115768,7 @@ config = {
 				},
 				{
 					'name' : 'getPath',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -117807,7 +117810,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'setResult',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -117851,7 +117854,7 @@ config = {
 				},
 				{
 					'name' : 'goAsync',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -117883,7 +117886,7 @@ config = {
 				},
 				{
 					'name' : 'setResultCode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -117899,7 +117902,7 @@ config = {
 				},
 				{
 					'name' : 'getResultCode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -117911,7 +117914,7 @@ config = {
 				},
 				{
 					'name' : 'setResultData',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -117927,7 +117930,7 @@ config = {
 				},
 				{
 					'name' : 'getResultData',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -117939,7 +117942,7 @@ config = {
 				},
 				{
 					'name' : 'setResultExtras',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -117955,7 +117958,7 @@ config = {
 				},
 				{
 					'name' : 'getResultExtras',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -117971,7 +117974,7 @@ config = {
 				},
 				{
 					'name' : 'getAbortBroadcast',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -117983,7 +117986,7 @@ config = {
 				},
 				{
 					'name' : 'abortBroadcast',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -117995,7 +117998,7 @@ config = {
 				},
 				{
 					'name' : 'clearAbortBroadcast',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -118007,7 +118010,7 @@ config = {
 				},
 				{
 					'name' : 'isOrderedBroadcast',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -118019,7 +118022,7 @@ config = {
 				},
 				{
 					'name' : 'isInitialStickyBroadcast',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -118031,7 +118034,7 @@ config = {
 				},
 				{
 					'name' : 'setOrderedHint',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -118047,7 +118050,7 @@ config = {
 				},
 				{
 					'name' : 'setDebugUnregister',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -118063,7 +118066,7 @@ config = {
 				},
 				{
 					'name' : 'getDebugUnregister',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -118091,7 +118094,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'finish',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -118103,7 +118106,7 @@ config = {
 				},
 				{
 					'name' : 'setResult',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -118127,7 +118130,7 @@ config = {
 				},
 				{
 					'name' : 'setResultCode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -118143,7 +118146,7 @@ config = {
 				},
 				{
 					'name' : 'getResultCode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -118155,7 +118158,7 @@ config = {
 				},
 				{
 					'name' : 'setResultData',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -118171,7 +118174,7 @@ config = {
 				},
 				{
 					'name' : 'getResultData',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -118183,7 +118186,7 @@ config = {
 				},
 				{
 					'name' : 'setResultExtras',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -118199,7 +118202,7 @@ config = {
 				},
 				{
 					'name' : 'getResultExtras',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -118215,7 +118218,7 @@ config = {
 				},
 				{
 					'name' : 'getAbortBroadcast',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -118227,7 +118230,7 @@ config = {
 				},
 				{
 					'name' : 'abortBroadcast',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -118239,7 +118242,7 @@ config = {
 				},
 				{
 					'name' : 'clearAbortBroadcast',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -118604,7 +118607,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'equals',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -118664,7 +118667,7 @@ config = {
 				},
 				{
 					'name' : 'offset',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -118704,7 +118707,7 @@ config = {
 				},
 				{
 					'name' : 'negate',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -119125,7 +119128,7 @@ config = {
 				},
 				{
 					'name' : 'onRetainNonConfigurationInstance',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -119946,7 +119949,7 @@ config = {
 				},
 				{
 					'name' : 'getParent',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -119958,7 +119961,7 @@ config = {
 				},
 				{
 					'name' : 'getContext',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -120211,7 +120214,7 @@ config = {
 				},
 				{
 					'name' : 'findViewById',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -120404,7 +120407,7 @@ config = {
 				},
 				{
 					'name' : 'isFocusable',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -120524,7 +120527,7 @@ config = {
 				},
 				{
 					'name' : 'getLeft',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -120536,7 +120539,7 @@ config = {
 				},
 				{
 					'name' : 'getTop',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -120548,7 +120551,7 @@ config = {
 				},
 				{
 					'name' : 'getRight',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -120560,7 +120563,7 @@ config = {
 				},
 				{
 					'name' : 'getBottom',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -121181,7 +121184,7 @@ config = {
 				},
 				{
 					'name' : 'requestFocus',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -121213,7 +121216,7 @@ config = {
 				},
 				{
 					'name' : 'requestFocus',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -122517,7 +122520,7 @@ config = {
 				},
 				{
 					'name' : 'isFocusableInTouchMode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -122559,7 +122562,7 @@ config = {
 				},
 				{
 					'name' : 'requestFocusFromTouch',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -122919,7 +122922,7 @@ config = {
 				},
 				{
 					'name' : 'getScrollX',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -122931,7 +122934,7 @@ config = {
 				},
 				{
 					'name' : 'getScrollY',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -122943,7 +122946,7 @@ config = {
 				},
 				{
 					'name' : 'getWidth',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -122955,7 +122958,7 @@ config = {
 				},
 				{
 					'name' : 'getHeight',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -122983,7 +122986,7 @@ config = {
 				},
 				{
 					'name' : 'getMeasuredWidth',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -122995,7 +122998,7 @@ config = {
 				},
 				{
 					'name' : 'getMeasuredWidthAndState',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -123007,7 +123010,7 @@ config = {
 				},
 				{
 					'name' : 'getMeasuredHeight',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -123019,7 +123022,7 @@ config = {
 				},
 				{
 					'name' : 'getMeasuredHeightAndState',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -123031,7 +123034,7 @@ config = {
 				},
 				{
 					'name' : 'getMeasuredState',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -123319,7 +123322,7 @@ config = {
 				},
 				{
 					'name' : 'setTop',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -123347,7 +123350,7 @@ config = {
 				},
 				{
 					'name' : 'setBottom',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -123363,7 +123366,7 @@ config = {
 				},
 				{
 					'name' : 'setLeft',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -123379,7 +123382,7 @@ config = {
 				},
 				{
 					'name' : 'setRight',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -123515,7 +123518,7 @@ config = {
 				},
 				{
 					'name' : 'getGlobalVisibleRect',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.graphics.Rect',
@@ -123551,7 +123554,7 @@ config = {
 				},
 				{
 					'name' : 'getLocalVisibleRect',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.graphics.Rect',
@@ -124543,7 +124546,7 @@ config = {
 				},
 				{
 					'name' : 'getDrawableState',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -124858,7 +124861,7 @@ config = {
 				},
 				{
 					'name' : 'findViewWithTag',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Object',
@@ -124898,7 +124901,7 @@ config = {
 				},
 				{
 					'name' : 'measure',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -125178,7 +125181,7 @@ config = {
 				},
 				{
 					'name' : 'startDrag',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.ClipData',
@@ -130031,7 +130034,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'dispatch',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.view.KeyEvent$Callback',
@@ -130055,7 +130058,7 @@ config = {
 				},
 				{
 					'name' : 'dispatch',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.view.KeyEvent$Callback',
@@ -130083,7 +130086,7 @@ config = {
 				},
 				{
 					'name' : 'getModifiers',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130127,7 +130130,7 @@ config = {
 				},
 				{
 					'name' : 'getRepeatCount',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130139,7 +130142,7 @@ config = {
 				},
 				{
 					'name' : 'getAction',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130151,7 +130154,7 @@ config = {
 				},
 				{
 					'name' : 'getFlags',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130163,7 +130166,7 @@ config = {
 				},
 				{
 					'name' : 'isCanceled',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130299,7 +130302,7 @@ config = {
 				},
 				{
 					'name' : 'isSystem',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130311,7 +130314,7 @@ config = {
 				},
 				{
 					'name' : 'isGamepadButton',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_no_callback', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -130327,7 +130330,7 @@ config = {
 				},
 				{
 					'name' : 'getDeviceId',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130339,7 +130342,7 @@ config = {
 				},
 				{
 					'name' : 'getSource',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130351,7 +130354,7 @@ config = {
 				},
 				{
 					'name' : 'setSource',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -130367,7 +130370,7 @@ config = {
 				},
 				{
 					'name' : 'getMetaState',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130459,7 +130462,7 @@ config = {
 				},
 				{
 					'name' : 'hasNoModifiers',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130471,7 +130474,7 @@ config = {
 				},
 				{
 					'name' : 'hasModifiers',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -130487,7 +130490,7 @@ config = {
 				},
 				{
 					'name' : 'isAltPressed',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130499,7 +130502,7 @@ config = {
 				},
 				{
 					'name' : 'isShiftPressed',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130511,7 +130514,7 @@ config = {
 				},
 				{
 					'name' : 'isSymPressed',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130523,7 +130526,7 @@ config = {
 				},
 				{
 					'name' : 'isCtrlPressed',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130535,7 +130538,7 @@ config = {
 				},
 				{
 					'name' : 'isMetaPressed',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130547,7 +130550,7 @@ config = {
 				},
 				{
 					'name' : 'isFunctionPressed',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130559,7 +130562,7 @@ config = {
 				},
 				{
 					'name' : 'isCapsLockOn',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130571,7 +130574,7 @@ config = {
 				},
 				{
 					'name' : 'isNumLockOn',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130583,7 +130586,7 @@ config = {
 				},
 				{
 					'name' : 'isScrollLockOn',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130595,7 +130598,7 @@ config = {
 				},
 				{
 					'name' : 'startTracking',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130607,7 +130610,7 @@ config = {
 				},
 				{
 					'name' : 'isTracking',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130619,7 +130622,7 @@ config = {
 				},
 				{
 					'name' : 'isLongPress',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130631,7 +130634,7 @@ config = {
 				},
 				{
 					'name' : 'getKeyCode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130643,7 +130646,7 @@ config = {
 				},
 				{
 					'name' : 'getCharacters',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130655,7 +130658,7 @@ config = {
 				},
 				{
 					'name' : 'getScanCode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130667,7 +130670,7 @@ config = {
 				},
 				{
 					'name' : 'getDownTime',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130679,7 +130682,7 @@ config = {
 				},
 				{
 					'name' : 'getEventTime',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -130691,7 +130694,7 @@ config = {
 				},
 				{
 					'name' : 'getKeyCharacterMap',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -135504,7 +135507,7 @@ config = {
 				},
 				{
 					'name' : 'invalidateChild',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.view.View',
@@ -135545,7 +135548,7 @@ config = {
 				},
 				{
 					'name' : 'offsetDescendantRectToMyCoords',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.view.View',
@@ -135565,7 +135568,7 @@ config = {
 				},
 				{
 					'name' : 'offsetRectIntoDescendantCoords',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.view.View',
@@ -135609,7 +135612,7 @@ config = {
 				},
 				{
 					'name' : 'layout',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -136947,7 +136950,7 @@ config = {
 				},
 				{
 					'name' : 'transform',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.graphics.Matrix',
@@ -136963,7 +136966,7 @@ config = {
 				},
 				{
 					'name' : 'getSize',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -136979,7 +136982,7 @@ config = {
 				},
 				{
 					'name' : 'getSize',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -136991,7 +136994,7 @@ config = {
 				},
 				{
 					'name' : 'getY',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137003,7 +137006,7 @@ config = {
 				},
 				{
 					'name' : 'getY',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -137019,7 +137022,7 @@ config = {
 				},
 				{
 					'name' : 'getX',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137031,7 +137034,7 @@ config = {
 				},
 				{
 					'name' : 'getX',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -137379,7 +137382,7 @@ config = {
 				},
 				{
 					'name' : 'recycle',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137391,7 +137394,7 @@ config = {
 				},
 				{
 					'name' : 'getAction',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137403,7 +137406,7 @@ config = {
 				},
 				{
 					'name' : 'getFlags',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137415,7 +137418,7 @@ config = {
 				},
 				{
 					'name' : 'setAction',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -137431,7 +137434,7 @@ config = {
 				},
 				{
 					'name' : 'getOrientation',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -137447,7 +137450,7 @@ config = {
 				},
 				{
 					'name' : 'getOrientation',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137459,7 +137462,7 @@ config = {
 				},
 				{
 					'name' : 'getDeviceId',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137471,7 +137474,7 @@ config = {
 				},
 				{
 					'name' : 'getSource',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137483,7 +137486,7 @@ config = {
 				},
 				{
 					'name' : 'setSource',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -137499,7 +137502,7 @@ config = {
 				},
 				{
 					'name' : 'getMetaState',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137511,7 +137514,7 @@ config = {
 				},
 				{
 					'name' : 'getDownTime',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137523,7 +137526,7 @@ config = {
 				},
 				{
 					'name' : 'getEventTime',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137551,7 +137554,7 @@ config = {
 				},
 				{
 					'name' : 'getActionMasked',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137563,7 +137566,7 @@ config = {
 				},
 				{
 					'name' : 'getActionIndex',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137575,7 +137578,7 @@ config = {
 				},
 				{
 					'name' : 'getPressure',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137587,7 +137590,7 @@ config = {
 				},
 				{
 					'name' : 'getPressure',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -137603,7 +137606,7 @@ config = {
 				},
 				{
 					'name' : 'getTouchMajor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137615,7 +137618,7 @@ config = {
 				},
 				{
 					'name' : 'getTouchMajor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -137631,7 +137634,7 @@ config = {
 				},
 				{
 					'name' : 'getTouchMinor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137643,7 +137646,7 @@ config = {
 				},
 				{
 					'name' : 'getTouchMinor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -137659,7 +137662,7 @@ config = {
 				},
 				{
 					'name' : 'getToolMajor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -137675,7 +137678,7 @@ config = {
 				},
 				{
 					'name' : 'getToolMajor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137687,7 +137690,7 @@ config = {
 				},
 				{
 					'name' : 'getToolMinor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137699,7 +137702,7 @@ config = {
 				},
 				{
 					'name' : 'getToolMinor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -137715,7 +137718,7 @@ config = {
 				},
 				{
 					'name' : 'getAxisValue',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -137735,7 +137738,7 @@ config = {
 				},
 				{
 					'name' : 'getAxisValue',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -137751,7 +137754,7 @@ config = {
 				},
 				{
 					'name' : 'getPointerCount',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137763,7 +137766,7 @@ config = {
 				},
 				{
 					'name' : 'getPointerId',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -137779,7 +137782,7 @@ config = {
 				},
 				{
 					'name' : 'getToolType',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -137795,7 +137798,7 @@ config = {
 				},
 				{
 					'name' : 'findPointerIndex',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -137811,7 +137814,7 @@ config = {
 				},
 				{
 					'name' : 'getPointerCoords',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -137831,7 +137834,7 @@ config = {
 				},
 				{
 					'name' : 'getPointerProperties',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -137851,7 +137854,7 @@ config = {
 				},
 				{
 					'name' : 'getButtonState',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137863,7 +137866,7 @@ config = {
 				},
 				{
 					'name' : 'getRawX',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137875,7 +137878,7 @@ config = {
 				},
 				{
 					'name' : 'getRawY',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137887,7 +137890,7 @@ config = {
 				},
 				{
 					'name' : 'getXPrecision',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137899,7 +137902,7 @@ config = {
 				},
 				{
 					'name' : 'getYPrecision',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137911,7 +137914,7 @@ config = {
 				},
 				{
 					'name' : 'getHistorySize',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -137923,7 +137926,7 @@ config = {
 				},
 				{
 					'name' : 'getHistoricalEventTime',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -137939,7 +137942,7 @@ config = {
 				},
 				{
 					'name' : 'getHistoricalX',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -137955,7 +137958,7 @@ config = {
 				},
 				{
 					'name' : 'getHistoricalX',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -137975,7 +137978,7 @@ config = {
 				},
 				{
 					'name' : 'getHistoricalY',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -137991,7 +137994,7 @@ config = {
 				},
 				{
 					'name' : 'getHistoricalY',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -138011,7 +138014,7 @@ config = {
 				},
 				{
 					'name' : 'getHistoricalPressure',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -138027,7 +138030,7 @@ config = {
 				},
 				{
 					'name' : 'getHistoricalPressure',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -138047,7 +138050,7 @@ config = {
 				},
 				{
 					'name' : 'getHistoricalSize',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -138067,7 +138070,7 @@ config = {
 				},
 				{
 					'name' : 'getHistoricalSize',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -138083,7 +138086,7 @@ config = {
 				},
 				{
 					'name' : 'getHistoricalTouchMajor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -138099,7 +138102,7 @@ config = {
 				},
 				{
 					'name' : 'getHistoricalTouchMajor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -138119,7 +138122,7 @@ config = {
 				},
 				{
 					'name' : 'getHistoricalTouchMinor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -138139,7 +138142,7 @@ config = {
 				},
 				{
 					'name' : 'getHistoricalTouchMinor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -138155,7 +138158,7 @@ config = {
 				},
 				{
 					'name' : 'getHistoricalToolMajor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -138175,7 +138178,7 @@ config = {
 				},
 				{
 					'name' : 'getHistoricalToolMajor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -138191,7 +138194,7 @@ config = {
 				},
 				{
 					'name' : 'getHistoricalToolMinor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -138207,7 +138210,7 @@ config = {
 				},
 				{
 					'name' : 'getHistoricalToolMinor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -138227,7 +138230,7 @@ config = {
 				},
 				{
 					'name' : 'getHistoricalOrientation',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -138243,7 +138246,7 @@ config = {
 				},
 				{
 					'name' : 'getHistoricalOrientation',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -138263,7 +138266,7 @@ config = {
 				},
 				{
 					'name' : 'getHistoricalAxisValue',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -138283,7 +138286,7 @@ config = {
 				},
 				{
 					'name' : 'getHistoricalAxisValue',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -138307,7 +138310,7 @@ config = {
 				},
 				{
 					'name' : 'getHistoricalPointerCoords',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -138331,7 +138334,7 @@ config = {
 				},
 				{
 					'name' : 'getEdgeFlags',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -138343,7 +138346,7 @@ config = {
 				},
 				{
 					'name' : 'setEdgeFlags',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -138359,7 +138362,7 @@ config = {
 				},
 				{
 					'name' : 'offsetLocation',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'float',
@@ -138379,7 +138382,7 @@ config = {
 				},
 				{
 					'name' : 'setLocation',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'float',
@@ -138399,7 +138402,7 @@ config = {
 				},
 				{
 					'name' : 'addBatch',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -138424,7 +138427,7 @@ config = {
 				},
 				{
 					'name' : 'addBatch',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -140169,7 +140172,7 @@ config = {
 				},
 				{
 					'name' : 'getAnimationForView',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.view.View',
@@ -142691,7 +142694,7 @@ config = {
 				},
 				{
 					'name' : 'makeCompatible',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -143910,7 +143913,7 @@ config = {
 				},
 				{
 					'name' : 'dispatchOnGlobalLayout',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -143922,7 +143925,7 @@ config = {
 				},
 				{
 					'name' : 'dispatchOnPreDraw',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -143934,7 +143937,7 @@ config = {
 				},
 				{
 					'name' : 'dispatchOnDraw',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -144126,7 +144129,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'getView',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -145627,7 +145630,7 @@ config = {
 				},
 				{
 					'name' : 'startLoading',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -145827,7 +145830,7 @@ config = {
 				},
 				{
 					'name' : 'getFactory',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -145971,7 +145974,7 @@ config = {
 				},
 				{
 					'name' : 'getFactory2',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -146027,7 +146030,7 @@ config = {
 				},
 				{
 					'name' : 'createView',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -146231,7 +146234,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'getParent',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -147050,7 +147053,7 @@ config = {
 				},
 				{
 					'name' : 'getApplication',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -147062,7 +147065,7 @@ config = {
 				},
 				{
 					'name' : 'isChild',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -147158,7 +147161,7 @@ config = {
 				},
 				{
 					'name' : 'managedQuery',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -147324,7 +147327,7 @@ config = {
 				},
 				{
 					'name' : 'setDefaultKeyMode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -147824,7 +147827,7 @@ config = {
 				},
 				{
 					'name' : 'showDialog',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -147844,7 +147847,7 @@ config = {
 				},
 				{
 					'name' : 'showDialog',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -147860,7 +147863,7 @@ config = {
 				},
 				{
 					'name' : 'dismissDialog',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -147876,7 +147879,7 @@ config = {
 				},
 				{
 					'name' : 'removeDialog',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -147968,7 +147971,7 @@ config = {
 				},
 				{
 					'name' : 'requestWindowFeature',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -147984,7 +147987,7 @@ config = {
 				},
 				{
 					'name' : 'setFeatureDrawableResource',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -148004,7 +148007,7 @@ config = {
 				},
 				{
 					'name' : 'setFeatureDrawableUri',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -148024,7 +148027,7 @@ config = {
 				},
 				{
 					'name' : 'setFeatureDrawable',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -148044,7 +148047,7 @@ config = {
 				},
 				{
 					'name' : 'setFeatureDrawableAlpha',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -148376,7 +148379,7 @@ config = {
 				},
 				{
 					'name' : 'setResult',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -148392,7 +148395,7 @@ config = {
 				},
 				{
 					'name' : 'setResult',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -148720,7 +148723,7 @@ config = {
 				},
 				{
 					'name' : 'getTitle',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -148732,7 +148735,7 @@ config = {
 				},
 				{
 					'name' : 'getTitleColor',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -148744,7 +148747,7 @@ config = {
 				},
 				{
 					'name' : 'setProgressBarVisibility',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -148760,7 +148763,7 @@ config = {
 				},
 				{
 					'name' : 'setProgressBarIndeterminateVisibility',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -148776,7 +148779,7 @@ config = {
 				},
 				{
 					'name' : 'setProgressBarIndeterminate',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -148792,7 +148795,7 @@ config = {
 				},
 				{
 					'name' : 'setProgress',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -148808,7 +148811,7 @@ config = {
 				},
 				{
 					'name' : 'setSecondaryProgress',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -148824,7 +148827,7 @@ config = {
 				},
 				{
 					'name' : 'setVolumeControlStream',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -148840,7 +148843,7 @@ config = {
 				},
 				{
 					'name' : 'getVolumeControlStream',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -148852,7 +148855,7 @@ config = {
 				},
 				{
 					'name' : 'runOnUiThread',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Runnable',
@@ -149386,7 +149389,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'equals',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Object',
@@ -149414,7 +149417,7 @@ config = {
 				},
 				{
 					'name' : 'hashCode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -149426,7 +149429,7 @@ config = {
 				},
 				{
 					'name' : 'getResources',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -149438,7 +149441,7 @@ config = {
 				},
 				{
 					'name' : 'getId',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -149450,7 +149453,7 @@ config = {
 				},
 				{
 					'name' : 'isHidden',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -149462,7 +149465,7 @@ config = {
 				},
 				{
 					'name' : 'getString',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -149483,7 +149486,7 @@ config = {
 				},
 				{
 					'name' : 'getString',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -149499,7 +149502,7 @@ config = {
 				},
 				{
 					'name' : 'getTag',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -149600,7 +149603,7 @@ config = {
 				},
 				{
 					'name' : 'getArguments',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -149648,7 +149651,7 @@ config = {
 				},
 				{
 					'name' : 'getTargetFragment',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -149660,7 +149663,7 @@ config = {
 				},
 				{
 					'name' : 'getTargetRequestCode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -149672,7 +149675,7 @@ config = {
 				},
 				{
 					'name' : 'getActivity',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -149684,7 +149687,7 @@ config = {
 				},
 				{
 					'name' : 'getText',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -149700,7 +149703,7 @@ config = {
 				},
 				{
 					'name' : 'getFragmentManager',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -149712,7 +149715,7 @@ config = {
 				},
 				{
 					'name' : 'getChildFragmentManager',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -149724,7 +149727,7 @@ config = {
 				},
 				{
 					'name' : 'getParentFragment',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -149736,7 +149739,7 @@ config = {
 				},
 				{
 					'name' : 'isAdded',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -149748,7 +149751,7 @@ config = {
 				},
 				{
 					'name' : 'isDetached',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -149760,7 +149763,7 @@ config = {
 				},
 				{
 					'name' : 'isRemoving',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -149772,7 +149775,7 @@ config = {
 				},
 				{
 					'name' : 'isInLayout',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -149784,7 +149787,7 @@ config = {
 				},
 				{
 					'name' : 'isResumed',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -149796,7 +149799,7 @@ config = {
 				},
 				{
 					'name' : 'isVisible',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -149840,7 +149843,7 @@ config = {
 				},
 				{
 					'name' : 'getRetainInstance',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -150947,7 +150950,7 @@ config = {
 				},
 				{
 					'name' : 'startLoading',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -151987,7 +151990,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'getContext',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -151999,7 +152002,7 @@ config = {
 				},
 				{
 					'name' : 'getAttributes',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -152087,7 +152090,7 @@ config = {
 				},
 				{
 					'name' : 'makeActive',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -152479,7 +152482,7 @@ config = {
 				},
 				{
 					'name' : 'getCallback',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -152491,7 +152494,7 @@ config = {
 				},
 				{
 					'name' : 'getWindowStyle',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -152519,7 +152522,7 @@ config = {
 				},
 				{
 					'name' : 'getContainer',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -152531,7 +152534,7 @@ config = {
 				},
 				{
 					'name' : 'hasChildren',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -152771,7 +152774,7 @@ config = {
 				},
 				{
 					'name' : 'isActive',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -154171,7 +154174,7 @@ config = {
 				},
 				{
 					'name' : 'copyFrom',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.view.WindowManager$LayoutParams',
@@ -154219,7 +154222,7 @@ config = {
 				},
 				{
 					'name' : 'setTitle',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
@@ -154235,7 +154238,7 @@ config = {
 				},
 				{
 					'name' : 'getTitle',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -159536,7 +159539,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'cancel',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -159548,7 +159551,7 @@ config = {
 				},
 				{
 					'name' : 'confirm',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -162379,7 +162382,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'getText',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -162391,7 +162394,7 @@ config = {
 				},
 				{
 					'name' : 'getWidth',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -162459,7 +162462,7 @@ config = {
 				},
 				{
 					'name' : 'getPaint',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -162563,7 +162566,7 @@ config = {
 				},
 				{
 					'name' : 'increaseWidthTo',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -162579,7 +162582,7 @@ config = {
 				},
 				{
 					'name' : 'getAlignment',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -162591,7 +162594,7 @@ config = {
 				},
 				{
 					'name' : 'getSpacingMultiplier',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -162603,7 +162606,7 @@ config = {
 				},
 				{
 					'name' : 'getSpacingAdd',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -162899,7 +162902,7 @@ config = {
 				},
 				{
 					'name' : 'getLineEnd',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -162931,7 +162934,7 @@ config = {
 				},
 				{
 					'name' : 'getLineBottom',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -162947,7 +162950,7 @@ config = {
 				},
 				{
 					'name' : 'getLineBaseline',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -162963,7 +162966,7 @@ config = {
 				},
 				{
 					'name' : 'getLineAscent',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -163059,7 +163062,7 @@ config = {
 				},
 				{
 					'name' : 'getParagraphAlignment',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -163075,7 +163078,7 @@ config = {
 				},
 				{
 					'name' : 'getParagraphLeft',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -163091,7 +163094,7 @@ config = {
 				},
 				{
 					'name' : 'getParagraphRight',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',

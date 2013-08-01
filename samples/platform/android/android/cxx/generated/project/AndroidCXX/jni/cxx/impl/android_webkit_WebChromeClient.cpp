@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -95,7 +94,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_webkit_WebChromeClient"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -243,8 +242,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_webkit_WebChromeClient::android_webkit_WebChromeClient(const android_webkit_WebChromeClient& cc)
 {
 	LOGV("android_webkit_WebChromeClient::android_webkit_WebChromeClient(const android_webkit_WebChromeClient& cc) enter");
@@ -268,9 +265,9 @@ android_webkit_WebChromeClient::android_webkit_WebChromeClient(const android_web
 
 	LOGV("android_webkit_WebChromeClient::android_webkit_WebChromeClient(const android_webkit_WebChromeClient& cc) exit");
 }
-android_webkit_WebChromeClient::android_webkit_WebChromeClient(void * proxy)
+android_webkit_WebChromeClient::android_webkit_WebChromeClient(Proxy proxy)
 {
-	LOGV("android_webkit_WebChromeClient::android_webkit_WebChromeClient(void * proxy) enter");
+	LOGV("android_webkit_WebChromeClient::android_webkit_WebChromeClient(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -280,13 +277,31 @@ android_webkit_WebChromeClient::android_webkit_WebChromeClient(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_webkit_WebChromeClient::android_webkit_WebChromeClient(void * proxy) exit");
+	LOGV("android_webkit_WebChromeClient::android_webkit_WebChromeClient(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy android_webkit_WebChromeClient::proxy() const
+{	
+	LOGV("android_webkit_WebChromeClient::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_webkit_WebChromeClient jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_webkit_WebChromeClient::proxy() exit");	
+
+	return proxy;
+}
 android_webkit_WebChromeClient::android_webkit_WebChromeClient()
 {
 	LOGV("android_webkit_WebChromeClient::android_webkit_WebChromeClient() enter");	
@@ -334,13 +349,13 @@ android_webkit_WebChromeClient::~android_webkit_WebChromeClient()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_webkit_WebChromeClient::~android_webkit_WebChromeClient() exit");
 }
 // Functions
-void android_webkit_WebChromeClient::onProgressChanged(AndroidCXX::android_webkit_WebView& arg0,int& arg1)
+void android_webkit_WebChromeClient::onProgressChanged(AndroidCXX::android_webkit_WebView const& arg0,int const& arg1)
 {
-	LOGV("void android_webkit_WebChromeClient::onProgressChanged(AndroidCXX::android_webkit_WebView& arg0,int& arg1) enter");
+	LOGV("void android_webkit_WebChromeClient::onProgressChanged(AndroidCXX::android_webkit_WebView const& arg0,int const& arg1) enter");
 
 	const char *methodName = "onProgressChanged";
 	const char *methodSignature = "(Landroid/webkit/WebView;I)V";
@@ -350,8 +365,6 @@ void android_webkit_WebChromeClient::onProgressChanged(AndroidCXX::android_webki
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
@@ -403,14 +416,12 @@ void android_webkit_WebChromeClient::onProgressChanged(AndroidCXX::android_webki
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebChromeClient::onProgressChanged(AndroidCXX::android_webkit_WebView& arg0,int& arg1) exit");
+	LOGV("void android_webkit_WebChromeClient::onProgressChanged(AndroidCXX::android_webkit_WebView const& arg0,int const& arg1) exit");
 
 }
-void android_webkit_WebChromeClient::onReceivedTitle(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1)
+void android_webkit_WebChromeClient::onReceivedTitle(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("void android_webkit_WebChromeClient::onReceivedTitle(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("void android_webkit_WebChromeClient::onReceivedTitle(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "onReceivedTitle";
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;)V";
@@ -420,8 +431,6 @@ void android_webkit_WebChromeClient::onReceivedTitle(AndroidCXX::android_webkit_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
@@ -473,14 +482,12 @@ void android_webkit_WebChromeClient::onReceivedTitle(AndroidCXX::android_webkit_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebChromeClient::onReceivedTitle(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("void android_webkit_WebChromeClient::onReceivedTitle(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 }
-void android_webkit_WebChromeClient::onReceivedIcon(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_graphics_Bitmap& arg1)
+void android_webkit_WebChromeClient::onReceivedIcon(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_graphics_Bitmap const& arg1)
 {
-	LOGV("void android_webkit_WebChromeClient::onReceivedIcon(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_graphics_Bitmap& arg1) enter");
+	LOGV("void android_webkit_WebChromeClient::onReceivedIcon(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_graphics_Bitmap const& arg1) enter");
 
 	const char *methodName = "onReceivedIcon";
 	const char *methodSignature = "(Landroid/webkit/WebView;Landroid/graphics/Bitmap;)V";
@@ -490,8 +497,6 @@ void android_webkit_WebChromeClient::onReceivedIcon(AndroidCXX::android_webkit_W
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
@@ -543,14 +548,12 @@ void android_webkit_WebChromeClient::onReceivedIcon(AndroidCXX::android_webkit_W
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebChromeClient::onReceivedIcon(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_graphics_Bitmap& arg1) exit");
+	LOGV("void android_webkit_WebChromeClient::onReceivedIcon(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_graphics_Bitmap const& arg1) exit");
 
 }
-void android_webkit_WebChromeClient::onReceivedTouchIconUrl(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2)
+void android_webkit_WebChromeClient::onReceivedTouchIconUrl(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2)
 {
-	LOGV("void android_webkit_WebChromeClient::onReceivedTouchIconUrl(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2) enter");
+	LOGV("void android_webkit_WebChromeClient::onReceivedTouchIconUrl(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2) enter");
 
 	const char *methodName = "onReceivedTouchIconUrl";
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;Z)V";
@@ -560,8 +563,6 @@ void android_webkit_WebChromeClient::onReceivedTouchIconUrl(AndroidCXX::android_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
@@ -634,14 +635,12 @@ void android_webkit_WebChromeClient::onReceivedTouchIconUrl(AndroidCXX::android_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebChromeClient::onReceivedTouchIconUrl(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2) exit");
+	LOGV("void android_webkit_WebChromeClient::onReceivedTouchIconUrl(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2) exit");
 
 }
-void android_webkit_WebChromeClient::onShowCustomView(AndroidCXX::android_view_View& arg0,AndroidCXX::android_webkit_WebChromeClient_CustomViewCallback& arg1)
+void android_webkit_WebChromeClient::onShowCustomView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_webkit_WebChromeClient_CustomViewCallback const& arg1)
 {
-	LOGV("void android_webkit_WebChromeClient::onShowCustomView(AndroidCXX::android_view_View& arg0,AndroidCXX::android_webkit_WebChromeClient_CustomViewCallback& arg1) enter");
+	LOGV("void android_webkit_WebChromeClient::onShowCustomView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_webkit_WebChromeClient_CustomViewCallback const& arg1) enter");
 
 	const char *methodName = "onShowCustomView";
 	const char *methodSignature = "(Landroid/view/View;Landroid/webkit/WebChromeClient$CustomViewCallback;)V";
@@ -651,8 +650,6 @@ void android_webkit_WebChromeClient::onShowCustomView(AndroidCXX::android_view_V
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
@@ -704,14 +701,12 @@ void android_webkit_WebChromeClient::onShowCustomView(AndroidCXX::android_view_V
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebChromeClient::onShowCustomView(AndroidCXX::android_view_View& arg0,AndroidCXX::android_webkit_WebChromeClient_CustomViewCallback& arg1) exit");
+	LOGV("void android_webkit_WebChromeClient::onShowCustomView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_webkit_WebChromeClient_CustomViewCallback const& arg1) exit");
 
 }
-void android_webkit_WebChromeClient::onShowCustomView(AndroidCXX::android_view_View& arg0,int& arg1,AndroidCXX::android_webkit_WebChromeClient_CustomViewCallback& arg2)
+void android_webkit_WebChromeClient::onShowCustomView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_webkit_WebChromeClient_CustomViewCallback const& arg2)
 {
-	LOGV("void android_webkit_WebChromeClient::onShowCustomView(AndroidCXX::android_view_View& arg0,int& arg1,AndroidCXX::android_webkit_WebChromeClient_CustomViewCallback& arg2) enter");
+	LOGV("void android_webkit_WebChromeClient::onShowCustomView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_webkit_WebChromeClient_CustomViewCallback const& arg2) enter");
 
 	const char *methodName = "onShowCustomView";
 	const char *methodSignature = "(Landroid/view/View;ILandroid/webkit/WebChromeClient$CustomViewCallback;)V";
@@ -721,8 +716,6 @@ void android_webkit_WebChromeClient::onShowCustomView(AndroidCXX::android_view_V
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
@@ -795,9 +788,7 @@ void android_webkit_WebChromeClient::onShowCustomView(AndroidCXX::android_view_V
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebChromeClient::onShowCustomView(AndroidCXX::android_view_View& arg0,int& arg1,AndroidCXX::android_webkit_WebChromeClient_CustomViewCallback& arg2) exit");
+	LOGV("void android_webkit_WebChromeClient::onShowCustomView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_webkit_WebChromeClient_CustomViewCallback const& arg2) exit");
 
 }
 void android_webkit_WebChromeClient::onHideCustomView()
@@ -813,8 +804,6 @@ void android_webkit_WebChromeClient::onHideCustomView()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -823,14 +812,12 @@ void android_webkit_WebChromeClient::onHideCustomView()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_webkit_WebChromeClient::onHideCustomView() exit");
 
 }
-bool android_webkit_WebChromeClient::onCreateWindow(AndroidCXX::android_webkit_WebView& arg0,bool& arg1,bool& arg2,AndroidCXX::android_os_Message& arg3)
+bool android_webkit_WebChromeClient::onCreateWindow(AndroidCXX::android_webkit_WebView const& arg0,bool const& arg1,bool const& arg2,AndroidCXX::android_os_Message const& arg3)
 {
-	LOGV("bool android_webkit_WebChromeClient::onCreateWindow(AndroidCXX::android_webkit_WebView& arg0,bool& arg1,bool& arg2,AndroidCXX::android_os_Message& arg3) enter");
+	LOGV("bool android_webkit_WebChromeClient::onCreateWindow(AndroidCXX::android_webkit_WebView const& arg0,bool const& arg1,bool const& arg2,AndroidCXX::android_os_Message const& arg3) enter");
 
 	const char *methodName = "onCreateWindow";
 	const char *methodSignature = "(Landroid/webkit/WebView;ZZLandroid/os/Message;)Z";
@@ -840,8 +827,6 @@ bool android_webkit_WebChromeClient::onCreateWindow(AndroidCXX::android_webkit_W
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
@@ -933,7 +918,6 @@ bool android_webkit_WebChromeClient::onCreateWindow(AndroidCXX::android_webkit_W
 		jarg3 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -951,17 +935,17 @@ bool android_webkit_WebChromeClient::onCreateWindow(AndroidCXX::android_webkit_W
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_webkit_WebChromeClient::onCreateWindow(AndroidCXX::android_webkit_WebView& arg0,bool& arg1,bool& arg2,AndroidCXX::android_os_Message& arg3) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_webkit_WebChromeClient::onCreateWindow(AndroidCXX::android_webkit_WebView const& arg0,bool const& arg1,bool const& arg2,AndroidCXX::android_os_Message const& arg3) exit");
 
 	return result;
 }
-void android_webkit_WebChromeClient::onRequestFocus(AndroidCXX::android_webkit_WebView& arg0)
+void android_webkit_WebChromeClient::onRequestFocus(AndroidCXX::android_webkit_WebView const& arg0)
 {
-	LOGV("void android_webkit_WebChromeClient::onRequestFocus(AndroidCXX::android_webkit_WebView& arg0) enter");
+	LOGV("void android_webkit_WebChromeClient::onRequestFocus(AndroidCXX::android_webkit_WebView const& arg0) enter");
 
 	const char *methodName = "onRequestFocus";
 	const char *methodSignature = "(Landroid/webkit/WebView;)V";
@@ -972,8 +956,6 @@ void android_webkit_WebChromeClient::onRequestFocus(AndroidCXX::android_webkit_W
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1003,14 +985,12 @@ void android_webkit_WebChromeClient::onRequestFocus(AndroidCXX::android_webkit_W
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebChromeClient::onRequestFocus(AndroidCXX::android_webkit_WebView& arg0) exit");
+	LOGV("void android_webkit_WebChromeClient::onRequestFocus(AndroidCXX::android_webkit_WebView const& arg0) exit");
 
 }
-void android_webkit_WebChromeClient::onCloseWindow(AndroidCXX::android_webkit_WebView& arg0)
+void android_webkit_WebChromeClient::onCloseWindow(AndroidCXX::android_webkit_WebView const& arg0)
 {
-	LOGV("void android_webkit_WebChromeClient::onCloseWindow(AndroidCXX::android_webkit_WebView& arg0) enter");
+	LOGV("void android_webkit_WebChromeClient::onCloseWindow(AndroidCXX::android_webkit_WebView const& arg0) enter");
 
 	const char *methodName = "onCloseWindow";
 	const char *methodSignature = "(Landroid/webkit/WebView;)V";
@@ -1021,8 +1001,6 @@ void android_webkit_WebChromeClient::onCloseWindow(AndroidCXX::android_webkit_We
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1052,14 +1030,12 @@ void android_webkit_WebChromeClient::onCloseWindow(AndroidCXX::android_webkit_We
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebChromeClient::onCloseWindow(AndroidCXX::android_webkit_WebView& arg0) exit");
+	LOGV("void android_webkit_WebChromeClient::onCloseWindow(AndroidCXX::android_webkit_WebView const& arg0) exit");
 
 }
-bool android_webkit_WebChromeClient::onJsAlert(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_webkit_JsResult& arg3)
+bool android_webkit_WebChromeClient::onJsAlert(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_webkit_JsResult const& arg3)
 {
-	LOGV("bool android_webkit_WebChromeClient::onJsAlert(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_webkit_JsResult& arg3) enter");
+	LOGV("bool android_webkit_WebChromeClient::onJsAlert(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_webkit_JsResult const& arg3) enter");
 
 	const char *methodName = "onJsAlert";
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;Ljava/lang/String;Landroid/webkit/JsResult;)Z";
@@ -1070,8 +1046,6 @@ bool android_webkit_WebChromeClient::onJsAlert(AndroidCXX::android_webkit_WebVie
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1162,7 +1136,6 @@ bool android_webkit_WebChromeClient::onJsAlert(AndroidCXX::android_webkit_WebVie
 		jarg3 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1180,17 +1153,17 @@ bool android_webkit_WebChromeClient::onJsAlert(AndroidCXX::android_webkit_WebVie
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_webkit_WebChromeClient::onJsAlert(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_webkit_JsResult& arg3) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_webkit_WebChromeClient::onJsAlert(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_webkit_JsResult const& arg3) exit");
 
 	return result;
 }
-bool android_webkit_WebChromeClient::onJsConfirm(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_webkit_JsResult& arg3)
+bool android_webkit_WebChromeClient::onJsConfirm(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_webkit_JsResult const& arg3)
 {
-	LOGV("bool android_webkit_WebChromeClient::onJsConfirm(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_webkit_JsResult& arg3) enter");
+	LOGV("bool android_webkit_WebChromeClient::onJsConfirm(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_webkit_JsResult const& arg3) enter");
 
 	const char *methodName = "onJsConfirm";
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;Ljava/lang/String;Landroid/webkit/JsResult;)Z";
@@ -1201,8 +1174,6 @@ bool android_webkit_WebChromeClient::onJsConfirm(AndroidCXX::android_webkit_WebV
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1293,7 +1264,6 @@ bool android_webkit_WebChromeClient::onJsConfirm(AndroidCXX::android_webkit_WebV
 		jarg3 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1311,17 +1281,17 @@ bool android_webkit_WebChromeClient::onJsConfirm(AndroidCXX::android_webkit_WebV
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_webkit_WebChromeClient::onJsConfirm(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_webkit_JsResult& arg3) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_webkit_WebChromeClient::onJsConfirm(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_webkit_JsResult const& arg3) exit");
 
 	return result;
 }
-bool android_webkit_WebChromeClient::onJsPrompt(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::android_webkit_JsPromptResult& arg4)
+bool android_webkit_WebChromeClient::onJsPrompt(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::android_webkit_JsPromptResult const& arg4)
 {
-	LOGV("bool android_webkit_WebChromeClient::onJsPrompt(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::android_webkit_JsPromptResult& arg4) enter");
+	LOGV("bool android_webkit_WebChromeClient::onJsPrompt(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::android_webkit_JsPromptResult const& arg4) enter");
 
 	const char *methodName = "onJsPrompt";
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/webkit/JsPromptResult;)Z";
@@ -1331,8 +1301,6 @@ bool android_webkit_WebChromeClient::onJsPrompt(AndroidCXX::android_webkit_WebVi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
@@ -1445,7 +1413,6 @@ bool android_webkit_WebChromeClient::onJsPrompt(AndroidCXX::android_webkit_WebVi
 		jarg4 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1463,17 +1430,17 @@ bool android_webkit_WebChromeClient::onJsPrompt(AndroidCXX::android_webkit_WebVi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_webkit_WebChromeClient::onJsPrompt(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::android_webkit_JsPromptResult& arg4) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_webkit_WebChromeClient::onJsPrompt(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::android_webkit_JsPromptResult const& arg4) exit");
 
 	return result;
 }
-bool android_webkit_WebChromeClient::onJsBeforeUnload(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_webkit_JsResult& arg3)
+bool android_webkit_WebChromeClient::onJsBeforeUnload(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_webkit_JsResult const& arg3)
 {
-	LOGV("bool android_webkit_WebChromeClient::onJsBeforeUnload(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_webkit_JsResult& arg3) enter");
+	LOGV("bool android_webkit_WebChromeClient::onJsBeforeUnload(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_webkit_JsResult const& arg3) enter");
 
 	const char *methodName = "onJsBeforeUnload";
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;Ljava/lang/String;Landroid/webkit/JsResult;)Z";
@@ -1483,8 +1450,6 @@ bool android_webkit_WebChromeClient::onJsBeforeUnload(AndroidCXX::android_webkit
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
@@ -1576,7 +1541,6 @@ bool android_webkit_WebChromeClient::onJsBeforeUnload(AndroidCXX::android_webkit
 		jarg3 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1594,17 +1558,17 @@ bool android_webkit_WebChromeClient::onJsBeforeUnload(AndroidCXX::android_webkit
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_webkit_WebChromeClient::onJsBeforeUnload(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_webkit_JsResult& arg3) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_webkit_WebChromeClient::onJsBeforeUnload(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_webkit_JsResult const& arg3) exit");
 
 	return result;
 }
-void android_webkit_WebChromeClient::onExceededDatabaseQuota(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,long& arg2,long& arg3,long& arg4,AndroidCXX::android_webkit_WebStorage_QuotaUpdater& arg5)
+void android_webkit_WebChromeClient::onExceededDatabaseQuota(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,long const& arg2,long const& arg3,long const& arg4,AndroidCXX::android_webkit_WebStorage_QuotaUpdater const& arg5)
 {
-	LOGV("void android_webkit_WebChromeClient::onExceededDatabaseQuota(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,long& arg2,long& arg3,long& arg4,AndroidCXX::android_webkit_WebStorage_QuotaUpdater& arg5) enter");
+	LOGV("void android_webkit_WebChromeClient::onExceededDatabaseQuota(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,long const& arg2,long const& arg3,long const& arg4,AndroidCXX::android_webkit_WebStorage_QuotaUpdater const& arg5) enter");
 
 	const char *methodName = "onExceededDatabaseQuota";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;JJJLandroid/webkit/WebStorage$QuotaUpdater;)V";
@@ -1614,8 +1578,6 @@ void android_webkit_WebChromeClient::onExceededDatabaseQuota(AndroidCXX::java_la
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
@@ -1751,14 +1713,12 @@ void android_webkit_WebChromeClient::onExceededDatabaseQuota(AndroidCXX::java_la
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebChromeClient::onExceededDatabaseQuota(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,long& arg2,long& arg3,long& arg4,AndroidCXX::android_webkit_WebStorage_QuotaUpdater& arg5) exit");
+	LOGV("void android_webkit_WebChromeClient::onExceededDatabaseQuota(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,long const& arg2,long const& arg3,long const& arg4,AndroidCXX::android_webkit_WebStorage_QuotaUpdater const& arg5) exit");
 
 }
-void android_webkit_WebChromeClient::onReachedMaxAppCacheSize(long& arg0,long& arg1,AndroidCXX::android_webkit_WebStorage_QuotaUpdater& arg2)
+void android_webkit_WebChromeClient::onReachedMaxAppCacheSize(long const& arg0,long const& arg1,AndroidCXX::android_webkit_WebStorage_QuotaUpdater const& arg2)
 {
-	LOGV("void android_webkit_WebChromeClient::onReachedMaxAppCacheSize(long& arg0,long& arg1,AndroidCXX::android_webkit_WebStorage_QuotaUpdater& arg2) enter");
+	LOGV("void android_webkit_WebChromeClient::onReachedMaxAppCacheSize(long const& arg0,long const& arg1,AndroidCXX::android_webkit_WebStorage_QuotaUpdater const& arg2) enter");
 
 	const char *methodName = "onReachedMaxAppCacheSize";
 	const char *methodSignature = "(JJLandroid/webkit/WebStorage$QuotaUpdater;)V";
@@ -1768,8 +1728,6 @@ void android_webkit_WebChromeClient::onReachedMaxAppCacheSize(long& arg0,long& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
@@ -1842,14 +1800,12 @@ void android_webkit_WebChromeClient::onReachedMaxAppCacheSize(long& arg0,long& a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebChromeClient::onReachedMaxAppCacheSize(long& arg0,long& arg1,AndroidCXX::android_webkit_WebStorage_QuotaUpdater& arg2) exit");
+	LOGV("void android_webkit_WebChromeClient::onReachedMaxAppCacheSize(long const& arg0,long const& arg1,AndroidCXX::android_webkit_WebStorage_QuotaUpdater const& arg2) exit");
 
 }
-void android_webkit_WebChromeClient::onGeolocationPermissionsShowPrompt(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_webkit_GeolocationPermissions_Callback& arg1)
+void android_webkit_WebChromeClient::onGeolocationPermissionsShowPrompt(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_webkit_GeolocationPermissions_Callback const& arg1)
 {
-	LOGV("void android_webkit_WebChromeClient::onGeolocationPermissionsShowPrompt(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_webkit_GeolocationPermissions_Callback& arg1) enter");
+	LOGV("void android_webkit_WebChromeClient::onGeolocationPermissionsShowPrompt(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_webkit_GeolocationPermissions_Callback const& arg1) enter");
 
 	const char *methodName = "onGeolocationPermissionsShowPrompt";
 	const char *methodSignature = "(Ljava/lang/String;Landroid/webkit/GeolocationPermissions$Callback;)V";
@@ -1859,8 +1815,6 @@ void android_webkit_WebChromeClient::onGeolocationPermissionsShowPrompt(AndroidC
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
@@ -1912,9 +1866,7 @@ void android_webkit_WebChromeClient::onGeolocationPermissionsShowPrompt(AndroidC
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebChromeClient::onGeolocationPermissionsShowPrompt(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_webkit_GeolocationPermissions_Callback& arg1) exit");
+	LOGV("void android_webkit_WebChromeClient::onGeolocationPermissionsShowPrompt(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_webkit_GeolocationPermissions_Callback const& arg1) exit");
 
 }
 void android_webkit_WebChromeClient::onGeolocationPermissionsHidePrompt()
@@ -1930,8 +1882,6 @@ void android_webkit_WebChromeClient::onGeolocationPermissionsHidePrompt()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1940,8 +1890,6 @@ void android_webkit_WebChromeClient::onGeolocationPermissionsHidePrompt()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_webkit_WebChromeClient::onGeolocationPermissionsHidePrompt() exit");
 
 }
@@ -1958,15 +1906,12 @@ bool android_webkit_WebChromeClient::onJsTimeout()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebChromeClient jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1984,17 +1929,17 @@ bool android_webkit_WebChromeClient::onJsTimeout()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_WebChromeClient::onJsTimeout() exit");
 
 	return result;
 }
-void android_webkit_WebChromeClient::onConsoleMessage(AndroidCXX::java_lang_String& arg0,int& arg1,AndroidCXX::java_lang_String& arg2)
+void android_webkit_WebChromeClient::onConsoleMessage(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2)
 {
-	LOGV("void android_webkit_WebChromeClient::onConsoleMessage(AndroidCXX::java_lang_String& arg0,int& arg1,AndroidCXX::java_lang_String& arg2) enter");
+	LOGV("void android_webkit_WebChromeClient::onConsoleMessage(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2) enter");
 
 	const char *methodName = "onConsoleMessage";
 	const char *methodSignature = "(Ljava/lang/String;ILjava/lang/String;)V";
@@ -2004,8 +1949,6 @@ void android_webkit_WebChromeClient::onConsoleMessage(AndroidCXX::java_lang_Stri
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
@@ -2078,14 +2021,12 @@ void android_webkit_WebChromeClient::onConsoleMessage(AndroidCXX::java_lang_Stri
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebChromeClient::onConsoleMessage(AndroidCXX::java_lang_String& arg0,int& arg1,AndroidCXX::java_lang_String& arg2) exit");
+	LOGV("void android_webkit_WebChromeClient::onConsoleMessage(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2) exit");
 
 }
-bool android_webkit_WebChromeClient::onConsoleMessage(AndroidCXX::android_webkit_ConsoleMessage& arg0)
+bool android_webkit_WebChromeClient::onConsoleMessage(AndroidCXX::android_webkit_ConsoleMessage const& arg0)
 {
-	LOGV("bool android_webkit_WebChromeClient::onConsoleMessage(AndroidCXX::android_webkit_ConsoleMessage& arg0) enter");
+	LOGV("bool android_webkit_WebChromeClient::onConsoleMessage(AndroidCXX::android_webkit_ConsoleMessage const& arg0) enter");
 
 	const char *methodName = "onConsoleMessage";
 	const char *methodSignature = "(Landroid/webkit/ConsoleMessage;)Z";
@@ -2095,8 +2036,6 @@ bool android_webkit_WebChromeClient::onConsoleMessage(AndroidCXX::android_webkit
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
@@ -2125,7 +2064,6 @@ bool android_webkit_WebChromeClient::onConsoleMessage(AndroidCXX::android_webkit
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2143,11 +2081,11 @@ bool android_webkit_WebChromeClient::onConsoleMessage(AndroidCXX::android_webkit
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_webkit_WebChromeClient::onConsoleMessage(AndroidCXX::android_webkit_ConsoleMessage& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_webkit_WebChromeClient::onConsoleMessage(AndroidCXX::android_webkit_ConsoleMessage const& arg0) exit");
 
 	return result;
 }
@@ -2164,15 +2102,12 @@ AndroidCXX::android_graphics_Bitmap android_webkit_WebChromeClient::getDefaultVi
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebChromeClient jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_Bitmap result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2190,10 +2125,10 @@ AndroidCXX::android_graphics_Bitmap android_webkit_WebChromeClient::getDefaultVi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Bitmap(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Bitmap) (AndroidCXX::android_graphics_Bitmap((AndroidCXX::android_graphics_Bitmap *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_graphics_Bitmap result((AndroidCXX::android_graphics_Bitmap) *((AndroidCXX::android_graphics_Bitmap *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Bitmap *) cxx_value);
+		
 	LOGV("AndroidCXX::android_graphics_Bitmap android_webkit_WebChromeClient::getDefaultVideoPoster() exit");
 
 	return result;
@@ -2211,15 +2146,12 @@ AndroidCXX::android_view_View android_webkit_WebChromeClient::getVideoLoadingPro
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebChromeClient jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2237,17 +2169,17 @@ AndroidCXX::android_view_View android_webkit_WebChromeClient::getVideoLoadingPro
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
+		
 	LOGV("AndroidCXX::android_view_View android_webkit_WebChromeClient::getVideoLoadingProgressView() exit");
 
 	return result;
 }
-void android_webkit_WebChromeClient::getVisitedHistory(AndroidCXX::android_webkit_ValueCallback& arg0)
+void android_webkit_WebChromeClient::getVisitedHistory(AndroidCXX::android_webkit_ValueCallback const& arg0)
 {
-	LOGV("void android_webkit_WebChromeClient::getVisitedHistory(AndroidCXX::android_webkit_ValueCallback& arg0) enter");
+	LOGV("void android_webkit_WebChromeClient::getVisitedHistory(AndroidCXX::android_webkit_ValueCallback const& arg0) enter");
 
 	const char *methodName = "getVisitedHistory";
 	const char *methodSignature = "(Landroid/webkit/ValueCallback;)V";
@@ -2257,8 +2189,6 @@ void android_webkit_WebChromeClient::getVisitedHistory(AndroidCXX::android_webki
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebChromeClient cxx address %d", cxxAddress);
@@ -2325,8 +2255,6 @@ void android_webkit_WebChromeClient::getVisitedHistory(AndroidCXX::android_webki
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_WebChromeClient::getVisitedHistory(AndroidCXX::android_webkit_ValueCallback& arg0) exit");
+	LOGV("void android_webkit_WebChromeClient::getVisitedHistory(AndroidCXX::android_webkit_ValueCallback const& arg0) exit");
 
 }

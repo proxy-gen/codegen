@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -120,8 +119,6 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_lang_Package::java_lang_Package(const java_lang_Package& cc)
 {
 	LOGV("java_lang_Package::java_lang_Package(const java_lang_Package& cc) enter");
@@ -145,9 +142,9 @@ java_lang_Package::java_lang_Package(const java_lang_Package& cc)
 
 	LOGV("java_lang_Package::java_lang_Package(const java_lang_Package& cc) exit");
 }
-java_lang_Package::java_lang_Package(void * proxy)
+java_lang_Package::java_lang_Package(Proxy proxy)
 {
-	LOGV("java_lang_Package::java_lang_Package(void * proxy) enter");
+	LOGV("java_lang_Package::java_lang_Package(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -157,52 +154,31 @@ java_lang_Package::java_lang_Package(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_lang_Package::java_lang_Package(void * proxy) exit");
+	LOGV("java_lang_Package::java_lang_Package(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_lang_Package::java_lang_Package()
-// {
-// 	LOGV("java_lang_Package::java_lang_Package() enter");	
+Proxy java_lang_Package::proxy() const
+{	
+	LOGV("java_lang_Package::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/lang/Package";
+	long cxxAddress = (long) this;
+	LOGV("java_lang_Package cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_Package jni address %d", proxiedComponent);
 
-// 	LOGV("java_lang_Package className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_lang_Package::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_lang_Package cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_lang_Package jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_lang_Package::java_lang_Package() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_lang_Package::~java_lang_Package()
 {
@@ -214,7 +190,7 @@ java_lang_Package::~java_lang_Package()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_lang_Package::~java_lang_Package() exit");
 }
 // Functions
@@ -230,8 +206,6 @@ JDKCXX::java_lang_String java_lang_Package::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Package cxx address %d", cxxAddress);
@@ -260,8 +234,6 @@ JDKCXX::java_lang_String java_lang_Package::toString()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_lang_Package::toString() exit");
 
 	return result;
@@ -278,8 +250,6 @@ int java_lang_Package::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Package cxx address %d", cxxAddress);
@@ -308,8 +278,6 @@ int java_lang_Package::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_lang_Package::hashCode() exit");
 
 	return result;
@@ -326,8 +294,6 @@ JDKCXX::java_lang_String java_lang_Package::getName()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Package cxx address %d", cxxAddress);
@@ -356,15 +322,13 @@ JDKCXX::java_lang_String java_lang_Package::getName()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_lang_Package::getName() exit");
 
 	return result;
 }
-JDKCXX::java_lang_Package java_lang_Package::getPackage(JDKCXX::java_lang_String& arg0)
+JDKCXX::java_lang_Package java_lang_Package::getPackage(JDKCXX::java_lang_String const& arg0)
 {
-	LOGV("JDKCXX::java_lang_Package java_lang_Package::getPackage(JDKCXX::java_lang_String& arg0) enter");
+	LOGV("JDKCXX::java_lang_Package java_lang_Package::getPackage(JDKCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getPackage";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Package;";
@@ -374,8 +338,6 @@ JDKCXX::java_lang_Package java_lang_Package::getPackage(JDKCXX::java_lang_String
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Package cxx address %d", cxxAddress);
@@ -404,7 +366,7 @@ JDKCXX::java_lang_Package java_lang_Package::getPackage(JDKCXX::java_lang_String
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -425,15 +387,13 @@ JDKCXX::java_lang_Package java_lang_Package::getPackage(JDKCXX::java_lang_String
 	JDKCXX::java_lang_Package result((JDKCXX::java_lang_Package) *((JDKCXX::java_lang_Package *) cxx_value));
 	delete ((JDKCXX::java_lang_Package *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_Package java_lang_Package::getPackage(JDKCXX::java_lang_String& arg0) exit");
+	LOGV("JDKCXX::java_lang_Package java_lang_Package::getPackage(JDKCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
-JDKCXX::java_lang_annotation_Annotation java_lang_Package::getAnnotation(JDKCXX::java_lang_Class& arg0)
+JDKCXX::java_lang_annotation_Annotation java_lang_Package::getAnnotation(JDKCXX::java_lang_Class const& arg0)
 {
-	LOGV("JDKCXX::java_lang_annotation_Annotation java_lang_Package::getAnnotation(JDKCXX::java_lang_Class& arg0) enter");
+	LOGV("JDKCXX::java_lang_annotation_Annotation java_lang_Package::getAnnotation(JDKCXX::java_lang_Class const& arg0) enter");
 
 	const char *methodName = "getAnnotation";
 	const char *methodSignature = "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;";
@@ -443,8 +403,6 @@ JDKCXX::java_lang_annotation_Annotation java_lang_Package::getAnnotation(JDKCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Package cxx address %d", cxxAddress);
@@ -512,15 +470,13 @@ JDKCXX::java_lang_annotation_Annotation java_lang_Package::getAnnotation(JDKCXX:
 	JDKCXX::java_lang_annotation_Annotation result((JDKCXX::java_lang_annotation_Annotation) *((JDKCXX::java_lang_annotation_Annotation *) cxx_value));
 	delete ((JDKCXX::java_lang_annotation_Annotation *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_annotation_Annotation java_lang_Package::getAnnotation(JDKCXX::java_lang_Class& arg0) exit");
+	LOGV("JDKCXX::java_lang_annotation_Annotation java_lang_Package::getAnnotation(JDKCXX::java_lang_Class const& arg0) exit");
 
 	return result;
 }
-bool java_lang_Package::isAnnotationPresent(JDKCXX::java_lang_Class& arg0)
+bool java_lang_Package::isAnnotationPresent(JDKCXX::java_lang_Class const& arg0)
 {
-	LOGV("bool java_lang_Package::isAnnotationPresent(JDKCXX::java_lang_Class& arg0) enter");
+	LOGV("bool java_lang_Package::isAnnotationPresent(JDKCXX::java_lang_Class const& arg0) enter");
 
 	const char *methodName = "isAnnotationPresent";
 	const char *methodSignature = "(Ljava/lang/Class;)Z";
@@ -530,8 +486,6 @@ bool java_lang_Package::isAnnotationPresent(JDKCXX::java_lang_Class& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Package cxx address %d", cxxAddress);
@@ -599,9 +553,7 @@ bool java_lang_Package::isAnnotationPresent(JDKCXX::java_lang_Class& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_lang_Package::isAnnotationPresent(JDKCXX::java_lang_Class& arg0) exit");
+	LOGV("bool java_lang_Package::isAnnotationPresent(JDKCXX::java_lang_Class const& arg0) exit");
 
 	return result;
 }
@@ -617,8 +569,6 @@ std::vector<JDKCXX::java_lang_annotation_Annotation > java_lang_Package::getAnno
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Package cxx address %d", cxxAddress);
@@ -665,8 +615,6 @@ std::vector<JDKCXX::java_lang_annotation_Annotation > java_lang_Package::getAnno
 	std::vector<JDKCXX::java_lang_annotation_Annotation > result = (std::vector<JDKCXX::java_lang_annotation_Annotation >) *((std::vector<JDKCXX::java_lang_annotation_Annotation > *) cxx_value);
 	delete ((std::vector<JDKCXX::java_lang_annotation_Annotation > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<JDKCXX::java_lang_annotation_Annotation > java_lang_Package::getAnnotations() exit");
 
 	return result;
@@ -684,8 +632,6 @@ std::vector<JDKCXX::java_lang_annotation_Annotation > java_lang_Package::getDecl
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Package cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -731,8 +677,6 @@ std::vector<JDKCXX::java_lang_annotation_Annotation > java_lang_Package::getDecl
 	std::vector<JDKCXX::java_lang_annotation_Annotation > result = (std::vector<JDKCXX::java_lang_annotation_Annotation >) *((std::vector<JDKCXX::java_lang_annotation_Annotation > *) cxx_value);
 	delete ((std::vector<JDKCXX::java_lang_annotation_Annotation > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<JDKCXX::java_lang_annotation_Annotation > java_lang_Package::getDeclaredAnnotations() exit");
 
 	return result;
@@ -750,15 +694,13 @@ std::vector<JDKCXX::java_lang_Package > java_lang_Package::getPackages()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_lang_Package cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_Package jni address %d", javaObject);
 
 
-	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jobjectArray jni_result = (jobjectArray) jni->invokeStaticObjectMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
 	{
@@ -797,8 +739,6 @@ std::vector<JDKCXX::java_lang_Package > java_lang_Package::getPackages()
 	std::vector<JDKCXX::java_lang_Package > result = (std::vector<JDKCXX::java_lang_Package >) *((std::vector<JDKCXX::java_lang_Package > *) cxx_value);
 	delete ((std::vector<JDKCXX::java_lang_Package > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<JDKCXX::java_lang_Package > java_lang_Package::getPackages() exit");
 
 	return result;
@@ -815,8 +755,6 @@ bool java_lang_Package::isSealed()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Package cxx address %d", cxxAddress);
@@ -845,15 +783,13 @@ bool java_lang_Package::isSealed()
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("bool java_lang_Package::isSealed() exit");
 
 	return result;
 }
-bool java_lang_Package::isSealed(JDKCXX::java_net_URL& arg0)
+bool java_lang_Package::isSealed(JDKCXX::java_net_URL const& arg0)
 {
-	LOGV("bool java_lang_Package::isSealed(JDKCXX::java_net_URL& arg0) enter");
+	LOGV("bool java_lang_Package::isSealed(JDKCXX::java_net_URL const& arg0) enter");
 
 	const char *methodName = "isSealed";
 	const char *methodSignature = "(Ljava/net/URL;)Z";
@@ -863,8 +799,6 @@ bool java_lang_Package::isSealed(JDKCXX::java_net_URL& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Package cxx address %d", cxxAddress);
@@ -914,9 +848,7 @@ bool java_lang_Package::isSealed(JDKCXX::java_net_URL& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_lang_Package::isSealed(JDKCXX::java_net_URL& arg0) exit");
+	LOGV("bool java_lang_Package::isSealed(JDKCXX::java_net_URL const& arg0) exit");
 
 	return result;
 }
@@ -932,8 +864,6 @@ JDKCXX::java_lang_String java_lang_Package::getSpecificationTitle()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Package cxx address %d", cxxAddress);
@@ -962,8 +892,6 @@ JDKCXX::java_lang_String java_lang_Package::getSpecificationTitle()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_lang_Package::getSpecificationTitle() exit");
 
 	return result;
@@ -981,8 +909,6 @@ JDKCXX::java_lang_String java_lang_Package::getSpecificationVersion()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Package cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1010,8 +936,6 @@ JDKCXX::java_lang_String java_lang_Package::getSpecificationVersion()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_lang_Package::getSpecificationVersion() exit");
 
 	return result;
@@ -1029,8 +953,6 @@ JDKCXX::java_lang_String java_lang_Package::getSpecificationVendor()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Package cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1058,8 +980,6 @@ JDKCXX::java_lang_String java_lang_Package::getSpecificationVendor()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_lang_Package::getSpecificationVendor() exit");
 
 	return result;
@@ -1077,8 +997,6 @@ JDKCXX::java_lang_String java_lang_Package::getImplementationTitle()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Package cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1106,8 +1024,6 @@ JDKCXX::java_lang_String java_lang_Package::getImplementationTitle()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_lang_Package::getImplementationTitle() exit");
 
 	return result;
@@ -1125,8 +1041,6 @@ JDKCXX::java_lang_String java_lang_Package::getImplementationVersion()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Package cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1154,8 +1068,6 @@ JDKCXX::java_lang_String java_lang_Package::getImplementationVersion()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_lang_Package::getImplementationVersion() exit");
 
 	return result;
@@ -1173,8 +1085,6 @@ JDKCXX::java_lang_String java_lang_Package::getImplementationVendor()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Package cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1202,15 +1112,13 @@ JDKCXX::java_lang_String java_lang_Package::getImplementationVendor()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_lang_Package::getImplementationVendor() exit");
 
 	return result;
 }
-bool java_lang_Package::isCompatibleWith(JDKCXX::java_lang_String& arg0)
+bool java_lang_Package::isCompatibleWith(JDKCXX::java_lang_String const& arg0)
 {
-	LOGV("bool java_lang_Package::isCompatibleWith(JDKCXX::java_lang_String& arg0) enter");
+	LOGV("bool java_lang_Package::isCompatibleWith(JDKCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "isCompatibleWith";
 	const char *methodSignature = "(Ljava/lang/String;)Z";
@@ -1220,8 +1128,6 @@ bool java_lang_Package::isCompatibleWith(JDKCXX::java_lang_String& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Package cxx address %d", cxxAddress);
@@ -1271,9 +1177,7 @@ bool java_lang_Package::isCompatibleWith(JDKCXX::java_lang_String& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_lang_Package::isCompatibleWith(JDKCXX::java_lang_String& arg0) exit");
+	LOGV("bool java_lang_Package::isCompatibleWith(JDKCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }

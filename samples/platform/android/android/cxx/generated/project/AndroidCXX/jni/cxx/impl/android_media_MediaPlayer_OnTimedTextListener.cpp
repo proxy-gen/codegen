@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -29,7 +28,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_media_MediaPlayer_OnTimedTextListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -51,8 +50,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_media_MediaPlayer_OnTimedTextListener::android_media_MediaPlayer_OnTimedTextListener(const android_media_MediaPlayer_OnTimedTextListener& cc)
 {
 	LOGV("android_media_MediaPlayer_OnTimedTextListener::android_media_MediaPlayer_OnTimedTextListener(const android_media_MediaPlayer_OnTimedTextListener& cc) enter");
@@ -76,9 +73,9 @@ android_media_MediaPlayer_OnTimedTextListener::android_media_MediaPlayer_OnTimed
 
 	LOGV("android_media_MediaPlayer_OnTimedTextListener::android_media_MediaPlayer_OnTimedTextListener(const android_media_MediaPlayer_OnTimedTextListener& cc) exit");
 }
-android_media_MediaPlayer_OnTimedTextListener::android_media_MediaPlayer_OnTimedTextListener(void * proxy)
+android_media_MediaPlayer_OnTimedTextListener::android_media_MediaPlayer_OnTimedTextListener(Proxy proxy)
 {
-	LOGV("android_media_MediaPlayer_OnTimedTextListener::android_media_MediaPlayer_OnTimedTextListener(void * proxy) enter");
+	LOGV("android_media_MediaPlayer_OnTimedTextListener::android_media_MediaPlayer_OnTimedTextListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -88,47 +85,31 @@ android_media_MediaPlayer_OnTimedTextListener::android_media_MediaPlayer_OnTimed
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_media_MediaPlayer_OnTimedTextListener::android_media_MediaPlayer_OnTimedTextListener(void * proxy) exit");
+	LOGV("android_media_MediaPlayer_OnTimedTextListener::android_media_MediaPlayer_OnTimedTextListener(Proxy proxy) exit");
 }
-android_media_MediaPlayer_OnTimedTextListener::android_media_MediaPlayer_OnTimedTextListener()
-{
-	LOGV("android_media_MediaPlayer_OnTimedTextListener::android_media_MediaPlayer_OnTimedTextListener() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/media/MediaPlayer$OnTimedTextListener";
-
-	LOGV("android_media_MediaPlayer_OnTimedTextListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_media_MediaPlayer_OnTimedTextListener::proxy() const
+{	
+	LOGV("android_media_MediaPlayer_OnTimedTextListener::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_media_MediaPlayer_OnTimedTextListener cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_media_MediaPlayer_OnTimedTextListener jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_media_MediaPlayer_OnTimedTextListener::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_media_MediaPlayer_OnTimedTextListener::android_media_MediaPlayer_OnTimedTextListener() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_media_MediaPlayer_OnTimedTextListener::~android_media_MediaPlayer_OnTimedTextListener()
 {
@@ -140,13 +121,13 @@ android_media_MediaPlayer_OnTimedTextListener::~android_media_MediaPlayer_OnTime
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_media_MediaPlayer_OnTimedTextListener::~android_media_MediaPlayer_OnTimedTextListener() exit");
 }
 // Functions
-void android_media_MediaPlayer_OnTimedTextListener::onTimedText(AndroidCXX::android_media_MediaPlayer& arg0,AndroidCXX::android_media_TimedText& arg1)
+void android_media_MediaPlayer_OnTimedTextListener::onTimedText(AndroidCXX::android_media_MediaPlayer const& arg0,AndroidCXX::android_media_TimedText const& arg1)
 {
-	LOGV("void android_media_MediaPlayer_OnTimedTextListener::onTimedText(AndroidCXX::android_media_MediaPlayer& arg0,AndroidCXX::android_media_TimedText& arg1) enter");
+	LOGV("void android_media_MediaPlayer_OnTimedTextListener::onTimedText(AndroidCXX::android_media_MediaPlayer const& arg0,AndroidCXX::android_media_TimedText const& arg1) enter");
 
 	const char *methodName = "onTimedText";
 	const char *methodSignature = "(Landroid/media/MediaPlayer;Landroid/media/TimedText;)V";
@@ -156,8 +137,6 @@ void android_media_MediaPlayer_OnTimedTextListener::onTimedText(AndroidCXX::andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_media_MediaPlayer_OnTimedTextListener cxx address %d", cxxAddress);
@@ -209,8 +188,6 @@ void android_media_MediaPlayer_OnTimedTextListener::onTimedText(AndroidCXX::andr
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_media_MediaPlayer_OnTimedTextListener::onTimedText(AndroidCXX::android_media_MediaPlayer& arg0,AndroidCXX::android_media_TimedText& arg1) exit");
+	LOGV("void android_media_MediaPlayer_OnTimedTextListener::onTimedText(AndroidCXX::android_media_MediaPlayer const& arg0,AndroidCXX::android_media_TimedText const& arg1) exit");
 
 }

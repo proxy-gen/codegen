@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -73,21 +72,22 @@ class android_app_Application
 public:
 
 	android_app_Application(const android_app_Application& cc);
-	android_app_Application(void * proxy);
+	android_app_Application(Proxy proxy);
 	// Public Constructors
 	android_app_Application();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_Application();
 	// Functions
 	 void onCreate();
-	 void onConfigurationChanged(AndroidCXX::android_content_res_Configuration& arg0);
+	 void onConfigurationChanged(AndroidCXX::android_content_res_Configuration const& arg0);
 	 void onLowMemory();
-	 void registerComponentCallbacks(AndroidCXX::android_content_ComponentCallbacks& arg0);
-	 void unregisterComponentCallbacks(AndroidCXX::android_content_ComponentCallbacks& arg0);
-	 void onTrimMemory(int& arg0);
+	 void registerComponentCallbacks(AndroidCXX::android_content_ComponentCallbacks const& arg0);
+	 void unregisterComponentCallbacks(AndroidCXX::android_content_ComponentCallbacks const& arg0);
+	 void onTrimMemory(int const& arg0);
 	 void onTerminate();
-	 void registerActivityLifecycleCallbacks(AndroidCXX::android_app_Application_ActivityLifecycleCallbacks& arg0);
-	 void unregisterActivityLifecycleCallbacks(AndroidCXX::android_app_Application_ActivityLifecycleCallbacks& arg0);
+	 void registerActivityLifecycleCallbacks(AndroidCXX::android_app_Application_ActivityLifecycleCallbacks const& arg0);
+	 void unregisterActivityLifecycleCallbacks(AndroidCXX::android_app_Application_ActivityLifecycleCallbacks const& arg0);
 };	
 
 } // namespace

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -126,38 +125,38 @@ class android_widget_Spinner
 public:
 
 	android_widget_Spinner(const android_widget_Spinner& cc);
-	android_widget_Spinner(void * proxy);
+	android_widget_Spinner(Proxy proxy);
 	// Public Constructors
-	android_widget_Spinner(AndroidCXX::android_content_Context& arg0);
-	android_widget_Spinner(AndroidCXX::android_content_Context& arg0,int& arg1);
-	android_widget_Spinner(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_Spinner(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_Spinner(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2,int& arg3);
-	android_widget_Spinner();
+	android_widget_Spinner(AndroidCXX::android_content_Context const& arg0);
+	android_widget_Spinner(AndroidCXX::android_content_Context const& arg0,int const& arg1);
+	android_widget_Spinner(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_Spinner(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_Spinner(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,int const& arg3);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Spinner();
 	// Functions
 	 bool performClick();
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 void setEnabled(bool& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 void setEnabled(bool const& arg0);
 	 int getBaseline();
-	 void onClick(AndroidCXX::android_content_DialogInterface& arg0,int& arg1);
-	 void setGravity(int& arg0);
-	 void setAdapter(AndroidCXX::android_widget_SpinnerAdapter& arg0);
-	 void setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener& arg0);
+	 void onClick(AndroidCXX::android_content_DialogInterface const& arg0,int const& arg1);
+	 void setGravity(int const& arg0);
+	 void setAdapter(AndroidCXX::android_widget_SpinnerAdapter const& arg0);
+	 void setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener const& arg0);
 	 int getGravity();
 	 int getDropDownWidth();
-	 void setDropDownWidth(int& arg0);
-	 void setDropDownVerticalOffset(int& arg0);
+	 void setDropDownWidth(int const& arg0);
+	 void setDropDownVerticalOffset(int const& arg0);
 	 int getDropDownVerticalOffset();
-	 void setDropDownHorizontalOffset(int& arg0);
+	 void setDropDownHorizontalOffset(int const& arg0);
 	 int getDropDownHorizontalOffset();
-	 void setPopupBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0);
-	 void setPopupBackgroundResource(int& arg0);
+	 void setPopupBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
+	 void setPopupBackgroundResource(int const& arg0);
 	 AndroidCXX::android_graphics_drawable_Drawable getPopupBackground();
-	 void setPrompt(AndroidCXX::java_lang_CharSequence& arg0);
-	 void setPromptId(int& arg0);
+	 void setPrompt(AndroidCXX::java_lang_CharSequence const& arg0);
+	 void setPromptId(int const& arg0);
 	 AndroidCXX::java_lang_CharSequence getPrompt();
 };	
 

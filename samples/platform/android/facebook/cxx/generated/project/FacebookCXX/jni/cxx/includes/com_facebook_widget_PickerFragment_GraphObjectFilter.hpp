@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -51,13 +50,13 @@ class com_facebook_widget_PickerFragment_GraphObjectFilter
 public:
 
 	com_facebook_widget_PickerFragment_GraphObjectFilter(const com_facebook_widget_PickerFragment_GraphObjectFilter& cc);
-	com_facebook_widget_PickerFragment_GraphObjectFilter(void * proxy);
+	com_facebook_widget_PickerFragment_GraphObjectFilter(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_PickerFragment_GraphObjectFilter();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_GraphObjectFilter();
 	// Functions
-	 bool includeItem(AndroidCXX::java_lang_Object& arg0);
+	 bool includeItem(AndroidCXX::java_lang_Object const& arg0);
 };	
 
 } // namespace

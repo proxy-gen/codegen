@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
  		 
@@ -57,13 +56,13 @@ class com_facebook_widget_PickerFragment_OnDoneButtonClickedListener
 public:
 
 	com_facebook_widget_PickerFragment_OnDoneButtonClickedListener(const com_facebook_widget_PickerFragment_OnDoneButtonClickedListener& cc);
-	com_facebook_widget_PickerFragment_OnDoneButtonClickedListener(void * proxy);
+	com_facebook_widget_PickerFragment_OnDoneButtonClickedListener(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_PickerFragment_OnDoneButtonClickedListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_OnDoneButtonClickedListener();
 	// Functions
-	 void onDoneButtonClicked(FacebookCXX::com_facebook_widget_PickerFragment& arg0);
+	 void onDoneButtonClicked(FacebookCXX::com_facebook_widget_PickerFragment const& arg0);
 };	
 
 } // namespace

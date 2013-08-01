@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  	
@@ -83,21 +82,21 @@ class android_widget_RelativeLayout_LayoutParams
 public:
 
 	android_widget_RelativeLayout_LayoutParams(const android_widget_RelativeLayout_LayoutParams& cc);
-	android_widget_RelativeLayout_LayoutParams(void * proxy);
+	android_widget_RelativeLayout_LayoutParams(Proxy proxy);
 	// Public Constructors
-	android_widget_RelativeLayout_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_RelativeLayout_LayoutParams(int& arg0,int& arg1);
-	android_widget_RelativeLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0);
-	android_widget_RelativeLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams& arg0);
-	android_widget_RelativeLayout_LayoutParams();
+	android_widget_RelativeLayout_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_RelativeLayout_LayoutParams(int const& arg0,int const& arg1);
+	android_widget_RelativeLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0);
+	android_widget_RelativeLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RelativeLayout_LayoutParams();
 	// Functions
-	 AndroidCXX::java_lang_String debug(AndroidCXX::java_lang_String& arg0);
-	 void resolveLayoutDirection(int& arg0);
-	 void addRule(int& arg0,int& arg1);
-	 void addRule(int& arg0);
-	 void removeRule(int& arg0);
+	 AndroidCXX::java_lang_String debug(AndroidCXX::java_lang_String const& arg0);
+	 void resolveLayoutDirection(int const& arg0);
+	 void addRule(int const& arg0,int const& arg1);
+	 void addRule(int const& arg0);
+	 void removeRule(int const& arg0);
 	 std::vector<int> getRules();
 };	
 

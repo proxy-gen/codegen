@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -75,17 +74,17 @@ class android_widget_RadioButton
 public:
 
 	android_widget_RadioButton(const android_widget_RadioButton& cc);
-	android_widget_RadioButton(void * proxy);
+	android_widget_RadioButton(Proxy proxy);
 	// Public Constructors
-	android_widget_RadioButton(AndroidCXX::android_content_Context& arg0);
-	android_widget_RadioButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_RadioButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_RadioButton();
+	android_widget_RadioButton(AndroidCXX::android_content_Context const& arg0);
+	android_widget_RadioButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_RadioButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RadioButton();
 	// Functions
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
 	 void toggle();
 };	
 

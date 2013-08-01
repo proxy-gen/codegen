@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 
@@ -57,13 +56,13 @@ class android_widget_SimpleCursorAdapter_CursorToStringConverter
 public:
 
 	android_widget_SimpleCursorAdapter_CursorToStringConverter(const android_widget_SimpleCursorAdapter_CursorToStringConverter& cc);
-	android_widget_SimpleCursorAdapter_CursorToStringConverter(void * proxy);
+	android_widget_SimpleCursorAdapter_CursorToStringConverter(Proxy proxy);
 	// Public Constructors
-	android_widget_SimpleCursorAdapter_CursorToStringConverter();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SimpleCursorAdapter_CursorToStringConverter();
 	// Functions
-	 AndroidCXX::java_lang_CharSequence convertToString(AndroidCXX::android_database_Cursor& arg0);
+	 AndroidCXX::java_lang_CharSequence convertToString(AndroidCXX::android_database_Cursor const& arg0);
 };	
 
 } // namespace

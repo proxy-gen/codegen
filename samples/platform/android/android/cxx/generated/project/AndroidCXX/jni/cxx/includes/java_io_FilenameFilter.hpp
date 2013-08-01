@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -57,13 +56,13 @@ class java_io_FilenameFilter
 public:
 
 	java_io_FilenameFilter(const java_io_FilenameFilter& cc);
-	java_io_FilenameFilter(void * proxy);
+	java_io_FilenameFilter(Proxy proxy);
 	// Public Constructors
-	java_io_FilenameFilter();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_io_FilenameFilter();
 	// Functions
-	 bool accept(AndroidCXX::java_io_File& arg0,AndroidCXX::java_lang_String& arg1);
+	 bool accept(AndroidCXX::java_io_File const& arg0,AndroidCXX::java_lang_String const& arg1);
 };	
 
 } // namespace

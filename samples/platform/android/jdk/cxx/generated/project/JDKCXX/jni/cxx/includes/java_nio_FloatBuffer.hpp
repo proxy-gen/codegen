@@ -8,7 +8,6 @@
 //
 
 
-
  	
 	
  	
@@ -112,35 +111,32 @@ class java_nio_FloatBuffer
 public:
 
 	java_nio_FloatBuffer(const java_nio_FloatBuffer& cc);
-	java_nio_FloatBuffer(void * proxy);
+	java_nio_FloatBuffer(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_nio_FloatBuffer();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_FloatBuffer();
 	// Functions
 	 float get();
-	 JDKCXX::java_nio_FloatBuffer get(std::vector<float>& arg0);
-	 JDKCXX::java_nio_FloatBuffer get(std::vector<float>& arg0,int& arg1,int& arg2);
-	 float get(int& arg0);
-	 JDKCXX::java_nio_FloatBuffer put(JDKCXX::java_nio_FloatBuffer& arg0);
-	 JDKCXX::java_nio_FloatBuffer put(float& arg0);
-	 JDKCXX::java_nio_FloatBuffer put(int& arg0,float& arg1);
-	 JDKCXX::java_nio_FloatBuffer put(std::vector<float>& arg0,int& arg1,int& arg2);
-	 JDKCXX::java_nio_FloatBuffer put(std::vector<float>& arg0);
-	 bool equals(JDKCXX::java_lang_Object& arg0);
+	 JDKCXX::java_nio_FloatBuffer get(std::vector<float> const& arg0);
+	 JDKCXX::java_nio_FloatBuffer get(std::vector<float> const& arg0,int const& arg1,int const& arg2);
+	 float get(int const& arg0);
+	 JDKCXX::java_nio_FloatBuffer put(JDKCXX::java_nio_FloatBuffer const& arg0);
+	 JDKCXX::java_nio_FloatBuffer put(float const& arg0);
+	 JDKCXX::java_nio_FloatBuffer put(int const& arg0,float const& arg1);
+	 JDKCXX::java_nio_FloatBuffer put(std::vector<float> const& arg0,int const& arg1,int const& arg2);
+	 JDKCXX::java_nio_FloatBuffer put(std::vector<float> const& arg0);
+	 bool equals(JDKCXX::java_lang_Object const& arg0);
 	 JDKCXX::java_lang_String toString();
 	 int hashCode();
-	 int compareTo(JDKCXX::java_nio_FloatBuffer& arg0);
+	 int compareTo(JDKCXX::java_nio_FloatBuffer const& arg0);
 	 bool isDirect();
 	 bool hasArray();
 	 std::vector<float> array();
 	 int arrayOffset();
-	static JDKCXX::java_nio_FloatBuffer wrap(std::vector<float>& arg0,int& arg1,int& arg2);
-	static JDKCXX::java_nio_FloatBuffer wrap(std::vector<float>& arg0);
-	static JDKCXX::java_nio_FloatBuffer allocate(int& arg0);
+	static JDKCXX::java_nio_FloatBuffer wrap(std::vector<float> const& arg0,int const& arg1,int const& arg2);
+	static JDKCXX::java_nio_FloatBuffer wrap(std::vector<float> const& arg0);
+	static JDKCXX::java_nio_FloatBuffer allocate(int const& arg0);
 	 JDKCXX::java_nio_FloatBuffer duplicate();
 	 JDKCXX::java_nio_FloatBuffer slice();
 	 JDKCXX::java_nio_FloatBuffer asReadOnlyBuffer();

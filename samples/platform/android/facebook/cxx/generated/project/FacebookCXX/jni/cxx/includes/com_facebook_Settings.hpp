@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -111,26 +110,27 @@ class com_facebook_Settings
 public:
 
 	com_facebook_Settings(const com_facebook_Settings& cc);
-	com_facebook_Settings(void * proxy);
+	com_facebook_Settings(Proxy proxy);
 	// Public Constructors
 	com_facebook_Settings();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Settings();
 	// Functions
-	static bool isLoggingBehaviorEnabled(COM_FACEBOOK_LOGGINGBEHAVIOR::com_facebook_LoggingBehavior& arg0);
+	static bool isLoggingBehaviorEnabled(com_facebook_LoggingBehavior::com_facebook_LoggingBehavior const& arg0);
 	static AndroidCXX::java_util_concurrent_Executor getExecutor();
 	static bool getShouldAutoPublishInstall();
-	static bool publishInstallAndWait(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1);
-	static AndroidCXX::java_lang_String getAttributionId(AndroidCXX::android_content_ContentResolver& arg0);
-	static FacebookCXX::com_facebook_Response publishInstallAndWaitForResponse(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1);
-	static void publishInstallAsync(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1);
-	static void publishInstallAsync(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_Request_Callback& arg2);
+	static bool publishInstallAndWait(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1);
+	static AndroidCXX::java_lang_String getAttributionId(AndroidCXX::android_content_ContentResolver const& arg0);
+	static FacebookCXX::com_facebook_Response publishInstallAndWaitForResponse(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1);
+	static void publishInstallAsync(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1);
+	static void publishInstallAsync(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2);
 	static AndroidCXX::java_util_Set getLoggingBehaviors();
-	static void addLoggingBehavior(COM_FACEBOOK_LOGGINGBEHAVIOR::com_facebook_LoggingBehavior& arg0);
-	static void removeLoggingBehavior(COM_FACEBOOK_LOGGINGBEHAVIOR::com_facebook_LoggingBehavior& arg0);
+	static void addLoggingBehavior(com_facebook_LoggingBehavior::com_facebook_LoggingBehavior const& arg0);
+	static void removeLoggingBehavior(com_facebook_LoggingBehavior::com_facebook_LoggingBehavior const& arg0);
 	static void clearLoggingBehaviors();
-	static void setExecutor(AndroidCXX::java_util_concurrent_Executor& arg0);
-	static void setShouldAutoPublishInstall(bool& arg0);
+	static void setExecutor(AndroidCXX::java_util_concurrent_Executor const& arg0);
+	static void setShouldAutoPublishInstall(bool const& arg0);
 	static AndroidCXX::java_lang_String getSdkVersion();
 	static AndroidCXX::java_lang_String getMigrationBundle();
 };	

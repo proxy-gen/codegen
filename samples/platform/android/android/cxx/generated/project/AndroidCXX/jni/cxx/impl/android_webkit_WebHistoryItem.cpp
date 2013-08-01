@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -34,7 +33,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_webkit_WebHistoryItem"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -62,8 +61,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_webkit_WebHistoryItem::android_webkit_WebHistoryItem(const android_webkit_WebHistoryItem& cc)
 {
 	LOGV("android_webkit_WebHistoryItem::android_webkit_WebHistoryItem(const android_webkit_WebHistoryItem& cc) enter");
@@ -87,9 +84,9 @@ android_webkit_WebHistoryItem::android_webkit_WebHistoryItem(const android_webki
 
 	LOGV("android_webkit_WebHistoryItem::android_webkit_WebHistoryItem(const android_webkit_WebHistoryItem& cc) exit");
 }
-android_webkit_WebHistoryItem::android_webkit_WebHistoryItem(void * proxy)
+android_webkit_WebHistoryItem::android_webkit_WebHistoryItem(Proxy proxy)
 {
-	LOGV("android_webkit_WebHistoryItem::android_webkit_WebHistoryItem(void * proxy) enter");
+	LOGV("android_webkit_WebHistoryItem::android_webkit_WebHistoryItem(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -99,47 +96,31 @@ android_webkit_WebHistoryItem::android_webkit_WebHistoryItem(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_webkit_WebHistoryItem::android_webkit_WebHistoryItem(void * proxy) exit");
+	LOGV("android_webkit_WebHistoryItem::android_webkit_WebHistoryItem(Proxy proxy) exit");
 }
-android_webkit_WebHistoryItem::android_webkit_WebHistoryItem()
-{
-	LOGV("android_webkit_WebHistoryItem::android_webkit_WebHistoryItem() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/webkit/WebHistoryItem";
-
-	LOGV("android_webkit_WebHistoryItem className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_webkit_WebHistoryItem::proxy() const
+{	
+	LOGV("android_webkit_WebHistoryItem::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebHistoryItem cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebHistoryItem jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_webkit_WebHistoryItem::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_webkit_WebHistoryItem::android_webkit_WebHistoryItem() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_webkit_WebHistoryItem::~android_webkit_WebHistoryItem()
 {
@@ -151,7 +132,7 @@ android_webkit_WebHistoryItem::~android_webkit_WebHistoryItem()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_webkit_WebHistoryItem::~android_webkit_WebHistoryItem() exit");
 }
 // Functions
@@ -168,15 +149,12 @@ AndroidCXX::java_lang_String android_webkit_WebHistoryItem::getUrl()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebHistoryItem cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebHistoryItem jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -194,10 +172,10 @@ AndroidCXX::java_lang_String android_webkit_WebHistoryItem::getUrl()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_webkit_WebHistoryItem::getUrl() exit");
 
 	return result;
@@ -215,15 +193,12 @@ AndroidCXX::java_lang_String android_webkit_WebHistoryItem::getTitle()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebHistoryItem cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebHistoryItem jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -241,10 +216,10 @@ AndroidCXX::java_lang_String android_webkit_WebHistoryItem::getTitle()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_webkit_WebHistoryItem::getTitle() exit");
 
 	return result;
@@ -262,15 +237,12 @@ AndroidCXX::java_lang_String android_webkit_WebHistoryItem::getOriginalUrl()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebHistoryItem cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebHistoryItem jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -288,10 +260,10 @@ AndroidCXX::java_lang_String android_webkit_WebHistoryItem::getOriginalUrl()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_webkit_WebHistoryItem::getOriginalUrl() exit");
 
 	return result;
@@ -309,15 +281,12 @@ AndroidCXX::android_graphics_Bitmap android_webkit_WebHistoryItem::getFavicon()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_WebHistoryItem cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_WebHistoryItem jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_Bitmap result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -335,10 +304,10 @@ AndroidCXX::android_graphics_Bitmap android_webkit_WebHistoryItem::getFavicon()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Bitmap(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Bitmap) (AndroidCXX::android_graphics_Bitmap((AndroidCXX::android_graphics_Bitmap *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_graphics_Bitmap result((AndroidCXX::android_graphics_Bitmap) *((AndroidCXX::android_graphics_Bitmap *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Bitmap *) cxx_value);
+		
 	LOGV("AndroidCXX::android_graphics_Bitmap android_webkit_WebHistoryItem::getFavicon() exit");
 
 	return result;

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -28,7 +27,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_media_MediaPlayer_OnCompletionListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -47,8 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnCompletionListener(const android_media_MediaPlayer_OnCompletionListener& cc)
 {
 	LOGV("android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnCompletionListener(const android_media_MediaPlayer_OnCompletionListener& cc) enter");
@@ -72,9 +69,9 @@ android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnComp
 
 	LOGV("android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnCompletionListener(const android_media_MediaPlayer_OnCompletionListener& cc) exit");
 }
-android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnCompletionListener(void * proxy)
+android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnCompletionListener(Proxy proxy)
 {
-	LOGV("android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnCompletionListener(void * proxy) enter");
+	LOGV("android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnCompletionListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -84,47 +81,31 @@ android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnComp
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnCompletionListener(void * proxy) exit");
+	LOGV("android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnCompletionListener(Proxy proxy) exit");
 }
-android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnCompletionListener()
-{
-	LOGV("android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnCompletionListener() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/media/MediaPlayer$OnCompletionListener";
-
-	LOGV("android_media_MediaPlayer_OnCompletionListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_media_MediaPlayer_OnCompletionListener::proxy() const
+{	
+	LOGV("android_media_MediaPlayer_OnCompletionListener::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_media_MediaPlayer_OnCompletionListener cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_media_MediaPlayer_OnCompletionListener jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_media_MediaPlayer_OnCompletionListener::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnCompletionListener() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_media_MediaPlayer_OnCompletionListener::~android_media_MediaPlayer_OnCompletionListener()
 {
@@ -136,13 +117,13 @@ android_media_MediaPlayer_OnCompletionListener::~android_media_MediaPlayer_OnCom
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_media_MediaPlayer_OnCompletionListener::~android_media_MediaPlayer_OnCompletionListener() exit");
 }
 // Functions
-void android_media_MediaPlayer_OnCompletionListener::onCompletion(AndroidCXX::android_media_MediaPlayer& arg0)
+void android_media_MediaPlayer_OnCompletionListener::onCompletion(AndroidCXX::android_media_MediaPlayer const& arg0)
 {
-	LOGV("void android_media_MediaPlayer_OnCompletionListener::onCompletion(AndroidCXX::android_media_MediaPlayer& arg0) enter");
+	LOGV("void android_media_MediaPlayer_OnCompletionListener::onCompletion(AndroidCXX::android_media_MediaPlayer const& arg0) enter");
 
 	const char *methodName = "onCompletion";
 	const char *methodSignature = "(Landroid/media/MediaPlayer;)V";
@@ -152,8 +133,6 @@ void android_media_MediaPlayer_OnCompletionListener::onCompletion(AndroidCXX::an
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_media_MediaPlayer_OnCompletionListener cxx address %d", cxxAddress);
@@ -184,8 +163,6 @@ void android_media_MediaPlayer_OnCompletionListener::onCompletion(AndroidCXX::an
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_media_MediaPlayer_OnCompletionListener::onCompletion(AndroidCXX::android_media_MediaPlayer& arg0) exit");
+	LOGV("void android_media_MediaPlayer_OnCompletionListener::onCompletion(AndroidCXX::android_media_MediaPlayer const& arg0) exit");
 
 }

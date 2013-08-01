@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -31,7 +30,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_content_ServiceConnection"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -56,8 +55,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_content_ServiceConnection::android_content_ServiceConnection(const android_content_ServiceConnection& cc)
 {
 	LOGV("android_content_ServiceConnection::android_content_ServiceConnection(const android_content_ServiceConnection& cc) enter");
@@ -81,9 +78,9 @@ android_content_ServiceConnection::android_content_ServiceConnection(const andro
 
 	LOGV("android_content_ServiceConnection::android_content_ServiceConnection(const android_content_ServiceConnection& cc) exit");
 }
-android_content_ServiceConnection::android_content_ServiceConnection(void * proxy)
+android_content_ServiceConnection::android_content_ServiceConnection(Proxy proxy)
 {
-	LOGV("android_content_ServiceConnection::android_content_ServiceConnection(void * proxy) enter");
+	LOGV("android_content_ServiceConnection::android_content_ServiceConnection(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -93,47 +90,31 @@ android_content_ServiceConnection::android_content_ServiceConnection(void * prox
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_content_ServiceConnection::android_content_ServiceConnection(void * proxy) exit");
+	LOGV("android_content_ServiceConnection::android_content_ServiceConnection(Proxy proxy) exit");
 }
-android_content_ServiceConnection::android_content_ServiceConnection()
-{
-	LOGV("android_content_ServiceConnection::android_content_ServiceConnection() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/content/ServiceConnection";
-
-	LOGV("android_content_ServiceConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_content_ServiceConnection::proxy() const
+{	
+	LOGV("android_content_ServiceConnection::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ServiceConnection cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_ServiceConnection jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_content_ServiceConnection::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_content_ServiceConnection::android_content_ServiceConnection() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_content_ServiceConnection::~android_content_ServiceConnection()
 {
@@ -145,13 +126,13 @@ android_content_ServiceConnection::~android_content_ServiceConnection()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_content_ServiceConnection::~android_content_ServiceConnection() exit");
 }
 // Functions
-void android_content_ServiceConnection::onServiceConnected(AndroidCXX::android_content_ComponentName& arg0,AndroidCXX::android_os_IBinder& arg1)
+void android_content_ServiceConnection::onServiceConnected(AndroidCXX::android_content_ComponentName const& arg0,AndroidCXX::android_os_IBinder const& arg1)
 {
-	LOGV("void android_content_ServiceConnection::onServiceConnected(AndroidCXX::android_content_ComponentName& arg0,AndroidCXX::android_os_IBinder& arg1) enter");
+	LOGV("void android_content_ServiceConnection::onServiceConnected(AndroidCXX::android_content_ComponentName const& arg0,AndroidCXX::android_os_IBinder const& arg1) enter");
 
 	const char *methodName = "onServiceConnected";
 	const char *methodSignature = "(Landroid/content/ComponentName;Landroid/os/IBinder;)V";
@@ -161,8 +142,6 @@ void android_content_ServiceConnection::onServiceConnected(AndroidCXX::android_c
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ServiceConnection cxx address %d", cxxAddress);
@@ -214,14 +193,12 @@ void android_content_ServiceConnection::onServiceConnected(AndroidCXX::android_c
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_ServiceConnection::onServiceConnected(AndroidCXX::android_content_ComponentName& arg0,AndroidCXX::android_os_IBinder& arg1) exit");
+	LOGV("void android_content_ServiceConnection::onServiceConnected(AndroidCXX::android_content_ComponentName const& arg0,AndroidCXX::android_os_IBinder const& arg1) exit");
 
 }
-void android_content_ServiceConnection::onServiceDisconnected(AndroidCXX::android_content_ComponentName& arg0)
+void android_content_ServiceConnection::onServiceDisconnected(AndroidCXX::android_content_ComponentName const& arg0)
 {
-	LOGV("void android_content_ServiceConnection::onServiceDisconnected(AndroidCXX::android_content_ComponentName& arg0) enter");
+	LOGV("void android_content_ServiceConnection::onServiceDisconnected(AndroidCXX::android_content_ComponentName const& arg0) enter");
 
 	const char *methodName = "onServiceDisconnected";
 	const char *methodSignature = "(Landroid/content/ComponentName;)V";
@@ -231,8 +208,6 @@ void android_content_ServiceConnection::onServiceDisconnected(AndroidCXX::androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ServiceConnection cxx address %d", cxxAddress);
@@ -263,8 +238,6 @@ void android_content_ServiceConnection::onServiceDisconnected(AndroidCXX::androi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_ServiceConnection::onServiceDisconnected(AndroidCXX::android_content_ComponentName& arg0) exit");
+	LOGV("void android_content_ServiceConnection::onServiceDisconnected(AndroidCXX::android_content_ComponentName const& arg0) exit");
 
 }

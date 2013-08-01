@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -29,6 +28,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_Request_KeyValueSerializer"
@@ -53,8 +53,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_Request_KeyValueSerializer::com_facebook_Request_KeyValueSerializer(const com_facebook_Request_KeyValueSerializer& cc)
 {
 	LOGV("com_facebook_Request_KeyValueSerializer::com_facebook_Request_KeyValueSerializer(const com_facebook_Request_KeyValueSerializer& cc) enter");
@@ -78,9 +76,9 @@ com_facebook_Request_KeyValueSerializer::com_facebook_Request_KeyValueSerializer
 
 	LOGV("com_facebook_Request_KeyValueSerializer::com_facebook_Request_KeyValueSerializer(const com_facebook_Request_KeyValueSerializer& cc) exit");
 }
-com_facebook_Request_KeyValueSerializer::com_facebook_Request_KeyValueSerializer(void * proxy)
+com_facebook_Request_KeyValueSerializer::com_facebook_Request_KeyValueSerializer(Proxy proxy)
 {
-	LOGV("com_facebook_Request_KeyValueSerializer::com_facebook_Request_KeyValueSerializer(void * proxy) enter");
+	LOGV("com_facebook_Request_KeyValueSerializer::com_facebook_Request_KeyValueSerializer(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -90,47 +88,31 @@ com_facebook_Request_KeyValueSerializer::com_facebook_Request_KeyValueSerializer
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_Request_KeyValueSerializer::com_facebook_Request_KeyValueSerializer(void * proxy) exit");
+	LOGV("com_facebook_Request_KeyValueSerializer::com_facebook_Request_KeyValueSerializer(Proxy proxy) exit");
 }
-com_facebook_Request_KeyValueSerializer::com_facebook_Request_KeyValueSerializer()
-{
-	LOGV("com_facebook_Request_KeyValueSerializer::com_facebook_Request_KeyValueSerializer() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/Request$KeyValueSerializer";
-
-	LOGV("com_facebook_Request_KeyValueSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_Request_KeyValueSerializer::proxy() const
+{	
+	LOGV("com_facebook_Request_KeyValueSerializer::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request_KeyValueSerializer cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_Request_KeyValueSerializer jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_Request_KeyValueSerializer::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_Request_KeyValueSerializer::com_facebook_Request_KeyValueSerializer() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 com_facebook_Request_KeyValueSerializer::~com_facebook_Request_KeyValueSerializer()
 {
@@ -142,13 +124,13 @@ com_facebook_Request_KeyValueSerializer::~com_facebook_Request_KeyValueSerialize
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_Request_KeyValueSerializer::~com_facebook_Request_KeyValueSerializer() exit");
 }
 // Functions
-void com_facebook_Request_KeyValueSerializer::writeString(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
+void com_facebook_Request_KeyValueSerializer::writeString(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("void com_facebook_Request_KeyValueSerializer::writeString(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("void com_facebook_Request_KeyValueSerializer::writeString(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "writeString";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
@@ -158,8 +140,6 @@ void com_facebook_Request_KeyValueSerializer::writeString(AndroidCXX::java_lang_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_Request_KeyValueSerializer cxx address %d", cxxAddress);
@@ -211,8 +191,6 @@ void com_facebook_Request_KeyValueSerializer::writeString(AndroidCXX::java_lang_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_Request_KeyValueSerializer::writeString(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("void com_facebook_Request_KeyValueSerializer::writeString(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 }

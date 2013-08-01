@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -51,13 +50,13 @@ class com_facebook_widget_PickerFragment_4
 public:
 
 	com_facebook_widget_PickerFragment_4(const com_facebook_widget_PickerFragment_4& cc);
-	com_facebook_widget_PickerFragment_4(void * proxy);
+	com_facebook_widget_PickerFragment_4(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_PickerFragment_4();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_4();
 	// Functions
-	 bool onLongClick(AndroidCXX::android_view_View& arg0);
+	 bool onLongClick(AndroidCXX::android_view_View const& arg0);
 };	
 
 } // namespace

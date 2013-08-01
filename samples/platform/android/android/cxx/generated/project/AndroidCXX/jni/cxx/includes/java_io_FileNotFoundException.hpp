@@ -10,7 +10,6 @@
 
 
 
-
  		 
 
 
@@ -53,10 +52,11 @@ class java_io_FileNotFoundException
 public:
 
 	java_io_FileNotFoundException(const java_io_FileNotFoundException& cc);
-	java_io_FileNotFoundException(void * proxy);
+	java_io_FileNotFoundException(Proxy proxy);
 	// Public Constructors
 	java_io_FileNotFoundException();
-	java_io_FileNotFoundException(AndroidCXX::java_lang_String& arg0);
+	java_io_FileNotFoundException(AndroidCXX::java_lang_String const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_io_FileNotFoundException();
 	// Functions

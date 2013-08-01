@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -30,7 +29,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_animation_TypeEvaluator"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -55,8 +54,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_animation_TypeEvaluator::android_animation_TypeEvaluator(const android_animation_TypeEvaluator& cc)
 {
 	LOGV("android_animation_TypeEvaluator::android_animation_TypeEvaluator(const android_animation_TypeEvaluator& cc) enter");
@@ -80,9 +77,9 @@ android_animation_TypeEvaluator::android_animation_TypeEvaluator(const android_a
 
 	LOGV("android_animation_TypeEvaluator::android_animation_TypeEvaluator(const android_animation_TypeEvaluator& cc) exit");
 }
-android_animation_TypeEvaluator::android_animation_TypeEvaluator(void * proxy)
+android_animation_TypeEvaluator::android_animation_TypeEvaluator(Proxy proxy)
 {
-	LOGV("android_animation_TypeEvaluator::android_animation_TypeEvaluator(void * proxy) enter");
+	LOGV("android_animation_TypeEvaluator::android_animation_TypeEvaluator(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -92,47 +89,31 @@ android_animation_TypeEvaluator::android_animation_TypeEvaluator(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_animation_TypeEvaluator::android_animation_TypeEvaluator(void * proxy) exit");
+	LOGV("android_animation_TypeEvaluator::android_animation_TypeEvaluator(Proxy proxy) exit");
 }
-android_animation_TypeEvaluator::android_animation_TypeEvaluator()
-{
-	LOGV("android_animation_TypeEvaluator::android_animation_TypeEvaluator() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/animation/TypeEvaluator";
-
-	LOGV("android_animation_TypeEvaluator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_animation_TypeEvaluator::proxy() const
+{	
+	LOGV("android_animation_TypeEvaluator::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_TypeEvaluator cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_animation_TypeEvaluator jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_animation_TypeEvaluator::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_animation_TypeEvaluator::android_animation_TypeEvaluator() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_animation_TypeEvaluator::~android_animation_TypeEvaluator()
 {
@@ -144,13 +125,13 @@ android_animation_TypeEvaluator::~android_animation_TypeEvaluator()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_animation_TypeEvaluator::~android_animation_TypeEvaluator() exit");
 }
 // Functions
-AndroidCXX::java_lang_Object android_animation_TypeEvaluator::evaluate(float& arg0,AndroidCXX::java_lang_Object& arg1,AndroidCXX::java_lang_Object& arg2)
+AndroidCXX::java_lang_Object android_animation_TypeEvaluator::evaluate(float const& arg0,AndroidCXX::java_lang_Object const& arg1,AndroidCXX::java_lang_Object const& arg2)
 {
-	LOGV("AndroidCXX::java_lang_Object android_animation_TypeEvaluator::evaluate(float& arg0,AndroidCXX::java_lang_Object& arg1,AndroidCXX::java_lang_Object& arg2) enter");
+	LOGV("AndroidCXX::java_lang_Object android_animation_TypeEvaluator::evaluate(float const& arg0,AndroidCXX::java_lang_Object const& arg1,AndroidCXX::java_lang_Object const& arg2) enter");
 
 	const char *methodName = "evaluate";
 	const char *methodSignature = "(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;";
@@ -160,8 +141,6 @@ AndroidCXX::java_lang_Object android_animation_TypeEvaluator::evaluate(float& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_animation_TypeEvaluator cxx address %d", cxxAddress);
@@ -232,7 +211,6 @@ AndroidCXX::java_lang_Object android_animation_TypeEvaluator::evaluate(float& ar
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -250,11 +228,11 @@ AndroidCXX::java_lang_Object android_animation_TypeEvaluator::evaluate(float& ar
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_Object android_animation_TypeEvaluator::evaluate(float& arg0,AndroidCXX::java_lang_Object& arg1,AndroidCXX::java_lang_Object& arg2) exit");
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_Object android_animation_TypeEvaluator::evaluate(float const& arg0,AndroidCXX::java_lang_Object const& arg1,AndroidCXX::java_lang_Object const& arg2) exit");
 
 	return result;
 }

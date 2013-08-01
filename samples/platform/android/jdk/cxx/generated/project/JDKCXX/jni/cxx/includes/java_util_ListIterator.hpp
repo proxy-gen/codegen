@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -63,20 +62,17 @@ class java_util_ListIterator
 public:
 
 	java_util_ListIterator(const java_util_ListIterator& cc);
-	java_util_ListIterator(void * proxy);
+	java_util_ListIterator(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_util_ListIterator();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_ListIterator();
 	// Functions
-	 void add(JDKCXX::java_lang_Object& arg0);
+	 void add(JDKCXX::java_lang_Object const& arg0);
 	 bool hasNext();
 	 JDKCXX::java_lang_Object next();
 	 void remove();
-	 void set(JDKCXX::java_lang_Object& arg0);
+	 void set(JDKCXX::java_lang_Object const& arg0);
 	 int nextIndex();
 	 JDKCXX::java_lang_Object previous();
 	 int previousIndex();

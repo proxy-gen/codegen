@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -36,7 +35,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_net_InterfaceAddress"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -64,8 +63,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_net_InterfaceAddress::java_net_InterfaceAddress(const java_net_InterfaceAddress& cc)
 {
 	LOGV("java_net_InterfaceAddress::java_net_InterfaceAddress(const java_net_InterfaceAddress& cc) enter");
@@ -89,9 +86,9 @@ java_net_InterfaceAddress::java_net_InterfaceAddress(const java_net_InterfaceAdd
 
 	LOGV("java_net_InterfaceAddress::java_net_InterfaceAddress(const java_net_InterfaceAddress& cc) exit");
 }
-java_net_InterfaceAddress::java_net_InterfaceAddress(void * proxy)
+java_net_InterfaceAddress::java_net_InterfaceAddress(Proxy proxy)
 {
-	LOGV("java_net_InterfaceAddress::java_net_InterfaceAddress(void * proxy) enter");
+	LOGV("java_net_InterfaceAddress::java_net_InterfaceAddress(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -101,47 +98,31 @@ java_net_InterfaceAddress::java_net_InterfaceAddress(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_net_InterfaceAddress::java_net_InterfaceAddress(void * proxy) exit");
+	LOGV("java_net_InterfaceAddress::java_net_InterfaceAddress(Proxy proxy) exit");
 }
-java_net_InterfaceAddress::java_net_InterfaceAddress()
-{
-	LOGV("java_net_InterfaceAddress::java_net_InterfaceAddress() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "java/net/InterfaceAddress";
-
-	LOGV("java_net_InterfaceAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy java_net_InterfaceAddress::proxy() const
+{	
+	LOGV("java_net_InterfaceAddress::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_InterfaceAddress cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_InterfaceAddress jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("java_net_InterfaceAddress::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("java_net_InterfaceAddress::java_net_InterfaceAddress() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 java_net_InterfaceAddress::~java_net_InterfaceAddress()
 {
@@ -153,13 +134,13 @@ java_net_InterfaceAddress::~java_net_InterfaceAddress()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_net_InterfaceAddress::~java_net_InterfaceAddress() exit");
 }
 // Functions
-bool java_net_InterfaceAddress::equals(AndroidCXX::java_lang_Object& arg0)
+bool java_net_InterfaceAddress::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_net_InterfaceAddress::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_net_InterfaceAddress::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -169,8 +150,6 @@ bool java_net_InterfaceAddress::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_InterfaceAddress cxx address %d", cxxAddress);
@@ -199,7 +178,6 @@ bool java_net_InterfaceAddress::equals(AndroidCXX::java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -217,11 +195,11 @@ bool java_net_InterfaceAddress::equals(AndroidCXX::java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool java_net_InterfaceAddress::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool java_net_InterfaceAddress::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -238,15 +216,12 @@ AndroidCXX::java_lang_String java_net_InterfaceAddress::toString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_InterfaceAddress cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_InterfaceAddress jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -264,10 +239,10 @@ AndroidCXX::java_lang_String java_net_InterfaceAddress::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String java_net_InterfaceAddress::toString() exit");
 
 	return result;
@@ -285,15 +260,12 @@ int java_net_InterfaceAddress::hashCode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_InterfaceAddress cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_InterfaceAddress jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -311,10 +283,10 @@ int java_net_InterfaceAddress::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_net_InterfaceAddress::hashCode() exit");
 
 	return result;
@@ -332,15 +304,12 @@ AndroidCXX::java_net_InetAddress java_net_InterfaceAddress::getAddress()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_InterfaceAddress cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_InterfaceAddress jni address %d", javaObject);
 
 
-	AndroidCXX::java_net_InetAddress result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -358,10 +327,10 @@ AndroidCXX::java_net_InetAddress java_net_InterfaceAddress::getAddress()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_InetAddress(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_net_InetAddress) (AndroidCXX::java_net_InetAddress((AndroidCXX::java_net_InetAddress *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_net_InetAddress result((AndroidCXX::java_net_InetAddress) *((AndroidCXX::java_net_InetAddress *) cxx_value));
+	delete ((AndroidCXX::java_net_InetAddress *) cxx_value);
+		
 	LOGV("AndroidCXX::java_net_InetAddress java_net_InterfaceAddress::getAddress() exit");
 
 	return result;
@@ -379,15 +348,12 @@ AndroidCXX::java_net_InetAddress java_net_InterfaceAddress::getBroadcast()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_InterfaceAddress cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_InterfaceAddress jni address %d", javaObject);
 
 
-	AndroidCXX::java_net_InetAddress result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -405,10 +371,10 @@ AndroidCXX::java_net_InetAddress java_net_InterfaceAddress::getBroadcast()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_InetAddress(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_net_InetAddress) (AndroidCXX::java_net_InetAddress((AndroidCXX::java_net_InetAddress *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_net_InetAddress result((AndroidCXX::java_net_InetAddress) *((AndroidCXX::java_net_InetAddress *) cxx_value));
+	delete ((AndroidCXX::java_net_InetAddress *) cxx_value);
+		
 	LOGV("AndroidCXX::java_net_InetAddress java_net_InterfaceAddress::getBroadcast() exit");
 
 	return result;
@@ -426,15 +392,12 @@ short java_net_InterfaceAddress::getNetworkPrefixLength()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_InterfaceAddress cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_InterfaceAddress jni address %d", javaObject);
 
 
-	short result;
 	jshort jni_result = (jshort) jni->invokeShortMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_short_to_java(jni_result);
@@ -452,10 +415,10 @@ short java_net_InterfaceAddress::getNetworkPrefixLength()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_short(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (short) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	short result = (short) *((short *) cxx_value);
+	// 
+		
 	LOGV("short java_net_InterfaceAddress::getNetworkPrefixLength() exit");
 
 	return result;

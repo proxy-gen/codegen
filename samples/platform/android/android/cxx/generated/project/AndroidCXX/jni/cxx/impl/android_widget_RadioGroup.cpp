@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -48,7 +47,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_RadioGroup"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -97,8 +96,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_widget_RadioGroup::android_widget_RadioGroup(const android_widget_RadioGroup& cc)
 {
 	LOGV("android_widget_RadioGroup::android_widget_RadioGroup(const android_widget_RadioGroup& cc) enter");
@@ -122,9 +119,9 @@ android_widget_RadioGroup::android_widget_RadioGroup(const android_widget_RadioG
 
 	LOGV("android_widget_RadioGroup::android_widget_RadioGroup(const android_widget_RadioGroup& cc) exit");
 }
-android_widget_RadioGroup::android_widget_RadioGroup(void * proxy)
+android_widget_RadioGroup::android_widget_RadioGroup(Proxy proxy)
 {
-	LOGV("android_widget_RadioGroup::android_widget_RadioGroup(void * proxy) enter");
+	LOGV("android_widget_RadioGroup::android_widget_RadioGroup(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -134,50 +131,34 @@ android_widget_RadioGroup::android_widget_RadioGroup(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_RadioGroup::android_widget_RadioGroup(void * proxy) exit");
+	LOGV("android_widget_RadioGroup::android_widget_RadioGroup(Proxy proxy) exit");
 }
-android_widget_RadioGroup::android_widget_RadioGroup()
-{
-	LOGV("android_widget_RadioGroup::android_widget_RadioGroup() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/RadioGroup";
-
-	LOGV("android_widget_RadioGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_widget_RadioGroup::proxy() const
+{	
+	LOGV("android_widget_RadioGroup::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RadioGroup cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_RadioGroup jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_widget_RadioGroup::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_widget_RadioGroup::android_widget_RadioGroup() exit");	
+	return proxy;
 }
-// Public Constructors
-android_widget_RadioGroup::android_widget_RadioGroup(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+android_widget_RadioGroup::android_widget_RadioGroup(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_RadioGroup::android_widget_RadioGroup(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_RadioGroup::android_widget_RadioGroup(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -251,11 +232,11 @@ android_widget_RadioGroup::android_widget_RadioGroup(AndroidCXX::android_content
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_RadioGroup::android_widget_RadioGroup(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_RadioGroup::android_widget_RadioGroup(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_widget_RadioGroup::android_widget_RadioGroup(AndroidCXX::android_content_Context& arg0)
+android_widget_RadioGroup::android_widget_RadioGroup(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_RadioGroup::android_widget_RadioGroup(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_RadioGroup::android_widget_RadioGroup(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -308,7 +289,7 @@ android_widget_RadioGroup::android_widget_RadioGroup(AndroidCXX::android_content
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_RadioGroup::android_widget_RadioGroup(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_RadioGroup::android_widget_RadioGroup(AndroidCXX::android_content_Context const& arg0) exit");	
 }
 // Default Instance Destructor
 android_widget_RadioGroup::~android_widget_RadioGroup()
@@ -321,13 +302,13 @@ android_widget_RadioGroup::~android_widget_RadioGroup()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_RadioGroup::~android_widget_RadioGroup() exit");
 }
 // Functions
-void android_widget_RadioGroup::check(int& arg0)
+void android_widget_RadioGroup::check(int const& arg0)
 {
-	LOGV("void android_widget_RadioGroup::check(int& arg0) enter");
+	LOGV("void android_widget_RadioGroup::check(int const& arg0) enter");
 
 	const char *methodName = "check";
 	const char *methodSignature = "(I)V";
@@ -337,8 +318,6 @@ void android_widget_RadioGroup::check(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RadioGroup cxx address %d", cxxAddress);
@@ -369,14 +348,12 @@ void android_widget_RadioGroup::check(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RadioGroup::check(int& arg0) exit");
+	LOGV("void android_widget_RadioGroup::check(int const& arg0) exit");
 
 }
-void android_widget_RadioGroup::addView(AndroidCXX::android_view_View& arg0,int& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams& arg2)
+void android_widget_RadioGroup::addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2)
 {
-	LOGV("void android_widget_RadioGroup::addView(AndroidCXX::android_view_View& arg0,int& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams& arg2) enter");
+	LOGV("void android_widget_RadioGroup::addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) enter");
 
 	const char *methodName = "addView";
 	const char *methodSignature = "(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V";
@@ -386,8 +363,6 @@ void android_widget_RadioGroup::addView(AndroidCXX::android_view_View& arg0,int&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RadioGroup cxx address %d", cxxAddress);
@@ -460,14 +435,12 @@ void android_widget_RadioGroup::addView(AndroidCXX::android_view_View& arg0,int&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RadioGroup::addView(AndroidCXX::android_view_View& arg0,int& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams& arg2) exit");
+	LOGV("void android_widget_RadioGroup::addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) exit");
 
 }
-void android_widget_RadioGroup::setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener& arg0)
+void android_widget_RadioGroup::setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener const& arg0)
 {
-	LOGV("void android_widget_RadioGroup::setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener& arg0) enter");
+	LOGV("void android_widget_RadioGroup::setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener const& arg0) enter");
 
 	const char *methodName = "setOnHierarchyChangeListener";
 	const char *methodSignature = "(Landroid/view/ViewGroup$OnHierarchyChangeListener;)V";
@@ -477,8 +450,6 @@ void android_widget_RadioGroup::setOnHierarchyChangeListener(AndroidCXX::android
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RadioGroup cxx address %d", cxxAddress);
@@ -509,14 +480,12 @@ void android_widget_RadioGroup::setOnHierarchyChangeListener(AndroidCXX::android
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RadioGroup::setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener& arg0) exit");
+	LOGV("void android_widget_RadioGroup::setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener const& arg0) exit");
 
 }
-AndroidCXX::android_widget_RadioGroup_LayoutParams android_widget_RadioGroup::generateLayoutParams(AndroidCXX::android_util_AttributeSet& arg0)
+AndroidCXX::android_widget_RadioGroup_LayoutParams android_widget_RadioGroup::generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0)
 {
-	LOGV("AndroidCXX::android_widget_RadioGroup_LayoutParams android_widget_RadioGroup::generateLayoutParams(AndroidCXX::android_util_AttributeSet& arg0) enter");
+	LOGV("AndroidCXX::android_widget_RadioGroup_LayoutParams android_widget_RadioGroup::generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0) enter");
 
 	const char *methodName = "generateLayoutParams";
 	const char *methodSignature = "(Landroid/util/AttributeSet;)Landroid/widget/RadioGroup$LayoutParams;";
@@ -526,8 +495,6 @@ AndroidCXX::android_widget_RadioGroup_LayoutParams android_widget_RadioGroup::ge
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RadioGroup cxx address %d", cxxAddress);
@@ -556,7 +523,6 @@ AndroidCXX::android_widget_RadioGroup_LayoutParams android_widget_RadioGroup::ge
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_widget_RadioGroup_LayoutParams result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -574,17 +540,17 @@ AndroidCXX::android_widget_RadioGroup_LayoutParams android_widget_RadioGroup::ge
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_widget_RadioGroup_LayoutParams(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_widget_RadioGroup_LayoutParams) (AndroidCXX::android_widget_RadioGroup_LayoutParams((AndroidCXX::android_widget_RadioGroup_LayoutParams *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_widget_RadioGroup_LayoutParams android_widget_RadioGroup::generateLayoutParams(AndroidCXX::android_util_AttributeSet& arg0) exit");
+	AndroidCXX::android_widget_RadioGroup_LayoutParams result((AndroidCXX::android_widget_RadioGroup_LayoutParams) *((AndroidCXX::android_widget_RadioGroup_LayoutParams *) cxx_value));
+	delete ((AndroidCXX::android_widget_RadioGroup_LayoutParams *) cxx_value);
+		
+	LOGV("AndroidCXX::android_widget_RadioGroup_LayoutParams android_widget_RadioGroup::generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0) exit");
 
 	return result;
 }
-void android_widget_RadioGroup::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_RadioGroup::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_RadioGroup::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_RadioGroup::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -594,8 +560,6 @@ void android_widget_RadioGroup::onInitializeAccessibilityEvent(AndroidCXX::andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RadioGroup cxx address %d", cxxAddress);
@@ -626,14 +590,12 @@ void android_widget_RadioGroup::onInitializeAccessibilityEvent(AndroidCXX::andro
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RadioGroup::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_RadioGroup::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_RadioGroup::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0)
+void android_widget_RadioGroup::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0)
 {
-	LOGV("void android_widget_RadioGroup::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) enter");
+	LOGV("void android_widget_RadioGroup::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityNodeInfo";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
@@ -643,8 +605,6 @@ void android_widget_RadioGroup::onInitializeAccessibilityNodeInfo(AndroidCXX::an
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RadioGroup cxx address %d", cxxAddress);
@@ -675,14 +635,12 @@ void android_widget_RadioGroup::onInitializeAccessibilityNodeInfo(AndroidCXX::an
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RadioGroup::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) exit");
+	LOGV("void android_widget_RadioGroup::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) exit");
 
 }
-void android_widget_RadioGroup::setOnCheckedChangeListener(AndroidCXX::android_widget_RadioGroup_OnCheckedChangeListener& arg0)
+void android_widget_RadioGroup::setOnCheckedChangeListener(AndroidCXX::android_widget_RadioGroup_OnCheckedChangeListener const& arg0)
 {
-	LOGV("void android_widget_RadioGroup::setOnCheckedChangeListener(AndroidCXX::android_widget_RadioGroup_OnCheckedChangeListener& arg0) enter");
+	LOGV("void android_widget_RadioGroup::setOnCheckedChangeListener(AndroidCXX::android_widget_RadioGroup_OnCheckedChangeListener const& arg0) enter");
 
 	const char *methodName = "setOnCheckedChangeListener";
 	const char *methodSignature = "(Landroid/widget/RadioGroup$OnCheckedChangeListener;)V";
@@ -692,8 +650,6 @@ void android_widget_RadioGroup::setOnCheckedChangeListener(AndroidCXX::android_w
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RadioGroup cxx address %d", cxxAddress);
@@ -724,9 +680,7 @@ void android_widget_RadioGroup::setOnCheckedChangeListener(AndroidCXX::android_w
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_RadioGroup::setOnCheckedChangeListener(AndroidCXX::android_widget_RadioGroup_OnCheckedChangeListener& arg0) exit");
+	LOGV("void android_widget_RadioGroup::setOnCheckedChangeListener(AndroidCXX::android_widget_RadioGroup_OnCheckedChangeListener const& arg0) exit");
 
 }
 int android_widget_RadioGroup::getCheckedRadioButtonId()
@@ -742,15 +696,12 @@ int android_widget_RadioGroup::getCheckedRadioButtonId()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RadioGroup cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_RadioGroup jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -768,10 +719,10 @@ int android_widget_RadioGroup::getCheckedRadioButtonId()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_RadioGroup::getCheckedRadioButtonId() exit");
 
 	return result;
@@ -789,8 +740,6 @@ void android_widget_RadioGroup::clearCheck()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_RadioGroup cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -799,8 +748,6 @@ void android_widget_RadioGroup::clearCheck()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_RadioGroup::clearCheck() exit");
 
 }

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -69,20 +68,20 @@ class com_facebook_model_GraphPlace
 public:
 
 	com_facebook_model_GraphPlace(const com_facebook_model_GraphPlace& cc);
-	com_facebook_model_GraphPlace(void * proxy);
+	com_facebook_model_GraphPlace(Proxy proxy);
 	// Public Constructors
-	com_facebook_model_GraphPlace();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphPlace();
 	// Functions
 	 AndroidCXX::java_lang_String getName();
 	 FacebookCXX::com_facebook_model_GraphLocation getLocation();
-	 void setName(AndroidCXX::java_lang_String& arg0);
+	 void setName(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_lang_String getId();
 	 AndroidCXX::java_lang_String getCategory();
-	 void setId(AndroidCXX::java_lang_String& arg0);
-	 void setLocation(FacebookCXX::com_facebook_model_GraphLocation& arg0);
-	 void setCategory(AndroidCXX::java_lang_String& arg0);
+	 void setId(AndroidCXX::java_lang_String const& arg0);
+	 void setLocation(FacebookCXX::com_facebook_model_GraphLocation const& arg0);
+	 void setCategory(AndroidCXX::java_lang_String const& arg0);
 };	
 
 } // namespace

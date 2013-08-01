@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -36,7 +35,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_database_sqlite_SQLiteStatement"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -61,8 +60,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_database_sqlite_SQLiteStatement::android_database_sqlite_SQLiteStatement(const android_database_sqlite_SQLiteStatement& cc)
 {
 	LOGV("android_database_sqlite_SQLiteStatement::android_database_sqlite_SQLiteStatement(const android_database_sqlite_SQLiteStatement& cc) enter");
@@ -86,9 +83,9 @@ android_database_sqlite_SQLiteStatement::android_database_sqlite_SQLiteStatement
 
 	LOGV("android_database_sqlite_SQLiteStatement::android_database_sqlite_SQLiteStatement(const android_database_sqlite_SQLiteStatement& cc) exit");
 }
-android_database_sqlite_SQLiteStatement::android_database_sqlite_SQLiteStatement(void * proxy)
+android_database_sqlite_SQLiteStatement::android_database_sqlite_SQLiteStatement(Proxy proxy)
 {
-	LOGV("android_database_sqlite_SQLiteStatement::android_database_sqlite_SQLiteStatement(void * proxy) enter");
+	LOGV("android_database_sqlite_SQLiteStatement::android_database_sqlite_SQLiteStatement(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -98,47 +95,31 @@ android_database_sqlite_SQLiteStatement::android_database_sqlite_SQLiteStatement
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_database_sqlite_SQLiteStatement::android_database_sqlite_SQLiteStatement(void * proxy) exit");
+	LOGV("android_database_sqlite_SQLiteStatement::android_database_sqlite_SQLiteStatement(Proxy proxy) exit");
 }
-android_database_sqlite_SQLiteStatement::android_database_sqlite_SQLiteStatement()
-{
-	LOGV("android_database_sqlite_SQLiteStatement::android_database_sqlite_SQLiteStatement() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/database/sqlite/SQLiteStatement";
-
-	LOGV("android_database_sqlite_SQLiteStatement className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_database_sqlite_SQLiteStatement::proxy() const
+{	
+	LOGV("android_database_sqlite_SQLiteStatement::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_database_sqlite_SQLiteStatement cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_database_sqlite_SQLiteStatement jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_database_sqlite_SQLiteStatement::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_database_sqlite_SQLiteStatement::android_database_sqlite_SQLiteStatement() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_database_sqlite_SQLiteStatement::~android_database_sqlite_SQLiteStatement()
 {
@@ -150,7 +131,7 @@ android_database_sqlite_SQLiteStatement::~android_database_sqlite_SQLiteStatemen
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_database_sqlite_SQLiteStatement::~android_database_sqlite_SQLiteStatement() exit");
 }
 // Functions
@@ -167,15 +148,12 @@ AndroidCXX::java_lang_String android_database_sqlite_SQLiteStatement::toString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_database_sqlite_SQLiteStatement cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_database_sqlite_SQLiteStatement jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -193,10 +171,10 @@ AndroidCXX::java_lang_String android_database_sqlite_SQLiteStatement::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_database_sqlite_SQLiteStatement::toString() exit");
 
 	return result;
@@ -214,8 +192,6 @@ void android_database_sqlite_SQLiteStatement::execute()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_database_sqlite_SQLiteStatement cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -224,8 +200,6 @@ void android_database_sqlite_SQLiteStatement::execute()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_database_sqlite_SQLiteStatement::execute() exit");
 
 }
@@ -242,15 +216,12 @@ int android_database_sqlite_SQLiteStatement::executeUpdateDelete()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_database_sqlite_SQLiteStatement cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_database_sqlite_SQLiteStatement jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -268,10 +239,10 @@ int android_database_sqlite_SQLiteStatement::executeUpdateDelete()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_database_sqlite_SQLiteStatement::executeUpdateDelete() exit");
 
 	return result;
@@ -289,15 +260,12 @@ long android_database_sqlite_SQLiteStatement::executeInsert()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_database_sqlite_SQLiteStatement cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_database_sqlite_SQLiteStatement jni address %d", javaObject);
 
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -315,10 +283,10 @@ long android_database_sqlite_SQLiteStatement::executeInsert()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	long result = (long) *((long *) cxx_value);
+	// 
+		
 	LOGV("long android_database_sqlite_SQLiteStatement::executeInsert() exit");
 
 	return result;
@@ -336,15 +304,12 @@ long android_database_sqlite_SQLiteStatement::simpleQueryForLong()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_database_sqlite_SQLiteStatement cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_database_sqlite_SQLiteStatement jni address %d", javaObject);
 
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -362,10 +327,10 @@ long android_database_sqlite_SQLiteStatement::simpleQueryForLong()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	long result = (long) *((long *) cxx_value);
+	// 
+		
 	LOGV("long android_database_sqlite_SQLiteStatement::simpleQueryForLong() exit");
 
 	return result;
@@ -383,15 +348,12 @@ AndroidCXX::java_lang_String android_database_sqlite_SQLiteStatement::simpleQuer
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_database_sqlite_SQLiteStatement cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_database_sqlite_SQLiteStatement jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -409,10 +371,10 @@ AndroidCXX::java_lang_String android_database_sqlite_SQLiteStatement::simpleQuer
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_database_sqlite_SQLiteStatement::simpleQueryForString() exit");
 
 	return result;
@@ -430,15 +392,12 @@ AndroidCXX::android_os_ParcelFileDescriptor android_database_sqlite_SQLiteStatem
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_database_sqlite_SQLiteStatement cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_database_sqlite_SQLiteStatement jni address %d", javaObject);
 
 
-	AndroidCXX::android_os_ParcelFileDescriptor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -456,10 +415,10 @@ AndroidCXX::android_os_ParcelFileDescriptor android_database_sqlite_SQLiteStatem
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_ParcelFileDescriptor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_ParcelFileDescriptor) (AndroidCXX::android_os_ParcelFileDescriptor((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_os_ParcelFileDescriptor result((AndroidCXX::android_os_ParcelFileDescriptor) *((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value));
+	delete ((AndroidCXX::android_os_ParcelFileDescriptor *) cxx_value);
+		
 	LOGV("AndroidCXX::android_os_ParcelFileDescriptor android_database_sqlite_SQLiteStatement::simpleQueryForBlobFileDescriptor() exit");
 
 	return result;

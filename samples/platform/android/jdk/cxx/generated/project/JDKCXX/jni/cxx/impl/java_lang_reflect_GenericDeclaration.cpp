@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #include <java_lang_reflect_GenericDeclaration.hpp>
@@ -40,8 +39,6 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration(const java_lang_reflect_GenericDeclaration& cc)
 {
 	LOGV("java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration(const java_lang_reflect_GenericDeclaration& cc) enter");
@@ -65,9 +62,9 @@ java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration(const
 
 	LOGV("java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration(const java_lang_reflect_GenericDeclaration& cc) exit");
 }
-java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration(void * proxy)
+java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration(Proxy proxy)
 {
-	LOGV("java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration(void * proxy) enter");
+	LOGV("java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -77,52 +74,31 @@ java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration(void 
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration(void * proxy) exit");
+	LOGV("java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration()
-// {
-// 	LOGV("java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration() enter");	
+Proxy java_lang_reflect_GenericDeclaration::proxy() const
+{	
+	LOGV("java_lang_reflect_GenericDeclaration::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/lang/reflect/GenericDeclaration";
+	long cxxAddress = (long) this;
+	LOGV("java_lang_reflect_GenericDeclaration cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_reflect_GenericDeclaration jni address %d", proxiedComponent);
 
-// 	LOGV("java_lang_reflect_GenericDeclaration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_lang_reflect_GenericDeclaration::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_lang_reflect_GenericDeclaration cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_lang_reflect_GenericDeclaration jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration() exit");	
-// }
-// 
-// 
-// Public Constructors
+	return proxy;
+}
 // Default Instance Destructor
 java_lang_reflect_GenericDeclaration::~java_lang_reflect_GenericDeclaration()
 {
@@ -134,7 +110,7 @@ java_lang_reflect_GenericDeclaration::~java_lang_reflect_GenericDeclaration()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_lang_reflect_GenericDeclaration::~java_lang_reflect_GenericDeclaration() exit");
 }
 // Functions
@@ -150,8 +126,6 @@ std::vector<JDKCXX::java_lang_reflect_TypeVariable > java_lang_reflect_GenericDe
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_reflect_GenericDeclaration cxx address %d", cxxAddress);
@@ -216,8 +190,6 @@ std::vector<JDKCXX::java_lang_reflect_TypeVariable > java_lang_reflect_GenericDe
 	std::vector<JDKCXX::java_lang_reflect_TypeVariable > result = (std::vector<JDKCXX::java_lang_reflect_TypeVariable >) *((std::vector<JDKCXX::java_lang_reflect_TypeVariable > *) cxx_value);
 	delete ((std::vector<JDKCXX::java_lang_reflect_TypeVariable > *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("std::vector<JDKCXX::java_lang_reflect_TypeVariable > java_lang_reflect_GenericDeclaration::getTypeParameters() exit");
 
 	return result;

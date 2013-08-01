@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -78,24 +77,21 @@ class java_security_Permission
 public:
 
 	java_security_Permission(const java_security_Permission& cc);
-	java_security_Permission(void * proxy);
+	java_security_Permission(Proxy proxy);
 	// Public Constructors
-	java_security_Permission(JDKCXX::java_lang_String& arg0);
-	// TODO: remove
-	// 
-	// java_security_Permission();
-	// 
+	java_security_Permission(JDKCXX::java_lang_String const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_security_Permission();
 	// Functions
-	 bool equals(JDKCXX::java_lang_Object& arg0);
+	 bool equals(JDKCXX::java_lang_Object const& arg0);
 	 JDKCXX::java_lang_String toString();
 	 int hashCode();
 	 JDKCXX::java_lang_String getName();
-	 bool implies(JDKCXX::java_security_Permission& arg0);
+	 bool implies(JDKCXX::java_security_Permission const& arg0);
 	 JDKCXX::java_lang_String getActions();
 	 JDKCXX::java_security_PermissionCollection newPermissionCollection();
-	 void checkGuard(JDKCXX::java_lang_Object& arg0);
+	 void checkGuard(JDKCXX::java_lang_Object const& arg0);
 };	
 
 } // namespace

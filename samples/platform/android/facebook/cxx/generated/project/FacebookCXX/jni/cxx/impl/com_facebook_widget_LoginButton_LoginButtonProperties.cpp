@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -49,6 +48,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_LoginButton_LoginButtonProperties"
@@ -62,7 +62,7 @@ using namespace FacebookCXX;
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_SESSIONLOGINBEHAVIOR;
+// using namespace com_facebook_SessionLoginBehavior;
 // 
 // 
 // 
@@ -73,7 +73,7 @@ using namespace FacebookCXX;
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_SESSIONDEFAULTAUDIENCE;
+// using namespace com_facebook_SessionDefaultAudience;
 // 
 // 
 // 
@@ -116,8 +116,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_widget_LoginButton_LoginButtonProperties::com_facebook_widget_LoginButton_LoginButtonProperties(const com_facebook_widget_LoginButton_LoginButtonProperties& cc)
 {
 	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties::com_facebook_widget_LoginButton_LoginButtonProperties(const com_facebook_widget_LoginButton_LoginButtonProperties& cc) enter");
@@ -141,9 +139,9 @@ com_facebook_widget_LoginButton_LoginButtonProperties::com_facebook_widget_Login
 
 	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties::com_facebook_widget_LoginButton_LoginButtonProperties(const com_facebook_widget_LoginButton_LoginButtonProperties& cc) exit");
 }
-com_facebook_widget_LoginButton_LoginButtonProperties::com_facebook_widget_LoginButton_LoginButtonProperties(void * proxy)
+com_facebook_widget_LoginButton_LoginButtonProperties::com_facebook_widget_LoginButton_LoginButtonProperties(Proxy proxy)
 {
-	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties::com_facebook_widget_LoginButton_LoginButtonProperties(void * proxy) enter");
+	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties::com_facebook_widget_LoginButton_LoginButtonProperties(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -153,47 +151,31 @@ com_facebook_widget_LoginButton_LoginButtonProperties::com_facebook_widget_Login
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties::com_facebook_widget_LoginButton_LoginButtonProperties(void * proxy) exit");
+	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties::com_facebook_widget_LoginButton_LoginButtonProperties(Proxy proxy) exit");
 }
-com_facebook_widget_LoginButton_LoginButtonProperties::com_facebook_widget_LoginButton_LoginButtonProperties()
-{
-	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties::com_facebook_widget_LoginButton_LoginButtonProperties() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/widget/LoginButton$LoginButtonProperties";
-
-	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_widget_LoginButton_LoginButtonProperties::proxy() const
+{	
+	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties::com_facebook_widget_LoginButton_LoginButtonProperties() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 com_facebook_widget_LoginButton_LoginButtonProperties::~com_facebook_widget_LoginButton_LoginButtonProperties()
 {
@@ -205,13 +187,13 @@ com_facebook_widget_LoginButton_LoginButtonProperties::~com_facebook_widget_Logi
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties::~com_facebook_widget_LoginButton_LoginButtonProperties() exit");
 }
 // Functions
-COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior com_facebook_widget_LoginButton_LoginButtonProperties::getLoginBehavior()
+com_facebook_SessionLoginBehavior::com_facebook_SessionLoginBehavior com_facebook_widget_LoginButton_LoginButtonProperties::getLoginBehavior()
 {
-	LOGV("COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior com_facebook_widget_LoginButton_LoginButtonProperties::getLoginBehavior() enter");
+	LOGV("com_facebook_SessionLoginBehavior::com_facebook_SessionLoginBehavior com_facebook_widget_LoginButton_LoginButtonProperties::getLoginBehavior() enter");
 
 	const char *methodName = "getLoginBehavior";
 	const char *methodSignature = "()Lcom/facebook/SessionLoginBehavior;";
@@ -222,15 +204,12 @@ COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior com_faceboo
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties jni address %d", javaObject);
 
 
-	COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -248,17 +227,17 @@ COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior com_faceboo
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_SessionLoginBehavior(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior com_facebook_widget_LoginButton_LoginButtonProperties::getLoginBehavior() exit");
+	com_facebook_SessionLoginBehavior::com_facebook_SessionLoginBehavior result = (com_facebook_SessionLoginBehavior::com_facebook_SessionLoginBehavior) (cxx_value);
+	//
+		
+	LOGV("com_facebook_SessionLoginBehavior::com_facebook_SessionLoginBehavior com_facebook_widget_LoginButton_LoginButtonProperties::getLoginBehavior() exit");
 
 	return result;
 }
-void com_facebook_widget_LoginButton_LoginButtonProperties::setLoginBehavior(COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior& arg0)
+void com_facebook_widget_LoginButton_LoginButtonProperties::setLoginBehavior(com_facebook_SessionLoginBehavior::com_facebook_SessionLoginBehavior const& arg0)
 {
-	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setLoginBehavior(COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior& arg0) enter");
+	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setLoginBehavior(com_facebook_SessionLoginBehavior::com_facebook_SessionLoginBehavior const& arg0) enter");
 
 	const char *methodName = "setLoginBehavior";
 	const char *methodSignature = "(Lcom/facebook/SessionLoginBehavior;)V";
@@ -269,8 +248,6 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::setLoginBehavior(COM
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -300,14 +277,12 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::setLoginBehavior(COM
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setLoginBehavior(COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior& arg0) exit");
+	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setLoginBehavior(com_facebook_SessionLoginBehavior::com_facebook_SessionLoginBehavior const& arg0) exit");
 
 }
-void com_facebook_widget_LoginButton_LoginButtonProperties::setDefaultAudience(COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience& arg0)
+void com_facebook_widget_LoginButton_LoginButtonProperties::setDefaultAudience(com_facebook_SessionDefaultAudience::com_facebook_SessionDefaultAudience const& arg0)
 {
-	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setDefaultAudience(COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience& arg0) enter");
+	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setDefaultAudience(com_facebook_SessionDefaultAudience::com_facebook_SessionDefaultAudience const& arg0) enter");
 
 	const char *methodName = "setDefaultAudience";
 	const char *methodSignature = "(Lcom/facebook/SessionDefaultAudience;)V";
@@ -317,8 +292,6 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::setDefaultAudience(C
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties cxx address %d", cxxAddress);
@@ -349,14 +322,12 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::setDefaultAudience(C
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setDefaultAudience(COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience& arg0) exit");
+	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setDefaultAudience(com_facebook_SessionDefaultAudience::com_facebook_SessionDefaultAudience const& arg0) exit");
 
 }
-COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience com_facebook_widget_LoginButton_LoginButtonProperties::getDefaultAudience()
+com_facebook_SessionDefaultAudience::com_facebook_SessionDefaultAudience com_facebook_widget_LoginButton_LoginButtonProperties::getDefaultAudience()
 {
-	LOGV("COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience com_facebook_widget_LoginButton_LoginButtonProperties::getDefaultAudience() enter");
+	LOGV("com_facebook_SessionDefaultAudience::com_facebook_SessionDefaultAudience com_facebook_widget_LoginButton_LoginButtonProperties::getDefaultAudience() enter");
 
 	const char *methodName = "getDefaultAudience";
 	const char *methodSignature = "()Lcom/facebook/SessionDefaultAudience;";
@@ -367,15 +338,12 @@ COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience com_fac
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties jni address %d", javaObject);
 
 
-	COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -393,11 +361,11 @@ COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience com_fac
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_SessionDefaultAudience(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience com_facebook_widget_LoginButton_LoginButtonProperties::getDefaultAudience() exit");
+	com_facebook_SessionDefaultAudience::com_facebook_SessionDefaultAudience result = (com_facebook_SessionDefaultAudience::com_facebook_SessionDefaultAudience) (cxx_value);
+	//
+		
+	LOGV("com_facebook_SessionDefaultAudience::com_facebook_SessionDefaultAudience com_facebook_widget_LoginButton_LoginButtonProperties::getDefaultAudience() exit");
 
 	return result;
 }
@@ -414,15 +382,12 @@ FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener com_facebook_widget
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -440,17 +405,17 @@ FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener com_facebook_widget
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_widget_LoginButton_OnErrorListener(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener) (FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener((FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener result((FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener) *((FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener *) cxx_value));
+	delete ((FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener *) cxx_value);
+		
 	LOGV("FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener com_facebook_widget_LoginButton_LoginButtonProperties::getOnErrorListener() exit");
 
 	return result;
 }
-void com_facebook_widget_LoginButton_LoginButtonProperties::setOnErrorListener(FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener& arg0)
+void com_facebook_widget_LoginButton_LoginButtonProperties::setOnErrorListener(FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener const& arg0)
 {
-	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setOnErrorListener(FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener& arg0) enter");
+	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setOnErrorListener(FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener const& arg0) enter");
 
 	const char *methodName = "setOnErrorListener";
 	const char *methodSignature = "(Lcom/facebook/widget/LoginButton$OnErrorListener;)V";
@@ -460,8 +425,6 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::setOnErrorListener(F
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties cxx address %d", cxxAddress);
@@ -492,14 +455,12 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::setOnErrorListener(F
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setOnErrorListener(FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener& arg0) exit");
+	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setOnErrorListener(FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener const& arg0) exit");
 
 }
-void com_facebook_widget_LoginButton_LoginButtonProperties::setReadPermissions(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Session& arg1)
+void com_facebook_widget_LoginButton_LoginButtonProperties::setReadPermissions(AndroidCXX::java_util_List const& arg0,FacebookCXX::com_facebook_Session const& arg1)
 {
-	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setReadPermissions(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Session& arg1) enter");
+	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setReadPermissions(AndroidCXX::java_util_List const& arg0,FacebookCXX::com_facebook_Session const& arg1) enter");
 
 	const char *methodName = "setReadPermissions";
 	const char *methodSignature = "(Ljava/util/List;Lcom/facebook/Session;)V";
@@ -510,8 +471,6 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::setReadPermissions(A
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -580,14 +539,12 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::setReadPermissions(A
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setReadPermissions(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Session& arg1) exit");
+	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setReadPermissions(AndroidCXX::java_util_List const& arg0,FacebookCXX::com_facebook_Session const& arg1) exit");
 
 }
-void com_facebook_widget_LoginButton_LoginButtonProperties::setPublishPermissions(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Session& arg1)
+void com_facebook_widget_LoginButton_LoginButtonProperties::setPublishPermissions(AndroidCXX::java_util_List const& arg0,FacebookCXX::com_facebook_Session const& arg1)
 {
-	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setPublishPermissions(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Session& arg1) enter");
+	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setPublishPermissions(AndroidCXX::java_util_List const& arg0,FacebookCXX::com_facebook_Session const& arg1) enter");
 
 	const char *methodName = "setPublishPermissions";
 	const char *methodSignature = "(Ljava/util/List;Lcom/facebook/Session;)V";
@@ -598,8 +555,6 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::setPublishPermission
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -668,9 +623,7 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::setPublishPermission
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setPublishPermissions(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Session& arg1) exit");
+	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setPublishPermissions(AndroidCXX::java_util_List const& arg0,FacebookCXX::com_facebook_Session const& arg1) exit");
 
 }
 void com_facebook_widget_LoginButton_LoginButtonProperties::clearPermissions()
@@ -686,8 +639,6 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::clearPermissions()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -696,14 +647,12 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::clearPermissions()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::clearPermissions() exit");
 
 }
-void com_facebook_widget_LoginButton_LoginButtonProperties::setSessionStatusCallback(FacebookCXX::com_facebook_Session_StatusCallback& arg0)
+void com_facebook_widget_LoginButton_LoginButtonProperties::setSessionStatusCallback(FacebookCXX::com_facebook_Session_StatusCallback const& arg0)
 {
-	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setSessionStatusCallback(FacebookCXX::com_facebook_Session_StatusCallback& arg0) enter");
+	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setSessionStatusCallback(FacebookCXX::com_facebook_Session_StatusCallback const& arg0) enter");
 
 	const char *methodName = "setSessionStatusCallback";
 	const char *methodSignature = "(Lcom/facebook/Session$StatusCallback;)V";
@@ -713,8 +662,6 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::setSessionStatusCall
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties cxx address %d", cxxAddress);
@@ -745,9 +692,7 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::setSessionStatusCall
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setSessionStatusCallback(FacebookCXX::com_facebook_Session_StatusCallback& arg0) exit");
+	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setSessionStatusCallback(FacebookCXX::com_facebook_Session_StatusCallback const& arg0) exit");
 
 }
 FacebookCXX::com_facebook_Session_StatusCallback com_facebook_widget_LoginButton_LoginButtonProperties::getSessionStatusCallback()
@@ -763,15 +708,12 @@ FacebookCXX::com_facebook_Session_StatusCallback com_facebook_widget_LoginButton
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_Session_StatusCallback result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -789,10 +731,10 @@ FacebookCXX::com_facebook_Session_StatusCallback com_facebook_widget_LoginButton
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_Session_StatusCallback(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_Session_StatusCallback) (FacebookCXX::com_facebook_Session_StatusCallback((FacebookCXX::com_facebook_Session_StatusCallback *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	FacebookCXX::com_facebook_Session_StatusCallback result((FacebookCXX::com_facebook_Session_StatusCallback) *((FacebookCXX::com_facebook_Session_StatusCallback *) cxx_value));
+	delete ((FacebookCXX::com_facebook_Session_StatusCallback *) cxx_value);
+		
 	LOGV("FacebookCXX::com_facebook_Session_StatusCallback com_facebook_widget_LoginButton_LoginButtonProperties::getSessionStatusCallback() exit");
 
 	return result;

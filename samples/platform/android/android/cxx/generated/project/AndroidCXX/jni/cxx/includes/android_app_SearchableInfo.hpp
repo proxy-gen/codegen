@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -92,14 +91,14 @@ class android_app_SearchableInfo
 public:
 
 	android_app_SearchableInfo(const android_app_SearchableInfo& cc);
-	android_app_SearchableInfo(void * proxy);
+	android_app_SearchableInfo(Proxy proxy);
 	// Public Constructors
-	android_app_SearchableInfo();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_SearchableInfo();
 	// Functions
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 	 int getInputType();
 	 int getImeOptions();
 	 AndroidCXX::java_lang_String getSuggestAuthority();

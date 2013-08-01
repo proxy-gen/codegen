@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -53,14 +52,14 @@ class android_app_Fragment_SavedState
 public:
 
 	android_app_Fragment_SavedState(const android_app_Fragment_SavedState& cc);
-	android_app_Fragment_SavedState(void * proxy);
+	android_app_Fragment_SavedState(Proxy proxy);
 	// Public Constructors
-	android_app_Fragment_SavedState();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_Fragment_SavedState();
 	// Functions
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 };	
 
 } // namespace

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -96,27 +95,27 @@ class java_lang_Throwable
 {
 public:
 
-	java_lang_Throwable(const java_lang_Throwable& cc);
-	java_lang_Throwable(void * proxy);
+	java_lang_Throwable(Proxy proxy);
 	// Public Constructors
 	java_lang_Throwable();
-	java_lang_Throwable(AndroidCXX::java_lang_String& arg0);
-	java_lang_Throwable(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1);
-	java_lang_Throwable(AndroidCXX::java_lang_Throwable& arg0);
+	java_lang_Throwable(AndroidCXX::java_lang_String const& arg0);
+	java_lang_Throwable(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1);
+	java_lang_Throwable(AndroidCXX::java_lang_Throwable const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Throwable();
 	// Functions
-	 void printStackTrace(AndroidCXX::java_io_PrintStream& arg0);
+	 void printStackTrace(AndroidCXX::java_io_PrintStream const& arg0);
 	 void printStackTrace();
-	 void printStackTrace(AndroidCXX::java_io_PrintWriter& arg0);
+	 void printStackTrace(AndroidCXX::java_io_PrintWriter const& arg0);
 	 AndroidCXX::java_lang_Throwable fillInStackTrace();
 	 AndroidCXX::java_lang_Throwable getCause();
-	 AndroidCXX::java_lang_Throwable initCause(AndroidCXX::java_lang_Throwable& arg0);
+	 AndroidCXX::java_lang_Throwable initCause(AndroidCXX::java_lang_Throwable const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 AndroidCXX::java_lang_String getMessage();
 	 AndroidCXX::java_lang_String getLocalizedMessage();
 	 std::vector<AndroidCXX::java_lang_StackTraceElement > getStackTrace();
-	 void setStackTrace(std::vector<AndroidCXX::java_lang_StackTraceElement >& arg0);
+	 void setStackTrace(std::vector<AndroidCXX::java_lang_StackTraceElement > const& arg0);
 };	
 
 } // namespace

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 
@@ -48,6 +47,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_SimpleGraphObjectCursor"
@@ -75,8 +75,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_widget_SimpleGraphObjectCursor::com_facebook_widget_SimpleGraphObjectCursor(const com_facebook_widget_SimpleGraphObjectCursor& cc)
 {
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor::com_facebook_widget_SimpleGraphObjectCursor(const com_facebook_widget_SimpleGraphObjectCursor& cc) enter");
@@ -100,9 +98,9 @@ com_facebook_widget_SimpleGraphObjectCursor::com_facebook_widget_SimpleGraphObje
 
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor::com_facebook_widget_SimpleGraphObjectCursor(const com_facebook_widget_SimpleGraphObjectCursor& cc) exit");
 }
-com_facebook_widget_SimpleGraphObjectCursor::com_facebook_widget_SimpleGraphObjectCursor(void * proxy)
+com_facebook_widget_SimpleGraphObjectCursor::com_facebook_widget_SimpleGraphObjectCursor(Proxy proxy)
 {
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor::com_facebook_widget_SimpleGraphObjectCursor(void * proxy) enter");
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor::com_facebook_widget_SimpleGraphObjectCursor(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -112,47 +110,31 @@ com_facebook_widget_SimpleGraphObjectCursor::com_facebook_widget_SimpleGraphObje
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor::com_facebook_widget_SimpleGraphObjectCursor(void * proxy) exit");
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor::com_facebook_widget_SimpleGraphObjectCursor(Proxy proxy) exit");
 }
-com_facebook_widget_SimpleGraphObjectCursor::com_facebook_widget_SimpleGraphObjectCursor()
-{
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor::com_facebook_widget_SimpleGraphObjectCursor() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/widget/SimpleGraphObjectCursor";
-
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_widget_SimpleGraphObjectCursor::proxy() const
+{	
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor::com_facebook_widget_SimpleGraphObjectCursor() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 com_facebook_widget_SimpleGraphObjectCursor::~com_facebook_widget_SimpleGraphObjectCursor()
 {
@@ -164,7 +146,7 @@ com_facebook_widget_SimpleGraphObjectCursor::~com_facebook_widget_SimpleGraphObj
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor::~com_facebook_widget_SimpleGraphObjectCursor() exit");
 }
 // Functions
@@ -181,8 +163,6 @@ void com_facebook_widget_SimpleGraphObjectCursor::close()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -191,8 +171,6 @@ void com_facebook_widget_SimpleGraphObjectCursor::close()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void com_facebook_widget_SimpleGraphObjectCursor::close() exit");
 
 }
@@ -209,15 +187,12 @@ bool com_facebook_widget_SimpleGraphObjectCursor::isFirst()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -235,10 +210,10 @@ bool com_facebook_widget_SimpleGraphObjectCursor::isFirst()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool com_facebook_widget_SimpleGraphObjectCursor::isFirst() exit");
 
 	return result;
@@ -256,15 +231,12 @@ bool com_facebook_widget_SimpleGraphObjectCursor::isClosed()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -282,10 +254,10 @@ bool com_facebook_widget_SimpleGraphObjectCursor::isClosed()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool com_facebook_widget_SimpleGraphObjectCursor::isClosed() exit");
 
 	return result;
@@ -303,15 +275,12 @@ int com_facebook_widget_SimpleGraphObjectCursor::getPosition()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -329,10 +298,10 @@ int com_facebook_widget_SimpleGraphObjectCursor::getPosition()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int com_facebook_widget_SimpleGraphObjectCursor::getPosition() exit");
 
 	return result;
@@ -350,15 +319,12 @@ bool com_facebook_widget_SimpleGraphObjectCursor::isFromCache()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -376,10 +342,10 @@ bool com_facebook_widget_SimpleGraphObjectCursor::isFromCache()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool com_facebook_widget_SimpleGraphObjectCursor::isFromCache() exit");
 
 	return result;
@@ -397,15 +363,12 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_widget_SimpleGraphObjec
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_model_GraphObject result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -423,10 +386,10 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_widget_SimpleGraphObjec
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_model_GraphObject(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_model_GraphObject) (FacebookCXX::com_facebook_model_GraphObject((FacebookCXX::com_facebook_model_GraphObject *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	FacebookCXX::com_facebook_model_GraphObject result((FacebookCXX::com_facebook_model_GraphObject) *((FacebookCXX::com_facebook_model_GraphObject *) cxx_value));
+	delete ((FacebookCXX::com_facebook_model_GraphObject *) cxx_value);
+		
 	LOGV("FacebookCXX::com_facebook_model_GraphObject com_facebook_widget_SimpleGraphObjectCursor::getGraphObject() exit");
 
 	return result;
@@ -444,15 +407,12 @@ bool com_facebook_widget_SimpleGraphObjectCursor::moveToFirst()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -470,10 +430,10 @@ bool com_facebook_widget_SimpleGraphObjectCursor::moveToFirst()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool com_facebook_widget_SimpleGraphObjectCursor::moveToFirst() exit");
 
 	return result;
@@ -491,15 +451,12 @@ int com_facebook_widget_SimpleGraphObjectCursor::getCount()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -517,10 +474,10 @@ int com_facebook_widget_SimpleGraphObjectCursor::getCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int com_facebook_widget_SimpleGraphObjectCursor::getCount() exit");
 
 	return result;
@@ -538,15 +495,12 @@ bool com_facebook_widget_SimpleGraphObjectCursor::areMoreObjectsAvailable()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -564,10 +518,10 @@ bool com_facebook_widget_SimpleGraphObjectCursor::areMoreObjectsAvailable()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool com_facebook_widget_SimpleGraphObjectCursor::areMoreObjectsAvailable() exit");
 
 	return result;
@@ -585,15 +539,12 @@ bool com_facebook_widget_SimpleGraphObjectCursor::moveToNext()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -611,17 +562,17 @@ bool com_facebook_widget_SimpleGraphObjectCursor::moveToNext()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool com_facebook_widget_SimpleGraphObjectCursor::moveToNext() exit");
 
 	return result;
 }
-bool com_facebook_widget_SimpleGraphObjectCursor::move(int& arg0)
+bool com_facebook_widget_SimpleGraphObjectCursor::move(int const& arg0)
 {
-	LOGV("bool com_facebook_widget_SimpleGraphObjectCursor::move(int& arg0) enter");
+	LOGV("bool com_facebook_widget_SimpleGraphObjectCursor::move(int const& arg0) enter");
 
 	const char *methodName = "move";
 	const char *methodSignature = "(I)Z";
@@ -632,8 +583,6 @@ bool com_facebook_widget_SimpleGraphObjectCursor::move(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -661,7 +610,6 @@ bool com_facebook_widget_SimpleGraphObjectCursor::move(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -679,17 +627,17 @@ bool com_facebook_widget_SimpleGraphObjectCursor::move(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool com_facebook_widget_SimpleGraphObjectCursor::move(int& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool com_facebook_widget_SimpleGraphObjectCursor::move(int const& arg0) exit");
 
 	return result;
 }
-bool com_facebook_widget_SimpleGraphObjectCursor::moveToPosition(int& arg0)
+bool com_facebook_widget_SimpleGraphObjectCursor::moveToPosition(int const& arg0)
 {
-	LOGV("bool com_facebook_widget_SimpleGraphObjectCursor::moveToPosition(int& arg0) enter");
+	LOGV("bool com_facebook_widget_SimpleGraphObjectCursor::moveToPosition(int const& arg0) enter");
 
 	const char *methodName = "moveToPosition";
 	const char *methodSignature = "(I)Z";
@@ -700,8 +648,6 @@ bool com_facebook_widget_SimpleGraphObjectCursor::moveToPosition(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -729,7 +675,6 @@ bool com_facebook_widget_SimpleGraphObjectCursor::moveToPosition(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -747,11 +692,11 @@ bool com_facebook_widget_SimpleGraphObjectCursor::moveToPosition(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool com_facebook_widget_SimpleGraphObjectCursor::moveToPosition(int& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool com_facebook_widget_SimpleGraphObjectCursor::moveToPosition(int const& arg0) exit");
 
 	return result;
 }
@@ -768,15 +713,12 @@ bool com_facebook_widget_SimpleGraphObjectCursor::moveToLast()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -794,10 +736,10 @@ bool com_facebook_widget_SimpleGraphObjectCursor::moveToLast()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool com_facebook_widget_SimpleGraphObjectCursor::moveToLast() exit");
 
 	return result;
@@ -815,15 +757,12 @@ bool com_facebook_widget_SimpleGraphObjectCursor::moveToPrevious()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -841,10 +780,10 @@ bool com_facebook_widget_SimpleGraphObjectCursor::moveToPrevious()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool com_facebook_widget_SimpleGraphObjectCursor::moveToPrevious() exit");
 
 	return result;
@@ -862,15 +801,12 @@ bool com_facebook_widget_SimpleGraphObjectCursor::isLast()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -888,10 +824,10 @@ bool com_facebook_widget_SimpleGraphObjectCursor::isLast()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool com_facebook_widget_SimpleGraphObjectCursor::isLast() exit");
 
 	return result;
@@ -909,15 +845,12 @@ bool com_facebook_widget_SimpleGraphObjectCursor::isBeforeFirst()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -935,10 +868,10 @@ bool com_facebook_widget_SimpleGraphObjectCursor::isBeforeFirst()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool com_facebook_widget_SimpleGraphObjectCursor::isBeforeFirst() exit");
 
 	return result;
@@ -956,15 +889,12 @@ bool com_facebook_widget_SimpleGraphObjectCursor::isAfterLast()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -982,17 +912,17 @@ bool com_facebook_widget_SimpleGraphObjectCursor::isAfterLast()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool com_facebook_widget_SimpleGraphObjectCursor::isAfterLast() exit");
 
 	return result;
 }
-void com_facebook_widget_SimpleGraphObjectCursor::addGraphObjects(AndroidCXX::java_util_Collection& arg0,bool& arg1)
+void com_facebook_widget_SimpleGraphObjectCursor::addGraphObjects(AndroidCXX::java_util_Collection const& arg0,bool const& arg1)
 {
-	LOGV("void com_facebook_widget_SimpleGraphObjectCursor::addGraphObjects(AndroidCXX::java_util_Collection& arg0,bool& arg1) enter");
+	LOGV("void com_facebook_widget_SimpleGraphObjectCursor::addGraphObjects(AndroidCXX::java_util_Collection const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "addGraphObjects";
 	const char *methodSignature = "(Ljava/util/Collection;Z)V";
@@ -1002,8 +932,6 @@ void com_facebook_widget_SimpleGraphObjectCursor::addGraphObjects(AndroidCXX::ja
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor cxx address %d", cxxAddress);
@@ -1073,14 +1001,12 @@ void com_facebook_widget_SimpleGraphObjectCursor::addGraphObjects(AndroidCXX::ja
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_SimpleGraphObjectCursor::addGraphObjects(AndroidCXX::java_util_Collection& arg0,bool& arg1) exit");
+	LOGV("void com_facebook_widget_SimpleGraphObjectCursor::addGraphObjects(AndroidCXX::java_util_Collection const& arg0,bool const& arg1) exit");
 
 }
-void com_facebook_widget_SimpleGraphObjectCursor::setMoreObjectsAvailable(bool& arg0)
+void com_facebook_widget_SimpleGraphObjectCursor::setMoreObjectsAvailable(bool const& arg0)
 {
-	LOGV("void com_facebook_widget_SimpleGraphObjectCursor::setMoreObjectsAvailable(bool& arg0) enter");
+	LOGV("void com_facebook_widget_SimpleGraphObjectCursor::setMoreObjectsAvailable(bool const& arg0) enter");
 
 	const char *methodName = "setMoreObjectsAvailable";
 	const char *methodSignature = "(Z)V";
@@ -1091,8 +1017,6 @@ void com_facebook_widget_SimpleGraphObjectCursor::setMoreObjectsAvailable(bool& 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1122,14 +1046,12 @@ void com_facebook_widget_SimpleGraphObjectCursor::setMoreObjectsAvailable(bool& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_SimpleGraphObjectCursor::setMoreObjectsAvailable(bool& arg0) exit");
+	LOGV("void com_facebook_widget_SimpleGraphObjectCursor::setMoreObjectsAvailable(bool const& arg0) exit");
 
 }
-void com_facebook_widget_SimpleGraphObjectCursor::setFromCache(bool& arg0)
+void com_facebook_widget_SimpleGraphObjectCursor::setFromCache(bool const& arg0)
 {
-	LOGV("void com_facebook_widget_SimpleGraphObjectCursor::setFromCache(bool& arg0) enter");
+	LOGV("void com_facebook_widget_SimpleGraphObjectCursor::setFromCache(bool const& arg0) enter");
 
 	const char *methodName = "setFromCache";
 	const char *methodSignature = "(Z)V";
@@ -1140,8 +1062,6 @@ void com_facebook_widget_SimpleGraphObjectCursor::setFromCache(bool& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_SimpleGraphObjectCursor cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1171,8 +1091,6 @@ void com_facebook_widget_SimpleGraphObjectCursor::setFromCache(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_SimpleGraphObjectCursor::setFromCache(bool& arg0) exit");
+	LOGV("void com_facebook_widget_SimpleGraphObjectCursor::setFromCache(bool const& arg0) exit");
 
 }

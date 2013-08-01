@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -51,13 +50,13 @@ class com_facebook_widget_GraphObjectAdapter_Filter
 public:
 
 	com_facebook_widget_GraphObjectAdapter_Filter(const com_facebook_widget_GraphObjectAdapter_Filter& cc);
-	com_facebook_widget_GraphObjectAdapter_Filter(void * proxy);
+	com_facebook_widget_GraphObjectAdapter_Filter(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_GraphObjectAdapter_Filter();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectAdapter_Filter();
 	// Functions
-	 bool includeItem(AndroidCXX::java_lang_Object& arg0);
+	 bool includeItem(AndroidCXX::java_lang_Object const& arg0);
 };	
 
 } // namespace

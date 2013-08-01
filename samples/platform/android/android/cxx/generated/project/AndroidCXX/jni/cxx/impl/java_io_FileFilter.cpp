@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -28,7 +27,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_io_FileFilter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -47,8 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_io_FileFilter::java_io_FileFilter(const java_io_FileFilter& cc)
 {
 	LOGV("java_io_FileFilter::java_io_FileFilter(const java_io_FileFilter& cc) enter");
@@ -72,9 +69,9 @@ java_io_FileFilter::java_io_FileFilter(const java_io_FileFilter& cc)
 
 	LOGV("java_io_FileFilter::java_io_FileFilter(const java_io_FileFilter& cc) exit");
 }
-java_io_FileFilter::java_io_FileFilter(void * proxy)
+java_io_FileFilter::java_io_FileFilter(Proxy proxy)
 {
-	LOGV("java_io_FileFilter::java_io_FileFilter(void * proxy) enter");
+	LOGV("java_io_FileFilter::java_io_FileFilter(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -84,47 +81,31 @@ java_io_FileFilter::java_io_FileFilter(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_io_FileFilter::java_io_FileFilter(void * proxy) exit");
+	LOGV("java_io_FileFilter::java_io_FileFilter(Proxy proxy) exit");
 }
-java_io_FileFilter::java_io_FileFilter()
-{
-	LOGV("java_io_FileFilter::java_io_FileFilter() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "java/io/FileFilter";
-
-	LOGV("java_io_FileFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy java_io_FileFilter::proxy() const
+{	
+	LOGV("java_io_FileFilter::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_FileFilter cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("java_io_FileFilter jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("java_io_FileFilter::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("java_io_FileFilter::java_io_FileFilter() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 java_io_FileFilter::~java_io_FileFilter()
 {
@@ -136,13 +117,13 @@ java_io_FileFilter::~java_io_FileFilter()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_io_FileFilter::~java_io_FileFilter() exit");
 }
 // Functions
-bool java_io_FileFilter::accept(AndroidCXX::java_io_File& arg0)
+bool java_io_FileFilter::accept(AndroidCXX::java_io_File const& arg0)
 {
-	LOGV("bool java_io_FileFilter::accept(AndroidCXX::java_io_File& arg0) enter");
+	LOGV("bool java_io_FileFilter::accept(AndroidCXX::java_io_File const& arg0) enter");
 
 	const char *methodName = "accept";
 	const char *methodSignature = "(Ljava/io/File;)Z";
@@ -152,8 +133,6 @@ bool java_io_FileFilter::accept(AndroidCXX::java_io_File& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_io_FileFilter cxx address %d", cxxAddress);
@@ -182,7 +161,6 @@ bool java_io_FileFilter::accept(AndroidCXX::java_io_File& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -200,11 +178,11 @@ bool java_io_FileFilter::accept(AndroidCXX::java_io_File& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool java_io_FileFilter::accept(AndroidCXX::java_io_File& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool java_io_FileFilter::accept(AndroidCXX::java_io_File const& arg0) exit");
 
 	return result;
 }

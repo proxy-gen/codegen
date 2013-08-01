@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -75,21 +74,21 @@ class android_graphics_Picture
 {
 public:
 
-	android_graphics_Picture(const android_graphics_Picture& cc);
-	android_graphics_Picture(void * proxy);
+	android_graphics_Picture(Proxy proxy);
 	// Public Constructors
 	android_graphics_Picture();
-	android_graphics_Picture(AndroidCXX::android_graphics_Picture& arg0);
+	android_graphics_Picture(AndroidCXX::android_graphics_Picture const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Picture();
 	// Functions
 	 int getWidth();
 	 int getHeight();
-	 void draw(AndroidCXX::android_graphics_Canvas& arg0);
-	static AndroidCXX::android_graphics_Picture createFromStream(AndroidCXX::java_io_InputStream& arg0);
-	 AndroidCXX::android_graphics_Canvas beginRecording(int& arg0,int& arg1);
+	 void draw(AndroidCXX::android_graphics_Canvas const& arg0);
+	static AndroidCXX::android_graphics_Picture createFromStream(AndroidCXX::java_io_InputStream const& arg0);
+	 AndroidCXX::android_graphics_Canvas beginRecording(int const& arg0,int const& arg1);
 	 void endRecording();
-	 void writeToStream(AndroidCXX::java_io_OutputStream& arg0);
+	 void writeToStream(AndroidCXX::java_io_OutputStream const& arg0);
 };	
 
 } // namespace

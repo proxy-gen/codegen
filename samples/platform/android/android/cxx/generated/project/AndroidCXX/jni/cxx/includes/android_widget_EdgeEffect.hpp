@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -64,20 +63,20 @@ class android_widget_EdgeEffect
 public:
 
 	android_widget_EdgeEffect(const android_widget_EdgeEffect& cc);
-	android_widget_EdgeEffect(void * proxy);
+	android_widget_EdgeEffect(Proxy proxy);
 	// Public Constructors
-	android_widget_EdgeEffect(AndroidCXX::android_content_Context& arg0);
-	android_widget_EdgeEffect();
+	android_widget_EdgeEffect(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_EdgeEffect();
 	// Functions
-	 void setSize(int& arg0,int& arg1);
+	 void setSize(int const& arg0,int const& arg1);
 	 void finish();
-	 bool draw(AndroidCXX::android_graphics_Canvas& arg0);
+	 bool draw(AndroidCXX::android_graphics_Canvas const& arg0);
 	 bool isFinished();
-	 void onPull(float& arg0);
+	 void onPull(float const& arg0);
 	 void onRelease();
-	 void onAbsorb(int& arg0);
+	 void onAbsorb(int const& arg0);
 };	
 
 } // namespace

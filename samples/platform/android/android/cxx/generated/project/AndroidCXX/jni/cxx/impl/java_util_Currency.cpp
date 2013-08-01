@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -42,7 +41,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_util_Currency"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -85,8 +84,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_util_Currency::java_util_Currency(const java_util_Currency& cc)
 {
 	LOGV("java_util_Currency::java_util_Currency(const java_util_Currency& cc) enter");
@@ -110,9 +107,9 @@ java_util_Currency::java_util_Currency(const java_util_Currency& cc)
 
 	LOGV("java_util_Currency::java_util_Currency(const java_util_Currency& cc) exit");
 }
-java_util_Currency::java_util_Currency(void * proxy)
+java_util_Currency::java_util_Currency(Proxy proxy)
 {
-	LOGV("java_util_Currency::java_util_Currency(void * proxy) enter");
+	LOGV("java_util_Currency::java_util_Currency(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -122,47 +119,31 @@ java_util_Currency::java_util_Currency(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_util_Currency::java_util_Currency(void * proxy) exit");
+	LOGV("java_util_Currency::java_util_Currency(Proxy proxy) exit");
 }
-java_util_Currency::java_util_Currency()
-{
-	LOGV("java_util_Currency::java_util_Currency() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "java/util/Currency";
-
-	LOGV("java_util_Currency className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy java_util_Currency::proxy() const
+{	
+	LOGV("java_util_Currency::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Currency cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Currency jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("java_util_Currency::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("java_util_Currency::java_util_Currency() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 java_util_Currency::~java_util_Currency()
 {
@@ -174,7 +155,7 @@ java_util_Currency::~java_util_Currency()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_util_Currency::~java_util_Currency() exit");
 }
 // Functions
@@ -191,15 +172,12 @@ AndroidCXX::java_lang_String java_util_Currency::toString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Currency cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Currency jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -217,17 +195,17 @@ AndroidCXX::java_lang_String java_util_Currency::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String java_util_Currency::toString() exit");
 
 	return result;
 }
-AndroidCXX::java_util_Currency java_util_Currency::getInstance(AndroidCXX::java_util_Locale& arg0)
+AndroidCXX::java_util_Currency java_util_Currency::getInstance(AndroidCXX::java_util_Locale const& arg0)
 {
-	LOGV("AndroidCXX::java_util_Currency java_util_Currency::getInstance(AndroidCXX::java_util_Locale& arg0) enter");
+	LOGV("AndroidCXX::java_util_Currency java_util_Currency::getInstance(AndroidCXX::java_util_Locale const& arg0) enter");
 
 	const char *methodName = "getInstance";
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/util/Currency;";
@@ -237,8 +215,6 @@ AndroidCXX::java_util_Currency java_util_Currency::getInstance(AndroidCXX::java_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_util_Currency cxx address %d", cxxAddress);
@@ -267,8 +243,7 @@ AndroidCXX::java_util_Currency java_util_Currency::getInstance(AndroidCXX::java_
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_util_Currency result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -285,17 +260,17 @@ AndroidCXX::java_util_Currency java_util_Currency::getInstance(AndroidCXX::java_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Currency(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Currency) (AndroidCXX::java_util_Currency((AndroidCXX::java_util_Currency *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_util_Currency java_util_Currency::getInstance(AndroidCXX::java_util_Locale& arg0) exit");
+	AndroidCXX::java_util_Currency result((AndroidCXX::java_util_Currency) *((AndroidCXX::java_util_Currency *) cxx_value));
+	delete ((AndroidCXX::java_util_Currency *) cxx_value);
+		
+	LOGV("AndroidCXX::java_util_Currency java_util_Currency::getInstance(AndroidCXX::java_util_Locale const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_util_Currency java_util_Currency::getInstance(AndroidCXX::java_lang_String& arg0)
+AndroidCXX::java_util_Currency java_util_Currency::getInstance(AndroidCXX::java_lang_String const& arg0)
 {
-	LOGV("AndroidCXX::java_util_Currency java_util_Currency::getInstance(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_util_Currency java_util_Currency::getInstance(AndroidCXX::java_lang_String const& arg0) enter");
 
 	const char *methodName = "getInstance";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/util/Currency;";
@@ -305,8 +280,6 @@ AndroidCXX::java_util_Currency java_util_Currency::getInstance(AndroidCXX::java_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_util_Currency cxx address %d", cxxAddress);
@@ -335,8 +308,7 @@ AndroidCXX::java_util_Currency java_util_Currency::getInstance(AndroidCXX::java_
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_util_Currency result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -353,11 +325,11 @@ AndroidCXX::java_util_Currency java_util_Currency::getInstance(AndroidCXX::java_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Currency(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Currency) (AndroidCXX::java_util_Currency((AndroidCXX::java_util_Currency *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_util_Currency java_util_Currency::getInstance(AndroidCXX::java_lang_String& arg0) exit");
+	AndroidCXX::java_util_Currency result((AndroidCXX::java_util_Currency) *((AndroidCXX::java_util_Currency *) cxx_value));
+	delete ((AndroidCXX::java_util_Currency *) cxx_value);
+		
+	LOGV("AndroidCXX::java_util_Currency java_util_Currency::getInstance(AndroidCXX::java_lang_String const& arg0) exit");
 
 	return result;
 }
@@ -374,15 +346,12 @@ AndroidCXX::java_lang_String java_util_Currency::getCurrencyCode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Currency cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Currency jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -400,17 +369,17 @@ AndroidCXX::java_lang_String java_util_Currency::getCurrencyCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String java_util_Currency::getCurrencyCode() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String java_util_Currency::getSymbol(AndroidCXX::java_util_Locale& arg0)
+AndroidCXX::java_lang_String java_util_Currency::getSymbol(AndroidCXX::java_util_Locale const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String java_util_Currency::getSymbol(AndroidCXX::java_util_Locale& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String java_util_Currency::getSymbol(AndroidCXX::java_util_Locale const& arg0) enter");
 
 	const char *methodName = "getSymbol";
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
@@ -420,8 +389,6 @@ AndroidCXX::java_lang_String java_util_Currency::getSymbol(AndroidCXX::java_util
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_Currency cxx address %d", cxxAddress);
@@ -450,7 +417,6 @@ AndroidCXX::java_lang_String java_util_Currency::getSymbol(AndroidCXX::java_util
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -468,11 +434,11 @@ AndroidCXX::java_lang_String java_util_Currency::getSymbol(AndroidCXX::java_util
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String java_util_Currency::getSymbol(AndroidCXX::java_util_Locale& arg0) exit");
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_String java_util_Currency::getSymbol(AndroidCXX::java_util_Locale const& arg0) exit");
 
 	return result;
 }
@@ -489,15 +455,12 @@ AndroidCXX::java_lang_String java_util_Currency::getSymbol()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Currency cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Currency jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -515,10 +478,10 @@ AndroidCXX::java_lang_String java_util_Currency::getSymbol()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String java_util_Currency::getSymbol() exit");
 
 	return result;
@@ -536,15 +499,12 @@ int java_util_Currency::getDefaultFractionDigits()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_util_Currency cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Currency jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -562,10 +522,10 @@ int java_util_Currency::getDefaultFractionDigits()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_util_Currency::getDefaultFractionDigits() exit");
 
 	return result;

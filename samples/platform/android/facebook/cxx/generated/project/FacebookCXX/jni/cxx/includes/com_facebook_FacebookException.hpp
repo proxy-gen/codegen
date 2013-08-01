@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -60,12 +59,13 @@ class com_facebook_FacebookException
 public:
 
 	com_facebook_FacebookException(const com_facebook_FacebookException& cc);
-	com_facebook_FacebookException(void * proxy);
+	com_facebook_FacebookException(Proxy proxy);
 	// Public Constructors
 	com_facebook_FacebookException();
-	com_facebook_FacebookException(AndroidCXX::java_lang_String& arg0);
-	com_facebook_FacebookException(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1);
-	com_facebook_FacebookException(AndroidCXX::java_lang_Throwable& arg0);
+	com_facebook_FacebookException(AndroidCXX::java_lang_String const& arg0);
+	com_facebook_FacebookException(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1);
+	com_facebook_FacebookException(AndroidCXX::java_lang_Throwable const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_FacebookException();
 	// Functions

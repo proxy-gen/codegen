@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -70,7 +69,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_nio_FloatBuffer"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -143,8 +142,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_nio_FloatBuffer::java_nio_FloatBuffer(const java_nio_FloatBuffer& cc)
 {
 	LOGV("java_nio_FloatBuffer::java_nio_FloatBuffer(const java_nio_FloatBuffer& cc) enter");
@@ -168,9 +165,9 @@ java_nio_FloatBuffer::java_nio_FloatBuffer(const java_nio_FloatBuffer& cc)
 
 	LOGV("java_nio_FloatBuffer::java_nio_FloatBuffer(const java_nio_FloatBuffer& cc) exit");
 }
-java_nio_FloatBuffer::java_nio_FloatBuffer(void * proxy)
+java_nio_FloatBuffer::java_nio_FloatBuffer(Proxy proxy)
 {
-	LOGV("java_nio_FloatBuffer::java_nio_FloatBuffer(void * proxy) enter");
+	LOGV("java_nio_FloatBuffer::java_nio_FloatBuffer(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -180,47 +177,31 @@ java_nio_FloatBuffer::java_nio_FloatBuffer(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_nio_FloatBuffer::java_nio_FloatBuffer(void * proxy) exit");
+	LOGV("java_nio_FloatBuffer::java_nio_FloatBuffer(Proxy proxy) exit");
 }
-java_nio_FloatBuffer::java_nio_FloatBuffer()
-{
-	LOGV("java_nio_FloatBuffer::java_nio_FloatBuffer() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "java/nio/FloatBuffer";
-
-	LOGV("java_nio_FloatBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy java_nio_FloatBuffer::proxy() const
+{	
+	LOGV("java_nio_FloatBuffer::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("java_nio_FloatBuffer jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("java_nio_FloatBuffer::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("java_nio_FloatBuffer::java_nio_FloatBuffer() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 java_nio_FloatBuffer::~java_nio_FloatBuffer()
 {
@@ -232,7 +213,7 @@ java_nio_FloatBuffer::~java_nio_FloatBuffer()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_nio_FloatBuffer::~java_nio_FloatBuffer() exit");
 }
 // Functions
@@ -249,15 +230,12 @@ float java_nio_FloatBuffer::get()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_nio_FloatBuffer jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -275,17 +253,17 @@ float java_nio_FloatBuffer::get()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	float result = (float) *((float *) cxx_value);
+	// 
+		
 	LOGV("float java_nio_FloatBuffer::get() exit");
 
 	return result;
 }
-AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::get(std::vector<float>& arg0)
+AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::get(std::vector<float> const& arg0)
 {
-	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::get(std::vector<float>& arg0) enter");
+	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::get(std::vector<float> const& arg0) enter");
 
 	const char *methodName = "get";
 	const char *methodSignature = "([F)Ljava/nio/FloatBuffer;";
@@ -295,8 +273,6 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::get(std::vector<float>& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
@@ -343,7 +319,6 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::get(std::vector<float>& a
 		jarg0 = convert_jni__float_array_type_to_jni(java_value);
 	}
 
-	AndroidCXX::java_nio_FloatBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -361,17 +336,17 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::get(std::vector<float>& a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_FloatBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_FloatBuffer) (AndroidCXX::java_nio_FloatBuffer((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::get(std::vector<float>& arg0) exit");
+	AndroidCXX::java_nio_FloatBuffer result((AndroidCXX::java_nio_FloatBuffer) *((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_FloatBuffer *) cxx_value);
+		
+	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::get(std::vector<float> const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::get(std::vector<float>& arg0,int& arg1,int& arg2)
+AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::get(std::vector<float> const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::get(std::vector<float>& arg0,int& arg1,int& arg2) enter");
+	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::get(std::vector<float> const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "get";
 	const char *methodSignature = "([FII)Ljava/nio/FloatBuffer;";
@@ -381,8 +356,6 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::get(std::vector<float>& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
@@ -471,7 +444,6 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::get(std::vector<float>& a
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_nio_FloatBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -489,17 +461,17 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::get(std::vector<float>& a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_FloatBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_FloatBuffer) (AndroidCXX::java_nio_FloatBuffer((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::get(std::vector<float>& arg0,int& arg1,int& arg2) exit");
+	AndroidCXX::java_nio_FloatBuffer result((AndroidCXX::java_nio_FloatBuffer) *((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_FloatBuffer *) cxx_value);
+		
+	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::get(std::vector<float> const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-float java_nio_FloatBuffer::get(int& arg0)
+float java_nio_FloatBuffer::get(int const& arg0)
 {
-	LOGV("float java_nio_FloatBuffer::get(int& arg0) enter");
+	LOGV("float java_nio_FloatBuffer::get(int const& arg0) enter");
 
 	const char *methodName = "get";
 	const char *methodSignature = "(I)F";
@@ -509,8 +481,6 @@ float java_nio_FloatBuffer::get(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
@@ -539,7 +509,6 @@ float java_nio_FloatBuffer::get(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -557,17 +526,17 @@ float java_nio_FloatBuffer::get(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("float java_nio_FloatBuffer::get(int& arg0) exit");
+	float result = (float) *((float *) cxx_value);
+	// 
+		
+	LOGV("float java_nio_FloatBuffer::get(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(AndroidCXX::java_nio_FloatBuffer& arg0)
+AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(AndroidCXX::java_nio_FloatBuffer const& arg0)
 {
-	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(AndroidCXX::java_nio_FloatBuffer& arg0) enter");
+	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(AndroidCXX::java_nio_FloatBuffer const& arg0) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(Ljava/nio/FloatBuffer;)Ljava/nio/FloatBuffer;";
@@ -577,8 +546,6 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(AndroidCXX::java_nio_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
@@ -607,7 +574,6 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(AndroidCXX::java_nio_
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_nio_FloatBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -625,17 +591,17 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(AndroidCXX::java_nio_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_FloatBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_FloatBuffer) (AndroidCXX::java_nio_FloatBuffer((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(AndroidCXX::java_nio_FloatBuffer& arg0) exit");
+	AndroidCXX::java_nio_FloatBuffer result((AndroidCXX::java_nio_FloatBuffer) *((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_FloatBuffer *) cxx_value);
+		
+	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(AndroidCXX::java_nio_FloatBuffer const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(float& arg0)
+AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(float const& arg0)
 {
-	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(float& arg0) enter");
+	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(float const& arg0) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(F)Ljava/nio/FloatBuffer;";
@@ -645,8 +611,6 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
@@ -675,7 +639,6 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(float& arg0)
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::java_nio_FloatBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -693,17 +656,17 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(float& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_FloatBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_FloatBuffer) (AndroidCXX::java_nio_FloatBuffer((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(float& arg0) exit");
+	AndroidCXX::java_nio_FloatBuffer result((AndroidCXX::java_nio_FloatBuffer) *((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_FloatBuffer *) cxx_value);
+		
+	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(float const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(int& arg0,float& arg1)
+AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(int const& arg0,float const& arg1)
 {
-	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(int& arg0,float& arg1) enter");
+	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(int const& arg0,float const& arg1) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(IF)Ljava/nio/FloatBuffer;";
@@ -713,8 +676,6 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(int& arg0,float& arg1
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
@@ -764,7 +725,6 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(int& arg0,float& arg1
 		jarg1 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::java_nio_FloatBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -782,17 +742,17 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(int& arg0,float& arg1
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_FloatBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_FloatBuffer) (AndroidCXX::java_nio_FloatBuffer((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(int& arg0,float& arg1) exit");
+	AndroidCXX::java_nio_FloatBuffer result((AndroidCXX::java_nio_FloatBuffer) *((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_FloatBuffer *) cxx_value);
+		
+	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(int const& arg0,float const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(std::vector<float>& arg0,int& arg1,int& arg2)
+AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(std::vector<float> const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(std::vector<float>& arg0,int& arg1,int& arg2) enter");
+	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(std::vector<float> const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "([FII)Ljava/nio/FloatBuffer;";
@@ -802,8 +762,6 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(std::vector<float>& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
@@ -892,7 +850,6 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(std::vector<float>& a
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_nio_FloatBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -910,17 +867,17 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(std::vector<float>& a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_FloatBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_FloatBuffer) (AndroidCXX::java_nio_FloatBuffer((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(std::vector<float>& arg0,int& arg1,int& arg2) exit");
+	AndroidCXX::java_nio_FloatBuffer result((AndroidCXX::java_nio_FloatBuffer) *((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_FloatBuffer *) cxx_value);
+		
+	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(std::vector<float> const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(std::vector<float>& arg0)
+AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(std::vector<float> const& arg0)
 {
-	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(std::vector<float>& arg0) enter");
+	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(std::vector<float> const& arg0) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "([F)Ljava/nio/FloatBuffer;";
@@ -930,8 +887,6 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(std::vector<float>& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
@@ -978,7 +933,6 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(std::vector<float>& a
 		jarg0 = convert_jni__float_array_type_to_jni(java_value);
 	}
 
-	AndroidCXX::java_nio_FloatBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -996,17 +950,17 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(std::vector<float>& a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_FloatBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_FloatBuffer) (AndroidCXX::java_nio_FloatBuffer((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(std::vector<float>& arg0) exit");
+	AndroidCXX::java_nio_FloatBuffer result((AndroidCXX::java_nio_FloatBuffer) *((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_FloatBuffer *) cxx_value);
+		
+	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::put(std::vector<float> const& arg0) exit");
 
 	return result;
 }
-bool java_nio_FloatBuffer::equals(AndroidCXX::java_lang_Object& arg0)
+bool java_nio_FloatBuffer::equals(AndroidCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_nio_FloatBuffer::equals(AndroidCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_nio_FloatBuffer::equals(AndroidCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -1016,8 +970,6 @@ bool java_nio_FloatBuffer::equals(AndroidCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
@@ -1046,7 +998,6 @@ bool java_nio_FloatBuffer::equals(AndroidCXX::java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1064,11 +1015,11 @@ bool java_nio_FloatBuffer::equals(AndroidCXX::java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool java_nio_FloatBuffer::equals(AndroidCXX::java_lang_Object& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool java_nio_FloatBuffer::equals(AndroidCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -1085,15 +1036,12 @@ AndroidCXX::java_lang_String java_nio_FloatBuffer::toString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_nio_FloatBuffer jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1111,10 +1059,10 @@ AndroidCXX::java_lang_String java_nio_FloatBuffer::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String java_nio_FloatBuffer::toString() exit");
 
 	return result;
@@ -1132,15 +1080,12 @@ int java_nio_FloatBuffer::hashCode()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_nio_FloatBuffer jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1158,17 +1103,17 @@ int java_nio_FloatBuffer::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_nio_FloatBuffer::hashCode() exit");
 
 	return result;
 }
-int java_nio_FloatBuffer::compareTo(AndroidCXX::java_nio_FloatBuffer& arg0)
+int java_nio_FloatBuffer::compareTo(AndroidCXX::java_nio_FloatBuffer const& arg0)
 {
-	LOGV("int java_nio_FloatBuffer::compareTo(AndroidCXX::java_nio_FloatBuffer& arg0) enter");
+	LOGV("int java_nio_FloatBuffer::compareTo(AndroidCXX::java_nio_FloatBuffer const& arg0) enter");
 
 	const char *methodName = "compareTo";
 	const char *methodSignature = "(Ljava/nio/FloatBuffer;)I";
@@ -1178,8 +1123,6 @@ int java_nio_FloatBuffer::compareTo(AndroidCXX::java_nio_FloatBuffer& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
@@ -1208,7 +1151,6 @@ int java_nio_FloatBuffer::compareTo(AndroidCXX::java_nio_FloatBuffer& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1226,11 +1168,11 @@ int java_nio_FloatBuffer::compareTo(AndroidCXX::java_nio_FloatBuffer& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int java_nio_FloatBuffer::compareTo(AndroidCXX::java_nio_FloatBuffer& arg0) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int java_nio_FloatBuffer::compareTo(AndroidCXX::java_nio_FloatBuffer const& arg0) exit");
 
 	return result;
 }
@@ -1247,15 +1189,12 @@ bool java_nio_FloatBuffer::isDirect()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_nio_FloatBuffer jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1273,10 +1212,10 @@ bool java_nio_FloatBuffer::isDirect()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool java_nio_FloatBuffer::isDirect() exit");
 
 	return result;
@@ -1294,15 +1233,12 @@ bool java_nio_FloatBuffer::hasArray()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_nio_FloatBuffer jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1320,10 +1256,10 @@ bool java_nio_FloatBuffer::hasArray()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool java_nio_FloatBuffer::hasArray() exit");
 
 	return result;
@@ -1341,15 +1277,12 @@ std::vector<float> java_nio_FloatBuffer::array()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_nio_FloatBuffer jni address %d", javaObject);
 
 
-	std::vector<float> result;
 	jfloatArray jni_result = (jfloatArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__float_array_type_to_java(jni_result);
@@ -1385,10 +1318,10 @@ std::vector<float> java_nio_FloatBuffer::array()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__float_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<float>) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	std::vector<float> result = (std::vector<float>) *((std::vector<float> *) cxx_value);
+	delete ((std::vector<float> *) cxx_value);
+		
 	LOGV("std::vector<float> java_nio_FloatBuffer::array() exit");
 
 	return result;
@@ -1406,15 +1339,12 @@ int java_nio_FloatBuffer::arrayOffset()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_nio_FloatBuffer jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1432,17 +1362,17 @@ int java_nio_FloatBuffer::arrayOffset()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int java_nio_FloatBuffer::arrayOffset() exit");
 
 	return result;
 }
-AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::wrap(std::vector<float>& arg0,int& arg1,int& arg2)
+AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::wrap(std::vector<float> const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::wrap(std::vector<float>& arg0,int& arg1,int& arg2) enter");
+	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::wrap(std::vector<float> const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "wrap";
 	const char *methodSignature = "([FII)Ljava/nio/FloatBuffer;";
@@ -1452,8 +1382,6 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::wrap(std::vector<float>& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
@@ -1542,8 +1470,7 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::wrap(std::vector<float>& 
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_nio_FloatBuffer result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1560,17 +1487,17 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::wrap(std::vector<float>& 
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_FloatBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_FloatBuffer) (AndroidCXX::java_nio_FloatBuffer((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::wrap(std::vector<float>& arg0,int& arg1,int& arg2) exit");
+	AndroidCXX::java_nio_FloatBuffer result((AndroidCXX::java_nio_FloatBuffer) *((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_FloatBuffer *) cxx_value);
+		
+	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::wrap(std::vector<float> const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::wrap(std::vector<float>& arg0)
+AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::wrap(std::vector<float> const& arg0)
 {
-	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::wrap(std::vector<float>& arg0) enter");
+	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::wrap(std::vector<float> const& arg0) enter");
 
 	const char *methodName = "wrap";
 	const char *methodSignature = "([F)Ljava/nio/FloatBuffer;";
@@ -1580,8 +1507,6 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::wrap(std::vector<float>& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
@@ -1628,8 +1553,7 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::wrap(std::vector<float>& 
 		jarg0 = convert_jni__float_array_type_to_jni(java_value);
 	}
 
-	AndroidCXX::java_nio_FloatBuffer result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1646,17 +1570,17 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::wrap(std::vector<float>& 
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_FloatBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_FloatBuffer) (AndroidCXX::java_nio_FloatBuffer((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::wrap(std::vector<float>& arg0) exit");
+	AndroidCXX::java_nio_FloatBuffer result((AndroidCXX::java_nio_FloatBuffer) *((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_FloatBuffer *) cxx_value);
+		
+	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::wrap(std::vector<float> const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::allocate(int& arg0)
+AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::allocate(int const& arg0)
 {
-	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::allocate(int& arg0) enter");
+	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::allocate(int const& arg0) enter");
 
 	const char *methodName = "allocate";
 	const char *methodSignature = "(I)Ljava/nio/FloatBuffer;";
@@ -1666,8 +1590,6 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::allocate(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
@@ -1696,8 +1618,7 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::allocate(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_nio_FloatBuffer result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1714,11 +1635,11 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::allocate(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_FloatBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_FloatBuffer) (AndroidCXX::java_nio_FloatBuffer((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::allocate(int& arg0) exit");
+	AndroidCXX::java_nio_FloatBuffer result((AndroidCXX::java_nio_FloatBuffer) *((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_FloatBuffer *) cxx_value);
+		
+	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::allocate(int const& arg0) exit");
 
 	return result;
 }
@@ -1735,15 +1656,12 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::duplicate()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_nio_FloatBuffer jni address %d", javaObject);
 
 
-	AndroidCXX::java_nio_FloatBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1761,10 +1679,10 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::duplicate()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_FloatBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_FloatBuffer) (AndroidCXX::java_nio_FloatBuffer((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_nio_FloatBuffer result((AndroidCXX::java_nio_FloatBuffer) *((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_FloatBuffer *) cxx_value);
+		
 	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::duplicate() exit");
 
 	return result;
@@ -1782,15 +1700,12 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::slice()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_nio_FloatBuffer jni address %d", javaObject);
 
 
-	AndroidCXX::java_nio_FloatBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1808,10 +1723,10 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::slice()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_FloatBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_FloatBuffer) (AndroidCXX::java_nio_FloatBuffer((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_nio_FloatBuffer result((AndroidCXX::java_nio_FloatBuffer) *((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_FloatBuffer *) cxx_value);
+		
 	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::slice() exit");
 
 	return result;
@@ -1829,15 +1744,12 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::asReadOnlyBuffer()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_nio_FloatBuffer jni address %d", javaObject);
 
 
-	AndroidCXX::java_nio_FloatBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1855,10 +1767,10 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::asReadOnlyBuffer()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_FloatBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_FloatBuffer) (AndroidCXX::java_nio_FloatBuffer((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_nio_FloatBuffer result((AndroidCXX::java_nio_FloatBuffer) *((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_FloatBuffer *) cxx_value);
+		
 	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::asReadOnlyBuffer() exit");
 
 	return result;
@@ -1876,15 +1788,12 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::compact()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_nio_FloatBuffer jni address %d", javaObject);
 
 
-	AndroidCXX::java_nio_FloatBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1902,10 +1811,10 @@ AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::compact()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_FloatBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_FloatBuffer) (AndroidCXX::java_nio_FloatBuffer((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_nio_FloatBuffer result((AndroidCXX::java_nio_FloatBuffer) *((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_FloatBuffer *) cxx_value);
+		
 	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_FloatBuffer::compact() exit");
 
 	return result;
@@ -1923,15 +1832,12 @@ AndroidCXX::java_nio_ByteOrder java_nio_FloatBuffer::order()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_nio_FloatBuffer cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_nio_FloatBuffer jni address %d", javaObject);
 
 
-	AndroidCXX::java_nio_ByteOrder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1949,10 +1855,10 @@ AndroidCXX::java_nio_ByteOrder java_nio_FloatBuffer::order()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteOrder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_ByteOrder) (AndroidCXX::java_nio_ByteOrder((AndroidCXX::java_nio_ByteOrder *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_nio_ByteOrder result((AndroidCXX::java_nio_ByteOrder) *((AndroidCXX::java_nio_ByteOrder *) cxx_value));
+	delete ((AndroidCXX::java_nio_ByteOrder *) cxx_value);
+		
 	LOGV("AndroidCXX::java_nio_ByteOrder java_nio_FloatBuffer::order() exit");
 
 	return result;

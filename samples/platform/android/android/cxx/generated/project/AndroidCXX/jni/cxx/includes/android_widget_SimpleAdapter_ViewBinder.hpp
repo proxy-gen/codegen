@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -62,13 +61,13 @@ class android_widget_SimpleAdapter_ViewBinder
 public:
 
 	android_widget_SimpleAdapter_ViewBinder(const android_widget_SimpleAdapter_ViewBinder& cc);
-	android_widget_SimpleAdapter_ViewBinder(void * proxy);
+	android_widget_SimpleAdapter_ViewBinder(Proxy proxy);
 	// Public Constructors
-	android_widget_SimpleAdapter_ViewBinder();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SimpleAdapter_ViewBinder();
 	// Functions
-	 bool setViewValue(AndroidCXX::android_view_View& arg0,AndroidCXX::java_lang_Object& arg1,AndroidCXX::java_lang_String& arg2);
+	 bool setViewValue(AndroidCXX::android_view_View const& arg0,AndroidCXX::java_lang_Object const& arg1,AndroidCXX::java_lang_String const& arg2);
 };	
 
 } // namespace

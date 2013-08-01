@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -128,25 +127,25 @@ class android_widget_SimpleAdapter
 public:
 
 	android_widget_SimpleAdapter(const android_widget_SimpleAdapter& cc);
-	android_widget_SimpleAdapter(void * proxy);
+	android_widget_SimpleAdapter(Proxy proxy);
 	// Public Constructors
-	android_widget_SimpleAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_util_List& arg1,int& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4);
-	android_widget_SimpleAdapter();
+	android_widget_SimpleAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_util_List const& arg1,int const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,std::vector<int> const& arg4);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SimpleAdapter();
 	// Functions
-	 AndroidCXX::android_view_View getView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2);
+	 AndroidCXX::android_view_View getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
 	 AndroidCXX::android_widget_Filter getFilter();
-	 AndroidCXX::java_lang_Object getItem(int& arg0);
-	 long getItemId(int& arg0);
+	 AndroidCXX::java_lang_Object getItem(int const& arg0);
+	 long getItemId(int const& arg0);
 	 int getCount();
-	 AndroidCXX::android_view_View getDropDownView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2);
-	 void setDropDownViewResource(int& arg0);
+	 AndroidCXX::android_view_View getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
+	 void setDropDownViewResource(int const& arg0);
 	 AndroidCXX::android_widget_SimpleAdapter_ViewBinder getViewBinder();
-	 void setViewBinder(AndroidCXX::android_widget_SimpleAdapter_ViewBinder& arg0);
-	 void setViewImage(AndroidCXX::android_widget_ImageView& arg0,int& arg1);
-	 void setViewImage(AndroidCXX::android_widget_ImageView& arg0,AndroidCXX::java_lang_String& arg1);
-	 void setViewText(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::java_lang_String& arg1);
+	 void setViewBinder(AndroidCXX::android_widget_SimpleAdapter_ViewBinder const& arg0);
+	 void setViewImage(AndroidCXX::android_widget_ImageView const& arg0,int const& arg1);
+	 void setViewImage(AndroidCXX::android_widget_ImageView const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 void setViewText(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::java_lang_String const& arg1);
 };	
 
 } // namespace

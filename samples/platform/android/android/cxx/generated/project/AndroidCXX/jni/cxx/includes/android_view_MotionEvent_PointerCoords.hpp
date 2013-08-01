@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -56,18 +55,18 @@ class android_view_MotionEvent_PointerCoords
 {
 public:
 
-	android_view_MotionEvent_PointerCoords(const android_view_MotionEvent_PointerCoords& cc);
-	android_view_MotionEvent_PointerCoords(void * proxy);
+	android_view_MotionEvent_PointerCoords(Proxy proxy);
 	// Public Constructors
 	android_view_MotionEvent_PointerCoords();
-	android_view_MotionEvent_PointerCoords(AndroidCXX::android_view_MotionEvent_PointerCoords& arg0);
+	android_view_MotionEvent_PointerCoords(AndroidCXX::android_view_MotionEvent_PointerCoords const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_MotionEvent_PointerCoords();
 	// Functions
 	 void clear();
-	 void copyFrom(AndroidCXX::android_view_MotionEvent_PointerCoords& arg0);
-	 float getAxisValue(int& arg0);
-	 void setAxisValue(int& arg0,float& arg1);
+	 void copyFrom(AndroidCXX::android_view_MotionEvent_PointerCoords const& arg0);
+	 float getAxisValue(int const& arg0);
+	 void setAxisValue(int const& arg0,float const& arg1);
 };	
 
 } // namespace

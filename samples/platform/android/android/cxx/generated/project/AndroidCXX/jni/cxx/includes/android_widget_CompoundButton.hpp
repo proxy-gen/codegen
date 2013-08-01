@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -102,29 +101,29 @@ class android_widget_CompoundButton
 public:
 
 	android_widget_CompoundButton(const android_widget_CompoundButton& cc);
-	android_widget_CompoundButton(void * proxy);
+	android_widget_CompoundButton(Proxy proxy);
 	// Public Constructors
-	android_widget_CompoundButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_CompoundButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_CompoundButton(AndroidCXX::android_content_Context& arg0);
-	android_widget_CompoundButton();
+	android_widget_CompoundButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_CompoundButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_CompoundButton(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_CompoundButton();
 	// Functions
 	 AndroidCXX::android_os_Parcelable onSaveInstanceState();
-	 void onRestoreInstanceState(AndroidCXX::android_os_Parcelable& arg0);
+	 void onRestoreInstanceState(AndroidCXX::android_os_Parcelable const& arg0);
 	 void jumpDrawablesToCurrentState();
 	 bool performClick();
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 void setChecked(bool& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 void setChecked(bool const& arg0);
 	 bool isChecked();
 	 void toggle();
 	 int getCompoundPaddingLeft();
 	 int getCompoundPaddingRight();
-	 void setOnCheckedChangeListener(AndroidCXX::android_widget_CompoundButton_OnCheckedChangeListener& arg0);
-	 void setButtonDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0);
-	 void setButtonDrawable(int& arg0);
+	 void setOnCheckedChangeListener(AndroidCXX::android_widget_CompoundButton_OnCheckedChangeListener const& arg0);
+	 void setButtonDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
+	 void setButtonDrawable(int const& arg0);
 };	
 
 } // namespace

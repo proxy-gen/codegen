@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -81,17 +80,17 @@ class android_widget_ResourceCursorTreeAdapter
 public:
 
 	android_widget_ResourceCursorTreeAdapter(const android_widget_ResourceCursorTreeAdapter& cc);
-	android_widget_ResourceCursorTreeAdapter(void * proxy);
+	android_widget_ResourceCursorTreeAdapter(Proxy proxy);
 	// Public Constructors
-	android_widget_ResourceCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,int& arg3,int& arg4,int& arg5);
-	android_widget_ResourceCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,int& arg3,int& arg4);
-	android_widget_ResourceCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,int& arg3);
-	android_widget_ResourceCursorTreeAdapter();
+	android_widget_ResourceCursorTreeAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5);
+	android_widget_ResourceCursorTreeAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,int const& arg2,int const& arg3,int const& arg4);
+	android_widget_ResourceCursorTreeAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,int const& arg2,int const& arg3);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ResourceCursorTreeAdapter();
 	// Functions
-	 AndroidCXX::android_view_View newGroupView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,bool& arg2,AndroidCXX::android_view_ViewGroup& arg3);
-	 AndroidCXX::android_view_View newChildView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,bool& arg2,AndroidCXX::android_view_ViewGroup& arg3);
+	 AndroidCXX::android_view_View newGroupView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,bool const& arg2,AndroidCXX::android_view_ViewGroup const& arg3);
+	 AndroidCXX::android_view_View newChildView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,bool const& arg2,AndroidCXX::android_view_ViewGroup const& arg3);
 };	
 
 } // namespace

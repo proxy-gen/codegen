@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -122,35 +121,36 @@ class android_support_v4_app_FragmentTransaction
 public:
 
 	android_support_v4_app_FragmentTransaction(const android_support_v4_app_FragmentTransaction& cc);
-	android_support_v4_app_FragmentTransaction(void * proxy);
+	android_support_v4_app_FragmentTransaction(Proxy proxy);
 	// Public Constructors
 	android_support_v4_app_FragmentTransaction();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_support_v4_app_FragmentTransaction();
 	// Functions
-	 AndroidCXX::android_support_v4_app_FragmentTransaction add(int& arg0,AndroidCXX::android_support_v4_app_Fragment& arg1);
-	 AndroidCXX::android_support_v4_app_FragmentTransaction add(int& arg0,AndroidCXX::android_support_v4_app_Fragment& arg1,AndroidCXX::java_lang_String& arg2);
-	 AndroidCXX::android_support_v4_app_FragmentTransaction add(AndroidCXX::android_support_v4_app_Fragment& arg0,AndroidCXX::java_lang_String& arg1);
+	 AndroidCXX::android_support_v4_app_FragmentTransaction add(int const& arg0,AndroidCXX::android_support_v4_app_Fragment const& arg1);
+	 AndroidCXX::android_support_v4_app_FragmentTransaction add(int const& arg0,AndroidCXX::android_support_v4_app_Fragment const& arg1,AndroidCXX::java_lang_String const& arg2);
+	 AndroidCXX::android_support_v4_app_FragmentTransaction add(AndroidCXX::android_support_v4_app_Fragment const& arg0,AndroidCXX::java_lang_String const& arg1);
 	 bool isEmpty();
-	 AndroidCXX::android_support_v4_app_FragmentTransaction replace(int& arg0,AndroidCXX::android_support_v4_app_Fragment& arg1,AndroidCXX::java_lang_String& arg2);
-	 AndroidCXX::android_support_v4_app_FragmentTransaction replace(int& arg0,AndroidCXX::android_support_v4_app_Fragment& arg1);
-	 AndroidCXX::android_support_v4_app_FragmentTransaction remove(AndroidCXX::android_support_v4_app_Fragment& arg0);
-	 AndroidCXX::android_support_v4_app_FragmentTransaction attach(AndroidCXX::android_support_v4_app_Fragment& arg0);
-	 AndroidCXX::android_support_v4_app_FragmentTransaction show(AndroidCXX::android_support_v4_app_Fragment& arg0);
+	 AndroidCXX::android_support_v4_app_FragmentTransaction replace(int const& arg0,AndroidCXX::android_support_v4_app_Fragment const& arg1,AndroidCXX::java_lang_String const& arg2);
+	 AndroidCXX::android_support_v4_app_FragmentTransaction replace(int const& arg0,AndroidCXX::android_support_v4_app_Fragment const& arg1);
+	 AndroidCXX::android_support_v4_app_FragmentTransaction remove(AndroidCXX::android_support_v4_app_Fragment const& arg0);
+	 AndroidCXX::android_support_v4_app_FragmentTransaction attach(AndroidCXX::android_support_v4_app_Fragment const& arg0);
+	 AndroidCXX::android_support_v4_app_FragmentTransaction show(AndroidCXX::android_support_v4_app_Fragment const& arg0);
 	 int commit();
-	 AndroidCXX::android_support_v4_app_FragmentTransaction hide(AndroidCXX::android_support_v4_app_Fragment& arg0);
-	 AndroidCXX::android_support_v4_app_FragmentTransaction detach(AndroidCXX::android_support_v4_app_Fragment& arg0);
-	 AndroidCXX::android_support_v4_app_FragmentTransaction setCustomAnimations(int& arg0,int& arg1);
-	 AndroidCXX::android_support_v4_app_FragmentTransaction setCustomAnimations(int& arg0,int& arg1,int& arg2,int& arg3);
-	 AndroidCXX::android_support_v4_app_FragmentTransaction setTransition(int& arg0);
-	 AndroidCXX::android_support_v4_app_FragmentTransaction setTransitionStyle(int& arg0);
-	 AndroidCXX::android_support_v4_app_FragmentTransaction addToBackStack(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::android_support_v4_app_FragmentTransaction hide(AndroidCXX::android_support_v4_app_Fragment const& arg0);
+	 AndroidCXX::android_support_v4_app_FragmentTransaction detach(AndroidCXX::android_support_v4_app_Fragment const& arg0);
+	 AndroidCXX::android_support_v4_app_FragmentTransaction setCustomAnimations(int const& arg0,int const& arg1);
+	 AndroidCXX::android_support_v4_app_FragmentTransaction setCustomAnimations(int const& arg0,int const& arg1,int const& arg2,int const& arg3);
+	 AndroidCXX::android_support_v4_app_FragmentTransaction setTransition(int const& arg0);
+	 AndroidCXX::android_support_v4_app_FragmentTransaction setTransitionStyle(int const& arg0);
+	 AndroidCXX::android_support_v4_app_FragmentTransaction addToBackStack(AndroidCXX::java_lang_String const& arg0);
 	 bool isAddToBackStackAllowed();
 	 AndroidCXX::android_support_v4_app_FragmentTransaction disallowAddToBackStack();
-	 AndroidCXX::android_support_v4_app_FragmentTransaction setBreadCrumbTitle(AndroidCXX::java_lang_CharSequence& arg0);
-	 AndroidCXX::android_support_v4_app_FragmentTransaction setBreadCrumbTitle(int& arg0);
-	 AndroidCXX::android_support_v4_app_FragmentTransaction setBreadCrumbShortTitle(AndroidCXX::java_lang_CharSequence& arg0);
-	 AndroidCXX::android_support_v4_app_FragmentTransaction setBreadCrumbShortTitle(int& arg0);
+	 AndroidCXX::android_support_v4_app_FragmentTransaction setBreadCrumbTitle(AndroidCXX::java_lang_CharSequence const& arg0);
+	 AndroidCXX::android_support_v4_app_FragmentTransaction setBreadCrumbTitle(int const& arg0);
+	 AndroidCXX::android_support_v4_app_FragmentTransaction setBreadCrumbShortTitle(AndroidCXX::java_lang_CharSequence const& arg0);
+	 AndroidCXX::android_support_v4_app_FragmentTransaction setBreadCrumbShortTitle(int const& arg0);
 	 int commitAllowingStateLoss();
 };	
 

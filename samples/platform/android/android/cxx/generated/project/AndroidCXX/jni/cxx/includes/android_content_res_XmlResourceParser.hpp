@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_content_res_XmlResourceParser
@@ -47,9 +46,9 @@ class android_content_res_XmlResourceParser
 public:
 
 	android_content_res_XmlResourceParser(const android_content_res_XmlResourceParser& cc);
-	android_content_res_XmlResourceParser(void * proxy);
+	android_content_res_XmlResourceParser(Proxy proxy);
 	// Public Constructors
-	android_content_res_XmlResourceParser();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_res_XmlResourceParser();
 	// Functions

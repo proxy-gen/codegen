@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -107,28 +106,28 @@ class android_widget_AbsSeekBar
 public:
 
 	android_widget_AbsSeekBar(const android_widget_AbsSeekBar& cc);
-	android_widget_AbsSeekBar(void * proxy);
+	android_widget_AbsSeekBar(Proxy proxy);
 	// Public Constructors
-	android_widget_AbsSeekBar(AndroidCXX::android_content_Context& arg0);
-	android_widget_AbsSeekBar(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_AbsSeekBar(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_AbsSeekBar();
+	android_widget_AbsSeekBar(AndroidCXX::android_content_Context const& arg0);
+	android_widget_AbsSeekBar(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_AbsSeekBar(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AbsSeekBar();
 	// Functions
-	 bool onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1);
-	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0);
+	 bool onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
+	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0);
 	 void jumpDrawablesToCurrentState();
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 bool performAccessibilityAction(int& arg0,AndroidCXX::android_os_Bundle& arg1);
-	 void onRtlPropertiesChanged(int& arg0);
-	 void setMax(int& arg0);
-	 void setThumb(AndroidCXX::android_graphics_drawable_Drawable& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 bool performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1);
+	 void onRtlPropertiesChanged(int const& arg0);
+	 void setMax(int const& arg0);
+	 void setThumb(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
 	 AndroidCXX::android_graphics_drawable_Drawable getThumb();
 	 int getThumbOffset();
-	 void setThumbOffset(int& arg0);
-	 void setKeyProgressIncrement(int& arg0);
+	 void setThumbOffset(int const& arg0);
+	 void setKeyProgressIncrement(int const& arg0);
 	 int getKeyProgressIncrement();
 };	
 

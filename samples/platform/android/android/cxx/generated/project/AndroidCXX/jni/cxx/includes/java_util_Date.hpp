@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -100,26 +99,27 @@ class java_util_Date
 public:
 
 	java_util_Date(const java_util_Date& cc);
-	java_util_Date(void * proxy);
+	java_util_Date(Proxy proxy);
 	// Public Constructors
 	java_util_Date();
-	java_util_Date(long& arg0);
-	java_util_Date(int& arg0,int& arg1,int& arg2);
-	java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4);
-	java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5);
-	java_util_Date(AndroidCXX::java_lang_String& arg0);
+	java_util_Date(long const& arg0);
+	java_util_Date(int const& arg0,int const& arg1,int const& arg2);
+	java_util_Date(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4);
+	java_util_Date(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5);
+	java_util_Date(AndroidCXX::java_lang_String const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Date();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 AndroidCXX::java_lang_Object clone();
-	 int compareTo(AndroidCXX::java_util_Date& arg0);
-	 bool after(AndroidCXX::java_util_Date& arg0);
-	 bool before(AndroidCXX::java_util_Date& arg0);
-	static long parse(AndroidCXX::java_lang_String& arg0);
-	 void setTime(long& arg0);
+	 int compareTo(AndroidCXX::java_util_Date const& arg0);
+	 bool after(AndroidCXX::java_util_Date const& arg0);
+	 bool before(AndroidCXX::java_util_Date const& arg0);
+	static long parse(AndroidCXX::java_lang_String const& arg0);
+	 void setTime(long const& arg0);
 	 long getTime();
 	 int getYear();
 	 int getMonth();
@@ -127,13 +127,13 @@ public:
 	 int getHours();
 	 int getMinutes();
 	 int getSeconds();
-	static long UTC(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5);
-	 void setDate(int& arg0);
-	 void setMonth(int& arg0);
-	 void setHours(int& arg0);
-	 void setMinutes(int& arg0);
-	 void setSeconds(int& arg0);
-	 void setYear(int& arg0);
+	static long UTC(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5);
+	 void setDate(int const& arg0);
+	 void setMonth(int const& arg0);
+	 void setHours(int const& arg0);
+	 void setMinutes(int const& arg0);
+	 void setSeconds(int const& arg0);
+	 void setYear(int const& arg0);
 	 int getDay();
 	 AndroidCXX::java_lang_String toLocaleString();
 	 AndroidCXX::java_lang_String toGMTString();

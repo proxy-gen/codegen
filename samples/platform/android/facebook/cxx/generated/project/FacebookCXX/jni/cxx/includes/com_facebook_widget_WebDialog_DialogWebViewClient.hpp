@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -79,17 +78,17 @@ class com_facebook_widget_WebDialog_DialogWebViewClient
 public:
 
 	com_facebook_widget_WebDialog_DialogWebViewClient(const com_facebook_widget_WebDialog_DialogWebViewClient& cc);
-	com_facebook_widget_WebDialog_DialogWebViewClient(void * proxy);
+	com_facebook_widget_WebDialog_DialogWebViewClient(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_WebDialog_DialogWebViewClient();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog_DialogWebViewClient();
 	// Functions
-	 bool shouldOverrideUrlLoading(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1);
-	 void onPageStarted(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_graphics_Bitmap& arg2);
-	 void onPageFinished(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1);
-	 void onReceivedError(AndroidCXX::android_webkit_WebView& arg0,int& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3);
-	 void onReceivedSslError(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_webkit_SslErrorHandler& arg1,AndroidCXX::android_net_http_SslError& arg2);
+	 bool shouldOverrideUrlLoading(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 void onPageStarted(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_graphics_Bitmap const& arg2);
+	 void onPageFinished(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 void onReceivedError(AndroidCXX::android_webkit_WebView const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3);
+	 void onReceivedSslError(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_webkit_SslErrorHandler const& arg1,AndroidCXX::android_net_http_SslError const& arg2);
 };	
 
 } // namespace

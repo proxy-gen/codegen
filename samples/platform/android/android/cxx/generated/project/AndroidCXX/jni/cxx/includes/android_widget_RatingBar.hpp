@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -91,28 +90,28 @@ class android_widget_RatingBar
 public:
 
 	android_widget_RatingBar(const android_widget_RatingBar& cc);
-	android_widget_RatingBar(void * proxy);
+	android_widget_RatingBar(Proxy proxy);
 	// Public Constructors
-	android_widget_RatingBar(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_RatingBar(AndroidCXX::android_content_Context& arg0);
-	android_widget_RatingBar(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_RatingBar();
+	android_widget_RatingBar(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_RatingBar(AndroidCXX::android_content_Context const& arg0);
+	android_widget_RatingBar(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RatingBar();
 	// Functions
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 void setOnRatingBarChangeListener(AndroidCXX::android_widget_RatingBar_OnRatingBarChangeListener& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 void setOnRatingBarChangeListener(AndroidCXX::android_widget_RatingBar_OnRatingBarChangeListener const& arg0);
 	 AndroidCXX::android_widget_RatingBar_OnRatingBarChangeListener getOnRatingBarChangeListener();
-	 void setIsIndicator(bool& arg0);
+	 void setIsIndicator(bool const& arg0);
 	 bool isIndicator();
-	 void setNumStars(int& arg0);
+	 void setNumStars(int const& arg0);
 	 int getNumStars();
-	 void setRating(float& arg0);
+	 void setRating(float const& arg0);
 	 float getRating();
-	 void setStepSize(float& arg0);
+	 void setStepSize(float const& arg0);
 	 float getStepSize();
-	 void setMax(int& arg0);
+	 void setMax(int const& arg0);
 };	
 
 } // namespace

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -30,7 +29,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_os_Parcelable_ClassLoaderCreator"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -55,8 +54,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_os_Parcelable_ClassLoaderCreator::android_os_Parcelable_ClassLoaderCreator(const android_os_Parcelable_ClassLoaderCreator& cc)
 {
 	LOGV("android_os_Parcelable_ClassLoaderCreator::android_os_Parcelable_ClassLoaderCreator(const android_os_Parcelable_ClassLoaderCreator& cc) enter");
@@ -80,9 +77,9 @@ android_os_Parcelable_ClassLoaderCreator::android_os_Parcelable_ClassLoaderCreat
 
 	LOGV("android_os_Parcelable_ClassLoaderCreator::android_os_Parcelable_ClassLoaderCreator(const android_os_Parcelable_ClassLoaderCreator& cc) exit");
 }
-android_os_Parcelable_ClassLoaderCreator::android_os_Parcelable_ClassLoaderCreator(void * proxy)
+android_os_Parcelable_ClassLoaderCreator::android_os_Parcelable_ClassLoaderCreator(Proxy proxy)
 {
-	LOGV("android_os_Parcelable_ClassLoaderCreator::android_os_Parcelable_ClassLoaderCreator(void * proxy) enter");
+	LOGV("android_os_Parcelable_ClassLoaderCreator::android_os_Parcelable_ClassLoaderCreator(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -92,47 +89,31 @@ android_os_Parcelable_ClassLoaderCreator::android_os_Parcelable_ClassLoaderCreat
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_os_Parcelable_ClassLoaderCreator::android_os_Parcelable_ClassLoaderCreator(void * proxy) exit");
+	LOGV("android_os_Parcelable_ClassLoaderCreator::android_os_Parcelable_ClassLoaderCreator(Proxy proxy) exit");
 }
-android_os_Parcelable_ClassLoaderCreator::android_os_Parcelable_ClassLoaderCreator()
-{
-	LOGV("android_os_Parcelable_ClassLoaderCreator::android_os_Parcelable_ClassLoaderCreator() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/os/Parcelable$ClassLoaderCreator";
-
-	LOGV("android_os_Parcelable_ClassLoaderCreator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_os_Parcelable_ClassLoaderCreator::proxy() const
+{	
+	LOGV("android_os_Parcelable_ClassLoaderCreator::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_os_Parcelable_ClassLoaderCreator cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_Parcelable_ClassLoaderCreator jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_os_Parcelable_ClassLoaderCreator::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_os_Parcelable_ClassLoaderCreator::android_os_Parcelable_ClassLoaderCreator() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_os_Parcelable_ClassLoaderCreator::~android_os_Parcelable_ClassLoaderCreator()
 {
@@ -144,13 +125,13 @@ android_os_Parcelable_ClassLoaderCreator::~android_os_Parcelable_ClassLoaderCrea
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_os_Parcelable_ClassLoaderCreator::~android_os_Parcelable_ClassLoaderCreator() exit");
 }
 // Functions
-AndroidCXX::java_lang_Object android_os_Parcelable_ClassLoaderCreator::createFromParcel(AndroidCXX::android_os_Parcel& arg0,AndroidCXX::java_lang_ClassLoader& arg1)
+AndroidCXX::java_lang_Object android_os_Parcelable_ClassLoaderCreator::createFromParcel(AndroidCXX::android_os_Parcel const& arg0,AndroidCXX::java_lang_ClassLoader const& arg1)
 {
-	LOGV("AndroidCXX::java_lang_Object android_os_Parcelable_ClassLoaderCreator::createFromParcel(AndroidCXX::android_os_Parcel& arg0,AndroidCXX::java_lang_ClassLoader& arg1) enter");
+	LOGV("AndroidCXX::java_lang_Object android_os_Parcelable_ClassLoaderCreator::createFromParcel(AndroidCXX::android_os_Parcel const& arg0,AndroidCXX::java_lang_ClassLoader const& arg1) enter");
 
 	const char *methodName = "createFromParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Ljava/lang/Object;";
@@ -160,8 +141,6 @@ AndroidCXX::java_lang_Object android_os_Parcelable_ClassLoaderCreator::createFro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_os_Parcelable_ClassLoaderCreator cxx address %d", cxxAddress);
@@ -211,7 +190,6 @@ AndroidCXX::java_lang_Object android_os_Parcelable_ClassLoaderCreator::createFro
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -229,11 +207,11 @@ AndroidCXX::java_lang_Object android_os_Parcelable_ClassLoaderCreator::createFro
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_Object android_os_Parcelable_ClassLoaderCreator::createFromParcel(AndroidCXX::android_os_Parcel& arg0,AndroidCXX::java_lang_ClassLoader& arg1) exit");
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_Object android_os_Parcelable_ClassLoaderCreator::createFromParcel(AndroidCXX::android_os_Parcel const& arg0,AndroidCXX::java_lang_ClassLoader const& arg1) exit");
 
 	return result;
 }

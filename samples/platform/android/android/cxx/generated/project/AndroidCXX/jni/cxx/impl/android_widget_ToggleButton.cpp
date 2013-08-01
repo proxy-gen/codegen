@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -49,7 +48,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_ToggleButton"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -101,8 +100,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_widget_ToggleButton::android_widget_ToggleButton(const android_widget_ToggleButton& cc)
 {
 	LOGV("android_widget_ToggleButton::android_widget_ToggleButton(const android_widget_ToggleButton& cc) enter");
@@ -126,9 +123,9 @@ android_widget_ToggleButton::android_widget_ToggleButton(const android_widget_To
 
 	LOGV("android_widget_ToggleButton::android_widget_ToggleButton(const android_widget_ToggleButton& cc) exit");
 }
-android_widget_ToggleButton::android_widget_ToggleButton(void * proxy)
+android_widget_ToggleButton::android_widget_ToggleButton(Proxy proxy)
 {
-	LOGV("android_widget_ToggleButton::android_widget_ToggleButton(void * proxy) enter");
+	LOGV("android_widget_ToggleButton::android_widget_ToggleButton(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -138,50 +135,34 @@ android_widget_ToggleButton::android_widget_ToggleButton(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_ToggleButton::android_widget_ToggleButton(void * proxy) exit");
+	LOGV("android_widget_ToggleButton::android_widget_ToggleButton(Proxy proxy) exit");
 }
-android_widget_ToggleButton::android_widget_ToggleButton()
-{
-	LOGV("android_widget_ToggleButton::android_widget_ToggleButton() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/ToggleButton";
-
-	LOGV("android_widget_ToggleButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_widget_ToggleButton::proxy() const
+{	
+	LOGV("android_widget_ToggleButton::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ToggleButton cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_ToggleButton jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_widget_ToggleButton::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_widget_ToggleButton::android_widget_ToggleButton() exit");	
+	return proxy;
 }
-// Public Constructors
-android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -255,11 +236,11 @@ android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_content_Context& arg0)
+android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -312,11 +293,11 @@ android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_content_Context const& arg0) exit");	
 }
-android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
+android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2)
 {
-	LOGV("android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) enter");	
+	LOGV("android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
@@ -411,7 +392,7 @@ android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) exit");	
+	LOGV("android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) exit");	
 }
 // Default Instance Destructor
 android_widget_ToggleButton::~android_widget_ToggleButton()
@@ -424,13 +405,13 @@ android_widget_ToggleButton::~android_widget_ToggleButton()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_ToggleButton::~android_widget_ToggleButton() exit");
 }
 // Functions
-void android_widget_ToggleButton::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_ToggleButton::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_ToggleButton::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_ToggleButton::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -440,8 +421,6 @@ void android_widget_ToggleButton::onInitializeAccessibilityEvent(AndroidCXX::and
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ToggleButton cxx address %d", cxxAddress);
@@ -472,14 +451,12 @@ void android_widget_ToggleButton::onInitializeAccessibilityEvent(AndroidCXX::and
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ToggleButton::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_ToggleButton::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_ToggleButton::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0)
+void android_widget_ToggleButton::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0)
 {
-	LOGV("void android_widget_ToggleButton::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) enter");
+	LOGV("void android_widget_ToggleButton::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityNodeInfo";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
@@ -489,8 +466,6 @@ void android_widget_ToggleButton::onInitializeAccessibilityNodeInfo(AndroidCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ToggleButton cxx address %d", cxxAddress);
@@ -521,14 +496,12 @@ void android_widget_ToggleButton::onInitializeAccessibilityNodeInfo(AndroidCXX::
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ToggleButton::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) exit");
+	LOGV("void android_widget_ToggleButton::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) exit");
 
 }
-void android_widget_ToggleButton::setBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0)
+void android_widget_ToggleButton::setBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0)
 {
-	LOGV("void android_widget_ToggleButton::setBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0) enter");
+	LOGV("void android_widget_ToggleButton::setBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) enter");
 
 	const char *methodName = "setBackgroundDrawable";
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
@@ -538,8 +511,6 @@ void android_widget_ToggleButton::setBackgroundDrawable(AndroidCXX::android_grap
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ToggleButton cxx address %d", cxxAddress);
@@ -570,14 +541,12 @@ void android_widget_ToggleButton::setBackgroundDrawable(AndroidCXX::android_grap
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ToggleButton::setBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0) exit");
+	LOGV("void android_widget_ToggleButton::setBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) exit");
 
 }
-void android_widget_ToggleButton::setChecked(bool& arg0)
+void android_widget_ToggleButton::setChecked(bool const& arg0)
 {
-	LOGV("void android_widget_ToggleButton::setChecked(bool& arg0) enter");
+	LOGV("void android_widget_ToggleButton::setChecked(bool const& arg0) enter");
 
 	const char *methodName = "setChecked";
 	const char *methodSignature = "(Z)V";
@@ -587,8 +556,6 @@ void android_widget_ToggleButton::setChecked(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ToggleButton cxx address %d", cxxAddress);
@@ -619,9 +586,7 @@ void android_widget_ToggleButton::setChecked(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ToggleButton::setChecked(bool& arg0) exit");
+	LOGV("void android_widget_ToggleButton::setChecked(bool const& arg0) exit");
 
 }
 AndroidCXX::java_lang_CharSequence android_widget_ToggleButton::getTextOn()
@@ -637,15 +602,12 @@ AndroidCXX::java_lang_CharSequence android_widget_ToggleButton::getTextOn()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ToggleButton cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_ToggleButton jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -663,17 +625,17 @@ AndroidCXX::java_lang_CharSequence android_widget_ToggleButton::getTextOn()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_CharSequence) (AndroidCXX::java_lang_CharSequence((AndroidCXX::java_lang_CharSequence *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
+	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_CharSequence android_widget_ToggleButton::getTextOn() exit");
 
 	return result;
 }
-void android_widget_ToggleButton::setTextOn(AndroidCXX::java_lang_CharSequence& arg0)
+void android_widget_ToggleButton::setTextOn(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_widget_ToggleButton::setTextOn(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_widget_ToggleButton::setTextOn(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setTextOn";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -683,8 +645,6 @@ void android_widget_ToggleButton::setTextOn(AndroidCXX::java_lang_CharSequence& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ToggleButton cxx address %d", cxxAddress);
@@ -715,9 +675,7 @@ void android_widget_ToggleButton::setTextOn(AndroidCXX::java_lang_CharSequence& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ToggleButton::setTextOn(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_widget_ToggleButton::setTextOn(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }
 AndroidCXX::java_lang_CharSequence android_widget_ToggleButton::getTextOff()
@@ -733,15 +691,12 @@ AndroidCXX::java_lang_CharSequence android_widget_ToggleButton::getTextOff()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ToggleButton cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_ToggleButton jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -759,17 +714,17 @@ AndroidCXX::java_lang_CharSequence android_widget_ToggleButton::getTextOff()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_CharSequence) (AndroidCXX::java_lang_CharSequence((AndroidCXX::java_lang_CharSequence *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
+	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_CharSequence android_widget_ToggleButton::getTextOff() exit");
 
 	return result;
 }
-void android_widget_ToggleButton::setTextOff(AndroidCXX::java_lang_CharSequence& arg0)
+void android_widget_ToggleButton::setTextOff(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_widget_ToggleButton::setTextOff(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_widget_ToggleButton::setTextOff(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setTextOff";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -779,8 +734,6 @@ void android_widget_ToggleButton::setTextOff(AndroidCXX::java_lang_CharSequence&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ToggleButton cxx address %d", cxxAddress);
@@ -811,8 +764,6 @@ void android_widget_ToggleButton::setTextOff(AndroidCXX::java_lang_CharSequence&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_ToggleButton::setTextOff(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_widget_ToggleButton::setTextOff(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }

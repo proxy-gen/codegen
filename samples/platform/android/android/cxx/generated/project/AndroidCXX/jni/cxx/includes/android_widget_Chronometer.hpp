@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -94,24 +93,24 @@ class android_widget_Chronometer
 public:
 
 	android_widget_Chronometer(const android_widget_Chronometer& cc);
-	android_widget_Chronometer(void * proxy);
+	android_widget_Chronometer(Proxy proxy);
 	// Public Constructors
-	android_widget_Chronometer(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_Chronometer(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_Chronometer(AndroidCXX::android_content_Context& arg0);
-	android_widget_Chronometer();
+	android_widget_Chronometer(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_Chronometer(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_Chronometer(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Chronometer();
 	// Functions
 	 void start();
 	 void stop();
 	 AndroidCXX::java_lang_String getFormat();
-	 void setFormat(AndroidCXX::java_lang_String& arg0);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 void setBase(long& arg0);
+	 void setFormat(AndroidCXX::java_lang_String const& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 void setBase(long const& arg0);
 	 long getBase();
-	 void setOnChronometerTickListener(AndroidCXX::android_widget_Chronometer_OnChronometerTickListener& arg0);
+	 void setOnChronometerTickListener(AndroidCXX::android_widget_Chronometer_OnChronometerTickListener const& arg0);
 	 AndroidCXX::android_widget_Chronometer_OnChronometerTickListener getOnChronometerTickListener();
 };	
 

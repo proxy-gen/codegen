@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  	
@@ -185,64 +184,61 @@ class java_net_URLConnection
 public:
 
 	java_net_URLConnection(const java_net_URLConnection& cc);
-	java_net_URLConnection(void * proxy);
+	java_net_URLConnection(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_net_URLConnection();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_URLConnection();
 	// Functions
 	 JDKCXX::java_lang_String toString();
 	 JDKCXX::java_net_URL getURL();
-	 JDKCXX::java_lang_Object getContent(std::vector<JDKCXX::java_lang_Class >& arg0);
+	 JDKCXX::java_lang_Object getContent(std::vector<JDKCXX::java_lang_Class > const& arg0);
 	 JDKCXX::java_lang_Object getContent();
 	 JDKCXX::java_io_InputStream getInputStream();
 	 JDKCXX::java_security_Permission getPermission();
 	 void connect();
-	 void setRequestProperty(JDKCXX::java_lang_String& arg0,JDKCXX::java_lang_String& arg1);
+	 void setRequestProperty(JDKCXX::java_lang_String const& arg0,JDKCXX::java_lang_String const& arg1);
 	 long getDate();
 	 JDKCXX::java_lang_String getContentType();
 	 int getContentLength();
-	 JDKCXX::java_lang_String getHeaderField(JDKCXX::java_lang_String& arg0);
-	 JDKCXX::java_lang_String getHeaderField(int& arg0);
-	 JDKCXX::java_lang_String getHeaderFieldKey(int& arg0);
+	 JDKCXX::java_lang_String getHeaderField(JDKCXX::java_lang_String const& arg0);
+	 JDKCXX::java_lang_String getHeaderField(int const& arg0);
+	 JDKCXX::java_lang_String getHeaderFieldKey(int const& arg0);
 	 long getLastModified();
 	static JDKCXX::java_net_FileNameMap getFileNameMap();
-	 void addRequestProperty(JDKCXX::java_lang_String& arg0,JDKCXX::java_lang_String& arg1);
-	 JDKCXX::java_lang_String getRequestProperty(JDKCXX::java_lang_String& arg0);
+	 void addRequestProperty(JDKCXX::java_lang_String const& arg0,JDKCXX::java_lang_String const& arg1);
+	 JDKCXX::java_lang_String getRequestProperty(JDKCXX::java_lang_String const& arg0);
 	 JDKCXX::java_util_Map getRequestProperties();
-	static JDKCXX::java_lang_String guessContentTypeFromStream(JDKCXX::java_io_InputStream& arg0);
-	static JDKCXX::java_lang_String guessContentTypeFromName(JDKCXX::java_lang_String& arg0);
-	static void setFileNameMap(JDKCXX::java_net_FileNameMap& arg0);
-	 void setConnectTimeout(int& arg0);
+	static JDKCXX::java_lang_String guessContentTypeFromStream(JDKCXX::java_io_InputStream const& arg0);
+	static JDKCXX::java_lang_String guessContentTypeFromName(JDKCXX::java_lang_String const& arg0);
+	static void setFileNameMap(JDKCXX::java_net_FileNameMap const& arg0);
+	 void setConnectTimeout(int const& arg0);
 	 int getConnectTimeout();
-	 void setReadTimeout(int& arg0);
+	 void setReadTimeout(int const& arg0);
 	 int getReadTimeout();
 	 JDKCXX::java_lang_String getContentEncoding();
 	 long getExpiration();
 	 JDKCXX::java_util_Map getHeaderFields();
-	 int getHeaderFieldInt(JDKCXX::java_lang_String& arg0,int& arg1);
-	 long getHeaderFieldDate(JDKCXX::java_lang_String& arg0,long& arg1);
+	 int getHeaderFieldInt(JDKCXX::java_lang_String const& arg0,int const& arg1);
+	 long getHeaderFieldDate(JDKCXX::java_lang_String const& arg0,long const& arg1);
 	 JDKCXX::java_io_OutputStream getOutputStream();
-	 void setDoInput(bool& arg0);
+	 void setDoInput(bool const& arg0);
 	 bool getDoInput();
-	 void setDoOutput(bool& arg0);
+	 void setDoOutput(bool const& arg0);
 	 bool getDoOutput();
-	 void setAllowUserInteraction(bool& arg0);
+	 void setAllowUserInteraction(bool const& arg0);
 	 bool getAllowUserInteraction();
-	static void setDefaultAllowUserInteraction(bool& arg0);
+	static void setDefaultAllowUserInteraction(bool const& arg0);
 	static bool getDefaultAllowUserInteraction();
-	 void setUseCaches(bool& arg0);
+	 void setUseCaches(bool const& arg0);
 	 bool getUseCaches();
-	 void setIfModifiedSince(long& arg0);
+	 void setIfModifiedSince(long const& arg0);
 	 long getIfModifiedSince();
 	 bool getDefaultUseCaches();
-	 void setDefaultUseCaches(bool& arg0);
-	static void setDefaultRequestProperty(JDKCXX::java_lang_String& arg0,JDKCXX::java_lang_String& arg1);
-	static JDKCXX::java_lang_String getDefaultRequestProperty(JDKCXX::java_lang_String& arg0);
-	static void setContentHandlerFactory(JDKCXX::java_net_ContentHandlerFactory& arg0);
+	 void setDefaultUseCaches(bool const& arg0);
+	static void setDefaultRequestProperty(JDKCXX::java_lang_String const& arg0,JDKCXX::java_lang_String const& arg1);
+	static JDKCXX::java_lang_String getDefaultRequestProperty(JDKCXX::java_lang_String const& arg0);
+	static void setContentHandlerFactory(JDKCXX::java_net_ContentHandlerFactory const& arg0);
 };	
 
 } // namespace

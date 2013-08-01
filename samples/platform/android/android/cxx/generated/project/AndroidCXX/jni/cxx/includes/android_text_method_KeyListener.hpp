@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -74,17 +73,17 @@ class android_text_method_KeyListener
 public:
 
 	android_text_method_KeyListener(const android_text_method_KeyListener& cc);
-	android_text_method_KeyListener(void * proxy);
+	android_text_method_KeyListener(Proxy proxy);
 	// Public Constructors
-	android_text_method_KeyListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_text_method_KeyListener();
 	// Functions
-	 bool onKeyDown(AndroidCXX::android_view_View& arg0,AndroidCXX::android_text_Editable& arg1,int& arg2,AndroidCXX::android_view_KeyEvent& arg3);
-	 bool onKeyUp(AndroidCXX::android_view_View& arg0,AndroidCXX::android_text_Editable& arg1,int& arg2,AndroidCXX::android_view_KeyEvent& arg3);
+	 bool onKeyDown(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3);
+	 bool onKeyUp(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3);
 	 int getInputType();
-	 bool onKeyOther(AndroidCXX::android_view_View& arg0,AndroidCXX::android_text_Editable& arg1,AndroidCXX::android_view_KeyEvent& arg2);
-	 void clearMetaKeyState(AndroidCXX::android_view_View& arg0,AndroidCXX::android_text_Editable& arg1,int& arg2);
+	 bool onKeyOther(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,AndroidCXX::android_view_KeyEvent const& arg2);
+	 void clearMetaKeyState(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2);
 };	
 
 } // namespace

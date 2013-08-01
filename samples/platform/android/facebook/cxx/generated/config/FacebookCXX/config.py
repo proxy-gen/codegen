@@ -15,9 +15,10 @@
 #		_instance											Tag to indicate class is an instance
 #		_singleton											Tag to indicate class instance is a singleton (field or instance)									
 #		_static 											Tag to indicate class has only static methods
-#		_callback 											Tag to indicate class is a callback
 #		_proxy 												Tag to indicate class will be proxied
 #		_no_proxy											Tag to indicate class will not be proxied
+#		_callback 											Tag to indicate class is a callback
+#		_no_callback										Tag to indicate class will not be made a callback
 #	Special Field Tags
 #		_static												Tag to indicate field is a static field
 #		_instance 											Tag to indicate field is an instance field
@@ -30,6 +31,8 @@
 #		_singleton											Tag to indicate method returns a singleton instance
 #		_proxy 												Tag to indicate method will be proxied
 #		_no_proxy											Tag to indicate method will not be proxied
+#		_callback											Tag to indicate method will be made a callback
+#		_no_callback										Tag to indicate method will not be made a callback
 
 config = {
 	'namespace' : 'FacebookCXX',
@@ -1629,7 +1632,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -1641,7 +1644,7 @@ config = {
 				},
 				{
 					'name' : 'getRequestError',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -2469,13 +2472,13 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$Callback',
-			'tags' : ['_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy', '_callback'],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'onCompleted',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_callback'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Response',
@@ -2495,13 +2498,13 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$GraphPlaceListCallback',
-			'tags' : ['_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy', '_callback'],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'onCompleted',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_callback'],
 					'params' : [
 						{
 								'type' : 'java.util.List',
@@ -2526,13 +2529,13 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$GraphUserCallback',
-			'tags' : ['_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy', '_callback'],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'onCompleted',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_callback'],
 					'params' : [
 						{
 								'type' : 'com.facebook.model.GraphUser',
@@ -2556,13 +2559,13 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$GraphUserListCallback',
-			'tags' : ['_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy', '_callback'],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'onCompleted',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_callback'],
 					'params' : [
 						{
 								'type' : 'java.util.List',
@@ -2644,7 +2647,7 @@ config = {
 				},
 				{
 					'name' : 'getParameters',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -2656,7 +2659,7 @@ config = {
 				},
 				{
 					'name' : 'executeAsync',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -2668,7 +2671,7 @@ config = {
 				},
 				{
 					'name' : 'setCallback',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Request$Callback',
@@ -2684,7 +2687,7 @@ config = {
 				},
 				{
 					'name' : 'getGraphObject',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -2696,7 +2699,7 @@ config = {
 				},
 				{
 					'name' : 'getSession',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -2708,7 +2711,7 @@ config = {
 				},
 				{
 					'name' : 'setHttpMethod',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.HttpMethod',
@@ -2752,7 +2755,7 @@ config = {
 				},
 				{
 					'name' : 'setGraphObject',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.model.GraphObject',
@@ -2796,7 +2799,7 @@ config = {
 				},
 				{
 					'name' : 'setRestMethod',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -3008,7 +3011,7 @@ config = {
 				},
 				{
 					'name' : 'getGraphPath',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -3020,7 +3023,7 @@ config = {
 				},
 				{
 					'name' : 'setGraphPath',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -3036,7 +3039,7 @@ config = {
 				},
 				{
 					'name' : 'getHttpMethod',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -3048,7 +3051,7 @@ config = {
 				},
 				{
 					'name' : 'setParameters',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -3064,7 +3067,7 @@ config = {
 				},
 				{
 					'name' : 'getRestMethod',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -3076,7 +3079,7 @@ config = {
 				},
 				{
 					'name' : 'setSession',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -3092,7 +3095,7 @@ config = {
 				},
 				{
 					'name' : 'getBatchEntryName',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -3104,7 +3107,7 @@ config = {
 				},
 				{
 					'name' : 'setBatchEntryName',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -3120,7 +3123,7 @@ config = {
 				},
 				{
 					'name' : 'getBatchEntryDependsOn',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -3132,7 +3135,7 @@ config = {
 				},
 				{
 					'name' : 'setBatchEntryDependsOn',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -3148,7 +3151,7 @@ config = {
 				},
 				{
 					'name' : 'getBatchEntryOmitResultOnSuccess',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -3160,7 +3163,7 @@ config = {
 				},
 				{
 					'name' : 'setBatchEntryOmitResultOnSuccess',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -3176,7 +3179,7 @@ config = {
 				},
 				{
 					'name' : 'getDefaultBatchApplicationId',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_no_callback', '_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -3188,7 +3191,7 @@ config = {
 				},
 				{
 					'name' : 'setDefaultBatchApplicationId',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_no_callback', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -3204,7 +3207,7 @@ config = {
 				},
 				{
 					'name' : 'getCallback',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -3460,7 +3463,7 @@ config = {
 				},
 				{
 					'name' : 'executeAndWait',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -3914,7 +3917,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'add',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Request',
@@ -3930,7 +3933,7 @@ config = {
 				},
 				{
 					'name' : 'add',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -3950,7 +3953,7 @@ config = {
 				},
 				{
 					'name' : 'get',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -3966,7 +3969,7 @@ config = {
 				},
 				{
 					'name' : 'clear',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -3978,7 +3981,7 @@ config = {
 				},
 				{
 					'name' : 'size',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -3990,7 +3993,7 @@ config = {
 				},
 				{
 					'name' : 'remove',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -4006,7 +4009,7 @@ config = {
 				},
 				{
 					'name' : 'set',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -4042,7 +4045,7 @@ config = {
 				},
 				{
 					'name' : 'executeAsync',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -4070,7 +4073,7 @@ config = {
 				},
 				{
 					'name' : 'executeAndWait',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -4306,7 +4309,7 @@ config = {
 				},
 				{
 					'name' : 'getGraphObjectAs',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Class',
@@ -4323,7 +4326,7 @@ config = {
 				},
 				{
 					'name' : 'getError',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -4335,7 +4338,7 @@ config = {
 				},
 				{
 					'name' : 'getGraphObject',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -4347,7 +4350,7 @@ config = {
 				},
 				{
 					'name' : 'getGraphObjectList',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -4360,7 +4363,7 @@ config = {
 				},
 				{
 					'name' : 'getGraphObjectListAs',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Class',
@@ -4378,7 +4381,7 @@ config = {
 				},
 				{
 					'name' : 'getConnection',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -4418,7 +4421,7 @@ config = {
 				},
 				{
 					'name' : 'getIsFromCache',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -4816,7 +4819,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'setCallback',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
@@ -4832,7 +4835,7 @@ config = {
 				},
 				{
 					'name' : 'setLoginBehavior',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.SessionLoginBehavior',
@@ -4848,7 +4851,7 @@ config = {
 				},
 				{
 					'name' : 'setRequestCode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -4864,7 +4867,7 @@ config = {
 				},
 				{
 					'name' : 'setDefaultAudience',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.SessionDefaultAudience',
@@ -4920,7 +4923,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'setCallback',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
@@ -4936,7 +4939,7 @@ config = {
 				},
 				{
 					'name' : 'setLoginBehavior',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.SessionLoginBehavior',
@@ -4952,7 +4955,7 @@ config = {
 				},
 				{
 					'name' : 'setRequestCode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -4968,7 +4971,7 @@ config = {
 				},
 				{
 					'name' : 'setPermissions',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.util.List',
@@ -4985,7 +4988,7 @@ config = {
 				},
 				{
 					'name' : 'setDefaultAudience',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.SessionDefaultAudience',
@@ -5077,13 +5080,13 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$StatusCallback',
-			'tags' : ['_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy', '_callback'],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'call',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_callback'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -5322,7 +5325,7 @@ config = {
 				},
 				{
 					'name' : 'getPermissions',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -5335,7 +5338,7 @@ config = {
 				},
 				{
 					'name' : 'getState',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -5347,7 +5350,7 @@ config = {
 				},
 				{
 					'name' : 'close',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -5359,7 +5362,7 @@ config = {
 				},
 				{
 					'name' : 'open',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.AccessToken',
@@ -5379,7 +5382,7 @@ config = {
 				},
 				{
 					'name' : 'isClosed',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -5391,7 +5394,7 @@ config = {
 				},
 				{
 					'name' : 'onActivityResult',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.app.Activity',
@@ -5419,7 +5422,7 @@ config = {
 				},
 				{
 					'name' : 'getApplicationId',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -5431,7 +5434,7 @@ config = {
 				},
 				{
 					'name' : 'addCallback',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
@@ -5447,7 +5450,7 @@ config = {
 				},
 				{
 					'name' : 'closeAndClearTokenInformation',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -5459,7 +5462,7 @@ config = {
 				},
 				{
 					'name' : 'isOpened',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -5471,7 +5474,7 @@ config = {
 				},
 				{
 					'name' : 'getAccessToken',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -5483,7 +5486,7 @@ config = {
 				},
 				{
 					'name' : 'removeCallback',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
@@ -5499,7 +5502,7 @@ config = {
 				},
 				{
 					'name' : 'getAuthorizationBundle',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -5511,7 +5514,7 @@ config = {
 				},
 				{
 					'name' : 'getExpirationDate',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -5523,7 +5526,7 @@ config = {
 				},
 				{
 					'name' : 'openForRead',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$OpenRequest',
@@ -5539,7 +5542,7 @@ config = {
 				},
 				{
 					'name' : 'openForPublish',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$OpenRequest',
@@ -5555,7 +5558,7 @@ config = {
 				},
 				{
 					'name' : 'requestNewReadPermissions',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$NewPermissionsRequest',
@@ -5571,7 +5574,7 @@ config = {
 				},
 				{
 					'name' : 'requestNewPublishPermissions',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$NewPermissionsRequest',
@@ -5587,7 +5590,7 @@ config = {
 				},
 				{
 					'name' : 'saveSession',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_no_callback', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -5607,7 +5610,7 @@ config = {
 				},
 				{
 					'name' : 'restoreSession',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_no_callback', '_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -5635,7 +5638,7 @@ config = {
 				},
 				{
 					'name' : 'getActiveSession',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_no_callback', '_proxy', '_singleton', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -5647,7 +5650,7 @@ config = {
 				},
 				{
 					'name' : 'setActiveSession',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_no_callback', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -6178,7 +6181,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'isLoggingBehaviorEnabled',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_no_callback', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.LoggingBehavior',
@@ -6318,7 +6321,7 @@ config = {
 				},
 				{
 					'name' : 'getLoggingBehaviors',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_no_callback', '_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -6331,7 +6334,7 @@ config = {
 				},
 				{
 					'name' : 'addLoggingBehavior',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_no_callback', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.LoggingBehavior',
@@ -6347,7 +6350,7 @@ config = {
 				},
 				{
 					'name' : 'removeLoggingBehavior',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_no_callback', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.LoggingBehavior',
@@ -6363,7 +6366,7 @@ config = {
 				},
 				{
 					'name' : 'clearLoggingBehaviors',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_no_callback', '_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -6786,7 +6789,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -6921,7 +6924,7 @@ config = {
 				},
 				{
 					'name' : 'getTestUserId',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -8496,7 +8499,7 @@ config = {
 				},
 				{
 					'name' : 'getSession',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -9581,7 +9584,7 @@ config = {
 				},
 				{
 					'name' : 'castToListOf',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Class',
@@ -9599,7 +9602,7 @@ config = {
 				},
 				{
 					'name' : 'getInnerJSONArray',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -9636,7 +9639,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'invoke',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Object',
@@ -15110,7 +15113,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'getOnErrorListener',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -15122,7 +15125,7 @@ config = {
 				},
 				{
 					'name' : 'setOnErrorListener',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.widget.ProfilePictureView$OnErrorListener',
@@ -15138,7 +15141,7 @@ config = {
 				},
 				{
 					'name' : 'isCropped',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -15150,7 +15153,7 @@ config = {
 				},
 				{
 					'name' : 'getPresetSize',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -15162,7 +15165,7 @@ config = {
 				},
 				{
 					'name' : 'setPresetSize',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -15178,7 +15181,7 @@ config = {
 				},
 				{
 					'name' : 'setCropped',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -15194,7 +15197,7 @@ config = {
 				},
 				{
 					'name' : 'getProfileId',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -15206,7 +15209,7 @@ config = {
 				},
 				{
 					'name' : 'setProfileId',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',

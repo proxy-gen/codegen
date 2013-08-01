@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -74,11 +73,11 @@ class android_view_inputmethod_CompletionInfo
 public:
 
 	android_view_inputmethod_CompletionInfo(const android_view_inputmethod_CompletionInfo& cc);
-	android_view_inputmethod_CompletionInfo(void * proxy);
+	android_view_inputmethod_CompletionInfo(Proxy proxy);
 	// Public Constructors
-	android_view_inputmethod_CompletionInfo(long& arg0,int& arg1,AndroidCXX::java_lang_CharSequence& arg2);
-	android_view_inputmethod_CompletionInfo(long& arg0,int& arg1,AndroidCXX::java_lang_CharSequence& arg2,AndroidCXX::java_lang_CharSequence& arg3);
-	android_view_inputmethod_CompletionInfo();
+	android_view_inputmethod_CompletionInfo(long const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2);
+	android_view_inputmethod_CompletionInfo(long const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2,AndroidCXX::java_lang_CharSequence const& arg3);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_inputmethod_CompletionInfo();
 	// Functions
@@ -86,7 +85,7 @@ public:
 	 long getId();
 	 int getPosition();
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 	 AndroidCXX::java_lang_CharSequence getText();
 	 AndroidCXX::java_lang_CharSequence getLabel();
 };	

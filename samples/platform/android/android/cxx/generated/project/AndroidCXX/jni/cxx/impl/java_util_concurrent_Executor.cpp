@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -28,7 +27,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_util_concurrent_Executor"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -47,8 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_util_concurrent_Executor::java_util_concurrent_Executor(const java_util_concurrent_Executor& cc)
 {
 	LOGV("java_util_concurrent_Executor::java_util_concurrent_Executor(const java_util_concurrent_Executor& cc) enter");
@@ -72,9 +69,9 @@ java_util_concurrent_Executor::java_util_concurrent_Executor(const java_util_con
 
 	LOGV("java_util_concurrent_Executor::java_util_concurrent_Executor(const java_util_concurrent_Executor& cc) exit");
 }
-java_util_concurrent_Executor::java_util_concurrent_Executor(void * proxy)
+java_util_concurrent_Executor::java_util_concurrent_Executor(Proxy proxy)
 {
-	LOGV("java_util_concurrent_Executor::java_util_concurrent_Executor(void * proxy) enter");
+	LOGV("java_util_concurrent_Executor::java_util_concurrent_Executor(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -84,47 +81,31 @@ java_util_concurrent_Executor::java_util_concurrent_Executor(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_util_concurrent_Executor::java_util_concurrent_Executor(void * proxy) exit");
+	LOGV("java_util_concurrent_Executor::java_util_concurrent_Executor(Proxy proxy) exit");
 }
-java_util_concurrent_Executor::java_util_concurrent_Executor()
-{
-	LOGV("java_util_concurrent_Executor::java_util_concurrent_Executor() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "java/util/concurrent/Executor";
-
-	LOGV("java_util_concurrent_Executor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy java_util_concurrent_Executor::proxy() const
+{	
+	LOGV("java_util_concurrent_Executor::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_concurrent_Executor cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_concurrent_Executor jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("java_util_concurrent_Executor::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("java_util_concurrent_Executor::java_util_concurrent_Executor() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 java_util_concurrent_Executor::~java_util_concurrent_Executor()
 {
@@ -136,13 +117,13 @@ java_util_concurrent_Executor::~java_util_concurrent_Executor()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_util_concurrent_Executor::~java_util_concurrent_Executor() exit");
 }
 // Functions
-void java_util_concurrent_Executor::execute(AndroidCXX::java_lang_Runnable& arg0)
+void java_util_concurrent_Executor::execute(AndroidCXX::java_lang_Runnable const& arg0)
 {
-	LOGV("void java_util_concurrent_Executor::execute(AndroidCXX::java_lang_Runnable& arg0) enter");
+	LOGV("void java_util_concurrent_Executor::execute(AndroidCXX::java_lang_Runnable const& arg0) enter");
 
 	const char *methodName = "execute";
 	const char *methodSignature = "(Ljava/lang/Runnable;)V";
@@ -152,8 +133,6 @@ void java_util_concurrent_Executor::execute(AndroidCXX::java_lang_Runnable& arg0
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_util_concurrent_Executor cxx address %d", cxxAddress);
@@ -184,8 +163,6 @@ void java_util_concurrent_Executor::execute(AndroidCXX::java_lang_Runnable& arg0
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_util_concurrent_Executor::execute(AndroidCXX::java_lang_Runnable& arg0) exit");
+	LOGV("void java_util_concurrent_Executor::execute(AndroidCXX::java_lang_Runnable const& arg0) exit");
 
 }

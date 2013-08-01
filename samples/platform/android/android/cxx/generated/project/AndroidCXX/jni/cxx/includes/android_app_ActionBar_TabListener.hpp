@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -63,15 +62,15 @@ class android_app_ActionBar_TabListener
 public:
 
 	android_app_ActionBar_TabListener(const android_app_ActionBar_TabListener& cc);
-	android_app_ActionBar_TabListener(void * proxy);
+	android_app_ActionBar_TabListener(Proxy proxy);
 	// Public Constructors
-	android_app_ActionBar_TabListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_ActionBar_TabListener();
 	// Functions
-	 void onTabSelected(AndroidCXX::android_app_ActionBar_Tab& arg0,AndroidCXX::android_app_FragmentTransaction& arg1);
-	 void onTabUnselected(AndroidCXX::android_app_ActionBar_Tab& arg0,AndroidCXX::android_app_FragmentTransaction& arg1);
-	 void onTabReselected(AndroidCXX::android_app_ActionBar_Tab& arg0,AndroidCXX::android_app_FragmentTransaction& arg1);
+	 void onTabSelected(AndroidCXX::android_app_ActionBar_Tab const& arg0,AndroidCXX::android_app_FragmentTransaction const& arg1);
+	 void onTabUnselected(AndroidCXX::android_app_ActionBar_Tab const& arg0,AndroidCXX::android_app_FragmentTransaction const& arg1);
+	 void onTabReselected(AndroidCXX::android_app_ActionBar_Tab const& arg0,AndroidCXX::android_app_FragmentTransaction const& arg1);
 };	
 
 } // namespace

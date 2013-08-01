@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -54,7 +53,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_Scroller"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -85,8 +84,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_widget_Scroller::android_widget_Scroller(const android_widget_Scroller& cc)
 {
 	LOGV("android_widget_Scroller::android_widget_Scroller(const android_widget_Scroller& cc) enter");
@@ -110,9 +107,9 @@ android_widget_Scroller::android_widget_Scroller(const android_widget_Scroller& 
 
 	LOGV("android_widget_Scroller::android_widget_Scroller(const android_widget_Scroller& cc) exit");
 }
-android_widget_Scroller::android_widget_Scroller(void * proxy)
+android_widget_Scroller::android_widget_Scroller(Proxy proxy)
 {
-	LOGV("android_widget_Scroller::android_widget_Scroller(void * proxy) enter");
+	LOGV("android_widget_Scroller::android_widget_Scroller(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -122,50 +119,34 @@ android_widget_Scroller::android_widget_Scroller(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_Scroller::android_widget_Scroller(void * proxy) exit");
+	LOGV("android_widget_Scroller::android_widget_Scroller(Proxy proxy) exit");
 }
-android_widget_Scroller::android_widget_Scroller()
-{
-	LOGV("android_widget_Scroller::android_widget_Scroller() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/Scroller";
-
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_widget_Scroller::proxy() const
+{	
+	LOGV("android_widget_Scroller::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Scroller cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Scroller jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_widget_Scroller::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_widget_Scroller::android_widget_Scroller() exit");	
+	return proxy;
 }
-// Public Constructors
-android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Context& arg0)
+android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -218,11 +199,11 @@ android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Context const& arg0) exit");	
 }
-android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_animation_Interpolator& arg1)
+android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1)
 {
-	LOGV("android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_animation_Interpolator& arg1) enter");	
+	LOGV("android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/view/animation/Interpolator;)V";
@@ -296,11 +277,11 @@ android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_animation_Interpolator& arg1) exit");	
+	LOGV("android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1) exit");	
 }
-android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_animation_Interpolator& arg1,bool& arg2)
+android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1,bool const& arg2)
 {
-	LOGV("android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_animation_Interpolator& arg1,bool& arg2) enter");	
+	LOGV("android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1,bool const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/view/animation/Interpolator;Z)V";
@@ -395,7 +376,7 @@ android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_animation_Interpolator& arg1,bool& arg2) exit");	
+	LOGV("android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1,bool const& arg2) exit");	
 }
 // Default Instance Destructor
 android_widget_Scroller::~android_widget_Scroller()
@@ -408,7 +389,7 @@ android_widget_Scroller::~android_widget_Scroller()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_Scroller::~android_widget_Scroller() exit");
 }
 // Functions
@@ -425,15 +406,12 @@ int android_widget_Scroller::getDuration()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Scroller cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Scroller jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -451,17 +429,17 @@ int android_widget_Scroller::getDuration()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_Scroller::getDuration() exit");
 
 	return result;
 }
-void android_widget_Scroller::setFriction(float& arg0)
+void android_widget_Scroller::setFriction(float const& arg0)
 {
-	LOGV("void android_widget_Scroller::setFriction(float& arg0) enter");
+	LOGV("void android_widget_Scroller::setFriction(float const& arg0) enter");
 
 	const char *methodName = "setFriction";
 	const char *methodSignature = "(F)V";
@@ -471,8 +449,6 @@ void android_widget_Scroller::setFriction(float& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Scroller cxx address %d", cxxAddress);
@@ -503,9 +479,7 @@ void android_widget_Scroller::setFriction(float& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Scroller::setFriction(float& arg0) exit");
+	LOGV("void android_widget_Scroller::setFriction(float const& arg0) exit");
 
 }
 bool android_widget_Scroller::isFinished()
@@ -521,15 +495,12 @@ bool android_widget_Scroller::isFinished()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Scroller cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Scroller jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -547,17 +518,17 @@ bool android_widget_Scroller::isFinished()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_widget_Scroller::isFinished() exit");
 
 	return result;
 }
-void android_widget_Scroller::forceFinished(bool& arg0)
+void android_widget_Scroller::forceFinished(bool const& arg0)
 {
-	LOGV("void android_widget_Scroller::forceFinished(bool& arg0) enter");
+	LOGV("void android_widget_Scroller::forceFinished(bool const& arg0) enter");
 
 	const char *methodName = "forceFinished";
 	const char *methodSignature = "(Z)V";
@@ -567,8 +538,6 @@ void android_widget_Scroller::forceFinished(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Scroller cxx address %d", cxxAddress);
@@ -599,9 +568,7 @@ void android_widget_Scroller::forceFinished(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Scroller::forceFinished(bool& arg0) exit");
+	LOGV("void android_widget_Scroller::forceFinished(bool const& arg0) exit");
 
 }
 int android_widget_Scroller::getCurrX()
@@ -617,15 +584,12 @@ int android_widget_Scroller::getCurrX()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Scroller cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Scroller jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -643,10 +607,10 @@ int android_widget_Scroller::getCurrX()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_Scroller::getCurrX() exit");
 
 	return result;
@@ -664,15 +628,12 @@ int android_widget_Scroller::getCurrY()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Scroller cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Scroller jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -690,10 +651,10 @@ int android_widget_Scroller::getCurrY()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_Scroller::getCurrY() exit");
 
 	return result;
@@ -711,15 +672,12 @@ float android_widget_Scroller::getCurrVelocity()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Scroller cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Scroller jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -737,10 +695,10 @@ float android_widget_Scroller::getCurrVelocity()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	float result = (float) *((float *) cxx_value);
+	// 
+		
 	LOGV("float android_widget_Scroller::getCurrVelocity() exit");
 
 	return result;
@@ -758,15 +716,12 @@ int android_widget_Scroller::getStartX()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Scroller cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Scroller jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -784,10 +739,10 @@ int android_widget_Scroller::getStartX()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_Scroller::getStartX() exit");
 
 	return result;
@@ -805,15 +760,12 @@ int android_widget_Scroller::getStartY()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Scroller cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Scroller jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -831,10 +783,10 @@ int android_widget_Scroller::getStartY()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_Scroller::getStartY() exit");
 
 	return result;
@@ -852,15 +804,12 @@ int android_widget_Scroller::getFinalX()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Scroller cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Scroller jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -878,10 +827,10 @@ int android_widget_Scroller::getFinalX()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_Scroller::getFinalX() exit");
 
 	return result;
@@ -899,15 +848,12 @@ int android_widget_Scroller::getFinalY()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Scroller cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Scroller jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -925,10 +871,10 @@ int android_widget_Scroller::getFinalY()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_Scroller::getFinalY() exit");
 
 	return result;
@@ -946,15 +892,12 @@ bool android_widget_Scroller::computeScrollOffset()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Scroller cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Scroller jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -972,17 +915,17 @@ bool android_widget_Scroller::computeScrollOffset()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_widget_Scroller::computeScrollOffset() exit");
 
 	return result;
 }
-void android_widget_Scroller::startScroll(int& arg0,int& arg1,int& arg2,int& arg3)
+void android_widget_Scroller::startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("void android_widget_Scroller::startScroll(int& arg0,int& arg1,int& arg2,int& arg3) enter");
+	LOGV("void android_widget_Scroller::startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3) enter");
 
 	const char *methodName = "startScroll";
 	const char *methodSignature = "(IIII)V";
@@ -992,8 +935,6 @@ void android_widget_Scroller::startScroll(int& arg0,int& arg1,int& arg2,int& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Scroller cxx address %d", cxxAddress);
@@ -1087,14 +1028,12 @@ void android_widget_Scroller::startScroll(int& arg0,int& arg1,int& arg2,int& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Scroller::startScroll(int& arg0,int& arg1,int& arg2,int& arg3) exit");
+	LOGV("void android_widget_Scroller::startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3) exit");
 
 }
-void android_widget_Scroller::startScroll(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4)
+void android_widget_Scroller::startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4)
 {
-	LOGV("void android_widget_Scroller::startScroll(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4) enter");
+	LOGV("void android_widget_Scroller::startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) enter");
 
 	const char *methodName = "startScroll";
 	const char *methodSignature = "(IIIII)V";
@@ -1104,8 +1043,6 @@ void android_widget_Scroller::startScroll(int& arg0,int& arg1,int& arg2,int& arg
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Scroller cxx address %d", cxxAddress);
@@ -1220,14 +1157,12 @@ void android_widget_Scroller::startScroll(int& arg0,int& arg1,int& arg2,int& arg
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Scroller::startScroll(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4) exit");
+	LOGV("void android_widget_Scroller::startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) exit");
 
 }
-void android_widget_Scroller::fling(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6,int& arg7)
+void android_widget_Scroller::fling(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,int const& arg7)
 {
-	LOGV("void android_widget_Scroller::fling(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6,int& arg7) enter");
+	LOGV("void android_widget_Scroller::fling(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,int const& arg7) enter");
 
 	const char *methodName = "fling";
 	const char *methodSignature = "(IIIIIIII)V";
@@ -1237,8 +1172,6 @@ void android_widget_Scroller::fling(int& arg0,int& arg1,int& arg2,int& arg3,int&
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Scroller cxx address %d", cxxAddress);
@@ -1416,9 +1349,7 @@ void android_widget_Scroller::fling(int& arg0,int& arg1,int& arg2,int& arg3,int&
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6,jarg7);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Scroller::fling(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6,int& arg7) exit");
+	LOGV("void android_widget_Scroller::fling(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,int const& arg7) exit");
 
 }
 void android_widget_Scroller::abortAnimation()
@@ -1434,8 +1365,6 @@ void android_widget_Scroller::abortAnimation()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Scroller cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1444,14 +1373,12 @@ void android_widget_Scroller::abortAnimation()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_Scroller::abortAnimation() exit");
 
 }
-void android_widget_Scroller::extendDuration(int& arg0)
+void android_widget_Scroller::extendDuration(int const& arg0)
 {
-	LOGV("void android_widget_Scroller::extendDuration(int& arg0) enter");
+	LOGV("void android_widget_Scroller::extendDuration(int const& arg0) enter");
 
 	const char *methodName = "extendDuration";
 	const char *methodSignature = "(I)V";
@@ -1461,8 +1388,6 @@ void android_widget_Scroller::extendDuration(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Scroller cxx address %d", cxxAddress);
@@ -1493,9 +1418,7 @@ void android_widget_Scroller::extendDuration(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Scroller::extendDuration(int& arg0) exit");
+	LOGV("void android_widget_Scroller::extendDuration(int const& arg0) exit");
 
 }
 int android_widget_Scroller::timePassed()
@@ -1511,15 +1434,12 @@ int android_widget_Scroller::timePassed()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Scroller cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Scroller jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1537,17 +1457,17 @@ int android_widget_Scroller::timePassed()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_Scroller::timePassed() exit");
 
 	return result;
 }
-void android_widget_Scroller::setFinalX(int& arg0)
+void android_widget_Scroller::setFinalX(int const& arg0)
 {
-	LOGV("void android_widget_Scroller::setFinalX(int& arg0) enter");
+	LOGV("void android_widget_Scroller::setFinalX(int const& arg0) enter");
 
 	const char *methodName = "setFinalX";
 	const char *methodSignature = "(I)V";
@@ -1558,8 +1478,6 @@ void android_widget_Scroller::setFinalX(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Scroller cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1589,14 +1507,12 @@ void android_widget_Scroller::setFinalX(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Scroller::setFinalX(int& arg0) exit");
+	LOGV("void android_widget_Scroller::setFinalX(int const& arg0) exit");
 
 }
-void android_widget_Scroller::setFinalY(int& arg0)
+void android_widget_Scroller::setFinalY(int const& arg0)
 {
-	LOGV("void android_widget_Scroller::setFinalY(int& arg0) enter");
+	LOGV("void android_widget_Scroller::setFinalY(int const& arg0) enter");
 
 	const char *methodName = "setFinalY";
 	const char *methodSignature = "(I)V";
@@ -1607,8 +1523,6 @@ void android_widget_Scroller::setFinalY(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Scroller cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1638,8 +1552,6 @@ void android_widget_Scroller::setFinalY(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Scroller::setFinalY(int& arg0) exit");
+	LOGV("void android_widget_Scroller::setFinalY(int const& arg0) exit");
 
 }

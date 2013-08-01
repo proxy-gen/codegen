@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_NativeProtocol
@@ -46,9 +45,9 @@ class com_facebook_NativeProtocol
 public:
 
 	com_facebook_NativeProtocol(const com_facebook_NativeProtocol& cc);
-	com_facebook_NativeProtocol(void * proxy);
+	com_facebook_NativeProtocol(Proxy proxy);
 	// Public Constructors
-	com_facebook_NativeProtocol();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_NativeProtocol();
 	// Functions

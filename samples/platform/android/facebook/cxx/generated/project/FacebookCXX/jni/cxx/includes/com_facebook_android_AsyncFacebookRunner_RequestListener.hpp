@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -80,17 +79,17 @@ class com_facebook_android_AsyncFacebookRunner_RequestListener
 public:
 
 	com_facebook_android_AsyncFacebookRunner_RequestListener(const com_facebook_android_AsyncFacebookRunner_RequestListener& cc);
-	com_facebook_android_AsyncFacebookRunner_RequestListener(void * proxy);
+	com_facebook_android_AsyncFacebookRunner_RequestListener(Proxy proxy);
 	// Public Constructors
-	com_facebook_android_AsyncFacebookRunner_RequestListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_AsyncFacebookRunner_RequestListener();
 	// Functions
-	 void onComplete(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Object& arg1);
-	 void onFacebookError(FacebookCXX::com_facebook_android_FacebookError& arg0,AndroidCXX::java_lang_Object& arg1);
-	 void onFileNotFoundException(AndroidCXX::java_io_FileNotFoundException& arg0,AndroidCXX::java_lang_Object& arg1);
-	 void onMalformedURLException(AndroidCXX::java_net_MalformedURLException& arg0,AndroidCXX::java_lang_Object& arg1);
-	 void onIOException(AndroidCXX::java_io_IOException& arg0,AndroidCXX::java_lang_Object& arg1);
+	 void onComplete(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	 void onFacebookError(FacebookCXX::com_facebook_android_FacebookError const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	 void onFileNotFoundException(AndroidCXX::java_io_FileNotFoundException const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	 void onMalformedURLException(AndroidCXX::java_net_MalformedURLException const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	 void onIOException(AndroidCXX::java_io_IOException const& arg0,AndroidCXX::java_lang_Object const& arg1);
 };	
 
 } // namespace

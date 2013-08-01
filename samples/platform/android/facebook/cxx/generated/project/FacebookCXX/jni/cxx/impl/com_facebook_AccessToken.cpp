@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -48,6 +47,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_AccessToken"
@@ -78,7 +78,7 @@ using namespace FacebookCXX;
 // 
 // 
 // 
-// using namespace COM_FACEBOOK_ACCESSTOKENSOURCE;
+// using namespace com_facebook_AccessTokenSource;
 // 
 // 
 // 
@@ -116,8 +116,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_AccessToken::com_facebook_AccessToken(const com_facebook_AccessToken& cc)
 {
 	LOGV("com_facebook_AccessToken::com_facebook_AccessToken(const com_facebook_AccessToken& cc) enter");
@@ -141,9 +139,9 @@ com_facebook_AccessToken::com_facebook_AccessToken(const com_facebook_AccessToke
 
 	LOGV("com_facebook_AccessToken::com_facebook_AccessToken(const com_facebook_AccessToken& cc) exit");
 }
-com_facebook_AccessToken::com_facebook_AccessToken(void * proxy)
+com_facebook_AccessToken::com_facebook_AccessToken(Proxy proxy)
 {
-	LOGV("com_facebook_AccessToken::com_facebook_AccessToken(void * proxy) enter");
+	LOGV("com_facebook_AccessToken::com_facebook_AccessToken(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -153,47 +151,31 @@ com_facebook_AccessToken::com_facebook_AccessToken(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_AccessToken::com_facebook_AccessToken(void * proxy) exit");
+	LOGV("com_facebook_AccessToken::com_facebook_AccessToken(Proxy proxy) exit");
 }
-com_facebook_AccessToken::com_facebook_AccessToken()
-{
-	LOGV("com_facebook_AccessToken::com_facebook_AccessToken() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/AccessToken";
-
-	LOGV("com_facebook_AccessToken className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_AccessToken::proxy() const
+{	
+	LOGV("com_facebook_AccessToken::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_AccessToken cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_AccessToken jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_AccessToken::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_AccessToken::com_facebook_AccessToken() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 com_facebook_AccessToken::~com_facebook_AccessToken()
 {
@@ -205,7 +187,7 @@ com_facebook_AccessToken::~com_facebook_AccessToken()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_AccessToken::~com_facebook_AccessToken() exit");
 }
 // Functions
@@ -222,15 +204,12 @@ AndroidCXX::java_lang_String com_facebook_AccessToken::toString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_AccessToken cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_AccessToken jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -248,10 +227,10 @@ AndroidCXX::java_lang_String com_facebook_AccessToken::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String com_facebook_AccessToken::toString() exit");
 
 	return result;
@@ -269,15 +248,12 @@ AndroidCXX::java_util_List com_facebook_AccessToken::getPermissions()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_AccessToken cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_AccessToken jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_List result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -313,10 +289,10 @@ AndroidCXX::java_util_List com_facebook_AccessToken::getPermissions()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_List(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_List) (AndroidCXX::java_util_List((AndroidCXX::java_util_List *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
+	delete ((AndroidCXX::java_util_List *) cxx_value);
+		
 	LOGV("AndroidCXX::java_util_List com_facebook_AccessToken::getPermissions() exit");
 
 	return result;
@@ -334,15 +310,12 @@ AndroidCXX::java_lang_String com_facebook_AccessToken::getToken()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_AccessToken cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_AccessToken jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -360,10 +333,10 @@ AndroidCXX::java_lang_String com_facebook_AccessToken::getToken()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String com_facebook_AccessToken::getToken() exit");
 
 	return result;
@@ -381,15 +354,12 @@ AndroidCXX::java_util_Date com_facebook_AccessToken::getExpires()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_AccessToken cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_AccessToken jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_Date result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -407,17 +377,17 @@ AndroidCXX::java_util_Date com_facebook_AccessToken::getExpires()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Date(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Date) (AndroidCXX::java_util_Date((AndroidCXX::java_util_Date *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_util_Date result((AndroidCXX::java_util_Date) *((AndroidCXX::java_util_Date *) cxx_value));
+	delete ((AndroidCXX::java_util_Date *) cxx_value);
+		
 	LOGV("AndroidCXX::java_util_Date com_facebook_AccessToken::getExpires() exit");
 
 	return result;
 }
-COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource com_facebook_AccessToken::getSource()
+com_facebook_AccessTokenSource::com_facebook_AccessTokenSource com_facebook_AccessToken::getSource()
 {
-	LOGV("COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource com_facebook_AccessToken::getSource() enter");
+	LOGV("com_facebook_AccessTokenSource::com_facebook_AccessTokenSource com_facebook_AccessToken::getSource() enter");
 
 	const char *methodName = "getSource";
 	const char *methodSignature = "()Lcom/facebook/AccessTokenSource;";
@@ -428,15 +398,12 @@ COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource com_facebook_Acce
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_AccessToken cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_AccessToken jni address %d", javaObject);
 
 
-	COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -454,11 +421,11 @@ COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource com_facebook_Acce
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_AccessTokenSource(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource com_facebook_AccessToken::getSource() exit");
+	com_facebook_AccessTokenSource::com_facebook_AccessTokenSource result = (com_facebook_AccessTokenSource::com_facebook_AccessTokenSource) (cxx_value);
+	//
+		
+	LOGV("com_facebook_AccessTokenSource::com_facebook_AccessTokenSource com_facebook_AccessToken::getSource() exit");
 
 	return result;
 }
@@ -475,15 +442,12 @@ AndroidCXX::java_util_Date com_facebook_AccessToken::getLastRefresh()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_AccessToken cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_AccessToken jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_Date result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -501,17 +465,17 @@ AndroidCXX::java_util_Date com_facebook_AccessToken::getLastRefresh()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Date(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Date) (AndroidCXX::java_util_Date((AndroidCXX::java_util_Date *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_util_Date result((AndroidCXX::java_util_Date) *((AndroidCXX::java_util_Date *) cxx_value));
+	delete ((AndroidCXX::java_util_Date *) cxx_value);
+		
 	LOGV("AndroidCXX::java_util_Date com_facebook_AccessToken::getLastRefresh() exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_AccessToken com_facebook_AccessToken::createFromExistingAccessToken(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_Date& arg1,AndroidCXX::java_util_Date& arg2,COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource& arg3,AndroidCXX::java_util_List& arg4)
+FacebookCXX::com_facebook_AccessToken com_facebook_AccessToken::createFromExistingAccessToken(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Date const& arg1,AndroidCXX::java_util_Date const& arg2,com_facebook_AccessTokenSource::com_facebook_AccessTokenSource const& arg3,AndroidCXX::java_util_List const& arg4)
 {
-	LOGV("FacebookCXX::com_facebook_AccessToken com_facebook_AccessToken::createFromExistingAccessToken(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_Date& arg1,AndroidCXX::java_util_Date& arg2,COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource& arg3,AndroidCXX::java_util_List& arg4) enter");
+	LOGV("FacebookCXX::com_facebook_AccessToken com_facebook_AccessToken::createFromExistingAccessToken(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Date const& arg1,AndroidCXX::java_util_Date const& arg2,com_facebook_AccessTokenSource::com_facebook_AccessTokenSource const& arg3,AndroidCXX::java_util_List const& arg4) enter");
 
 	const char *methodName = "createFromExistingAccessToken";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/util/Date;Ljava/util/Date;Lcom/facebook/AccessTokenSource;Ljava/util/List;)Lcom/facebook/AccessToken;";
@@ -521,8 +485,6 @@ FacebookCXX::com_facebook_AccessToken com_facebook_AccessToken::createFromExisti
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_AccessToken cxx address %d", cxxAddress);
@@ -653,8 +615,7 @@ FacebookCXX::com_facebook_AccessToken com_facebook_AccessToken::createFromExisti
 		jarg4 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_AccessToken result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -671,17 +632,17 @@ FacebookCXX::com_facebook_AccessToken com_facebook_AccessToken::createFromExisti
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_AccessToken(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_AccessToken) (FacebookCXX::com_facebook_AccessToken((FacebookCXX::com_facebook_AccessToken *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_AccessToken com_facebook_AccessToken::createFromExistingAccessToken(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_Date& arg1,AndroidCXX::java_util_Date& arg2,COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource& arg3,AndroidCXX::java_util_List& arg4) exit");
+	FacebookCXX::com_facebook_AccessToken result((FacebookCXX::com_facebook_AccessToken) *((FacebookCXX::com_facebook_AccessToken *) cxx_value));
+	delete ((FacebookCXX::com_facebook_AccessToken *) cxx_value);
+		
+	LOGV("FacebookCXX::com_facebook_AccessToken com_facebook_AccessToken::createFromExistingAccessToken(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Date const& arg1,AndroidCXX::java_util_Date const& arg2,com_facebook_AccessTokenSource::com_facebook_AccessTokenSource const& arg3,AndroidCXX::java_util_List const& arg4) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_AccessToken com_facebook_AccessToken::createFromNativeLinkingIntent(AndroidCXX::android_content_Intent& arg0)
+FacebookCXX::com_facebook_AccessToken com_facebook_AccessToken::createFromNativeLinkingIntent(AndroidCXX::android_content_Intent const& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_AccessToken com_facebook_AccessToken::createFromNativeLinkingIntent(AndroidCXX::android_content_Intent& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_AccessToken com_facebook_AccessToken::createFromNativeLinkingIntent(AndroidCXX::android_content_Intent const& arg0) enter");
 
 	const char *methodName = "createFromNativeLinkingIntent";
 	const char *methodSignature = "(Landroid/content/Intent;)Lcom/facebook/AccessToken;";
@@ -691,8 +652,6 @@ FacebookCXX::com_facebook_AccessToken com_facebook_AccessToken::createFromNative
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("com_facebook_AccessToken cxx address %d", cxxAddress);
@@ -721,8 +680,7 @@ FacebookCXX::com_facebook_AccessToken com_facebook_AccessToken::createFromNative
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_AccessToken result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -739,11 +697,11 @@ FacebookCXX::com_facebook_AccessToken com_facebook_AccessToken::createFromNative
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_AccessToken(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_AccessToken) (FacebookCXX::com_facebook_AccessToken((FacebookCXX::com_facebook_AccessToken *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_AccessToken com_facebook_AccessToken::createFromNativeLinkingIntent(AndroidCXX::android_content_Intent& arg0) exit");
+	FacebookCXX::com_facebook_AccessToken result((FacebookCXX::com_facebook_AccessToken) *((FacebookCXX::com_facebook_AccessToken *) cxx_value));
+	delete ((FacebookCXX::com_facebook_AccessToken *) cxx_value);
+		
+	LOGV("FacebookCXX::com_facebook_AccessToken com_facebook_AccessToken::createFromNativeLinkingIntent(AndroidCXX::android_content_Intent const& arg0) exit");
 
 	return result;
 }

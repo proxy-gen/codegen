@@ -8,7 +8,6 @@
 //
 
 
-
  	
  	
 
@@ -58,21 +57,20 @@ class java_io_InputStream
 public:
 
 	java_io_InputStream(const java_io_InputStream& cc);
-	java_io_InputStream(void * proxy);
+	java_io_InputStream(Proxy proxy);
 	// Public Constructors
 	java_io_InputStream();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_io_InputStream();
 	// Functions
 	 void close();
-	 void mark(int& arg0);
+	 void mark(int const& arg0);
 	 void reset();
-	 int read(std::vector<byte>& arg0,int& arg1,int& arg2);
-	 int read(std::vector<byte>& arg0);
+	 int read(std::vector<byte> const& arg0,int const& arg1,int const& arg2);
+	 int read(std::vector<byte> const& arg0);
 	 int read();
-	 long skip(long& arg0);
+	 long skip(long const& arg0);
 	 int available();
 	 bool markSupported();
 };	

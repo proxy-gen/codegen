@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -151,22 +150,19 @@ class java_net_URL
 public:
 
 	java_net_URL(const java_net_URL& cc);
-	java_net_URL(void * proxy);
+	java_net_URL(Proxy proxy);
 	// Public Constructors
-	java_net_URL(JDKCXX::java_lang_String& arg0,JDKCXX::java_lang_String& arg1,int& arg2,JDKCXX::java_lang_String& arg3);
-	java_net_URL(JDKCXX::java_lang_String& arg0,JDKCXX::java_lang_String& arg1,JDKCXX::java_lang_String& arg2);
-	java_net_URL(JDKCXX::java_lang_String& arg0,JDKCXX::java_lang_String& arg1,int& arg2,JDKCXX::java_lang_String& arg3,JDKCXX::java_net_URLStreamHandler& arg4);
-	java_net_URL(JDKCXX::java_lang_String& arg0);
-	java_net_URL(JDKCXX::java_net_URL& arg0,JDKCXX::java_lang_String& arg1);
-	java_net_URL(JDKCXX::java_net_URL& arg0,JDKCXX::java_lang_String& arg1,JDKCXX::java_net_URLStreamHandler& arg2);
-	// TODO: remove
-	// 
-	// java_net_URL();
-	// 
+	java_net_URL(JDKCXX::java_lang_String const& arg0,JDKCXX::java_lang_String const& arg1,int const& arg2,JDKCXX::java_lang_String const& arg3);
+	java_net_URL(JDKCXX::java_lang_String const& arg0,JDKCXX::java_lang_String const& arg1,JDKCXX::java_lang_String const& arg2);
+	java_net_URL(JDKCXX::java_lang_String const& arg0,JDKCXX::java_lang_String const& arg1,int const& arg2,JDKCXX::java_lang_String const& arg3,JDKCXX::java_net_URLStreamHandler const& arg4);
+	java_net_URL(JDKCXX::java_lang_String const& arg0);
+	java_net_URL(JDKCXX::java_net_URL const& arg0,JDKCXX::java_lang_String const& arg1);
+	java_net_URL(JDKCXX::java_net_URL const& arg0,JDKCXX::java_lang_String const& arg1,JDKCXX::java_net_URLStreamHandler const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_URL();
 	// Functions
-	 bool equals(JDKCXX::java_lang_Object& arg0);
+	 bool equals(JDKCXX::java_lang_Object const& arg0);
 	 JDKCXX::java_lang_String toString();
 	 int hashCode();
 	 JDKCXX::java_io_InputStream openStream();
@@ -181,13 +177,13 @@ public:
 	 JDKCXX::java_lang_String getHost();
 	 JDKCXX::java_lang_String getFile();
 	 JDKCXX::java_lang_String getRef();
-	 bool sameFile(JDKCXX::java_net_URL& arg0);
+	 bool sameFile(JDKCXX::java_net_URL const& arg0);
 	 JDKCXX::java_lang_String toExternalForm();
-	 JDKCXX::java_net_URLConnection openConnection(JDKCXX::java_net_Proxy& arg0);
+	 JDKCXX::java_net_URLConnection openConnection(JDKCXX::java_net_Proxy const& arg0);
 	 JDKCXX::java_net_URLConnection openConnection();
-	 JDKCXX::java_lang_Object getContent(std::vector<JDKCXX::java_lang_Class >& arg0);
+	 JDKCXX::java_lang_Object getContent(std::vector<JDKCXX::java_lang_Class > const& arg0);
 	 JDKCXX::java_lang_Object getContent();
-	static void setURLStreamHandlerFactory(JDKCXX::java_net_URLStreamHandlerFactory& arg0);
+	static void setURLStreamHandlerFactory(JDKCXX::java_net_URLStreamHandlerFactory const& arg0);
 };	
 
 } // namespace

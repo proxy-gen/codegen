@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -62,15 +61,15 @@ class android_graphics_drawable_Drawable_Callback
 public:
 
 	android_graphics_drawable_Drawable_Callback(const android_graphics_drawable_Drawable_Callback& cc);
-	android_graphics_drawable_Drawable_Callback(void * proxy);
+	android_graphics_drawable_Drawable_Callback(Proxy proxy);
 	// Public Constructors
-	android_graphics_drawable_Drawable_Callback();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_drawable_Drawable_Callback();
 	// Functions
-	 void invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0);
-	 void scheduleDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0,AndroidCXX::java_lang_Runnable& arg1,long& arg2);
-	 void unscheduleDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0,AndroidCXX::java_lang_Runnable& arg1);
+	 void invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
+	 void scheduleDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::java_lang_Runnable const& arg1,long const& arg2);
+	 void unscheduleDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::java_lang_Runnable const& arg1);
 };	
 
 } // namespace

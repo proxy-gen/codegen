@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -214,8 +213,6 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_net_URL::java_net_URL(const java_net_URL& cc)
 {
 	LOGV("java_net_URL::java_net_URL(const java_net_URL& cc) enter");
@@ -239,9 +236,9 @@ java_net_URL::java_net_URL(const java_net_URL& cc)
 
 	LOGV("java_net_URL::java_net_URL(const java_net_URL& cc) exit");
 }
-java_net_URL::java_net_URL(void * proxy)
+java_net_URL::java_net_URL(Proxy proxy)
 {
-	LOGV("java_net_URL::java_net_URL(void * proxy) enter");
+	LOGV("java_net_URL::java_net_URL(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -251,55 +248,34 @@ java_net_URL::java_net_URL(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_net_URL::java_net_URL(void * proxy) exit");
+	LOGV("java_net_URL::java_net_URL(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_net_URL::java_net_URL()
-// {
-// 	LOGV("java_net_URL::java_net_URL() enter");	
+Proxy java_net_URL::proxy() const
+{	
+	LOGV("java_net_URL::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/net/URL";
+	long cxxAddress = (long) this;
+	LOGV("java_net_URL cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_URL jni address %d", proxiedComponent);
 
-// 	LOGV("java_net_URL className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_net_URL::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_net_URL cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_net_URL jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_net_URL::java_net_URL() exit");	
-// }
-// 
-// 
-// Public Constructors
-java_net_URL::java_net_URL(JDKCXX::java_lang_String& arg0,JDKCXX::java_lang_String& arg1,int& arg2,JDKCXX::java_lang_String& arg3)
+	return proxy;
+}
+java_net_URL::java_net_URL(JDKCXX::java_lang_String const& arg0,JDKCXX::java_lang_String const& arg1,int const& arg2,JDKCXX::java_lang_String const& arg3)
 {
-	LOGV("java_net_URL::java_net_URL(JDKCXX::java_lang_String& arg0,JDKCXX::java_lang_String& arg1,int& arg2,JDKCXX::java_lang_String& arg3) enter");	
+	LOGV("java_net_URL::java_net_URL(JDKCXX::java_lang_String const& arg0,JDKCXX::java_lang_String const& arg1,int const& arg2,JDKCXX::java_lang_String const& arg3) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V";
@@ -415,11 +391,11 @@ java_net_URL::java_net_URL(JDKCXX::java_lang_String& arg0,JDKCXX::java_lang_Stri
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_URL::java_net_URL(JDKCXX::java_lang_String& arg0,JDKCXX::java_lang_String& arg1,int& arg2,JDKCXX::java_lang_String& arg3) exit");	
+	LOGV("java_net_URL::java_net_URL(JDKCXX::java_lang_String const& arg0,JDKCXX::java_lang_String const& arg1,int const& arg2,JDKCXX::java_lang_String const& arg3) exit");	
 }
-java_net_URL::java_net_URL(JDKCXX::java_lang_String& arg0,JDKCXX::java_lang_String& arg1,JDKCXX::java_lang_String& arg2)
+java_net_URL::java_net_URL(JDKCXX::java_lang_String const& arg0,JDKCXX::java_lang_String const& arg1,JDKCXX::java_lang_String const& arg2)
 {
-	LOGV("java_net_URL::java_net_URL(JDKCXX::java_lang_String& arg0,JDKCXX::java_lang_String& arg1,JDKCXX::java_lang_String& arg2) enter");	
+	LOGV("java_net_URL::java_net_URL(JDKCXX::java_lang_String const& arg0,JDKCXX::java_lang_String const& arg1,JDKCXX::java_lang_String const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
@@ -514,11 +490,11 @@ java_net_URL::java_net_URL(JDKCXX::java_lang_String& arg0,JDKCXX::java_lang_Stri
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_URL::java_net_URL(JDKCXX::java_lang_String& arg0,JDKCXX::java_lang_String& arg1,JDKCXX::java_lang_String& arg2) exit");	
+	LOGV("java_net_URL::java_net_URL(JDKCXX::java_lang_String const& arg0,JDKCXX::java_lang_String const& arg1,JDKCXX::java_lang_String const& arg2) exit");	
 }
-java_net_URL::java_net_URL(JDKCXX::java_lang_String& arg0,JDKCXX::java_lang_String& arg1,int& arg2,JDKCXX::java_lang_String& arg3,JDKCXX::java_net_URLStreamHandler& arg4)
+java_net_URL::java_net_URL(JDKCXX::java_lang_String const& arg0,JDKCXX::java_lang_String const& arg1,int const& arg2,JDKCXX::java_lang_String const& arg3,JDKCXX::java_net_URLStreamHandler const& arg4)
 {
-	LOGV("java_net_URL::java_net_URL(JDKCXX::java_lang_String& arg0,JDKCXX::java_lang_String& arg1,int& arg2,JDKCXX::java_lang_String& arg3,JDKCXX::java_net_URLStreamHandler& arg4) enter");	
+	LOGV("java_net_URL::java_net_URL(JDKCXX::java_lang_String const& arg0,JDKCXX::java_lang_String const& arg1,int const& arg2,JDKCXX::java_lang_String const& arg3,JDKCXX::java_net_URLStreamHandler const& arg4) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/net/URLStreamHandler;)V";
@@ -655,11 +631,11 @@ java_net_URL::java_net_URL(JDKCXX::java_lang_String& arg0,JDKCXX::java_lang_Stri
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_URL::java_net_URL(JDKCXX::java_lang_String& arg0,JDKCXX::java_lang_String& arg1,int& arg2,JDKCXX::java_lang_String& arg3,JDKCXX::java_net_URLStreamHandler& arg4) exit");	
+	LOGV("java_net_URL::java_net_URL(JDKCXX::java_lang_String const& arg0,JDKCXX::java_lang_String const& arg1,int const& arg2,JDKCXX::java_lang_String const& arg3,JDKCXX::java_net_URLStreamHandler const& arg4) exit");	
 }
-java_net_URL::java_net_URL(JDKCXX::java_lang_String& arg0)
+java_net_URL::java_net_URL(JDKCXX::java_lang_String const& arg0)
 {
-	LOGV("java_net_URL::java_net_URL(JDKCXX::java_lang_String& arg0) enter");	
+	LOGV("java_net_URL::java_net_URL(JDKCXX::java_lang_String const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -712,11 +688,11 @@ java_net_URL::java_net_URL(JDKCXX::java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_URL::java_net_URL(JDKCXX::java_lang_String& arg0) exit");	
+	LOGV("java_net_URL::java_net_URL(JDKCXX::java_lang_String const& arg0) exit");	
 }
-java_net_URL::java_net_URL(JDKCXX::java_net_URL& arg0,JDKCXX::java_lang_String& arg1)
+java_net_URL::java_net_URL(JDKCXX::java_net_URL const& arg0,JDKCXX::java_lang_String const& arg1)
 {
-	LOGV("java_net_URL::java_net_URL(JDKCXX::java_net_URL& arg0,JDKCXX::java_lang_String& arg1) enter");	
+	LOGV("java_net_URL::java_net_URL(JDKCXX::java_net_URL const& arg0,JDKCXX::java_lang_String const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/net/URL;Ljava/lang/String;)V";
@@ -790,11 +766,11 @@ java_net_URL::java_net_URL(JDKCXX::java_net_URL& arg0,JDKCXX::java_lang_String& 
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_URL::java_net_URL(JDKCXX::java_net_URL& arg0,JDKCXX::java_lang_String& arg1) exit");	
+	LOGV("java_net_URL::java_net_URL(JDKCXX::java_net_URL const& arg0,JDKCXX::java_lang_String const& arg1) exit");	
 }
-java_net_URL::java_net_URL(JDKCXX::java_net_URL& arg0,JDKCXX::java_lang_String& arg1,JDKCXX::java_net_URLStreamHandler& arg2)
+java_net_URL::java_net_URL(JDKCXX::java_net_URL const& arg0,JDKCXX::java_lang_String const& arg1,JDKCXX::java_net_URLStreamHandler const& arg2)
 {
-	LOGV("java_net_URL::java_net_URL(JDKCXX::java_net_URL& arg0,JDKCXX::java_lang_String& arg1,JDKCXX::java_net_URLStreamHandler& arg2) enter");	
+	LOGV("java_net_URL::java_net_URL(JDKCXX::java_net_URL const& arg0,JDKCXX::java_lang_String const& arg1,JDKCXX::java_net_URLStreamHandler const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/net/URL;Ljava/lang/String;Ljava/net/URLStreamHandler;)V";
@@ -889,7 +865,7 @@ java_net_URL::java_net_URL(JDKCXX::java_net_URL& arg0,JDKCXX::java_lang_String& 
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_URL::java_net_URL(JDKCXX::java_net_URL& arg0,JDKCXX::java_lang_String& arg1,JDKCXX::java_net_URLStreamHandler& arg2) exit");	
+	LOGV("java_net_URL::java_net_URL(JDKCXX::java_net_URL const& arg0,JDKCXX::java_lang_String const& arg1,JDKCXX::java_net_URLStreamHandler const& arg2) exit");	
 }
 // Default Instance Destructor
 java_net_URL::~java_net_URL()
@@ -902,13 +878,13 @@ java_net_URL::~java_net_URL()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_net_URL::~java_net_URL() exit");
 }
 // Functions
-bool java_net_URL::equals(JDKCXX::java_lang_Object& arg0)
+bool java_net_URL::equals(JDKCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_net_URL::equals(JDKCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_net_URL::equals(JDKCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -918,8 +894,6 @@ bool java_net_URL::equals(JDKCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
@@ -969,9 +943,7 @@ bool java_net_URL::equals(JDKCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_net_URL::equals(JDKCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_net_URL::equals(JDKCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -987,8 +959,6 @@ JDKCXX::java_lang_String java_net_URL::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
@@ -1017,8 +987,6 @@ JDKCXX::java_lang_String java_net_URL::toString()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_net_URL::toString() exit");
 
 	return result;
@@ -1035,8 +1003,6 @@ int java_net_URL::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
@@ -1065,8 +1031,6 @@ int java_net_URL::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_net_URL::hashCode() exit");
 
 	return result;
@@ -1083,8 +1047,6 @@ JDKCXX::java_io_InputStream java_net_URL::openStream()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
@@ -1113,8 +1075,6 @@ JDKCXX::java_io_InputStream java_net_URL::openStream()
 	JDKCXX::java_io_InputStream result((JDKCXX::java_io_InputStream) *((JDKCXX::java_io_InputStream *) cxx_value));
 	delete ((JDKCXX::java_io_InputStream *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_io_InputStream java_net_URL::openStream() exit");
 
 	return result;
@@ -1131,8 +1091,6 @@ JDKCXX::java_lang_String java_net_URL::getPath()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
@@ -1161,8 +1119,6 @@ JDKCXX::java_lang_String java_net_URL::getPath()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_net_URL::getPath() exit");
 
 	return result;
@@ -1179,8 +1135,6 @@ JDKCXX::java_net_URI java_net_URL::toURI()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
@@ -1209,8 +1163,6 @@ JDKCXX::java_net_URI java_net_URL::toURI()
 	JDKCXX::java_net_URI result((JDKCXX::java_net_URI) *((JDKCXX::java_net_URI *) cxx_value));
 	delete ((JDKCXX::java_net_URI *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_net_URI java_net_URL::toURI() exit");
 
 	return result;
@@ -1228,8 +1180,6 @@ JDKCXX::java_lang_String java_net_URL::getAuthority()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1257,8 +1207,6 @@ JDKCXX::java_lang_String java_net_URL::getAuthority()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_net_URL::getAuthority() exit");
 
 	return result;
@@ -1276,8 +1224,6 @@ JDKCXX::java_lang_String java_net_URL::getQuery()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1305,8 +1251,6 @@ JDKCXX::java_lang_String java_net_URL::getQuery()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_net_URL::getQuery() exit");
 
 	return result;
@@ -1324,8 +1268,6 @@ JDKCXX::java_lang_String java_net_URL::getUserInfo()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1353,8 +1295,6 @@ JDKCXX::java_lang_String java_net_URL::getUserInfo()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_net_URL::getUserInfo() exit");
 
 	return result;
@@ -1372,8 +1312,6 @@ int java_net_URL::getPort()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1401,8 +1339,6 @@ int java_net_URL::getPort()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_net_URL::getPort() exit");
 
 	return result;
@@ -1420,8 +1356,6 @@ int java_net_URL::getDefaultPort()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1449,8 +1383,6 @@ int java_net_URL::getDefaultPort()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_net_URL::getDefaultPort() exit");
 
 	return result;
@@ -1468,8 +1400,6 @@ JDKCXX::java_lang_String java_net_URL::getProtocol()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1497,8 +1427,6 @@ JDKCXX::java_lang_String java_net_URL::getProtocol()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_net_URL::getProtocol() exit");
 
 	return result;
@@ -1516,8 +1444,6 @@ JDKCXX::java_lang_String java_net_URL::getHost()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1545,8 +1471,6 @@ JDKCXX::java_lang_String java_net_URL::getHost()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_net_URL::getHost() exit");
 
 	return result;
@@ -1564,8 +1488,6 @@ JDKCXX::java_lang_String java_net_URL::getFile()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1593,8 +1515,6 @@ JDKCXX::java_lang_String java_net_URL::getFile()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_net_URL::getFile() exit");
 
 	return result;
@@ -1612,8 +1532,6 @@ JDKCXX::java_lang_String java_net_URL::getRef()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1641,15 +1559,13 @@ JDKCXX::java_lang_String java_net_URL::getRef()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_net_URL::getRef() exit");
 
 	return result;
 }
-bool java_net_URL::sameFile(JDKCXX::java_net_URL& arg0)
+bool java_net_URL::sameFile(JDKCXX::java_net_URL const& arg0)
 {
-	LOGV("bool java_net_URL::sameFile(JDKCXX::java_net_URL& arg0) enter");
+	LOGV("bool java_net_URL::sameFile(JDKCXX::java_net_URL const& arg0) enter");
 
 	const char *methodName = "sameFile";
 	const char *methodSignature = "(Ljava/net/URL;)Z";
@@ -1659,8 +1575,6 @@ bool java_net_URL::sameFile(JDKCXX::java_net_URL& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
@@ -1710,9 +1624,7 @@ bool java_net_URL::sameFile(JDKCXX::java_net_URL& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_net_URL::sameFile(JDKCXX::java_net_URL& arg0) exit");
+	LOGV("bool java_net_URL::sameFile(JDKCXX::java_net_URL const& arg0) exit");
 
 	return result;
 }
@@ -1728,8 +1640,6 @@ JDKCXX::java_lang_String java_net_URL::toExternalForm()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
@@ -1758,15 +1668,13 @@ JDKCXX::java_lang_String java_net_URL::toExternalForm()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_net_URL::toExternalForm() exit");
 
 	return result;
 }
-JDKCXX::java_net_URLConnection java_net_URL::openConnection(JDKCXX::java_net_Proxy& arg0)
+JDKCXX::java_net_URLConnection java_net_URL::openConnection(JDKCXX::java_net_Proxy const& arg0)
 {
-	LOGV("JDKCXX::java_net_URLConnection java_net_URL::openConnection(JDKCXX::java_net_Proxy& arg0) enter");
+	LOGV("JDKCXX::java_net_URLConnection java_net_URL::openConnection(JDKCXX::java_net_Proxy const& arg0) enter");
 
 	const char *methodName = "openConnection";
 	const char *methodSignature = "(Ljava/net/Proxy;)Ljava/net/URLConnection;";
@@ -1776,8 +1684,6 @@ JDKCXX::java_net_URLConnection java_net_URL::openConnection(JDKCXX::java_net_Pro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
@@ -1827,9 +1733,7 @@ JDKCXX::java_net_URLConnection java_net_URL::openConnection(JDKCXX::java_net_Pro
 	JDKCXX::java_net_URLConnection result((JDKCXX::java_net_URLConnection) *((JDKCXX::java_net_URLConnection *) cxx_value));
 	delete ((JDKCXX::java_net_URLConnection *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_net_URLConnection java_net_URL::openConnection(JDKCXX::java_net_Proxy& arg0) exit");
+	LOGV("JDKCXX::java_net_URLConnection java_net_URL::openConnection(JDKCXX::java_net_Proxy const& arg0) exit");
 
 	return result;
 }
@@ -1845,8 +1749,6 @@ JDKCXX::java_net_URLConnection java_net_URL::openConnection()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
@@ -1875,15 +1777,13 @@ JDKCXX::java_net_URLConnection java_net_URL::openConnection()
 	JDKCXX::java_net_URLConnection result((JDKCXX::java_net_URLConnection) *((JDKCXX::java_net_URLConnection *) cxx_value));
 	delete ((JDKCXX::java_net_URLConnection *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_net_URLConnection java_net_URL::openConnection() exit");
 
 	return result;
 }
-JDKCXX::java_lang_Object java_net_URL::getContent(std::vector<JDKCXX::java_lang_Class >& arg0)
+JDKCXX::java_lang_Object java_net_URL::getContent(std::vector<JDKCXX::java_lang_Class > const& arg0)
 {
-	LOGV("JDKCXX::java_lang_Object java_net_URL::getContent(std::vector<JDKCXX::java_lang_Class >& arg0) enter");
+	LOGV("JDKCXX::java_lang_Object java_net_URL::getContent(std::vector<JDKCXX::java_lang_Class > const& arg0) enter");
 
 	const char *methodName = "getContent";
 	const char *methodSignature = "([Ljava/lang/Class;)Ljava/lang/Object;";
@@ -1893,8 +1793,6 @@ JDKCXX::java_lang_Object java_net_URL::getContent(std::vector<JDKCXX::java_lang_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
@@ -1962,9 +1860,7 @@ JDKCXX::java_lang_Object java_net_URL::getContent(std::vector<JDKCXX::java_lang_
 	JDKCXX::java_lang_Object result((JDKCXX::java_lang_Object) *((JDKCXX::java_lang_Object *) cxx_value));
 	delete ((JDKCXX::java_lang_Object *) cxx_value);
 		
-	jni->popLocalFrame();
-
-	LOGV("JDKCXX::java_lang_Object java_net_URL::getContent(std::vector<JDKCXX::java_lang_Class >& arg0) exit");
+	LOGV("JDKCXX::java_lang_Object java_net_URL::getContent(std::vector<JDKCXX::java_lang_Class > const& arg0) exit");
 
 	return result;
 }
@@ -1980,8 +1876,6 @@ JDKCXX::java_lang_Object java_net_URL::getContent()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
@@ -2010,15 +1904,13 @@ JDKCXX::java_lang_Object java_net_URL::getContent()
 	JDKCXX::java_lang_Object result((JDKCXX::java_lang_Object) *((JDKCXX::java_lang_Object *) cxx_value));
 	delete ((JDKCXX::java_lang_Object *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_Object java_net_URL::getContent() exit");
 
 	return result;
 }
-void java_net_URL::setURLStreamHandlerFactory(JDKCXX::java_net_URLStreamHandlerFactory& arg0)
+void java_net_URL::setURLStreamHandlerFactory(JDKCXX::java_net_URLStreamHandlerFactory const& arg0)
 {
-	LOGV("void java_net_URL::setURLStreamHandlerFactory(JDKCXX::java_net_URLStreamHandlerFactory& arg0) enter");
+	LOGV("void java_net_URL::setURLStreamHandlerFactory(JDKCXX::java_net_URLStreamHandlerFactory const& arg0) enter");
 
 	const char *methodName = "setURLStreamHandlerFactory";
 	const char *methodSignature = "(Ljava/net/URLStreamHandlerFactory;)V";
@@ -2028,8 +1920,6 @@ void java_net_URL::setURLStreamHandlerFactory(JDKCXX::java_net_URLStreamHandlerF
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("java_net_URL cxx address %d", cxxAddress);
@@ -2058,10 +1948,8 @@ void java_net_URL::setURLStreamHandlerFactory(JDKCXX::java_net_URLStreamHandlerF
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void java_net_URL::setURLStreamHandlerFactory(JDKCXX::java_net_URLStreamHandlerFactory& arg0) exit");
+	LOGV("void java_net_URL::setURLStreamHandlerFactory(JDKCXX::java_net_URLStreamHandlerFactory const& arg0) exit");
 
 }

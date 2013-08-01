@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -59,14 +58,14 @@ class android_content_ServiceConnection
 public:
 
 	android_content_ServiceConnection(const android_content_ServiceConnection& cc);
-	android_content_ServiceConnection(void * proxy);
+	android_content_ServiceConnection(Proxy proxy);
 	// Public Constructors
-	android_content_ServiceConnection();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ServiceConnection();
 	// Functions
-	 void onServiceConnected(AndroidCXX::android_content_ComponentName& arg0,AndroidCXX::android_os_IBinder& arg1);
-	 void onServiceDisconnected(AndroidCXX::android_content_ComponentName& arg0);
+	 void onServiceConnected(AndroidCXX::android_content_ComponentName const& arg0,AndroidCXX::android_os_IBinder const& arg1);
+	 void onServiceDisconnected(AndroidCXX::android_content_ComponentName const& arg0);
 };	
 
 } // namespace

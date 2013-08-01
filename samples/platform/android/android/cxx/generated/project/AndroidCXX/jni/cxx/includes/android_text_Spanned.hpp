@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
  	
@@ -68,17 +67,17 @@ class android_text_Spanned
 public:
 
 	android_text_Spanned(const android_text_Spanned& cc);
-	android_text_Spanned(void * proxy);
+	android_text_Spanned(Proxy proxy);
 	// Public Constructors
-	android_text_Spanned();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_text_Spanned();
 	// Functions
-	 std::vector<AndroidCXX::java_lang_Object > getSpans(int& arg0,int& arg1,AndroidCXX::java_lang_Class& arg2);
-	 int getSpanStart(AndroidCXX::java_lang_Object& arg0);
-	 int getSpanEnd(AndroidCXX::java_lang_Object& arg0);
-	 int getSpanFlags(AndroidCXX::java_lang_Object& arg0);
-	 int nextSpanTransition(int& arg0,int& arg1,AndroidCXX::java_lang_Class& arg2);
+	 std::vector<AndroidCXX::java_lang_Object > getSpans(int const& arg0,int const& arg1,AndroidCXX::java_lang_Class const& arg2);
+	 int getSpanStart(AndroidCXX::java_lang_Object const& arg0);
+	 int getSpanEnd(AndroidCXX::java_lang_Object const& arg0);
+	 int getSpanFlags(AndroidCXX::java_lang_Object const& arg0);
+	 int nextSpanTransition(int const& arg0,int const& arg1,AndroidCXX::java_lang_Class const& arg2);
 };	
 
 } // namespace

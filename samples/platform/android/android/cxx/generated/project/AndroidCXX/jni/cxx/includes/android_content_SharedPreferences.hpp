@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -103,23 +102,23 @@ class android_content_SharedPreferences
 public:
 
 	android_content_SharedPreferences(const android_content_SharedPreferences& cc);
-	android_content_SharedPreferences(void * proxy);
+	android_content_SharedPreferences(Proxy proxy);
 	// Public Constructors
-	android_content_SharedPreferences();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_SharedPreferences();
 	// Functions
-	 bool getBoolean(AndroidCXX::java_lang_String& arg0,bool& arg1);
-	 int getInt(AndroidCXX::java_lang_String& arg0,int& arg1);
-	 long getLong(AndroidCXX::java_lang_String& arg0,long& arg1);
-	 float getFloat(AndroidCXX::java_lang_String& arg0,float& arg1);
-	 bool contains(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::java_lang_String getString(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
+	 bool getBoolean(AndroidCXX::java_lang_String const& arg0,bool const& arg1);
+	 int getInt(AndroidCXX::java_lang_String const& arg0,int const& arg1);
+	 long getLong(AndroidCXX::java_lang_String const& arg0,long const& arg1);
+	 float getFloat(AndroidCXX::java_lang_String const& arg0,float const& arg1);
+	 bool contains(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::java_lang_String getString(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
 	 AndroidCXX::java_util_Map getAll();
-	 AndroidCXX::java_util_Set getStringSet(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_Set& arg1);
+	 AndroidCXX::java_util_Set getStringSet(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Set const& arg1);
 	 AndroidCXX::android_content_SharedPreferences_Editor edit();
-	 void registerOnSharedPreferenceChangeListener(AndroidCXX::android_content_SharedPreferences_OnSharedPreferenceChangeListener& arg0);
-	 void unregisterOnSharedPreferenceChangeListener(AndroidCXX::android_content_SharedPreferences_OnSharedPreferenceChangeListener& arg0);
+	 void registerOnSharedPreferenceChangeListener(AndroidCXX::android_content_SharedPreferences_OnSharedPreferenceChangeListener const& arg0);
+	 void unregisterOnSharedPreferenceChangeListener(AndroidCXX::android_content_SharedPreferences_OnSharedPreferenceChangeListener const& arg0);
 };	
 
 } // namespace

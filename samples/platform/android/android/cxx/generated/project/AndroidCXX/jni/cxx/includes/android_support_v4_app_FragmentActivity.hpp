@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -151,26 +150,27 @@ class android_support_v4_app_FragmentActivity
 public:
 
 	android_support_v4_app_FragmentActivity(const android_support_v4_app_FragmentActivity& cc);
-	android_support_v4_app_FragmentActivity(void * proxy);
+	android_support_v4_app_FragmentActivity(Proxy proxy);
 	// Public Constructors
 	android_support_v4_app_FragmentActivity();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_support_v4_app_FragmentActivity();
 	// Functions
-	 void dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<AndroidCXX::java_lang_String >& arg3);
-	 void startActivityForResult(AndroidCXX::android_content_Intent& arg0,int& arg1);
-	 AndroidCXX::android_view_View onCreateView(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_content_Context& arg1,AndroidCXX::android_util_AttributeSet& arg2);
-	 void onConfigurationChanged(AndroidCXX::android_content_res_Configuration& arg0);
+	 void dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3);
+	 void startActivityForResult(AndroidCXX::android_content_Intent const& arg0,int const& arg1);
+	 AndroidCXX::android_view_View onCreateView(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_content_Context const& arg1,AndroidCXX::android_util_AttributeSet const& arg2);
+	 void onConfigurationChanged(AndroidCXX::android_content_res_Configuration const& arg0);
 	 void onLowMemory();
 	 void supportInvalidateOptionsMenu();
-	 void startActivityFromFragment(AndroidCXX::android_support_v4_app_Fragment& arg0,AndroidCXX::android_content_Intent& arg1,int& arg2);
-	 void onAttachFragment(AndroidCXX::android_support_v4_app_Fragment& arg0);
+	 void startActivityFromFragment(AndroidCXX::android_support_v4_app_Fragment const& arg0,AndroidCXX::android_content_Intent const& arg1,int const& arg2);
+	 void onAttachFragment(AndroidCXX::android_support_v4_app_Fragment const& arg0);
 	 void onBackPressed();
-	 bool onCreatePanelMenu(int& arg0,AndroidCXX::android_view_Menu& arg1);
-	 bool onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1);
-	 bool onMenuItemSelected(int& arg0,AndroidCXX::android_view_MenuItem& arg1);
-	 void onPanelClosed(int& arg0,AndroidCXX::android_view_Menu& arg1);
-	 bool onPreparePanel(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_Menu& arg2);
+	 bool onCreatePanelMenu(int const& arg0,AndroidCXX::android_view_Menu const& arg1);
+	 bool onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
+	 bool onMenuItemSelected(int const& arg0,AndroidCXX::android_view_MenuItem const& arg1);
+	 void onPanelClosed(int const& arg0,AndroidCXX::android_view_Menu const& arg1);
+	 bool onPreparePanel(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_Menu const& arg2);
 	 AndroidCXX::java_lang_Object onRetainNonConfigurationInstance();
 	 AndroidCXX::java_lang_Object onRetainCustomNonConfigurationInstance();
 	 AndroidCXX::java_lang_Object getLastCustomNonConfigurationInstance();

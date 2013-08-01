@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -44,7 +43,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_support_v4_app_LoaderManager"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -90,8 +89,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_support_v4_app_LoaderManager::android_support_v4_app_LoaderManager(const android_support_v4_app_LoaderManager& cc)
 {
 	LOGV("android_support_v4_app_LoaderManager::android_support_v4_app_LoaderManager(const android_support_v4_app_LoaderManager& cc) enter");
@@ -115,9 +112,9 @@ android_support_v4_app_LoaderManager::android_support_v4_app_LoaderManager(const
 
 	LOGV("android_support_v4_app_LoaderManager::android_support_v4_app_LoaderManager(const android_support_v4_app_LoaderManager& cc) exit");
 }
-android_support_v4_app_LoaderManager::android_support_v4_app_LoaderManager(void * proxy)
+android_support_v4_app_LoaderManager::android_support_v4_app_LoaderManager(Proxy proxy)
 {
-	LOGV("android_support_v4_app_LoaderManager::android_support_v4_app_LoaderManager(void * proxy) enter");
+	LOGV("android_support_v4_app_LoaderManager::android_support_v4_app_LoaderManager(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -127,13 +124,31 @@ android_support_v4_app_LoaderManager::android_support_v4_app_LoaderManager(void 
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_support_v4_app_LoaderManager::android_support_v4_app_LoaderManager(void * proxy) exit");
+	LOGV("android_support_v4_app_LoaderManager::android_support_v4_app_LoaderManager(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy android_support_v4_app_LoaderManager::proxy() const
+{	
+	LOGV("android_support_v4_app_LoaderManager::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_support_v4_app_LoaderManager cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_support_v4_app_LoaderManager jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_support_v4_app_LoaderManager::proxy() exit");	
+
+	return proxy;
+}
 android_support_v4_app_LoaderManager::android_support_v4_app_LoaderManager()
 {
 	LOGV("android_support_v4_app_LoaderManager::android_support_v4_app_LoaderManager() enter");	
@@ -181,13 +196,13 @@ android_support_v4_app_LoaderManager::~android_support_v4_app_LoaderManager()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_support_v4_app_LoaderManager::~android_support_v4_app_LoaderManager() exit");
 }
 // Functions
-AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManager::getLoader(int& arg0)
+AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManager::getLoader(int const& arg0)
 {
-	LOGV("AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManager::getLoader(int& arg0) enter");
+	LOGV("AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManager::getLoader(int const& arg0) enter");
 
 	const char *methodName = "getLoader";
 	const char *methodSignature = "(I)Landroid/support/v4/content/Loader;";
@@ -197,8 +212,6 @@ AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManag
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_support_v4_app_LoaderManager cxx address %d", cxxAddress);
@@ -227,7 +240,6 @@ AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManag
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_support_v4_content_Loader result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -263,17 +275,17 @@ AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManag
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_support_v4_content_Loader(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_support_v4_content_Loader) (AndroidCXX::android_support_v4_content_Loader((AndroidCXX::android_support_v4_content_Loader *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManager::getLoader(int& arg0) exit");
+	AndroidCXX::android_support_v4_content_Loader result((AndroidCXX::android_support_v4_content_Loader) *((AndroidCXX::android_support_v4_content_Loader *) cxx_value));
+	delete ((AndroidCXX::android_support_v4_content_Loader *) cxx_value);
+		
+	LOGV("AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManager::getLoader(int const& arg0) exit");
 
 	return result;
 }
-void android_support_v4_app_LoaderManager::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<AndroidCXX::java_lang_String >& arg3)
+void android_support_v4_app_LoaderManager::dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3)
 {
-	LOGV("void android_support_v4_app_LoaderManager::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<AndroidCXX::java_lang_String >& arg3) enter");
+	LOGV("void android_support_v4_app_LoaderManager::dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3) enter");
 
 	const char *methodName = "dump";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V";
@@ -283,8 +295,6 @@ void android_support_v4_app_LoaderManager::dump(AndroidCXX::java_lang_String& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_support_v4_app_LoaderManager cxx address %d", cxxAddress);
@@ -396,14 +406,12 @@ void android_support_v4_app_LoaderManager::dump(AndroidCXX::java_lang_String& ar
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_support_v4_app_LoaderManager::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<AndroidCXX::java_lang_String >& arg3) exit");
+	LOGV("void android_support_v4_app_LoaderManager::dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3) exit");
 
 }
-AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManager::initLoader(int& arg0,AndroidCXX::android_os_Bundle& arg1,AndroidCXX::android_support_v4_app_LoaderManager_LoaderCallbacks& arg2)
+AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManager::initLoader(int const& arg0,AndroidCXX::android_os_Bundle const& arg1,AndroidCXX::android_support_v4_app_LoaderManager_LoaderCallbacks const& arg2)
 {
-	LOGV("AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManager::initLoader(int& arg0,AndroidCXX::android_os_Bundle& arg1,AndroidCXX::android_support_v4_app_LoaderManager_LoaderCallbacks& arg2) enter");
+	LOGV("AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManager::initLoader(int const& arg0,AndroidCXX::android_os_Bundle const& arg1,AndroidCXX::android_support_v4_app_LoaderManager_LoaderCallbacks const& arg2) enter");
 
 	const char *methodName = "initLoader";
 	const char *methodSignature = "(ILandroid/os/Bundle;Landroid/support/v4/app/LoaderManager$LoaderCallbacks;)Landroid/support/v4/content/Loader;";
@@ -414,8 +422,6 @@ AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManag
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_support_v4_app_LoaderManager cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -503,7 +509,6 @@ AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManag
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_support_v4_content_Loader result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -539,17 +544,17 @@ AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManag
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_support_v4_content_Loader(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_support_v4_content_Loader) (AndroidCXX::android_support_v4_content_Loader((AndroidCXX::android_support_v4_content_Loader *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManager::initLoader(int& arg0,AndroidCXX::android_os_Bundle& arg1,AndroidCXX::android_support_v4_app_LoaderManager_LoaderCallbacks& arg2) exit");
+	AndroidCXX::android_support_v4_content_Loader result((AndroidCXX::android_support_v4_content_Loader) *((AndroidCXX::android_support_v4_content_Loader *) cxx_value));
+	delete ((AndroidCXX::android_support_v4_content_Loader *) cxx_value);
+		
+	LOGV("AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManager::initLoader(int const& arg0,AndroidCXX::android_os_Bundle const& arg1,AndroidCXX::android_support_v4_app_LoaderManager_LoaderCallbacks const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManager::restartLoader(int& arg0,AndroidCXX::android_os_Bundle& arg1,AndroidCXX::android_support_v4_app_LoaderManager_LoaderCallbacks& arg2)
+AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManager::restartLoader(int const& arg0,AndroidCXX::android_os_Bundle const& arg1,AndroidCXX::android_support_v4_app_LoaderManager_LoaderCallbacks const& arg2)
 {
-	LOGV("AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManager::restartLoader(int& arg0,AndroidCXX::android_os_Bundle& arg1,AndroidCXX::android_support_v4_app_LoaderManager_LoaderCallbacks& arg2) enter");
+	LOGV("AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManager::restartLoader(int const& arg0,AndroidCXX::android_os_Bundle const& arg1,AndroidCXX::android_support_v4_app_LoaderManager_LoaderCallbacks const& arg2) enter");
 
 	const char *methodName = "restartLoader";
 	const char *methodSignature = "(ILandroid/os/Bundle;Landroid/support/v4/app/LoaderManager$LoaderCallbacks;)Landroid/support/v4/content/Loader;";
@@ -560,8 +565,6 @@ AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManag
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_support_v4_app_LoaderManager cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -649,7 +652,6 @@ AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManag
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_support_v4_content_Loader result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -685,17 +687,17 @@ AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManag
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_support_v4_content_Loader(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_support_v4_content_Loader) (AndroidCXX::android_support_v4_content_Loader((AndroidCXX::android_support_v4_content_Loader *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManager::restartLoader(int& arg0,AndroidCXX::android_os_Bundle& arg1,AndroidCXX::android_support_v4_app_LoaderManager_LoaderCallbacks& arg2) exit");
+	AndroidCXX::android_support_v4_content_Loader result((AndroidCXX::android_support_v4_content_Loader) *((AndroidCXX::android_support_v4_content_Loader *) cxx_value));
+	delete ((AndroidCXX::android_support_v4_content_Loader *) cxx_value);
+		
+	LOGV("AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManager::restartLoader(int const& arg0,AndroidCXX::android_os_Bundle const& arg1,AndroidCXX::android_support_v4_app_LoaderManager_LoaderCallbacks const& arg2) exit");
 
 	return result;
 }
-void android_support_v4_app_LoaderManager::destroyLoader(int& arg0)
+void android_support_v4_app_LoaderManager::destroyLoader(int const& arg0)
 {
-	LOGV("void android_support_v4_app_LoaderManager::destroyLoader(int& arg0) enter");
+	LOGV("void android_support_v4_app_LoaderManager::destroyLoader(int const& arg0) enter");
 
 	const char *methodName = "destroyLoader";
 	const char *methodSignature = "(I)V";
@@ -705,8 +707,6 @@ void android_support_v4_app_LoaderManager::destroyLoader(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_support_v4_app_LoaderManager cxx address %d", cxxAddress);
@@ -737,14 +737,12 @@ void android_support_v4_app_LoaderManager::destroyLoader(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_support_v4_app_LoaderManager::destroyLoader(int& arg0) exit");
+	LOGV("void android_support_v4_app_LoaderManager::destroyLoader(int const& arg0) exit");
 
 }
-void android_support_v4_app_LoaderManager::enableDebugLogging(bool& arg0)
+void android_support_v4_app_LoaderManager::enableDebugLogging(bool const& arg0)
 {
-	LOGV("void android_support_v4_app_LoaderManager::enableDebugLogging(bool& arg0) enter");
+	LOGV("void android_support_v4_app_LoaderManager::enableDebugLogging(bool const& arg0) enter");
 
 	const char *methodName = "enableDebugLogging";
 	const char *methodSignature = "(Z)V";
@@ -754,8 +752,6 @@ void android_support_v4_app_LoaderManager::enableDebugLogging(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_support_v4_app_LoaderManager cxx address %d", cxxAddress);
@@ -784,11 +780,9 @@ void android_support_v4_app_LoaderManager::enableDebugLogging(bool& arg0)
 		jarg0 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jni->invokeStaticVoidMethod(className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_support_v4_app_LoaderManager::enableDebugLogging(bool& arg0) exit");
+	LOGV("void android_support_v4_app_LoaderManager::enableDebugLogging(bool const& arg0) exit");
 
 }
 bool android_support_v4_app_LoaderManager::hasRunningLoaders()
@@ -804,15 +798,12 @@ bool android_support_v4_app_LoaderManager::hasRunningLoaders()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_support_v4_app_LoaderManager cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_support_v4_app_LoaderManager jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -830,10 +821,10 @@ bool android_support_v4_app_LoaderManager::hasRunningLoaders()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_support_v4_app_LoaderManager::hasRunningLoaders() exit");
 
 	return result;

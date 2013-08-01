@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -28,6 +27,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_PickerFragment_2"
@@ -47,8 +47,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2(const com_facebook_widget_PickerFragment_2& cc)
 {
 	LOGV("com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2(const com_facebook_widget_PickerFragment_2& cc) enter");
@@ -72,9 +70,9 @@ com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2(const
 
 	LOGV("com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2(const com_facebook_widget_PickerFragment_2& cc) exit");
 }
-com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2(void * proxy)
+com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2(Proxy proxy)
 {
-	LOGV("com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2(void * proxy) enter");
+	LOGV("com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -84,47 +82,31 @@ com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2(void 
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2(void * proxy) exit");
+	LOGV("com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2(Proxy proxy) exit");
 }
-com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2()
-{
-	LOGV("com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/widget/PickerFragment$2";
-
-	LOGV("com_facebook_widget_PickerFragment_2 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_widget_PickerFragment_2::proxy() const
+{	
+	LOGV("com_facebook_widget_PickerFragment_2::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment_2 cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_PickerFragment_2 jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_widget_PickerFragment_2::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 com_facebook_widget_PickerFragment_2::~com_facebook_widget_PickerFragment_2()
 {
@@ -136,13 +118,13 @@ com_facebook_widget_PickerFragment_2::~com_facebook_widget_PickerFragment_2()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_widget_PickerFragment_2::~com_facebook_widget_PickerFragment_2() exit");
 }
 // Functions
-bool com_facebook_widget_PickerFragment_2::includeItem(FacebookCXX::com_facebook_model_GraphObject& arg0)
+bool com_facebook_widget_PickerFragment_2::includeItem(FacebookCXX::com_facebook_model_GraphObject const& arg0)
 {
-	LOGV("bool com_facebook_widget_PickerFragment_2::includeItem(FacebookCXX::com_facebook_model_GraphObject& arg0) enter");
+	LOGV("bool com_facebook_widget_PickerFragment_2::includeItem(FacebookCXX::com_facebook_model_GraphObject const& arg0) enter");
 
 	const char *methodName = "includeItem";
 	const char *methodSignature = "(Lcom/facebook/model/GraphObject;)Z";
@@ -152,8 +134,6 @@ bool com_facebook_widget_PickerFragment_2::includeItem(FacebookCXX::com_facebook
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment_2 cxx address %d", cxxAddress);
@@ -182,7 +162,6 @@ bool com_facebook_widget_PickerFragment_2::includeItem(FacebookCXX::com_facebook
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -200,11 +179,11 @@ bool com_facebook_widget_PickerFragment_2::includeItem(FacebookCXX::com_facebook
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool com_facebook_widget_PickerFragment_2::includeItem(FacebookCXX::com_facebook_model_GraphObject& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool com_facebook_widget_PickerFragment_2::includeItem(FacebookCXX::com_facebook_model_GraphObject const& arg0) exit");
 
 	return result;
 }

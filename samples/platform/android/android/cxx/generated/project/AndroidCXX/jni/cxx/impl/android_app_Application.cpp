@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -41,7 +40,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_app_Application"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -72,8 +71,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_app_Application::android_app_Application(const android_app_Application& cc)
 {
 	LOGV("android_app_Application::android_app_Application(const android_app_Application& cc) enter");
@@ -97,9 +94,9 @@ android_app_Application::android_app_Application(const android_app_Application& 
 
 	LOGV("android_app_Application::android_app_Application(const android_app_Application& cc) exit");
 }
-android_app_Application::android_app_Application(void * proxy)
+android_app_Application::android_app_Application(Proxy proxy)
 {
-	LOGV("android_app_Application::android_app_Application(void * proxy) enter");
+	LOGV("android_app_Application::android_app_Application(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -109,13 +106,31 @@ android_app_Application::android_app_Application(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_app_Application::android_app_Application(void * proxy) exit");
+	LOGV("android_app_Application::android_app_Application(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy android_app_Application::proxy() const
+{	
+	LOGV("android_app_Application::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Application cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Application jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_app_Application::proxy() exit");	
+
+	return proxy;
+}
 android_app_Application::android_app_Application()
 {
 	LOGV("android_app_Application::android_app_Application() enter");	
@@ -163,7 +178,7 @@ android_app_Application::~android_app_Application()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_app_Application::~android_app_Application() exit");
 }
 // Functions
@@ -180,8 +195,6 @@ void android_app_Application::onCreate()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_Application cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -190,14 +203,12 @@ void android_app_Application::onCreate()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_app_Application::onCreate() exit");
 
 }
-void android_app_Application::onConfigurationChanged(AndroidCXX::android_content_res_Configuration& arg0)
+void android_app_Application::onConfigurationChanged(AndroidCXX::android_content_res_Configuration const& arg0)
 {
-	LOGV("void android_app_Application::onConfigurationChanged(AndroidCXX::android_content_res_Configuration& arg0) enter");
+	LOGV("void android_app_Application::onConfigurationChanged(AndroidCXX::android_content_res_Configuration const& arg0) enter");
 
 	const char *methodName = "onConfigurationChanged";
 	const char *methodSignature = "(Landroid/content/res/Configuration;)V";
@@ -207,8 +218,6 @@ void android_app_Application::onConfigurationChanged(AndroidCXX::android_content
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_Application cxx address %d", cxxAddress);
@@ -239,9 +248,7 @@ void android_app_Application::onConfigurationChanged(AndroidCXX::android_content
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_app_Application::onConfigurationChanged(AndroidCXX::android_content_res_Configuration& arg0) exit");
+	LOGV("void android_app_Application::onConfigurationChanged(AndroidCXX::android_content_res_Configuration const& arg0) exit");
 
 }
 void android_app_Application::onLowMemory()
@@ -257,8 +264,6 @@ void android_app_Application::onLowMemory()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_Application cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -267,14 +272,12 @@ void android_app_Application::onLowMemory()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_app_Application::onLowMemory() exit");
 
 }
-void android_app_Application::registerComponentCallbacks(AndroidCXX::android_content_ComponentCallbacks& arg0)
+void android_app_Application::registerComponentCallbacks(AndroidCXX::android_content_ComponentCallbacks const& arg0)
 {
-	LOGV("void android_app_Application::registerComponentCallbacks(AndroidCXX::android_content_ComponentCallbacks& arg0) enter");
+	LOGV("void android_app_Application::registerComponentCallbacks(AndroidCXX::android_content_ComponentCallbacks const& arg0) enter");
 
 	const char *methodName = "registerComponentCallbacks";
 	const char *methodSignature = "(Landroid/content/ComponentCallbacks;)V";
@@ -285,8 +288,6 @@ void android_app_Application::registerComponentCallbacks(AndroidCXX::android_con
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_Application cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -316,14 +317,12 @@ void android_app_Application::registerComponentCallbacks(AndroidCXX::android_con
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_app_Application::registerComponentCallbacks(AndroidCXX::android_content_ComponentCallbacks& arg0) exit");
+	LOGV("void android_app_Application::registerComponentCallbacks(AndroidCXX::android_content_ComponentCallbacks const& arg0) exit");
 
 }
-void android_app_Application::unregisterComponentCallbacks(AndroidCXX::android_content_ComponentCallbacks& arg0)
+void android_app_Application::unregisterComponentCallbacks(AndroidCXX::android_content_ComponentCallbacks const& arg0)
 {
-	LOGV("void android_app_Application::unregisterComponentCallbacks(AndroidCXX::android_content_ComponentCallbacks& arg0) enter");
+	LOGV("void android_app_Application::unregisterComponentCallbacks(AndroidCXX::android_content_ComponentCallbacks const& arg0) enter");
 
 	const char *methodName = "unregisterComponentCallbacks";
 	const char *methodSignature = "(Landroid/content/ComponentCallbacks;)V";
@@ -334,8 +333,6 @@ void android_app_Application::unregisterComponentCallbacks(AndroidCXX::android_c
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_Application cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -365,14 +362,12 @@ void android_app_Application::unregisterComponentCallbacks(AndroidCXX::android_c
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_app_Application::unregisterComponentCallbacks(AndroidCXX::android_content_ComponentCallbacks& arg0) exit");
+	LOGV("void android_app_Application::unregisterComponentCallbacks(AndroidCXX::android_content_ComponentCallbacks const& arg0) exit");
 
 }
-void android_app_Application::onTrimMemory(int& arg0)
+void android_app_Application::onTrimMemory(int const& arg0)
 {
-	LOGV("void android_app_Application::onTrimMemory(int& arg0) enter");
+	LOGV("void android_app_Application::onTrimMemory(int const& arg0) enter");
 
 	const char *methodName = "onTrimMemory";
 	const char *methodSignature = "(I)V";
@@ -382,8 +377,6 @@ void android_app_Application::onTrimMemory(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_app_Application cxx address %d", cxxAddress);
@@ -414,9 +407,7 @@ void android_app_Application::onTrimMemory(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_app_Application::onTrimMemory(int& arg0) exit");
+	LOGV("void android_app_Application::onTrimMemory(int const& arg0) exit");
 
 }
 void android_app_Application::onTerminate()
@@ -432,8 +423,6 @@ void android_app_Application::onTerminate()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_Application cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -442,14 +431,12 @@ void android_app_Application::onTerminate()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_app_Application::onTerminate() exit");
 
 }
-void android_app_Application::registerActivityLifecycleCallbacks(AndroidCXX::android_app_Application_ActivityLifecycleCallbacks& arg0)
+void android_app_Application::registerActivityLifecycleCallbacks(AndroidCXX::android_app_Application_ActivityLifecycleCallbacks const& arg0)
 {
-	LOGV("void android_app_Application::registerActivityLifecycleCallbacks(AndroidCXX::android_app_Application_ActivityLifecycleCallbacks& arg0) enter");
+	LOGV("void android_app_Application::registerActivityLifecycleCallbacks(AndroidCXX::android_app_Application_ActivityLifecycleCallbacks const& arg0) enter");
 
 	const char *methodName = "registerActivityLifecycleCallbacks";
 	const char *methodSignature = "(Landroid/app/Application$ActivityLifecycleCallbacks;)V";
@@ -460,8 +447,6 @@ void android_app_Application::registerActivityLifecycleCallbacks(AndroidCXX::and
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_Application cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -491,14 +476,12 @@ void android_app_Application::registerActivityLifecycleCallbacks(AndroidCXX::and
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_app_Application::registerActivityLifecycleCallbacks(AndroidCXX::android_app_Application_ActivityLifecycleCallbacks& arg0) exit");
+	LOGV("void android_app_Application::registerActivityLifecycleCallbacks(AndroidCXX::android_app_Application_ActivityLifecycleCallbacks const& arg0) exit");
 
 }
-void android_app_Application::unregisterActivityLifecycleCallbacks(AndroidCXX::android_app_Application_ActivityLifecycleCallbacks& arg0)
+void android_app_Application::unregisterActivityLifecycleCallbacks(AndroidCXX::android_app_Application_ActivityLifecycleCallbacks const& arg0)
 {
-	LOGV("void android_app_Application::unregisterActivityLifecycleCallbacks(AndroidCXX::android_app_Application_ActivityLifecycleCallbacks& arg0) enter");
+	LOGV("void android_app_Application::unregisterActivityLifecycleCallbacks(AndroidCXX::android_app_Application_ActivityLifecycleCallbacks const& arg0) enter");
 
 	const char *methodName = "unregisterActivityLifecycleCallbacks";
 	const char *methodSignature = "(Landroid/app/Application$ActivityLifecycleCallbacks;)V";
@@ -509,8 +492,6 @@ void android_app_Application::unregisterActivityLifecycleCallbacks(AndroidCXX::a
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_app_Application cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -540,8 +521,6 @@ void android_app_Application::unregisterActivityLifecycleCallbacks(AndroidCXX::a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_app_Application::unregisterActivityLifecycleCallbacks(AndroidCXX::android_app_Application_ActivityLifecycleCallbacks& arg0) exit");
+	LOGV("void android_app_Application::unregisterActivityLifecycleCallbacks(AndroidCXX::android_app_Application_ActivityLifecycleCallbacks const& arg0) exit");
 
 }

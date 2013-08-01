@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -52,13 +51,13 @@ class android_webkit_ValueCallback
 public:
 
 	android_webkit_ValueCallback(const android_webkit_ValueCallback& cc);
-	android_webkit_ValueCallback(void * proxy);
+	android_webkit_ValueCallback(Proxy proxy);
 	// Public Constructors
-	android_webkit_ValueCallback();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_ValueCallback();
 	// Functions
-	 void onReceiveValue(AndroidCXX::java_lang_Object& arg0);
+	 void onReceiveValue(AndroidCXX::java_lang_Object const& arg0);
 };	
 
 } // namespace

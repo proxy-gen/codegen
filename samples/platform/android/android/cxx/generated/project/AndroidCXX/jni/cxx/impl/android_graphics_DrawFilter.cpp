@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_graphics_DrawFilter.hpp>
@@ -27,7 +26,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_DrawFilter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -40,8 +39,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_graphics_DrawFilter::android_graphics_DrawFilter(const android_graphics_DrawFilter& cc)
 {
 	LOGV("android_graphics_DrawFilter::android_graphics_DrawFilter(const android_graphics_DrawFilter& cc) enter");
@@ -65,9 +62,9 @@ android_graphics_DrawFilter::android_graphics_DrawFilter(const android_graphics_
 
 	LOGV("android_graphics_DrawFilter::android_graphics_DrawFilter(const android_graphics_DrawFilter& cc) exit");
 }
-android_graphics_DrawFilter::android_graphics_DrawFilter(void * proxy)
+android_graphics_DrawFilter::android_graphics_DrawFilter(Proxy proxy)
 {
-	LOGV("android_graphics_DrawFilter::android_graphics_DrawFilter(void * proxy) enter");
+	LOGV("android_graphics_DrawFilter::android_graphics_DrawFilter(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -77,13 +74,31 @@ android_graphics_DrawFilter::android_graphics_DrawFilter(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_graphics_DrawFilter::android_graphics_DrawFilter(void * proxy) exit");
+	LOGV("android_graphics_DrawFilter::android_graphics_DrawFilter(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy android_graphics_DrawFilter::proxy() const
+{	
+	LOGV("android_graphics_DrawFilter::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_graphics_DrawFilter cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_graphics_DrawFilter jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_graphics_DrawFilter::proxy() exit");	
+
+	return proxy;
+}
 android_graphics_DrawFilter::android_graphics_DrawFilter()
 {
 	LOGV("android_graphics_DrawFilter::android_graphics_DrawFilter() enter");	
@@ -131,7 +146,7 @@ android_graphics_DrawFilter::~android_graphics_DrawFilter()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_graphics_DrawFilter::~android_graphics_DrawFilter() exit");
 }
 // Functions

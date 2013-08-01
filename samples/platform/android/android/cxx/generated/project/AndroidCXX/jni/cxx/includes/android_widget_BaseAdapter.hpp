@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -75,19 +74,20 @@ class android_widget_BaseAdapter
 public:
 
 	android_widget_BaseAdapter(const android_widget_BaseAdapter& cc);
-	android_widget_BaseAdapter(void * proxy);
+	android_widget_BaseAdapter(Proxy proxy);
 	// Public Constructors
 	android_widget_BaseAdapter();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_BaseAdapter();
 	// Functions
 	 bool isEmpty();
-	 bool isEnabled(int& arg0);
-	 void registerDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0);
-	 void unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0);
-	 AndroidCXX::android_view_View getDropDownView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2);
+	 bool isEnabled(int const& arg0);
+	 void registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0);
+	 void unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0);
+	 AndroidCXX::android_view_View getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
 	 bool hasStableIds();
-	 int getItemViewType(int& arg0);
+	 int getItemViewType(int const& arg0);
 	 int getViewTypeCount();
 	 bool areAllItemsEnabled();
 	 void notifyDataSetChanged();

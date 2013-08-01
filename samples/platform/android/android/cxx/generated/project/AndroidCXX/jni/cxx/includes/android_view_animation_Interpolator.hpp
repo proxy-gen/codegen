@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_view_animation_Interpolator
@@ -46,9 +45,9 @@ class android_view_animation_Interpolator
 public:
 
 	android_view_animation_Interpolator(const android_view_animation_Interpolator& cc);
-	android_view_animation_Interpolator(void * proxy);
+	android_view_animation_Interpolator(Proxy proxy);
 	// Public Constructors
-	android_view_animation_Interpolator();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_animation_Interpolator();
 	// Functions

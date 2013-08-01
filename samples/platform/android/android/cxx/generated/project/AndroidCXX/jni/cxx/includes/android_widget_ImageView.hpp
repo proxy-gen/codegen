@@ -8,7 +8,6 @@
 //
 
 
-
 	
  	
  		 
@@ -153,55 +152,55 @@ class android_widget_ImageView
 public:
 
 	android_widget_ImageView(const android_widget_ImageView& cc);
-	android_widget_ImageView(void * proxy);
+	android_widget_ImageView(Proxy proxy);
 	// Public Constructors
-	android_widget_ImageView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_ImageView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_ImageView(AndroidCXX::android_content_Context& arg0);
-	android_widget_ImageView();
+	android_widget_ImageView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_ImageView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_ImageView(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ImageView();
 	// Functions
-	 void setVisibility(int& arg0);
+	 void setVisibility(int const& arg0);
 	 AndroidCXX::android_graphics_drawable_Drawable getDrawable();
 	 void jumpDrawablesToCurrentState();
-	 std::vector<int> onCreateDrawableState(int& arg0);
-	 void onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 std::vector<int> onCreateDrawableState(int const& arg0);
+	 void onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
 	 bool hasOverlappingRendering();
-	 void setAlpha(int& arg0);
-	 void invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0);
-	 void setSelected(bool& arg0);
+	 void setAlpha(int const& arg0);
+	 void invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
+	 void setSelected(bool const& arg0);
 	 int getBaseline();
-	 void setColorFilter(int& arg0,ANDROID_GRAPHICS_PORTERDUFF_MODE::android_graphics_PorterDuff_Mode& arg1);
-	 void setColorFilter(int& arg0);
-	 void setColorFilter(AndroidCXX::android_graphics_ColorFilter& arg0);
+	 void setColorFilter(int const& arg0,android_graphics_PorterDuff_Mode::android_graphics_PorterDuff_Mode const& arg1);
+	 void setColorFilter(int const& arg0);
+	 void setColorFilter(AndroidCXX::android_graphics_ColorFilter const& arg0);
 	 void clearColorFilter();
 	 AndroidCXX::android_graphics_ColorFilter getColorFilter();
-	 void setMaxHeight(int& arg0);
+	 void setMaxHeight(int const& arg0);
 	 int getMaxHeight();
-	 void setMaxWidth(int& arg0);
+	 void setMaxWidth(int const& arg0);
 	 int getMaxWidth();
 	 bool getAdjustViewBounds();
-	 void setAdjustViewBounds(bool& arg0);
-	 void setImageResource(int& arg0);
-	 void setImageURI(AndroidCXX::android_net_Uri& arg0);
-	 void setImageDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0);
-	 void setImageBitmap(AndroidCXX::android_graphics_Bitmap& arg0);
-	 void setImageState(std::vector<int>& arg0,bool& arg1);
-	 void setImageLevel(int& arg0);
-	 void setScaleType(ANDROID_WIDGET_IMAGEVIEW_SCALETYPE::android_widget_ImageView_ScaleType& arg0);
-	 ANDROID_WIDGET_IMAGEVIEW_SCALETYPE::android_widget_ImageView_ScaleType getScaleType();
+	 void setAdjustViewBounds(bool const& arg0);
+	 void setImageResource(int const& arg0);
+	 void setImageURI(AndroidCXX::android_net_Uri const& arg0);
+	 void setImageDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
+	 void setImageBitmap(AndroidCXX::android_graphics_Bitmap const& arg0);
+	 void setImageState(std::vector<int> const& arg0,bool const& arg1);
+	 void setImageLevel(int const& arg0);
+	 void setScaleType(android_widget_ImageView_ScaleType::android_widget_ImageView_ScaleType const& arg0);
+	 android_widget_ImageView_ScaleType::android_widget_ImageView_ScaleType getScaleType();
 	 AndroidCXX::android_graphics_Matrix getImageMatrix();
-	 void setImageMatrix(AndroidCXX::android_graphics_Matrix& arg0);
+	 void setImageMatrix(AndroidCXX::android_graphics_Matrix const& arg0);
 	 bool getCropToPadding();
-	 void setCropToPadding(bool& arg0);
-	 void setBaseline(int& arg0);
-	 void setBaselineAlignBottom(bool& arg0);
+	 void setCropToPadding(bool const& arg0);
+	 void setBaseline(int const& arg0);
+	 void setBaselineAlignBottom(bool const& arg0);
 	 bool getBaselineAlignBottom();
 	 int getImageAlpha();
-	 void setImageAlpha(int& arg0);
+	 void setImageAlpha(int const& arg0);
 };	
 
 } // namespace

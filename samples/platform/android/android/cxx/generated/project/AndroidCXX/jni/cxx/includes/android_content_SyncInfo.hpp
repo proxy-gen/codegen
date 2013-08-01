@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -53,14 +52,14 @@ class android_content_SyncInfo
 public:
 
 	android_content_SyncInfo(const android_content_SyncInfo& cc);
-	android_content_SyncInfo(void * proxy);
+	android_content_SyncInfo(Proxy proxy);
 	// Public Constructors
-	android_content_SyncInfo();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_SyncInfo();
 	// Functions
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 };	
 
 } // namespace

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -99,34 +98,34 @@ class android_view_accessibility_AccessibilityEvent
 public:
 
 	android_view_accessibility_AccessibilityEvent(const android_view_accessibility_AccessibilityEvent& cc);
-	android_view_accessibility_AccessibilityEvent(void * proxy);
+	android_view_accessibility_AccessibilityEvent(Proxy proxy);
 	// Public Constructors
-	android_view_accessibility_AccessibilityEvent();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_accessibility_AccessibilityEvent();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
 	 AndroidCXX::java_lang_CharSequence getPackageName();
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
-	static AndroidCXX::android_view_accessibility_AccessibilityEvent obtain(int& arg0);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	static AndroidCXX::android_view_accessibility_AccessibilityEvent obtain(int const& arg0);
 	static AndroidCXX::android_view_accessibility_AccessibilityEvent obtain();
-	static AndroidCXX::android_view_accessibility_AccessibilityEvent obtain(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
+	static AndroidCXX::android_view_accessibility_AccessibilityEvent obtain(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
 	 void recycle();
 	 int getAction();
-	 void setAction(int& arg0);
+	 void setAction(int const& arg0);
 	 int getEventType();
 	 long getEventTime();
 	 int getRecordCount();
-	 void appendRecord(AndroidCXX::android_view_accessibility_AccessibilityRecord& arg0);
-	 AndroidCXX::android_view_accessibility_AccessibilityRecord getRecord(int& arg0);
-	 void setEventType(int& arg0);
-	 void setEventTime(long& arg0);
-	 void setPackageName(AndroidCXX::java_lang_CharSequence& arg0);
-	 void setMovementGranularity(int& arg0);
+	 void appendRecord(AndroidCXX::android_view_accessibility_AccessibilityRecord const& arg0);
+	 AndroidCXX::android_view_accessibility_AccessibilityRecord getRecord(int const& arg0);
+	 void setEventType(int const& arg0);
+	 void setEventTime(long const& arg0);
+	 void setPackageName(AndroidCXX::java_lang_CharSequence const& arg0);
+	 void setMovementGranularity(int const& arg0);
 	 int getMovementGranularity();
-	 void initFromParcel(AndroidCXX::android_os_Parcel& arg0);
-	static AndroidCXX::java_lang_String eventTypeToString(int& arg0);
+	 void initFromParcel(AndroidCXX::android_os_Parcel const& arg0);
+	static AndroidCXX::java_lang_String eventTypeToString(int const& arg0);
 };	
 
 } // namespace

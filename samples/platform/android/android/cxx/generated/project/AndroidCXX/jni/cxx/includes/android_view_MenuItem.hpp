@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -161,53 +160,53 @@ class android_view_MenuItem
 public:
 
 	android_view_MenuItem(const android_view_MenuItem& cc);
-	android_view_MenuItem(void * proxy);
+	android_view_MenuItem(Proxy proxy);
 	// Public Constructors
-	android_view_MenuItem();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_MenuItem();
 	// Functions
 	 bool isVisible();
 	 bool isEnabled();
 	 AndroidCXX::android_content_Intent getIntent();
-	 AndroidCXX::android_view_MenuItem setIntent(AndroidCXX::android_content_Intent& arg0);
-	 AndroidCXX::android_view_MenuItem setVisible(bool& arg0);
-	 AndroidCXX::android_view_MenuItem setTitle(int& arg0);
-	 AndroidCXX::android_view_MenuItem setTitle(AndroidCXX::java_lang_CharSequence& arg0);
+	 AndroidCXX::android_view_MenuItem setIntent(AndroidCXX::android_content_Intent const& arg0);
+	 AndroidCXX::android_view_MenuItem setVisible(bool const& arg0);
+	 AndroidCXX::android_view_MenuItem setTitle(int const& arg0);
+	 AndroidCXX::android_view_MenuItem setTitle(AndroidCXX::java_lang_CharSequence const& arg0);
 	 AndroidCXX::java_lang_CharSequence getTitle();
-	 AndroidCXX::android_view_MenuItem setEnabled(bool& arg0);
+	 AndroidCXX::android_view_MenuItem setEnabled(bool const& arg0);
 	 int getItemId();
 	 int getGroupId();
 	 int getOrder();
-	 AndroidCXX::android_view_MenuItem setTitleCondensed(AndroidCXX::java_lang_CharSequence& arg0);
+	 AndroidCXX::android_view_MenuItem setTitleCondensed(AndroidCXX::java_lang_CharSequence const& arg0);
 	 AndroidCXX::java_lang_CharSequence getTitleCondensed();
-	 AndroidCXX::android_view_MenuItem setIcon(AndroidCXX::android_graphics_drawable_Drawable& arg0);
-	 AndroidCXX::android_view_MenuItem setIcon(int& arg0);
+	 AndroidCXX::android_view_MenuItem setIcon(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
+	 AndroidCXX::android_view_MenuItem setIcon(int const& arg0);
 	 AndroidCXX::android_graphics_drawable_Drawable getIcon();
-	 AndroidCXX::android_view_MenuItem setShortcut(char& arg0,char& arg1);
-	 AndroidCXX::android_view_MenuItem setNumericShortcut(char& arg0);
+	 AndroidCXX::android_view_MenuItem setShortcut(char const& arg0,char const& arg1);
+	 AndroidCXX::android_view_MenuItem setNumericShortcut(char const& arg0);
 	 char getNumericShortcut();
-	 AndroidCXX::android_view_MenuItem setAlphabeticShortcut(char& arg0);
+	 AndroidCXX::android_view_MenuItem setAlphabeticShortcut(char const& arg0);
 	 char getAlphabeticShortcut();
-	 AndroidCXX::android_view_MenuItem setCheckable(bool& arg0);
+	 AndroidCXX::android_view_MenuItem setCheckable(bool const& arg0);
 	 bool isCheckable();
-	 AndroidCXX::android_view_MenuItem setChecked(bool& arg0);
+	 AndroidCXX::android_view_MenuItem setChecked(bool const& arg0);
 	 bool isChecked();
 	 bool hasSubMenu();
 	 AndroidCXX::android_view_SubMenu getSubMenu();
-	 AndroidCXX::android_view_MenuItem setOnMenuItemClickListener(AndroidCXX::android_view_MenuItem_OnMenuItemClickListener& arg0);
+	 AndroidCXX::android_view_MenuItem setOnMenuItemClickListener(AndroidCXX::android_view_MenuItem_OnMenuItemClickListener const& arg0);
 	 AndroidCXX::android_view_ContextMenu_ContextMenuInfo getMenuInfo();
-	 void setShowAsAction(int& arg0);
-	 AndroidCXX::android_view_MenuItem setShowAsActionFlags(int& arg0);
-	 AndroidCXX::android_view_MenuItem setActionView(AndroidCXX::android_view_View& arg0);
-	 AndroidCXX::android_view_MenuItem setActionView(int& arg0);
+	 void setShowAsAction(int const& arg0);
+	 AndroidCXX::android_view_MenuItem setShowAsActionFlags(int const& arg0);
+	 AndroidCXX::android_view_MenuItem setActionView(AndroidCXX::android_view_View const& arg0);
+	 AndroidCXX::android_view_MenuItem setActionView(int const& arg0);
 	 AndroidCXX::android_view_View getActionView();
-	 AndroidCXX::android_view_MenuItem setActionProvider(AndroidCXX::android_view_ActionProvider& arg0);
+	 AndroidCXX::android_view_MenuItem setActionProvider(AndroidCXX::android_view_ActionProvider const& arg0);
 	 AndroidCXX::android_view_ActionProvider getActionProvider();
 	 bool expandActionView();
 	 bool collapseActionView();
 	 bool isActionViewExpanded();
-	 AndroidCXX::android_view_MenuItem setOnActionExpandListener(AndroidCXX::android_view_MenuItem_OnActionExpandListener& arg0);
+	 AndroidCXX::android_view_MenuItem setOnActionExpandListener(AndroidCXX::android_view_MenuItem_OnActionExpandListener const& arg0);
 };	
 
 } // namespace

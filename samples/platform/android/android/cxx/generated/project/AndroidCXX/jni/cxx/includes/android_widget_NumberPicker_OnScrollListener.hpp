@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -52,13 +51,13 @@ class android_widget_NumberPicker_OnScrollListener
 public:
 
 	android_widget_NumberPicker_OnScrollListener(const android_widget_NumberPicker_OnScrollListener& cc);
-	android_widget_NumberPicker_OnScrollListener(void * proxy);
+	android_widget_NumberPicker_OnScrollListener(Proxy proxy);
 	// Public Constructors
-	android_widget_NumberPicker_OnScrollListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_NumberPicker_OnScrollListener();
 	// Functions
-	 void onScrollStateChange(AndroidCXX::android_widget_NumberPicker& arg0,int& arg1);
+	 void onScrollStateChange(AndroidCXX::android_widget_NumberPicker const& arg0,int const& arg1);
 };	
 
 } // namespace

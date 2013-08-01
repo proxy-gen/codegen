@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -45,6 +44,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_GraphObjectPagingLoader"
@@ -90,8 +90,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader(const com_facebook_widget_GraphObjectPagingLoader& cc)
 {
 	LOGV("com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader(const com_facebook_widget_GraphObjectPagingLoader& cc) enter");
@@ -115,9 +113,9 @@ com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagi
 
 	LOGV("com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader(const com_facebook_widget_GraphObjectPagingLoader& cc) exit");
 }
-com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader(void * proxy)
+com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader(Proxy proxy)
 {
-	LOGV("com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader(void * proxy) enter");
+	LOGV("com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -127,50 +125,34 @@ com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagi
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader(void * proxy) exit");
+	LOGV("com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader(Proxy proxy) exit");
 }
-com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader()
-{
-	LOGV("com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/widget/GraphObjectPagingLoader";
-
-	LOGV("com_facebook_widget_GraphObjectPagingLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_widget_GraphObjectPagingLoader::proxy() const
+{	
+	LOGV("com_facebook_widget_GraphObjectPagingLoader::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_GraphObjectPagingLoader cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_GraphObjectPagingLoader jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_widget_GraphObjectPagingLoader::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader() exit");	
+	return proxy;
 }
-// Public Constructors
-com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_Class& arg1)
+com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1)
 {
-	LOGV("com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_Class& arg1) enter");	
+	LOGV("com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/Class;)V";
@@ -262,7 +244,7 @@ com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagi
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_Class& arg1) exit");	
+	LOGV("com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1) exit");	
 }
 // Default Instance Destructor
 com_facebook_widget_GraphObjectPagingLoader::~com_facebook_widget_GraphObjectPagingLoader()
@@ -275,7 +257,7 @@ com_facebook_widget_GraphObjectPagingLoader::~com_facebook_widget_GraphObjectPag
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_widget_GraphObjectPagingLoader::~com_facebook_widget_GraphObjectPagingLoader() exit");
 }
 // Functions
@@ -292,15 +274,12 @@ bool com_facebook_widget_GraphObjectPagingLoader::isLoading()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_GraphObjectPagingLoader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_GraphObjectPagingLoader jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -318,10 +297,10 @@ bool com_facebook_widget_GraphObjectPagingLoader::isLoading()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool com_facebook_widget_GraphObjectPagingLoader::isLoading() exit");
 
 	return result;
@@ -339,15 +318,12 @@ FacebookCXX::com_facebook_widget_GraphObjectPagingLoader_OnErrorListener com_fac
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_GraphObjectPagingLoader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_GraphObjectPagingLoader jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_widget_GraphObjectPagingLoader_OnErrorListener result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -365,17 +341,17 @@ FacebookCXX::com_facebook_widget_GraphObjectPagingLoader_OnErrorListener com_fac
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_widget_GraphObjectPagingLoader_OnErrorListener(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_widget_GraphObjectPagingLoader_OnErrorListener) (FacebookCXX::com_facebook_widget_GraphObjectPagingLoader_OnErrorListener((FacebookCXX::com_facebook_widget_GraphObjectPagingLoader_OnErrorListener *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	FacebookCXX::com_facebook_widget_GraphObjectPagingLoader_OnErrorListener result((FacebookCXX::com_facebook_widget_GraphObjectPagingLoader_OnErrorListener) *((FacebookCXX::com_facebook_widget_GraphObjectPagingLoader_OnErrorListener *) cxx_value));
+	delete ((FacebookCXX::com_facebook_widget_GraphObjectPagingLoader_OnErrorListener *) cxx_value);
+		
 	LOGV("FacebookCXX::com_facebook_widget_GraphObjectPagingLoader_OnErrorListener com_facebook_widget_GraphObjectPagingLoader::getOnErrorListener() exit");
 
 	return result;
 }
-void com_facebook_widget_GraphObjectPagingLoader::setOnErrorListener(FacebookCXX::com_facebook_widget_GraphObjectPagingLoader_OnErrorListener& arg0)
+void com_facebook_widget_GraphObjectPagingLoader::setOnErrorListener(FacebookCXX::com_facebook_widget_GraphObjectPagingLoader_OnErrorListener const& arg0)
 {
-	LOGV("void com_facebook_widget_GraphObjectPagingLoader::setOnErrorListener(FacebookCXX::com_facebook_widget_GraphObjectPagingLoader_OnErrorListener& arg0) enter");
+	LOGV("void com_facebook_widget_GraphObjectPagingLoader::setOnErrorListener(FacebookCXX::com_facebook_widget_GraphObjectPagingLoader_OnErrorListener const& arg0) enter");
 
 	const char *methodName = "setOnErrorListener";
 	const char *methodSignature = "(Lcom/facebook/widget/GraphObjectPagingLoader$OnErrorListener;)V";
@@ -385,8 +361,6 @@ void com_facebook_widget_GraphObjectPagingLoader::setOnErrorListener(FacebookCXX
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_GraphObjectPagingLoader cxx address %d", cxxAddress);
@@ -417,9 +391,7 @@ void com_facebook_widget_GraphObjectPagingLoader::setOnErrorListener(FacebookCXX
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_GraphObjectPagingLoader::setOnErrorListener(FacebookCXX::com_facebook_widget_GraphObjectPagingLoader_OnErrorListener& arg0) exit");
+	LOGV("void com_facebook_widget_GraphObjectPagingLoader::setOnErrorListener(FacebookCXX::com_facebook_widget_GraphObjectPagingLoader_OnErrorListener const& arg0) exit");
 
 }
 FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor com_facebook_widget_GraphObjectPagingLoader::getCursor()
@@ -435,15 +407,12 @@ FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor com_facebook_widget_Gra
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_GraphObjectPagingLoader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_GraphObjectPagingLoader jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -479,10 +448,10 @@ FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor com_facebook_widget_Gra
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_widget_SimpleGraphObjectCursor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor) (FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor((FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor result((FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor) *((FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor *) cxx_value));
+	delete ((FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor *) cxx_value);
+		
 	LOGV("FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor com_facebook_widget_GraphObjectPagingLoader::getCursor() exit");
 
 	return result;
@@ -500,8 +469,6 @@ void com_facebook_widget_GraphObjectPagingLoader::clearResults()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_GraphObjectPagingLoader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -510,14 +477,12 @@ void com_facebook_widget_GraphObjectPagingLoader::clearResults()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void com_facebook_widget_GraphObjectPagingLoader::clearResults() exit");
 
 }
-void com_facebook_widget_GraphObjectPagingLoader::startLoading(FacebookCXX::com_facebook_Request& arg0,bool& arg1)
+void com_facebook_widget_GraphObjectPagingLoader::startLoading(FacebookCXX::com_facebook_Request const& arg0,bool const& arg1)
 {
-	LOGV("void com_facebook_widget_GraphObjectPagingLoader::startLoading(FacebookCXX::com_facebook_Request& arg0,bool& arg1) enter");
+	LOGV("void com_facebook_widget_GraphObjectPagingLoader::startLoading(FacebookCXX::com_facebook_Request const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "startLoading";
 	const char *methodSignature = "(Lcom/facebook/Request;Z)V";
@@ -527,8 +492,6 @@ void com_facebook_widget_GraphObjectPagingLoader::startLoading(FacebookCXX::com_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_GraphObjectPagingLoader cxx address %d", cxxAddress);
@@ -580,9 +543,7 @@ void com_facebook_widget_GraphObjectPagingLoader::startLoading(FacebookCXX::com_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_GraphObjectPagingLoader::startLoading(FacebookCXX::com_facebook_Request& arg0,bool& arg1) exit");
+	LOGV("void com_facebook_widget_GraphObjectPagingLoader::startLoading(FacebookCXX::com_facebook_Request const& arg0,bool const& arg1) exit");
 
 }
 void com_facebook_widget_GraphObjectPagingLoader::followNextLink()
@@ -598,8 +559,6 @@ void com_facebook_widget_GraphObjectPagingLoader::followNextLink()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_GraphObjectPagingLoader cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -608,14 +567,12 @@ void com_facebook_widget_GraphObjectPagingLoader::followNextLink()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void com_facebook_widget_GraphObjectPagingLoader::followNextLink() exit");
 
 }
-void com_facebook_widget_GraphObjectPagingLoader::refreshOriginalRequest(long& arg0)
+void com_facebook_widget_GraphObjectPagingLoader::refreshOriginalRequest(long const& arg0)
 {
-	LOGV("void com_facebook_widget_GraphObjectPagingLoader::refreshOriginalRequest(long& arg0) enter");
+	LOGV("void com_facebook_widget_GraphObjectPagingLoader::refreshOriginalRequest(long const& arg0) enter");
 
 	const char *methodName = "refreshOriginalRequest";
 	const char *methodSignature = "(J)V";
@@ -625,8 +582,6 @@ void com_facebook_widget_GraphObjectPagingLoader::refreshOriginalRequest(long& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_GraphObjectPagingLoader cxx address %d", cxxAddress);
@@ -657,14 +612,12 @@ void com_facebook_widget_GraphObjectPagingLoader::refreshOriginalRequest(long& a
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_GraphObjectPagingLoader::refreshOriginalRequest(long& arg0) exit");
+	LOGV("void com_facebook_widget_GraphObjectPagingLoader::refreshOriginalRequest(long const& arg0) exit");
 
 }
-void com_facebook_widget_GraphObjectPagingLoader::deliverResult(FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor& arg0)
+void com_facebook_widget_GraphObjectPagingLoader::deliverResult(FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor const& arg0)
 {
-	LOGV("void com_facebook_widget_GraphObjectPagingLoader::deliverResult(FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor& arg0) enter");
+	LOGV("void com_facebook_widget_GraphObjectPagingLoader::deliverResult(FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor const& arg0) enter");
 
 	const char *methodName = "deliverResult";
 	const char *methodSignature = "(Lcom/facebook/widget/SimpleGraphObjectCursor;)V";
@@ -674,8 +627,6 @@ void com_facebook_widget_GraphObjectPagingLoader::deliverResult(FacebookCXX::com
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_GraphObjectPagingLoader cxx address %d", cxxAddress);
@@ -724,8 +675,6 @@ void com_facebook_widget_GraphObjectPagingLoader::deliverResult(FacebookCXX::com
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_GraphObjectPagingLoader::deliverResult(FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor& arg0) exit");
+	LOGV("void com_facebook_widget_GraphObjectPagingLoader::deliverResult(FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor const& arg0) exit");
 
 }

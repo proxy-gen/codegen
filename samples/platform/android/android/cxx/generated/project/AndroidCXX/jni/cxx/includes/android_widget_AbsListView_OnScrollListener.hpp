@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -54,14 +53,14 @@ class android_widget_AbsListView_OnScrollListener
 public:
 
 	android_widget_AbsListView_OnScrollListener(const android_widget_AbsListView_OnScrollListener& cc);
-	android_widget_AbsListView_OnScrollListener(void * proxy);
+	android_widget_AbsListView_OnScrollListener(Proxy proxy);
 	// Public Constructors
-	android_widget_AbsListView_OnScrollListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AbsListView_OnScrollListener();
 	// Functions
-	 void onScrollStateChanged(AndroidCXX::android_widget_AbsListView& arg0,int& arg1);
-	 void onScroll(AndroidCXX::android_widget_AbsListView& arg0,int& arg1,int& arg2,int& arg3);
+	 void onScrollStateChanged(AndroidCXX::android_widget_AbsListView const& arg0,int const& arg1);
+	 void onScroll(AndroidCXX::android_widget_AbsListView const& arg0,int const& arg1,int const& arg2,int const& arg3);
 };	
 
 } // namespace

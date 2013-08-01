@@ -9,7 +9,6 @@
 
 
 
-
  			
 		
 
@@ -31,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace ANDROID_GRAPHICS_PATH_FILLTYPE {
+namespace android_graphics_Path_FillType {
 
 enum android_graphics_Path_FillType
 {

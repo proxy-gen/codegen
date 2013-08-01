@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -55,10 +54,10 @@ class com_facebook_FacebookDialogException
 public:
 
 	com_facebook_FacebookDialogException(const com_facebook_FacebookDialogException& cc);
-	com_facebook_FacebookDialogException(void * proxy);
+	com_facebook_FacebookDialogException(Proxy proxy);
 	// Public Constructors
-	com_facebook_FacebookDialogException(AndroidCXX::java_lang_String& arg0,int& arg1,AndroidCXX::java_lang_String& arg2);
-	com_facebook_FacebookDialogException();
+	com_facebook_FacebookDialogException(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_FacebookDialogException();
 	// Functions

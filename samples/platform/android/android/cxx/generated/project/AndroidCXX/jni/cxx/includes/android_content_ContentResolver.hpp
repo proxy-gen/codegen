@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -307,58 +306,58 @@ class android_content_ContentResolver
 public:
 
 	android_content_ContentResolver(const android_content_ContentResolver& cc);
-	android_content_ContentResolver(void * proxy);
+	android_content_ContentResolver(Proxy proxy);
 	// Public Constructors
-	android_content_ContentResolver(AndroidCXX::android_content_Context& arg0);
-	android_content_ContentResolver();
+	android_content_ContentResolver(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ContentResolver();
 	// Functions
-	 AndroidCXX::java_lang_String getType(AndroidCXX::android_net_Uri& arg0);
-	 int _delete(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2);
-	 AndroidCXX::android_net_Uri insert(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_content_ContentValues& arg1);
-	 AndroidCXX::android_database_Cursor query(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::android_os_CancellationSignal& arg5);
-	 AndroidCXX::android_database_Cursor query(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4);
-	 int update(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3);
-	 std::vector<AndroidCXX::java_lang_String > getStreamTypes(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1);
-	 AndroidCXX::java_io_InputStream openInputStream(AndroidCXX::android_net_Uri& arg0);
-	 AndroidCXX::java_io_OutputStream openOutputStream(AndroidCXX::android_net_Uri& arg0);
-	 AndroidCXX::java_io_OutputStream openOutputStream(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1);
-	 AndroidCXX::android_os_ParcelFileDescriptor openFileDescriptor(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1);
-	 AndroidCXX::android_content_res_AssetFileDescriptor openAssetFileDescriptor(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1);
-	 AndroidCXX::android_content_res_AssetFileDescriptor openTypedAssetFileDescriptor(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2);
-	 std::vector<AndroidCXX::android_content_ContentProviderResult > applyBatch(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_ArrayList& arg1);
-	 int bulkInsert(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::android_content_ContentValues >& arg1);
-	 AndroidCXX::android_os_Bundle call(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_os_Bundle& arg3);
-	 AndroidCXX::android_content_ContentProviderClient acquireContentProviderClient(AndroidCXX::android_net_Uri& arg0);
-	 AndroidCXX::android_content_ContentProviderClient acquireContentProviderClient(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::android_content_ContentProviderClient acquireUnstableContentProviderClient(AndroidCXX::android_net_Uri& arg0);
-	 AndroidCXX::android_content_ContentProviderClient acquireUnstableContentProviderClient(AndroidCXX::java_lang_String& arg0);
-	 void registerContentObserver(AndroidCXX::android_net_Uri& arg0,bool& arg1,AndroidCXX::android_database_ContentObserver& arg2);
-	 void unregisterContentObserver(AndroidCXX::android_database_ContentObserver& arg0);
-	 void notifyChange(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_database_ContentObserver& arg1);
-	 void notifyChange(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_database_ContentObserver& arg1,bool& arg2);
-	 void startSync(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_os_Bundle& arg1);
-	static void requestSync(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2);
-	static void validateSyncExtrasBundle(AndroidCXX::android_os_Bundle& arg0);
-	 void cancelSync(AndroidCXX::android_net_Uri& arg0);
-	static void cancelSync(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1);
+	 AndroidCXX::java_lang_String getType(AndroidCXX::android_net_Uri const& arg0);
+	 int _delete(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_String > const& arg2);
+	 AndroidCXX::android_net_Uri insert(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_content_ContentValues const& arg1);
+	 AndroidCXX::android_database_Cursor query(AndroidCXX::android_net_Uri const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,AndroidCXX::java_lang_String const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,AndroidCXX::java_lang_String const& arg4,AndroidCXX::android_os_CancellationSignal const& arg5);
+	 AndroidCXX::android_database_Cursor query(AndroidCXX::android_net_Uri const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,AndroidCXX::java_lang_String const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,AndroidCXX::java_lang_String const& arg4);
+	 int update(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_content_ContentValues const& arg1,AndroidCXX::java_lang_String const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3);
+	 std::vector<AndroidCXX::java_lang_String > getStreamTypes(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 AndroidCXX::java_io_InputStream openInputStream(AndroidCXX::android_net_Uri const& arg0);
+	 AndroidCXX::java_io_OutputStream openOutputStream(AndroidCXX::android_net_Uri const& arg0);
+	 AndroidCXX::java_io_OutputStream openOutputStream(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 AndroidCXX::android_os_ParcelFileDescriptor openFileDescriptor(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 AndroidCXX::android_content_res_AssetFileDescriptor openAssetFileDescriptor(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1);
+	 AndroidCXX::android_content_res_AssetFileDescriptor openTypedAssetFileDescriptor(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2);
+	 std::vector<AndroidCXX::android_content_ContentProviderResult > applyBatch(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1);
+	 int bulkInsert(AndroidCXX::android_net_Uri const& arg0,std::vector<AndroidCXX::android_content_ContentValues > const& arg1);
+	 AndroidCXX::android_os_Bundle call(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_os_Bundle const& arg3);
+	 AndroidCXX::android_content_ContentProviderClient acquireContentProviderClient(AndroidCXX::android_net_Uri const& arg0);
+	 AndroidCXX::android_content_ContentProviderClient acquireContentProviderClient(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::android_content_ContentProviderClient acquireUnstableContentProviderClient(AndroidCXX::android_net_Uri const& arg0);
+	 AndroidCXX::android_content_ContentProviderClient acquireUnstableContentProviderClient(AndroidCXX::java_lang_String const& arg0);
+	 void registerContentObserver(AndroidCXX::android_net_Uri const& arg0,bool const& arg1,AndroidCXX::android_database_ContentObserver const& arg2);
+	 void unregisterContentObserver(AndroidCXX::android_database_ContentObserver const& arg0);
+	 void notifyChange(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_database_ContentObserver const& arg1);
+	 void notifyChange(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_database_ContentObserver const& arg1,bool const& arg2);
+	 void startSync(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_os_Bundle const& arg1);
+	static void requestSync(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2);
+	static void validateSyncExtrasBundle(AndroidCXX::android_os_Bundle const& arg0);
+	 void cancelSync(AndroidCXX::android_net_Uri const& arg0);
+	static void cancelSync(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1);
 	static std::vector<AndroidCXX::android_content_SyncAdapterType > getSyncAdapterTypes();
-	static bool getSyncAutomatically(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1);
-	static void setSyncAutomatically(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2);
-	static void addPeriodicSync(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,long& arg3);
-	static void removePeriodicSync(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2);
-	static AndroidCXX::java_util_List getPeriodicSyncs(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1);
-	static int getIsSyncable(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1);
-	static void setIsSyncable(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,int& arg2);
+	static bool getSyncAutomatically(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1);
+	static void setSyncAutomatically(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2);
+	static void addPeriodicSync(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,long const& arg3);
+	static void removePeriodicSync(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2);
+	static AndroidCXX::java_util_List getPeriodicSyncs(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1);
+	static int getIsSyncable(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1);
+	static void setIsSyncable(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2);
 	static bool getMasterSyncAutomatically();
-	static void setMasterSyncAutomatically(bool& arg0);
-	static bool isSyncActive(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1);
+	static void setMasterSyncAutomatically(bool const& arg0);
+	static bool isSyncActive(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1);
 	static AndroidCXX::android_content_SyncInfo getCurrentSync();
 	static AndroidCXX::java_util_List getCurrentSyncs();
-	static bool isSyncPending(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1);
-	static AndroidCXX::java_lang_Object addStatusChangeListener(int& arg0,AndroidCXX::android_content_SyncStatusObserver& arg1);
-	static void removeStatusChangeListener(AndroidCXX::java_lang_Object& arg0);
+	static bool isSyncPending(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1);
+	static AndroidCXX::java_lang_Object addStatusChangeListener(int const& arg0,AndroidCXX::android_content_SyncStatusObserver const& arg1);
+	static void removeStatusChangeListener(AndroidCXX::java_lang_Object const& arg0);
 };	
 
 } // namespace

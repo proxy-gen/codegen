@@ -9,7 +9,6 @@
 
 
 
-
  			
 		
 
@@ -31,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace JAVA_NET_PROXY_TYPE {
+namespace java_net_Proxy_Type {
 
 enum java_net_Proxy_Type
 {

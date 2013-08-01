@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -114,7 +113,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_Bitmap"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -127,7 +126,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_BITMAP_CONFIG;
+// using namespace android_graphics_Bitmap_Config;
 // 
 // 
 // 
@@ -222,7 +221,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// using namespace ANDROID_GRAPHICS_BITMAP_COMPRESSFORMAT;
+// using namespace android_graphics_Bitmap_CompressFormat;
 // 
 // 
 // 
@@ -260,8 +259,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_graphics_Bitmap::android_graphics_Bitmap(const android_graphics_Bitmap& cc)
 {
 	LOGV("android_graphics_Bitmap::android_graphics_Bitmap(const android_graphics_Bitmap& cc) enter");
@@ -285,9 +282,9 @@ android_graphics_Bitmap::android_graphics_Bitmap(const android_graphics_Bitmap& 
 
 	LOGV("android_graphics_Bitmap::android_graphics_Bitmap(const android_graphics_Bitmap& cc) exit");
 }
-android_graphics_Bitmap::android_graphics_Bitmap(void * proxy)
+android_graphics_Bitmap::android_graphics_Bitmap(Proxy proxy)
 {
-	LOGV("android_graphics_Bitmap::android_graphics_Bitmap(void * proxy) enter");
+	LOGV("android_graphics_Bitmap::android_graphics_Bitmap(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -297,47 +294,31 @@ android_graphics_Bitmap::android_graphics_Bitmap(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_graphics_Bitmap::android_graphics_Bitmap(void * proxy) exit");
+	LOGV("android_graphics_Bitmap::android_graphics_Bitmap(Proxy proxy) exit");
 }
-android_graphics_Bitmap::android_graphics_Bitmap()
-{
-	LOGV("android_graphics_Bitmap::android_graphics_Bitmap() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/graphics/Bitmap";
-
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_graphics_Bitmap::proxy() const
+{	
+	LOGV("android_graphics_Bitmap::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Bitmap jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_graphics_Bitmap::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_graphics_Bitmap::android_graphics_Bitmap() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_graphics_Bitmap::~android_graphics_Bitmap()
 {
@@ -349,13 +330,13 @@ android_graphics_Bitmap::~android_graphics_Bitmap()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_graphics_Bitmap::~android_graphics_Bitmap() exit");
 }
 // Functions
-AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::copy(ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config& arg0,bool& arg1)
+AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::copy(android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg0,bool const& arg1)
 {
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::copy(ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config& arg0,bool& arg1) enter");
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::copy(android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "copy";
 	const char *methodSignature = "(Landroid/graphics/Bitmap$Config;Z)Landroid/graphics/Bitmap;";
@@ -365,8 +346,6 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::copy(ANDROID_GRAPHI
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -416,7 +395,6 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::copy(ANDROID_GRAPHI
 		jarg1 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_Bitmap result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -434,11 +412,11 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::copy(ANDROID_GRAPHI
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Bitmap(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Bitmap) (AndroidCXX::android_graphics_Bitmap((AndroidCXX::android_graphics_Bitmap *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::copy(ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config& arg0,bool& arg1) exit");
+	AndroidCXX::android_graphics_Bitmap result((AndroidCXX::android_graphics_Bitmap) *((AndroidCXX::android_graphics_Bitmap *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Bitmap *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::copy(android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg0,bool const& arg1) exit");
 
 	return result;
 }
@@ -455,15 +433,12 @@ int android_graphics_Bitmap::describeContents()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Bitmap jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -481,17 +456,17 @@ int android_graphics_Bitmap::describeContents()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_graphics_Bitmap::describeContents() exit");
 
 	return result;
 }
-void android_graphics_Bitmap::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_graphics_Bitmap::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_graphics_Bitmap::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_graphics_Bitmap::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -501,8 +476,6 @@ void android_graphics_Bitmap::writeToParcel(AndroidCXX::android_os_Parcel& arg0,
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -554,9 +527,7 @@ void android_graphics_Bitmap::writeToParcel(AndroidCXX::android_os_Parcel& arg0,
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Bitmap::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_graphics_Bitmap::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }
 void android_graphics_Bitmap::recycle()
@@ -572,8 +543,6 @@ void android_graphics_Bitmap::recycle()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -582,8 +551,6 @@ void android_graphics_Bitmap::recycle()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_graphics_Bitmap::recycle() exit");
 
 }
@@ -600,15 +567,12 @@ int android_graphics_Bitmap::getWidth()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Bitmap jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -626,10 +590,10 @@ int android_graphics_Bitmap::getWidth()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_graphics_Bitmap::getWidth() exit");
 
 	return result;
@@ -647,15 +611,12 @@ int android_graphics_Bitmap::getHeight()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Bitmap jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -673,10 +634,10 @@ int android_graphics_Bitmap::getHeight()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_graphics_Bitmap::getHeight() exit");
 
 	return result;
@@ -694,15 +655,12 @@ int android_graphics_Bitmap::getDensity()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Bitmap jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -720,17 +678,17 @@ int android_graphics_Bitmap::getDensity()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_graphics_Bitmap::getDensity() exit");
 
 	return result;
 }
-void android_graphics_Bitmap::setDensity(int& arg0)
+void android_graphics_Bitmap::setDensity(int const& arg0)
 {
-	LOGV("void android_graphics_Bitmap::setDensity(int& arg0) enter");
+	LOGV("void android_graphics_Bitmap::setDensity(int const& arg0) enter");
 
 	const char *methodName = "setDensity";
 	const char *methodSignature = "(I)V";
@@ -740,8 +698,6 @@ void android_graphics_Bitmap::setDensity(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -772,9 +728,7 @@ void android_graphics_Bitmap::setDensity(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Bitmap::setDensity(int& arg0) exit");
+	LOGV("void android_graphics_Bitmap::setDensity(int const& arg0) exit");
 
 }
 bool android_graphics_Bitmap::hasAlpha()
@@ -790,15 +744,12 @@ bool android_graphics_Bitmap::hasAlpha()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Bitmap jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -816,10 +767,10 @@ bool android_graphics_Bitmap::hasAlpha()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_graphics_Bitmap::hasAlpha() exit");
 
 	return result;
@@ -837,15 +788,12 @@ bool android_graphics_Bitmap::isRecycled()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Bitmap jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -863,10 +811,10 @@ bool android_graphics_Bitmap::isRecycled()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_graphics_Bitmap::isRecycled() exit");
 
 	return result;
@@ -884,15 +832,12 @@ int android_graphics_Bitmap::getGenerationId()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Bitmap jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -910,17 +855,17 @@ int android_graphics_Bitmap::getGenerationId()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_graphics_Bitmap::getGenerationId() exit");
 
 	return result;
 }
-void android_graphics_Bitmap::copyPixelsToBuffer(AndroidCXX::java_nio_Buffer& arg0)
+void android_graphics_Bitmap::copyPixelsToBuffer(AndroidCXX::java_nio_Buffer const& arg0)
 {
-	LOGV("void android_graphics_Bitmap::copyPixelsToBuffer(AndroidCXX::java_nio_Buffer& arg0) enter");
+	LOGV("void android_graphics_Bitmap::copyPixelsToBuffer(AndroidCXX::java_nio_Buffer const& arg0) enter");
 
 	const char *methodName = "copyPixelsToBuffer";
 	const char *methodSignature = "(Ljava/nio/Buffer;)V";
@@ -931,8 +876,6 @@ void android_graphics_Bitmap::copyPixelsToBuffer(AndroidCXX::java_nio_Buffer& ar
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -962,14 +905,12 @@ void android_graphics_Bitmap::copyPixelsToBuffer(AndroidCXX::java_nio_Buffer& ar
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Bitmap::copyPixelsToBuffer(AndroidCXX::java_nio_Buffer& arg0) exit");
+	LOGV("void android_graphics_Bitmap::copyPixelsToBuffer(AndroidCXX::java_nio_Buffer const& arg0) exit");
 
 }
-void android_graphics_Bitmap::copyPixelsFromBuffer(AndroidCXX::java_nio_Buffer& arg0)
+void android_graphics_Bitmap::copyPixelsFromBuffer(AndroidCXX::java_nio_Buffer const& arg0)
 {
-	LOGV("void android_graphics_Bitmap::copyPixelsFromBuffer(AndroidCXX::java_nio_Buffer& arg0) enter");
+	LOGV("void android_graphics_Bitmap::copyPixelsFromBuffer(AndroidCXX::java_nio_Buffer const& arg0) enter");
 
 	const char *methodName = "copyPixelsFromBuffer";
 	const char *methodSignature = "(Ljava/nio/Buffer;)V";
@@ -980,8 +921,6 @@ void android_graphics_Bitmap::copyPixelsFromBuffer(AndroidCXX::java_nio_Buffer& 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1011,9 +950,7 @@ void android_graphics_Bitmap::copyPixelsFromBuffer(AndroidCXX::java_nio_Buffer& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Bitmap::copyPixelsFromBuffer(AndroidCXX::java_nio_Buffer& arg0) exit");
+	LOGV("void android_graphics_Bitmap::copyPixelsFromBuffer(AndroidCXX::java_nio_Buffer const& arg0) exit");
 
 }
 bool android_graphics_Bitmap::isMutable()
@@ -1029,15 +966,12 @@ bool android_graphics_Bitmap::isMutable()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Bitmap jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1055,17 +989,17 @@ bool android_graphics_Bitmap::isMutable()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_graphics_Bitmap::isMutable() exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createScaledBitmap(AndroidCXX::android_graphics_Bitmap& arg0,int& arg1,int& arg2,bool& arg3)
+AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createScaledBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,int const& arg1,int const& arg2,bool const& arg3)
 {
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createScaledBitmap(AndroidCXX::android_graphics_Bitmap& arg0,int& arg1,int& arg2,bool& arg3) enter");
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createScaledBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,int const& arg1,int const& arg2,bool const& arg3) enter");
 
 	const char *methodName = "createScaledBitmap";
 	const char *methodSignature = "(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;";
@@ -1075,8 +1009,6 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createScaledBitmap(
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -1168,8 +1100,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createScaledBitmap(
 		jarg3 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_Bitmap result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1186,17 +1117,17 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createScaledBitmap(
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Bitmap(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Bitmap) (AndroidCXX::android_graphics_Bitmap((AndroidCXX::android_graphics_Bitmap *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createScaledBitmap(AndroidCXX::android_graphics_Bitmap& arg0,int& arg1,int& arg2,bool& arg3) exit");
+	AndroidCXX::android_graphics_Bitmap result((AndroidCXX::android_graphics_Bitmap) *((AndroidCXX::android_graphics_Bitmap *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Bitmap *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createScaledBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,int const& arg1,int const& arg2,bool const& arg3) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(std::vector<int>& arg0,int& arg1,int& arg2,ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config& arg3)
+AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(std::vector<int> const& arg0,int const& arg1,int const& arg2,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg3)
 {
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(std::vector<int>& arg0,int& arg1,int& arg2,ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config& arg3) enter");
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(std::vector<int> const& arg0,int const& arg1,int const& arg2,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg3) enter");
 
 	const char *methodName = "createBitmap";
 	const char *methodSignature = "([IIILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;";
@@ -1206,8 +1137,6 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(std::v
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -1317,8 +1246,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(std::v
 		jarg3 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_Bitmap result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1335,17 +1263,17 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(std::v
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Bitmap(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Bitmap) (AndroidCXX::android_graphics_Bitmap((AndroidCXX::android_graphics_Bitmap *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(std::vector<int>& arg0,int& arg1,int& arg2,ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config& arg3) exit");
+	AndroidCXX::android_graphics_Bitmap result((AndroidCXX::android_graphics_Bitmap) *((AndroidCXX::android_graphics_Bitmap *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Bitmap *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(std::vector<int> const& arg0,int const& arg1,int const& arg2,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg3) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_util_DisplayMetrics& arg0,std::vector<int>& arg1,int& arg2,int& arg3,ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config& arg4)
+AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_util_DisplayMetrics const& arg0,std::vector<int> const& arg1,int const& arg2,int const& arg3,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg4)
 {
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_util_DisplayMetrics& arg0,std::vector<int>& arg1,int& arg2,int& arg3,ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config& arg4) enter");
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_util_DisplayMetrics const& arg0,std::vector<int> const& arg1,int const& arg2,int const& arg3,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg4) enter");
 
 	const char *methodName = "createBitmap";
 	const char *methodSignature = "(Landroid/util/DisplayMetrics;[IIILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;";
@@ -1355,8 +1283,6 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -1487,8 +1413,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 		jarg4 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_Bitmap result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1505,17 +1430,17 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Bitmap(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Bitmap) (AndroidCXX::android_graphics_Bitmap((AndroidCXX::android_graphics_Bitmap *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_util_DisplayMetrics& arg0,std::vector<int>& arg1,int& arg2,int& arg3,ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config& arg4) exit");
+	AndroidCXX::android_graphics_Bitmap result((AndroidCXX::android_graphics_Bitmap) *((AndroidCXX::android_graphics_Bitmap *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Bitmap *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_util_DisplayMetrics const& arg0,std::vector<int> const& arg1,int const& arg2,int const& arg3,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg4) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_util_DisplayMetrics& arg0,int& arg1,int& arg2,ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config& arg3)
+AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_util_DisplayMetrics const& arg0,int const& arg1,int const& arg2,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg3)
 {
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_util_DisplayMetrics& arg0,int& arg1,int& arg2,ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config& arg3) enter");
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_util_DisplayMetrics const& arg0,int const& arg1,int const& arg2,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg3) enter");
 
 	const char *methodName = "createBitmap";
 	const char *methodSignature = "(Landroid/util/DisplayMetrics;IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;";
@@ -1525,8 +1450,6 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -1618,8 +1541,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 		jarg3 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_Bitmap result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1636,17 +1558,17 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Bitmap(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Bitmap) (AndroidCXX::android_graphics_Bitmap((AndroidCXX::android_graphics_Bitmap *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_util_DisplayMetrics& arg0,int& arg1,int& arg2,ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config& arg3) exit");
+	AndroidCXX::android_graphics_Bitmap result((AndroidCXX::android_graphics_Bitmap) *((AndroidCXX::android_graphics_Bitmap *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Bitmap *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_util_DisplayMetrics const& arg0,int const& arg1,int const& arg2,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg3) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(std::vector<int>& arg0,int& arg1,int& arg2,int& arg3,int& arg4,ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config& arg5)
+AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(std::vector<int> const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg5)
 {
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(std::vector<int>& arg0,int& arg1,int& arg2,int& arg3,int& arg4,ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config& arg5) enter");
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(std::vector<int> const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg5) enter");
 
 	const char *methodName = "createBitmap";
 	const char *methodSignature = "([IIIIILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;";
@@ -1656,8 +1578,6 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(std::v
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -1809,8 +1729,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(std::v
 		jarg5 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_Bitmap result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1827,17 +1746,17 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(std::v
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Bitmap(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Bitmap) (AndroidCXX::android_graphics_Bitmap((AndroidCXX::android_graphics_Bitmap *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(std::vector<int>& arg0,int& arg1,int& arg2,int& arg3,int& arg4,ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config& arg5) exit");
+	AndroidCXX::android_graphics_Bitmap result((AndroidCXX::android_graphics_Bitmap) *((AndroidCXX::android_graphics_Bitmap *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Bitmap *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(std::vector<int> const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg5) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_util_DisplayMetrics& arg0,std::vector<int>& arg1,int& arg2,int& arg3,int& arg4,int& arg5,ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config& arg6)
+AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_util_DisplayMetrics const& arg0,std::vector<int> const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg6)
 {
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_util_DisplayMetrics& arg0,std::vector<int>& arg1,int& arg2,int& arg3,int& arg4,int& arg5,ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config& arg6) enter");
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_util_DisplayMetrics const& arg0,std::vector<int> const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg6) enter");
 
 	const char *methodName = "createBitmap";
 	const char *methodSignature = "(Landroid/util/DisplayMetrics;[IIIIILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;";
@@ -1847,8 +1766,6 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -2021,8 +1938,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 		jarg6 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_Bitmap result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -2039,17 +1955,17 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Bitmap(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Bitmap) (AndroidCXX::android_graphics_Bitmap((AndroidCXX::android_graphics_Bitmap *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_util_DisplayMetrics& arg0,std::vector<int>& arg1,int& arg2,int& arg3,int& arg4,int& arg5,ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config& arg6) exit");
+	AndroidCXX::android_graphics_Bitmap result((AndroidCXX::android_graphics_Bitmap) *((AndroidCXX::android_graphics_Bitmap *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Bitmap *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_util_DisplayMetrics const& arg0,std::vector<int> const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg6) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(int& arg0,int& arg1,ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config& arg2)
+AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(int const& arg0,int const& arg1,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg2)
 {
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(int& arg0,int& arg1,ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config& arg2) enter");
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(int const& arg0,int const& arg1,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg2) enter");
 
 	const char *methodName = "createBitmap";
 	const char *methodSignature = "(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;";
@@ -2059,8 +1975,6 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(int& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -2131,8 +2045,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(int& a
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_Bitmap result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -2149,17 +2062,17 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(int& a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Bitmap(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Bitmap) (AndroidCXX::android_graphics_Bitmap((AndroidCXX::android_graphics_Bitmap *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(int& arg0,int& arg1,ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config& arg2) exit");
+	AndroidCXX::android_graphics_Bitmap result((AndroidCXX::android_graphics_Bitmap) *((AndroidCXX::android_graphics_Bitmap *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Bitmap *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(int const& arg0,int const& arg1,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_graphics_Bitmap& arg0,int& arg1,int& arg2,int& arg3,int& arg4,AndroidCXX::android_graphics_Matrix& arg5,bool& arg6)
+AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,AndroidCXX::android_graphics_Matrix const& arg5,bool const& arg6)
 {
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_graphics_Bitmap& arg0,int& arg1,int& arg2,int& arg3,int& arg4,AndroidCXX::android_graphics_Matrix& arg5,bool& arg6) enter");
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,AndroidCXX::android_graphics_Matrix const& arg5,bool const& arg6) enter");
 
 	const char *methodName = "createBitmap";
 	const char *methodSignature = "(Landroid/graphics/Bitmap;IIIILandroid/graphics/Matrix;Z)Landroid/graphics/Bitmap;";
@@ -2169,8 +2082,6 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -2325,8 +2236,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 		jarg6 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_Bitmap result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -2343,17 +2253,17 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Bitmap(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Bitmap) (AndroidCXX::android_graphics_Bitmap((AndroidCXX::android_graphics_Bitmap *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_graphics_Bitmap& arg0,int& arg1,int& arg2,int& arg3,int& arg4,AndroidCXX::android_graphics_Matrix& arg5,bool& arg6) exit");
+	AndroidCXX::android_graphics_Bitmap result((AndroidCXX::android_graphics_Bitmap) *((AndroidCXX::android_graphics_Bitmap *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Bitmap *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,AndroidCXX::android_graphics_Matrix const& arg5,bool const& arg6) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_graphics_Bitmap& arg0,int& arg1,int& arg2,int& arg3,int& arg4)
+AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4)
 {
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_graphics_Bitmap& arg0,int& arg1,int& arg2,int& arg3,int& arg4) enter");
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) enter");
 
 	const char *methodName = "createBitmap";
 	const char *methodSignature = "(Landroid/graphics/Bitmap;IIII)Landroid/graphics/Bitmap;";
@@ -2363,8 +2273,6 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -2477,8 +2385,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 		jarg4 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_Bitmap result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -2495,17 +2402,17 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Bitmap(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Bitmap) (AndroidCXX::android_graphics_Bitmap((AndroidCXX::android_graphics_Bitmap *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_graphics_Bitmap& arg0,int& arg1,int& arg2,int& arg3,int& arg4) exit");
+	AndroidCXX::android_graphics_Bitmap result((AndroidCXX::android_graphics_Bitmap) *((AndroidCXX::android_graphics_Bitmap *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Bitmap *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_graphics_Bitmap& arg0)
+AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_graphics_Bitmap const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_graphics_Bitmap& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_graphics_Bitmap const& arg0) enter");
 
 	const char *methodName = "createBitmap";
 	const char *methodSignature = "(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;";
@@ -2515,8 +2422,6 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -2545,8 +2450,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_Bitmap result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -2563,11 +2467,11 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Bitmap(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Bitmap) (AndroidCXX::android_graphics_Bitmap((AndroidCXX::android_graphics_Bitmap *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_graphics_Bitmap& arg0) exit");
+	AndroidCXX::android_graphics_Bitmap result((AndroidCXX::android_graphics_Bitmap) *((AndroidCXX::android_graphics_Bitmap *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Bitmap *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(AndroidCXX::android_graphics_Bitmap const& arg0) exit");
 
 	return result;
 }
@@ -2584,15 +2488,12 @@ std::vector<byte> android_graphics_Bitmap::getNinePatchChunk()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Bitmap jni address %d", javaObject);
 
 
-	std::vector<byte> result;
 	jbyteArray jni_result = (jbyteArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__byte_array_type_to_java(jni_result);
@@ -2628,17 +2529,17 @@ std::vector<byte> android_graphics_Bitmap::getNinePatchChunk()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__byte_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<byte>) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	std::vector<byte> result = (std::vector<byte>) *((std::vector<byte> *) cxx_value);
+	delete ((std::vector<byte> *) cxx_value);
+		
 	LOGV("std::vector<byte> android_graphics_Bitmap::getNinePatchChunk() exit");
 
 	return result;
 }
-bool android_graphics_Bitmap::compress(ANDROID_GRAPHICS_BITMAP_COMPRESSFORMAT::android_graphics_Bitmap_CompressFormat& arg0,int& arg1,AndroidCXX::java_io_OutputStream& arg2)
+bool android_graphics_Bitmap::compress(android_graphics_Bitmap_CompressFormat::android_graphics_Bitmap_CompressFormat const& arg0,int const& arg1,AndroidCXX::java_io_OutputStream const& arg2)
 {
-	LOGV("bool android_graphics_Bitmap::compress(ANDROID_GRAPHICS_BITMAP_COMPRESSFORMAT::android_graphics_Bitmap_CompressFormat& arg0,int& arg1,AndroidCXX::java_io_OutputStream& arg2) enter");
+	LOGV("bool android_graphics_Bitmap::compress(android_graphics_Bitmap_CompressFormat::android_graphics_Bitmap_CompressFormat const& arg0,int const& arg1,AndroidCXX::java_io_OutputStream const& arg2) enter");
 
 	const char *methodName = "compress";
 	const char *methodSignature = "(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z";
@@ -2648,8 +2549,6 @@ bool android_graphics_Bitmap::compress(ANDROID_GRAPHICS_BITMAP_COMPRESSFORMAT::a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -2720,7 +2619,6 @@ bool android_graphics_Bitmap::compress(ANDROID_GRAPHICS_BITMAP_COMPRESSFORMAT::a
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2738,11 +2636,11 @@ bool android_graphics_Bitmap::compress(ANDROID_GRAPHICS_BITMAP_COMPRESSFORMAT::a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Bitmap::compress(ANDROID_GRAPHICS_BITMAP_COMPRESSFORMAT::android_graphics_Bitmap_CompressFormat& arg0,int& arg1,AndroidCXX::java_io_OutputStream& arg2) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Bitmap::compress(android_graphics_Bitmap_CompressFormat::android_graphics_Bitmap_CompressFormat const& arg0,int const& arg1,AndroidCXX::java_io_OutputStream const& arg2) exit");
 
 	return result;
 }
@@ -2759,15 +2657,12 @@ bool android_graphics_Bitmap::isPremultiplied()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Bitmap jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2785,17 +2680,17 @@ bool android_graphics_Bitmap::isPremultiplied()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_graphics_Bitmap::isPremultiplied() exit");
 
 	return result;
 }
-int android_graphics_Bitmap::getScaledWidth(int& arg0)
+int android_graphics_Bitmap::getScaledWidth(int const& arg0)
 {
-	LOGV("int android_graphics_Bitmap::getScaledWidth(int& arg0) enter");
+	LOGV("int android_graphics_Bitmap::getScaledWidth(int const& arg0) enter");
 
 	const char *methodName = "getScaledWidth";
 	const char *methodSignature = "(I)I";
@@ -2805,8 +2700,6 @@ int android_graphics_Bitmap::getScaledWidth(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -2835,7 +2728,6 @@ int android_graphics_Bitmap::getScaledWidth(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2853,17 +2745,17 @@ int android_graphics_Bitmap::getScaledWidth(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_graphics_Bitmap::getScaledWidth(int& arg0) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_graphics_Bitmap::getScaledWidth(int const& arg0) exit");
 
 	return result;
 }
-int android_graphics_Bitmap::getScaledWidth(AndroidCXX::android_util_DisplayMetrics& arg0)
+int android_graphics_Bitmap::getScaledWidth(AndroidCXX::android_util_DisplayMetrics const& arg0)
 {
-	LOGV("int android_graphics_Bitmap::getScaledWidth(AndroidCXX::android_util_DisplayMetrics& arg0) enter");
+	LOGV("int android_graphics_Bitmap::getScaledWidth(AndroidCXX::android_util_DisplayMetrics const& arg0) enter");
 
 	const char *methodName = "getScaledWidth";
 	const char *methodSignature = "(Landroid/util/DisplayMetrics;)I";
@@ -2873,8 +2765,6 @@ int android_graphics_Bitmap::getScaledWidth(AndroidCXX::android_util_DisplayMetr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -2903,7 +2793,6 @@ int android_graphics_Bitmap::getScaledWidth(AndroidCXX::android_util_DisplayMetr
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2921,17 +2810,17 @@ int android_graphics_Bitmap::getScaledWidth(AndroidCXX::android_util_DisplayMetr
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_graphics_Bitmap::getScaledWidth(AndroidCXX::android_util_DisplayMetrics& arg0) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_graphics_Bitmap::getScaledWidth(AndroidCXX::android_util_DisplayMetrics const& arg0) exit");
 
 	return result;
 }
-int android_graphics_Bitmap::getScaledWidth(AndroidCXX::android_graphics_Canvas& arg0)
+int android_graphics_Bitmap::getScaledWidth(AndroidCXX::android_graphics_Canvas const& arg0)
 {
-	LOGV("int android_graphics_Bitmap::getScaledWidth(AndroidCXX::android_graphics_Canvas& arg0) enter");
+	LOGV("int android_graphics_Bitmap::getScaledWidth(AndroidCXX::android_graphics_Canvas const& arg0) enter");
 
 	const char *methodName = "getScaledWidth";
 	const char *methodSignature = "(Landroid/graphics/Canvas;)I";
@@ -2942,8 +2831,6 @@ int android_graphics_Bitmap::getScaledWidth(AndroidCXX::android_graphics_Canvas&
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -2971,7 +2858,6 @@ int android_graphics_Bitmap::getScaledWidth(AndroidCXX::android_graphics_Canvas&
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2989,17 +2875,17 @@ int android_graphics_Bitmap::getScaledWidth(AndroidCXX::android_graphics_Canvas&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_graphics_Bitmap::getScaledWidth(AndroidCXX::android_graphics_Canvas& arg0) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_graphics_Bitmap::getScaledWidth(AndroidCXX::android_graphics_Canvas const& arg0) exit");
 
 	return result;
 }
-int android_graphics_Bitmap::getScaledHeight(AndroidCXX::android_graphics_Canvas& arg0)
+int android_graphics_Bitmap::getScaledHeight(AndroidCXX::android_graphics_Canvas const& arg0)
 {
-	LOGV("int android_graphics_Bitmap::getScaledHeight(AndroidCXX::android_graphics_Canvas& arg0) enter");
+	LOGV("int android_graphics_Bitmap::getScaledHeight(AndroidCXX::android_graphics_Canvas const& arg0) enter");
 
 	const char *methodName = "getScaledHeight";
 	const char *methodSignature = "(Landroid/graphics/Canvas;)I";
@@ -3010,8 +2896,6 @@ int android_graphics_Bitmap::getScaledHeight(AndroidCXX::android_graphics_Canvas
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -3039,7 +2923,6 @@ int android_graphics_Bitmap::getScaledHeight(AndroidCXX::android_graphics_Canvas
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -3057,17 +2940,17 @@ int android_graphics_Bitmap::getScaledHeight(AndroidCXX::android_graphics_Canvas
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_graphics_Bitmap::getScaledHeight(AndroidCXX::android_graphics_Canvas& arg0) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_graphics_Bitmap::getScaledHeight(AndroidCXX::android_graphics_Canvas const& arg0) exit");
 
 	return result;
 }
-int android_graphics_Bitmap::getScaledHeight(AndroidCXX::android_util_DisplayMetrics& arg0)
+int android_graphics_Bitmap::getScaledHeight(AndroidCXX::android_util_DisplayMetrics const& arg0)
 {
-	LOGV("int android_graphics_Bitmap::getScaledHeight(AndroidCXX::android_util_DisplayMetrics& arg0) enter");
+	LOGV("int android_graphics_Bitmap::getScaledHeight(AndroidCXX::android_util_DisplayMetrics const& arg0) enter");
 
 	const char *methodName = "getScaledHeight";
 	const char *methodSignature = "(Landroid/util/DisplayMetrics;)I";
@@ -3077,8 +2960,6 @@ int android_graphics_Bitmap::getScaledHeight(AndroidCXX::android_util_DisplayMet
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -3107,7 +2988,6 @@ int android_graphics_Bitmap::getScaledHeight(AndroidCXX::android_util_DisplayMet
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -3125,17 +3005,17 @@ int android_graphics_Bitmap::getScaledHeight(AndroidCXX::android_util_DisplayMet
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_graphics_Bitmap::getScaledHeight(AndroidCXX::android_util_DisplayMetrics& arg0) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_graphics_Bitmap::getScaledHeight(AndroidCXX::android_util_DisplayMetrics const& arg0) exit");
 
 	return result;
 }
-int android_graphics_Bitmap::getScaledHeight(int& arg0)
+int android_graphics_Bitmap::getScaledHeight(int const& arg0)
 {
-	LOGV("int android_graphics_Bitmap::getScaledHeight(int& arg0) enter");
+	LOGV("int android_graphics_Bitmap::getScaledHeight(int const& arg0) enter");
 
 	const char *methodName = "getScaledHeight";
 	const char *methodSignature = "(I)I";
@@ -3145,8 +3025,6 @@ int android_graphics_Bitmap::getScaledHeight(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -3175,7 +3053,6 @@ int android_graphics_Bitmap::getScaledHeight(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -3193,11 +3070,11 @@ int android_graphics_Bitmap::getScaledHeight(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_graphics_Bitmap::getScaledHeight(int& arg0) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_graphics_Bitmap::getScaledHeight(int const& arg0) exit");
 
 	return result;
 }
@@ -3214,15 +3091,12 @@ int android_graphics_Bitmap::getRowBytes()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Bitmap jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -3240,10 +3114,10 @@ int android_graphics_Bitmap::getRowBytes()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_graphics_Bitmap::getRowBytes() exit");
 
 	return result;
@@ -3261,15 +3135,12 @@ int android_graphics_Bitmap::getByteCount()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Bitmap jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -3287,17 +3158,17 @@ int android_graphics_Bitmap::getByteCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_graphics_Bitmap::getByteCount() exit");
 
 	return result;
 }
-ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config android_graphics_Bitmap::getConfig()
+android_graphics_Bitmap_Config::android_graphics_Bitmap_Config android_graphics_Bitmap::getConfig()
 {
-	LOGV("ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config android_graphics_Bitmap::getConfig() enter");
+	LOGV("android_graphics_Bitmap_Config::android_graphics_Bitmap_Config android_graphics_Bitmap::getConfig() enter");
 
 	const char *methodName = "getConfig";
 	const char *methodSignature = "()Landroid/graphics/Bitmap$Config;";
@@ -3308,15 +3179,12 @@ ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config android_graphics_
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Bitmap jni address %d", javaObject);
 
 
-	ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3334,17 +3202,17 @@ ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config android_graphics_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Bitmap_Config(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("ANDROID_GRAPHICS_BITMAP_CONFIG::android_graphics_Bitmap_Config android_graphics_Bitmap::getConfig() exit");
+	android_graphics_Bitmap_Config::android_graphics_Bitmap_Config result = (android_graphics_Bitmap_Config::android_graphics_Bitmap_Config) (cxx_value);
+	//
+		
+	LOGV("android_graphics_Bitmap_Config::android_graphics_Bitmap_Config android_graphics_Bitmap::getConfig() exit");
 
 	return result;
 }
-void android_graphics_Bitmap::setHasAlpha(bool& arg0)
+void android_graphics_Bitmap::setHasAlpha(bool const& arg0)
 {
-	LOGV("void android_graphics_Bitmap::setHasAlpha(bool& arg0) enter");
+	LOGV("void android_graphics_Bitmap::setHasAlpha(bool const& arg0) enter");
 
 	const char *methodName = "setHasAlpha";
 	const char *methodSignature = "(Z)V";
@@ -3354,8 +3222,6 @@ void android_graphics_Bitmap::setHasAlpha(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -3386,9 +3252,7 @@ void android_graphics_Bitmap::setHasAlpha(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Bitmap::setHasAlpha(bool& arg0) exit");
+	LOGV("void android_graphics_Bitmap::setHasAlpha(bool const& arg0) exit");
 
 }
 bool android_graphics_Bitmap::hasMipMap()
@@ -3404,15 +3268,12 @@ bool android_graphics_Bitmap::hasMipMap()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Bitmap jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3430,17 +3291,17 @@ bool android_graphics_Bitmap::hasMipMap()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_graphics_Bitmap::hasMipMap() exit");
 
 	return result;
 }
-void android_graphics_Bitmap::setHasMipMap(bool& arg0)
+void android_graphics_Bitmap::setHasMipMap(bool const& arg0)
 {
-	LOGV("void android_graphics_Bitmap::setHasMipMap(bool& arg0) enter");
+	LOGV("void android_graphics_Bitmap::setHasMipMap(bool const& arg0) enter");
 
 	const char *methodName = "setHasMipMap";
 	const char *methodSignature = "(Z)V";
@@ -3450,8 +3311,6 @@ void android_graphics_Bitmap::setHasMipMap(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -3482,14 +3341,12 @@ void android_graphics_Bitmap::setHasMipMap(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Bitmap::setHasMipMap(bool& arg0) exit");
+	LOGV("void android_graphics_Bitmap::setHasMipMap(bool const& arg0) exit");
 
 }
-void android_graphics_Bitmap::eraseColor(int& arg0)
+void android_graphics_Bitmap::eraseColor(int const& arg0)
 {
-	LOGV("void android_graphics_Bitmap::eraseColor(int& arg0) enter");
+	LOGV("void android_graphics_Bitmap::eraseColor(int const& arg0) enter");
 
 	const char *methodName = "eraseColor";
 	const char *methodSignature = "(I)V";
@@ -3499,8 +3356,6 @@ void android_graphics_Bitmap::eraseColor(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -3531,14 +3386,12 @@ void android_graphics_Bitmap::eraseColor(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Bitmap::eraseColor(int& arg0) exit");
+	LOGV("void android_graphics_Bitmap::eraseColor(int const& arg0) exit");
 
 }
-int android_graphics_Bitmap::getPixel(int& arg0,int& arg1)
+int android_graphics_Bitmap::getPixel(int const& arg0,int const& arg1)
 {
-	LOGV("int android_graphics_Bitmap::getPixel(int& arg0,int& arg1) enter");
+	LOGV("int android_graphics_Bitmap::getPixel(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getPixel";
 	const char *methodSignature = "(II)I";
@@ -3548,8 +3401,6 @@ int android_graphics_Bitmap::getPixel(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -3599,7 +3450,6 @@ int android_graphics_Bitmap::getPixel(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -3617,17 +3467,17 @@ int android_graphics_Bitmap::getPixel(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_graphics_Bitmap::getPixel(int& arg0,int& arg1) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_graphics_Bitmap::getPixel(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-void android_graphics_Bitmap::getPixels(std::vector<int>& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6)
+void android_graphics_Bitmap::getPixels(std::vector<int> const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6)
 {
-	LOGV("void android_graphics_Bitmap::getPixels(std::vector<int>& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6) enter");
+	LOGV("void android_graphics_Bitmap::getPixels(std::vector<int> const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6) enter");
 
 	const char *methodName = "getPixels";
 	const char *methodSignature = "([IIIIIII)V";
@@ -3637,8 +3487,6 @@ void android_graphics_Bitmap::getPixels(std::vector<int>& arg0,int& arg1,int& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -3813,14 +3661,12 @@ void android_graphics_Bitmap::getPixels(std::vector<int>& arg0,int& arg1,int& ar
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Bitmap::getPixels(std::vector<int>& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6) exit");
+	LOGV("void android_graphics_Bitmap::getPixels(std::vector<int> const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6) exit");
 
 }
-void android_graphics_Bitmap::setPixel(int& arg0,int& arg1,int& arg2)
+void android_graphics_Bitmap::setPixel(int const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("void android_graphics_Bitmap::setPixel(int& arg0,int& arg1,int& arg2) enter");
+	LOGV("void android_graphics_Bitmap::setPixel(int const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "setPixel";
 	const char *methodSignature = "(III)V";
@@ -3830,8 +3676,6 @@ void android_graphics_Bitmap::setPixel(int& arg0,int& arg1,int& arg2)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -3904,14 +3748,12 @@ void android_graphics_Bitmap::setPixel(int& arg0,int& arg1,int& arg2)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Bitmap::setPixel(int& arg0,int& arg1,int& arg2) exit");
+	LOGV("void android_graphics_Bitmap::setPixel(int const& arg0,int const& arg1,int const& arg2) exit");
 
 }
-void android_graphics_Bitmap::setPixels(std::vector<int>& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6)
+void android_graphics_Bitmap::setPixels(std::vector<int> const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6)
 {
-	LOGV("void android_graphics_Bitmap::setPixels(std::vector<int>& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6) enter");
+	LOGV("void android_graphics_Bitmap::setPixels(std::vector<int> const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6) enter");
 
 	const char *methodName = "setPixels";
 	const char *methodSignature = "([IIIIIII)V";
@@ -3921,8 +3763,6 @@ void android_graphics_Bitmap::setPixels(std::vector<int>& arg0,int& arg1,int& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -4097,9 +3937,7 @@ void android_graphics_Bitmap::setPixels(std::vector<int>& arg0,int& arg1,int& ar
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_graphics_Bitmap::setPixels(std::vector<int>& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6) exit");
+	LOGV("void android_graphics_Bitmap::setPixels(std::vector<int> const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6) exit");
 
 }
 AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::extractAlpha()
@@ -4115,15 +3953,12 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::extractAlpha()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_graphics_Bitmap jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_Bitmap result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4141,17 +3976,17 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::extractAlpha()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Bitmap(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Bitmap) (AndroidCXX::android_graphics_Bitmap((AndroidCXX::android_graphics_Bitmap *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_graphics_Bitmap result((AndroidCXX::android_graphics_Bitmap) *((AndroidCXX::android_graphics_Bitmap *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Bitmap *) cxx_value);
+		
 	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::extractAlpha() exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::extractAlpha(AndroidCXX::android_graphics_Paint& arg0,std::vector<int>& arg1)
+AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::extractAlpha(AndroidCXX::android_graphics_Paint const& arg0,std::vector<int> const& arg1)
 {
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::extractAlpha(AndroidCXX::android_graphics_Paint& arg0,std::vector<int>& arg1) enter");
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::extractAlpha(AndroidCXX::android_graphics_Paint const& arg0,std::vector<int> const& arg1) enter");
 
 	const char *methodName = "extractAlpha";
 	const char *methodSignature = "(Landroid/graphics/Paint;[I)Landroid/graphics/Bitmap;";
@@ -4161,8 +3996,6 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::extractAlpha(Androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -4230,7 +4063,6 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::extractAlpha(Androi
 		jarg1 = convert_jni__int_array_type_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_Bitmap result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4248,17 +4080,17 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::extractAlpha(Androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Bitmap(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Bitmap) (AndroidCXX::android_graphics_Bitmap((AndroidCXX::android_graphics_Bitmap *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::extractAlpha(AndroidCXX::android_graphics_Paint& arg0,std::vector<int>& arg1) exit");
+	AndroidCXX::android_graphics_Bitmap result((AndroidCXX::android_graphics_Bitmap) *((AndroidCXX::android_graphics_Bitmap *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Bitmap *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::extractAlpha(AndroidCXX::android_graphics_Paint const& arg0,std::vector<int> const& arg1) exit");
 
 	return result;
 }
-bool android_graphics_Bitmap::sameAs(AndroidCXX::android_graphics_Bitmap& arg0)
+bool android_graphics_Bitmap::sameAs(AndroidCXX::android_graphics_Bitmap const& arg0)
 {
-	LOGV("bool android_graphics_Bitmap::sameAs(AndroidCXX::android_graphics_Bitmap& arg0) enter");
+	LOGV("bool android_graphics_Bitmap::sameAs(AndroidCXX::android_graphics_Bitmap const& arg0) enter");
 
 	const char *methodName = "sameAs";
 	const char *methodSignature = "(Landroid/graphics/Bitmap;)Z";
@@ -4268,8 +4100,6 @@ bool android_graphics_Bitmap::sameAs(AndroidCXX::android_graphics_Bitmap& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
@@ -4298,7 +4128,6 @@ bool android_graphics_Bitmap::sameAs(AndroidCXX::android_graphics_Bitmap& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -4316,11 +4145,11 @@ bool android_graphics_Bitmap::sameAs(AndroidCXX::android_graphics_Bitmap& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_graphics_Bitmap::sameAs(AndroidCXX::android_graphics_Bitmap& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Bitmap::sameAs(AndroidCXX::android_graphics_Bitmap const& arg0) exit");
 
 	return result;
 }
@@ -4337,8 +4166,6 @@ void android_graphics_Bitmap::prepareToDraw()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_graphics_Bitmap cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -4347,8 +4174,6 @@ void android_graphics_Bitmap::prepareToDraw()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_graphics_Bitmap::prepareToDraw() exit");
 
 }

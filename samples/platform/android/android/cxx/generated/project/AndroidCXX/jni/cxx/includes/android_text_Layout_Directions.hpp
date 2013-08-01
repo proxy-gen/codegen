@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_text_Layout_Directions
@@ -46,9 +45,9 @@ class android_text_Layout_Directions
 public:
 
 	android_text_Layout_Directions(const android_text_Layout_Directions& cc);
-	android_text_Layout_Directions(void * proxy);
+	android_text_Layout_Directions(Proxy proxy);
 	// Public Constructors
-	android_text_Layout_Directions();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_text_Layout_Directions();
 	// Functions

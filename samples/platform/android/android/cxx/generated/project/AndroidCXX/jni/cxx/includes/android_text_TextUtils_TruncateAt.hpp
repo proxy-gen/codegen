@@ -9,7 +9,6 @@
 
 
 
-
  			
 		
 
@@ -31,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace ANDROID_TEXT_TEXTUTILS_TRUNCATEAT {
+namespace android_text_TextUtils_TruncateAt {
 
 enum android_text_TextUtils_TruncateAt
 {

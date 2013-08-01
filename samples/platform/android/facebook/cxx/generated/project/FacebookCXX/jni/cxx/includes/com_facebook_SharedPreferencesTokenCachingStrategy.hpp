@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 
@@ -65,17 +64,17 @@ class com_facebook_SharedPreferencesTokenCachingStrategy
 public:
 
 	com_facebook_SharedPreferencesTokenCachingStrategy(const com_facebook_SharedPreferencesTokenCachingStrategy& cc);
-	com_facebook_SharedPreferencesTokenCachingStrategy(void * proxy);
+	com_facebook_SharedPreferencesTokenCachingStrategy(Proxy proxy);
 	// Public Constructors
-	com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context& arg0);
-	com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1);
-	com_facebook_SharedPreferencesTokenCachingStrategy();
+	com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context const& arg0);
+	com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_SharedPreferencesTokenCachingStrategy();
 	// Functions
 	 void clear();
 	 AndroidCXX::android_os_Bundle load();
-	 void save(AndroidCXX::android_os_Bundle& arg0);
+	 void save(AndroidCXX::android_os_Bundle const& arg0);
 };	
 
 } // namespace

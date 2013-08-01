@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -75,7 +74,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_os_Message"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -172,8 +171,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_os_Message::android_os_Message(const android_os_Message& cc)
 {
 	LOGV("android_os_Message::android_os_Message(const android_os_Message& cc) enter");
@@ -197,9 +194,9 @@ android_os_Message::android_os_Message(const android_os_Message& cc)
 
 	LOGV("android_os_Message::android_os_Message(const android_os_Message& cc) exit");
 }
-android_os_Message::android_os_Message(void * proxy)
+android_os_Message::android_os_Message(Proxy proxy)
 {
-	LOGV("android_os_Message::android_os_Message(void * proxy) enter");
+	LOGV("android_os_Message::android_os_Message(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -209,13 +206,31 @@ android_os_Message::android_os_Message(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_os_Message::android_os_Message(void * proxy) exit");
+	LOGV("android_os_Message::android_os_Message(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy android_os_Message::proxy() const
+{	
+	LOGV("android_os_Message::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_os_Message cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_os_Message jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_os_Message::proxy() exit");	
+
+	return proxy;
+}
 android_os_Message::android_os_Message()
 {
 	LOGV("android_os_Message::android_os_Message() enter");	
@@ -263,7 +278,7 @@ android_os_Message::~android_os_Message()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_os_Message::~android_os_Message() exit");
 }
 // Functions
@@ -280,15 +295,12 @@ AndroidCXX::java_lang_String android_os_Message::toString()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_os_Message cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_Message jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -306,10 +318,10 @@ AndroidCXX::java_lang_String android_os_Message::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_os_Message::toString() exit");
 
 	return result;
@@ -327,15 +339,12 @@ AndroidCXX::android_os_Bundle android_os_Message::getData()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_os_Message cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_Message jni address %d", javaObject);
 
 
-	AndroidCXX::android_os_Bundle result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -353,17 +362,17 @@ AndroidCXX::android_os_Bundle android_os_Message::getData()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Bundle(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Bundle) (AndroidCXX::android_os_Bundle((AndroidCXX::android_os_Bundle *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_os_Bundle result((AndroidCXX::android_os_Bundle) *((AndroidCXX::android_os_Bundle *) cxx_value));
+	delete ((AndroidCXX::android_os_Bundle *) cxx_value);
+		
 	LOGV("AndroidCXX::android_os_Bundle android_os_Message::getData() exit");
 
 	return result;
 }
-void android_os_Message::copyFrom(AndroidCXX::android_os_Message& arg0)
+void android_os_Message::copyFrom(AndroidCXX::android_os_Message const& arg0)
 {
-	LOGV("void android_os_Message::copyFrom(AndroidCXX::android_os_Message& arg0) enter");
+	LOGV("void android_os_Message::copyFrom(AndroidCXX::android_os_Message const& arg0) enter");
 
 	const char *methodName = "copyFrom";
 	const char *methodSignature = "(Landroid/os/Message;)V";
@@ -373,8 +382,6 @@ void android_os_Message::copyFrom(AndroidCXX::android_os_Message& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_os_Message cxx address %d", cxxAddress);
@@ -405,9 +412,7 @@ void android_os_Message::copyFrom(AndroidCXX::android_os_Message& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_os_Message::copyFrom(AndroidCXX::android_os_Message& arg0) exit");
+	LOGV("void android_os_Message::copyFrom(AndroidCXX::android_os_Message const& arg0) exit");
 
 }
 int android_os_Message::describeContents()
@@ -423,15 +428,12 @@ int android_os_Message::describeContents()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_os_Message cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_Message jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -449,17 +451,17 @@ int android_os_Message::describeContents()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_os_Message::describeContents() exit");
 
 	return result;
 }
-void android_os_Message::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1)
+void android_os_Message::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1)
 {
-	LOGV("void android_os_Message::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) enter");
+	LOGV("void android_os_Message::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) enter");
 
 	const char *methodName = "writeToParcel";
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
@@ -469,8 +471,6 @@ void android_os_Message::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& 
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_os_Message cxx address %d", cxxAddress);
@@ -522,14 +522,12 @@ void android_os_Message::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& 
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_os_Message::writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1) exit");
+	LOGV("void android_os_Message::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
 }
-AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler& arg0,int& arg1,int& arg2,int& arg3)
+AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler const& arg0,int const& arg1,int const& arg2,int const& arg3)
 {
-	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler& arg0,int& arg1,int& arg2,int& arg3) enter");
+	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler const& arg0,int const& arg1,int const& arg2,int const& arg3) enter");
 
 	const char *methodName = "obtain";
 	const char *methodSignature = "(Landroid/os/Handler;III)Landroid/os/Message;";
@@ -539,8 +537,6 @@ AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_os_Message cxx address %d", cxxAddress);
@@ -632,8 +628,7 @@ AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os
 		jarg3 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_os_Message result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -650,17 +645,17 @@ AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Message(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Message) (AndroidCXX::android_os_Message((AndroidCXX::android_os_Message *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler& arg0,int& arg1,int& arg2,int& arg3) exit");
+	AndroidCXX::android_os_Message result((AndroidCXX::android_os_Message) *((AndroidCXX::android_os_Message *) cxx_value));
+	delete ((AndroidCXX::android_os_Message *) cxx_value);
+		
+	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler const& arg0,int const& arg1,int const& arg2,int const& arg3) exit");
 
 	return result;
 }
-AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler& arg0,int& arg1,int& arg2,int& arg3,AndroidCXX::java_lang_Object& arg4)
+AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler const& arg0,int const& arg1,int const& arg2,int const& arg3,AndroidCXX::java_lang_Object const& arg4)
 {
-	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler& arg0,int& arg1,int& arg2,int& arg3,AndroidCXX::java_lang_Object& arg4) enter");
+	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler const& arg0,int const& arg1,int const& arg2,int const& arg3,AndroidCXX::java_lang_Object const& arg4) enter");
 
 	const char *methodName = "obtain";
 	const char *methodSignature = "(Landroid/os/Handler;IIILjava/lang/Object;)Landroid/os/Message;";
@@ -670,8 +665,6 @@ AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_os_Message cxx address %d", cxxAddress);
@@ -784,8 +777,7 @@ AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os
 		jarg4 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_os_Message result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -802,17 +794,17 @@ AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Message(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Message) (AndroidCXX::android_os_Message((AndroidCXX::android_os_Message *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler& arg0,int& arg1,int& arg2,int& arg3,AndroidCXX::java_lang_Object& arg4) exit");
+	AndroidCXX::android_os_Message result((AndroidCXX::android_os_Message) *((AndroidCXX::android_os_Message *) cxx_value));
+	delete ((AndroidCXX::android_os_Message *) cxx_value);
+		
+	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler const& arg0,int const& arg1,int const& arg2,int const& arg3,AndroidCXX::java_lang_Object const& arg4) exit");
 
 	return result;
 }
-AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Message& arg0)
+AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Message const& arg0)
 {
-	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Message& arg0) enter");
+	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Message const& arg0) enter");
 
 	const char *methodName = "obtain";
 	const char *methodSignature = "(Landroid/os/Message;)Landroid/os/Message;";
@@ -822,8 +814,6 @@ AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_os_Message cxx address %d", cxxAddress);
@@ -852,8 +842,7 @@ AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_os_Message result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -870,17 +859,17 @@ AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Message(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Message) (AndroidCXX::android_os_Message((AndroidCXX::android_os_Message *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Message& arg0) exit");
+	AndroidCXX::android_os_Message result((AndroidCXX::android_os_Message) *((AndroidCXX::android_os_Message *) cxx_value));
+	delete ((AndroidCXX::android_os_Message *) cxx_value);
+		
+	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Message const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler& arg0)
+AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler const& arg0)
 {
-	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler& arg0) enter");
+	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler const& arg0) enter");
 
 	const char *methodName = "obtain";
 	const char *methodSignature = "(Landroid/os/Handler;)Landroid/os/Message;";
@@ -890,8 +879,6 @@ AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_os_Message cxx address %d", cxxAddress);
@@ -920,8 +907,7 @@ AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_os_Message result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -938,17 +924,17 @@ AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Message(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Message) (AndroidCXX::android_os_Message((AndroidCXX::android_os_Message *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler& arg0) exit");
+	AndroidCXX::android_os_Message result((AndroidCXX::android_os_Message) *((AndroidCXX::android_os_Message *) cxx_value));
+	delete ((AndroidCXX::android_os_Message *) cxx_value);
+		
+	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler& arg0,AndroidCXX::java_lang_Runnable& arg1)
+AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler const& arg0,AndroidCXX::java_lang_Runnable const& arg1)
 {
-	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler& arg0,AndroidCXX::java_lang_Runnable& arg1) enter");
+	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler const& arg0,AndroidCXX::java_lang_Runnable const& arg1) enter");
 
 	const char *methodName = "obtain";
 	const char *methodSignature = "(Landroid/os/Handler;Ljava/lang/Runnable;)Landroid/os/Message;";
@@ -958,8 +944,6 @@ AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_os_Message cxx address %d", cxxAddress);
@@ -1009,8 +993,7 @@ AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_os_Message result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1027,17 +1010,17 @@ AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Message(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Message) (AndroidCXX::android_os_Message((AndroidCXX::android_os_Message *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler& arg0,AndroidCXX::java_lang_Runnable& arg1) exit");
+	AndroidCXX::android_os_Message result((AndroidCXX::android_os_Message) *((AndroidCXX::android_os_Message *) cxx_value));
+	delete ((AndroidCXX::android_os_Message *) cxx_value);
+		
+	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler const& arg0,AndroidCXX::java_lang_Runnable const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler& arg0,int& arg1)
+AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler const& arg0,int const& arg1) enter");
 
 	const char *methodName = "obtain";
 	const char *methodSignature = "(Landroid/os/Handler;I)Landroid/os/Message;";
@@ -1047,8 +1030,6 @@ AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_os_Message cxx address %d", cxxAddress);
@@ -1098,8 +1079,7 @@ AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_os_Message result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1116,17 +1096,17 @@ AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Message(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Message) (AndroidCXX::android_os_Message((AndroidCXX::android_os_Message *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler& arg0,int& arg1) exit");
+	AndroidCXX::android_os_Message result((AndroidCXX::android_os_Message) *((AndroidCXX::android_os_Message *) cxx_value));
+	delete ((AndroidCXX::android_os_Message *) cxx_value);
+		
+	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler const& arg0,int const& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler& arg0,int& arg1,AndroidCXX::java_lang_Object& arg2)
+AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler const& arg0,int const& arg1,AndroidCXX::java_lang_Object const& arg2)
 {
-	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler& arg0,int& arg1,AndroidCXX::java_lang_Object& arg2) enter");
+	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler const& arg0,int const& arg1,AndroidCXX::java_lang_Object const& arg2) enter");
 
 	const char *methodName = "obtain";
 	const char *methodSignature = "(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;";
@@ -1136,8 +1116,6 @@ AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_os_Message cxx address %d", cxxAddress);
@@ -1208,8 +1186,7 @@ AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_os_Message result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1226,11 +1203,11 @@ AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Message(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Message) (AndroidCXX::android_os_Message((AndroidCXX::android_os_Message *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler& arg0,int& arg1,AndroidCXX::java_lang_Object& arg2) exit");
+	AndroidCXX::android_os_Message result((AndroidCXX::android_os_Message) *((AndroidCXX::android_os_Message *) cxx_value));
+	delete ((AndroidCXX::android_os_Message *) cxx_value);
+		
+	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain(AndroidCXX::android_os_Handler const& arg0,int const& arg1,AndroidCXX::java_lang_Object const& arg2) exit");
 
 	return result;
 }
@@ -1247,16 +1224,13 @@ AndroidCXX::android_os_Message android_os_Message::obtain()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_os_Message cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_Message jni address %d", javaObject);
 
 
-	AndroidCXX::android_os_Message result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1273,10 +1247,10 @@ AndroidCXX::android_os_Message android_os_Message::obtain()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Message(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Message) (AndroidCXX::android_os_Message((AndroidCXX::android_os_Message *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_os_Message result((AndroidCXX::android_os_Message) *((AndroidCXX::android_os_Message *) cxx_value));
+	delete ((AndroidCXX::android_os_Message *) cxx_value);
+		
 	LOGV("AndroidCXX::android_os_Message android_os_Message::obtain() exit");
 
 	return result;
@@ -1294,8 +1268,6 @@ void android_os_Message::recycle()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_os_Message cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1304,8 +1276,6 @@ void android_os_Message::recycle()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_os_Message::recycle() exit");
 
 }
@@ -1322,15 +1292,12 @@ AndroidCXX::android_os_Bundle android_os_Message::peekData()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_os_Message cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_Message jni address %d", javaObject);
 
 
-	AndroidCXX::android_os_Bundle result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1348,17 +1315,17 @@ AndroidCXX::android_os_Bundle android_os_Message::peekData()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Bundle(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Bundle) (AndroidCXX::android_os_Bundle((AndroidCXX::android_os_Bundle *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_os_Bundle result((AndroidCXX::android_os_Bundle) *((AndroidCXX::android_os_Bundle *) cxx_value));
+	delete ((AndroidCXX::android_os_Bundle *) cxx_value);
+		
 	LOGV("AndroidCXX::android_os_Bundle android_os_Message::peekData() exit");
 
 	return result;
 }
-void android_os_Message::setData(AndroidCXX::android_os_Bundle& arg0)
+void android_os_Message::setData(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("void android_os_Message::setData(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("void android_os_Message::setData(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "setData";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -1368,8 +1335,6 @@ void android_os_Message::setData(AndroidCXX::android_os_Bundle& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_os_Message cxx address %d", cxxAddress);
@@ -1400,9 +1365,7 @@ void android_os_Message::setData(AndroidCXX::android_os_Bundle& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_os_Message::setData(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("void android_os_Message::setData(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 }
 AndroidCXX::java_lang_Runnable android_os_Message::getCallback()
@@ -1418,15 +1381,12 @@ AndroidCXX::java_lang_Runnable android_os_Message::getCallback()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_os_Message cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_Message jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_Runnable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1444,10 +1404,10 @@ AndroidCXX::java_lang_Runnable android_os_Message::getCallback()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Runnable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Runnable) (AndroidCXX::java_lang_Runnable((AndroidCXX::java_lang_Runnable *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_Runnable result((AndroidCXX::java_lang_Runnable) *((AndroidCXX::java_lang_Runnable *) cxx_value));
+	delete ((AndroidCXX::java_lang_Runnable *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_Runnable android_os_Message::getCallback() exit");
 
 	return result;
@@ -1465,15 +1425,12 @@ long android_os_Message::getWhen()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_os_Message cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_Message jni address %d", javaObject);
 
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -1491,17 +1448,17 @@ long android_os_Message::getWhen()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	long result = (long) *((long *) cxx_value);
+	// 
+		
 	LOGV("long android_os_Message::getWhen() exit");
 
 	return result;
 }
-void android_os_Message::setTarget(AndroidCXX::android_os_Handler& arg0)
+void android_os_Message::setTarget(AndroidCXX::android_os_Handler const& arg0)
 {
-	LOGV("void android_os_Message::setTarget(AndroidCXX::android_os_Handler& arg0) enter");
+	LOGV("void android_os_Message::setTarget(AndroidCXX::android_os_Handler const& arg0) enter");
 
 	const char *methodName = "setTarget";
 	const char *methodSignature = "(Landroid/os/Handler;)V";
@@ -1511,8 +1468,6 @@ void android_os_Message::setTarget(AndroidCXX::android_os_Handler& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_os_Message cxx address %d", cxxAddress);
@@ -1543,9 +1498,7 @@ void android_os_Message::setTarget(AndroidCXX::android_os_Handler& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_os_Message::setTarget(AndroidCXX::android_os_Handler& arg0) exit");
+	LOGV("void android_os_Message::setTarget(AndroidCXX::android_os_Handler const& arg0) exit");
 
 }
 AndroidCXX::android_os_Handler android_os_Message::getTarget()
@@ -1561,15 +1514,12 @@ AndroidCXX::android_os_Handler android_os_Message::getTarget()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_os_Message cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_Message jni address %d", javaObject);
 
 
-	AndroidCXX::android_os_Handler result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1587,10 +1537,10 @@ AndroidCXX::android_os_Handler android_os_Message::getTarget()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Handler(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Handler) (AndroidCXX::android_os_Handler((AndroidCXX::android_os_Handler *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_os_Handler result((AndroidCXX::android_os_Handler) *((AndroidCXX::android_os_Handler *) cxx_value));
+	delete ((AndroidCXX::android_os_Handler *) cxx_value);
+		
 	LOGV("AndroidCXX::android_os_Handler android_os_Message::getTarget() exit");
 
 	return result;
@@ -1608,8 +1558,6 @@ void android_os_Message::sendToTarget()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_os_Message cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1618,8 +1566,6 @@ void android_os_Message::sendToTarget()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_os_Message::sendToTarget() exit");
 
 }

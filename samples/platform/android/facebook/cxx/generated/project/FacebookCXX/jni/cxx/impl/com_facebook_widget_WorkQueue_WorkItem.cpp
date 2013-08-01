@@ -18,7 +18,6 @@
 
 
 
-
 // Generated Code 
 
 #include <com_facebook_widget_WorkQueue_WorkItem.hpp>
@@ -29,6 +28,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_WorkQueue_WorkItem"
@@ -42,8 +42,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_widget_WorkQueue_WorkItem::com_facebook_widget_WorkQueue_WorkItem(const com_facebook_widget_WorkQueue_WorkItem& cc)
 {
 	LOGV("com_facebook_widget_WorkQueue_WorkItem::com_facebook_widget_WorkQueue_WorkItem(const com_facebook_widget_WorkQueue_WorkItem& cc) enter");
@@ -67,9 +65,9 @@ com_facebook_widget_WorkQueue_WorkItem::com_facebook_widget_WorkQueue_WorkItem(c
 
 	LOGV("com_facebook_widget_WorkQueue_WorkItem::com_facebook_widget_WorkQueue_WorkItem(const com_facebook_widget_WorkQueue_WorkItem& cc) exit");
 }
-com_facebook_widget_WorkQueue_WorkItem::com_facebook_widget_WorkQueue_WorkItem(void * proxy)
+com_facebook_widget_WorkQueue_WorkItem::com_facebook_widget_WorkQueue_WorkItem(Proxy proxy)
 {
-	LOGV("com_facebook_widget_WorkQueue_WorkItem::com_facebook_widget_WorkQueue_WorkItem(void * proxy) enter");
+	LOGV("com_facebook_widget_WorkQueue_WorkItem::com_facebook_widget_WorkQueue_WorkItem(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -79,47 +77,31 @@ com_facebook_widget_WorkQueue_WorkItem::com_facebook_widget_WorkQueue_WorkItem(v
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_widget_WorkQueue_WorkItem::com_facebook_widget_WorkQueue_WorkItem(void * proxy) exit");
+	LOGV("com_facebook_widget_WorkQueue_WorkItem::com_facebook_widget_WorkQueue_WorkItem(Proxy proxy) exit");
 }
-com_facebook_widget_WorkQueue_WorkItem::com_facebook_widget_WorkQueue_WorkItem()
-{
-	LOGV("com_facebook_widget_WorkQueue_WorkItem::com_facebook_widget_WorkQueue_WorkItem() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/widget/WorkQueue$WorkItem";
-
-	LOGV("com_facebook_widget_WorkQueue_WorkItem className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_widget_WorkQueue_WorkItem::proxy() const
+{	
+	LOGV("com_facebook_widget_WorkQueue_WorkItem::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_WorkQueue_WorkItem cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_WorkQueue_WorkItem jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_widget_WorkQueue_WorkItem::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_widget_WorkQueue_WorkItem::com_facebook_widget_WorkQueue_WorkItem() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 com_facebook_widget_WorkQueue_WorkItem::~com_facebook_widget_WorkQueue_WorkItem()
 {
@@ -131,7 +113,7 @@ com_facebook_widget_WorkQueue_WorkItem::~com_facebook_widget_WorkQueue_WorkItem(
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_widget_WorkQueue_WorkItem::~com_facebook_widget_WorkQueue_WorkItem() exit");
 }
 // Functions
@@ -148,15 +130,12 @@ bool com_facebook_widget_WorkQueue_WorkItem::cancel()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_WorkQueue_WorkItem cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_WorkQueue_WorkItem jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -174,10 +153,10 @@ bool com_facebook_widget_WorkQueue_WorkItem::cancel()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool com_facebook_widget_WorkQueue_WorkItem::cancel() exit");
 
 	return result;
@@ -195,15 +174,12 @@ bool com_facebook_widget_WorkQueue_WorkItem::isRunning()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_WorkQueue_WorkItem cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_WorkQueue_WorkItem jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -221,10 +197,10 @@ bool com_facebook_widget_WorkQueue_WorkItem::isRunning()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool com_facebook_widget_WorkQueue_WorkItem::isRunning() exit");
 
 	return result;
@@ -242,8 +218,6 @@ void com_facebook_widget_WorkQueue_WorkItem::moveToFront()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_WorkQueue_WorkItem cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -252,8 +226,6 @@ void com_facebook_widget_WorkQueue_WorkItem::moveToFront()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void com_facebook_widget_WorkQueue_WorkItem::moveToFront() exit");
 
 }

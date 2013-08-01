@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -31,7 +30,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_webkit_HttpAuthHandler"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -53,8 +52,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_webkit_HttpAuthHandler::android_webkit_HttpAuthHandler(const android_webkit_HttpAuthHandler& cc)
 {
 	LOGV("android_webkit_HttpAuthHandler::android_webkit_HttpAuthHandler(const android_webkit_HttpAuthHandler& cc) enter");
@@ -78,9 +75,9 @@ android_webkit_HttpAuthHandler::android_webkit_HttpAuthHandler(const android_web
 
 	LOGV("android_webkit_HttpAuthHandler::android_webkit_HttpAuthHandler(const android_webkit_HttpAuthHandler& cc) exit");
 }
-android_webkit_HttpAuthHandler::android_webkit_HttpAuthHandler(void * proxy)
+android_webkit_HttpAuthHandler::android_webkit_HttpAuthHandler(Proxy proxy)
 {
-	LOGV("android_webkit_HttpAuthHandler::android_webkit_HttpAuthHandler(void * proxy) enter");
+	LOGV("android_webkit_HttpAuthHandler::android_webkit_HttpAuthHandler(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -90,47 +87,31 @@ android_webkit_HttpAuthHandler::android_webkit_HttpAuthHandler(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_webkit_HttpAuthHandler::android_webkit_HttpAuthHandler(void * proxy) exit");
+	LOGV("android_webkit_HttpAuthHandler::android_webkit_HttpAuthHandler(Proxy proxy) exit");
 }
-android_webkit_HttpAuthHandler::android_webkit_HttpAuthHandler()
-{
-	LOGV("android_webkit_HttpAuthHandler::android_webkit_HttpAuthHandler() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/webkit/HttpAuthHandler";
-
-	LOGV("android_webkit_HttpAuthHandler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_webkit_HttpAuthHandler::proxy() const
+{	
+	LOGV("android_webkit_HttpAuthHandler::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_HttpAuthHandler cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_HttpAuthHandler jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_webkit_HttpAuthHandler::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_webkit_HttpAuthHandler::android_webkit_HttpAuthHandler() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_webkit_HttpAuthHandler::~android_webkit_HttpAuthHandler()
 {
@@ -142,7 +123,7 @@ android_webkit_HttpAuthHandler::~android_webkit_HttpAuthHandler()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_webkit_HttpAuthHandler::~android_webkit_HttpAuthHandler() exit");
 }
 // Functions
@@ -159,8 +140,6 @@ void android_webkit_HttpAuthHandler::cancel()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_HttpAuthHandler cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -169,14 +148,12 @@ void android_webkit_HttpAuthHandler::cancel()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_webkit_HttpAuthHandler::cancel() exit");
 
 }
-void android_webkit_HttpAuthHandler::proceed(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
+void android_webkit_HttpAuthHandler::proceed(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("void android_webkit_HttpAuthHandler::proceed(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("void android_webkit_HttpAuthHandler::proceed(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "proceed";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
@@ -186,8 +163,6 @@ void android_webkit_HttpAuthHandler::proceed(AndroidCXX::java_lang_String& arg0,
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_HttpAuthHandler cxx address %d", cxxAddress);
@@ -239,9 +214,7 @@ void android_webkit_HttpAuthHandler::proceed(AndroidCXX::java_lang_String& arg0,
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_HttpAuthHandler::proceed(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("void android_webkit_HttpAuthHandler::proceed(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 }
 bool android_webkit_HttpAuthHandler::useHttpAuthUsernamePassword()
@@ -257,15 +230,12 @@ bool android_webkit_HttpAuthHandler::useHttpAuthUsernamePassword()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_HttpAuthHandler cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_HttpAuthHandler jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -283,10 +253,10 @@ bool android_webkit_HttpAuthHandler::useHttpAuthUsernamePassword()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_webkit_HttpAuthHandler::useHttpAuthUsernamePassword() exit");
 
 	return result;

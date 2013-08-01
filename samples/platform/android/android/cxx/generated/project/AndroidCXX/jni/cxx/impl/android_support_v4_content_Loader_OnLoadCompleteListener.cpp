@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -29,7 +28,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_support_v4_content_Loader_OnLoadCompleteListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -51,8 +50,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_support_v4_content_Loader_OnLoadCompleteListener::android_support_v4_content_Loader_OnLoadCompleteListener(const android_support_v4_content_Loader_OnLoadCompleteListener& cc)
 {
 	LOGV("android_support_v4_content_Loader_OnLoadCompleteListener::android_support_v4_content_Loader_OnLoadCompleteListener(const android_support_v4_content_Loader_OnLoadCompleteListener& cc) enter");
@@ -76,9 +73,9 @@ android_support_v4_content_Loader_OnLoadCompleteListener::android_support_v4_con
 
 	LOGV("android_support_v4_content_Loader_OnLoadCompleteListener::android_support_v4_content_Loader_OnLoadCompleteListener(const android_support_v4_content_Loader_OnLoadCompleteListener& cc) exit");
 }
-android_support_v4_content_Loader_OnLoadCompleteListener::android_support_v4_content_Loader_OnLoadCompleteListener(void * proxy)
+android_support_v4_content_Loader_OnLoadCompleteListener::android_support_v4_content_Loader_OnLoadCompleteListener(Proxy proxy)
 {
-	LOGV("android_support_v4_content_Loader_OnLoadCompleteListener::android_support_v4_content_Loader_OnLoadCompleteListener(void * proxy) enter");
+	LOGV("android_support_v4_content_Loader_OnLoadCompleteListener::android_support_v4_content_Loader_OnLoadCompleteListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -88,47 +85,31 @@ android_support_v4_content_Loader_OnLoadCompleteListener::android_support_v4_con
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_support_v4_content_Loader_OnLoadCompleteListener::android_support_v4_content_Loader_OnLoadCompleteListener(void * proxy) exit");
+	LOGV("android_support_v4_content_Loader_OnLoadCompleteListener::android_support_v4_content_Loader_OnLoadCompleteListener(Proxy proxy) exit");
 }
-android_support_v4_content_Loader_OnLoadCompleteListener::android_support_v4_content_Loader_OnLoadCompleteListener()
-{
-	LOGV("android_support_v4_content_Loader_OnLoadCompleteListener::android_support_v4_content_Loader_OnLoadCompleteListener() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/support/v4/content/Loader$OnLoadCompleteListener";
-
-	LOGV("android_support_v4_content_Loader_OnLoadCompleteListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_support_v4_content_Loader_OnLoadCompleteListener::proxy() const
+{	
+	LOGV("android_support_v4_content_Loader_OnLoadCompleteListener::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_support_v4_content_Loader_OnLoadCompleteListener cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_support_v4_content_Loader_OnLoadCompleteListener jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_support_v4_content_Loader_OnLoadCompleteListener::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_support_v4_content_Loader_OnLoadCompleteListener::android_support_v4_content_Loader_OnLoadCompleteListener() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_support_v4_content_Loader_OnLoadCompleteListener::~android_support_v4_content_Loader_OnLoadCompleteListener()
 {
@@ -140,13 +121,13 @@ android_support_v4_content_Loader_OnLoadCompleteListener::~android_support_v4_co
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_support_v4_content_Loader_OnLoadCompleteListener::~android_support_v4_content_Loader_OnLoadCompleteListener() exit");
 }
 // Functions
-void android_support_v4_content_Loader_OnLoadCompleteListener::onLoadComplete(AndroidCXX::android_support_v4_content_Loader& arg0,AndroidCXX::java_lang_Object& arg1)
+void android_support_v4_content_Loader_OnLoadCompleteListener::onLoadComplete(AndroidCXX::android_support_v4_content_Loader const& arg0,AndroidCXX::java_lang_Object const& arg1)
 {
-	LOGV("void android_support_v4_content_Loader_OnLoadCompleteListener::onLoadComplete(AndroidCXX::android_support_v4_content_Loader& arg0,AndroidCXX::java_lang_Object& arg1) enter");
+	LOGV("void android_support_v4_content_Loader_OnLoadCompleteListener::onLoadComplete(AndroidCXX::android_support_v4_content_Loader const& arg0,AndroidCXX::java_lang_Object const& arg1) enter");
 
 	const char *methodName = "onLoadComplete";
 	const char *methodSignature = "(Landroid/support/v4/content/Loader;Ljava/lang/Object;)V";
@@ -156,8 +137,6 @@ void android_support_v4_content_Loader_OnLoadCompleteListener::onLoadComplete(An
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_support_v4_content_Loader_OnLoadCompleteListener cxx address %d", cxxAddress);
@@ -227,8 +206,6 @@ void android_support_v4_content_Loader_OnLoadCompleteListener::onLoadComplete(An
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_support_v4_content_Loader_OnLoadCompleteListener::onLoadComplete(AndroidCXX::android_support_v4_content_Loader& arg0,AndroidCXX::java_lang_Object& arg1) exit");
+	LOGV("void android_support_v4_content_Loader_OnLoadCompleteListener::onLoadComplete(AndroidCXX::android_support_v4_content_Loader const& arg0,AndroidCXX::java_lang_Object const& arg1) exit");
 
 }

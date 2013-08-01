@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -68,7 +67,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_util_AttributeSet"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -144,8 +143,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_util_AttributeSet::android_util_AttributeSet(const android_util_AttributeSet& cc)
 {
 	LOGV("android_util_AttributeSet::android_util_AttributeSet(const android_util_AttributeSet& cc) enter");
@@ -169,9 +166,9 @@ android_util_AttributeSet::android_util_AttributeSet(const android_util_Attribut
 
 	LOGV("android_util_AttributeSet::android_util_AttributeSet(const android_util_AttributeSet& cc) exit");
 }
-android_util_AttributeSet::android_util_AttributeSet(void * proxy)
+android_util_AttributeSet::android_util_AttributeSet(Proxy proxy)
 {
-	LOGV("android_util_AttributeSet::android_util_AttributeSet(void * proxy) enter");
+	LOGV("android_util_AttributeSet::android_util_AttributeSet(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -181,47 +178,31 @@ android_util_AttributeSet::android_util_AttributeSet(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_util_AttributeSet::android_util_AttributeSet(void * proxy) exit");
+	LOGV("android_util_AttributeSet::android_util_AttributeSet(Proxy proxy) exit");
 }
-android_util_AttributeSet::android_util_AttributeSet()
-{
-	LOGV("android_util_AttributeSet::android_util_AttributeSet() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/util/AttributeSet";
-
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_util_AttributeSet::proxy() const
+{	
+	LOGV("android_util_AttributeSet::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_util_AttributeSet jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_util_AttributeSet::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_util_AttributeSet::android_util_AttributeSet() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_util_AttributeSet::~android_util_AttributeSet()
 {
@@ -233,13 +214,13 @@ android_util_AttributeSet::~android_util_AttributeSet()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_util_AttributeSet::~android_util_AttributeSet() exit");
 }
 // Functions
-AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeValue(int& arg0)
+AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeValue(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeValue(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeValue(int const& arg0) enter");
 
 	const char *methodName = "getAttributeValue";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -249,8 +230,6 @@ AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeValue(int& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
@@ -279,7 +258,6 @@ AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeValue(int& a
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -297,17 +275,17 @@ AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeValue(int& a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeValue(int& arg0) exit");
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeValue(int const& arg0) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
+AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
-	LOGV("AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
 
 	const char *methodName = "getAttributeValue";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;";
@@ -317,8 +295,6 @@ AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeValue(Androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
@@ -368,7 +344,6 @@ AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeValue(Androi
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -386,11 +361,11 @@ AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeValue(Androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 	return result;
 }
@@ -407,15 +382,12 @@ AndroidCXX::java_lang_String android_util_AttributeSet::getPositionDescription()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_util_AttributeSet jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -433,10 +405,10 @@ AndroidCXX::java_lang_String android_util_AttributeSet::getPositionDescription()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_util_AttributeSet::getPositionDescription() exit");
 
 	return result;
@@ -454,15 +426,12 @@ int android_util_AttributeSet::getAttributeCount()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_util_AttributeSet jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -480,17 +449,17 @@ int android_util_AttributeSet::getAttributeCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_util_AttributeSet::getAttributeCount() exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeName(int& arg0)
+AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeName(int const& arg0)
 {
-	LOGV("AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeName(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeName(int const& arg0) enter");
 
 	const char *methodName = "getAttributeName";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -500,8 +469,6 @@ AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeName(int& ar
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
@@ -530,7 +497,6 @@ AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeName(int& ar
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -548,17 +514,17 @@ AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeName(int& ar
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeName(int& arg0) exit");
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeName(int const& arg0) exit");
 
 	return result;
 }
-int android_util_AttributeSet::getAttributeNameResource(int& arg0)
+int android_util_AttributeSet::getAttributeNameResource(int const& arg0)
 {
-	LOGV("int android_util_AttributeSet::getAttributeNameResource(int& arg0) enter");
+	LOGV("int android_util_AttributeSet::getAttributeNameResource(int const& arg0) enter");
 
 	const char *methodName = "getAttributeNameResource";
 	const char *methodSignature = "(I)I";
@@ -568,8 +534,6 @@ int android_util_AttributeSet::getAttributeNameResource(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
@@ -598,7 +562,6 @@ int android_util_AttributeSet::getAttributeNameResource(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -616,17 +579,17 @@ int android_util_AttributeSet::getAttributeNameResource(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_util_AttributeSet::getAttributeNameResource(int& arg0) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_util_AttributeSet::getAttributeNameResource(int const& arg0) exit");
 
 	return result;
 }
-int android_util_AttributeSet::getAttributeListValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2,int& arg3)
+int android_util_AttributeSet::getAttributeListValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_String > const& arg2,int const& arg3)
 {
-	LOGV("int android_util_AttributeSet::getAttributeListValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2,int& arg3) enter");
+	LOGV("int android_util_AttributeSet::getAttributeListValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_String > const& arg2,int const& arg3) enter");
 
 	const char *methodName = "getAttributeListValue";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;I)I";
@@ -636,8 +599,6 @@ int android_util_AttributeSet::getAttributeListValue(AndroidCXX::java_lang_Strin
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
@@ -747,7 +708,6 @@ int android_util_AttributeSet::getAttributeListValue(AndroidCXX::java_lang_Strin
 		jarg3 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -765,17 +725,17 @@ int android_util_AttributeSet::getAttributeListValue(AndroidCXX::java_lang_Strin
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_util_AttributeSet::getAttributeListValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2,int& arg3) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_util_AttributeSet::getAttributeListValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_String > const& arg2,int const& arg3) exit");
 
 	return result;
 }
-int android_util_AttributeSet::getAttributeListValue(int& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,int& arg2)
+int android_util_AttributeSet::getAttributeListValue(int const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,int const& arg2)
 {
-	LOGV("int android_util_AttributeSet::getAttributeListValue(int& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,int& arg2) enter");
+	LOGV("int android_util_AttributeSet::getAttributeListValue(int const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,int const& arg2) enter");
 
 	const char *methodName = "getAttributeListValue";
 	const char *methodSignature = "(I[Ljava/lang/String;I)I";
@@ -785,8 +745,6 @@ int android_util_AttributeSet::getAttributeListValue(int& arg0,std::vector<Andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
@@ -875,7 +833,6 @@ int android_util_AttributeSet::getAttributeListValue(int& arg0,std::vector<Andro
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -893,17 +850,17 @@ int android_util_AttributeSet::getAttributeListValue(int& arg0,std::vector<Andro
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_util_AttributeSet::getAttributeListValue(int& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,int& arg2) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_util_AttributeSet::getAttributeListValue(int const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1,int const& arg2) exit");
 
 	return result;
 }
-bool android_util_AttributeSet::getAttributeBooleanValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2)
+bool android_util_AttributeSet::getAttributeBooleanValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2)
 {
-	LOGV("bool android_util_AttributeSet::getAttributeBooleanValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2) enter");
+	LOGV("bool android_util_AttributeSet::getAttributeBooleanValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2) enter");
 
 	const char *methodName = "getAttributeBooleanValue";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Z)Z";
@@ -913,8 +870,6 @@ bool android_util_AttributeSet::getAttributeBooleanValue(AndroidCXX::java_lang_S
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
@@ -985,7 +940,6 @@ bool android_util_AttributeSet::getAttributeBooleanValue(AndroidCXX::java_lang_S
 		jarg2 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1003,17 +957,17 @@ bool android_util_AttributeSet::getAttributeBooleanValue(AndroidCXX::java_lang_S
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_util_AttributeSet::getAttributeBooleanValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_util_AttributeSet::getAttributeBooleanValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2) exit");
 
 	return result;
 }
-bool android_util_AttributeSet::getAttributeBooleanValue(int& arg0,bool& arg1)
+bool android_util_AttributeSet::getAttributeBooleanValue(int const& arg0,bool const& arg1)
 {
-	LOGV("bool android_util_AttributeSet::getAttributeBooleanValue(int& arg0,bool& arg1) enter");
+	LOGV("bool android_util_AttributeSet::getAttributeBooleanValue(int const& arg0,bool const& arg1) enter");
 
 	const char *methodName = "getAttributeBooleanValue";
 	const char *methodSignature = "(IZ)Z";
@@ -1023,8 +977,6 @@ bool android_util_AttributeSet::getAttributeBooleanValue(int& arg0,bool& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
@@ -1074,7 +1026,6 @@ bool android_util_AttributeSet::getAttributeBooleanValue(int& arg0,bool& arg1)
 		jarg1 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1092,17 +1043,17 @@ bool android_util_AttributeSet::getAttributeBooleanValue(int& arg0,bool& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_util_AttributeSet::getAttributeBooleanValue(int& arg0,bool& arg1) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_util_AttributeSet::getAttributeBooleanValue(int const& arg0,bool const& arg1) exit");
 
 	return result;
 }
-int android_util_AttributeSet::getAttributeResourceValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2)
+int android_util_AttributeSet::getAttributeResourceValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2)
 {
-	LOGV("int android_util_AttributeSet::getAttributeResourceValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2) enter");
+	LOGV("int android_util_AttributeSet::getAttributeResourceValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2) enter");
 
 	const char *methodName = "getAttributeResourceValue";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;I)I";
@@ -1113,8 +1064,6 @@ int android_util_AttributeSet::getAttributeResourceValue(AndroidCXX::java_lang_S
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1184,7 +1133,6 @@ int android_util_AttributeSet::getAttributeResourceValue(AndroidCXX::java_lang_S
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1202,17 +1150,17 @@ int android_util_AttributeSet::getAttributeResourceValue(AndroidCXX::java_lang_S
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_util_AttributeSet::getAttributeResourceValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_util_AttributeSet::getAttributeResourceValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2) exit");
 
 	return result;
 }
-int android_util_AttributeSet::getAttributeResourceValue(int& arg0,int& arg1)
+int android_util_AttributeSet::getAttributeResourceValue(int const& arg0,int const& arg1)
 {
-	LOGV("int android_util_AttributeSet::getAttributeResourceValue(int& arg0,int& arg1) enter");
+	LOGV("int android_util_AttributeSet::getAttributeResourceValue(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getAttributeResourceValue";
 	const char *methodSignature = "(II)I";
@@ -1223,8 +1171,6 @@ int android_util_AttributeSet::getAttributeResourceValue(int& arg0,int& arg1)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1273,7 +1219,6 @@ int android_util_AttributeSet::getAttributeResourceValue(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1291,17 +1236,17 @@ int android_util_AttributeSet::getAttributeResourceValue(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_util_AttributeSet::getAttributeResourceValue(int& arg0,int& arg1) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_util_AttributeSet::getAttributeResourceValue(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-int android_util_AttributeSet::getAttributeIntValue(int& arg0,int& arg1)
+int android_util_AttributeSet::getAttributeIntValue(int const& arg0,int const& arg1)
 {
-	LOGV("int android_util_AttributeSet::getAttributeIntValue(int& arg0,int& arg1) enter");
+	LOGV("int android_util_AttributeSet::getAttributeIntValue(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getAttributeIntValue";
 	const char *methodSignature = "(II)I";
@@ -1312,8 +1257,6 @@ int android_util_AttributeSet::getAttributeIntValue(int& arg0,int& arg1)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -1362,7 +1305,6 @@ int android_util_AttributeSet::getAttributeIntValue(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1380,17 +1322,17 @@ int android_util_AttributeSet::getAttributeIntValue(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_util_AttributeSet::getAttributeIntValue(int& arg0,int& arg1) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_util_AttributeSet::getAttributeIntValue(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-int android_util_AttributeSet::getAttributeIntValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2)
+int android_util_AttributeSet::getAttributeIntValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2)
 {
-	LOGV("int android_util_AttributeSet::getAttributeIntValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2) enter");
+	LOGV("int android_util_AttributeSet::getAttributeIntValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2) enter");
 
 	const char *methodName = "getAttributeIntValue";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;I)I";
@@ -1400,8 +1342,6 @@ int android_util_AttributeSet::getAttributeIntValue(AndroidCXX::java_lang_String
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
@@ -1472,7 +1412,6 @@ int android_util_AttributeSet::getAttributeIntValue(AndroidCXX::java_lang_String
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1490,17 +1429,17 @@ int android_util_AttributeSet::getAttributeIntValue(AndroidCXX::java_lang_String
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_util_AttributeSet::getAttributeIntValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_util_AttributeSet::getAttributeIntValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2) exit");
 
 	return result;
 }
-int android_util_AttributeSet::getAttributeUnsignedIntValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2)
+int android_util_AttributeSet::getAttributeUnsignedIntValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2)
 {
-	LOGV("int android_util_AttributeSet::getAttributeUnsignedIntValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2) enter");
+	LOGV("int android_util_AttributeSet::getAttributeUnsignedIntValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2) enter");
 
 	const char *methodName = "getAttributeUnsignedIntValue";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;I)I";
@@ -1510,8 +1449,6 @@ int android_util_AttributeSet::getAttributeUnsignedIntValue(AndroidCXX::java_lan
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
@@ -1582,7 +1519,6 @@ int android_util_AttributeSet::getAttributeUnsignedIntValue(AndroidCXX::java_lan
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1600,17 +1536,17 @@ int android_util_AttributeSet::getAttributeUnsignedIntValue(AndroidCXX::java_lan
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_util_AttributeSet::getAttributeUnsignedIntValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_util_AttributeSet::getAttributeUnsignedIntValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2) exit");
 
 	return result;
 }
-int android_util_AttributeSet::getAttributeUnsignedIntValue(int& arg0,int& arg1)
+int android_util_AttributeSet::getAttributeUnsignedIntValue(int const& arg0,int const& arg1)
 {
-	LOGV("int android_util_AttributeSet::getAttributeUnsignedIntValue(int& arg0,int& arg1) enter");
+	LOGV("int android_util_AttributeSet::getAttributeUnsignedIntValue(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "getAttributeUnsignedIntValue";
 	const char *methodSignature = "(II)I";
@@ -1620,8 +1556,6 @@ int android_util_AttributeSet::getAttributeUnsignedIntValue(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
@@ -1671,7 +1605,6 @@ int android_util_AttributeSet::getAttributeUnsignedIntValue(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1689,17 +1622,17 @@ int android_util_AttributeSet::getAttributeUnsignedIntValue(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_util_AttributeSet::getAttributeUnsignedIntValue(int& arg0,int& arg1) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_util_AttributeSet::getAttributeUnsignedIntValue(int const& arg0,int const& arg1) exit");
 
 	return result;
 }
-float android_util_AttributeSet::getAttributeFloatValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,float& arg2)
+float android_util_AttributeSet::getAttributeFloatValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,float const& arg2)
 {
-	LOGV("float android_util_AttributeSet::getAttributeFloatValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,float& arg2) enter");
+	LOGV("float android_util_AttributeSet::getAttributeFloatValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,float const& arg2) enter");
 
 	const char *methodName = "getAttributeFloatValue";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;F)F";
@@ -1709,8 +1642,6 @@ float android_util_AttributeSet::getAttributeFloatValue(AndroidCXX::java_lang_St
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
@@ -1781,7 +1712,6 @@ float android_util_AttributeSet::getAttributeFloatValue(AndroidCXX::java_lang_St
 		jarg2 = convert_jni_float_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -1799,17 +1729,17 @@ float android_util_AttributeSet::getAttributeFloatValue(AndroidCXX::java_lang_St
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("float android_util_AttributeSet::getAttributeFloatValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,float& arg2) exit");
+	float result = (float) *((float *) cxx_value);
+	// 
+		
+	LOGV("float android_util_AttributeSet::getAttributeFloatValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,float const& arg2) exit");
 
 	return result;
 }
-float android_util_AttributeSet::getAttributeFloatValue(int& arg0,float& arg1)
+float android_util_AttributeSet::getAttributeFloatValue(int const& arg0,float const& arg1)
 {
-	LOGV("float android_util_AttributeSet::getAttributeFloatValue(int& arg0,float& arg1) enter");
+	LOGV("float android_util_AttributeSet::getAttributeFloatValue(int const& arg0,float const& arg1) enter");
 
 	const char *methodName = "getAttributeFloatValue";
 	const char *methodSignature = "(IF)F";
@@ -1819,8 +1749,6 @@ float android_util_AttributeSet::getAttributeFloatValue(int& arg0,float& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
@@ -1870,7 +1798,6 @@ float android_util_AttributeSet::getAttributeFloatValue(int& arg0,float& arg1)
 		jarg1 = convert_jni_float_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -1888,11 +1815,11 @@ float android_util_AttributeSet::getAttributeFloatValue(int& arg0,float& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("float android_util_AttributeSet::getAttributeFloatValue(int& arg0,float& arg1) exit");
+	float result = (float) *((float *) cxx_value);
+	// 
+		
+	LOGV("float android_util_AttributeSet::getAttributeFloatValue(int const& arg0,float const& arg1) exit");
 
 	return result;
 }
@@ -1909,15 +1836,12 @@ AndroidCXX::java_lang_String android_util_AttributeSet::getIdAttribute()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_util_AttributeSet jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1935,10 +1859,10 @@ AndroidCXX::java_lang_String android_util_AttributeSet::getIdAttribute()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_util_AttributeSet::getIdAttribute() exit");
 
 	return result;
@@ -1956,15 +1880,12 @@ AndroidCXX::java_lang_String android_util_AttributeSet::getClassAttribute()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_util_AttributeSet jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1982,17 +1903,17 @@ AndroidCXX::java_lang_String android_util_AttributeSet::getClassAttribute()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_String android_util_AttributeSet::getClassAttribute() exit");
 
 	return result;
 }
-int android_util_AttributeSet::getIdAttributeResourceValue(int& arg0)
+int android_util_AttributeSet::getIdAttributeResourceValue(int const& arg0)
 {
-	LOGV("int android_util_AttributeSet::getIdAttributeResourceValue(int& arg0) enter");
+	LOGV("int android_util_AttributeSet::getIdAttributeResourceValue(int const& arg0) enter");
 
 	const char *methodName = "getIdAttributeResourceValue";
 	const char *methodSignature = "(I)I";
@@ -2002,8 +1923,6 @@ int android_util_AttributeSet::getIdAttributeResourceValue(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
@@ -2032,7 +1951,6 @@ int android_util_AttributeSet::getIdAttributeResourceValue(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2050,11 +1968,11 @@ int android_util_AttributeSet::getIdAttributeResourceValue(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("int android_util_AttributeSet::getIdAttributeResourceValue(int& arg0) exit");
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_util_AttributeSet::getIdAttributeResourceValue(int const& arg0) exit");
 
 	return result;
 }
@@ -2071,15 +1989,12 @@ int android_util_AttributeSet::getStyleAttribute()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_util_AttributeSet cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_util_AttributeSet jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2097,10 +2012,10 @@ int android_util_AttributeSet::getStyleAttribute()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_util_AttributeSet::getStyleAttribute() exit");
 
 	return result;

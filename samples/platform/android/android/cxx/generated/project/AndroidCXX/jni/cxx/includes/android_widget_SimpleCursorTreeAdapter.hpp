@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -100,18 +99,18 @@ class android_widget_SimpleCursorTreeAdapter
 public:
 
 	android_widget_SimpleCursorTreeAdapter(const android_widget_SimpleCursorTreeAdapter& cc);
-	android_widget_SimpleCursorTreeAdapter(void * proxy);
+	android_widget_SimpleCursorTreeAdapter(Proxy proxy);
 	// Public Constructors
-	android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,int& arg3,std::vector<AndroidCXX::java_lang_String >& arg4,std::vector<int>& arg5,int& arg6,std::vector<AndroidCXX::java_lang_String >& arg7,std::vector<int>& arg8);
-	android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4,int& arg5,std::vector<AndroidCXX::java_lang_String >& arg6,std::vector<int>& arg7);
-	android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,int& arg3,std::vector<AndroidCXX::java_lang_String >& arg4,std::vector<int>& arg5,int& arg6,int& arg7,std::vector<AndroidCXX::java_lang_String >& arg8,std::vector<int>& arg9);
-	android_widget_SimpleCursorTreeAdapter();
+	android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,int const& arg2,int const& arg3,std::vector<AndroidCXX::java_lang_String > const& arg4,std::vector<int> const& arg5,int const& arg6,std::vector<AndroidCXX::java_lang_String > const& arg7,std::vector<int> const& arg8);
+	android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,int const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3,std::vector<int> const& arg4,int const& arg5,std::vector<AndroidCXX::java_lang_String > const& arg6,std::vector<int> const& arg7);
+	android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,int const& arg2,int const& arg3,std::vector<AndroidCXX::java_lang_String > const& arg4,std::vector<int> const& arg5,int const& arg6,int const& arg7,std::vector<AndroidCXX::java_lang_String > const& arg8,std::vector<int> const& arg9);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SimpleCursorTreeAdapter();
 	// Functions
 	 AndroidCXX::android_widget_SimpleCursorTreeAdapter_ViewBinder getViewBinder();
-	 void setViewBinder(AndroidCXX::android_widget_SimpleCursorTreeAdapter_ViewBinder& arg0);
-	 void setViewText(AndroidCXX::android_widget_TextView& arg0,AndroidCXX::java_lang_String& arg1);
+	 void setViewBinder(AndroidCXX::android_widget_SimpleCursorTreeAdapter_ViewBinder const& arg0);
+	 void setViewText(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::java_lang_String const& arg1);
 };	
 
 } // namespace

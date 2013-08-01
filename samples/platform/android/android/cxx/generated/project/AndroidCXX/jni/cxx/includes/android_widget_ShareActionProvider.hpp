@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -83,19 +82,19 @@ class android_widget_ShareActionProvider
 public:
 
 	android_widget_ShareActionProvider(const android_widget_ShareActionProvider& cc);
-	android_widget_ShareActionProvider(void * proxy);
+	android_widget_ShareActionProvider(Proxy proxy);
 	// Public Constructors
-	android_widget_ShareActionProvider(AndroidCXX::android_content_Context& arg0);
-	android_widget_ShareActionProvider();
+	android_widget_ShareActionProvider(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ShareActionProvider();
 	// Functions
 	 bool hasSubMenu();
 	 AndroidCXX::android_view_View onCreateActionView();
-	 void onPrepareSubMenu(AndroidCXX::android_view_SubMenu& arg0);
-	 void setOnShareTargetSelectedListener(AndroidCXX::android_widget_ShareActionProvider_OnShareTargetSelectedListener& arg0);
-	 void setShareHistoryFileName(AndroidCXX::java_lang_String& arg0);
-	 void setShareIntent(AndroidCXX::android_content_Intent& arg0);
+	 void onPrepareSubMenu(AndroidCXX::android_view_SubMenu const& arg0);
+	 void setOnShareTargetSelectedListener(AndroidCXX::android_widget_ShareActionProvider_OnShareTargetSelectedListener const& arg0);
+	 void setShareHistoryFileName(AndroidCXX::java_lang_String const& arg0);
+	 void setShareIntent(AndroidCXX::android_content_Intent const& arg0);
 };	
 
 } // namespace

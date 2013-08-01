@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_animation_TimeInterpolator
@@ -47,13 +46,13 @@ class android_animation_TimeInterpolator
 public:
 
 	android_animation_TimeInterpolator(const android_animation_TimeInterpolator& cc);
-	android_animation_TimeInterpolator(void * proxy);
+	android_animation_TimeInterpolator(Proxy proxy);
 	// Public Constructors
-	android_animation_TimeInterpolator();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_animation_TimeInterpolator();
 	// Functions
-	 float getInterpolation(float& arg0);
+	 float getInterpolation(float const& arg0);
 };	
 
 } // namespace

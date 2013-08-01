@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  	
@@ -62,13 +61,13 @@ class com_facebook_widget_GraphObjectPagingLoader_OnErrorListener
 public:
 
 	com_facebook_widget_GraphObjectPagingLoader_OnErrorListener(const com_facebook_widget_GraphObjectPagingLoader_OnErrorListener& cc);
-	com_facebook_widget_GraphObjectPagingLoader_OnErrorListener(void * proxy);
+	com_facebook_widget_GraphObjectPagingLoader_OnErrorListener(Proxy proxy);
 	// Public Constructors
-	com_facebook_widget_GraphObjectPagingLoader_OnErrorListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectPagingLoader_OnErrorListener();
 	// Functions
-	 void onError(FacebookCXX::com_facebook_FacebookException& arg0,FacebookCXX::com_facebook_widget_GraphObjectPagingLoader& arg1);
+	 void onError(FacebookCXX::com_facebook_FacebookException const& arg0,FacebookCXX::com_facebook_widget_GraphObjectPagingLoader const& arg1);
 };	
 
 } // namespace

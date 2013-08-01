@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -52,13 +51,13 @@ class com_facebook_AuthorizationClient_3
 public:
 
 	com_facebook_AuthorizationClient_3(const com_facebook_AuthorizationClient_3& cc);
-	com_facebook_AuthorizationClient_3(void * proxy);
+	com_facebook_AuthorizationClient_3(Proxy proxy);
 	// Public Constructors
-	com_facebook_AuthorizationClient_3();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_3();
 	// Functions
-	 void onCompleted(FacebookCXX::com_facebook_Response& arg0);
+	 void onCompleted(FacebookCXX::com_facebook_Response const& arg0);
 };	
 
 } // namespace

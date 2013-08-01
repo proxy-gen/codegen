@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_AuthorizationClient
@@ -46,9 +45,9 @@ class com_facebook_AuthorizationClient
 public:
 
 	com_facebook_AuthorizationClient(const com_facebook_AuthorizationClient& cc);
-	com_facebook_AuthorizationClient(void * proxy);
+	com_facebook_AuthorizationClient(Proxy proxy);
 	// Public Constructors
-	com_facebook_AuthorizationClient();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient();
 	// Functions

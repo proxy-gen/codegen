@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -28,6 +27,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_PickerFragment_OnDataChangedListener"
@@ -47,8 +47,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_widget_PickerFragment_OnDataChangedListener::com_facebook_widget_PickerFragment_OnDataChangedListener(const com_facebook_widget_PickerFragment_OnDataChangedListener& cc)
 {
 	LOGV("com_facebook_widget_PickerFragment_OnDataChangedListener::com_facebook_widget_PickerFragment_OnDataChangedListener(const com_facebook_widget_PickerFragment_OnDataChangedListener& cc) enter");
@@ -72,9 +70,9 @@ com_facebook_widget_PickerFragment_OnDataChangedListener::com_facebook_widget_Pi
 
 	LOGV("com_facebook_widget_PickerFragment_OnDataChangedListener::com_facebook_widget_PickerFragment_OnDataChangedListener(const com_facebook_widget_PickerFragment_OnDataChangedListener& cc) exit");
 }
-com_facebook_widget_PickerFragment_OnDataChangedListener::com_facebook_widget_PickerFragment_OnDataChangedListener(void * proxy)
+com_facebook_widget_PickerFragment_OnDataChangedListener::com_facebook_widget_PickerFragment_OnDataChangedListener(Proxy proxy)
 {
-	LOGV("com_facebook_widget_PickerFragment_OnDataChangedListener::com_facebook_widget_PickerFragment_OnDataChangedListener(void * proxy) enter");
+	LOGV("com_facebook_widget_PickerFragment_OnDataChangedListener::com_facebook_widget_PickerFragment_OnDataChangedListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -84,47 +82,31 @@ com_facebook_widget_PickerFragment_OnDataChangedListener::com_facebook_widget_Pi
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_widget_PickerFragment_OnDataChangedListener::com_facebook_widget_PickerFragment_OnDataChangedListener(void * proxy) exit");
+	LOGV("com_facebook_widget_PickerFragment_OnDataChangedListener::com_facebook_widget_PickerFragment_OnDataChangedListener(Proxy proxy) exit");
 }
-com_facebook_widget_PickerFragment_OnDataChangedListener::com_facebook_widget_PickerFragment_OnDataChangedListener()
-{
-	LOGV("com_facebook_widget_PickerFragment_OnDataChangedListener::com_facebook_widget_PickerFragment_OnDataChangedListener() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/widget/PickerFragment$OnDataChangedListener";
-
-	LOGV("com_facebook_widget_PickerFragment_OnDataChangedListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_widget_PickerFragment_OnDataChangedListener::proxy() const
+{	
+	LOGV("com_facebook_widget_PickerFragment_OnDataChangedListener::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment_OnDataChangedListener cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_PickerFragment_OnDataChangedListener jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_widget_PickerFragment_OnDataChangedListener::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_widget_PickerFragment_OnDataChangedListener::com_facebook_widget_PickerFragment_OnDataChangedListener() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 com_facebook_widget_PickerFragment_OnDataChangedListener::~com_facebook_widget_PickerFragment_OnDataChangedListener()
 {
@@ -136,13 +118,13 @@ com_facebook_widget_PickerFragment_OnDataChangedListener::~com_facebook_widget_P
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_widget_PickerFragment_OnDataChangedListener::~com_facebook_widget_PickerFragment_OnDataChangedListener() exit");
 }
 // Functions
-void com_facebook_widget_PickerFragment_OnDataChangedListener::onDataChanged(FacebookCXX::com_facebook_widget_PickerFragment& arg0)
+void com_facebook_widget_PickerFragment_OnDataChangedListener::onDataChanged(FacebookCXX::com_facebook_widget_PickerFragment const& arg0)
 {
-	LOGV("void com_facebook_widget_PickerFragment_OnDataChangedListener::onDataChanged(FacebookCXX::com_facebook_widget_PickerFragment& arg0) enter");
+	LOGV("void com_facebook_widget_PickerFragment_OnDataChangedListener::onDataChanged(FacebookCXX::com_facebook_widget_PickerFragment const& arg0) enter");
 
 	const char *methodName = "onDataChanged";
 	const char *methodSignature = "(Lcom/facebook/widget/PickerFragment;)V";
@@ -152,8 +134,6 @@ void com_facebook_widget_PickerFragment_OnDataChangedListener::onDataChanged(Fac
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_PickerFragment_OnDataChangedListener cxx address %d", cxxAddress);
@@ -202,8 +182,6 @@ void com_facebook_widget_PickerFragment_OnDataChangedListener::onDataChanged(Fac
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_widget_PickerFragment_OnDataChangedListener::onDataChanged(FacebookCXX::com_facebook_widget_PickerFragment& arg0) exit");
+	LOGV("void com_facebook_widget_PickerFragment_OnDataChangedListener::onDataChanged(FacebookCXX::com_facebook_widget_PickerFragment const& arg0) exit");
 
 }

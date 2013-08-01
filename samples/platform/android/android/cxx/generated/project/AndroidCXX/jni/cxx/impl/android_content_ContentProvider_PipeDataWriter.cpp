@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -32,7 +31,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_content_ContentProvider_PipeDataWriter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -63,8 +62,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_content_ContentProvider_PipeDataWriter::android_content_ContentProvider_PipeDataWriter(const android_content_ContentProvider_PipeDataWriter& cc)
 {
 	LOGV("android_content_ContentProvider_PipeDataWriter::android_content_ContentProvider_PipeDataWriter(const android_content_ContentProvider_PipeDataWriter& cc) enter");
@@ -88,9 +85,9 @@ android_content_ContentProvider_PipeDataWriter::android_content_ContentProvider_
 
 	LOGV("android_content_ContentProvider_PipeDataWriter::android_content_ContentProvider_PipeDataWriter(const android_content_ContentProvider_PipeDataWriter& cc) exit");
 }
-android_content_ContentProvider_PipeDataWriter::android_content_ContentProvider_PipeDataWriter(void * proxy)
+android_content_ContentProvider_PipeDataWriter::android_content_ContentProvider_PipeDataWriter(Proxy proxy)
 {
-	LOGV("android_content_ContentProvider_PipeDataWriter::android_content_ContentProvider_PipeDataWriter(void * proxy) enter");
+	LOGV("android_content_ContentProvider_PipeDataWriter::android_content_ContentProvider_PipeDataWriter(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -100,47 +97,31 @@ android_content_ContentProvider_PipeDataWriter::android_content_ContentProvider_
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_content_ContentProvider_PipeDataWriter::android_content_ContentProvider_PipeDataWriter(void * proxy) exit");
+	LOGV("android_content_ContentProvider_PipeDataWriter::android_content_ContentProvider_PipeDataWriter(Proxy proxy) exit");
 }
-android_content_ContentProvider_PipeDataWriter::android_content_ContentProvider_PipeDataWriter()
-{
-	LOGV("android_content_ContentProvider_PipeDataWriter::android_content_ContentProvider_PipeDataWriter() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/content/ContentProvider$PipeDataWriter";
-
-	LOGV("android_content_ContentProvider_PipeDataWriter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_content_ContentProvider_PipeDataWriter::proxy() const
+{	
+	LOGV("android_content_ContentProvider_PipeDataWriter::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentProvider_PipeDataWriter cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_ContentProvider_PipeDataWriter jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_content_ContentProvider_PipeDataWriter::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_content_ContentProvider_PipeDataWriter::android_content_ContentProvider_PipeDataWriter() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_content_ContentProvider_PipeDataWriter::~android_content_ContentProvider_PipeDataWriter()
 {
@@ -152,13 +133,13 @@ android_content_ContentProvider_PipeDataWriter::~android_content_ContentProvider
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_content_ContentProvider_PipeDataWriter::~android_content_ContentProvider_PipeDataWriter() exit");
 }
 // Functions
-void android_content_ContentProvider_PipeDataWriter::writeDataToPipe(AndroidCXX::android_os_ParcelFileDescriptor& arg0,AndroidCXX::android_net_Uri& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_os_Bundle& arg3,AndroidCXX::java_lang_Object& arg4)
+void android_content_ContentProvider_PipeDataWriter::writeDataToPipe(AndroidCXX::android_os_ParcelFileDescriptor const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_os_Bundle const& arg3,AndroidCXX::java_lang_Object const& arg4)
 {
-	LOGV("void android_content_ContentProvider_PipeDataWriter::writeDataToPipe(AndroidCXX::android_os_ParcelFileDescriptor& arg0,AndroidCXX::android_net_Uri& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_os_Bundle& arg3,AndroidCXX::java_lang_Object& arg4) enter");
+	LOGV("void android_content_ContentProvider_PipeDataWriter::writeDataToPipe(AndroidCXX::android_os_ParcelFileDescriptor const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_os_Bundle const& arg3,AndroidCXX::java_lang_Object const& arg4) enter");
 
 	const char *methodName = "writeDataToPipe";
 	const char *methodSignature = "(Landroid/os/ParcelFileDescriptor;Landroid/net/Uri;Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/Object;)V";
@@ -168,8 +149,6 @@ void android_content_ContentProvider_PipeDataWriter::writeDataToPipe(AndroidCXX:
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_ContentProvider_PipeDataWriter cxx address %d", cxxAddress);
@@ -284,8 +263,6 @@ void android_content_ContentProvider_PipeDataWriter::writeDataToPipe(AndroidCXX:
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_content_ContentProvider_PipeDataWriter::writeDataToPipe(AndroidCXX::android_os_ParcelFileDescriptor& arg0,AndroidCXX::android_net_Uri& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_os_Bundle& arg3,AndroidCXX::java_lang_Object& arg4) exit");
+	LOGV("void android_content_ContentProvider_PipeDataWriter::writeDataToPipe(AndroidCXX::android_os_ParcelFileDescriptor const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_os_Bundle const& arg3,AndroidCXX::java_lang_Object const& arg4) exit");
 
 }

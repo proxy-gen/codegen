@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -47,7 +46,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_SurfaceHolder"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -87,8 +86,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_view_SurfaceHolder::android_view_SurfaceHolder(const android_view_SurfaceHolder& cc)
 {
 	LOGV("android_view_SurfaceHolder::android_view_SurfaceHolder(const android_view_SurfaceHolder& cc) enter");
@@ -112,9 +109,9 @@ android_view_SurfaceHolder::android_view_SurfaceHolder(const android_view_Surfac
 
 	LOGV("android_view_SurfaceHolder::android_view_SurfaceHolder(const android_view_SurfaceHolder& cc) exit");
 }
-android_view_SurfaceHolder::android_view_SurfaceHolder(void * proxy)
+android_view_SurfaceHolder::android_view_SurfaceHolder(Proxy proxy)
 {
-	LOGV("android_view_SurfaceHolder::android_view_SurfaceHolder(void * proxy) enter");
+	LOGV("android_view_SurfaceHolder::android_view_SurfaceHolder(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -124,47 +121,31 @@ android_view_SurfaceHolder::android_view_SurfaceHolder(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_view_SurfaceHolder::android_view_SurfaceHolder(void * proxy) exit");
+	LOGV("android_view_SurfaceHolder::android_view_SurfaceHolder(Proxy proxy) exit");
 }
-android_view_SurfaceHolder::android_view_SurfaceHolder()
-{
-	LOGV("android_view_SurfaceHolder::android_view_SurfaceHolder() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/view/SurfaceHolder";
-
-	LOGV("android_view_SurfaceHolder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_view_SurfaceHolder::proxy() const
+{	
+	LOGV("android_view_SurfaceHolder::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_SurfaceHolder cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_view_SurfaceHolder jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_view_SurfaceHolder::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_view_SurfaceHolder::android_view_SurfaceHolder() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_view_SurfaceHolder::~android_view_SurfaceHolder()
 {
@@ -176,13 +157,13 @@ android_view_SurfaceHolder::~android_view_SurfaceHolder()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_view_SurfaceHolder::~android_view_SurfaceHolder() exit");
 }
 // Functions
-void android_view_SurfaceHolder::setFormat(int& arg0)
+void android_view_SurfaceHolder::setFormat(int const& arg0)
 {
-	LOGV("void android_view_SurfaceHolder::setFormat(int& arg0) enter");
+	LOGV("void android_view_SurfaceHolder::setFormat(int const& arg0) enter");
 
 	const char *methodName = "setFormat";
 	const char *methodSignature = "(I)V";
@@ -193,8 +174,6 @@ void android_view_SurfaceHolder::setFormat(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_SurfaceHolder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -224,14 +203,12 @@ void android_view_SurfaceHolder::setFormat(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_SurfaceHolder::setFormat(int& arg0) exit");
+	LOGV("void android_view_SurfaceHolder::setFormat(int const& arg0) exit");
 
 }
-void android_view_SurfaceHolder::setType(int& arg0)
+void android_view_SurfaceHolder::setType(int const& arg0)
 {
-	LOGV("void android_view_SurfaceHolder::setType(int& arg0) enter");
+	LOGV("void android_view_SurfaceHolder::setType(int const& arg0) enter");
 
 	const char *methodName = "setType";
 	const char *methodSignature = "(I)V";
@@ -242,8 +219,6 @@ void android_view_SurfaceHolder::setType(int& arg0)
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_SurfaceHolder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -273,14 +248,12 @@ void android_view_SurfaceHolder::setType(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_SurfaceHolder::setType(int& arg0) exit");
+	LOGV("void android_view_SurfaceHolder::setType(int const& arg0) exit");
 
 }
-void android_view_SurfaceHolder::setKeepScreenOn(bool& arg0)
+void android_view_SurfaceHolder::setKeepScreenOn(bool const& arg0)
 {
-	LOGV("void android_view_SurfaceHolder::setKeepScreenOn(bool& arg0) enter");
+	LOGV("void android_view_SurfaceHolder::setKeepScreenOn(bool const& arg0) enter");
 
 	const char *methodName = "setKeepScreenOn";
 	const char *methodSignature = "(Z)V";
@@ -290,8 +263,6 @@ void android_view_SurfaceHolder::setKeepScreenOn(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_SurfaceHolder cxx address %d", cxxAddress);
@@ -322,14 +293,12 @@ void android_view_SurfaceHolder::setKeepScreenOn(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_SurfaceHolder::setKeepScreenOn(bool& arg0) exit");
+	LOGV("void android_view_SurfaceHolder::setKeepScreenOn(bool const& arg0) exit");
 
 }
-void android_view_SurfaceHolder::addCallback(AndroidCXX::android_view_SurfaceHolder_Callback& arg0)
+void android_view_SurfaceHolder::addCallback(AndroidCXX::android_view_SurfaceHolder_Callback const& arg0)
 {
-	LOGV("void android_view_SurfaceHolder::addCallback(AndroidCXX::android_view_SurfaceHolder_Callback& arg0) enter");
+	LOGV("void android_view_SurfaceHolder::addCallback(AndroidCXX::android_view_SurfaceHolder_Callback const& arg0) enter");
 
 	const char *methodName = "addCallback";
 	const char *methodSignature = "(Landroid/view/SurfaceHolder$Callback;)V";
@@ -340,8 +309,6 @@ void android_view_SurfaceHolder::addCallback(AndroidCXX::android_view_SurfaceHol
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_SurfaceHolder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -371,14 +338,12 @@ void android_view_SurfaceHolder::addCallback(AndroidCXX::android_view_SurfaceHol
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_SurfaceHolder::addCallback(AndroidCXX::android_view_SurfaceHolder_Callback& arg0) exit");
+	LOGV("void android_view_SurfaceHolder::addCallback(AndroidCXX::android_view_SurfaceHolder_Callback const& arg0) exit");
 
 }
-void android_view_SurfaceHolder::removeCallback(AndroidCXX::android_view_SurfaceHolder_Callback& arg0)
+void android_view_SurfaceHolder::removeCallback(AndroidCXX::android_view_SurfaceHolder_Callback const& arg0)
 {
-	LOGV("void android_view_SurfaceHolder::removeCallback(AndroidCXX::android_view_SurfaceHolder_Callback& arg0) enter");
+	LOGV("void android_view_SurfaceHolder::removeCallback(AndroidCXX::android_view_SurfaceHolder_Callback const& arg0) enter");
 
 	const char *methodName = "removeCallback";
 	const char *methodSignature = "(Landroid/view/SurfaceHolder$Callback;)V";
@@ -389,8 +354,6 @@ void android_view_SurfaceHolder::removeCallback(AndroidCXX::android_view_Surface
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_SurfaceHolder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -420,9 +383,7 @@ void android_view_SurfaceHolder::removeCallback(AndroidCXX::android_view_Surface
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_SurfaceHolder::removeCallback(AndroidCXX::android_view_SurfaceHolder_Callback& arg0) exit");
+	LOGV("void android_view_SurfaceHolder::removeCallback(AndroidCXX::android_view_SurfaceHolder_Callback const& arg0) exit");
 
 }
 bool android_view_SurfaceHolder::isCreating()
@@ -438,15 +399,12 @@ bool android_view_SurfaceHolder::isCreating()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_SurfaceHolder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_view_SurfaceHolder jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -464,17 +422,17 @@ bool android_view_SurfaceHolder::isCreating()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_view_SurfaceHolder::isCreating() exit");
 
 	return result;
 }
-void android_view_SurfaceHolder::setFixedSize(int& arg0,int& arg1)
+void android_view_SurfaceHolder::setFixedSize(int const& arg0,int const& arg1)
 {
-	LOGV("void android_view_SurfaceHolder::setFixedSize(int& arg0,int& arg1) enter");
+	LOGV("void android_view_SurfaceHolder::setFixedSize(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setFixedSize";
 	const char *methodSignature = "(II)V";
@@ -484,8 +442,6 @@ void android_view_SurfaceHolder::setFixedSize(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_SurfaceHolder cxx address %d", cxxAddress);
@@ -537,9 +493,7 @@ void android_view_SurfaceHolder::setFixedSize(int& arg0,int& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_SurfaceHolder::setFixedSize(int& arg0,int& arg1) exit");
+	LOGV("void android_view_SurfaceHolder::setFixedSize(int const& arg0,int const& arg1) exit");
 
 }
 void android_view_SurfaceHolder::setSizeFromLayout()
@@ -555,8 +509,6 @@ void android_view_SurfaceHolder::setSizeFromLayout()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_SurfaceHolder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -565,8 +517,6 @@ void android_view_SurfaceHolder::setSizeFromLayout()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_view_SurfaceHolder::setSizeFromLayout() exit");
 
 }
@@ -583,15 +533,12 @@ AndroidCXX::android_graphics_Canvas android_view_SurfaceHolder::lockCanvas()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_SurfaceHolder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_view_SurfaceHolder jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_Canvas result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -609,17 +556,17 @@ AndroidCXX::android_graphics_Canvas android_view_SurfaceHolder::lockCanvas()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Canvas(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Canvas) (AndroidCXX::android_graphics_Canvas((AndroidCXX::android_graphics_Canvas *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_graphics_Canvas result((AndroidCXX::android_graphics_Canvas) *((AndroidCXX::android_graphics_Canvas *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Canvas *) cxx_value);
+		
 	LOGV("AndroidCXX::android_graphics_Canvas android_view_SurfaceHolder::lockCanvas() exit");
 
 	return result;
 }
-AndroidCXX::android_graphics_Canvas android_view_SurfaceHolder::lockCanvas(AndroidCXX::android_graphics_Rect& arg0)
+AndroidCXX::android_graphics_Canvas android_view_SurfaceHolder::lockCanvas(AndroidCXX::android_graphics_Rect const& arg0)
 {
-	LOGV("AndroidCXX::android_graphics_Canvas android_view_SurfaceHolder::lockCanvas(AndroidCXX::android_graphics_Rect& arg0) enter");
+	LOGV("AndroidCXX::android_graphics_Canvas android_view_SurfaceHolder::lockCanvas(AndroidCXX::android_graphics_Rect const& arg0) enter");
 
 	const char *methodName = "lockCanvas";
 	const char *methodSignature = "(Landroid/graphics/Rect;)Landroid/graphics/Canvas;";
@@ -629,8 +576,6 @@ AndroidCXX::android_graphics_Canvas android_view_SurfaceHolder::lockCanvas(Andro
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_SurfaceHolder cxx address %d", cxxAddress);
@@ -659,7 +604,6 @@ AndroidCXX::android_graphics_Canvas android_view_SurfaceHolder::lockCanvas(Andro
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_Canvas result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -677,17 +621,17 @@ AndroidCXX::android_graphics_Canvas android_view_SurfaceHolder::lockCanvas(Andro
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Canvas(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Canvas) (AndroidCXX::android_graphics_Canvas((AndroidCXX::android_graphics_Canvas *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_graphics_Canvas android_view_SurfaceHolder::lockCanvas(AndroidCXX::android_graphics_Rect& arg0) exit");
+	AndroidCXX::android_graphics_Canvas result((AndroidCXX::android_graphics_Canvas) *((AndroidCXX::android_graphics_Canvas *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Canvas *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_Canvas android_view_SurfaceHolder::lockCanvas(AndroidCXX::android_graphics_Rect const& arg0) exit");
 
 	return result;
 }
-void android_view_SurfaceHolder::unlockCanvasAndPost(AndroidCXX::android_graphics_Canvas& arg0)
+void android_view_SurfaceHolder::unlockCanvasAndPost(AndroidCXX::android_graphics_Canvas const& arg0)
 {
-	LOGV("void android_view_SurfaceHolder::unlockCanvasAndPost(AndroidCXX::android_graphics_Canvas& arg0) enter");
+	LOGV("void android_view_SurfaceHolder::unlockCanvasAndPost(AndroidCXX::android_graphics_Canvas const& arg0) enter");
 
 	const char *methodName = "unlockCanvasAndPost";
 	const char *methodSignature = "(Landroid/graphics/Canvas;)V";
@@ -697,8 +641,6 @@ void android_view_SurfaceHolder::unlockCanvasAndPost(AndroidCXX::android_graphic
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_view_SurfaceHolder cxx address %d", cxxAddress);
@@ -729,9 +671,7 @@ void android_view_SurfaceHolder::unlockCanvasAndPost(AndroidCXX::android_graphic
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_view_SurfaceHolder::unlockCanvasAndPost(AndroidCXX::android_graphics_Canvas& arg0) exit");
+	LOGV("void android_view_SurfaceHolder::unlockCanvasAndPost(AndroidCXX::android_graphics_Canvas const& arg0) exit");
 
 }
 AndroidCXX::android_graphics_Rect android_view_SurfaceHolder::getSurfaceFrame()
@@ -747,15 +687,12 @@ AndroidCXX::android_graphics_Rect android_view_SurfaceHolder::getSurfaceFrame()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_SurfaceHolder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_view_SurfaceHolder jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_Rect result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -773,10 +710,10 @@ AndroidCXX::android_graphics_Rect android_view_SurfaceHolder::getSurfaceFrame()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Rect(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Rect) (AndroidCXX::android_graphics_Rect((AndroidCXX::android_graphics_Rect *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_graphics_Rect result((AndroidCXX::android_graphics_Rect) *((AndroidCXX::android_graphics_Rect *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Rect *) cxx_value);
+		
 	LOGV("AndroidCXX::android_graphics_Rect android_view_SurfaceHolder::getSurfaceFrame() exit");
 
 	return result;
@@ -794,15 +731,12 @@ AndroidCXX::android_view_Surface android_view_SurfaceHolder::getSurface()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_view_SurfaceHolder cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_view_SurfaceHolder jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_Surface result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -820,10 +754,10 @@ AndroidCXX::android_view_Surface android_view_SurfaceHolder::getSurface()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_Surface(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_Surface) (AndroidCXX::android_view_Surface((AndroidCXX::android_view_Surface *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_view_Surface result((AndroidCXX::android_view_Surface) *((AndroidCXX::android_view_Surface *) cxx_value));
+	delete ((AndroidCXX::android_view_Surface *) cxx_value);
+		
 	LOGV("AndroidCXX::android_view_Surface android_view_SurfaceHolder::getSurface() exit");
 
 	return result;

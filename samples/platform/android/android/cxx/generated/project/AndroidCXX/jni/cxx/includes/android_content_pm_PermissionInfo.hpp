@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -75,18 +74,18 @@ class android_content_pm_PermissionInfo
 {
 public:
 
-	android_content_pm_PermissionInfo(const android_content_pm_PermissionInfo& cc);
-	android_content_pm_PermissionInfo(void * proxy);
+	android_content_pm_PermissionInfo(Proxy proxy);
 	// Public Constructors
 	android_content_pm_PermissionInfo();
-	android_content_pm_PermissionInfo(AndroidCXX::android_content_pm_PermissionInfo& arg0);
+	android_content_pm_PermissionInfo(AndroidCXX::android_content_pm_PermissionInfo const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_pm_PermissionInfo();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
-	 AndroidCXX::java_lang_CharSequence loadDescription(AndroidCXX::android_content_pm_PackageManager& arg0);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	 AndroidCXX::java_lang_CharSequence loadDescription(AndroidCXX::android_content_pm_PackageManager const& arg0);
 };	
 
 } // namespace

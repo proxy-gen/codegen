@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -57,14 +56,14 @@ class com_facebook_TestSession_TestAccount
 public:
 
 	com_facebook_TestSession_TestAccount(const com_facebook_TestSession_TestAccount& cc);
-	com_facebook_TestSession_TestAccount(void * proxy);
+	com_facebook_TestSession_TestAccount(Proxy proxy);
 	// Public Constructors
-	com_facebook_TestSession_TestAccount();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_TestSession_TestAccount();
 	// Functions
 	 AndroidCXX::java_lang_String getName();
-	 void setName(AndroidCXX::java_lang_String& arg0);
+	 void setName(AndroidCXX::java_lang_String const& arg0);
 	 AndroidCXX::java_lang_String getId();
 	 AndroidCXX::java_lang_String getAccessToken();
 };	

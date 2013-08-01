@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_os_MessageQueue_IdleHandler.hpp>
@@ -27,7 +26,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_os_MessageQueue_IdleHandler"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -40,8 +39,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_os_MessageQueue_IdleHandler::android_os_MessageQueue_IdleHandler(const android_os_MessageQueue_IdleHandler& cc)
 {
 	LOGV("android_os_MessageQueue_IdleHandler::android_os_MessageQueue_IdleHandler(const android_os_MessageQueue_IdleHandler& cc) enter");
@@ -65,9 +62,9 @@ android_os_MessageQueue_IdleHandler::android_os_MessageQueue_IdleHandler(const a
 
 	LOGV("android_os_MessageQueue_IdleHandler::android_os_MessageQueue_IdleHandler(const android_os_MessageQueue_IdleHandler& cc) exit");
 }
-android_os_MessageQueue_IdleHandler::android_os_MessageQueue_IdleHandler(void * proxy)
+android_os_MessageQueue_IdleHandler::android_os_MessageQueue_IdleHandler(Proxy proxy)
 {
-	LOGV("android_os_MessageQueue_IdleHandler::android_os_MessageQueue_IdleHandler(void * proxy) enter");
+	LOGV("android_os_MessageQueue_IdleHandler::android_os_MessageQueue_IdleHandler(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -77,47 +74,31 @@ android_os_MessageQueue_IdleHandler::android_os_MessageQueue_IdleHandler(void * 
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_os_MessageQueue_IdleHandler::android_os_MessageQueue_IdleHandler(void * proxy) exit");
+	LOGV("android_os_MessageQueue_IdleHandler::android_os_MessageQueue_IdleHandler(Proxy proxy) exit");
 }
-android_os_MessageQueue_IdleHandler::android_os_MessageQueue_IdleHandler()
-{
-	LOGV("android_os_MessageQueue_IdleHandler::android_os_MessageQueue_IdleHandler() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/os/MessageQueue$IdleHandler";
-
-	LOGV("android_os_MessageQueue_IdleHandler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_os_MessageQueue_IdleHandler::proxy() const
+{	
+	LOGV("android_os_MessageQueue_IdleHandler::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_os_MessageQueue_IdleHandler cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_MessageQueue_IdleHandler jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_os_MessageQueue_IdleHandler::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_os_MessageQueue_IdleHandler::android_os_MessageQueue_IdleHandler() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_os_MessageQueue_IdleHandler::~android_os_MessageQueue_IdleHandler()
 {
@@ -129,7 +110,7 @@ android_os_MessageQueue_IdleHandler::~android_os_MessageQueue_IdleHandler()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_os_MessageQueue_IdleHandler::~android_os_MessageQueue_IdleHandler() exit");
 }
 // Functions
@@ -146,15 +127,12 @@ bool android_os_MessageQueue_IdleHandler::queueIdle()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_os_MessageQueue_IdleHandler cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_os_MessageQueue_IdleHandler jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -172,10 +150,10 @@ bool android_os_MessageQueue_IdleHandler::queueIdle()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
 	LOGV("bool android_os_MessageQueue_IdleHandler::queueIdle() exit");
 
 	return result;

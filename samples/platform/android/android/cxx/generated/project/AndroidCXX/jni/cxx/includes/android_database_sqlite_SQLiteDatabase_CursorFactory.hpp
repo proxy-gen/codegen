@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -72,13 +71,13 @@ class android_database_sqlite_SQLiteDatabase_CursorFactory
 public:
 
 	android_database_sqlite_SQLiteDatabase_CursorFactory(const android_database_sqlite_SQLiteDatabase_CursorFactory& cc);
-	android_database_sqlite_SQLiteDatabase_CursorFactory(void * proxy);
+	android_database_sqlite_SQLiteDatabase_CursorFactory(Proxy proxy);
 	// Public Constructors
-	android_database_sqlite_SQLiteDatabase_CursorFactory();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteDatabase_CursorFactory();
 	// Functions
-	 AndroidCXX::android_database_Cursor newCursor(AndroidCXX::android_database_sqlite_SQLiteDatabase& arg0,AndroidCXX::android_database_sqlite_SQLiteCursorDriver& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_database_sqlite_SQLiteQuery& arg3);
+	 AndroidCXX::android_database_Cursor newCursor(AndroidCXX::android_database_sqlite_SQLiteDatabase const& arg0,AndroidCXX::android_database_sqlite_SQLiteCursorDriver const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_database_sqlite_SQLiteQuery const& arg3);
 };	
 
 } // namespace

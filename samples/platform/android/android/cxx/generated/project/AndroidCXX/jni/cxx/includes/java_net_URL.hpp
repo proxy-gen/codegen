@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -151,19 +150,19 @@ class java_net_URL
 public:
 
 	java_net_URL(const java_net_URL& cc);
-	java_net_URL(void * proxy);
+	java_net_URL(Proxy proxy);
 	// Public Constructors
-	java_net_URL(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2,AndroidCXX::java_lang_String& arg3);
-	java_net_URL(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2);
-	java_net_URL(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::java_net_URLStreamHandler& arg4);
-	java_net_URL(AndroidCXX::java_lang_String& arg0);
-	java_net_URL(AndroidCXX::java_net_URL& arg0,AndroidCXX::java_lang_String& arg1);
-	java_net_URL(AndroidCXX::java_net_URL& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_net_URLStreamHandler& arg2);
-	java_net_URL();
+	java_net_URL(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2,AndroidCXX::java_lang_String const& arg3);
+	java_net_URL(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2);
+	java_net_URL(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::java_net_URLStreamHandler const& arg4);
+	java_net_URL(AndroidCXX::java_lang_String const& arg0);
+	java_net_URL(AndroidCXX::java_net_URL const& arg0,AndroidCXX::java_lang_String const& arg1);
+	java_net_URL(AndroidCXX::java_net_URL const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_net_URLStreamHandler const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_URL();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 AndroidCXX::java_io_InputStream openStream();
@@ -178,13 +177,13 @@ public:
 	 AndroidCXX::java_lang_String getHost();
 	 AndroidCXX::java_lang_String getFile();
 	 AndroidCXX::java_lang_String getRef();
-	 bool sameFile(AndroidCXX::java_net_URL& arg0);
+	 bool sameFile(AndroidCXX::java_net_URL const& arg0);
 	 AndroidCXX::java_lang_String toExternalForm();
-	 AndroidCXX::java_net_URLConnection openConnection(AndroidCXX::java_net_Proxy& arg0);
+	 AndroidCXX::java_net_URLConnection openConnection(AndroidCXX::java_net_Proxy const& arg0);
 	 AndroidCXX::java_net_URLConnection openConnection();
-	 AndroidCXX::java_lang_Object getContent(std::vector<AndroidCXX::java_lang_Class >& arg0);
+	 AndroidCXX::java_lang_Object getContent(std::vector<AndroidCXX::java_lang_Class > const& arg0);
 	 AndroidCXX::java_lang_Object getContent();
-	static void setURLStreamHandlerFactory(AndroidCXX::java_net_URLStreamHandlerFactory& arg0);
+	static void setURLStreamHandlerFactory(AndroidCXX::java_net_URLStreamHandlerFactory const& arg0);
 };	
 
 } // namespace

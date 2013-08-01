@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 
@@ -59,19 +58,16 @@ class java_lang_CharSequence
 public:
 
 	java_lang_CharSequence(const java_lang_CharSequence& cc);
-	java_lang_CharSequence(void * proxy);
+	java_lang_CharSequence(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_lang_CharSequence();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_CharSequence();
 	// Functions
 	 JDKCXX::java_lang_String toString();
 	 int length();
-	 char charAt(int& arg0);
-	 JDKCXX::java_lang_CharSequence subSequence(int& arg0,int& arg1);
+	 char charAt(int const& arg0);
+	 JDKCXX::java_lang_CharSequence subSequence(int const& arg0,int const& arg1);
 };	
 
 } // namespace

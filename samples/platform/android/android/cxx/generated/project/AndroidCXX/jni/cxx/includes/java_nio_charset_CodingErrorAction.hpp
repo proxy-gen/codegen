@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -52,9 +51,9 @@ class java_nio_charset_CodingErrorAction
 public:
 
 	java_nio_charset_CodingErrorAction(const java_nio_charset_CodingErrorAction& cc);
-	java_nio_charset_CodingErrorAction(void * proxy);
+	java_nio_charset_CodingErrorAction(Proxy proxy);
 	// Public Constructors
-	java_nio_charset_CodingErrorAction();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_charset_CodingErrorAction();
 	// Functions

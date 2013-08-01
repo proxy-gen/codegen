@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -77,7 +76,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_Switch"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -153,8 +152,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_widget_Switch::android_widget_Switch(const android_widget_Switch& cc)
 {
 	LOGV("android_widget_Switch::android_widget_Switch(const android_widget_Switch& cc) enter");
@@ -178,9 +175,9 @@ android_widget_Switch::android_widget_Switch(const android_widget_Switch& cc)
 
 	LOGV("android_widget_Switch::android_widget_Switch(const android_widget_Switch& cc) exit");
 }
-android_widget_Switch::android_widget_Switch(void * proxy)
+android_widget_Switch::android_widget_Switch(Proxy proxy)
 {
-	LOGV("android_widget_Switch::android_widget_Switch(void * proxy) enter");
+	LOGV("android_widget_Switch::android_widget_Switch(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -190,50 +187,34 @@ android_widget_Switch::android_widget_Switch(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_Switch::android_widget_Switch(void * proxy) exit");
+	LOGV("android_widget_Switch::android_widget_Switch(Proxy proxy) exit");
 }
-android_widget_Switch::android_widget_Switch()
-{
-	LOGV("android_widget_Switch::android_widget_Switch() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/Switch";
-
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_widget_Switch::proxy() const
+{	
+	LOGV("android_widget_Switch::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Switch jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_widget_Switch::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_widget_Switch::android_widget_Switch() exit");	
+	return proxy;
 }
-// Public Constructors
-android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
+android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1)
 {
-	LOGV("android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -307,11 +288,11 @@ android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1) exit");	
 }
-android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
+android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2)
 {
-	LOGV("android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) enter");	
+	LOGV("android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
@@ -406,11 +387,11 @@ android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) exit");	
+	LOGV("android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2) exit");	
 }
-android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context& arg0)
+android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -463,7 +444,7 @@ android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context const& arg0) exit");	
 }
 // Default Instance Destructor
 android_widget_Switch::~android_widget_Switch()
@@ -476,13 +457,13 @@ android_widget_Switch::~android_widget_Switch()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_Switch::~android_widget_Switch() exit");
 }
 // Functions
-bool android_widget_Switch::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0)
+bool android_widget_Switch::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0)
 {
-	LOGV("bool android_widget_Switch::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) enter");
+	LOGV("bool android_widget_Switch::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) enter");
 
 	const char *methodName = "onTouchEvent";
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
@@ -492,8 +473,6 @@ bool android_widget_Switch::onTouchEvent(AndroidCXX::android_view_MotionEvent& a
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
@@ -522,7 +501,6 @@ bool android_widget_Switch::onTouchEvent(AndroidCXX::android_view_MotionEvent& a
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -540,11 +518,11 @@ bool android_widget_Switch::onTouchEvent(AndroidCXX::android_view_MotionEvent& a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_Switch::onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_Switch::onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) exit");
 
 	return result;
 }
@@ -561,8 +539,6 @@ void android_widget_Switch::jumpDrawablesToCurrentState()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -571,14 +547,12 @@ void android_widget_Switch::jumpDrawablesToCurrentState()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_Switch::jumpDrawablesToCurrentState() exit");
 
 }
-void android_widget_Switch::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_Switch::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_Switch::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_Switch::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onPopulateAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -589,8 +563,6 @@ void android_widget_Switch::onPopulateAccessibilityEvent(AndroidCXX::android_vie
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -620,14 +592,12 @@ void android_widget_Switch::onPopulateAccessibilityEvent(AndroidCXX::android_vie
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Switch::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_Switch::onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_Switch::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0)
+void android_widget_Switch::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0)
 {
-	LOGV("void android_widget_Switch::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) enter");
+	LOGV("void android_widget_Switch::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityEvent";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
@@ -638,8 +608,6 @@ void android_widget_Switch::onInitializeAccessibilityEvent(AndroidCXX::android_v
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -669,14 +637,12 @@ void android_widget_Switch::onInitializeAccessibilityEvent(AndroidCXX::android_v
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Switch::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0) exit");
+	LOGV("void android_widget_Switch::onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) exit");
 
 }
-void android_widget_Switch::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0)
+void android_widget_Switch::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0)
 {
-	LOGV("void android_widget_Switch::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) enter");
+	LOGV("void android_widget_Switch::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) enter");
 
 	const char *methodName = "onInitializeAccessibilityNodeInfo";
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
@@ -686,8 +652,6 @@ void android_widget_Switch::onInitializeAccessibilityNodeInfo(AndroidCXX::androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
@@ -718,14 +682,12 @@ void android_widget_Switch::onInitializeAccessibilityNodeInfo(AndroidCXX::androi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Switch::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0) exit");
+	LOGV("void android_widget_Switch::onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) exit");
 
 }
-void android_widget_Switch::onMeasure(int& arg0,int& arg1)
+void android_widget_Switch::onMeasure(int const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_Switch::onMeasure(int& arg0,int& arg1) enter");
+	LOGV("void android_widget_Switch::onMeasure(int const& arg0,int const& arg1) enter");
 
 	const char *methodName = "onMeasure";
 	const char *methodSignature = "(II)V";
@@ -735,8 +697,6 @@ void android_widget_Switch::onMeasure(int& arg0,int& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
@@ -788,14 +748,12 @@ void android_widget_Switch::onMeasure(int& arg0,int& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Switch::onMeasure(int& arg0,int& arg1) exit");
+	LOGV("void android_widget_Switch::onMeasure(int const& arg0,int const& arg1) exit");
 
 }
-void android_widget_Switch::setChecked(bool& arg0)
+void android_widget_Switch::setChecked(bool const& arg0)
 {
-	LOGV("void android_widget_Switch::setChecked(bool& arg0) enter");
+	LOGV("void android_widget_Switch::setChecked(bool const& arg0) enter");
 
 	const char *methodName = "setChecked";
 	const char *methodSignature = "(Z)V";
@@ -805,8 +763,6 @@ void android_widget_Switch::setChecked(bool& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
@@ -837,9 +793,7 @@ void android_widget_Switch::setChecked(bool& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Switch::setChecked(bool& arg0) exit");
+	LOGV("void android_widget_Switch::setChecked(bool const& arg0) exit");
 
 }
 int android_widget_Switch::getCompoundPaddingLeft()
@@ -855,15 +809,12 @@ int android_widget_Switch::getCompoundPaddingLeft()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Switch jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -881,10 +832,10 @@ int android_widget_Switch::getCompoundPaddingLeft()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_Switch::getCompoundPaddingLeft() exit");
 
 	return result;
@@ -902,15 +853,12 @@ int android_widget_Switch::getCompoundPaddingRight()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Switch jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -928,17 +876,17 @@ int android_widget_Switch::getCompoundPaddingRight()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_Switch::getCompoundPaddingRight() exit");
 
 	return result;
 }
-void android_widget_Switch::setSwitchTextAppearance(AndroidCXX::android_content_Context& arg0,int& arg1)
+void android_widget_Switch::setSwitchTextAppearance(AndroidCXX::android_content_Context const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_Switch::setSwitchTextAppearance(AndroidCXX::android_content_Context& arg0,int& arg1) enter");
+	LOGV("void android_widget_Switch::setSwitchTextAppearance(AndroidCXX::android_content_Context const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setSwitchTextAppearance";
 	const char *methodSignature = "(Landroid/content/Context;I)V";
@@ -948,8 +896,6 @@ void android_widget_Switch::setSwitchTextAppearance(AndroidCXX::android_content_
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
@@ -1001,14 +947,12 @@ void android_widget_Switch::setSwitchTextAppearance(AndroidCXX::android_content_
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Switch::setSwitchTextAppearance(AndroidCXX::android_content_Context& arg0,int& arg1) exit");
+	LOGV("void android_widget_Switch::setSwitchTextAppearance(AndroidCXX::android_content_Context const& arg0,int const& arg1) exit");
 
 }
-void android_widget_Switch::setSwitchTypeface(AndroidCXX::android_graphics_Typeface& arg0,int& arg1)
+void android_widget_Switch::setSwitchTypeface(AndroidCXX::android_graphics_Typeface const& arg0,int const& arg1)
 {
-	LOGV("void android_widget_Switch::setSwitchTypeface(AndroidCXX::android_graphics_Typeface& arg0,int& arg1) enter");
+	LOGV("void android_widget_Switch::setSwitchTypeface(AndroidCXX::android_graphics_Typeface const& arg0,int const& arg1) enter");
 
 	const char *methodName = "setSwitchTypeface";
 	const char *methodSignature = "(Landroid/graphics/Typeface;I)V";
@@ -1018,8 +962,6 @@ void android_widget_Switch::setSwitchTypeface(AndroidCXX::android_graphics_Typef
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
@@ -1071,14 +1013,12 @@ void android_widget_Switch::setSwitchTypeface(AndroidCXX::android_graphics_Typef
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Switch::setSwitchTypeface(AndroidCXX::android_graphics_Typeface& arg0,int& arg1) exit");
+	LOGV("void android_widget_Switch::setSwitchTypeface(AndroidCXX::android_graphics_Typeface const& arg0,int const& arg1) exit");
 
 }
-void android_widget_Switch::setSwitchTypeface(AndroidCXX::android_graphics_Typeface& arg0)
+void android_widget_Switch::setSwitchTypeface(AndroidCXX::android_graphics_Typeface const& arg0)
 {
-	LOGV("void android_widget_Switch::setSwitchTypeface(AndroidCXX::android_graphics_Typeface& arg0) enter");
+	LOGV("void android_widget_Switch::setSwitchTypeface(AndroidCXX::android_graphics_Typeface const& arg0) enter");
 
 	const char *methodName = "setSwitchTypeface";
 	const char *methodSignature = "(Landroid/graphics/Typeface;)V";
@@ -1088,8 +1028,6 @@ void android_widget_Switch::setSwitchTypeface(AndroidCXX::android_graphics_Typef
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
@@ -1120,14 +1058,12 @@ void android_widget_Switch::setSwitchTypeface(AndroidCXX::android_graphics_Typef
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Switch::setSwitchTypeface(AndroidCXX::android_graphics_Typeface& arg0) exit");
+	LOGV("void android_widget_Switch::setSwitchTypeface(AndroidCXX::android_graphics_Typeface const& arg0) exit");
 
 }
-void android_widget_Switch::setSwitchPadding(int& arg0)
+void android_widget_Switch::setSwitchPadding(int const& arg0)
 {
-	LOGV("void android_widget_Switch::setSwitchPadding(int& arg0) enter");
+	LOGV("void android_widget_Switch::setSwitchPadding(int const& arg0) enter");
 
 	const char *methodName = "setSwitchPadding";
 	const char *methodSignature = "(I)V";
@@ -1137,8 +1073,6 @@ void android_widget_Switch::setSwitchPadding(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
@@ -1169,9 +1103,7 @@ void android_widget_Switch::setSwitchPadding(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Switch::setSwitchPadding(int& arg0) exit");
+	LOGV("void android_widget_Switch::setSwitchPadding(int const& arg0) exit");
 
 }
 int android_widget_Switch::getSwitchPadding()
@@ -1187,15 +1119,12 @@ int android_widget_Switch::getSwitchPadding()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Switch jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1213,17 +1142,17 @@ int android_widget_Switch::getSwitchPadding()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_Switch::getSwitchPadding() exit");
 
 	return result;
 }
-void android_widget_Switch::setSwitchMinWidth(int& arg0)
+void android_widget_Switch::setSwitchMinWidth(int const& arg0)
 {
-	LOGV("void android_widget_Switch::setSwitchMinWidth(int& arg0) enter");
+	LOGV("void android_widget_Switch::setSwitchMinWidth(int const& arg0) enter");
 
 	const char *methodName = "setSwitchMinWidth";
 	const char *methodSignature = "(I)V";
@@ -1233,8 +1162,6 @@ void android_widget_Switch::setSwitchMinWidth(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
@@ -1265,9 +1192,7 @@ void android_widget_Switch::setSwitchMinWidth(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Switch::setSwitchMinWidth(int& arg0) exit");
+	LOGV("void android_widget_Switch::setSwitchMinWidth(int const& arg0) exit");
 
 }
 int android_widget_Switch::getSwitchMinWidth()
@@ -1283,15 +1208,12 @@ int android_widget_Switch::getSwitchMinWidth()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Switch jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1309,17 +1231,17 @@ int android_widget_Switch::getSwitchMinWidth()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_Switch::getSwitchMinWidth() exit");
 
 	return result;
 }
-void android_widget_Switch::setThumbTextPadding(int& arg0)
+void android_widget_Switch::setThumbTextPadding(int const& arg0)
 {
-	LOGV("void android_widget_Switch::setThumbTextPadding(int& arg0) enter");
+	LOGV("void android_widget_Switch::setThumbTextPadding(int const& arg0) enter");
 
 	const char *methodName = "setThumbTextPadding";
 	const char *methodSignature = "(I)V";
@@ -1329,8 +1251,6 @@ void android_widget_Switch::setThumbTextPadding(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
@@ -1361,9 +1281,7 @@ void android_widget_Switch::setThumbTextPadding(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Switch::setThumbTextPadding(int& arg0) exit");
+	LOGV("void android_widget_Switch::setThumbTextPadding(int const& arg0) exit");
 
 }
 int android_widget_Switch::getThumbTextPadding()
@@ -1379,15 +1297,12 @@ int android_widget_Switch::getThumbTextPadding()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Switch jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1405,17 +1320,17 @@ int android_widget_Switch::getThumbTextPadding()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_Switch::getThumbTextPadding() exit");
 
 	return result;
 }
-void android_widget_Switch::setTrackDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0)
+void android_widget_Switch::setTrackDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0)
 {
-	LOGV("void android_widget_Switch::setTrackDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0) enter");
+	LOGV("void android_widget_Switch::setTrackDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) enter");
 
 	const char *methodName = "setTrackDrawable";
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
@@ -1425,8 +1340,6 @@ void android_widget_Switch::setTrackDrawable(AndroidCXX::android_graphics_drawab
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
@@ -1457,14 +1370,12 @@ void android_widget_Switch::setTrackDrawable(AndroidCXX::android_graphics_drawab
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Switch::setTrackDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0) exit");
+	LOGV("void android_widget_Switch::setTrackDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) exit");
 
 }
-void android_widget_Switch::setTrackResource(int& arg0)
+void android_widget_Switch::setTrackResource(int const& arg0)
 {
-	LOGV("void android_widget_Switch::setTrackResource(int& arg0) enter");
+	LOGV("void android_widget_Switch::setTrackResource(int const& arg0) enter");
 
 	const char *methodName = "setTrackResource";
 	const char *methodSignature = "(I)V";
@@ -1474,8 +1385,6 @@ void android_widget_Switch::setTrackResource(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
@@ -1506,9 +1415,7 @@ void android_widget_Switch::setTrackResource(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Switch::setTrackResource(int& arg0) exit");
+	LOGV("void android_widget_Switch::setTrackResource(int const& arg0) exit");
 
 }
 AndroidCXX::android_graphics_drawable_Drawable android_widget_Switch::getTrackDrawable()
@@ -1524,15 +1431,12 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_Switch::getTrackDr
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Switch jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_drawable_Drawable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1550,17 +1454,17 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_Switch::getTrackDr
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_drawable_Drawable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_drawable_Drawable) (AndroidCXX::android_graphics_drawable_Drawable((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
+		
 	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_widget_Switch::getTrackDrawable() exit");
 
 	return result;
 }
-void android_widget_Switch::setThumbDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0)
+void android_widget_Switch::setThumbDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0)
 {
-	LOGV("void android_widget_Switch::setThumbDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0) enter");
+	LOGV("void android_widget_Switch::setThumbDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) enter");
 
 	const char *methodName = "setThumbDrawable";
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
@@ -1570,8 +1474,6 @@ void android_widget_Switch::setThumbDrawable(AndroidCXX::android_graphics_drawab
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
@@ -1602,14 +1504,12 @@ void android_widget_Switch::setThumbDrawable(AndroidCXX::android_graphics_drawab
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Switch::setThumbDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0) exit");
+	LOGV("void android_widget_Switch::setThumbDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) exit");
 
 }
-void android_widget_Switch::setThumbResource(int& arg0)
+void android_widget_Switch::setThumbResource(int const& arg0)
 {
-	LOGV("void android_widget_Switch::setThumbResource(int& arg0) enter");
+	LOGV("void android_widget_Switch::setThumbResource(int const& arg0) enter");
 
 	const char *methodName = "setThumbResource";
 	const char *methodSignature = "(I)V";
@@ -1619,8 +1519,6 @@ void android_widget_Switch::setThumbResource(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
@@ -1651,9 +1549,7 @@ void android_widget_Switch::setThumbResource(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Switch::setThumbResource(int& arg0) exit");
+	LOGV("void android_widget_Switch::setThumbResource(int const& arg0) exit");
 
 }
 AndroidCXX::android_graphics_drawable_Drawable android_widget_Switch::getThumbDrawable()
@@ -1669,15 +1565,12 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_Switch::getThumbDr
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Switch jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_drawable_Drawable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1695,10 +1588,10 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_Switch::getThumbDr
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_drawable_Drawable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_drawable_Drawable) (AndroidCXX::android_graphics_drawable_Drawable((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
+		
 	LOGV("AndroidCXX::android_graphics_drawable_Drawable android_widget_Switch::getThumbDrawable() exit");
 
 	return result;
@@ -1716,15 +1609,12 @@ AndroidCXX::java_lang_CharSequence android_widget_Switch::getTextOn()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Switch jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1742,17 +1632,17 @@ AndroidCXX::java_lang_CharSequence android_widget_Switch::getTextOn()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_CharSequence) (AndroidCXX::java_lang_CharSequence((AndroidCXX::java_lang_CharSequence *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
+	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_CharSequence android_widget_Switch::getTextOn() exit");
 
 	return result;
 }
-void android_widget_Switch::setTextOn(AndroidCXX::java_lang_CharSequence& arg0)
+void android_widget_Switch::setTextOn(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_widget_Switch::setTextOn(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_widget_Switch::setTextOn(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setTextOn";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -1762,8 +1652,6 @@ void android_widget_Switch::setTextOn(AndroidCXX::java_lang_CharSequence& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
@@ -1794,9 +1682,7 @@ void android_widget_Switch::setTextOn(AndroidCXX::java_lang_CharSequence& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Switch::setTextOn(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_widget_Switch::setTextOn(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }
 AndroidCXX::java_lang_CharSequence android_widget_Switch::getTextOff()
@@ -1812,15 +1698,12 @@ AndroidCXX::java_lang_CharSequence android_widget_Switch::getTextOff()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Switch jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1838,17 +1721,17 @@ AndroidCXX::java_lang_CharSequence android_widget_Switch::getTextOff()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_CharSequence) (AndroidCXX::java_lang_CharSequence((AndroidCXX::java_lang_CharSequence *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
+	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
+		
 	LOGV("AndroidCXX::java_lang_CharSequence android_widget_Switch::getTextOff() exit");
 
 	return result;
 }
-void android_widget_Switch::setTextOff(AndroidCXX::java_lang_CharSequence& arg0)
+void android_widget_Switch::setTextOff(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_widget_Switch::setTextOff(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_widget_Switch::setTextOff(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setTextOff";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -1858,8 +1741,6 @@ void android_widget_Switch::setTextOff(AndroidCXX::java_lang_CharSequence& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Switch cxx address %d", cxxAddress);
@@ -1890,8 +1771,6 @@ void android_widget_Switch::setTextOff(AndroidCXX::java_lang_CharSequence& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Switch::setTextOff(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_widget_Switch::setTextOff(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }

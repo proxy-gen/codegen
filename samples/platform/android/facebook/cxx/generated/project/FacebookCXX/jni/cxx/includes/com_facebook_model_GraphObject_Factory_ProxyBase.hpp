@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_model_GraphObject_Factory_ProxyBase
@@ -46,9 +45,9 @@ class com_facebook_model_GraphObject_Factory_ProxyBase
 public:
 
 	com_facebook_model_GraphObject_Factory_ProxyBase(const com_facebook_model_GraphObject_Factory_ProxyBase& cc);
-	com_facebook_model_GraphObject_Factory_ProxyBase(void * proxy);
+	com_facebook_model_GraphObject_Factory_ProxyBase(Proxy proxy);
 	// Public Constructors
-	com_facebook_model_GraphObject_Factory_ProxyBase();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphObject_Factory_ProxyBase();
 	// Functions

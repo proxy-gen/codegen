@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -57,13 +56,13 @@ class android_content_SharedPreferences_OnSharedPreferenceChangeListener
 public:
 
 	android_content_SharedPreferences_OnSharedPreferenceChangeListener(const android_content_SharedPreferences_OnSharedPreferenceChangeListener& cc);
-	android_content_SharedPreferences_OnSharedPreferenceChangeListener(void * proxy);
+	android_content_SharedPreferences_OnSharedPreferenceChangeListener(Proxy proxy);
 	// Public Constructors
-	android_content_SharedPreferences_OnSharedPreferenceChangeListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_SharedPreferences_OnSharedPreferenceChangeListener();
 	// Functions
-	 void onSharedPreferenceChanged(AndroidCXX::android_content_SharedPreferences& arg0,AndroidCXX::java_lang_String& arg1);
+	 void onSharedPreferenceChanged(AndroidCXX::android_content_SharedPreferences const& arg0,AndroidCXX::java_lang_String const& arg1);
 };	
 
 } // namespace

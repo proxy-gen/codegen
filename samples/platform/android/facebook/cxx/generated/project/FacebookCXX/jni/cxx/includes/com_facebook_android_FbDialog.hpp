@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -77,13 +76,13 @@ class com_facebook_android_FbDialog
 public:
 
 	com_facebook_android_FbDialog(const com_facebook_android_FbDialog& cc);
-	com_facebook_android_FbDialog(void * proxy);
+	com_facebook_android_FbDialog(Proxy proxy);
 	// Public Constructors
-	com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg2);
-	com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg2,int& arg3);
-	com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg3);
-	com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg3,int& arg4);
-	com_facebook_android_FbDialog();
+	com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg2);
+	com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg2,int const& arg3);
+	com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg3);
+	com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg3,int const& arg4);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_FbDialog();
 	// Functions

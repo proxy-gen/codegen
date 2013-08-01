@@ -2453,6 +2453,17 @@ jobject JNIContext::newLocalRef(jobject ref)
 	return 0;
 }
 
+jobject JNIContext::newGlobalRef(jobject ref)
+{
+	if (ref != 0)
+	{
+		JNIEnv *env = 0;
+		getEnv(&env);
+		return env->NewGlobalRef(ref);		
+	}
+	return 0;
+}
+
 jsize JNIContext::getArrayLength(jarray array)
 {
 	if (array != 0)

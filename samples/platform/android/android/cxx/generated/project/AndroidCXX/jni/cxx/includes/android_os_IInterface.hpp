@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -52,9 +51,9 @@ class android_os_IInterface
 public:
 
 	android_os_IInterface(const android_os_IInterface& cc);
-	android_os_IInterface(void * proxy);
+	android_os_IInterface(Proxy proxy);
 	// Public Constructors
-	android_os_IInterface();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_os_IInterface();
 	// Functions

@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #include <java_net_URLStreamHandler.hpp>
@@ -40,8 +39,6 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_net_URLStreamHandler::java_net_URLStreamHandler(const java_net_URLStreamHandler& cc)
 {
 	LOGV("java_net_URLStreamHandler::java_net_URLStreamHandler(const java_net_URLStreamHandler& cc) enter");
@@ -65,9 +62,9 @@ java_net_URLStreamHandler::java_net_URLStreamHandler(const java_net_URLStreamHan
 
 	LOGV("java_net_URLStreamHandler::java_net_URLStreamHandler(const java_net_URLStreamHandler& cc) exit");
 }
-java_net_URLStreamHandler::java_net_URLStreamHandler(void * proxy)
+java_net_URLStreamHandler::java_net_URLStreamHandler(Proxy proxy)
 {
-	LOGV("java_net_URLStreamHandler::java_net_URLStreamHandler(void * proxy) enter");
+	LOGV("java_net_URLStreamHandler::java_net_URLStreamHandler(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -77,17 +74,31 @@ java_net_URLStreamHandler::java_net_URLStreamHandler(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_net_URLStreamHandler::java_net_URLStreamHandler(void * proxy) exit");
+	LOGV("java_net_URLStreamHandler::java_net_URLStreamHandler(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// 
-// Public Constructors
+Proxy java_net_URLStreamHandler::proxy() const
+{	
+	LOGV("java_net_URLStreamHandler::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_URLStreamHandler cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_URLStreamHandler jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("java_net_URLStreamHandler::proxy() exit");	
+
+	return proxy;
+}
 java_net_URLStreamHandler::java_net_URLStreamHandler()
 {
 	LOGV("java_net_URLStreamHandler::java_net_URLStreamHandler() enter");	
@@ -135,7 +146,7 @@ java_net_URLStreamHandler::~java_net_URLStreamHandler()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_net_URLStreamHandler::~java_net_URLStreamHandler() exit");
 }
 // Functions

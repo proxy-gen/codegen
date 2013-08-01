@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -130,30 +129,30 @@ class android_database_Cursor
 public:
 
 	android_database_Cursor(const android_database_Cursor& cc);
-	android_database_Cursor(void * proxy);
+	android_database_Cursor(Proxy proxy);
 	// Public Constructors
-	android_database_Cursor();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_database_Cursor();
 	// Functions
-	 short getShort(int& arg0);
-	 int getInt(int& arg0);
-	 long getLong(int& arg0);
-	 float getFloat(int& arg0);
-	 double getDouble(int& arg0);
+	 short getShort(int const& arg0);
+	 int getInt(int const& arg0);
+	 long getLong(int const& arg0);
+	 float getFloat(int const& arg0);
+	 double getDouble(int const& arg0);
 	 void close();
-	 int getType(int& arg0);
-	 AndroidCXX::java_lang_String getString(int& arg0);
+	 int getType(int const& arg0);
+	 AndroidCXX::java_lang_String getString(int const& arg0);
 	 bool isFirst();
 	 bool isClosed();
 	 int getPosition();
-	 bool isNull(int& arg0);
+	 bool isNull(int const& arg0);
 	 AndroidCXX::android_os_Bundle getExtras();
-	 void registerContentObserver(AndroidCXX::android_database_ContentObserver& arg0);
-	 void unregisterContentObserver(AndroidCXX::android_database_ContentObserver& arg0);
+	 void registerContentObserver(AndroidCXX::android_database_ContentObserver const& arg0);
+	 void unregisterContentObserver(AndroidCXX::android_database_ContentObserver const& arg0);
 	 int getCount();
-	 bool move(int& arg0);
-	 bool moveToPosition(int& arg0);
+	 bool move(int const& arg0);
+	 bool moveToPosition(int const& arg0);
 	 bool moveToFirst();
 	 bool moveToLast();
 	 bool moveToNext();
@@ -161,20 +160,20 @@ public:
 	 bool isLast();
 	 bool isBeforeFirst();
 	 bool isAfterLast();
-	 int getColumnIndex(AndroidCXX::java_lang_String& arg0);
-	 int getColumnIndexOrThrow(AndroidCXX::java_lang_String& arg0);
-	 AndroidCXX::java_lang_String getColumnName(int& arg0);
+	 int getColumnIndex(AndroidCXX::java_lang_String const& arg0);
+	 int getColumnIndexOrThrow(AndroidCXX::java_lang_String const& arg0);
+	 AndroidCXX::java_lang_String getColumnName(int const& arg0);
 	 std::vector<AndroidCXX::java_lang_String > getColumnNames();
 	 int getColumnCount();
-	 std::vector<byte> getBlob(int& arg0);
-	 void copyStringToBuffer(int& arg0,AndroidCXX::android_database_CharArrayBuffer& arg1);
+	 std::vector<byte> getBlob(int const& arg0);
+	 void copyStringToBuffer(int const& arg0,AndroidCXX::android_database_CharArrayBuffer const& arg1);
 	 void deactivate();
 	 bool requery();
-	 void registerDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0);
-	 void unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0);
-	 void setNotificationUri(AndroidCXX::android_content_ContentResolver& arg0,AndroidCXX::android_net_Uri& arg1);
+	 void registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0);
+	 void unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0);
+	 void setNotificationUri(AndroidCXX::android_content_ContentResolver const& arg0,AndroidCXX::android_net_Uri const& arg1);
 	 bool getWantsAllOnMoveCalls();
-	 AndroidCXX::android_os_Bundle respond(AndroidCXX::android_os_Bundle& arg0);
+	 AndroidCXX::android_os_Bundle respond(AndroidCXX::android_os_Bundle const& arg0);
 };	
 
 } // namespace

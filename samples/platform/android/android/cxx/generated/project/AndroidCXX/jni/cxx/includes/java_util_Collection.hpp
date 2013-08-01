@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -97,27 +96,27 @@ class java_util_Collection
 public:
 
 	java_util_Collection(const java_util_Collection& cc);
-	java_util_Collection(void * proxy);
+	java_util_Collection(Proxy proxy);
 	// Public Constructors
-	java_util_Collection();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Collection();
 	// Functions
-	 bool add(AndroidCXX::java_lang_Object& arg0);
-	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 bool add(AndroidCXX::java_lang_Object const& arg0);
+	 bool equals(AndroidCXX::java_lang_Object const& arg0);
 	 int hashCode();
 	 void clear();
 	 bool isEmpty();
-	 bool contains(AndroidCXX::java_lang_Object& arg0);
-	 bool addAll(AndroidCXX::java_util_Collection& arg0);
+	 bool contains(AndroidCXX::java_lang_Object const& arg0);
+	 bool addAll(AndroidCXX::java_util_Collection const& arg0);
 	 int size();
-	 std::vector<AndroidCXX::java_lang_Object > toArray(std::vector<AndroidCXX::java_lang_Object >& arg0);
+	 std::vector<AndroidCXX::java_lang_Object > toArray(std::vector<AndroidCXX::java_lang_Object > const& arg0);
 	 std::vector<AndroidCXX::java_lang_Object > toArray();
 	 AndroidCXX::java_util_Iterator iterator();
-	 bool remove(AndroidCXX::java_lang_Object& arg0);
-	 bool removeAll(AndroidCXX::java_util_Collection& arg0);
-	 bool containsAll(AndroidCXX::java_util_Collection& arg0);
-	 bool retainAll(AndroidCXX::java_util_Collection& arg0);
+	 bool remove(AndroidCXX::java_lang_Object const& arg0);
+	 bool removeAll(AndroidCXX::java_util_Collection const& arg0);
+	 bool containsAll(AndroidCXX::java_util_Collection const& arg0);
+	 bool retainAll(AndroidCXX::java_util_Collection const& arg0);
 };	
 
 } // namespace

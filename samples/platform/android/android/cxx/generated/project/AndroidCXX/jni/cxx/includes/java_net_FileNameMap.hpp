@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 
@@ -53,13 +52,13 @@ class java_net_FileNameMap
 public:
 
 	java_net_FileNameMap(const java_net_FileNameMap& cc);
-	java_net_FileNameMap(void * proxy);
+	java_net_FileNameMap(Proxy proxy);
 	// Public Constructors
-	java_net_FileNameMap();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_FileNameMap();
 	// Functions
-	 AndroidCXX::java_lang_String getContentTypeFor(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_lang_String getContentTypeFor(AndroidCXX::java_lang_String const& arg0);
 };	
 
 } // namespace

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -162,58 +161,58 @@ class android_widget_ListPopupWindow
 public:
 
 	android_widget_ListPopupWindow(const android_widget_ListPopupWindow& cc);
-	android_widget_ListPopupWindow(void * proxy);
+	android_widget_ListPopupWindow(Proxy proxy);
 	// Public Constructors
-	android_widget_ListPopupWindow(AndroidCXX::android_content_Context& arg0);
-	android_widget_ListPopupWindow(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2,int& arg3);
-	android_widget_ListPopupWindow(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_ListPopupWindow(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_ListPopupWindow();
+	android_widget_ListPopupWindow(AndroidCXX::android_content_Context const& arg0);
+	android_widget_ListPopupWindow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,int const& arg3);
+	android_widget_ListPopupWindow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_ListPopupWindow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ListPopupWindow();
 	// Functions
 	 void show();
-	 bool onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent& arg1);
-	 bool onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& arg1);
-	 bool onKeyPreIme(int& arg0,AndroidCXX::android_view_KeyEvent& arg1);
+	 bool onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
+	 bool onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
+	 bool onKeyPreIme(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
 	 int getWidth();
 	 int getHeight();
-	 void setBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable& arg0);
+	 void setBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
 	 AndroidCXX::android_graphics_drawable_Drawable getBackground();
-	 void setSelection(int& arg0);
-	 void setSoftInputMode(int& arg0);
+	 void setSelection(int const& arg0);
+	 void setSoftInputMode(int const& arg0);
 	 bool isShowing();
 	 void dismiss();
-	 void setOnDismissListener(AndroidCXX::android_widget_PopupWindow_OnDismissListener& arg0);
-	 void setAdapter(AndroidCXX::android_widget_ListAdapter& arg0);
-	 bool performItemClick(int& arg0);
+	 void setOnDismissListener(AndroidCXX::android_widget_PopupWindow_OnDismissListener const& arg0);
+	 void setAdapter(AndroidCXX::android_widget_ListAdapter const& arg0);
+	 bool performItemClick(int const& arg0);
 	 AndroidCXX::android_view_View getSelectedView();
-	 void setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener& arg0);
-	 void setOnItemSelectedListener(AndroidCXX::android_widget_AdapterView_OnItemSelectedListener& arg0);
+	 void setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener const& arg0);
+	 void setOnItemSelectedListener(AndroidCXX::android_widget_AdapterView_OnItemSelectedListener const& arg0);
 	 int getSelectedItemPosition();
 	 long getSelectedItemId();
 	 AndroidCXX::java_lang_Object getSelectedItem();
-	 void setHeight(int& arg0);
-	 void setWidth(int& arg0);
+	 void setHeight(int const& arg0);
+	 void setWidth(int const& arg0);
 	 void clearListSelection();
-	 void setPromptPosition(int& arg0);
+	 void setPromptPosition(int const& arg0);
 	 int getPromptPosition();
-	 void setModal(bool& arg0);
+	 void setModal(bool const& arg0);
 	 bool isModal();
 	 int getSoftInputMode();
-	 void setListSelector(AndroidCXX::android_graphics_drawable_Drawable& arg0);
-	 void setAnimationStyle(int& arg0);
+	 void setListSelector(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
+	 void setAnimationStyle(int const& arg0);
 	 int getAnimationStyle();
 	 AndroidCXX::android_view_View getAnchorView();
-	 void setAnchorView(AndroidCXX::android_view_View& arg0);
+	 void setAnchorView(AndroidCXX::android_view_View const& arg0);
 	 int getHorizontalOffset();
-	 void setHorizontalOffset(int& arg0);
+	 void setHorizontalOffset(int const& arg0);
 	 int getVerticalOffset();
-	 void setVerticalOffset(int& arg0);
-	 void setContentWidth(int& arg0);
-	 void setPromptView(AndroidCXX::android_view_View& arg0);
+	 void setVerticalOffset(int const& arg0);
+	 void setContentWidth(int const& arg0);
+	 void setPromptView(AndroidCXX::android_view_View const& arg0);
 	 void postShow();
-	 void setInputMethodMode(int& arg0);
+	 void setInputMethodMode(int const& arg0);
 	 int getInputMethodMode();
 	 bool isInputMethodNotNeeded();
 	 AndroidCXX::android_widget_ListView getListView();

@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _java_net_SocketAddress
@@ -47,11 +46,10 @@ class java_net_SocketAddress
 public:
 
 	java_net_SocketAddress(const java_net_SocketAddress& cc);
-	java_net_SocketAddress(void * proxy);
+	java_net_SocketAddress(Proxy proxy);
 	// Public Constructors
 	java_net_SocketAddress();
-	// TODO: remove
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_SocketAddress();
 	// Functions

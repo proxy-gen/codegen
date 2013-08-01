@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_graphics_Xfermode
@@ -47,9 +46,10 @@ class android_graphics_Xfermode
 public:
 
 	android_graphics_Xfermode(const android_graphics_Xfermode& cc);
-	android_graphics_Xfermode(void * proxy);
+	android_graphics_Xfermode(Proxy proxy);
 	// Public Constructors
 	android_graphics_Xfermode();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Xfermode();
 	// Functions

@@ -25,7 +25,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_widget_MediaController_MediaPlayerControl
@@ -56,9 +55,9 @@ class android_widget_MediaController_MediaPlayerControl
 public:
 
 	android_widget_MediaController_MediaPlayerControl(const android_widget_MediaController_MediaPlayerControl& cc);
-	android_widget_MediaController_MediaPlayerControl(void * proxy);
+	android_widget_MediaController_MediaPlayerControl(Proxy proxy);
 	// Public Constructors
-	android_widget_MediaController_MediaPlayerControl();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_MediaController_MediaPlayerControl();
 	// Functions
@@ -66,7 +65,7 @@ public:
 	 int getDuration();
 	 void pause();
 	 int getCurrentPosition();
-	 void seekTo(int& arg0);
+	 void seekTo(int const& arg0);
 	 bool isPlaying();
 	 int getBufferPercentage();
 	 bool canPause();

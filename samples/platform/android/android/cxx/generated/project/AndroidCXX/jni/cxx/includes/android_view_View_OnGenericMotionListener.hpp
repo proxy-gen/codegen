@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -57,13 +56,13 @@ class android_view_View_OnGenericMotionListener
 public:
 
 	android_view_View_OnGenericMotionListener(const android_view_View_OnGenericMotionListener& cc);
-	android_view_View_OnGenericMotionListener(void * proxy);
+	android_view_View_OnGenericMotionListener(Proxy proxy);
 	// Public Constructors
-	android_view_View_OnGenericMotionListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnGenericMotionListener();
 	// Functions
-	 bool onGenericMotion(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_MotionEvent& arg1);
+	 bool onGenericMotion(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_MotionEvent const& arg1);
 };	
 
 } // namespace

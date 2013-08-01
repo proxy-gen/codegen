@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -52,13 +51,13 @@ class android_widget_RadioGroup_OnCheckedChangeListener
 public:
 
 	android_widget_RadioGroup_OnCheckedChangeListener(const android_widget_RadioGroup_OnCheckedChangeListener& cc);
-	android_widget_RadioGroup_OnCheckedChangeListener(void * proxy);
+	android_widget_RadioGroup_OnCheckedChangeListener(Proxy proxy);
 	// Public Constructors
-	android_widget_RadioGroup_OnCheckedChangeListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RadioGroup_OnCheckedChangeListener();
 	// Functions
-	 void onCheckedChanged(AndroidCXX::android_widget_RadioGroup& arg0,int& arg1);
+	 void onCheckedChanged(AndroidCXX::android_widget_RadioGroup const& arg0,int const& arg1);
 };	
 
 } // namespace

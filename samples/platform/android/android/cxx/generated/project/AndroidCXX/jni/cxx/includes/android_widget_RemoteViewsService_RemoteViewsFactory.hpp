@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 
@@ -61,20 +60,20 @@ class android_widget_RemoteViewsService_RemoteViewsFactory
 public:
 
 	android_widget_RemoteViewsService_RemoteViewsFactory(const android_widget_RemoteViewsService_RemoteViewsFactory& cc);
-	android_widget_RemoteViewsService_RemoteViewsFactory(void * proxy);
+	android_widget_RemoteViewsService_RemoteViewsFactory(Proxy proxy);
 	// Public Constructors
-	android_widget_RemoteViewsService_RemoteViewsFactory();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RemoteViewsService_RemoteViewsFactory();
 	// Functions
 	 void onCreate();
 	 void onDestroy();
-	 long getItemId(int& arg0);
+	 long getItemId(int const& arg0);
 	 int getCount();
 	 bool hasStableIds();
 	 int getViewTypeCount();
 	 void onDataSetChanged();
-	 AndroidCXX::android_widget_RemoteViews getViewAt(int& arg0);
+	 AndroidCXX::android_widget_RemoteViews getViewAt(int const& arg0);
 	 AndroidCXX::android_widget_RemoteViews getLoadingView();
 };	
 

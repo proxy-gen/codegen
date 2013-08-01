@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_graphics_DrawFilter
@@ -47,9 +46,10 @@ class android_graphics_DrawFilter
 public:
 
 	android_graphics_DrawFilter(const android_graphics_DrawFilter& cc);
-	android_graphics_DrawFilter(void * proxy);
+	android_graphics_DrawFilter(Proxy proxy);
 	// Public Constructors
 	android_graphics_DrawFilter();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_DrawFilter();
 	// Functions

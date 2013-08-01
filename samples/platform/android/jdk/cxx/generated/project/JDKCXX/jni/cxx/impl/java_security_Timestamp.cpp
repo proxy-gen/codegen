@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -72,8 +71,6 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 java_security_Timestamp::java_security_Timestamp(const java_security_Timestamp& cc)
 {
 	LOGV("java_security_Timestamp::java_security_Timestamp(const java_security_Timestamp& cc) enter");
@@ -97,9 +94,9 @@ java_security_Timestamp::java_security_Timestamp(const java_security_Timestamp& 
 
 	LOGV("java_security_Timestamp::java_security_Timestamp(const java_security_Timestamp& cc) exit");
 }
-java_security_Timestamp::java_security_Timestamp(void * proxy)
+java_security_Timestamp::java_security_Timestamp(Proxy proxy)
 {
-	LOGV("java_security_Timestamp::java_security_Timestamp(void * proxy) enter");
+	LOGV("java_security_Timestamp::java_security_Timestamp(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -109,55 +106,34 @@ java_security_Timestamp::java_security_Timestamp(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("java_security_Timestamp::java_security_Timestamp(void * proxy) exit");
+	LOGV("java_security_Timestamp::java_security_Timestamp(Proxy proxy) exit");
 }
-// TODO: remove
-// 
-// 
-// java_security_Timestamp::java_security_Timestamp()
-// {
-// 	LOGV("java_security_Timestamp::java_security_Timestamp() enter");	
+Proxy java_security_Timestamp::proxy() const
+{	
+	LOGV("java_security_Timestamp::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
 
-// 	const char *methodName = "<init>";
-// 	const char *methodSignature = "()V";
-// 	const char *className = "java/security/Timestamp";
+	long cxxAddress = (long) this;
+	LOGV("java_security_Timestamp cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("java_security_Timestamp jni address %d", proxiedComponent);
 
-// 	LOGV("java_security_Timestamp className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	LOGV("java_security_Timestamp::proxy() exit");	
 
-// 	jni->pushLocalFrame();
-
-// 	long cxxAddress = (long) this;
-// 	LOGV("java_security_Timestamp cxx address %d", cxxAddress);
-// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("java_security_Timestamp jni address %d", proxiedComponent);
-
-// 	if (proxiedComponent == 0)
-// 	{
-// 		jclass clazz = jni->getClassRef(className);
-
-// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-// 	}
-
-// 	jni->popLocalFrame();
-
-// 	LOGV("java_security_Timestamp::java_security_Timestamp() exit");	
-// }
-// 
-// 
-// Public Constructors
-java_security_Timestamp::java_security_Timestamp(JDKCXX::java_util_Date& arg0,JDKCXX::java_security_cert_CertPath& arg1)
+	return proxy;
+}
+java_security_Timestamp::java_security_Timestamp(JDKCXX::java_util_Date const& arg0,JDKCXX::java_security_cert_CertPath const& arg1)
 {
-	LOGV("java_security_Timestamp::java_security_Timestamp(JDKCXX::java_util_Date& arg0,JDKCXX::java_security_cert_CertPath& arg1) enter");	
+	LOGV("java_security_Timestamp::java_security_Timestamp(JDKCXX::java_util_Date const& arg0,JDKCXX::java_security_cert_CertPath const& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/util/Date;Ljava/security/cert/CertPath;)V";
@@ -231,7 +207,7 @@ java_security_Timestamp::java_security_Timestamp(JDKCXX::java_util_Date& arg0,JD
 
 	jni->popLocalFrame();
 
-	LOGV("java_security_Timestamp::java_security_Timestamp(JDKCXX::java_util_Date& arg0,JDKCXX::java_security_cert_CertPath& arg1) exit");	
+	LOGV("java_security_Timestamp::java_security_Timestamp(JDKCXX::java_util_Date const& arg0,JDKCXX::java_security_cert_CertPath const& arg1) exit");	
 }
 // Default Instance Destructor
 java_security_Timestamp::~java_security_Timestamp()
@@ -244,13 +220,13 @@ java_security_Timestamp::~java_security_Timestamp()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("java_security_Timestamp::~java_security_Timestamp() exit");
 }
 // Functions
-bool java_security_Timestamp::equals(JDKCXX::java_lang_Object& arg0)
+bool java_security_Timestamp::equals(JDKCXX::java_lang_Object const& arg0)
 {
-	LOGV("bool java_security_Timestamp::equals(JDKCXX::java_lang_Object& arg0) enter");
+	LOGV("bool java_security_Timestamp::equals(JDKCXX::java_lang_Object const& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -260,8 +236,6 @@ bool java_security_Timestamp::equals(JDKCXX::java_lang_Object& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_Timestamp cxx address %d", cxxAddress);
@@ -311,9 +285,7 @@ bool java_security_Timestamp::equals(JDKCXX::java_lang_Object& arg0)
 	bool result = (bool) *((bool *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
-	LOGV("bool java_security_Timestamp::equals(JDKCXX::java_lang_Object& arg0) exit");
+	LOGV("bool java_security_Timestamp::equals(JDKCXX::java_lang_Object const& arg0) exit");
 
 	return result;
 }
@@ -329,8 +301,6 @@ JDKCXX::java_lang_String java_security_Timestamp::toString()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_Timestamp cxx address %d", cxxAddress);
@@ -359,8 +329,6 @@ JDKCXX::java_lang_String java_security_Timestamp::toString()
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
 	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_lang_String java_security_Timestamp::toString() exit");
 
 	return result;
@@ -377,8 +345,6 @@ int java_security_Timestamp::hashCode()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_Timestamp cxx address %d", cxxAddress);
@@ -407,8 +373,6 @@ int java_security_Timestamp::hashCode()
 	int result = (int) *((int *) cxx_value);
 	// 
 		
-	jni->popLocalFrame();
-
 	LOGV("int java_security_Timestamp::hashCode() exit");
 
 	return result;
@@ -425,8 +389,6 @@ JDKCXX::java_security_cert_CertPath java_security_Timestamp::getSignerCertPath()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_Timestamp cxx address %d", cxxAddress);
@@ -455,8 +417,6 @@ JDKCXX::java_security_cert_CertPath java_security_Timestamp::getSignerCertPath()
 	JDKCXX::java_security_cert_CertPath result((JDKCXX::java_security_cert_CertPath) *((JDKCXX::java_security_cert_CertPath *) cxx_value));
 	delete ((JDKCXX::java_security_cert_CertPath *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_security_cert_CertPath java_security_Timestamp::getSignerCertPath() exit");
 
 	return result;
@@ -473,8 +433,6 @@ JDKCXX::java_util_Date java_security_Timestamp::getTimestamp()
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_Timestamp cxx address %d", cxxAddress);
@@ -503,8 +461,6 @@ JDKCXX::java_util_Date java_security_Timestamp::getTimestamp()
 	JDKCXX::java_util_Date result((JDKCXX::java_util_Date) *((JDKCXX::java_util_Date *) cxx_value));
 	delete ((JDKCXX::java_util_Date *) cxx_value);
 		
-	jni->popLocalFrame();
-
 	LOGV("JDKCXX::java_util_Date java_security_Timestamp::getTimestamp() exit");
 
 	return result;

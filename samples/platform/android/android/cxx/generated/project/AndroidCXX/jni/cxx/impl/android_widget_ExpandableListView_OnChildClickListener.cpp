@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -29,7 +28,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_ExpandableListView_OnChildClickListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -51,8 +50,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_widget_ExpandableListView_OnChildClickListener::android_widget_ExpandableListView_OnChildClickListener(const android_widget_ExpandableListView_OnChildClickListener& cc)
 {
 	LOGV("android_widget_ExpandableListView_OnChildClickListener::android_widget_ExpandableListView_OnChildClickListener(const android_widget_ExpandableListView_OnChildClickListener& cc) enter");
@@ -76,9 +73,9 @@ android_widget_ExpandableListView_OnChildClickListener::android_widget_Expandabl
 
 	LOGV("android_widget_ExpandableListView_OnChildClickListener::android_widget_ExpandableListView_OnChildClickListener(const android_widget_ExpandableListView_OnChildClickListener& cc) exit");
 }
-android_widget_ExpandableListView_OnChildClickListener::android_widget_ExpandableListView_OnChildClickListener(void * proxy)
+android_widget_ExpandableListView_OnChildClickListener::android_widget_ExpandableListView_OnChildClickListener(Proxy proxy)
 {
-	LOGV("android_widget_ExpandableListView_OnChildClickListener::android_widget_ExpandableListView_OnChildClickListener(void * proxy) enter");
+	LOGV("android_widget_ExpandableListView_OnChildClickListener::android_widget_ExpandableListView_OnChildClickListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -88,47 +85,31 @@ android_widget_ExpandableListView_OnChildClickListener::android_widget_Expandabl
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_ExpandableListView_OnChildClickListener::android_widget_ExpandableListView_OnChildClickListener(void * proxy) exit");
+	LOGV("android_widget_ExpandableListView_OnChildClickListener::android_widget_ExpandableListView_OnChildClickListener(Proxy proxy) exit");
 }
-android_widget_ExpandableListView_OnChildClickListener::android_widget_ExpandableListView_OnChildClickListener()
-{
-	LOGV("android_widget_ExpandableListView_OnChildClickListener::android_widget_ExpandableListView_OnChildClickListener() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/ExpandableListView$OnChildClickListener";
-
-	LOGV("android_widget_ExpandableListView_OnChildClickListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_widget_ExpandableListView_OnChildClickListener::proxy() const
+{	
+	LOGV("android_widget_ExpandableListView_OnChildClickListener::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ExpandableListView_OnChildClickListener cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_ExpandableListView_OnChildClickListener jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_widget_ExpandableListView_OnChildClickListener::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_widget_ExpandableListView_OnChildClickListener::android_widget_ExpandableListView_OnChildClickListener() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_widget_ExpandableListView_OnChildClickListener::~android_widget_ExpandableListView_OnChildClickListener()
 {
@@ -140,13 +121,13 @@ android_widget_ExpandableListView_OnChildClickListener::~android_widget_Expandab
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_ExpandableListView_OnChildClickListener::~android_widget_ExpandableListView_OnChildClickListener() exit");
 }
 // Functions
-bool android_widget_ExpandableListView_OnChildClickListener::onChildClick(AndroidCXX::android_widget_ExpandableListView& arg0,AndroidCXX::android_view_View& arg1,int& arg2,int& arg3,long& arg4)
+bool android_widget_ExpandableListView_OnChildClickListener::onChildClick(AndroidCXX::android_widget_ExpandableListView const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2,int const& arg3,long const& arg4)
 {
-	LOGV("bool android_widget_ExpandableListView_OnChildClickListener::onChildClick(AndroidCXX::android_widget_ExpandableListView& arg0,AndroidCXX::android_view_View& arg1,int& arg2,int& arg3,long& arg4) enter");
+	LOGV("bool android_widget_ExpandableListView_OnChildClickListener::onChildClick(AndroidCXX::android_widget_ExpandableListView const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2,int const& arg3,long const& arg4) enter");
 
 	const char *methodName = "onChildClick";
 	const char *methodSignature = "(Landroid/widget/ExpandableListView;Landroid/view/View;IIJ)Z";
@@ -156,8 +137,6 @@ bool android_widget_ExpandableListView_OnChildClickListener::onChildClick(Androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_ExpandableListView_OnChildClickListener cxx address %d", cxxAddress);
@@ -270,7 +249,6 @@ bool android_widget_ExpandableListView_OnChildClickListener::onChildClick(Androi
 		jarg4 = convert_jni_long_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -288,11 +266,11 @@ bool android_widget_ExpandableListView_OnChildClickListener::onChildClick(Androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
-		
-	jni->popLocalFrame();
 
-	LOGV("bool android_widget_ExpandableListView_OnChildClickListener::onChildClick(AndroidCXX::android_widget_ExpandableListView& arg0,AndroidCXX::android_view_View& arg1,int& arg2,int& arg3,long& arg4) exit");
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_widget_ExpandableListView_OnChildClickListener::onChildClick(AndroidCXX::android_widget_ExpandableListView const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2,int const& arg3,long const& arg4) exit");
 
 	return result;
 }

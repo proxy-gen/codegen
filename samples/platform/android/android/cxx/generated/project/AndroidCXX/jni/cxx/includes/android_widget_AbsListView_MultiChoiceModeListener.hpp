@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -52,13 +51,13 @@ class android_widget_AbsListView_MultiChoiceModeListener
 public:
 
 	android_widget_AbsListView_MultiChoiceModeListener(const android_widget_AbsListView_MultiChoiceModeListener& cc);
-	android_widget_AbsListView_MultiChoiceModeListener(void * proxy);
+	android_widget_AbsListView_MultiChoiceModeListener(Proxy proxy);
 	// Public Constructors
-	android_widget_AbsListView_MultiChoiceModeListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AbsListView_MultiChoiceModeListener();
 	// Functions
-	 void onItemCheckedStateChanged(AndroidCXX::android_view_ActionMode& arg0,int& arg1,long& arg2,bool& arg3);
+	 void onItemCheckedStateChanged(AndroidCXX::android_view_ActionMode const& arg0,int const& arg1,long const& arg2,bool const& arg3);
 };	
 
 } // namespace

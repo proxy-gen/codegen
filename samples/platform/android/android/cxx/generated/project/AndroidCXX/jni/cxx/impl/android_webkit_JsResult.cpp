@@ -17,7 +17,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_webkit_JsResult.hpp>
@@ -28,7 +27,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_webkit_JsResult"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -41,8 +40,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_webkit_JsResult::android_webkit_JsResult(const android_webkit_JsResult& cc)
 {
 	LOGV("android_webkit_JsResult::android_webkit_JsResult(const android_webkit_JsResult& cc) enter");
@@ -66,9 +63,9 @@ android_webkit_JsResult::android_webkit_JsResult(const android_webkit_JsResult& 
 
 	LOGV("android_webkit_JsResult::android_webkit_JsResult(const android_webkit_JsResult& cc) exit");
 }
-android_webkit_JsResult::android_webkit_JsResult(void * proxy)
+android_webkit_JsResult::android_webkit_JsResult(Proxy proxy)
 {
-	LOGV("android_webkit_JsResult::android_webkit_JsResult(void * proxy) enter");
+	LOGV("android_webkit_JsResult::android_webkit_JsResult(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -78,47 +75,31 @@ android_webkit_JsResult::android_webkit_JsResult(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_webkit_JsResult::android_webkit_JsResult(void * proxy) exit");
+	LOGV("android_webkit_JsResult::android_webkit_JsResult(Proxy proxy) exit");
 }
-android_webkit_JsResult::android_webkit_JsResult()
-{
-	LOGV("android_webkit_JsResult::android_webkit_JsResult() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/webkit/JsResult";
-
-	LOGV("android_webkit_JsResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_webkit_JsResult::proxy() const
+{	
+	LOGV("android_webkit_JsResult::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_JsResult cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_JsResult jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_webkit_JsResult::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_webkit_JsResult::android_webkit_JsResult() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_webkit_JsResult::~android_webkit_JsResult()
 {
@@ -130,7 +111,7 @@ android_webkit_JsResult::~android_webkit_JsResult()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_webkit_JsResult::~android_webkit_JsResult() exit");
 }
 // Functions
@@ -147,8 +128,6 @@ void android_webkit_JsResult::cancel()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_JsResult cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -157,8 +136,6 @@ void android_webkit_JsResult::cancel()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_webkit_JsResult::cancel() exit");
 
 }
@@ -175,8 +152,6 @@ void android_webkit_JsResult::confirm()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_JsResult cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -185,8 +160,6 @@ void android_webkit_JsResult::confirm()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_webkit_JsResult::confirm() exit");
 
 }

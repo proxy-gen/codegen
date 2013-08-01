@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -52,9 +51,9 @@ class android_widget_ViewSwitcher_ViewFactory
 public:
 
 	android_widget_ViewSwitcher_ViewFactory(const android_widget_ViewSwitcher_ViewFactory& cc);
-	android_widget_ViewSwitcher_ViewFactory(void * proxy);
+	android_widget_ViewSwitcher_ViewFactory(Proxy proxy);
 	// Public Constructors
-	android_widget_ViewSwitcher_ViewFactory();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ViewSwitcher_ViewFactory();
 	// Functions

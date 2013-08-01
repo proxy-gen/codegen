@@ -8,7 +8,6 @@
 //
 
 
-
  	
  		 
  		 
@@ -70,19 +69,19 @@ class android_widget_AlphabetIndexer
 public:
 
 	android_widget_AlphabetIndexer(const android_widget_AlphabetIndexer& cc);
-	android_widget_AlphabetIndexer(void * proxy);
+	android_widget_AlphabetIndexer(Proxy proxy);
 	// Public Constructors
-	android_widget_AlphabetIndexer(AndroidCXX::android_database_Cursor& arg0,int& arg1,AndroidCXX::java_lang_CharSequence& arg2);
-	android_widget_AlphabetIndexer();
+	android_widget_AlphabetIndexer(AndroidCXX::android_database_Cursor const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AlphabetIndexer();
 	// Functions
 	 void onChanged();
 	 void onInvalidated();
 	 std::vector<AndroidCXX::java_lang_Object > getSections();
-	 int getPositionForSection(int& arg0);
-	 int getSectionForPosition(int& arg0);
-	 void setCursor(AndroidCXX::android_database_Cursor& arg0);
+	 int getPositionForSection(int const& arg0);
+	 int getSectionForPosition(int const& arg0);
+	 void setCursor(AndroidCXX::android_database_Cursor const& arg0);
 };	
 
 } // namespace

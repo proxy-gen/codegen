@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -91,25 +90,25 @@ class android_widget_ZoomControls
 public:
 
 	android_widget_ZoomControls(const android_widget_ZoomControls& cc);
-	android_widget_ZoomControls(void * proxy);
+	android_widget_ZoomControls(Proxy proxy);
 	// Public Constructors
-	android_widget_ZoomControls(AndroidCXX::android_content_Context& arg0);
-	android_widget_ZoomControls(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_ZoomControls();
+	android_widget_ZoomControls(AndroidCXX::android_content_Context const& arg0);
+	android_widget_ZoomControls(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ZoomControls();
 	// Functions
 	 void show();
-	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent& arg0);
+	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0);
 	 bool hasFocus();
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
 	 void hide();
-	 void setZoomSpeed(long& arg0);
-	 void setOnZoomInClickListener(AndroidCXX::android_view_View_OnClickListener& arg0);
-	 void setOnZoomOutClickListener(AndroidCXX::android_view_View_OnClickListener& arg0);
-	 void setIsZoomInEnabled(bool& arg0);
-	 void setIsZoomOutEnabled(bool& arg0);
+	 void setZoomSpeed(long const& arg0);
+	 void setOnZoomInClickListener(AndroidCXX::android_view_View_OnClickListener const& arg0);
+	 void setOnZoomOutClickListener(AndroidCXX::android_view_View_OnClickListener const& arg0);
+	 void setIsZoomInEnabled(bool const& arg0);
+	 void setIsZoomOutEnabled(bool const& arg0);
 };	
 
 } // namespace

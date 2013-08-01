@@ -18,7 +18,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_database_DataSetObserver.hpp>
@@ -29,7 +28,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_database_DataSetObserver"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -42,8 +41,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_database_DataSetObserver::android_database_DataSetObserver(const android_database_DataSetObserver& cc)
 {
 	LOGV("android_database_DataSetObserver::android_database_DataSetObserver(const android_database_DataSetObserver& cc) enter");
@@ -67,9 +64,9 @@ android_database_DataSetObserver::android_database_DataSetObserver(const android
 
 	LOGV("android_database_DataSetObserver::android_database_DataSetObserver(const android_database_DataSetObserver& cc) exit");
 }
-android_database_DataSetObserver::android_database_DataSetObserver(void * proxy)
+android_database_DataSetObserver::android_database_DataSetObserver(Proxy proxy)
 {
-	LOGV("android_database_DataSetObserver::android_database_DataSetObserver(void * proxy) enter");
+	LOGV("android_database_DataSetObserver::android_database_DataSetObserver(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -79,13 +76,31 @@ android_database_DataSetObserver::android_database_DataSetObserver(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_database_DataSetObserver::android_database_DataSetObserver(void * proxy) exit");
+	LOGV("android_database_DataSetObserver::android_database_DataSetObserver(Proxy proxy) exit");
 }
-// Public Constructors
+Proxy android_database_DataSetObserver::proxy() const
+{	
+	LOGV("android_database_DataSetObserver::proxy() enter");	
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_database_DataSetObserver cxx address %d", cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
+	LOGV("android_database_DataSetObserver jni address %d", proxiedComponent);
+
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
+
+	LOGV("android_database_DataSetObserver::proxy() exit");	
+
+	return proxy;
+}
 android_database_DataSetObserver::android_database_DataSetObserver()
 {
 	LOGV("android_database_DataSetObserver::android_database_DataSetObserver() enter");	
@@ -133,7 +148,7 @@ android_database_DataSetObserver::~android_database_DataSetObserver()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_database_DataSetObserver::~android_database_DataSetObserver() exit");
 }
 // Functions
@@ -150,8 +165,6 @@ void android_database_DataSetObserver::onChanged()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_database_DataSetObserver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -160,8 +173,6 @@ void android_database_DataSetObserver::onChanged()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_database_DataSetObserver::onChanged() exit");
 
 }
@@ -178,8 +189,6 @@ void android_database_DataSetObserver::onInvalidated()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_database_DataSetObserver cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -188,8 +197,6 @@ void android_database_DataSetObserver::onInvalidated()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_database_DataSetObserver::onInvalidated() exit");
 
 }

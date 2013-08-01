@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -33,6 +32,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_android_Facebook_DialogListener"
@@ -63,8 +63,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_android_Facebook_DialogListener::com_facebook_android_Facebook_DialogListener(const com_facebook_android_Facebook_DialogListener& cc)
 {
 	LOGV("com_facebook_android_Facebook_DialogListener::com_facebook_android_Facebook_DialogListener(const com_facebook_android_Facebook_DialogListener& cc) enter");
@@ -88,9 +86,9 @@ com_facebook_android_Facebook_DialogListener::com_facebook_android_Facebook_Dial
 
 	LOGV("com_facebook_android_Facebook_DialogListener::com_facebook_android_Facebook_DialogListener(const com_facebook_android_Facebook_DialogListener& cc) exit");
 }
-com_facebook_android_Facebook_DialogListener::com_facebook_android_Facebook_DialogListener(void * proxy)
+com_facebook_android_Facebook_DialogListener::com_facebook_android_Facebook_DialogListener(Proxy proxy)
 {
-	LOGV("com_facebook_android_Facebook_DialogListener::com_facebook_android_Facebook_DialogListener(void * proxy) enter");
+	LOGV("com_facebook_android_Facebook_DialogListener::com_facebook_android_Facebook_DialogListener(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -100,47 +98,31 @@ com_facebook_android_Facebook_DialogListener::com_facebook_android_Facebook_Dial
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_android_Facebook_DialogListener::com_facebook_android_Facebook_DialogListener(void * proxy) exit");
+	LOGV("com_facebook_android_Facebook_DialogListener::com_facebook_android_Facebook_DialogListener(Proxy proxy) exit");
 }
-com_facebook_android_Facebook_DialogListener::com_facebook_android_Facebook_DialogListener()
-{
-	LOGV("com_facebook_android_Facebook_DialogListener::com_facebook_android_Facebook_DialogListener() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/android/Facebook$DialogListener";
-
-	LOGV("com_facebook_android_Facebook_DialogListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_android_Facebook_DialogListener::proxy() const
+{	
+	LOGV("com_facebook_android_Facebook_DialogListener::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook_DialogListener cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_android_Facebook_DialogListener jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_android_Facebook_DialogListener::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_android_Facebook_DialogListener::com_facebook_android_Facebook_DialogListener() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 com_facebook_android_Facebook_DialogListener::~com_facebook_android_Facebook_DialogListener()
 {
@@ -152,13 +134,13 @@ com_facebook_android_Facebook_DialogListener::~com_facebook_android_Facebook_Dia
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_android_Facebook_DialogListener::~com_facebook_android_Facebook_DialogListener() exit");
 }
 // Functions
-void com_facebook_android_Facebook_DialogListener::onComplete(AndroidCXX::android_os_Bundle& arg0)
+void com_facebook_android_Facebook_DialogListener::onComplete(AndroidCXX::android_os_Bundle const& arg0)
 {
-	LOGV("void com_facebook_android_Facebook_DialogListener::onComplete(AndroidCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_android_Facebook_DialogListener::onComplete(AndroidCXX::android_os_Bundle const& arg0) enter");
 
 	const char *methodName = "onComplete";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -168,8 +150,6 @@ void com_facebook_android_Facebook_DialogListener::onComplete(AndroidCXX::androi
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook_DialogListener cxx address %d", cxxAddress);
@@ -200,9 +180,7 @@ void com_facebook_android_Facebook_DialogListener::onComplete(AndroidCXX::androi
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_Facebook_DialogListener::onComplete(AndroidCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_android_Facebook_DialogListener::onComplete(AndroidCXX::android_os_Bundle const& arg0) exit");
 
 }
 void com_facebook_android_Facebook_DialogListener::onCancel()
@@ -218,8 +196,6 @@ void com_facebook_android_Facebook_DialogListener::onCancel()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook_DialogListener cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -228,14 +204,12 @@ void com_facebook_android_Facebook_DialogListener::onCancel()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void com_facebook_android_Facebook_DialogListener::onCancel() exit");
 
 }
-void com_facebook_android_Facebook_DialogListener::onFacebookError(FacebookCXX::com_facebook_android_FacebookError& arg0)
+void com_facebook_android_Facebook_DialogListener::onFacebookError(FacebookCXX::com_facebook_android_FacebookError const& arg0)
 {
-	LOGV("void com_facebook_android_Facebook_DialogListener::onFacebookError(FacebookCXX::com_facebook_android_FacebookError& arg0) enter");
+	LOGV("void com_facebook_android_Facebook_DialogListener::onFacebookError(FacebookCXX::com_facebook_android_FacebookError const& arg0) enter");
 
 	const char *methodName = "onFacebookError";
 	const char *methodSignature = "(Lcom/facebook/android/FacebookError;)V";
@@ -245,8 +219,6 @@ void com_facebook_android_Facebook_DialogListener::onFacebookError(FacebookCXX::
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook_DialogListener cxx address %d", cxxAddress);
@@ -277,14 +249,12 @@ void com_facebook_android_Facebook_DialogListener::onFacebookError(FacebookCXX::
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_Facebook_DialogListener::onFacebookError(FacebookCXX::com_facebook_android_FacebookError& arg0) exit");
+	LOGV("void com_facebook_android_Facebook_DialogListener::onFacebookError(FacebookCXX::com_facebook_android_FacebookError const& arg0) exit");
 
 }
-void com_facebook_android_Facebook_DialogListener::onError(FacebookCXX::com_facebook_android_DialogError& arg0)
+void com_facebook_android_Facebook_DialogListener::onError(FacebookCXX::com_facebook_android_DialogError const& arg0)
 {
-	LOGV("void com_facebook_android_Facebook_DialogListener::onError(FacebookCXX::com_facebook_android_DialogError& arg0) enter");
+	LOGV("void com_facebook_android_Facebook_DialogListener::onError(FacebookCXX::com_facebook_android_DialogError const& arg0) enter");
 
 	const char *methodName = "onError";
 	const char *methodSignature = "(Lcom/facebook/android/DialogError;)V";
@@ -294,8 +264,6 @@ void com_facebook_android_Facebook_DialogListener::onError(FacebookCXX::com_face
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_Facebook_DialogListener cxx address %d", cxxAddress);
@@ -326,8 +294,6 @@ void com_facebook_android_Facebook_DialogListener::onError(FacebookCXX::com_face
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_Facebook_DialogListener::onError(FacebookCXX::com_facebook_android_DialogError& arg0) exit");
+	LOGV("void com_facebook_android_Facebook_DialogListener::onError(FacebookCXX::com_facebook_android_DialogError const& arg0) exit");
 
 }

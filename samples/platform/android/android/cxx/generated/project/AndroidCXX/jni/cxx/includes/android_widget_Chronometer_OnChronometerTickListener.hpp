@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -52,13 +51,13 @@ class android_widget_Chronometer_OnChronometerTickListener
 public:
 
 	android_widget_Chronometer_OnChronometerTickListener(const android_widget_Chronometer_OnChronometerTickListener& cc);
-	android_widget_Chronometer_OnChronometerTickListener(void * proxy);
+	android_widget_Chronometer_OnChronometerTickListener(Proxy proxy);
 	// Public Constructors
-	android_widget_Chronometer_OnChronometerTickListener();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Chronometer_OnChronometerTickListener();
 	// Functions
-	 void onChronometerTick(AndroidCXX::android_widget_Chronometer& arg0);
+	 void onChronometerTick(AndroidCXX::android_widget_Chronometer const& arg0);
 };	
 
 } // namespace

@@ -9,7 +9,6 @@
 
 
 
-
  			
 		
 
@@ -31,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace ANDROID_GRAPHICS_CANVAS_VERTEXMODE {
+namespace android_graphics_Canvas_VertexMode {
 
 enum android_graphics_Canvas_VertexMode
 {

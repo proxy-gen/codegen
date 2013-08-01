@@ -9,7 +9,6 @@
 
 
 
-
  			
 		
 
@@ -31,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace COM_FACEBOOK_SESSIONSTATE_CATEGORY {
+namespace com_facebook_SessionState_Category {
 
 enum com_facebook_SessionState_Category
 {

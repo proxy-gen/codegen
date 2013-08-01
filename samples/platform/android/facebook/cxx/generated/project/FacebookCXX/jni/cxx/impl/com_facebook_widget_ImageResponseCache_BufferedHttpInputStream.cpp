@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #include <com_facebook_widget_ImageResponseCache_BufferedHttpInputStream.hpp>
@@ -27,6 +26,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_ImageResponseCache_BufferedHttpInputStream"
@@ -40,8 +40,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::com_facebook_widget_ImageResponseCache_BufferedHttpInputStream(const com_facebook_widget_ImageResponseCache_BufferedHttpInputStream& cc)
 {
 	LOGV("com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::com_facebook_widget_ImageResponseCache_BufferedHttpInputStream(const com_facebook_widget_ImageResponseCache_BufferedHttpInputStream& cc) enter");
@@ -65,9 +63,9 @@ com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::com_facebook_wid
 
 	LOGV("com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::com_facebook_widget_ImageResponseCache_BufferedHttpInputStream(const com_facebook_widget_ImageResponseCache_BufferedHttpInputStream& cc) exit");
 }
-com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::com_facebook_widget_ImageResponseCache_BufferedHttpInputStream(void * proxy)
+com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::com_facebook_widget_ImageResponseCache_BufferedHttpInputStream(Proxy proxy)
 {
-	LOGV("com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::com_facebook_widget_ImageResponseCache_BufferedHttpInputStream(void * proxy) enter");
+	LOGV("com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::com_facebook_widget_ImageResponseCache_BufferedHttpInputStream(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -77,47 +75,31 @@ com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::com_facebook_wid
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::com_facebook_widget_ImageResponseCache_BufferedHttpInputStream(void * proxy) exit");
+	LOGV("com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::com_facebook_widget_ImageResponseCache_BufferedHttpInputStream(Proxy proxy) exit");
 }
-com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::com_facebook_widget_ImageResponseCache_BufferedHttpInputStream()
-{
-	LOGV("com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::com_facebook_widget_ImageResponseCache_BufferedHttpInputStream() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/widget/ImageResponseCache$BufferedHttpInputStream";
-
-	LOGV("com_facebook_widget_ImageResponseCache_BufferedHttpInputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::proxy() const
+{	
+	LOGV("com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_ImageResponseCache_BufferedHttpInputStream cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_widget_ImageResponseCache_BufferedHttpInputStream jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::com_facebook_widget_ImageResponseCache_BufferedHttpInputStream() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::~com_facebook_widget_ImageResponseCache_BufferedHttpInputStream()
 {
@@ -129,7 +111,7 @@ com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::~com_facebook_wi
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::~com_facebook_widget_ImageResponseCache_BufferedHttpInputStream() exit");
 }
 // Functions
@@ -146,8 +128,6 @@ void com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::close()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_widget_ImageResponseCache_BufferedHttpInputStream cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -156,8 +136,6 @@ void com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::close()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void com_facebook_widget_ImageResponseCache_BufferedHttpInputStream::close() exit");
 
 }

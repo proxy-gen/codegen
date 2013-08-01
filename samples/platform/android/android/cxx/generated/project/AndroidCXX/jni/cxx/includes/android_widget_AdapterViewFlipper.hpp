@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -87,26 +86,26 @@ class android_widget_AdapterViewFlipper
 public:
 
 	android_widget_AdapterViewFlipper(const android_widget_AdapterViewFlipper& cc);
-	android_widget_AdapterViewFlipper(void * proxy);
+	android_widget_AdapterViewFlipper(Proxy proxy);
 	// Public Constructors
-	android_widget_AdapterViewFlipper(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_AdapterViewFlipper(AndroidCXX::android_content_Context& arg0);
-	android_widget_AdapterViewFlipper();
+	android_widget_AdapterViewFlipper(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_AdapterViewFlipper(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AdapterViewFlipper();
 	// Functions
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
-	 void setAdapter(AndroidCXX::android_widget_Adapter& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	 void setAdapter(AndroidCXX::android_widget_Adapter const& arg0);
 	 void fyiWillBeAdvancedByHostKThx();
 	 void showNext();
 	 void showPrevious();
 	 int getFlipInterval();
-	 void setFlipInterval(int& arg0);
+	 void setFlipInterval(int const& arg0);
 	 void startFlipping();
 	 void stopFlipping();
 	 bool isFlipping();
-	 void setAutoStart(bool& arg0);
+	 void setAutoStart(bool const& arg0);
 	 bool isAutoStart();
 };	
 

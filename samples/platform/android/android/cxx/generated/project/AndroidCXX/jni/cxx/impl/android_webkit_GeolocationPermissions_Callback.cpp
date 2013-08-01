@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -28,7 +27,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_webkit_GeolocationPermissions_Callback"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -47,8 +46,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_webkit_GeolocationPermissions_Callback::android_webkit_GeolocationPermissions_Callback(const android_webkit_GeolocationPermissions_Callback& cc)
 {
 	LOGV("android_webkit_GeolocationPermissions_Callback::android_webkit_GeolocationPermissions_Callback(const android_webkit_GeolocationPermissions_Callback& cc) enter");
@@ -72,9 +69,9 @@ android_webkit_GeolocationPermissions_Callback::android_webkit_GeolocationPermis
 
 	LOGV("android_webkit_GeolocationPermissions_Callback::android_webkit_GeolocationPermissions_Callback(const android_webkit_GeolocationPermissions_Callback& cc) exit");
 }
-android_webkit_GeolocationPermissions_Callback::android_webkit_GeolocationPermissions_Callback(void * proxy)
+android_webkit_GeolocationPermissions_Callback::android_webkit_GeolocationPermissions_Callback(Proxy proxy)
 {
-	LOGV("android_webkit_GeolocationPermissions_Callback::android_webkit_GeolocationPermissions_Callback(void * proxy) enter");
+	LOGV("android_webkit_GeolocationPermissions_Callback::android_webkit_GeolocationPermissions_Callback(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -84,47 +81,31 @@ android_webkit_GeolocationPermissions_Callback::android_webkit_GeolocationPermis
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_webkit_GeolocationPermissions_Callback::android_webkit_GeolocationPermissions_Callback(void * proxy) exit");
+	LOGV("android_webkit_GeolocationPermissions_Callback::android_webkit_GeolocationPermissions_Callback(Proxy proxy) exit");
 }
-android_webkit_GeolocationPermissions_Callback::android_webkit_GeolocationPermissions_Callback()
-{
-	LOGV("android_webkit_GeolocationPermissions_Callback::android_webkit_GeolocationPermissions_Callback() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/webkit/GeolocationPermissions$Callback";
-
-	LOGV("android_webkit_GeolocationPermissions_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_webkit_GeolocationPermissions_Callback::proxy() const
+{	
+	LOGV("android_webkit_GeolocationPermissions_Callback::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_GeolocationPermissions_Callback cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_webkit_GeolocationPermissions_Callback jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_webkit_GeolocationPermissions_Callback::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_webkit_GeolocationPermissions_Callback::android_webkit_GeolocationPermissions_Callback() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_webkit_GeolocationPermissions_Callback::~android_webkit_GeolocationPermissions_Callback()
 {
@@ -136,13 +117,13 @@ android_webkit_GeolocationPermissions_Callback::~android_webkit_GeolocationPermi
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_webkit_GeolocationPermissions_Callback::~android_webkit_GeolocationPermissions_Callback() exit");
 }
 // Functions
-void android_webkit_GeolocationPermissions_Callback::invoke(AndroidCXX::java_lang_String& arg0,bool& arg1,bool& arg2)
+void android_webkit_GeolocationPermissions_Callback::invoke(AndroidCXX::java_lang_String const& arg0,bool const& arg1,bool const& arg2)
 {
-	LOGV("void android_webkit_GeolocationPermissions_Callback::invoke(AndroidCXX::java_lang_String& arg0,bool& arg1,bool& arg2) enter");
+	LOGV("void android_webkit_GeolocationPermissions_Callback::invoke(AndroidCXX::java_lang_String const& arg0,bool const& arg1,bool const& arg2) enter");
 
 	const char *methodName = "invoke";
 	const char *methodSignature = "(Ljava/lang/String;ZZ)V";
@@ -152,8 +133,6 @@ void android_webkit_GeolocationPermissions_Callback::invoke(AndroidCXX::java_lan
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_webkit_GeolocationPermissions_Callback cxx address %d", cxxAddress);
@@ -226,8 +205,6 @@ void android_webkit_GeolocationPermissions_Callback::invoke(AndroidCXX::java_lan
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_webkit_GeolocationPermissions_Callback::invoke(AndroidCXX::java_lang_String& arg0,bool& arg1,bool& arg2) exit");
+	LOGV("void android_webkit_GeolocationPermissions_Callback::invoke(AndroidCXX::java_lang_String const& arg0,bool const& arg1,bool const& arg2) exit");
 
 }

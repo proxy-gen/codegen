@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -109,31 +108,28 @@ class java_nio_charset_CharsetEncoder
 public:
 
 	java_nio_charset_CharsetEncoder(const java_nio_charset_CharsetEncoder& cc);
-	java_nio_charset_CharsetEncoder(void * proxy);
+	java_nio_charset_CharsetEncoder(Proxy proxy);
 	// Public Constructors
-	// TODO: remove
-	// 
-	// java_nio_charset_CharsetEncoder();
-	// 
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_charset_CharsetEncoder();
 	// Functions
 	 JDKCXX::java_nio_charset_Charset charset();
-	 JDKCXX::java_nio_charset_CoderResult encode(JDKCXX::java_nio_CharBuffer& arg0,JDKCXX::java_nio_ByteBuffer& arg1,bool& arg2);
-	 JDKCXX::java_nio_ByteBuffer encode(JDKCXX::java_nio_CharBuffer& arg0);
-	 JDKCXX::java_nio_charset_CoderResult flush(JDKCXX::java_nio_ByteBuffer& arg0);
+	 JDKCXX::java_nio_charset_CoderResult encode(JDKCXX::java_nio_CharBuffer const& arg0,JDKCXX::java_nio_ByteBuffer const& arg1,bool const& arg2);
+	 JDKCXX::java_nio_ByteBuffer encode(JDKCXX::java_nio_CharBuffer const& arg0);
+	 JDKCXX::java_nio_charset_CoderResult flush(JDKCXX::java_nio_ByteBuffer const& arg0);
 	 JDKCXX::java_nio_charset_CharsetEncoder reset();
-	 bool canEncode(char& arg0);
-	 bool canEncode(JDKCXX::java_lang_CharSequence& arg0);
-	 JDKCXX::java_nio_charset_CharsetEncoder onMalformedInput(JDKCXX::java_nio_charset_CodingErrorAction& arg0);
-	 JDKCXX::java_nio_charset_CharsetEncoder onUnmappableCharacter(JDKCXX::java_nio_charset_CodingErrorAction& arg0);
+	 bool canEncode(char const& arg0);
+	 bool canEncode(JDKCXX::java_lang_CharSequence const& arg0);
+	 JDKCXX::java_nio_charset_CharsetEncoder onMalformedInput(JDKCXX::java_nio_charset_CodingErrorAction const& arg0);
+	 JDKCXX::java_nio_charset_CharsetEncoder onUnmappableCharacter(JDKCXX::java_nio_charset_CodingErrorAction const& arg0);
 	 float maxBytesPerChar();
-	 bool isLegalReplacement(std::vector<byte>& arg0);
+	 bool isLegalReplacement(std::vector<byte> const& arg0);
 	 float averageBytesPerChar();
 	 std::vector<byte> replacement();
 	 JDKCXX::java_nio_charset_CodingErrorAction malformedInputAction();
 	 JDKCXX::java_nio_charset_CodingErrorAction unmappableCharacterAction();
-	 JDKCXX::java_nio_charset_CharsetEncoder replaceWith(std::vector<byte>& arg0);
+	 JDKCXX::java_nio_charset_CharsetEncoder replaceWith(std::vector<byte> const& arg0);
 };	
 
 } // namespace

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -64,6 +63,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_android_AsyncFacebookRunner"
@@ -169,8 +169,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_android_AsyncFacebookRunner::com_facebook_android_AsyncFacebookRunner(const com_facebook_android_AsyncFacebookRunner& cc)
 {
 	LOGV("com_facebook_android_AsyncFacebookRunner::com_facebook_android_AsyncFacebookRunner(const com_facebook_android_AsyncFacebookRunner& cc) enter");
@@ -194,9 +192,9 @@ com_facebook_android_AsyncFacebookRunner::com_facebook_android_AsyncFacebookRunn
 
 	LOGV("com_facebook_android_AsyncFacebookRunner::com_facebook_android_AsyncFacebookRunner(const com_facebook_android_AsyncFacebookRunner& cc) exit");
 }
-com_facebook_android_AsyncFacebookRunner::com_facebook_android_AsyncFacebookRunner(void * proxy)
+com_facebook_android_AsyncFacebookRunner::com_facebook_android_AsyncFacebookRunner(Proxy proxy)
 {
-	LOGV("com_facebook_android_AsyncFacebookRunner::com_facebook_android_AsyncFacebookRunner(void * proxy) enter");
+	LOGV("com_facebook_android_AsyncFacebookRunner::com_facebook_android_AsyncFacebookRunner(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -206,50 +204,34 @@ com_facebook_android_AsyncFacebookRunner::com_facebook_android_AsyncFacebookRunn
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_android_AsyncFacebookRunner::com_facebook_android_AsyncFacebookRunner(void * proxy) exit");
+	LOGV("com_facebook_android_AsyncFacebookRunner::com_facebook_android_AsyncFacebookRunner(Proxy proxy) exit");
 }
-com_facebook_android_AsyncFacebookRunner::com_facebook_android_AsyncFacebookRunner()
-{
-	LOGV("com_facebook_android_AsyncFacebookRunner::com_facebook_android_AsyncFacebookRunner() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/android/AsyncFacebookRunner";
-
-	LOGV("com_facebook_android_AsyncFacebookRunner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_android_AsyncFacebookRunner::proxy() const
+{	
+	LOGV("com_facebook_android_AsyncFacebookRunner::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_AsyncFacebookRunner cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_android_AsyncFacebookRunner jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_android_AsyncFacebookRunner::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_android_AsyncFacebookRunner::com_facebook_android_AsyncFacebookRunner() exit");	
+	return proxy;
 }
-// Public Constructors
-com_facebook_android_AsyncFacebookRunner::com_facebook_android_AsyncFacebookRunner(FacebookCXX::com_facebook_android_Facebook& arg0)
+com_facebook_android_AsyncFacebookRunner::com_facebook_android_AsyncFacebookRunner(FacebookCXX::com_facebook_android_Facebook const& arg0)
 {
-	LOGV("com_facebook_android_AsyncFacebookRunner::com_facebook_android_AsyncFacebookRunner(FacebookCXX::com_facebook_android_Facebook& arg0) enter");	
+	LOGV("com_facebook_android_AsyncFacebookRunner::com_facebook_android_AsyncFacebookRunner(FacebookCXX::com_facebook_android_Facebook const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Lcom/facebook/android/Facebook;)V";
@@ -302,7 +284,7 @@ com_facebook_android_AsyncFacebookRunner::com_facebook_android_AsyncFacebookRunn
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_android_AsyncFacebookRunner::com_facebook_android_AsyncFacebookRunner(FacebookCXX::com_facebook_android_Facebook& arg0) exit");	
+	LOGV("com_facebook_android_AsyncFacebookRunner::com_facebook_android_AsyncFacebookRunner(FacebookCXX::com_facebook_android_Facebook const& arg0) exit");	
 }
 // Default Instance Destructor
 com_facebook_android_AsyncFacebookRunner::~com_facebook_android_AsyncFacebookRunner()
@@ -315,13 +297,13 @@ com_facebook_android_AsyncFacebookRunner::~com_facebook_android_AsyncFacebookRun
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_android_AsyncFacebookRunner::~com_facebook_android_AsyncFacebookRunner() exit");
 }
 // Functions
-void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,AndroidCXX::java_lang_String& arg2,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg3,AndroidCXX::java_lang_Object& arg4)
+void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1,AndroidCXX::java_lang_String const& arg2,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg3,AndroidCXX::java_lang_Object const& arg4)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,AndroidCXX::java_lang_String& arg2,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg3,AndroidCXX::java_lang_Object& arg4) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1,AndroidCXX::java_lang_String const& arg2,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg3,AndroidCXX::java_lang_Object const& arg4) enter");
 
 	const char *methodName = "request";
 	const char *methodSignature = "(Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V";
@@ -331,8 +313,6 @@ void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_Str
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_AsyncFacebookRunner cxx address %d", cxxAddress);
@@ -447,14 +427,12 @@ void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_Str
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,AndroidCXX::java_lang_String& arg2,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg3,AndroidCXX::java_lang_Object& arg4) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1,AndroidCXX::java_lang_String const& arg2,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg3,AndroidCXX::java_lang_Object const& arg4) exit");
 
 }
-void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg2,AndroidCXX::java_lang_Object& arg3)
+void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg2,AndroidCXX::java_lang_Object const& arg3)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg2,AndroidCXX::java_lang_Object& arg3) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg2,AndroidCXX::java_lang_Object const& arg3) enter");
 
 	const char *methodName = "request";
 	const char *methodSignature = "(Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V";
@@ -464,8 +442,6 @@ void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_Str
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_AsyncFacebookRunner cxx address %d", cxxAddress);
@@ -559,14 +535,12 @@ void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_Str
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg2,AndroidCXX::java_lang_Object& arg3) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg2,AndroidCXX::java_lang_Object const& arg3) exit");
 
 }
-void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg2)
+void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg2)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg2) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg2) enter");
 
 	const char *methodName = "request";
 	const char *methodSignature = "(Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;)V";
@@ -577,8 +551,6 @@ void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_Str
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_AsyncFacebookRunner cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -650,14 +622,12 @@ void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_Str
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg2) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg2) exit");
 
 }
-void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,AndroidCXX::java_lang_Object& arg2)
+void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bundle const& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg1,AndroidCXX::java_lang_Object const& arg2)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,AndroidCXX::java_lang_Object& arg2) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bundle const& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg1,AndroidCXX::java_lang_Object const& arg2) enter");
 
 	const char *methodName = "request";
 	const char *methodSignature = "(Landroid/os/Bundle;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V";
@@ -668,8 +638,6 @@ void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bu
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_AsyncFacebookRunner cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -741,14 +709,12 @@ void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bu
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,AndroidCXX::java_lang_Object& arg2) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bundle const& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg1,AndroidCXX::java_lang_Object const& arg2) exit");
 
 }
-void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1)
+void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bundle const& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg1)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bundle const& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg1) enter");
 
 	const char *methodName = "request";
 	const char *methodSignature = "(Landroid/os/Bundle;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;)V";
@@ -759,8 +725,6 @@ void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bu
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_AsyncFacebookRunner cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -811,14 +775,12 @@ void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bu
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bundle const& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg1) exit");
 
 }
-void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,AndroidCXX::java_lang_Object& arg2)
+void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String const& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg1,AndroidCXX::java_lang_Object const& arg2)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,AndroidCXX::java_lang_Object& arg2) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String const& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg1,AndroidCXX::java_lang_Object const& arg2) enter");
 
 	const char *methodName = "request";
 	const char *methodSignature = "(Ljava/lang/String;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V";
@@ -829,8 +791,6 @@ void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_Str
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_AsyncFacebookRunner cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -902,14 +862,12 @@ void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_Str
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,AndroidCXX::java_lang_Object& arg2) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String const& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg1,AndroidCXX::java_lang_Object const& arg2) exit");
 
 }
-void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1)
+void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String const& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg1)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String const& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg1) enter");
 
 	const char *methodName = "request";
 	const char *methodSignature = "(Ljava/lang/String;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;)V";
@@ -920,8 +878,6 @@ void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_Str
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_AsyncFacebookRunner cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -972,14 +928,12 @@ void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_Str
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String const& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg1) exit");
 
 }
-void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1)
+void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg1)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg1) enter");
 
 	const char *methodName = "logout";
 	const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;)V";
@@ -989,8 +943,6 @@ void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_conten
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_AsyncFacebookRunner cxx address %d", cxxAddress);
@@ -1042,14 +994,12 @@ void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_conten
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg1) exit");
 
 }
-void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,AndroidCXX::java_lang_Object& arg2)
+void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg1,AndroidCXX::java_lang_Object const& arg2)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,AndroidCXX::java_lang_Object& arg2) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg1,AndroidCXX::java_lang_Object const& arg2) enter");
 
 	const char *methodName = "logout";
 	const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V";
@@ -1059,8 +1009,6 @@ void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_conten
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_android_AsyncFacebookRunner cxx address %d", cxxAddress);
@@ -1133,8 +1081,6 @@ void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_conten
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,AndroidCXX::java_lang_Object& arg2) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg1,AndroidCXX::java_lang_Object const& arg2) exit");
 
 }

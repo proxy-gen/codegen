@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -71,17 +70,17 @@ class android_view_inputmethod_CorrectionInfo
 public:
 
 	android_view_inputmethod_CorrectionInfo(const android_view_inputmethod_CorrectionInfo& cc);
-	android_view_inputmethod_CorrectionInfo(void * proxy);
+	android_view_inputmethod_CorrectionInfo(Proxy proxy);
 	// Public Constructors
-	android_view_inputmethod_CorrectionInfo(int& arg0,AndroidCXX::java_lang_CharSequence& arg1,AndroidCXX::java_lang_CharSequence& arg2);
-	android_view_inputmethod_CorrectionInfo();
+	android_view_inputmethod_CorrectionInfo(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,AndroidCXX::java_lang_CharSequence const& arg2);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_inputmethod_CorrectionInfo();
 	// Functions
 	 AndroidCXX::java_lang_String toString();
 	 int getOffset();
 	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
 	 AndroidCXX::java_lang_CharSequence getOldText();
 	 AndroidCXX::java_lang_CharSequence getNewText();
 };	

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -86,15 +85,15 @@ class com_facebook_RequestAsyncTask
 public:
 
 	com_facebook_RequestAsyncTask(const com_facebook_RequestAsyncTask& cc);
-	com_facebook_RequestAsyncTask(void * proxy);
+	com_facebook_RequestAsyncTask(Proxy proxy);
 	// Public Constructors
-	com_facebook_RequestAsyncTask(std::vector<FacebookCXX::com_facebook_Request >& arg0);
-	com_facebook_RequestAsyncTask(AndroidCXX::java_util_Collection& arg0);
-	com_facebook_RequestAsyncTask(FacebookCXX::com_facebook_RequestBatch& arg0);
-	com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection& arg0,std::vector<FacebookCXX::com_facebook_Request >& arg1);
-	com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection& arg0,AndroidCXX::java_util_Collection& arg1);
-	com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection& arg0,FacebookCXX::com_facebook_RequestBatch& arg1);
-	com_facebook_RequestAsyncTask();
+	com_facebook_RequestAsyncTask(std::vector<FacebookCXX::com_facebook_Request > const& arg0);
+	com_facebook_RequestAsyncTask(AndroidCXX::java_util_Collection const& arg0);
+	com_facebook_RequestAsyncTask(FacebookCXX::com_facebook_RequestBatch const& arg0);
+	com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection const& arg0,std::vector<FacebookCXX::com_facebook_Request > const& arg1);
+	com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection const& arg0,AndroidCXX::java_util_Collection const& arg1);
+	com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection const& arg0,FacebookCXX::com_facebook_RequestBatch const& arg1);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_RequestAsyncTask();
 	// Functions

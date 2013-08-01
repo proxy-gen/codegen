@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -129,51 +128,51 @@ class android_graphics_Path
 {
 public:
 
-	android_graphics_Path(const android_graphics_Path& cc);
-	android_graphics_Path(void * proxy);
+	android_graphics_Path(Proxy proxy);
 	// Public Constructors
 	android_graphics_Path();
-	android_graphics_Path(AndroidCXX::android_graphics_Path& arg0);
+	android_graphics_Path(AndroidCXX::android_graphics_Path const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Path();
 	// Functions
-	 void offset(float& arg0,float& arg1,AndroidCXX::android_graphics_Path& arg2);
-	 void offset(float& arg0,float& arg1);
+	 void offset(float const& arg0,float const& arg1,AndroidCXX::android_graphics_Path const& arg2);
+	 void offset(float const& arg0,float const& arg1);
 	 bool isEmpty();
-	 void transform(AndroidCXX::android_graphics_Matrix& arg0,AndroidCXX::android_graphics_Path& arg1);
-	 void transform(AndroidCXX::android_graphics_Matrix& arg0);
+	 void transform(AndroidCXX::android_graphics_Matrix const& arg0,AndroidCXX::android_graphics_Path const& arg1);
+	 void transform(AndroidCXX::android_graphics_Matrix const& arg0);
 	 void close();
-	 void set(AndroidCXX::android_graphics_Path& arg0);
+	 void set(AndroidCXX::android_graphics_Path const& arg0);
 	 void reset();
 	 void rewind();
-	 bool isRect(AndroidCXX::android_graphics_RectF& arg0);
-	 ANDROID_GRAPHICS_PATH_FILLTYPE::android_graphics_Path_FillType getFillType();
-	 void setFillType(ANDROID_GRAPHICS_PATH_FILLTYPE::android_graphics_Path_FillType& arg0);
+	 bool isRect(AndroidCXX::android_graphics_RectF const& arg0);
+	 android_graphics_Path_FillType::android_graphics_Path_FillType getFillType();
+	 void setFillType(android_graphics_Path_FillType::android_graphics_Path_FillType const& arg0);
 	 bool isInverseFillType();
 	 void toggleInverseFillType();
-	 void computeBounds(AndroidCXX::android_graphics_RectF& arg0,bool& arg1);
-	 void incReserve(int& arg0);
-	 void moveTo(float& arg0,float& arg1);
-	 void rMoveTo(float& arg0,float& arg1);
-	 void lineTo(float& arg0,float& arg1);
-	 void rLineTo(float& arg0,float& arg1);
-	 void quadTo(float& arg0,float& arg1,float& arg2,float& arg3);
-	 void rQuadTo(float& arg0,float& arg1,float& arg2,float& arg3);
-	 void cubicTo(float& arg0,float& arg1,float& arg2,float& arg3,float& arg4,float& arg5);
-	 void rCubicTo(float& arg0,float& arg1,float& arg2,float& arg3,float& arg4,float& arg5);
-	 void arcTo(AndroidCXX::android_graphics_RectF& arg0,float& arg1,float& arg2,bool& arg3);
-	 void arcTo(AndroidCXX::android_graphics_RectF& arg0,float& arg1,float& arg2);
-	 void addRect(float& arg0,float& arg1,float& arg2,float& arg3,ANDROID_GRAPHICS_PATH_DIRECTION::android_graphics_Path_Direction& arg4);
-	 void addRect(AndroidCXX::android_graphics_RectF& arg0,ANDROID_GRAPHICS_PATH_DIRECTION::android_graphics_Path_Direction& arg1);
-	 void addOval(AndroidCXX::android_graphics_RectF& arg0,ANDROID_GRAPHICS_PATH_DIRECTION::android_graphics_Path_Direction& arg1);
-	 void addCircle(float& arg0,float& arg1,float& arg2,ANDROID_GRAPHICS_PATH_DIRECTION::android_graphics_Path_Direction& arg3);
-	 void addArc(AndroidCXX::android_graphics_RectF& arg0,float& arg1,float& arg2);
-	 void addRoundRect(AndroidCXX::android_graphics_RectF& arg0,float& arg1,float& arg2,ANDROID_GRAPHICS_PATH_DIRECTION::android_graphics_Path_Direction& arg3);
-	 void addRoundRect(AndroidCXX::android_graphics_RectF& arg0,std::vector<float>& arg1,ANDROID_GRAPHICS_PATH_DIRECTION::android_graphics_Path_Direction& arg2);
-	 void addPath(AndroidCXX::android_graphics_Path& arg0);
-	 void addPath(AndroidCXX::android_graphics_Path& arg0,AndroidCXX::android_graphics_Matrix& arg1);
-	 void addPath(AndroidCXX::android_graphics_Path& arg0,float& arg1,float& arg2);
-	 void setLastPoint(float& arg0,float& arg1);
+	 void computeBounds(AndroidCXX::android_graphics_RectF const& arg0,bool const& arg1);
+	 void incReserve(int const& arg0);
+	 void moveTo(float const& arg0,float const& arg1);
+	 void rMoveTo(float const& arg0,float const& arg1);
+	 void lineTo(float const& arg0,float const& arg1);
+	 void rLineTo(float const& arg0,float const& arg1);
+	 void quadTo(float const& arg0,float const& arg1,float const& arg2,float const& arg3);
+	 void rQuadTo(float const& arg0,float const& arg1,float const& arg2,float const& arg3);
+	 void cubicTo(float const& arg0,float const& arg1,float const& arg2,float const& arg3,float const& arg4,float const& arg5);
+	 void rCubicTo(float const& arg0,float const& arg1,float const& arg2,float const& arg3,float const& arg4,float const& arg5);
+	 void arcTo(AndroidCXX::android_graphics_RectF const& arg0,float const& arg1,float const& arg2,bool const& arg3);
+	 void arcTo(AndroidCXX::android_graphics_RectF const& arg0,float const& arg1,float const& arg2);
+	 void addRect(float const& arg0,float const& arg1,float const& arg2,float const& arg3,android_graphics_Path_Direction::android_graphics_Path_Direction const& arg4);
+	 void addRect(AndroidCXX::android_graphics_RectF const& arg0,android_graphics_Path_Direction::android_graphics_Path_Direction const& arg1);
+	 void addOval(AndroidCXX::android_graphics_RectF const& arg0,android_graphics_Path_Direction::android_graphics_Path_Direction const& arg1);
+	 void addCircle(float const& arg0,float const& arg1,float const& arg2,android_graphics_Path_Direction::android_graphics_Path_Direction const& arg3);
+	 void addArc(AndroidCXX::android_graphics_RectF const& arg0,float const& arg1,float const& arg2);
+	 void addRoundRect(AndroidCXX::android_graphics_RectF const& arg0,float const& arg1,float const& arg2,android_graphics_Path_Direction::android_graphics_Path_Direction const& arg3);
+	 void addRoundRect(AndroidCXX::android_graphics_RectF const& arg0,std::vector<float> const& arg1,android_graphics_Path_Direction::android_graphics_Path_Direction const& arg2);
+	 void addPath(AndroidCXX::android_graphics_Path const& arg0);
+	 void addPath(AndroidCXX::android_graphics_Path const& arg0,AndroidCXX::android_graphics_Matrix const& arg1);
+	 void addPath(AndroidCXX::android_graphics_Path const& arg0,float const& arg1,float const& arg2);
+	 void setLastPoint(float const& arg0,float const& arg1);
 };	
 
 } // namespace

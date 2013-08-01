@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_Session_AuthorizationRequest
@@ -47,13 +46,13 @@ class com_facebook_Session_AuthorizationRequest
 public:
 
 	com_facebook_Session_AuthorizationRequest(const com_facebook_Session_AuthorizationRequest& cc);
-	com_facebook_Session_AuthorizationRequest(void * proxy);
+	com_facebook_Session_AuthorizationRequest(Proxy proxy);
 	// Public Constructors
-	com_facebook_Session_AuthorizationRequest();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_AuthorizationRequest();
 	// Functions
-	 void setIsLegacy(bool& arg0);
+	 void setIsLegacy(bool const& arg0);
 };	
 
 } // namespace

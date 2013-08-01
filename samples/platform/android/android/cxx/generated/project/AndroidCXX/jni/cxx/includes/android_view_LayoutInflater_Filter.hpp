@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -52,13 +51,13 @@ class android_view_LayoutInflater_Filter
 public:
 
 	android_view_LayoutInflater_Filter(const android_view_LayoutInflater_Filter& cc);
-	android_view_LayoutInflater_Filter(void * proxy);
+	android_view_LayoutInflater_Filter(Proxy proxy);
 	// Public Constructors
-	android_view_LayoutInflater_Filter();
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_LayoutInflater_Filter();
 	// Functions
-	 bool onLoadClass(AndroidCXX::java_lang_Class& arg0);
+	 bool onLoadClass(AndroidCXX::java_lang_Class const& arg0);
 };	
 
 } // namespace

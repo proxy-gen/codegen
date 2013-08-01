@@ -9,7 +9,6 @@
 
 
 
-
  			
 		
 
@@ -31,7 +30,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace COM_FACEBOOK_HTTPMETHOD {
+namespace com_facebook_HttpMethod {
 
 enum com_facebook_HttpMethod
 {

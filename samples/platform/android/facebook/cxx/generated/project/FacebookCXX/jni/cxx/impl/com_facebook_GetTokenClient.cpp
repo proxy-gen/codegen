@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -31,6 +30,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_GetTokenClient"
@@ -58,8 +58,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 com_facebook_GetTokenClient::com_facebook_GetTokenClient(const com_facebook_GetTokenClient& cc)
 {
 	LOGV("com_facebook_GetTokenClient::com_facebook_GetTokenClient(const com_facebook_GetTokenClient& cc) enter");
@@ -83,9 +81,9 @@ com_facebook_GetTokenClient::com_facebook_GetTokenClient(const com_facebook_GetT
 
 	LOGV("com_facebook_GetTokenClient::com_facebook_GetTokenClient(const com_facebook_GetTokenClient& cc) exit");
 }
-com_facebook_GetTokenClient::com_facebook_GetTokenClient(void * proxy)
+com_facebook_GetTokenClient::com_facebook_GetTokenClient(Proxy proxy)
 {
-	LOGV("com_facebook_GetTokenClient::com_facebook_GetTokenClient(void * proxy) enter");
+	LOGV("com_facebook_GetTokenClient::com_facebook_GetTokenClient(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -95,47 +93,31 @@ com_facebook_GetTokenClient::com_facebook_GetTokenClient(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("com_facebook_GetTokenClient::com_facebook_GetTokenClient(void * proxy) exit");
+	LOGV("com_facebook_GetTokenClient::com_facebook_GetTokenClient(Proxy proxy) exit");
 }
-com_facebook_GetTokenClient::com_facebook_GetTokenClient()
-{
-	LOGV("com_facebook_GetTokenClient::com_facebook_GetTokenClient() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/GetTokenClient";
-
-	LOGV("com_facebook_GetTokenClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy com_facebook_GetTokenClient::proxy() const
+{	
+	LOGV("com_facebook_GetTokenClient::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_GetTokenClient cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("com_facebook_GetTokenClient jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("com_facebook_GetTokenClient::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("com_facebook_GetTokenClient::com_facebook_GetTokenClient() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 com_facebook_GetTokenClient::~com_facebook_GetTokenClient()
 {
@@ -147,13 +129,13 @@ com_facebook_GetTokenClient::~com_facebook_GetTokenClient()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("com_facebook_GetTokenClient::~com_facebook_GetTokenClient() exit");
 }
 // Functions
-void com_facebook_GetTokenClient::onServiceConnected(AndroidCXX::android_content_ComponentName& arg0,AndroidCXX::android_os_IBinder& arg1)
+void com_facebook_GetTokenClient::onServiceConnected(AndroidCXX::android_content_ComponentName const& arg0,AndroidCXX::android_os_IBinder const& arg1)
 {
-	LOGV("void com_facebook_GetTokenClient::onServiceConnected(AndroidCXX::android_content_ComponentName& arg0,AndroidCXX::android_os_IBinder& arg1) enter");
+	LOGV("void com_facebook_GetTokenClient::onServiceConnected(AndroidCXX::android_content_ComponentName const& arg0,AndroidCXX::android_os_IBinder const& arg1) enter");
 
 	const char *methodName = "onServiceConnected";
 	const char *methodSignature = "(Landroid/content/ComponentName;Landroid/os/IBinder;)V";
@@ -163,8 +145,6 @@ void com_facebook_GetTokenClient::onServiceConnected(AndroidCXX::android_content
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_GetTokenClient cxx address %d", cxxAddress);
@@ -216,14 +196,12 @@ void com_facebook_GetTokenClient::onServiceConnected(AndroidCXX::android_content
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_GetTokenClient::onServiceConnected(AndroidCXX::android_content_ComponentName& arg0,AndroidCXX::android_os_IBinder& arg1) exit");
+	LOGV("void com_facebook_GetTokenClient::onServiceConnected(AndroidCXX::android_content_ComponentName const& arg0,AndroidCXX::android_os_IBinder const& arg1) exit");
 
 }
-void com_facebook_GetTokenClient::onServiceDisconnected(AndroidCXX::android_content_ComponentName& arg0)
+void com_facebook_GetTokenClient::onServiceDisconnected(AndroidCXX::android_content_ComponentName const& arg0)
 {
-	LOGV("void com_facebook_GetTokenClient::onServiceDisconnected(AndroidCXX::android_content_ComponentName& arg0) enter");
+	LOGV("void com_facebook_GetTokenClient::onServiceDisconnected(AndroidCXX::android_content_ComponentName const& arg0) enter");
 
 	const char *methodName = "onServiceDisconnected";
 	const char *methodSignature = "(Landroid/content/ComponentName;)V";
@@ -233,8 +211,6 @@ void com_facebook_GetTokenClient::onServiceDisconnected(AndroidCXX::android_cont
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("com_facebook_GetTokenClient cxx address %d", cxxAddress);
@@ -265,8 +241,6 @@ void com_facebook_GetTokenClient::onServiceDisconnected(AndroidCXX::android_cont
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void com_facebook_GetTokenClient::onServiceDisconnected(AndroidCXX::android_content_ComponentName& arg0) exit");
+	LOGV("void com_facebook_GetTokenClient::onServiceDisconnected(AndroidCXX::android_content_ComponentName const& arg0) exit");
 
 }

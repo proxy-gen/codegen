@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_content_res_XmlResourceParser.hpp>
@@ -27,7 +26,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_content_res_XmlResourceParser"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -40,8 +39,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_content_res_XmlResourceParser::android_content_res_XmlResourceParser(const android_content_res_XmlResourceParser& cc)
 {
 	LOGV("android_content_res_XmlResourceParser::android_content_res_XmlResourceParser(const android_content_res_XmlResourceParser& cc) enter");
@@ -65,9 +62,9 @@ android_content_res_XmlResourceParser::android_content_res_XmlResourceParser(con
 
 	LOGV("android_content_res_XmlResourceParser::android_content_res_XmlResourceParser(const android_content_res_XmlResourceParser& cc) exit");
 }
-android_content_res_XmlResourceParser::android_content_res_XmlResourceParser(void * proxy)
+android_content_res_XmlResourceParser::android_content_res_XmlResourceParser(Proxy proxy)
 {
-	LOGV("android_content_res_XmlResourceParser::android_content_res_XmlResourceParser(void * proxy) enter");
+	LOGV("android_content_res_XmlResourceParser::android_content_res_XmlResourceParser(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -77,47 +74,31 @@ android_content_res_XmlResourceParser::android_content_res_XmlResourceParser(voi
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_content_res_XmlResourceParser::android_content_res_XmlResourceParser(void * proxy) exit");
+	LOGV("android_content_res_XmlResourceParser::android_content_res_XmlResourceParser(Proxy proxy) exit");
 }
-android_content_res_XmlResourceParser::android_content_res_XmlResourceParser()
-{
-	LOGV("android_content_res_XmlResourceParser::android_content_res_XmlResourceParser() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/content/res/XmlResourceParser";
-
-	LOGV("android_content_res_XmlResourceParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_content_res_XmlResourceParser::proxy() const
+{	
+	LOGV("android_content_res_XmlResourceParser::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_XmlResourceParser cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_content_res_XmlResourceParser jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_content_res_XmlResourceParser::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_content_res_XmlResourceParser::android_content_res_XmlResourceParser() exit");	
+	return proxy;
 }
-// Public Constructors
 // Default Instance Destructor
 android_content_res_XmlResourceParser::~android_content_res_XmlResourceParser()
 {
@@ -129,7 +110,7 @@ android_content_res_XmlResourceParser::~android_content_res_XmlResourceParser()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_content_res_XmlResourceParser::~android_content_res_XmlResourceParser() exit");
 }
 // Functions
@@ -146,8 +127,6 @@ void android_content_res_XmlResourceParser::close()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_content_res_XmlResourceParser cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -156,8 +135,6 @@ void android_content_res_XmlResourceParser::close()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_content_res_XmlResourceParser::close() exit");
 
 }

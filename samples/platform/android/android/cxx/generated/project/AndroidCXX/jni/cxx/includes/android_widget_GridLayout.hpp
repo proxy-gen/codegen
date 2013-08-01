@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -114,37 +113,37 @@ class android_widget_GridLayout
 public:
 
 	android_widget_GridLayout(const android_widget_GridLayout& cc);
-	android_widget_GridLayout(void * proxy);
+	android_widget_GridLayout(Proxy proxy);
 	// Public Constructors
-	android_widget_GridLayout(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_GridLayout(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_GridLayout(AndroidCXX::android_content_Context& arg0);
-	android_widget_GridLayout();
+	android_widget_GridLayout(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_GridLayout(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_GridLayout(AndroidCXX::android_content_Context const& arg0);
+	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_GridLayout();
 	// Functions
-	 AndroidCXX::android_widget_GridLayout_LayoutParams generateLayoutParams(AndroidCXX::android_util_AttributeSet& arg0);
-	static AndroidCXX::android_widget_GridLayout_Spec spec(int& arg0);
-	static AndroidCXX::android_widget_GridLayout_Spec spec(int& arg0,AndroidCXX::android_widget_GridLayout_Alignment& arg1);
-	static AndroidCXX::android_widget_GridLayout_Spec spec(int& arg0,int& arg1,AndroidCXX::android_widget_GridLayout_Alignment& arg2);
-	static AndroidCXX::android_widget_GridLayout_Spec spec(int& arg0,int& arg1);
+	 AndroidCXX::android_widget_GridLayout_LayoutParams generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0);
+	static AndroidCXX::android_widget_GridLayout_Spec spec(int const& arg0);
+	static AndroidCXX::android_widget_GridLayout_Spec spec(int const& arg0,AndroidCXX::android_widget_GridLayout_Alignment const& arg1);
+	static AndroidCXX::android_widget_GridLayout_Spec spec(int const& arg0,int const& arg1,AndroidCXX::android_widget_GridLayout_Alignment const& arg2);
+	static AndroidCXX::android_widget_GridLayout_Spec spec(int const& arg0,int const& arg1);
 	 void requestLayout();
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
+	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
 	 int getOrientation();
 	 int getColumnCount();
-	 void setOrientation(int& arg0);
+	 void setOrientation(int const& arg0);
 	 int getRowCount();
-	 void setRowCount(int& arg0);
-	 void setColumnCount(int& arg0);
+	 void setRowCount(int const& arg0);
+	 void setColumnCount(int const& arg0);
 	 bool getUseDefaultMargins();
-	 void setUseDefaultMargins(bool& arg0);
+	 void setUseDefaultMargins(bool const& arg0);
 	 int getAlignmentMode();
-	 void setAlignmentMode(int& arg0);
+	 void setAlignmentMode(int const& arg0);
 	 bool isRowOrderPreserved();
-	 void setRowOrderPreserved(bool& arg0);
+	 void setRowOrderPreserved(bool const& arg0);
 	 bool isColumnOrderPreserved();
-	 void setColumnOrderPreserved(bool& arg0);
+	 void setColumnOrderPreserved(bool const& arg0);
 };	
 
 } // namespace

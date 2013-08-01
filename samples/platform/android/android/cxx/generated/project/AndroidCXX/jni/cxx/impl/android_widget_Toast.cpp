@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -53,7 +52,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_Toast"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -96,8 +95,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
-// Default Instance Constructors
 android_widget_Toast::android_widget_Toast(const android_widget_Toast& cc)
 {
 	LOGV("android_widget_Toast::android_widget_Toast(const android_widget_Toast& cc) enter");
@@ -121,9 +118,9 @@ android_widget_Toast::android_widget_Toast(const android_widget_Toast& cc)
 
 	LOGV("android_widget_Toast::android_widget_Toast(const android_widget_Toast& cc) exit");
 }
-android_widget_Toast::android_widget_Toast(void * proxy)
+android_widget_Toast::android_widget_Toast(Proxy proxy)
 {
-	LOGV("android_widget_Toast::android_widget_Toast(void * proxy) enter");
+	LOGV("android_widget_Toast::android_widget_Toast(Proxy proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -133,50 +130,34 @@ android_widget_Toast::android_widget_Toast(void * proxy)
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		// ensure local ref
+		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
+		proxiedComponent = jni->localToGlobalRef(proxyref);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
-	LOGV("android_widget_Toast::android_widget_Toast(void * proxy) exit");
+	LOGV("android_widget_Toast::android_widget_Toast(Proxy proxy) exit");
 }
-android_widget_Toast::android_widget_Toast()
-{
-	LOGV("android_widget_Toast::android_widget_Toast() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/Toast";
-
-	LOGV("android_widget_Toast className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
+Proxy android_widget_Toast::proxy() const
+{	
+	LOGV("android_widget_Toast::proxy() enter");	
 	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Toast cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Toast jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+	Proxy proxy;
+	proxy.address = proxiedComponent;	
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+	LOGV("android_widget_Toast::proxy() exit");	
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_widget_Toast::android_widget_Toast() exit");	
+	return proxy;
 }
-// Public Constructors
-android_widget_Toast::android_widget_Toast(AndroidCXX::android_content_Context& arg0)
+android_widget_Toast::android_widget_Toast(AndroidCXX::android_content_Context const& arg0)
 {
-	LOGV("android_widget_Toast::android_widget_Toast(AndroidCXX::android_content_Context& arg0) enter");	
+	LOGV("android_widget_Toast::android_widget_Toast(AndroidCXX::android_content_Context const& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -229,7 +210,7 @@ android_widget_Toast::android_widget_Toast(AndroidCXX::android_content_Context& 
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_Toast::android_widget_Toast(AndroidCXX::android_content_Context& arg0) exit");	
+	LOGV("android_widget_Toast::android_widget_Toast(AndroidCXX::android_content_Context const& arg0) exit");	
 }
 // Default Instance Destructor
 android_widget_Toast::~android_widget_Toast()
@@ -242,13 +223,13 @@ android_widget_Toast::~android_widget_Toast()
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
-	}		
+	}			
 	LOGV("android_widget_Toast::~android_widget_Toast() exit");
 }
 // Functions
-void android_widget_Toast::setText(AndroidCXX::java_lang_CharSequence& arg0)
+void android_widget_Toast::setText(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("void android_widget_Toast::setText(AndroidCXX::java_lang_CharSequence& arg0) enter");
+	LOGV("void android_widget_Toast::setText(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
 	const char *methodName = "setText";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -258,8 +239,6 @@ void android_widget_Toast::setText(AndroidCXX::java_lang_CharSequence& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Toast cxx address %d", cxxAddress);
@@ -290,14 +269,12 @@ void android_widget_Toast::setText(AndroidCXX::java_lang_CharSequence& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Toast::setText(AndroidCXX::java_lang_CharSequence& arg0) exit");
+	LOGV("void android_widget_Toast::setText(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 }
-void android_widget_Toast::setText(int& arg0)
+void android_widget_Toast::setText(int const& arg0)
 {
-	LOGV("void android_widget_Toast::setText(int& arg0) enter");
+	LOGV("void android_widget_Toast::setText(int const& arg0) enter");
 
 	const char *methodName = "setText";
 	const char *methodSignature = "(I)V";
@@ -307,8 +284,6 @@ void android_widget_Toast::setText(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Toast cxx address %d", cxxAddress);
@@ -339,9 +314,7 @@ void android_widget_Toast::setText(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Toast::setText(int& arg0) exit");
+	LOGV("void android_widget_Toast::setText(int const& arg0) exit");
 
 }
 void android_widget_Toast::cancel()
@@ -357,8 +330,6 @@ void android_widget_Toast::cancel()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Toast cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -367,8 +338,6 @@ void android_widget_Toast::cancel()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_Toast::cancel() exit");
 
 }
@@ -385,15 +354,12 @@ AndroidCXX::android_view_View android_widget_Toast::getView()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Toast cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Toast jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -411,10 +377,10 @@ AndroidCXX::android_view_View android_widget_Toast::getView()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
-		
-	jni->popLocalFrame();
 
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
+		
 	LOGV("AndroidCXX::android_view_View android_widget_Toast::getView() exit");
 
 	return result;
@@ -432,8 +398,6 @@ void android_widget_Toast::show()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Toast cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
@@ -442,14 +406,12 @@ void android_widget_Toast::show()
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
-	jni->popLocalFrame();
-
 	LOGV("void android_widget_Toast::show() exit");
 
 }
-void android_widget_Toast::setDuration(int& arg0)
+void android_widget_Toast::setDuration(int const& arg0)
 {
-	LOGV("void android_widget_Toast::setDuration(int& arg0) enter");
+	LOGV("void android_widget_Toast::setDuration(int const& arg0) enter");
 
 	const char *methodName = "setDuration";
 	const char *methodSignature = "(I)V";
@@ -459,8 +421,6 @@ void android_widget_Toast::setDuration(int& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Toast cxx address %d", cxxAddress);
@@ -491,9 +451,7 @@ void android_widget_Toast::setDuration(int& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Toast::setDuration(int& arg0) exit");
+	LOGV("void android_widget_Toast::setDuration(int const& arg0) exit");
 
 }
 int android_widget_Toast::getDuration()
@@ -509,15 +467,12 @@ int android_widget_Toast::getDuration()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Toast cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Toast jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -535,17 +490,17 @@ int android_widget_Toast::getDuration()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_Toast::getDuration() exit");
 
 	return result;
 }
-void android_widget_Toast::setGravity(int& arg0,int& arg1,int& arg2)
+void android_widget_Toast::setGravity(int const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("void android_widget_Toast::setGravity(int& arg0,int& arg1,int& arg2) enter");
+	LOGV("void android_widget_Toast::setGravity(int const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "setGravity";
 	const char *methodSignature = "(III)V";
@@ -555,8 +510,6 @@ void android_widget_Toast::setGravity(int& arg0,int& arg1,int& arg2)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Toast cxx address %d", cxxAddress);
@@ -629,9 +582,7 @@ void android_widget_Toast::setGravity(int& arg0,int& arg1,int& arg2)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Toast::setGravity(int& arg0,int& arg1,int& arg2) exit");
+	LOGV("void android_widget_Toast::setGravity(int const& arg0,int const& arg1,int const& arg2) exit");
 
 }
 int android_widget_Toast::getGravity()
@@ -647,15 +598,12 @@ int android_widget_Toast::getGravity()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Toast cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Toast jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -673,17 +621,17 @@ int android_widget_Toast::getGravity()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_Toast::getGravity() exit");
 
 	return result;
 }
-void android_widget_Toast::setView(AndroidCXX::android_view_View& arg0)
+void android_widget_Toast::setView(AndroidCXX::android_view_View const& arg0)
 {
-	LOGV("void android_widget_Toast::setView(AndroidCXX::android_view_View& arg0) enter");
+	LOGV("void android_widget_Toast::setView(AndroidCXX::android_view_View const& arg0) enter");
 
 	const char *methodName = "setView";
 	const char *methodSignature = "(Landroid/view/View;)V";
@@ -693,8 +641,6 @@ void android_widget_Toast::setView(AndroidCXX::android_view_View& arg0)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Toast cxx address %d", cxxAddress);
@@ -725,14 +671,12 @@ void android_widget_Toast::setView(AndroidCXX::android_view_View& arg0)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Toast::setView(AndroidCXX::android_view_View& arg0) exit");
+	LOGV("void android_widget_Toast::setView(AndroidCXX::android_view_View const& arg0) exit");
 
 }
-void android_widget_Toast::setMargin(float& arg0,float& arg1)
+void android_widget_Toast::setMargin(float const& arg0,float const& arg1)
 {
-	LOGV("void android_widget_Toast::setMargin(float& arg0,float& arg1) enter");
+	LOGV("void android_widget_Toast::setMargin(float const& arg0,float const& arg1) enter");
 
 	const char *methodName = "setMargin";
 	const char *methodSignature = "(FF)V";
@@ -742,8 +686,6 @@ void android_widget_Toast::setMargin(float& arg0,float& arg1)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Toast cxx address %d", cxxAddress);
@@ -795,9 +737,7 @@ void android_widget_Toast::setMargin(float& arg0,float& arg1)
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
-	jni->popLocalFrame();
-
-	LOGV("void android_widget_Toast::setMargin(float& arg0,float& arg1) exit");
+	LOGV("void android_widget_Toast::setMargin(float const& arg0,float const& arg1) exit");
 
 }
 float android_widget_Toast::getHorizontalMargin()
@@ -813,15 +753,12 @@ float android_widget_Toast::getHorizontalMargin()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Toast cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Toast jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -839,10 +776,10 @@ float android_widget_Toast::getHorizontalMargin()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	float result = (float) *((float *) cxx_value);
+	// 
+		
 	LOGV("float android_widget_Toast::getHorizontalMargin() exit");
 
 	return result;
@@ -860,15 +797,12 @@ float android_widget_Toast::getVerticalMargin()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Toast cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Toast jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -886,10 +820,10 @@ float android_widget_Toast::getVerticalMargin()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	float result = (float) *((float *) cxx_value);
+	// 
+		
 	LOGV("float android_widget_Toast::getVerticalMargin() exit");
 
 	return result;
@@ -907,15 +841,12 @@ int android_widget_Toast::getXOffset()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Toast cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Toast jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -933,10 +864,10 @@ int android_widget_Toast::getXOffset()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_Toast::getXOffset() exit");
 
 	return result;
@@ -954,15 +885,12 @@ int android_widget_Toast::getYOffset()
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
-
 	long cxxAddress = (long) this;
 	LOGV("android_widget_Toast cxx address %d", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_widget_Toast jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -980,17 +908,17 @@ int android_widget_Toast::getYOffset()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
-		
-	jni->popLocalFrame();
 
+	int result = (int) *((int *) cxx_value);
+	// 
+		
 	LOGV("int android_widget_Toast::getYOffset() exit");
 
 	return result;
 }
-AndroidCXX::android_widget_Toast android_widget_Toast::makeText(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_CharSequence& arg1,int& arg2)
+AndroidCXX::android_widget_Toast android_widget_Toast::makeText(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,int const& arg2)
 {
-	LOGV("AndroidCXX::android_widget_Toast android_widget_Toast::makeText(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_CharSequence& arg1,int& arg2) enter");
+	LOGV("AndroidCXX::android_widget_Toast android_widget_Toast::makeText(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,int const& arg2) enter");
 
 	const char *methodName = "makeText";
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;";
@@ -1000,8 +928,6 @@ AndroidCXX::android_widget_Toast android_widget_Toast::makeText(AndroidCXX::andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_widget_Toast cxx address %d", cxxAddress);
@@ -1072,8 +998,7 @@ AndroidCXX::android_widget_Toast android_widget_Toast::makeText(AndroidCXX::andr
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_widget_Toast result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1090,17 +1015,17 @@ AndroidCXX::android_widget_Toast android_widget_Toast::makeText(AndroidCXX::andr
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_widget_Toast(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_widget_Toast) (AndroidCXX::android_widget_Toast((AndroidCXX::android_widget_Toast *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_widget_Toast android_widget_Toast::makeText(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_CharSequence& arg1,int& arg2) exit");
+	AndroidCXX::android_widget_Toast result((AndroidCXX::android_widget_Toast) *((AndroidCXX::android_widget_Toast *) cxx_value));
+	delete ((AndroidCXX::android_widget_Toast *) cxx_value);
+		
+	LOGV("AndroidCXX::android_widget_Toast android_widget_Toast::makeText(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,int const& arg2) exit");
 
 	return result;
 }
-AndroidCXX::android_widget_Toast android_widget_Toast::makeText(AndroidCXX::android_content_Context& arg0,int& arg1,int& arg2)
+AndroidCXX::android_widget_Toast android_widget_Toast::makeText(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2)
 {
-	LOGV("AndroidCXX::android_widget_Toast android_widget_Toast::makeText(AndroidCXX::android_content_Context& arg0,int& arg1,int& arg2) enter");
+	LOGV("AndroidCXX::android_widget_Toast android_widget_Toast::makeText(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2) enter");
 
 	const char *methodName = "makeText";
 	const char *methodSignature = "(Landroid/content/Context;II)Landroid/widget/Toast;";
@@ -1110,8 +1035,6 @@ AndroidCXX::android_widget_Toast android_widget_Toast::makeText(AndroidCXX::andr
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
 
 	long cxxAddress = (long) static_address; // _static function
 	LOGV("android_widget_Toast cxx address %d", cxxAddress);
@@ -1182,8 +1105,7 @@ AndroidCXX::android_widget_Toast android_widget_Toast::makeText(AndroidCXX::andr
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_widget_Toast result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -1200,11 +1122,11 @@ AndroidCXX::android_widget_Toast android_widget_Toast::makeText(AndroidCXX::andr
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_widget_Toast(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_widget_Toast) (AndroidCXX::android_widget_Toast((AndroidCXX::android_widget_Toast *) cxx_value));
-		
-	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_widget_Toast android_widget_Toast::makeText(AndroidCXX::android_content_Context& arg0,int& arg1,int& arg2) exit");
+	AndroidCXX::android_widget_Toast result((AndroidCXX::android_widget_Toast) *((AndroidCXX::android_widget_Toast *) cxx_value));
+	delete ((AndroidCXX::android_widget_Toast *) cxx_value);
+		
+	LOGV("AndroidCXX::android_widget_Toast android_widget_Toast::makeText(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2) exit");
 
 	return result;
 }
