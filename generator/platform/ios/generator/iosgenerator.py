@@ -18,6 +18,10 @@ from multiprocessing import Process
 from Cheetah.Template import Template
 from generator import BaseGenerator
 
+DEFAULT_METADATA_CLANG_OPTS = '-ObjC -arch armv7 -fobjc-arc -miphoneos-version-min=6.1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/4.2/include/ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk'
+DEFAULT_MAKEFILE_ARMV7_CLANG_OPTS = '-ObjC++ -std=gnu++11 -stdlib=libc++ -arch armv7 -fobjc-arc -miphoneos-version-min=6.1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/4.2/include/ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk'
+DEFAULT_MAKEFILE_I386_CLANG_OPTS = '-ObjC++ -std=gnu++11 -stdlib=libc++ -arch i386 -fobjc-arc -mios-simulator-version-min=6.1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/4.2/include/ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk'
+
 class Generator(BaseGenerator):
 	def __init__(self):
 		super(Generator, self).__init__()
@@ -120,6 +124,7 @@ class Generator(BaseGenerator):
 
 	def _setup_index(self):
 		logging.debug("_setup_index enter")
+		self._setup_clang_opts()
 		self.indexer = Index(self.config_module.config_data.get('clang_opts'))
 		logging.debug("_setup_index exit")
 
@@ -145,6 +150,31 @@ class Generator(BaseGenerator):
 		self.config_py_file.close()
 		self.config_module = None
 		logging.debug("_generate_config exit")
+
+	def _setup_clang_opts(self):
+		logging.debug("_setup_clang_opts enter")
+		clang_opts = self.config_module.config_data.get("clang_opts")
+		if not clang_opts:
+			clang_opts = self.config_module.config_data["clang_opts"] = dict()
+		metadata_opts = clang_opts.get("metadata")
+		if not metadata_opts:
+			metadata_opts = clang_opts["metadata"] = DEFAULT_METADATA_CLANG_OPTS
+		makefile_opts = clang_opts.get("makefile")
+		if not makefile_opts:
+			makefile_opts = clang_opts["makefile"] = dict()
+		armv7_opts = makefile_opts.get("armv7")
+		if not armv7_opts:
+			makefile_opts["armv7"] = DEFAULT_MAKEFILE_ARMV7_CLANG_OPTS
+			makefile_opts["armv7"] += " -F" + os.path.abspath(os.path.dirname(__file__) + "/../resources/CXXConverter/build/Debug-iphoneos/")
+			makefile_opts["armv7"] += " -F" + os.path.abspath(os.path.dirname(self.config_module.config_data['frameworks'][0]))
+			makefile_opts["armv7"] += " -I./includes/"
+		i386_opts = makefile_opts.get("i386")
+		if not i386_opts:
+			makefile_opts["i386"] = DEFAULT_MAKEFILE_I386_CLANG_OPTS
+			makefile_opts["i386"] += " -F" + os.path.abspath(os.path.dirname(__file__) + "/../resources/CXXConverter/build/Debug-iphoneos/")
+			makefile_opts["i386"] += " -F" + os.path.abspath(os.path.dirname(self.config_module.config_data['frameworks'][0]))
+			makefile_opts["i386"] += " -I./includes/"
+		logging.debug("_setup_clang_opts exit")
 
 	def _generate_cxx_code(self):
 		logging.debug("_generate_cxx_code enter")
@@ -465,16 +495,12 @@ class Generator(BaseGenerator):
 
 	def _generate_makefile(self):
 		logging.debug("_generate_makefile enter")
-		self.cxxconverter_path = os.path.abspath(os.path.dirname(os.path.abspath(__file__)) + "/../resources/CXXConverter/build/Debug-iphoneos/")
-		self.framework_path = os.path.abspath(os.path.dirname(self.config_module.config_data['frameworks'][0]))
 		makefile_path = os.path.join(self.output_dir_name, "project", "makefile")
 		self.makefile = open(makefile_path, "w+")
 		makefile = Template(file=os.path.join(self.target, "templates", "makefile"), searchList=[{'CONFIG': self}])
 		self.makefile.write(str(makefile))
 		self.makefile.close()
 		self.makefile = None
-		self.cxxconverter_path = None
-		self.framework_path = None
 		logging.debug("_generate_makefile exit")
 
 	def _update_config(self, config_module):

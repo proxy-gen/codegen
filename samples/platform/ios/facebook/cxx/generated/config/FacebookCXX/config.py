@@ -19,8 +19,11 @@ config = {
 	'namespace' : 'FacebookCXX',
 	'package'	: 'FacebookCXX',
 	'clang_opts': {
-			'i386'  : '-ObjC -arch i386 -fobjc-arc -mios-simulator-version-min=6.1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/4.2/include/ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk',
-			'armv7'  : '-ObjC -arch armv7 -fobjc-arc -miphoneos-version-min=6.1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/4.2/include/ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk ',
+		'metadata' : '-ObjC -arch armv7 -fobjc-arc -miphoneos-version-min=6.1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/4.2/include/ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk',
+		'makefile' : {
+			'i386' : '-ObjC++ -std=gnu++11 -stdlib=libc++ -arch i386 -fobjc-arc -mios-simulator-version-min=6.1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/4.2/include/ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -F/Users/wsouza/projects/ZDK/cxx-bindings-generator/generator/platform/ios/resources/CXXConverter/build/Debug-iphoneos -F/Users/wsouza/projects/ZDK/cxx-bindings-generator/samples/platform/ios/facebook/objc/facebook-ios-sdk -I./includes/',
+			'armv7' : '-ObjC++ -std=gnu++11 -stdlib=libc++ -arch armv7 -fobjc-arc -miphoneos-version-min=6.1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/4.2/include/ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk -F/Users/wsouza/projects/ZDK/cxx-bindings-generator/generator/platform/ios/resources/CXXConverter/build/Debug-iphoneos -F/Users/wsouza/projects/ZDK/cxx-bindings-generator/samples/platform/ios/facebook/objc/facebook-ios-sdk -I./includes/',
+		}
 	},
 	'converters' : [
 		{

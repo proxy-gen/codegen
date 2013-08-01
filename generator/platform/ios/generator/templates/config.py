@@ -23,11 +23,13 @@ config = {
 	'namespace' : '$config_data['namespace']',
 	'package'	: '$config_data['package']',
 	'clang_opts': {
-		#set $clang_opts = $config_data['clang_opts']
-		#for $clang_key in $clang_opts
-			#set $clang_value = $clang_opts[$clang_key]
-			'$clang_key'  : '$clang_value',
-		#end for
+		'metadata' : '$config_data['clang_opts']['metadata']',
+		'makefile' : {
+			#set $makefile = $config_data['clang_opts']['makefile']
+			#for $arch in $makefile
+			'$arch' : '$makefile[$arch]',
+			#end for
+		}
 	},
 #if 'includes' in $config_data
 #set $includes = $config_data['includes']
