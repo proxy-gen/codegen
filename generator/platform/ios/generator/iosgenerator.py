@@ -258,8 +258,6 @@ class Generator(BaseGenerator):
 			self.entity_head_file_name = self.entity_class_name + ".hpp"
 			self.entity_impl_file_name = self.entity_class_name + ".mm"
 			logging.debug("entity_impl_file_name " + str(self.entity_impl_file_name))		
-			self.entity_callback_file_name = self.entity_class_name + "_JNI" + ".hpp"
-			logging.debug("entity_callback_file_name " + str(self.entity_callback_file_name))	
 			entity_file_path = os.path.join(self.impl_outdir_name, "proxies", self.entity_impl_file_name)
 			if not os.path.exists(os.path.dirname(entity_file_path)):
 				os.makedirs(os.path.dirname(entity_file_path))
@@ -270,7 +268,6 @@ class Generator(BaseGenerator):
 			self.entity_file.write(str(entity_impl_cxx))
 			self.entity_file.close()
 			self.entity_file = None
-			self.entity_callback_file_name = None
 			self.entity_head_file_name = None
 			self.entity_impl_file_name = None
 			self.entity_class_name = None
@@ -559,7 +556,8 @@ class ConfigModule(object):
 		logging.debug("_attach_default_converters exit")		
 
 	def attach_config_converters(self):
-		self._attach_config_converters(self.config_data, self.config_data);
+		self._attach_config_converters(self.config_data, self.config_data)
+		self._set_no_proxy_todos(self.config_data)
 
 	def attach_derived_data(self):
 		self._attach_derived_data(self.config_data, self.config_data)
@@ -897,6 +895,45 @@ class ConfigModule(object):
 					self._attach_derived_data(protocol, config_data)
 					self._attach_derived_protocol_data(protocol, config_data)
 		logging.debug("_attach_derived_data exit")
+
+	def _set_no_proxy_todos(self, config):
+		logging.debug("_set_no_proxy_todos enter")
+		if "interfaces" in config:
+			for interface in config["interfaces"]:
+				for method in interface.get("methods", list()):
+					if self._has_embedded_todo(method):
+						if '_proxy' in method['tags']:
+							method['tags'].remove('_proxy')
+						if not '_no_proxy' in method['tags']:
+							method['tags'].append('_no_proxy')
+		if "protocols" in config:
+			for protocol in config["protocols"]:
+				for method in protocol.get("methods", list()):
+					if self._has_embedded_todo(method):
+						if '_proxy' in method['tags']:
+							method['tags'].remove('_proxy')
+						if not '_no_proxy' in method['tags']:
+							method['tags'].append('_no_proxy')
+		logging.debug("_set_no_proxy_todos exit")
+
+	def _has_embedded_todo(self, config):
+		logging.debug("_has_embedded_todo enter")
+		if 'parameters' in config:
+			for parameter in config['parameters']:
+				has_todo = self._has_embedded_todo(parameter)
+				if has_todo:
+					return True
+				if '_TODO_' == parameter.get('converter', '_TODO_'):
+					return True
+		if 'returns' in config:
+			for returns in config['returns']:
+				has_todo = self._has_embedded_todo(returns)
+				if has_todo:
+					return True
+				if '_TODO_' == returns.get('converter', '__TODO_'):
+					return True
+		return False
+		logging.debug("_has_embedded_todo exit")
 
 	def _attach_derived_interface_data(self, interface_config, config_data):
 		logging.debug("_attach_derived_interface_data enter")
