@@ -1,8 +1,0 @@
-
-${cxx_className}* ${cxx_className}_ConvertFromNative(${objc_className}* object) {
-    return new ${cxx_className}((__bridge void *) object);
-}
-
-${objc_className}* ${cxx_className}_ConvertToNative(${cxx_className}& object) {
-    return (__bridge ${objc_className} *) object.getProxyObject();
-}

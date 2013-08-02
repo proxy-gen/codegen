@@ -1,2 +1,0 @@
-
-${cxx_static} ${cxx_rt} ${cxx_methodName} (${cxx_params});

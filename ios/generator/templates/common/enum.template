@@ -1,5 +1,0 @@
-//enum
-
-enum ${cxx_name} {
-    ${elements}
-};
