@@ -3,4 +3,4 @@
 	url = git@github-ca.corp.zynga.com:externals/facebook-ios-sdk.git
 [submodule "generator/platform/ios/generator/indexer/clocxml"]
 	path = generator/platform/ios/generator/indexer/clocxml
-	url = git@github.com:wesjarrettsouza/clocxml.git
+	url = https://github.com/wesjarrettsouza/clocxml.git
