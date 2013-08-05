@@ -25,8 +25,9 @@ void convert_string(void* &objc, std::string &cxx, converter_t converter_type){
     if (converter_type == CONVERT_TO_OBJC){
         objc = (__bridge void*)[NSString stringWithUTF8String:cxx.c_str()];
     }
-    else if(converter_type == CONVERT_TO_CXX){
-        cxx = [(__bridge NSString*)objc UTF8String];
+    else if(converter_type == CONVERT_TO_CXX){ 
+        if (!objc) cxx = "";
+        else cxx = [(__bridge NSString*)objc UTF8String];
     }
 }
 
@@ -35,12 +36,8 @@ void convert_error(void* &objc, std::string &cxx, converter_t converter_type){
         objc = (__bridge void*)[NSError errorWithDomain:nil code:0 userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithUTF8String:cxx.c_str()] forKey:NSLocalizedDescriptionKey]];
     }
     else if(converter_type == CONVERT_TO_CXX){
-        if (objc){
-            cxx = [[(__bridge NSError*)objc localizedDescription] UTF8String];
-        }
-        else{
-            cxx = "";
-        }
+        if (!objc) cxx = "";
+        else cxx = [[(__bridge NSError*)objc localizedDescription] UTF8String];
     }
 }
 
@@ -83,7 +80,8 @@ void convert_url(void* &objc, std::string &cxx, converter_t converter_type){
         objc = (__bridge void*)[NSURL URLWithString:[NSString stringWithUTF8String:cxx.c_str()]];
     }
     else if(converter_type == CONVERT_TO_CXX){
-        cxx = [[(__bridge NSURL *)objc absoluteString] UTF8String];
+        if (!objc) cxx = "";
+        else cxx = [[(__bridge NSURL *)objc absoluteString] UTF8String];
     }
 }
 
@@ -92,7 +90,8 @@ void convert_date(void* &objc, double &cxx, converter_t converter_type){
         objc = (__bridge void*)[NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)cxx];
     }
     else if(converter_type == CONVERT_TO_CXX){
-        cxx =  (double)[(__bridge NSDate *)objc timeIntervalSince1970];
+        if (!objc) cxx = 0;
+        else cxx =  (double)[(__bridge NSDate *)objc timeIntervalSince1970];
     }
 }
 
@@ -101,7 +100,8 @@ void convert_locale(void* &objc, std::string &cxx, converter_t converter_type){
         objc = (__bridge void*)[[NSLocale alloc] initWithLocaleIdentifier:[NSString stringWithUTF8String:cxx.c_str()]];
     }
     else if(converter_type == CONVERT_TO_CXX){
-        cxx = [[(__bridge NSLocale *)objc localeIdentifier] UTF8String];
+        if (!objc) cxx = "";
+        else cxx = [[(__bridge NSLocale *)objc localeIdentifier] UTF8String];
     }
 }
 

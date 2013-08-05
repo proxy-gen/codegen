@@ -10,7 +10,9 @@
 #include <FacebookCXX/proxies/FBSessionCxx.hpp>
 #include <FacebookCXX/proxies/FBRequestCxx.hpp>
 #include <FacebookCXX/converters/FacebookCXXConverter.hpp>
+#include <FacebookCXX/conformers/FBWebDialogsDelegateConformerCxx.hpp>
 #include <iostream>
+#include "FBWebDialogDelegateImpl.h"
 
 @interface ViewController ()
 
@@ -99,6 +101,20 @@ void forFriendsRequestCompleted(FacebookCXX::FBRequestConnectionCxx *requsetConn
     }
 }
 
+void webDialogResult(FacebookCXX::FBWebDialogResultCxx &result, std::string &url, std::string &error){
+    if (error.compare("") != 0){
+        std::cout << "Error publishing the story." << std::endl;
+    }
+    else {
+        if (result == FacebookCXX::FBWebDialogResultDialogNotCompleted) {
+            std::cout << "User canceled story publishing" << std::endl;
+        }
+        else {
+            std::cout << "User shared the story." << std::endl;
+        }
+    }
+}
+
 
 - (IBAction)login:(id)sender {
     std::vector<void *> empty;
@@ -122,6 +138,65 @@ void forFriendsRequestCompleted(FacebookCXX::FBRequestConnectionCxx *requsetConn
         request->startWithCompletionHandler(&forFriendsRequestCompleted);
         delete request;
     }
+    delete session;
+}
+
+- (IBAction)publish:(id)sender {
+    std::map<void *, void *> parameters;
+    std::string name = "name";
+    std::string caption = "caption";
+    std::string description = "description";
+    std::string link = "link";
+    std::string picture = "picture";
+
+    std::string name_value = "WebDialog Testing.";
+    std::string caption_value = "Caption Value";
+    std::string description_value = "Description Value https://developers.facebook.com/ios";
+    std::string link_value = "https://developers.facebook.com/ios";
+    std::string picture_value = "https://raw.github.com/fbsamples/ios-3.x-howtos/master/Images/iossdk_logo.png";
+
+    void* objc_name;
+    convert_string(objc_name, name, CONVERT_TO_OBJC);
+    
+    void* objc_caption;
+    convert_string(objc_caption, caption, CONVERT_TO_OBJC);
+    
+    void* objc_description;
+    convert_string(objc_description, description, CONVERT_TO_OBJC);
+    
+    void* objc_link;
+    convert_string(objc_link, link, CONVERT_TO_OBJC);
+    
+    void* objc_picture;
+    convert_string(objc_picture, picture, CONVERT_TO_OBJC);
+    
+    void* objc_name_value;
+    convert_string(objc_name_value, name_value, CONVERT_TO_OBJC);
+    
+    void* objc_caption_value;
+    convert_string(objc_caption_value, caption_value, CONVERT_TO_OBJC);
+    
+    void* objc_description_value;
+    convert_string(objc_description_value, description_value, CONVERT_TO_OBJC);
+    
+    void* objc_link_value;
+    convert_string(objc_link_value, link_value, CONVERT_TO_OBJC);
+    
+    void* objc_picture_value;
+    convert_string(objc_picture_value, picture_value, CONVERT_TO_OBJC);
+    
+    parameters[objc_name] = objc_name_value;
+    parameters[objc_caption] = objc_caption_value;
+    parameters[objc_description] = objc_description_value;
+    parameters[objc_link] = objc_link_value;
+    parameters[objc_picture] = objc_picture_value;
+    
+    FacebookCXX::FBSessionCxx *session = FacebookCXX::FBSessionCxx::activeSession();
+    FacebookCXX::FBWebDialogDelegateImpl *conformer = new FBWebDialogDelegateImpl();
+    
+    std::string dialog = "feed";
+    
+    FacebookCXX::FBWebDialogsCxx::presentDialogModallyWithSession_dialog_parameters_handler_delegate(session, dialog, parameters, &webDialogResult, conformer);
     delete session;
 }
 
