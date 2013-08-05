@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'CXXConverter' target in the 'CXXConverter' project
-//
-
-#ifdef __OBJC__
-    #import <Foundation/Foundation.h>
-#endif

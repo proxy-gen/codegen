@@ -1,7 +1,7 @@
 
 CXX 						:= /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
-I386FLAGS 					:= -ObjC++ -std=gnu++11 -stdlib=libc++ -arch i386 -fobjc-arc -mios-simulator-version-min=6.1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/4.2/include/ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -F/Users/wsouza/projects/ZDK/cxx-bindings-generator/generator/platform/ios/resources/CXXConverter/build/Debug-iphoneos -F/Users/wsouza/projects/ZDK/cxx-bindings-generator/samples/platform/ios/facebook/objc/facebook-ios-sdk -I./includes/
-ARMV7FLAGS 					:= -ObjC++ -std=gnu++11 -stdlib=libc++ -arch armv7 -fobjc-arc -miphoneos-version-min=6.1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/4.2/include/ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk -F/Users/wsouza/projects/ZDK/cxx-bindings-generator/generator/platform/ios/resources/CXXConverter/build/Debug-iphoneos -F/Users/wsouza/projects/ZDK/cxx-bindings-generator/samples/platform/ios/facebook/objc/facebook-ios-sdk -I./includes/
+I386FLAGS 					:= -ObjC++ -std=gnu++11 -stdlib=libc++ -arch i386 -fobjc-arc -mios-simulator-version-min=6.1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/4.2/include/ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -F/Users/wsouza/projects/ZDK/cxx-bindings-generator/samples/platform/ios/facebook/objc/facebook-ios-sdk -I./includes/
+ARMV7FLAGS 					:= -ObjC++ -std=gnu++11 -stdlib=libc++ -arch armv7 -fobjc-arc -miphoneos-version-min=6.1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/4.2/include/ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk -F/Users/wsouza/projects/ZDK/cxx-bindings-generator/samples/platform/ios/facebook/objc/facebook-ios-sdk -I./includes/
 
 PROXIES_SOURCE 				:= $(wildcard impl/FacebookCXX/proxies/*.mm)
 CONVERTER_SOURCE 			:= $(wildcard impl/FacebookCXX/converters/*.mm)
@@ -24,16 +24,16 @@ LIB_FAT 					:= $(LIB_FAT_FOLDER)$(LIB_NAME)
 
 BUILD_LOG					:= ./build.log
 
-all: $(BUILD_LOG) $(LIB_FAT)
+all: build $(LIB_FAT)
 
-$(BUILD_LOG):
+build: 
 	@rm -f $(BUILD_LOG)
 	@echo "Starting build at $(shell date)." > build.log
+	@echo "See build.log for build details."
 
 $(LIB_FAT): $(LIB_I386) $(LIB_ARMV7) 
 	@mkdir -p $(LIB_FAT_FOLDER)
 	@echo "Building fat library $(notdir $(LIB_FAT)) ..."
-	@echo "See build.log for build details."
 	@lipo -output $(LIB_FAT) -create -arch i386 $(LIB_I386) -arch armv7 $(LIB_ARMV7) 
 
 $(LIB_I386): $(OBJECTS_I386)
@@ -60,6 +60,8 @@ $(OBJECTS_ARMV7): $(OBJECTS_ARMV7_FOLDER)%.o: %.mm
 
 
 clean:
+	@echo "Removing build log."
+	@rm -f $(BUILD_LOG)
 	@echo "Removing object files."
 	@rm -rf ./obj
 

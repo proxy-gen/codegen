@@ -165,13 +165,11 @@ class Generator(BaseGenerator):
 		armv7_opts = makefile_opts.get("armv7")
 		if not armv7_opts:
 			makefile_opts["armv7"] = DEFAULT_MAKEFILE_ARMV7_CLANG_OPTS
-			makefile_opts["armv7"] += " -F" + os.path.abspath(os.path.dirname(__file__) + "/../resources/CXXConverter/build/Debug-iphoneos/")
 			makefile_opts["armv7"] += " -F" + os.path.abspath(os.path.dirname(self.config_module.config_data['frameworks'][0]))
 			makefile_opts["armv7"] += " -I./includes/"
 		i386_opts = makefile_opts.get("i386")
 		if not i386_opts:
 			makefile_opts["i386"] = DEFAULT_MAKEFILE_I386_CLANG_OPTS
-			makefile_opts["i386"] += " -F" + os.path.abspath(os.path.dirname(__file__) + "/../resources/CXXConverter/build/Debug-iphoneos/")
 			makefile_opts["i386"] += " -F" + os.path.abspath(os.path.dirname(self.config_module.config_data['frameworks'][0]))
 			makefile_opts["i386"] += " -I./includes/"
 		logging.debug("_setup_clang_opts exit")

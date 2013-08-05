@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F71E110717A1C4E50045EBC5 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71E110617A1C4E50045EBC5 /* FacebookSDK.framework */; };
-		F71E114317A1D80E0045EBC5 /* CXXConverter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71E114217A1D80E0045EBC5 /* CXXConverter.framework */; };
 		F71E114517A1D8170045EBC5 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71E114417A1D8170045EBC5 /* Accounts.framework */; };
 		F71E114717A1D81E0045EBC5 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71E114617A1D81E0045EBC5 /* Social.framework */; };
 		F71E114917A1D8210045EBC5 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71E114817A1D8210045EBC5 /* AdSupport.framework */; };
@@ -66,7 +65,6 @@
 				F7E447E417A1BE910029E8BC /* Foundation.framework in Frameworks */,
 				F7E447E617A1BE910029E8BC /* CoreGraphics.framework in Frameworks */,
 				F71E110717A1C4E50045EBC5 /* FacebookSDK.framework in Frameworks */,
-				F71E114317A1D80E0045EBC5 /* CXXConverter.framework in Frameworks */,
 				F7731CAE17AB063A007B92C6 /* libFacebookCXX.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

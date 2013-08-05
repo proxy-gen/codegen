@@ -42,11 +42,12 @@ LIB_FAT 					:= \$(LIB_FAT_FOLDER)\$(LIB_NAME)
 
 BUILD_LOG					:= ./build.log
 
-all: \$(BUILD_LOG) \$(LIB_FAT)
+all: build \$(LIB_FAT)
 
-\$(BUILD_LOG):
+build: 
 	@rm -f \$(BUILD_LOG)
 	@echo "Starting build at \$(shell date)." > build.log
+	@echo "See build.log for build details."
 
 #set $all_libs = ""
 #set $lipo_create = ""
@@ -57,7 +58,6 @@ all: \$(BUILD_LOG) \$(LIB_FAT)
 \$(LIB_FAT): $all_libs
 	@mkdir -p \$(LIB_FAT_FOLDER)
 	@echo "Building fat library \$(notdir \$(LIB_FAT)) ..."
-	@echo "See build.log for build details."
 	@lipo -output \$(LIB_FAT) -create ${lipo_create}
 
 #for $arch in $makefile_opts
@@ -79,6 +79,8 @@ all: \$(BUILD_LOG) \$(LIB_FAT)
 #end for
 
 clean:
+	@echo "Removing build log."
+	@rm -f \$(BUILD_LOG)
 	@echo "Removing object files."
 	@rm -rf ./obj
 
