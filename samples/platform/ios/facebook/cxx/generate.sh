@@ -21,5 +21,5 @@ ulimit -s 65532 #kB
 python ${generator_dir}/generator.py --config $my_dir/generated/config/FacebookCXX/config.py --platform ios --generate-code --namespace FacebookCXX --output-dir $my_dir/generated --package FacebookCXX --file FacebookCXX --log info
 #LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $my_dir/generated/config/FacebookCXX/config.py --platform android --generate-code --generate-projects --generate-wrapper-code --generate-wrapper-projects --namespace FacebookCXX --output-dir $my_dir/generated --include-config-path $samples_dir --package FacebookCXX --file FacebookCXX --wrapper-file FacebookWrapperCXX --log info
 
-echo "Generated CXX Config"
+echo "Finished."
 

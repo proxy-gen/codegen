@@ -7,17 +7,19 @@
 //
 
 #import "AppDelegate.h"
-#include "FBSessionCxx.hpp"
+#include <FacebookCXX/proxies/FBSessionCxx.hpp>
+#include <FacebookCXX/proxies/FBSettingsCxx.hpp>
+#include <FacebookCXX/converters/FacebookCXXConverter.hpp>
 
 #import "ViewController.h"
+
+#include <iostream>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    FacebookCXX::FBSessionCxx *session = FacebookCXX::FBSessionCxx::activeSession();
-    session->closeAndClearTokenInformation();
-    delete session;
+    std::cout << "Facebook SDK Version: " << FacebookCXX::FBSettingsCxx::sdkVersion() << std::endl;
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
@@ -32,8 +34,10 @@
          annotation:(id)annotation
 {
     FacebookCXX::FBSessionCxx* session = FacebookCXX::FBSessionCxx::activeSession();
-    void * url_v = (__bridge void *)url;
-    return session->handleOpenURL(url_v);
+    void * urlvoid = (__bridge void*)url;
+    std::string urlstring;
+    convert_url(urlvoid, urlstring, CONVERT_TO_CXX);
+    return session->handleOpenURL(urlstring);
     delete session;
 }
 

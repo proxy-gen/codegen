@@ -18,17 +18,21 @@ from multiprocessing import Process
 from Cheetah.Template import Template
 from generator import BaseGenerator
 
+DEFAULT_METADATA_CLANG_OPTS = '-ObjC -arch armv7 -fobjc-arc -miphoneos-version-min=6.1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/4.2/include/ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk'
+DEFAULT_MAKEFILE_ARMV7_CLANG_OPTS = '-ObjC++ -std=gnu++11 -stdlib=libc++ -arch armv7 -fobjc-arc -miphoneos-version-min=6.1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/4.2/include/ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk'
+DEFAULT_MAKEFILE_I386_CLANG_OPTS = '-ObjC++ -std=gnu++11 -stdlib=libc++ -arch i386 -fobjc-arc -mios-simulator-version-min=6.1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/4.2/include/ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk'
+
 class Generator(BaseGenerator):
 	def __init__(self):
 		super(Generator, self).__init__()
 
 	def setup(self):
-		self._setup_index()
 		self._setup_namespace()
 		self._setup_dirs()
 		self._setup_defaults()
 		self._setup_includes()
 		self._setup_config()
+		self._setup_index()
 
 	def generate(self):
 		if self.config['generate_config']:
@@ -38,11 +42,6 @@ class Generator(BaseGenerator):
 
 	def teardown(self):
 		pass
-
-	def _setup_index(self):
-		logging.debug("_setup_index enter")
-		self.indexer = Index()
-		logging.debug("_setup_index exit")
 
 	def _setup_namespace(self):
 		logging.debug("_setup_namespace enter")
@@ -119,12 +118,18 @@ class Generator(BaseGenerator):
 	def _setup_config(self):
 		logging.debug("_setup_config enter")
 		self.config_file_name = self.config['config_file_name']
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		assert self.config_module.is_valid, "config_module is not valid"
 		logging.debug("_setup_config exit")
+
+	def _setup_index(self):
+		logging.debug("_setup_index enter")
+		self._setup_clang_opts()
+		self.indexer = Index(self.config_module.config_data.get('clang_opts'))
+		logging.debug("_setup_index exit")
 
 	def _generate_config(self):
 		logging.debug("_generate_config enter")
-		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
-		assert self.config_module.is_valid, "config_module is not valid"
 		logging.debug("build_config_closure enter")
 		self.indexer.build_config_closure(self.config_module.config_data)
 		logging.debug("build_config_closure exit")
@@ -146,29 +151,48 @@ class Generator(BaseGenerator):
 		self.config_module = None
 		logging.debug("_generate_config exit")
 
+	def _setup_clang_opts(self):
+		logging.debug("_setup_clang_opts enter")
+		clang_opts = self.config_module.config_data.get("clang_opts")
+		if not clang_opts:
+			clang_opts = self.config_module.config_data["clang_opts"] = dict()
+		metadata_opts = clang_opts.get("metadata")
+		if not metadata_opts:
+			metadata_opts = clang_opts["metadata"] = DEFAULT_METADATA_CLANG_OPTS
+		makefile_opts = clang_opts.get("makefile")
+		if not makefile_opts:
+			makefile_opts = clang_opts["makefile"] = dict()
+		armv7_opts = makefile_opts.get("armv7")
+		if not armv7_opts:
+			makefile_opts["armv7"] = DEFAULT_MAKEFILE_ARMV7_CLANG_OPTS
+			makefile_opts["armv7"] += " -F" + os.path.abspath(os.path.dirname(self.config_module.config_data['frameworks'][0]))
+			makefile_opts["armv7"] += " -I./includes/"
+		i386_opts = makefile_opts.get("i386")
+		if not i386_opts:
+			makefile_opts["i386"] = DEFAULT_MAKEFILE_I386_CLANG_OPTS
+			makefile_opts["i386"] += " -F" + os.path.abspath(os.path.dirname(self.config_module.config_data['frameworks'][0]))
+			makefile_opts["i386"] += " -I./includes/"
+		logging.debug("_setup_clang_opts exit")
+
 	def _generate_cxx_code(self):
 		logging.debug("_generate_cxx_code enter")
 		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
 		assert self.config_module.is_valid, "config_module is not valid"
 		self._update_config(self.config_module)
-		# derived data attached temporary 
 		self.config_module.attach_derived_data()
-		self.header_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "objc", "cxx", "includes")
-		if not os.path.exists(self.header_outdir_name):
-			os.makedirs(self.header_outdir_name)		
-		logging.debug("self.header_outdir_name " + str(self.header_outdir_name))
-		self.proxy_converter_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "objc", "cxx", "converters")
-		if not os.path.exists(self.proxy_converter_outdir_name):
-			os.makedirs(self.proxy_converter_outdir_name)		
-		logging.debug("self.proxy_converter_outdir_name " + str(self.proxy_converter_outdir_name))
-		self._generate_proxy_converter_code()
-		self.impl_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "objc", "cxx", "impl")
+		self.includes_outdir_name = os.path.join(self.output_dir_name, "project", "includes", self.package_name)
+		if not os.path.exists(self.includes_outdir_name):
+			os.makedirs(self.includes_outdir_name)		
+		logging.debug("self.includes_outdir_name " + str(self.includes_outdir_name))
+		self.impl_outdir_name = os.path.join(self.output_dir_name, "project", "impl", self.package_name)
 		if not os.path.exists(self.impl_outdir_name):
 			os.makedirs(self.impl_outdir_name)		
 		logging.debug("self.impl_outdir_name " + str(self.impl_outdir_name))
+		self._generate_proxy_converter_code()
 		self._generate_cxx_class_code()
 		self._generate_cxx_enum_code()
 		self._generate_protocol_code()
+		self._generate_makefile()
 		self.config_module.detach_derived_data()			
 		self.config_module = None
 		logging.debug("_generate_cxx_code exit")
@@ -176,9 +200,7 @@ class Generator(BaseGenerator):
 	def _generate_proxy_converter_code(self):
 		logging.debug("_generate_proxy_converter_code enter")
 		self.proxy_converter_head_file_name = self.package_name + "Converter.hpp"
-		logging.debug("proxy_converter_head_file_name " + str(self.proxy_converter_head_file_name))	
-		proxy_converter_head_file_path = os.path.join(self.proxy_converter_outdir_name, self.proxy_converter_head_file_name)
-		logging.debug("proxy_converter_head_file_path " + str(proxy_converter_head_file_path))	
+		proxy_converter_head_file_path = os.path.join(self.includes_outdir_name, "converters", self.proxy_converter_head_file_name)
 		if not os.path.exists(os.path.dirname(proxy_converter_head_file_path)):
 			os.makedirs(os.path.dirname(proxy_converter_head_file_path))
 		self.proxy_converter_head_file = open(proxy_converter_head_file_path, "w+")
@@ -189,8 +211,7 @@ class Generator(BaseGenerator):
 		self.proxy_converter_head_file = None
 		self.proxy_converter_head_file_name = None
 		self.proxy_converter_impl_file_name = self.package_name + "Converter.mm"
-		logging.debug("proxy_converter_impl_file_name " + str(self.proxy_converter_impl_file_name))	
-		proxy_converter_impl_file_path = os.path.join(self.proxy_converter_outdir_name, self.proxy_converter_impl_file_name)
+		proxy_converter_impl_file_path = os.path.join(self.impl_outdir_name, "converters", self.proxy_converter_impl_file_name)
 		logging.debug("proxy_converter_impl_file_path " + str(proxy_converter_impl_file_path))	
 		if not os.path.exists(os.path.dirname(proxy_converter_impl_file_path)):
 			os.makedirs(os.path.dirname(proxy_converter_impl_file_path))
@@ -213,7 +234,7 @@ class Generator(BaseGenerator):
 			self.entity_class_name = cxx_class_name + "Cxx"
 			self.entity_head_file_name = self.entity_class_name + ".hpp"
 			logging.debug("entity_head_file_name " + str(self.entity_head_file_name))	
-			entity_file_path = os.path.join(self.header_outdir_name, self.entity_head_file_name)
+			entity_file_path = os.path.join(self.includes_outdir_name, "proxies", self.entity_head_file_name)
 			if not os.path.exists(os.path.dirname(entity_file_path)):
 				os.makedirs(os.path.dirname(entity_file_path))
 			logging.debug("entity_file_path " + str(entity_file_path))	
@@ -235,9 +256,7 @@ class Generator(BaseGenerator):
 			self.entity_head_file_name = self.entity_class_name + ".hpp"
 			self.entity_impl_file_name = self.entity_class_name + ".mm"
 			logging.debug("entity_impl_file_name " + str(self.entity_impl_file_name))		
-			self.entity_callback_file_name = self.entity_class_name + "_JNI" + ".hpp"
-			logging.debug("entity_callback_file_name " + str(self.entity_callback_file_name))	
-			entity_file_path = os.path.join(self.impl_outdir_name, self.entity_impl_file_name)
+			entity_file_path = os.path.join(self.impl_outdir_name, "proxies", self.entity_impl_file_name)
 			if not os.path.exists(os.path.dirname(entity_file_path)):
 				os.makedirs(os.path.dirname(entity_file_path))
 			logging.debug("entity_file_path " + str(entity_file_path))	
@@ -247,7 +266,6 @@ class Generator(BaseGenerator):
 			self.entity_file.write(str(entity_impl_cxx))
 			self.entity_file.close()
 			self.entity_file = None
-			self.entity_callback_file_name = None
 			self.entity_head_file_name = None
 			self.entity_impl_file_name = None
 			self.entity_class_name = None
@@ -256,29 +274,33 @@ class Generator(BaseGenerator):
 		logging.debug("_generate_cxx_class_code exit")
 
 	def _generate_protocol_code(self):
-		self.conformer_include_path = os.path.join(self.output_dir_name, "project", self.package_name, "objc", "cxx", "conformers", "includes")
-		self.conformer_impl_path = os.path.join(self.output_dir_name, "project", self.package_name, "objc", "cxx", "conformers", "impl")
-		self.conformer_proxy_path = os.path.join(self.output_dir_name, "project", self.package_name, "objc", "cxx", "conformers", "private")
+		self.conformer_include_path = os.path.join(self.includes_outdir_name, "conformers")
+		self.conformer_impl_path = os.path.join(self.impl_outdir_name, "conformers")
+		self.conformer_proxy_includes_path = os.path.join(self.includes_outdir_name, "conformers", "protocols")
+		self.conformer_proxy_impl_path = os.path.join(self.impl_outdir_name, "conformers", "protocols")
+		self._generate_protocol_class_header()
+		self._generate_protocol_class_implementation()
 		self._generate_protocol_abstract_class_header()
 		self._generate_protocol_abstract_class_implementation()
 		self._generate_protocol_interface()
 		self._generate_protocol_implemenetation()
 		self.conformer_include_path = None
 		self.conformer_impl_path = None
-		self.conformer_proxy_path = None
+		self.conformer_proxy__includes_path = None
+		self.conformer_proxy_impl_path = None
 
-	def _generate_protocol_abstract_class_header(self):
-		logging.debug("_generate_protocol_abstract_class_header enter")
+	def _generate_protocol_class_header(self):
+		logging.debug("_generate_protocol_class_header enter")
 		entity_protocols = self.config_module.list_protocols(tags=['_proxy'],xtags=None,name=None)
 		for entity_protocol in entity_protocols:
 			self.entity_protocol = entity_protocol
 			self.protocol_name = entity_protocol['name']
-			self.protocol_class_file_name = self.protocol_name + "ConformerCxx" + ".hpp"
-			self.protocol_class_impl_file_name = self.protocol_name + "ConformerCxx" + ".mm"
+			self.protocol_class_file_name = self.protocol_name + "ProtocolCxx" + ".hpp"
+			self.protocol_class_impl_file_name = self.protocol_name + "ProtocolCxx" + ".mm"
 			self.protocol_interface_file_name = self.protocol_name + "Conformer" + ".h"
 			self.protocol_implementation_file_name = self.protocol_name + "Conformer" + ".mm"
 			logging.debug("entity_head_file_name " + str(self.protocol_class_file_name))	
-			entity_file_path = os.path.join(self.conformer_include_path, self.protocol_class_file_name)
+			entity_file_path = os.path.join(self.includes_outdir_name, "proxies", self.protocol_class_file_name)
 			if not os.path.exists(os.path.dirname(entity_file_path)):
 				os.makedirs(os.path.dirname(entity_file_path))
 			logging.debug("entity_file_path " + str(entity_file_path))	
@@ -288,7 +310,66 @@ class Generator(BaseGenerator):
 			self.entity_file.write(str(entity_head_cxx))
 			self.entity_file.close()
 			self.entity_file = None
-			self.protocol_class_file_name = None
+			self.protocol_abstract_class_file_name = None
+			self.protocol_abstract_class_impl_file_name = None
+			self.protocol_interface_file_name = None
+			self.protocol_implementation_file_name = None
+			self.protocol_name = None
+			self.entity_protocol = None
+		logging.debug("_generate_protocol_class_header exit")
+
+	def _generate_protocol_class_implementation(self):
+		logging.debug("_generate_protocol_class_implementation enter")
+		entity_protocols = self.config_module.list_protocols(tags=['_proxy'],xtags=None,name=None)
+		for entity_protocol in entity_protocols:
+			self.entity_protocol = entity_protocol
+			self.protocol_name = entity_protocol['name']
+			self.protocol_class_file_name = self.protocol_name + "ProtocolCxx" + ".hpp"
+			self.protocol_class_impl_file_name = self.protocol_name + "ProtocolCxx" + ".mm"
+			self.protocol_interface_file_name = self.protocol_name + "Conformer" + ".h"
+			self.protocol_implementation_file_name = self.protocol_name + "Conformer" + ".mm"
+			logging.debug("entity_head_file_name " + str(self.protocol_class_impl_file_name))	
+			entity_file_path = os.path.join(self.impl_outdir_name, "proxies", self.protocol_class_impl_file_name)
+			if not os.path.exists(os.path.dirname(entity_file_path)):
+				os.makedirs(os.path.dirname(entity_file_path))
+			logging.debug("entity_file_path " + str(entity_file_path))	
+			self.entity_file = open(entity_file_path, "w+")
+			entity_head_cxx = Template(file=os.path.join(self.target, "templates", "protocol_class.cpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("entity_head_cxx " + str(entity_head_cxx))
+			self.entity_file.write(str(entity_head_cxx))
+			self.entity_file.close()
+			self.entity_file = None
+			self.protocol_abstract_class_file_name = None
+			self.protocol_abstract_class_impl_file_name = None
+			self.protocol_interface_file_name = None
+			self.protocol_implementation_file_name = None
+			self.protocol_name = None
+			self.entity_protocol = None
+		logging.debug("_generate_protocol_class_implementation exit")
+
+	def _generate_protocol_abstract_class_header(self):
+		logging.debug("_generate_protocol_abstract_class_header enter")
+		entity_protocols = self.config_module.list_protocols(tags=['_proxy'],xtags=None,name=None)
+		for entity_protocol in entity_protocols:
+			self.entity_protocol = entity_protocol
+			self.protocol_name = entity_protocol['name']
+			self.protocol_abstract_class_file_name = self.protocol_name + "ConformerCxx" + ".hpp"
+			self.protocol_abstract_class_impl_file_name = self.protocol_name + "ConformerCxx" + ".mm"
+			self.protocol_interface_file_name = self.protocol_name + "Conformer" + ".h"
+			self.protocol_implementation_file_name = self.protocol_name + "Conformer" + ".mm"
+			logging.debug("entity_head_file_name " + str(self.protocol_abstract_class_file_name))	
+			entity_file_path = os.path.join(self.conformer_include_path, self.protocol_abstract_class_file_name)
+			if not os.path.exists(os.path.dirname(entity_file_path)):
+				os.makedirs(os.path.dirname(entity_file_path))
+			logging.debug("entity_file_path " + str(entity_file_path))	
+			self.entity_file = open(entity_file_path, "w+")
+			entity_head_cxx = Template(file=os.path.join(self.target, "templates", "protocol_abstract_class.hpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("entity_head_cxx " + str(entity_head_cxx))
+			self.entity_file.write(str(entity_head_cxx))
+			self.entity_file.close()
+			self.entity_file = None
+			self.protocol_abstract_class_file_name = None
+			self.protocol_abstract_class_impl_file_name = None
 			self.protocol_interface_file_name = None
 			self.protocol_implementation_file_name = None
 			self.protocol_name = None
@@ -301,22 +382,23 @@ class Generator(BaseGenerator):
 		for entity_protocol in entity_protocols:
 			self.entity_protocol = entity_protocol
 			self.protocol_name = entity_protocol['name']
-			self.protocol_class_file_name = self.protocol_name + "ConformerCxx" + ".hpp"
-			self.protocol_class_impl_file_name = self.protocol_name + "ConformerCxx" + ".mm"
+			self.protocol_abstract_class_file_name = self.protocol_name + "ConformerCxx" + ".hpp"
+			self.protocol_abstract_class_impl_file_name = self.protocol_name + "ConformerCxx" + ".mm"
 			self.protocol_interface_file_name = self.protocol_name + "Conformer" + ".h"
 			self.protocol_implementation_file_name = self.protocol_name + "Conformer" + ".mm"
-			logging.debug("entity_head_file_name " + str(self.protocol_class_impl_file_name))	
-			entity_file_path = os.path.join(self.conformer_impl_path, self.protocol_class_impl_file_name)
+			logging.debug("entity_head_file_name " + str(self.protocol_abstract_class_impl_file_name))	
+			entity_file_path = os.path.join(self.conformer_impl_path, self.protocol_abstract_class_impl_file_name)
 			if not os.path.exists(os.path.dirname(entity_file_path)):
 				os.makedirs(os.path.dirname(entity_file_path))
 			logging.debug("entity_file_path " + str(entity_file_path))	
 			self.entity_file = open(entity_file_path, "w+")
-			entity_head_cxx = Template(file=os.path.join(self.target, "templates", "protocol_class.cpp"), searchList=[{'CONFIG': self}])			
+			entity_head_cxx = Template(file=os.path.join(self.target, "templates", "protocol_abstract_class.cpp"), searchList=[{'CONFIG': self}])			
 			logging.debug("entity_head_cxx " + str(entity_head_cxx))
 			self.entity_file.write(str(entity_head_cxx))
 			self.entity_file.close()
 			self.entity_file = None
-			self.protocol_class_file_name = None
+			self.protocol_abstract_class_file_name = None
+			self.protocol_abstract_class_impl_file_name = None
 			self.protocol_interface_file_name = None
 			self.protocol_implementation_file_name = None
 			self.protocol_name = None
@@ -329,12 +411,12 @@ class Generator(BaseGenerator):
 		for entity_protocol in entity_protocols:
 			self.entity_protocol = entity_protocol
 			self.protocol_name = entity_protocol['name']
-			self.protocol_class_file_name = self.protocol_name + "ConformerCxx" + ".hpp"
-			self.protocol_class_impl_file_name = self.protocol_name + "ConformerCxx" + ".mm"
+			self.protocol_abstract_class_file_name = self.protocol_name + "ConformerCxx" + ".hpp"
+			self.protocol_abstract_class_impl_file_name = self.protocol_name + "ConformerCxx" + ".mm"
 			self.protocol_interface_file_name = self.protocol_name + "Conformer" + ".h"
 			self.protocol_implementation_file_name = self.protocol_name + "Conformer" + ".mm"
 			logging.debug("entity_head_file_name " + str(self.protocol_interface_file_name))	
-			entity_file_path = os.path.join(self.conformer_proxy_path, self.protocol_interface_file_name)
+			entity_file_path = os.path.join(self.conformer_proxy_includes_path, self.protocol_interface_file_name)
 			if not os.path.exists(os.path.dirname(entity_file_path)):
 				os.makedirs(os.path.dirname(entity_file_path))
 			logging.debug("entity_file_path " + str(entity_file_path))	
@@ -344,7 +426,8 @@ class Generator(BaseGenerator):
 			self.entity_file.write(str(entity_head_cxx))
 			self.entity_file.close()
 			self.entity_file = None
-			self.protocol_class_file_name = None
+			self.protocol_abstract_class_file_name = None
+			self.protocol_abstract_class_impl_file_name = None
 			self.protocol_interface_file_name = None
 			self.protocol_implementation_file_name = None
 			self.protocol_name = None
@@ -357,12 +440,12 @@ class Generator(BaseGenerator):
 		for entity_protocol in entity_protocols:
 			self.entity_protocol = entity_protocol
 			self.protocol_name = entity_protocol['name']
-			self.protocol_class_file_name = self.protocol_name + "ConformerCxx" + ".hpp"
-			self.protocol_class_impl_file_name = self.protocol_name + "ConformerCxx" + ".mm"
+			self.protocol_abstract_class_file_name = self.protocol_name + "ConformerCxx" + ".hpp"
+			self.protocol_abstract_class_impl_file_name = self.protocol_name + "ConformerCxx" + ".mm"
 			self.protocol_interface_file_name = self.protocol_name + "Conformer" + ".h"
 			self.protocol_implementation_file_name = self.protocol_name + "Conformer" + ".mm"
 			logging.debug("entity_head_file_name " + str(self.protocol_implementation_file_name))	
-			entity_file_path = os.path.join(self.conformer_proxy_path, self.protocol_implementation_file_name)
+			entity_file_path = os.path.join(self.conformer_proxy_impl_path, self.protocol_implementation_file_name)
 			if not os.path.exists(os.path.dirname(entity_file_path)):
 				os.makedirs(os.path.dirname(entity_file_path))
 			logging.debug("entity_file_path " + str(entity_file_path))	
@@ -372,7 +455,8 @@ class Generator(BaseGenerator):
 			self.entity_file.write(str(entity_head_cxx))
 			self.entity_file.close()
 			self.entity_file = None
-			self.protocol_class_file_name = None
+			self.protocol_abstract_class_file_name = None
+			self.protocol_abstract_class_impl_file_name = None
 			self.protocol_interface_file_name = None
 			self.protocol_implementation_file_name = None
 			self.protocol_name = None
@@ -381,14 +465,14 @@ class Generator(BaseGenerator):
 
 	def _generate_cxx_enum_code(self):
 		logging.debug("_generate_cxx_enum_code enter")
-		enums = self.config_module.config_data['enums']
+		enums = self.config_module.config_data.get('enums', list())
 		for enum in enums:
 			self.enum = enum
 			self.enum_namespace = self.config_module.config_data['namespace']
 			self.enum_name = Utils.to_enum_name(enum)
 			self.enum_head_file_name = self.enum_name + ".hpp"
 			logging.debug("enum_head_file_name " + str(self.enum_head_file_name))	
-			enum_file_path = os.path.join(self.header_outdir_name, self.enum_head_file_name)
+			enum_file_path = os.path.join(self.includes_outdir_name, "enums", self.enum_head_file_name)
 			if not os.path.exists(os.path.dirname(enum_file_path)):
 				os.makedirs(os.path.dirname(enum_file_path))
 			logging.debug("enum_file_path " + str(enum_file_path))	
@@ -404,6 +488,16 @@ class Generator(BaseGenerator):
 			self.enum = None	
 		logging.debug("_generate_cxx_enum_code exit")
 
+	def _generate_makefile(self):
+		logging.debug("_generate_makefile enter")
+		makefile_path = os.path.join(self.output_dir_name, "project", "makefile")
+		self.makefile = open(makefile_path, "w+")
+		makefile = Template(file=os.path.join(self.target, "templates", "makefile"), searchList=[{'CONFIG': self}])
+		self.makefile.write(str(makefile))
+		self.makefile.close()
+		self.makefile = None
+		logging.debug("_generate_makefile exit")
+
 	def _update_config(self, config_module):
 		logging.debug("Generator _update_config_data enter")
 		config_module.add_namespace_to_config_data(self.namespace_name)
@@ -411,7 +505,7 @@ class Generator(BaseGenerator):
 		config_module.attach_include_converters(self.include_converters)
 		config_module.attach_default_converters(self.default_converters)
 		config_module.attach_config_converters()
-		logging.debug("Generator _update_config_data exit")	
+		logging.debug("Generator _update_config_data exit")
 
 class ConfigModule(object):
 	def __init__(self, config_file_name, include_config_file_path):
@@ -460,7 +554,8 @@ class ConfigModule(object):
 		logging.debug("_attach_default_converters exit")		
 
 	def attach_config_converters(self):
-		self._attach_config_converters(self.config_data, self.config_data);
+		self._attach_config_converters(self.config_data, self.config_data)
+		self._set_no_proxy_todos(self.config_data)
 
 	def attach_derived_data(self):
 		self._attach_derived_data(self.config_data, self.config_data)
@@ -601,7 +696,7 @@ class ConfigModule(object):
 			xtags = set(xtags)
 		protocol_list = list()
 		if 'protocols' in config_data:
-			protocols = config_data['protocols']
+			protocols = config_data.get('protocols', list())
 			for protocol in protocols:
 				append = True
 				if tags is not None:
@@ -752,7 +847,7 @@ class ConfigModule(object):
 				convertible["converter"] = 'convert_block'
 		elif Index.isEnumType(convertible):
 			if "converter" not in convertible:
-				for enum in config_data["enums"]:
+				for enum in config_data.get("enums", list()):
 					if Index.matchesEnumType(convertible, enum):
 						no_proxy = False
 						if "tags" in enum:
@@ -778,10 +873,10 @@ class ConfigModule(object):
 		if "parameters" in config_item_data or "returns" in config_item_data:
 			if "parameters" in config_item_data:
 				for parameter in config_item_data["parameters"]:
-					self._attach_derived_type_data(parameter, config_data)
+					self._attach_derived_type_data(parameter, True, config_data)
 			if "returns" in config_item_data:
 				for retrn in config_item_data["returns"]:
-					self._attach_derived_type_data(retrn, config_data)
+					self._attach_derived_type_data(retrn, False, config_data)
 		else:
 			if "interfaces" in config_item_data:
 				for interface in config_item_data["interfaces"]:
@@ -798,6 +893,45 @@ class ConfigModule(object):
 					self._attach_derived_data(protocol, config_data)
 					self._attach_derived_protocol_data(protocol, config_data)
 		logging.debug("_attach_derived_data exit")
+
+	def _set_no_proxy_todos(self, config):
+		logging.debug("_set_no_proxy_todos enter")
+		if "interfaces" in config:
+			for interface in config["interfaces"]:
+				for method in interface.get("methods", list()):
+					if self._has_embedded_todo(method):
+						if '_proxy' in method['tags']:
+							method['tags'].remove('_proxy')
+						if not '_no_proxy' in method['tags']:
+							method['tags'].append('_no_proxy')
+		if "protocols" in config:
+			for protocol in config["protocols"]:
+				for method in protocol.get("methods", list()):
+					if self._has_embedded_todo(method):
+						if '_proxy' in method['tags']:
+							method['tags'].remove('_proxy')
+						if not '_no_proxy' in method['tags']:
+							method['tags'].append('_no_proxy')
+		logging.debug("_set_no_proxy_todos exit")
+
+	def _has_embedded_todo(self, config):
+		logging.debug("_has_embedded_todo enter")
+		if 'parameters' in config:
+			for parameter in config['parameters']:
+				has_todo = self._has_embedded_todo(parameter)
+				if has_todo:
+					return True
+				if '_TODO_' == parameter.get('converter', '_TODO_'):
+					return True
+		if 'returns' in config:
+			for returns in config['returns']:
+				has_todo = self._has_embedded_todo(returns)
+				if has_todo:
+					return True
+				if '_TODO_' == returns.get('converter', '__TODO_'):
+					return True
+		return False
+		logging.debug("_has_embedded_todo exit")
 
 	def _attach_derived_interface_data(self, interface_config, config_data):
 		logging.debug("_attach_derived_interface_data enter")
@@ -831,8 +965,11 @@ class ConfigModule(object):
 			targetdata = deriveddata['targetdata'] = dict()
 			protocolinfo = targetdata['protocolinfo'] = dict()
 
-			type_name = protocol_config['name'] + "ConformerCxx"
+			type_name = protocol_config['name'] + "ProtocolCxx"
+			conformer_type_name = protocol_config['name'] + "ConformerCxx"
+			protocolinfo['conformertypename'] = conformer_type_name
 			protocolinfo['typename'] = type_name
+			protocolinfo['conformerfilename'] =  Utils.to_file_name(conformer_type_name,"hpp")
 			protocolinfo['filename'] =  Utils.to_file_name(type_name,"hpp")
 			protocolinfo['proxyname'] = protocol_config['name'] + "Conformer"
 			protocolinfo['namespace'] = config_data['namespace']	
@@ -878,22 +1015,22 @@ class ConfigModule(object):
 			objcdata['selectorlist'] = Utils.to_selector_list(method_config['selector'])
 		logging.debug("_attach_derived_objc_selector_list exit")
 
-	def _attach_derived_type_data(self, type_config, config_data):
+	def _attach_derived_type_data(self, type_config, parameter, config_data):
 		logging.debug("_attach_derived_type_data enter")
 		if "deriveddata" not in type_config:
 			type_config['deriveddata'] = dict()
-		self._attach_derived_target_type_data(type_config, config_data)
+		self._attach_derived_target_type_data(type_config, parameter, config_data)
 		logging.debug("_attach_derived_type_data exit")
 
-	def _attach_derived_target_type_data(self, type_config, config_data):
+	def _attach_derived_target_type_data(self, type_config, parameter, config_data):
 		logging.debug("_attach_derived_target_type_data enter")
 		deriveddata = type_config['deriveddata']
 		if "targetdata" not in deriveddata:
 			deriveddata['targetdata'] = dict()
-		self._attach_derived_target_type_info(type_config, config_data)
+		self._attach_derived_target_type_info(type_config, parameter, config_data)
 		logging.debug("_attach_derived_target_type_data exit")
 
-	def _attach_derived_target_type_info(self, type_config, config_data):
+	def _attach_derived_target_type_info(self, type_config, parameter, config_data):
 		logging.debug("_attach_derived_target_type_info enter")
 		deriveddata = type_config['deriveddata']
 		targetdata = deriveddata['targetdata']
@@ -907,9 +1044,11 @@ class ConfigModule(object):
 					for namespaced_protocol in namespaced_protocols:
 						protocol = namespaced_protocol['protocol']
 						typeinfo['namespace'] = namespaced_protocol['namespace']
-						type_name = protocol['name'] + "ConformerCxx"
+						type_name = protocol['name'] + "ConformerCxx" if parameter else protocol['name'] + "ProtocolCxx"
 						typeinfo['typename'] = type_name
 						typeinfo['typeconverter'] = "convert_" + type_name
+						typeinfo['protocoltypename'] = protocol['name'] + "ProtocolCxx" if parameter else protocol['name'] + 'ConformerCxx'
+						typeinfo['protocoltypeconverter'] = "convert_" + typeinfo['protocoltypename']
 						typeinfo['filename'] =  Utils.to_file_name(type_name,"hpp")
 						typeinfo['isproxied'] = True
 						typeinfo['framework'] = os.path.basename(config_data['frameworks'][0]).split(".")[0]
@@ -1079,6 +1218,7 @@ class Utils(object):
 							'for',
 							'friend',
 							'goto',
+							'id',
 							'if',
 							'inline',
 							'int',
@@ -1142,7 +1282,7 @@ class Utils(object):
 
 	@classmethod
 	def to_function_name(cls, selector):
-		return selector.strip(":").replace(":", "_")
+		return Utils.to_safe_cxx_name(selector.strip(":").replace(":", "_"))
 
 	@classmethod
 	def to_selector_list(cls, selector):

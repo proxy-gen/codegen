@@ -73,11 +73,12 @@ class Index(object):
 		return False
 
 	# Initialize the indexer with options for clocxml
-	def __init__(self, clocxml_opts=None):
+	def __init__(self, clang_opts):
 
+		self.clang_opts = clang_opts
 		self.config = dict()
 		self.config["bin"] = osp.dirname(osp.abspath(__file__)) + "/clocxml/proj/bin/clocxml" # This may be configurable in the future
-		self.config["clocxml_opts"] = clocxml_opts if clocxml_opts else self._default_clocxml_opts() # User needs to specify all clocxml options if they specify any
+		self.config["clocxml_opts"] = self._default_clocxml_opts()
 
 	def build_config_closure(self, config_data):
 		assert "frameworks" in config_data and isinstance(config_data["frameworks"], list), _ASSERT_FRAMEWORKS_CRITERIA_
@@ -505,13 +506,10 @@ class Index(object):
 			if "tags" in enum:
 				del enum["tags"]
 
-	# In order to build the AST of the Objective C headers, clang needs to know how to compile them.
-	# These are some defaults that worked when building FacebookSDK as well as a few test files.
 	def _default_clocxml_opts(self):
 		default_opts = list()
 		default_opts.append("-f") # Interpret the argument as a framework
 		default_opts.append("-c") # Add clang compiler options
 
-		# Clang compiler options to specify that the target architecture is armv7 and to include a few standard search paths
-		default_opts.append("-arch armv7 -I/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/ -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks")
+		default_opts.append(self.clang_opts['metadata'])
 		return default_opts
