@@ -15,11 +15,8 @@ facebook_sdk_dir=$my_parent_dir/objc/facebook-ios-sdk
 # Bump up the max stack size to 64MB ()
 ulimit -s 65532 #kB
 
-# Generate Config
-#python ${generator_dir}/generator.py --config $my_dir/config/config.py --platform ios --generate-config --namespace FacebookCXX --output-dir $my_dir/generated --package FacebookCXX --file FacebookCXX --log info
 # Generate Code
 python ${generator_dir}/generator.py --config $my_dir/generated/config/FacebookCXX/config.py --platform ios --generate-code --namespace FacebookCXX --output-dir $my_dir/generated --package FacebookCXX --file FacebookCXX --log info
-#LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $my_dir/generated/config/FacebookCXX/config.py --platform android --generate-code --generate-projects --generate-wrapper-code --generate-wrapper-projects --namespace FacebookCXX --output-dir $my_dir/generated --include-config-path $samples_dir --package FacebookCXX --file FacebookCXX --wrapper-file FacebookWrapperCXX --log info
 
 echo "Finished."
 
