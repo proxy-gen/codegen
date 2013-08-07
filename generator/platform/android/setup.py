@@ -29,13 +29,11 @@ def setup_local_properties():
 	options['sdk_dir'] = opts.sdk_dir
 	options['ndk_dir'] = opts.ndk_dir
 	options['debug'] = opts.debug
-	buildfiles = commands.getoutput('find .. -type f -name "build.xml"')  
-	for buildfile in buildfiles:	
-		builddir = os.path.dirname(buildfile)
-		localpropertiesfile=os.path.join(builddir, "local.properties")
-		with open(localpropertiesfile, "w") as openedfile:
-			openedfile.writelines(["sdk.dir=", options['sdk_dir'], '\n'])
-			openedfile.writelines(["ndk.dir=", options['ndk_dir'], '\n'])
+	my_dir = os.getcwd()
+	localpropertiesfile=os.path.join(my_dir, "local.properties")
+	with open(localpropertiesfile, "w") as openedfile:
+		openedfile.writelines(["sdk.dir=", options['sdk_dir'], '\n'])
+		openedfile.writelines(["ndk.dir=", options['ndk_dir'], '\n'])
 
 def setup_generator():
 	from string import Template
