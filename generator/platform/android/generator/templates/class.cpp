@@ -22,7 +22,7 @@
 #set $class_jnidata = $CONFIG.entity_class['deriveddata']['jnidata']
 #set $entity_head_file_name = $CONFIG.entity_head_file_name
 #set $entity_callback_file_name = $CONFIG.entity_callback_file_name
-#set $include_packages = $CONFIG.include_packages
+#set $include_headers = $CONFIG.include_headers
 #set $safe_package_name = Utils.to_safe_jni_name($package)
 #set $safe_class_name = Utils.to_safe_jni_name($entity_class_name)
 
@@ -153,8 +153,8 @@ $proxied_typeinfos.extend(constructor['proxied_typeinfo_list'])
 \#include <JNIContext.hpp>
 \#include <CXXConverter.hpp>
 \#include <${package}Converter.hpp>
-#for $include_package in $include_packages
-\#include <${include_package}Converter.hpp>
+#for $include_header in $include_headers
+\#include <${include_header}>
 #end for
 
 \#define LOG_TAG "${entity_class_name}"
