@@ -13,9 +13,8 @@
     <property name="deploy.platform" value="android" />
     <property name="generator.path" value="${env.PATH}:.:${sdk.dir}/platform-tools" />
 
-    <!-- Early fail, sdk.dir should always be set, run "./setup.sh -s /path/to/sdk -->
-    <fail unless="sdk.dir" message="sdk.dir is missing. Run './setup.sh -s /path/to/sdk -n /path/to/ndk' to generate local.properties."/>
-    <fail unless="ndk.dir" message="ndk.dir is missing. Run './setup.sh -s /path/to/sdk -n /path/to/ndk' to generate local.properties."/>
+    <fail unless="sdk.dir" message="sdk.dir is missing. Run './setup.py -s /path/to/sdk -n /path/to/ndk' to generate local.properties."/>
+    <fail unless="ndk.dir" message="ndk.dir is missing. Run './setup.py -s /path/to/sdk -n /path/to/ndk' to generate local.properties."/>
 
     <!--                                                                    -->
     <!--                        Private Targets                             -->
@@ -25,14 +24,14 @@
         <property name="build.target" value="debug" />
         <antcall target="-generate.cxx.projects" />
         <antcall target="-build.cxx.projects" />
-        <antcall target="-package.cxx.projects" />
+        <antcall target="-build.java.projects" />
     </target>
     
     <target name="release" description="Builds cxx projects for release">
         <property name="build.target" value="release" />
         <antcall target="-generate.cxx.projects" />
         <antcall target="-build.cxx.projects" />
-        <antcall target="-package.cxx.projects" />
+        <antcall target="-build.java.projects" />
     </target>
 
     <target name="clean" depends="-clean.cxx.projects" description="Clean cxx projects">
@@ -51,29 +50,42 @@
     <!--                        Private Targets                             -->
     <!--                                                                    -->
 
-    <target name="-call.cxx.project">
+    <target name="-call.project">
         <antcall target="${call.target}">
-            <param name="cxx.package.name" value="FacebookCXX"/>
-            <param name="cxx.project.dir.name" value="facebook-sdk"/>
-            <param name="cxx.project.dir.name" value="."/>
+            <param name="package.name" value="JDKCXX"/>
         </antcall>
         <!-- Add other projects here -->
     </target>
 
 
     <target name="-setup.cxx.project.call">
-        <property name="cxx.path.to.project.dir" value="./${cxx.project.dir.name}" />
+        <property name="cxx.path.to.project.dir" value="./generated/project/${package.name}" />
         <available file="${cxx.path.to.project.dir}" property="cxx.path.to.project.dir.present" />
-        <property name="cxx.path.to.config.dir" value="${cxx.path.to.project.dir}/config" />
-        <property name="cxx.path.to.generated.dir" value="${cxx.path.to.project.dir}/generated" />
-        <property name="cxx.path.to.generated.internal.dir" value="${cxx.path.to.generated.dir}/output/internal/${cxx.package.name}"/>
-        <property name="cxx.path.to.generated.exported.dir" value="${cxx.path.to.generated.dir}/output/exported/${cxx.package.name}"/>
+        <property name="cxx.path.to.config.dir" value="./generated/config" />
+        <property name="cxx.path.to.generated.dir" value="./generated" />
+        <property name="cxx.path.to.generated.internal.dir" value="./generated/project/${package.name}"/>
+        <property name="cxx.path.to.generated.exported.dir" value="./generated/project/exported/cxx/${package.name}"/>
+    </target>
+
+    <target name="-setup.java.project.call">
+        <property name="java.path.to.project.dir" value="./generated/project/${package.name}" />
+        <available file="${java.path.to.project.dir}" property="java.path.to.project.dir.present" />
+        <antcall target="-setup.java.copy.dependent.libs" />
+    </target>
+
+    <target name="-setup.java.copy.dependent.libs">
+        <antcall target="-setup.java.copy.dependent.libs.0" />
+        <!-- add more dependent libs targets here -->
+    </target>
+
+    <target name="-setup.java.copy.dependent.libs.0" if="dependent.libs.source.0">
+        <copy file="${dependent.libs.source.0}" tofile="${java.path.to.project.dir}/libs/${dependent.libs.target.0}" />
     </target>
 
     <!--                        Clean                                       -->
 
     <target name="-clean.cxx.projects">
-        <antcall target="-call.cxx.project">
+        <antcall target="-call.project">
             <param name="call.target" value="-clean.cxx.project"/>
         </antcall>
     </target>
@@ -85,7 +97,7 @@
     <!--                        Build                                       -->
 
     <target name="-build.cxx.projects">
-        <antcall target="-call.cxx.project">
+        <antcall target="-call.project">
             <param name="call.target" value="-build.cxx.project"/>
         </antcall>
     </target>
@@ -99,52 +111,34 @@
         </exec> 
     </target>
 
+    <target name="-build.java.projects">
+        <antcall target="-call.project">
+            <param name="call.target" value="-build.java.project"/>
+        </antcall>
+    </target>
+
+    <target name="-build.java.project" depends="-setup.java.project.call">
+        <condition property="ant.target" value="debug" else="release">
+            <equals arg1="${build.target}" arg2="debug" casesensitive="false"/>
+        </condition>    
+        <ant dir="${java.path.to.project.dir}" antfile="build.xml" target="${ant.target}" />    
+    </target>
+
     <!--                        Generate                                    -->
 
     <target name="-generate.cxx.projects">
-        <antcall target="-call.cxx.project">
+        <antcall target="-call.project">
             <param name="call.target" value="-generate.cxx.project"/>
         </antcall>
     </target>
 
     <target name="-generate.cxx.project" depends="-setup.cxx.project.call">
         <!-- generate.py will mkdirs in cxx.path.to.generated.dir -->
-        <exec executable="generate.sh" dir="${cxx.path.to.project.dir}" failonerror="true" failifexecutionfails="true" searchpath="true" resolveexecutable="true">
+        <exec executable="generate.sh" dir="${basedir}" failonerror="true" failifexecutionfails="true" searchpath="true" resolveexecutable="true">
             <arg line="-s ${sdk.dir}" />
             <arg line="-n ${ndk.dir}" />
             <env key="PATH" path="${generator.path}" />
         </exec>
-    </target>
-
-    <!--                        Package                                     -->
-
-    <target name="-package.cxx.projects">
-        <antcall target="-call.cxx.project">
-            <param name="call.target" value="-package.cxx.project"/>
-        </antcall>
-    </target>
-
-    <target name="-package.cxx.project" depends="-setup.cxx.project.call">  
-        <condition property="build.target.extension" value=".debug" else="">
-            <equals arg1="${build.target}" arg2="debug" casesensitive="false"/>
-        </condition>
-        <condition property="build.target.directory" value="Debug" else="Release">
-            <equals arg1="${build.target}" arg2="debug" casesensitive="false"/>
-        </condition>
-        <property name="cxx.path.to.libs.dir" value="libs/${build.target.directory}/${deploy.platform}" />
-        <property name="cxx.path.to.libs.framework.dir" value="${cxx.path.to.libs.dir}/${cxx.package.name}" />
-        <mkdir dir="${cxx.path.to.libs.framework.dir}" />
-        <copy overwrite="true" file="${cxx.path.to.generated.exported.dir}/Android.mk" tofile="${cxx.path.to.libs.framework.dir}/Android.mk"/>
-        <mkdir dir="${cxx.path.to.libs.framework.dir}/libs" />
-        <copy overwrite="true" todir="${cxx.path.to.libs.framework.dir}/libs">
-            <fileset dir="${cxx.path.to.generated.internal.dir}/libs" />
-        </copy>
-        <mkdir dir="${cxx.path.to.libs.framework.dir}/libs" />
-        <copy overwrite="true" todir="${cxx.path.to.libs.framework.dir}/libs">
-            <fileset dir="${cxx.path.to.generated.internal.dir}/obj/local">
-                <include name="**/*.a"/>
-            </fileset>
-        </copy>
     </target>
     
 </project>
