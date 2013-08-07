@@ -2,13 +2,10 @@
 
 set -e
 
-sdk_dir=/Users/rvergis/Documents/adt-bundle-mac-x86_64-20130522/sdk
-ndk_dir=/Users/rvergis/Documents/android-ndk-r8e
+sdk_dir=$ANDROID_HOME
+ndk_dir=$NDK_HOME
 my_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-my_parent_dir=$my_dir/..
-samples_dir=$my_parent_dir/..
-base_dir=$my_parent_dir/../../../..
-generator_dir=$base_dir/generator
+generator_dir=$CODEGEN_HOME/generator
 android_dir=$generator_dir/platform/android
 android_generator_dir=$android_dir/generator
 android_generator_runtime_dir=$android_generator_dir/runtime
