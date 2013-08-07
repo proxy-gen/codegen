@@ -22,6 +22,7 @@
 #set $class_jnidata = $CONFIG.entity_class['deriveddata']['jnidata']
 #set $entity_head_file_name = $CONFIG.entity_head_file_name
 #set $entity_callback_file_name = $CONFIG.entity_callback_file_name
+#set $include_packages = $CONFIG.include_packages
 #set $safe_package_name = Utils.to_safe_jni_name($package)
 #set $safe_class_name = Utils.to_safe_jni_name($entity_class_name)
 
@@ -150,14 +151,11 @@ $proxied_typeinfos.extend(constructor['proxied_typeinfo_list'])
 \#include <jni.h>
 \#include <CXXContext.hpp>
 \#include <JNIContext.hpp>
-// TODO: integrate with custom converters
 \#include <CXXConverter.hpp>
 \#include <${package}Converter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
-#if $package == "FacebookCXX"
-\#include <AndroidCXXConverter.hpp>
-#end if
+#for $include_package in $include_packages
+\#include <${include_package}Converter.hpp>
+#end for
 
 \#define LOG_TAG "${entity_class_name}"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
