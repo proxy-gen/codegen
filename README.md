@@ -47,8 +47,13 @@ The samples/platforms/ios/facebook directory contains an example of how to use t
 
 First, run the "generate_config.sh" script from the "cxx" directory via "./generate_config.sh". It may take half a minute to create the AST of the FacebookSDK.framework headers and parse the metadata.
 
---- Note ---
+
+------------
+
+Note
+
 Under the current FacebookSDK version, the file "FBErrorUtility.h" doesn't import the Foundation objects. This results in compilation errors and prevents us from creating a proxy for the FBErrorUtility interface. Once the tool is done generating the config, open it and perform a search for "FBErrorUtility", then set the "_proxy" tag to "_no_proxy".
+
 ------------
 
 There are also several functions which are set to "_no_proxy" because no appropriate converter was found for them. You can find these by performing a search for "_TODO_".
