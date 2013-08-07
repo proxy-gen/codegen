@@ -16,7 +16,7 @@ facebook_sdk_dir=$my_parent_dir/objc/facebook-ios-sdk
 ulimit -s 65532 #kB
 
 # Generate Config
-python ${generator_dir}/generator.py --config $my_dir/config/config.py --platform ios --generate-config --namespace FacebookCXX --output-dir $my_dir/generated --package FacebookCXX --file FacebookCXX --log info
+python ${generator_dir}/generator.py --config $my_dir/config/config.py --platform ios --generate-config --namespace FacebookCXX --output-dir $my_dir/generated --package FacebookCXX --log info
 
 echo "Finished."
 
