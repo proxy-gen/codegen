@@ -141,7 +141,7 @@ void webDialogResult(FacebookCXX::FBWebDialogResultCxx &result, std::string &url
     delete session;
 }
 
-- (IBAction)publish:(id)sender {
+- (IBAction)webDialog:(id)sender {
     std::map<void *, void *> parameters;
     std::string name = "name";
     std::string caption = "caption";
