@@ -30,7 +30,7 @@ samples/platform/ios/facebook/TestFacebookCXX/build/
 
 # Android generated
 local.properties
-cxx/generated
+generated
 
 # Java
 *.class
