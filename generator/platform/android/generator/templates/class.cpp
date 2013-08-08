@@ -409,7 +409,7 @@ ${entity_class_name}::${entity_class_name}()
 	const char *methodSignature = "()V";
 	const char *className = "$class_jnidata['jnisignature']";
 
-	LOGV("${entity_class_name} className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("${entity_class_name} className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -464,7 +464,7 @@ ${entity_class_name}::${entity_class_name}($constructor['param_str'])
 	const char *methodSignature = "$cons_jnidata['jnisignature']";
 	const char *className = "$class_jnidata['jnisignature']";
 
-	LOGV("${entity_class_name} className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("${entity_class_name} className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -588,7 +588,7 @@ $function['retrn_type'] ${entity_class_name}::$Utils.to_safe_cxx_name(function['
 	const char *methodSignature = "$func_jnidata['jnisignature']";
 	const char *className = "$class_jnidata['jnisignature']";
 
-	LOGV("${entity_class_name} className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("${entity_class_name} className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
