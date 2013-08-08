@@ -16,7 +16,7 @@ Platform specific details are as follows:
 
 iOS
 ------------
-The following generator.py options currently have no effect: `--file, --wrapper-file, --generate-reports, --generate-projects, --generate-wrapper-code, --generate-wrapper-projects, --include-wrapper-package, --include-wrapper-package-rel-path`.
+The following `generator.py` options currently have no effect: `--file`, `--wrapper-file`, `--generate-reports`, `--generate-projects`, `--generate-wrapper-code`, `--generate-wrapper-projects`, `--include-wrapper-package`, `--include-wrapper-package-rel-path`.
 
 ------------
 
