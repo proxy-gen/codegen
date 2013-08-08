@@ -29,9 +29,10 @@
     <target name="release" description="Builds cxx projects for release">
         <property name="build.target" value="release" />
         <antcall target="-build.cxx.runtimes" />
+        <antcall target="-build.java.runtimes" />
     </target>
 
-    <target name="clean" depends="-clean.cxx.runtimes" description="Clean cxx runtimes">
+    <target name="clean" depends="-clean.cxx.runtimes,-clean.java.runtimes" description="Clean cxx and java runtimes">
         <delete includeemptydirs="true" failonerror="false">
           <fileset dir="." includes="libs/**"/>
         </delete>
@@ -55,11 +56,21 @@
         </antcall>
     </target>
 
+    <target name="-call.java.runtime">
+        <antcall target="${call.target}">
+            <param name="java.project.dir.name" value="ZyngaCXX" />
+        </antcall>
+    </target>
+
     <target name="-setup.cxx.runtime.call">
         <property name="cxx.path.to.project.dir" value="runtime/${cxx.project.dir.name}" />
         <available file="${cxx.path.to.project.dir}" property="cxx.path.to.project.dir.present" />
     </target>
 
+    <target name="-setup.java.runtime.call">
+        <property name="java.path.to.project.dir" value="runtime/${cxx.project.dir.name}" />
+        <available file="${java.path.to.project.dir}" property="java.path.to.project.dir.present" />
+    </target>
 
     <!--                        Clean                                       -->
 
@@ -81,6 +92,16 @@
         </exec>
     </target>
 
+    <target name="-clean.java.runtimes">
+        <antcall target="-call.java.runtime">
+            <param name="call.target" value="-clean.java.runtime"/>
+        </antcall>
+    </target>
+
+    <target name="-clean.java.runtime" depends="-setup.java.runtime.call" if="java.path.to.project.dir.present">
+        <ant dir="${java.path.to.project.dir}" antfile="build.xml" target="clean" />    
+    </target>
+
     <!--                        Build                                       -->
 
     <target name="-build.cxx.runtimes">
@@ -99,44 +120,17 @@
         <exec executable="${ndk.dir}/ndk-build" dir="${cxx.path.to.project.dir}" failonerror="true" failifexecutionfails="true"/> 
     </target>
 
-    <!--                        Package                                     -->
-
-    <target name="-package.cxx.runtimes">
-        <antcall target="-call.cxx.runtime">
-            <param name="call.target" value="-package.cxx.runtime"/>
+    <target name="-build.java.runtimes">
+        <antcall target="-call.java.runtime">
+            <param name="call.target" value="-build.java.runtime"/>
         </antcall>
-    </target>
+    </target>    
 
-    <target name="-package.cxx.runtime" depends="-setup.cxx.runtime.call">
-        <condition property="build.target.extension" value=".debug" else="">
+    <target name="-build.java.runtime">
+        <condition property="ant.target" value="debug" else="release">
             <equals arg1="${build.target}" arg2="debug" casesensitive="false"/>
-        </condition>
-        <condition property="build.target.directory" value="Debug" else="Release">
-            <equals arg1="${build.target}" arg2="debug" casesensitive="false"/>
-        </condition>
-        <property name="cxx.path.to.libs.dir" value="libs/${build.target.directory}/${deploy.platform}" />
-        <property name="cxx.path.to.libs.framework.dir" value="${cxx.path.to.libs.dir}/${cxx.framework.name}" />
-        <mkdir dir="${cxx.path.to.libs.framework.dir}"/>
-        <copy overwrite="true" file="${cxx.path.to.project.dir}/exported/Android.mk" tofile="${cxx.path.to.libs.framework.dir}/Android.mk"/>
-        <mkdir dir="${cxx.path.to.libs.framework.dir}/includes"/>
-        <copy overwrite="true" todir="${cxx.path.to.libs.framework.dir}/includes">
-            <fileset dir="${cxx.path.to.project.dir}/jni/cxx/external" />
-        </copy>
-        <mkdir dir="${cxx.path.to.libs.framework.dir}/libs"/>
-        <copy overwrite="true" todir="${cxx.path.to.libs.framework.dir}/libs">
-            <fileset dir="${cxx.path.to.project.dir}/libs" />
-        </copy>
-        <mkdir dir="${cxx.path.to.libs.framework.dir}/libs"/>
-        <copy overwrite="true" todir="${cxx.path.to.libs.framework.dir}/libs">
-            <fileset dir="${cxx.path.to.project.dir}/obj/local">
-                <include name="**/*.a"/>
-            </fileset>
-        </copy>
-        <copy overwrite="true" file="${cxx.path.to.project.dir}/bin/classes.jar" tofile="${cxx.path.to.libs.framework.dir}${build.target.extension}.jar"/>
-        <mkdir dir="${cxx.path.to.libs.dir}"/>
-        <copy overwrite="true" todir="${cxx.path.to.libs.dir}">
-            <fileset dir="${cxx.path.to.project.dir}/libs" includes="*.jar"/>
-        </copy>
+        </condition>    
+        <ant dir="${java.path.to.project.dir}" antfile="build.xml" target="${ant.target}" />    
     </target>    
     
 </project>

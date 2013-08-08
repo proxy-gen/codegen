@@ -144,6 +144,7 @@ class Generator(BaseGenerator):
 		self._setup_included_wrapper_packages()
 		self._setup_included_config_file_path()
 		self._setup_included_converters()		
+		self._setup_included_headers()
 
 	def _setup_included_packages(self):
 		logging.debug("_setup_included_packages enter")
@@ -169,8 +170,23 @@ class Generator(BaseGenerator):
 
 	def _setup_included_converters(self):
 		logging.debug("_setup_included_converters enter")
-		self.include_converters = self.config['include_converters']
+		include_converter_files = self.config['include_converter_files']
+		self.include_converters = list()
+		for include_converter_file_name in include_converter_files:
+			self.config_module = ConfigModule(include_converter_file_name,None)	
+			assert self.config_module.is_valid, "config_module is not valid"
+			config_data = self.config_module.config_data
+			assert config_data is not None, "config does not exist"
+			assert "converters" in config_data, "converters not in config"
+			converters_list = config_data["converters"]
+			self.include_converters.extend(converters_list)
+			self.config_module = None
 		logging.debug("_setup_included_converters exit")
+
+	def _setup_included_headers(self):
+		logging.debug("_setup_included_headers enter")
+		self.include_headers = self.config['include_header_files']
+		logging.debug("_setup_included_headers exit")
 
 	def _generate_converters_report(self):
 		logging.debug("_generate_converters_report enter")
@@ -755,11 +771,11 @@ class ConfigModule(object):
 		self.config_data['package'] = package_name
 		logging.debug("_add_package_to_config_data enter")
 
-	def attach_include_converters(self, include_converters):
+	def attach_include_converters(self, include_converter_files):
 		logging.debug("_attach_include_converters enter")
 		if "converters" not in self.config_data:
 			self.config_data["converters"] = []
-		for include_converter in include_converters:
+		for include_converter in include_converter_files:
 			found = False
 			for converter in self.config_data["converters"]:
 				if converter["name"] == include_converter["name"]:

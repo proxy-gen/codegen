@@ -53,7 +53,8 @@ class Configurator(object):
 		generator.config['include_wrapper_packages'] = opts.include_wrapper_packages if opts.include_wrapper_packages else list()
 		generator.config['include_wrapper_package_rel_paths'] = opts.include_wrapper_package_rel_paths if opts.include_wrapper_package_rel_paths else list()
 		generator.config['include_config_file_path'] = opts.include_config_file_path if opts.include_config_file_path else None
-		generator.config['include_converters'] = opts.include_converters if opts.include_converters else list()
+		generator.config['include_converter_files'] = opts.include_converter_files if opts.include_converter_files else list()
+		generator.config['include_header_files'] = opts.include_header_files if opts.include_header_files else list()
 
 	@classmethod
 	def list_supported_platforms(cls):
@@ -117,8 +118,10 @@ def main():
 							help="Relative path to the included packages (relative to --output-dir)")
 	parser.add_option("--include-config-path", action="store", dest="include_config_file_path",
 							help="Base path to the included configs. Config path is absolute.")
-	parser.add_option("--include-converter", action="append", dest="include_converters",
-							help="Specifies the additional converter file(s) to be used for generating code")
+	parser.add_option("--include-converter-file", action="append", dest="include_converter_files",
+							help="Specifies the path to additional converter file(s) to be used for generating code")
+	parser.add_option("--include-header-file", action="append", dest="include_header_files",
+							help="Specifies the header file(s) to be included in the generated code")
 	parser.add_option("--log",  action="store", type="string", dest="loglevel",
 							help="Specifies the generator log level. Valid values are info (for INFO level logging) and debug (for DEBUG level logging)")
 
