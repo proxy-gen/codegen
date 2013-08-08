@@ -112,7 +112,7 @@ class Generator(BaseGenerator):
 
 	def _setup_included_converters(self):
 		logging.debug("_setup_included_converters enter")
-		self.include_converters = self.config['include_converters']
+		self.include_converters = self.config['include_converter_files']
 		logging.debug("_setup_included_converters exit")
 
 	def _setup_config(self):
