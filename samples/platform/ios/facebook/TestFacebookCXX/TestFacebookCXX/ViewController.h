@@ -16,7 +16,7 @@
 
 - (IBAction)logFriends:(id)sender;
 
-- (IBAction)publish:(id)sender;
+- (IBAction)webDialog:(id)sender;
 
 - (IBAction)logout:(id)sender;
 
