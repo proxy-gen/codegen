@@ -127,7 +127,7 @@ void com_facebook_widget_LoginButton_UserInfoChangedCallback::onUserInfoFetched(
 	const char *methodSignature = "(Lcom/facebook/model/GraphUser;)V";
 	const char *className = "com/facebook/widget/LoginButton$UserInfoChangedCallback";
 
-	LOGV("com_facebook_widget_LoginButton_UserInfoChangedCallback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton_UserInfoChangedCallback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

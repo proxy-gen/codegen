@@ -9,6 +9,9 @@
 
 
  		 
+ 		 
+	
+ 		 
 	
  		 
  		 
@@ -29,7 +32,6 @@
  		 
  		 
  		 
- 		 
 	
  		 
  		 
@@ -37,8 +39,6 @@
  		 
  		 
  		 
- 		 
-	
  		 
  		 
  		 
@@ -200,17 +200,23 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_Canvas"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 // 
 // 
 // 
@@ -297,16 +303,7 @@ using namespace AndroidCXX;
 // 
 // 
 // 
-// 
-// 
-// 
 // using namespace android_graphics_Canvas_EdgeType;
-// 
-// 
-// 
-// 
-// 
-// 
 // 
 // 
 // 
@@ -587,7 +584,7 @@ android_graphics_Canvas::android_graphics_Canvas()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -623,7 +620,7 @@ android_graphics_Canvas::android_graphics_Canvas(AndroidCXX::android_graphics_Bi
 	const char *methodSignature = "(Landroid/graphics/Bitmap;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -695,7 +692,7 @@ void android_graphics_Canvas::concat(AndroidCXX::android_graphics_Matrix const& 
 	const char *methodSignature = "(Landroid/graphics/Matrix;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -740,7 +737,7 @@ int android_graphics_Canvas::save(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -805,7 +802,7 @@ int android_graphics_Canvas::save()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -849,7 +846,7 @@ void android_graphics_Canvas::rotate(float const& arg0,float const& arg1,float c
 	const char *methodSignature = "(FFF)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -936,7 +933,7 @@ void android_graphics_Canvas::rotate(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -981,7 +978,7 @@ bool android_graphics_Canvas::isOpaque()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1017,6 +1014,72 @@ bool android_graphics_Canvas::isOpaque()
 
 	return result;
 }
+void android_graphics_Canvas::scale(float const& arg0,float const& arg1)
+{
+	LOGV("void android_graphics_Canvas::scale(float const& arg0,float const& arg1) enter");
+
+	const char *methodName = "scale";
+	const char *methodSignature = "(FF)V";
+	const char *className = "android/graphics/Canvas";
+
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_graphics_Canvas jni address %d", javaObject);
+
+	jfloat jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("float");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_float_to_jni(java_value);
+	}
+	jfloat jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("float");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_float_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+		
+	LOGV("void android_graphics_Canvas::scale(float const& arg0,float const& arg1) exit");
+
+}
 void android_graphics_Canvas::scale(float const& arg0,float const& arg1,float const& arg2,float const& arg3)
 {
 	LOGV("void android_graphics_Canvas::scale(float const& arg0,float const& arg1,float const& arg2,float const& arg3) enter");
@@ -1025,7 +1088,7 @@ void android_graphics_Canvas::scale(float const& arg0,float const& arg1,float co
 	const char *methodSignature = "(FFFF)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1125,72 +1188,6 @@ void android_graphics_Canvas::scale(float const& arg0,float const& arg1,float co
 	LOGV("void android_graphics_Canvas::scale(float const& arg0,float const& arg1,float const& arg2,float const& arg3) exit");
 
 }
-void android_graphics_Canvas::scale(float const& arg0,float const& arg1)
-{
-	LOGV("void android_graphics_Canvas::scale(float const& arg0,float const& arg1) enter");
-
-	const char *methodName = "scale";
-	const char *methodSignature = "(FF)V";
-	const char *className = "android/graphics/Canvas";
-
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	long cxxAddress = (long) this;
-	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_graphics_Canvas jni address %d", javaObject);
-
-	jfloat jarg0;
-	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("float");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_float_to_jni(java_value);
-	}
-	jfloat jarg1;
-	{
-		long cxx_value = (long) & arg1;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("float");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg1 = convert_jni_float_to_jni(java_value);
-	}
-
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
-		
-	LOGV("void android_graphics_Canvas::scale(float const& arg0,float const& arg1) exit");
-
-}
 int android_graphics_Canvas::getWidth()
 {
 	LOGV("int android_graphics_Canvas::getWidth() enter");
@@ -1199,7 +1196,7 @@ int android_graphics_Canvas::getWidth()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1243,7 +1240,7 @@ int android_graphics_Canvas::getHeight()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1279,50 +1276,6 @@ int android_graphics_Canvas::getHeight()
 
 	return result;
 }
-AndroidCXX::android_graphics_Matrix android_graphics_Canvas::getMatrix()
-{
-	LOGV("AndroidCXX::android_graphics_Matrix android_graphics_Canvas::getMatrix() enter");
-
-	const char *methodName = "getMatrix";
-	const char *methodSignature = "()Landroid/graphics/Matrix;";
-	const char *className = "android/graphics/Canvas";
-
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	long cxxAddress = (long) this;
-	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_graphics_Canvas jni address %d", javaObject);
-
-
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
-	long cxx_value = (long) 0;
-	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("android.graphics.Matrix");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_android_graphics_Matrix(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-
-	AndroidCXX::android_graphics_Matrix result((AndroidCXX::android_graphics_Matrix) *((AndroidCXX::android_graphics_Matrix *) cxx_value));
-	delete ((AndroidCXX::android_graphics_Matrix *) cxx_value);
-		
-	LOGV("AndroidCXX::android_graphics_Matrix android_graphics_Canvas::getMatrix() exit");
-
-	return result;
-}
 void android_graphics_Canvas::getMatrix(AndroidCXX::android_graphics_Matrix const& arg0)
 {
 	LOGV("void android_graphics_Canvas::getMatrix(AndroidCXX::android_graphics_Matrix const& arg0) enter");
@@ -1331,7 +1284,7 @@ void android_graphics_Canvas::getMatrix(AndroidCXX::android_graphics_Matrix cons
 	const char *methodSignature = "(Landroid/graphics/Matrix;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1368,6 +1321,50 @@ void android_graphics_Canvas::getMatrix(AndroidCXX::android_graphics_Matrix cons
 	LOGV("void android_graphics_Canvas::getMatrix(AndroidCXX::android_graphics_Matrix const& arg0) exit");
 
 }
+AndroidCXX::android_graphics_Matrix android_graphics_Canvas::getMatrix()
+{
+	LOGV("AndroidCXX::android_graphics_Matrix android_graphics_Canvas::getMatrix() enter");
+
+	const char *methodName = "getMatrix";
+	const char *methodSignature = "()Landroid/graphics/Matrix;";
+	const char *className = "android/graphics/Canvas";
+
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_graphics_Canvas jni address %d", javaObject);
+
+
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.graphics.Matrix");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_android_graphics_Matrix(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+
+	AndroidCXX::android_graphics_Matrix result((AndroidCXX::android_graphics_Matrix) *((AndroidCXX::android_graphics_Matrix *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Matrix *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_Matrix android_graphics_Canvas::getMatrix() exit");
+
+	return result;
+}
 bool android_graphics_Canvas::isHardwareAccelerated()
 {
 	LOGV("bool android_graphics_Canvas::isHardwareAccelerated() enter");
@@ -1376,7 +1373,7 @@ bool android_graphics_Canvas::isHardwareAccelerated()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1412,6 +1409,115 @@ bool android_graphics_Canvas::isHardwareAccelerated()
 
 	return result;
 }
+bool android_graphics_Canvas::getClipBounds(AndroidCXX::android_graphics_Rect const& arg0)
+{
+	LOGV("bool android_graphics_Canvas::getClipBounds(AndroidCXX::android_graphics_Rect const& arg0) enter");
+
+	const char *methodName = "getClipBounds";
+	const char *methodSignature = "(Landroid/graphics/Rect;)Z";
+	const char *className = "android/graphics/Canvas";
+
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_graphics_Canvas jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.graphics.Rect");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_android_graphics_Rect(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Canvas::getClipBounds(AndroidCXX::android_graphics_Rect const& arg0) exit");
+
+	return result;
+}
+AndroidCXX::android_graphics_Rect android_graphics_Canvas::getClipBounds()
+{
+	LOGV("AndroidCXX::android_graphics_Rect android_graphics_Canvas::getClipBounds() enter");
+
+	const char *methodName = "getClipBounds";
+	const char *methodSignature = "()Landroid/graphics/Rect;";
+	const char *className = "android/graphics/Canvas";
+
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_graphics_Canvas jni address %d", javaObject);
+
+
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.graphics.Rect");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_android_graphics_Rect(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+
+	AndroidCXX::android_graphics_Rect result((AndroidCXX::android_graphics_Rect) *((AndroidCXX::android_graphics_Rect *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Rect *) cxx_value);
+		
+	LOGV("AndroidCXX::android_graphics_Rect android_graphics_Canvas::getClipBounds() exit");
+
+	return result;
+}
 void android_graphics_Canvas::setBitmap(AndroidCXX::android_graphics_Bitmap const& arg0)
 {
 	LOGV("void android_graphics_Canvas::setBitmap(AndroidCXX::android_graphics_Bitmap const& arg0) enter");
@@ -1420,7 +1526,7 @@ void android_graphics_Canvas::setBitmap(AndroidCXX::android_graphics_Bitmap cons
 	const char *methodSignature = "(Landroid/graphics/Bitmap;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1465,7 +1571,7 @@ int android_graphics_Canvas::getDensity()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1509,7 +1615,7 @@ void android_graphics_Canvas::setDensity(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1554,7 +1660,7 @@ int android_graphics_Canvas::getMaximumBitmapWidth()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1598,7 +1704,7 @@ int android_graphics_Canvas::getMaximumBitmapHeight()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1634,6 +1740,113 @@ int android_graphics_Canvas::getMaximumBitmapHeight()
 
 	return result;
 }
+int android_graphics_Canvas::saveLayer(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_Paint const& arg1,int const& arg2)
+{
+	LOGV("int android_graphics_Canvas::saveLayer(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_Paint const& arg1,int const& arg2) enter");
+
+	const char *methodName = "saveLayer";
+	const char *methodSignature = "(Landroid/graphics/RectF;Landroid/graphics/Paint;I)I";
+	const char *className = "android/graphics/Canvas";
+
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_graphics_Canvas jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.graphics.RectF");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_android_graphics_RectF(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jobject jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.graphics.Paint");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_android_graphics_Paint(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jint jarg2;
+	{
+		long cxx_value = (long) & arg2;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg2 = convert_jni_int_to_jni(java_value);
+	}
+
+	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_int_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_graphics_Canvas::saveLayer(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_Paint const& arg1,int const& arg2) exit");
+
+	return result;
+}
 int android_graphics_Canvas::saveLayer(float const& arg0,float const& arg1,float const& arg2,float const& arg3,AndroidCXX::android_graphics_Paint const& arg4,int const& arg5)
 {
 	LOGV("int android_graphics_Canvas::saveLayer(float const& arg0,float const& arg1,float const& arg2,float const& arg3,AndroidCXX::android_graphics_Paint const& arg4,int const& arg5) enter");
@@ -1642,7 +1855,7 @@ int android_graphics_Canvas::saveLayer(float const& arg0,float const& arg1,float
 	const char *methodSignature = "(FFFFLandroid/graphics/Paint;I)I";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1804,113 +2017,6 @@ int android_graphics_Canvas::saveLayer(float const& arg0,float const& arg1,float
 
 	return result;
 }
-int android_graphics_Canvas::saveLayer(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_Paint const& arg1,int const& arg2)
-{
-	LOGV("int android_graphics_Canvas::saveLayer(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_Paint const& arg1,int const& arg2) enter");
-
-	const char *methodName = "saveLayer";
-	const char *methodSignature = "(Landroid/graphics/RectF;Landroid/graphics/Paint;I)I";
-	const char *className = "android/graphics/Canvas";
-
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	long cxxAddress = (long) this;
-	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_graphics_Canvas jni address %d", javaObject);
-
-	jobject jarg0;
-	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("android.graphics.RectF");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_android_graphics_RectF(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
-	}
-	jobject jarg1;
-	{
-		long cxx_value = (long) & arg1;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("android.graphics.Paint");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_android_graphics_Paint(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
-	}
-	jint jarg2;
-	{
-		long cxx_value = (long) & arg2;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg2 = convert_jni_int_to_jni(java_value);
-	}
-
-	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
-	long cxx_value = (long) 0;
-	long java_value = convert_jni_int_to_java(jni_result);
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-
-	int result = (int) *((int *) cxx_value);
-	// 
-		
-	LOGV("int android_graphics_Canvas::saveLayer(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_Paint const& arg1,int const& arg2) exit");
-
-	return result;
-}
 int android_graphics_Canvas::saveLayerAlpha(AndroidCXX::android_graphics_RectF const& arg0,int const& arg1,int const& arg2)
 {
 	LOGV("int android_graphics_Canvas::saveLayerAlpha(AndroidCXX::android_graphics_RectF const& arg0,int const& arg1,int const& arg2) enter");
@@ -1919,7 +2025,7 @@ int android_graphics_Canvas::saveLayerAlpha(AndroidCXX::android_graphics_RectF c
 	const char *methodSignature = "(Landroid/graphics/RectF;II)I";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2026,7 +2132,7 @@ int android_graphics_Canvas::saveLayerAlpha(float const& arg0,float const& arg1,
 	const char *methodSignature = "(FFFFII)I";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2196,7 +2302,7 @@ void android_graphics_Canvas::restore()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2220,7 +2326,7 @@ int android_graphics_Canvas::getSaveCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2264,7 +2370,7 @@ void android_graphics_Canvas::restoreToCount(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2309,7 +2415,7 @@ void android_graphics_Canvas::translate(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2375,7 +2481,7 @@ void android_graphics_Canvas::skew(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2441,7 +2547,7 @@ void android_graphics_Canvas::setMatrix(AndroidCXX::android_graphics_Matrix cons
 	const char *methodSignature = "(Landroid/graphics/Matrix;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2478,178 +2584,6 @@ void android_graphics_Canvas::setMatrix(AndroidCXX::android_graphics_Matrix cons
 	LOGV("void android_graphics_Canvas::setMatrix(AndroidCXX::android_graphics_Matrix const& arg0) exit");
 
 }
-bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1)
-{
-	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1) enter");
-
-	const char *methodName = "clipRect";
-	const char *methodSignature = "(Landroid/graphics/RectF;Landroid/graphics/Region$Op;)Z";
-	const char *className = "android/graphics/Canvas";
-
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	long cxxAddress = (long) this;
-	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_graphics_Canvas jni address %d", javaObject);
-
-	jobject jarg0;
-	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("android.graphics.RectF");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_android_graphics_RectF(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
-	}
-	jobject jarg1;
-	{
-		long cxx_value = (long) & arg1;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("android.graphics.Region$Op");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_android_graphics_Region_Op(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
-	}
-
-	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
-	long cxx_value = (long) 0;
-	long java_value = convert_jni_boolean_to_java(jni_result);
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("boolean");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-
-	bool result = (bool) *((bool *) cxx_value);
-	// 
-		
-	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1) exit");
-
-	return result;
-}
-bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1)
-{
-	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1) enter");
-
-	const char *methodName = "clipRect";
-	const char *methodSignature = "(Landroid/graphics/Rect;Landroid/graphics/Region$Op;)Z";
-	const char *className = "android/graphics/Canvas";
-
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	long cxxAddress = (long) this;
-	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_graphics_Canvas jni address %d", javaObject);
-
-	jobject jarg0;
-	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("android.graphics.Rect");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_android_graphics_Rect(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
-	}
-	jobject jarg1;
-	{
-		long cxx_value = (long) & arg1;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("android.graphics.Region$Op");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_android_graphics_Region_Op(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
-	}
-
-	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
-	long cxx_value = (long) 0;
-	long java_value = convert_jni_boolean_to_java(jni_result);
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("boolean");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-
-	bool result = (bool) *((bool *) cxx_value);
-	// 
-		
-	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1) exit");
-
-	return result;
-}
 bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF const& arg0)
 {
 	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF const& arg0) enter");
@@ -2658,7 +2592,7 @@ bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF const&
 	const char *methodSignature = "(Landroid/graphics/RectF;)Z";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2723,7 +2657,7 @@ bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect const& 
 	const char *methodSignature = "(Landroid/graphics/Rect;)Z";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2788,7 +2722,7 @@ bool android_graphics_Canvas::clipRect(float const& arg0,float const& arg1,float
 	const char *methodSignature = "(FFFFLandroid/graphics/Region$Op;)Z";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2937,7 +2871,7 @@ bool android_graphics_Canvas::clipRect(float const& arg0,float const& arg1,float
 	const char *methodSignature = "(FFFF)Z";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3065,7 +2999,7 @@ bool android_graphics_Canvas::clipRect(int const& arg0,int const& arg1,int const
 	const char *methodSignature = "(IIII)Z";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3185,6 +3119,178 @@ bool android_graphics_Canvas::clipRect(int const& arg0,int const& arg1,int const
 
 	return result;
 }
+bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1)
+{
+	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1) enter");
+
+	const char *methodName = "clipRect";
+	const char *methodSignature = "(Landroid/graphics/Rect;Landroid/graphics/Region$Op;)Z";
+	const char *className = "android/graphics/Canvas";
+
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_graphics_Canvas jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.graphics.Rect");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_android_graphics_Rect(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jobject jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.graphics.Region$Op");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_android_graphics_Region_Op(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_Rect const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1) exit");
+
+	return result;
+}
+bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1)
+{
+	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1) enter");
+
+	const char *methodName = "clipRect";
+	const char *methodSignature = "(Landroid/graphics/RectF;Landroid/graphics/Region$Op;)Z";
+	const char *className = "android/graphics/Canvas";
+
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_graphics_Canvas jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.graphics.RectF");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_android_graphics_RectF(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jobject jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.graphics.Region$Op");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_android_graphics_Region_Op(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_graphics_Canvas::clipRect(AndroidCXX::android_graphics_RectF const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1) exit");
+
+	return result;
+}
 bool android_graphics_Canvas::clipPath(AndroidCXX::android_graphics_Path const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1)
 {
 	LOGV("bool android_graphics_Canvas::clipPath(AndroidCXX::android_graphics_Path const& arg0,android_graphics_Region_Op::android_graphics_Region_Op const& arg1) enter");
@@ -3193,7 +3299,7 @@ bool android_graphics_Canvas::clipPath(AndroidCXX::android_graphics_Path const& 
 	const char *methodSignature = "(Landroid/graphics/Path;Landroid/graphics/Region$Op;)Z";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3279,7 +3385,7 @@ bool android_graphics_Canvas::clipPath(AndroidCXX::android_graphics_Path const& 
 	const char *methodSignature = "(Landroid/graphics/Path;)Z";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3344,7 +3450,7 @@ bool android_graphics_Canvas::clipRegion(AndroidCXX::android_graphics_Region con
 	const char *methodSignature = "(Landroid/graphics/Region;Landroid/graphics/Region$Op;)Z";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3430,7 +3536,7 @@ bool android_graphics_Canvas::clipRegion(AndroidCXX::android_graphics_Region con
 	const char *methodSignature = "(Landroid/graphics/Region;)Z";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3495,7 +3601,7 @@ AndroidCXX::android_graphics_DrawFilter android_graphics_Canvas::getDrawFilter()
 	const char *methodSignature = "()Landroid/graphics/DrawFilter;";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3539,7 +3645,7 @@ void android_graphics_Canvas::setDrawFilter(AndroidCXX::android_graphics_DrawFil
 	const char *methodSignature = "(Landroid/graphics/DrawFilter;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3584,7 +3690,7 @@ bool android_graphics_Canvas::quickReject(AndroidCXX::android_graphics_RectF con
 	const char *methodSignature = "(Landroid/graphics/RectF;Landroid/graphics/Canvas$EdgeType;)Z";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3670,7 +3776,7 @@ bool android_graphics_Canvas::quickReject(AndroidCXX::android_graphics_Path cons
 	const char *methodSignature = "(Landroid/graphics/Path;Landroid/graphics/Canvas$EdgeType;)Z";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3756,7 +3862,7 @@ bool android_graphics_Canvas::quickReject(float const& arg0,float const& arg1,fl
 	const char *methodSignature = "(FFFFLandroid/graphics/Canvas$EdgeType;)Z";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3897,115 +4003,6 @@ bool android_graphics_Canvas::quickReject(float const& arg0,float const& arg1,fl
 
 	return result;
 }
-bool android_graphics_Canvas::getClipBounds(AndroidCXX::android_graphics_Rect const& arg0)
-{
-	LOGV("bool android_graphics_Canvas::getClipBounds(AndroidCXX::android_graphics_Rect const& arg0) enter");
-
-	const char *methodName = "getClipBounds";
-	const char *methodSignature = "(Landroid/graphics/Rect;)Z";
-	const char *className = "android/graphics/Canvas";
-
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	long cxxAddress = (long) this;
-	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_graphics_Canvas jni address %d", javaObject);
-
-	jobject jarg0;
-	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("android.graphics.Rect");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_android_graphics_Rect(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
-	}
-
-	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
-	long cxx_value = (long) 0;
-	long java_value = convert_jni_boolean_to_java(jni_result);
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("boolean");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-
-	bool result = (bool) *((bool *) cxx_value);
-	// 
-		
-	LOGV("bool android_graphics_Canvas::getClipBounds(AndroidCXX::android_graphics_Rect const& arg0) exit");
-
-	return result;
-}
-AndroidCXX::android_graphics_Rect android_graphics_Canvas::getClipBounds()
-{
-	LOGV("AndroidCXX::android_graphics_Rect android_graphics_Canvas::getClipBounds() enter");
-
-	const char *methodName = "getClipBounds";
-	const char *methodSignature = "()Landroid/graphics/Rect;";
-	const char *className = "android/graphics/Canvas";
-
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	long cxxAddress = (long) this;
-	LOGV("android_graphics_Canvas cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_graphics_Canvas jni address %d", javaObject);
-
-
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
-	long cxx_value = (long) 0;
-	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("android.graphics.Rect");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_android_graphics_Rect(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-
-	AndroidCXX::android_graphics_Rect result((AndroidCXX::android_graphics_Rect) *((AndroidCXX::android_graphics_Rect *) cxx_value));
-	delete ((AndroidCXX::android_graphics_Rect *) cxx_value);
-		
-	LOGV("AndroidCXX::android_graphics_Rect android_graphics_Canvas::getClipBounds() exit");
-
-	return result;
-}
 void android_graphics_Canvas::drawRGB(int const& arg0,int const& arg1,int const& arg2)
 {
 	LOGV("void android_graphics_Canvas::drawRGB(int const& arg0,int const& arg1,int const& arg2) enter");
@@ -4014,7 +4011,7 @@ void android_graphics_Canvas::drawRGB(int const& arg0,int const& arg1,int const&
 	const char *methodSignature = "(III)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4101,7 +4098,7 @@ void android_graphics_Canvas::drawARGB(int const& arg0,int const& arg1,int const
 	const char *methodSignature = "(IIII)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4209,7 +4206,7 @@ void android_graphics_Canvas::drawColor(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4254,7 +4251,7 @@ void android_graphics_Canvas::drawColor(int const& arg0,android_graphics_PorterD
 	const char *methodSignature = "(ILandroid/graphics/PorterDuff$Mode;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4320,7 +4317,7 @@ void android_graphics_Canvas::drawPaint(AndroidCXX::android_graphics_Paint const
 	const char *methodSignature = "(Landroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4365,7 +4362,7 @@ void android_graphics_Canvas::drawPoints(std::vector<float> const& arg0,int cons
 	const char *methodSignature = "([FIILandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4491,7 +4488,7 @@ void android_graphics_Canvas::drawPoints(std::vector<float> const& arg0,AndroidC
 	const char *methodSignature = "([FLandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4575,7 +4572,7 @@ void android_graphics_Canvas::drawPoint(float const& arg0,float const& arg1,Andr
 	const char *methodSignature = "(FFLandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4662,7 +4659,7 @@ void android_graphics_Canvas::drawLine(float const& arg0,float const& arg1,float
 	const char *methodSignature = "(FFFFLandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4791,7 +4788,7 @@ void android_graphics_Canvas::drawLines(std::vector<float> const& arg0,int const
 	const char *methodSignature = "([FIILandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4917,7 +4914,7 @@ void android_graphics_Canvas::drawLines(std::vector<float> const& arg0,AndroidCX
 	const char *methodSignature = "([FLandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5001,7 +4998,7 @@ void android_graphics_Canvas::drawRect(AndroidCXX::android_graphics_RectF const&
 	const char *methodSignature = "(Landroid/graphics/RectF;Landroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5067,7 +5064,7 @@ void android_graphics_Canvas::drawRect(AndroidCXX::android_graphics_Rect const& 
 	const char *methodSignature = "(Landroid/graphics/Rect;Landroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5133,7 +5130,7 @@ void android_graphics_Canvas::drawRect(float const& arg0,float const& arg1,float
 	const char *methodSignature = "(FFFFLandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5262,7 +5259,7 @@ void android_graphics_Canvas::drawOval(AndroidCXX::android_graphics_RectF const&
 	const char *methodSignature = "(Landroid/graphics/RectF;Landroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5328,7 +5325,7 @@ void android_graphics_Canvas::drawCircle(float const& arg0,float const& arg1,flo
 	const char *methodSignature = "(FFFLandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5436,7 +5433,7 @@ void android_graphics_Canvas::drawArc(AndroidCXX::android_graphics_RectF const& 
 	const char *methodSignature = "(Landroid/graphics/RectF;FFZLandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5565,7 +5562,7 @@ void android_graphics_Canvas::drawRoundRect(AndroidCXX::android_graphics_RectF c
 	const char *methodSignature = "(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5673,7 +5670,7 @@ void android_graphics_Canvas::drawPath(AndroidCXX::android_graphics_Path const& 
 	const char *methodSignature = "(Landroid/graphics/Path;Landroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5739,7 +5736,7 @@ void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap con
 	const char *methodSignature = "(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5847,7 +5844,7 @@ void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap con
 	const char *methodSignature = "(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/RectF;Landroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5955,7 +5952,7 @@ void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap con
 	const char *methodSignature = "(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6063,7 +6060,7 @@ void android_graphics_Canvas::drawBitmap(std::vector<int> const& arg0,int const&
 	const char *methodSignature = "([IIIFFIIZLandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6294,7 +6291,7 @@ void android_graphics_Canvas::drawBitmap(std::vector<int> const& arg0,int const&
 	const char *methodSignature = "([IIIIIIIZLandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6525,7 +6522,7 @@ void android_graphics_Canvas::drawBitmap(AndroidCXX::android_graphics_Bitmap con
 	const char *methodSignature = "(Landroid/graphics/Bitmap;Landroid/graphics/Matrix;Landroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6612,7 +6609,7 @@ void android_graphics_Canvas::drawBitmapMesh(AndroidCXX::android_graphics_Bitmap
 	const char *methodSignature = "(Landroid/graphics/Bitmap;II[FI[IILandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6840,7 +6837,7 @@ void android_graphics_Canvas::drawVertices(android_graphics_Canvas_VertexMode::a
 	const char *methodSignature = "(Landroid/graphics/Canvas$VertexMode;I[FI[FI[II[SIILandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -7188,7 +7185,7 @@ void android_graphics_Canvas::drawText(std::vector<char> const& arg0,int const& 
 	const char *methodSignature = "([CIIFFLandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -7356,7 +7353,7 @@ void android_graphics_Canvas::drawText(AndroidCXX::java_lang_String const& arg0,
 	const char *methodSignature = "(Ljava/lang/String;FFLandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -7464,7 +7461,7 @@ void android_graphics_Canvas::drawText(AndroidCXX::java_lang_String const& arg0,
 	const char *methodSignature = "(Ljava/lang/String;IIFFLandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -7614,7 +7611,7 @@ void android_graphics_Canvas::drawText(AndroidCXX::java_lang_CharSequence const&
 	const char *methodSignature = "(Ljava/lang/CharSequence;IIFFLandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -7764,7 +7761,7 @@ void android_graphics_Canvas::drawPosText(std::vector<char> const& arg0,int cons
 	const char *methodSignature = "([CII[FLandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -7929,7 +7926,7 @@ void android_graphics_Canvas::drawPosText(AndroidCXX::java_lang_String const& ar
 	const char *methodSignature = "(Ljava/lang/String;[FLandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -8034,7 +8031,7 @@ void android_graphics_Canvas::drawTextOnPath(std::vector<char> const& arg0,int c
 	const char *methodSignature = "([CIILandroid/graphics/Path;FFLandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -8223,7 +8220,7 @@ void android_graphics_Canvas::drawTextOnPath(AndroidCXX::java_lang_String const&
 	const char *methodSignature = "(Ljava/lang/String;Landroid/graphics/Path;FFLandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -8352,7 +8349,7 @@ void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture c
 	const char *methodSignature = "(Landroid/graphics/Picture;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -8397,7 +8394,7 @@ void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture c
 	const char *methodSignature = "(Landroid/graphics/Picture;Landroid/graphics/RectF;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -8463,7 +8460,7 @@ void android_graphics_Canvas::drawPicture(AndroidCXX::android_graphics_Picture c
 	const char *methodSignature = "(Landroid/graphics/Picture;Landroid/graphics/Rect;)V";
 	const char *className = "android/graphics/Canvas";
 
-	LOGV("android_graphics_Canvas className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Canvas className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -127,7 +127,7 @@ void com_facebook_AuthorizationClient_3::onCompleted(FacebookCXX::com_facebook_R
 	const char *methodSignature = "(Lcom/facebook/Response;)V";
 	const char *className = "com/facebook/AuthorizationClient$3";
 
-	LOGV("com_facebook_AuthorizationClient_3 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_AuthorizationClient_3 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

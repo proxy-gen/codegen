@@ -88,11 +88,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_app_PendingIntent"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -317,7 +314,7 @@ bool android_app_PendingIntent::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -382,7 +379,7 @@ AndroidCXX::java_lang_String android_app_PendingIntent::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -426,7 +423,7 @@ int android_app_PendingIntent::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -470,7 +467,7 @@ void android_app_PendingIntent::send(int const& arg0,AndroidCXX::android_app_Pen
 	const char *methodSignature = "(ILandroid/app/PendingIntent$OnFinished;Landroid/os/Handler;)V";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -557,7 +554,7 @@ void android_app_PendingIntent::send(AndroidCXX::android_content_Context const& 
 	const char *methodSignature = "(Landroid/content/Context;ILandroid/content/Intent;)V";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -644,7 +641,7 @@ void android_app_PendingIntent::send(AndroidCXX::android_content_Context const& 
 	const char *methodSignature = "(Landroid/content/Context;ILandroid/content/Intent;Landroid/app/PendingIntent$OnFinished;Landroid/os/Handler;)V";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -773,7 +770,7 @@ void android_app_PendingIntent::send(AndroidCXX::android_content_Context const& 
 	const char *methodSignature = "(Landroid/content/Context;ILandroid/content/Intent;Landroid/app/PendingIntent$OnFinished;Landroid/os/Handler;Ljava/lang/String;)V";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -923,7 +920,7 @@ void android_app_PendingIntent::send()
 	const char *methodSignature = "()V";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -947,7 +944,7 @@ void android_app_PendingIntent::send(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -992,7 +989,7 @@ AndroidCXX::android_app_PendingIntent android_app_PendingIntent::getService(Andr
 	const char *methodSignature = "(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1120,7 +1117,7 @@ int android_app_PendingIntent::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1164,7 +1161,7 @@ void android_app_PendingIntent::writeToParcel(AndroidCXX::android_os_Parcel cons
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1230,7 +1227,7 @@ AndroidCXX::android_app_PendingIntent android_app_PendingIntent::getBroadcast(An
 	const char *methodSignature = "(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1358,7 +1355,7 @@ void android_app_PendingIntent::cancel()
 	const char *methodSignature = "()V";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1382,7 +1379,7 @@ AndroidCXX::android_app_PendingIntent android_app_PendingIntent::getActivity(And
 	const char *methodSignature = "(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1510,7 +1507,7 @@ AndroidCXX::android_app_PendingIntent android_app_PendingIntent::getActivity(And
 	const char *methodSignature = "(Landroid/content/Context;ILandroid/content/Intent;ILandroid/os/Bundle;)Landroid/app/PendingIntent;";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1659,7 +1656,7 @@ AndroidCXX::java_lang_String android_app_PendingIntent::getTargetPackage()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1703,7 +1700,7 @@ AndroidCXX::java_lang_String android_app_PendingIntent::getCreatorPackage()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1747,7 +1744,7 @@ int android_app_PendingIntent::getCreatorUid()
 	const char *methodSignature = "()I";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1791,7 +1788,7 @@ AndroidCXX::android_os_UserHandle android_app_PendingIntent::getCreatorUserHandl
 	const char *methodSignature = "()Landroid/os/UserHandle;";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1835,7 +1832,7 @@ AndroidCXX::android_app_PendingIntent android_app_PendingIntent::getActivities(A
 	const char *methodSignature = "(Landroid/content/Context;I[Landroid/content/Intent;ILandroid/os/Bundle;)Landroid/app/PendingIntent;";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2002,7 +1999,7 @@ AndroidCXX::android_app_PendingIntent android_app_PendingIntent::getActivities(A
 	const char *methodSignature = "(Landroid/content/Context;I[Landroid/content/Intent;I)Landroid/app/PendingIntent;";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2148,7 +2145,7 @@ AndroidCXX::android_content_IntentSender android_app_PendingIntent::getIntentSen
 	const char *methodSignature = "()Landroid/content/IntentSender;";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2192,7 +2189,7 @@ void android_app_PendingIntent::writePendingIntentOrNullToParcel(AndroidCXX::and
 	const char *methodSignature = "(Landroid/app/PendingIntent;Landroid/os/Parcel;)V";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2258,7 +2255,7 @@ AndroidCXX::android_app_PendingIntent android_app_PendingIntent::readPendingInte
 	const char *methodSignature = "(Landroid/os/Parcel;)Landroid/app/PendingIntent;";
 	const char *className = "android/app/PendingIntent";
 
-	LOGV("android_app_PendingIntent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -143,7 +143,7 @@ void com_facebook_widget_FacebookFragment::onDestroy()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/widget/FacebookFragment";
 
-	LOGV("com_facebook_widget_FacebookFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_FacebookFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -167,7 +167,7 @@ void com_facebook_widget_FacebookFragment::onActivityResult(int const& arg0,int 
 	const char *methodSignature = "(IILandroid/content/Intent;)V";
 	const char *className = "com/facebook/widget/FacebookFragment";
 
-	LOGV("com_facebook_widget_FacebookFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_FacebookFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -254,7 +254,7 @@ void com_facebook_widget_FacebookFragment::setSession(FacebookCXX::com_facebook_
 	const char *methodSignature = "(Lcom/facebook/Session;)V";
 	const char *className = "com/facebook/widget/FacebookFragment";
 
-	LOGV("com_facebook_widget_FacebookFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_FacebookFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -299,7 +299,7 @@ void com_facebook_widget_FacebookFragment::onActivityCreated(AndroidCXX::android
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/widget/FacebookFragment";
 
-	LOGV("com_facebook_widget_FacebookFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_FacebookFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

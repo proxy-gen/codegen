@@ -31,11 +31,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_AlphabetIndexer"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -128,7 +125,7 @@ android_widget_AlphabetIndexer::android_widget_AlphabetIndexer(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/database/Cursor;ILjava/lang/CharSequence;)V";
 	const char *className = "android/widget/AlphabetIndexer";
 
-	LOGV("android_widget_AlphabetIndexer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AlphabetIndexer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -242,7 +239,7 @@ void android_widget_AlphabetIndexer::onChanged()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AlphabetIndexer";
 
-	LOGV("android_widget_AlphabetIndexer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AlphabetIndexer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -266,7 +263,7 @@ void android_widget_AlphabetIndexer::onInvalidated()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AlphabetIndexer";
 
-	LOGV("android_widget_AlphabetIndexer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AlphabetIndexer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -290,7 +287,7 @@ std::vector<AndroidCXX::java_lang_Object > android_widget_AlphabetIndexer::getSe
 	const char *methodSignature = "()[Ljava/lang/Object;";
 	const char *className = "android/widget/AlphabetIndexer";
 
-	LOGV("android_widget_AlphabetIndexer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AlphabetIndexer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -352,7 +349,7 @@ int android_widget_AlphabetIndexer::getPositionForSection(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/widget/AlphabetIndexer";
 
-	LOGV("android_widget_AlphabetIndexer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AlphabetIndexer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -417,7 +414,7 @@ int android_widget_AlphabetIndexer::getSectionForPosition(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/widget/AlphabetIndexer";
 
-	LOGV("android_widget_AlphabetIndexer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AlphabetIndexer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -482,7 +479,7 @@ void android_widget_AlphabetIndexer::setCursor(AndroidCXX::android_database_Curs
 	const char *methodSignature = "(Landroid/database/Cursor;)V";
 	const char *className = "android/widget/AlphabetIndexer";
 
-	LOGV("android_widget_AlphabetIndexer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AlphabetIndexer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

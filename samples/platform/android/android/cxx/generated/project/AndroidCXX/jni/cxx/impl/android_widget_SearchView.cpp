@@ -74,11 +74,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_SearchView"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -216,7 +213,7 @@ android_widget_SearchView::android_widget_SearchView(AndroidCXX::android_content
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -294,7 +291,7 @@ android_widget_SearchView::android_widget_SearchView(AndroidCXX::android_content
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -366,7 +363,7 @@ AndroidCXX::java_lang_CharSequence android_widget_SearchView::getQuery()
 	const char *methodSignature = "()Ljava/lang/CharSequence;";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -410,7 +407,7 @@ bool android_widget_SearchView::onKeyDown(int const& arg0,AndroidCXX::android_vi
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -496,7 +493,7 @@ void android_widget_SearchView::onWindowFocusChanged(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -541,7 +538,7 @@ void android_widget_SearchView::onInitializeAccessibilityEvent(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -586,7 +583,7 @@ void android_widget_SearchView::onInitializeAccessibilityNodeInfo(AndroidCXX::an
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -631,7 +628,7 @@ void android_widget_SearchView::onRtlPropertiesChanged(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -676,7 +673,7 @@ void android_widget_SearchView::setMaxWidth(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -721,7 +718,7 @@ int android_widget_SearchView::getMaxWidth()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -765,7 +762,7 @@ void android_widget_SearchView::setInputType(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -810,7 +807,7 @@ int android_widget_SearchView::getInputType()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -854,7 +851,7 @@ void android_widget_SearchView::setImeOptions(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -899,7 +896,7 @@ int android_widget_SearchView::getImeOptions()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -943,7 +940,7 @@ void android_widget_SearchView::setSearchableInfo(AndroidCXX::android_app_Search
 	const char *methodSignature = "(Landroid/app/SearchableInfo;)V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -988,7 +985,7 @@ void android_widget_SearchView::setOnQueryTextListener(AndroidCXX::android_widge
 	const char *methodSignature = "(Landroid/widget/SearchView$OnQueryTextListener;)V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1033,7 +1030,7 @@ void android_widget_SearchView::setOnCloseListener(AndroidCXX::android_widget_Se
 	const char *methodSignature = "(Landroid/widget/SearchView$OnCloseListener;)V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1078,7 +1075,7 @@ void android_widget_SearchView::setOnQueryTextFocusChangeListener(AndroidCXX::an
 	const char *methodSignature = "(Landroid/view/View$OnFocusChangeListener;)V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1123,7 +1120,7 @@ void android_widget_SearchView::setOnSuggestionListener(AndroidCXX::android_widg
 	const char *methodSignature = "(Landroid/widget/SearchView$OnSuggestionListener;)V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1168,7 +1165,7 @@ void android_widget_SearchView::setOnSearchClickListener(AndroidCXX::android_vie
 	const char *methodSignature = "(Landroid/view/View$OnClickListener;)V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1213,7 +1210,7 @@ void android_widget_SearchView::setQuery(AndroidCXX::java_lang_CharSequence cons
 	const char *methodSignature = "(Ljava/lang/CharSequence;Z)V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1279,7 +1276,7 @@ void android_widget_SearchView::setQueryHint(AndroidCXX::java_lang_CharSequence 
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1324,7 +1321,7 @@ AndroidCXX::java_lang_CharSequence android_widget_SearchView::getQueryHint()
 	const char *methodSignature = "()Ljava/lang/CharSequence;";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1368,7 +1365,7 @@ void android_widget_SearchView::setIconifiedByDefault(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1413,7 +1410,7 @@ bool android_widget_SearchView::isIconfiedByDefault()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1457,7 +1454,7 @@ void android_widget_SearchView::setIconified(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1502,7 +1499,7 @@ bool android_widget_SearchView::isIconified()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1546,7 +1543,7 @@ void android_widget_SearchView::setSubmitButtonEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1591,7 +1588,7 @@ bool android_widget_SearchView::isSubmitButtonEnabled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1635,7 +1632,7 @@ void android_widget_SearchView::setQueryRefinementEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1680,7 +1677,7 @@ bool android_widget_SearchView::isQueryRefinementEnabled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1724,7 +1721,7 @@ void android_widget_SearchView::setSuggestionsAdapter(AndroidCXX::android_widget
 	const char *methodSignature = "(Landroid/widget/CursorAdapter;)V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1769,7 +1766,7 @@ AndroidCXX::android_widget_CursorAdapter android_widget_SearchView::getSuggestio
 	const char *methodSignature = "()Landroid/widget/CursorAdapter;";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1813,7 +1810,7 @@ void android_widget_SearchView::onActionViewCollapsed()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1837,7 +1834,7 @@ void android_widget_SearchView::onActionViewExpanded()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/SearchView";
 
-	LOGV("android_widget_SearchView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SearchView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

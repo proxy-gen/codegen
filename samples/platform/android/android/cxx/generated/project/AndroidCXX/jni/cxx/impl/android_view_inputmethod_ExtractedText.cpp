@@ -25,11 +25,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_inputmethod_ExtractedText"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -116,7 +113,7 @@ android_view_inputmethod_ExtractedText::android_view_inputmethod_ExtractedText()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/inputmethod/ExtractedText";
 
-	LOGV("android_view_inputmethod_ExtractedText className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_ExtractedText className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -167,7 +164,7 @@ int android_view_inputmethod_ExtractedText::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/inputmethod/ExtractedText";
 
-	LOGV("android_view_inputmethod_ExtractedText className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_ExtractedText className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -211,7 +208,7 @@ void android_view_inputmethod_ExtractedText::writeToParcel(AndroidCXX::android_o
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/view/inputmethod/ExtractedText";
 
-	LOGV("android_view_inputmethod_ExtractedText className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_ExtractedText className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

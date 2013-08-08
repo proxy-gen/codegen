@@ -124,7 +124,7 @@ com_facebook_android_DialogError::com_facebook_android_DialogError(AndroidCXX::j
 	const char *methodSignature = "(Ljava/lang/String;ILjava/lang/String;)V";
 	const char *className = "com/facebook/android/DialogError";
 
-	LOGV("com_facebook_android_DialogError className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_DialogError className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -238,7 +238,7 @@ int com_facebook_android_DialogError::getErrorCode()
 	const char *methodSignature = "()I";
 	const char *className = "com/facebook/android/DialogError";
 
-	LOGV("com_facebook_android_DialogError className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_DialogError className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -282,7 +282,7 @@ AndroidCXX::java_lang_String com_facebook_android_DialogError::getFailingUrl()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/android/DialogError";
 
-	LOGV("com_facebook_android_DialogError className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_DialogError className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

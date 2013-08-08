@@ -53,11 +53,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_net_DatagramPacket"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -165,7 +162,7 @@ java_net_DatagramPacket::java_net_DatagramPacket(std::vector<byte> const& arg0,i
 	const char *methodSignature = "([BII)V";
 	const char *className = "java/net/DatagramPacket";
 
-	LOGV("java_net_DatagramPacket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_DatagramPacket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -282,7 +279,7 @@ java_net_DatagramPacket::java_net_DatagramPacket(std::vector<byte> const& arg0,i
 	const char *methodSignature = "([BI)V";
 	const char *className = "java/net/DatagramPacket";
 
-	LOGV("java_net_DatagramPacket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_DatagramPacket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -378,7 +375,7 @@ java_net_DatagramPacket::java_net_DatagramPacket(std::vector<byte> const& arg0,i
 	const char *methodSignature = "([BIILjava/net/InetAddress;I)V";
 	const char *className = "java/net/DatagramPacket";
 
-	LOGV("java_net_DatagramPacket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_DatagramPacket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -537,7 +534,7 @@ java_net_DatagramPacket::java_net_DatagramPacket(std::vector<byte> const& arg0,i
 	const char *methodSignature = "([BIILjava/net/SocketAddress;)V";
 	const char *className = "java/net/DatagramPacket";
 
-	LOGV("java_net_DatagramPacket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_DatagramPacket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -675,7 +672,7 @@ java_net_DatagramPacket::java_net_DatagramPacket(std::vector<byte> const& arg0,i
 	const char *methodSignature = "([BILjava/net/InetAddress;I)V";
 	const char *className = "java/net/DatagramPacket";
 
-	LOGV("java_net_DatagramPacket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_DatagramPacket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -813,7 +810,7 @@ java_net_DatagramPacket::java_net_DatagramPacket(std::vector<byte> const& arg0,i
 	const char *methodSignature = "([BILjava/net/SocketAddress;)V";
 	const char *className = "java/net/DatagramPacket";
 
-	LOGV("java_net_DatagramPacket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_DatagramPacket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -945,7 +942,7 @@ int java_net_DatagramPacket::getLength()
 	const char *methodSignature = "()I";
 	const char *className = "java/net/DatagramPacket";
 
-	LOGV("java_net_DatagramPacket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_DatagramPacket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -989,7 +986,7 @@ AndroidCXX::java_net_InetAddress java_net_DatagramPacket::getAddress()
 	const char *methodSignature = "()Ljava/net/InetAddress;";
 	const char *className = "java/net/DatagramPacket";
 
-	LOGV("java_net_DatagramPacket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_DatagramPacket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1033,7 +1030,7 @@ void java_net_DatagramPacket::setLength(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/net/DatagramPacket";
 
-	LOGV("java_net_DatagramPacket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_DatagramPacket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1078,7 +1075,7 @@ int java_net_DatagramPacket::getOffset()
 	const char *methodSignature = "()I";
 	const char *className = "java/net/DatagramPacket";
 
-	LOGV("java_net_DatagramPacket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_DatagramPacket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1122,7 +1119,7 @@ int java_net_DatagramPacket::getPort()
 	const char *methodSignature = "()I";
 	const char *className = "java/net/DatagramPacket";
 
-	LOGV("java_net_DatagramPacket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_DatagramPacket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1166,7 +1163,7 @@ std::vector<byte> java_net_DatagramPacket::getData()
 	const char *methodSignature = "()[B";
 	const char *className = "java/net/DatagramPacket";
 
-	LOGV("java_net_DatagramPacket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_DatagramPacket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1228,7 +1225,7 @@ void java_net_DatagramPacket::setAddress(AndroidCXX::java_net_InetAddress const&
 	const char *methodSignature = "(Ljava/net/InetAddress;)V";
 	const char *className = "java/net/DatagramPacket";
 
-	LOGV("java_net_DatagramPacket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_DatagramPacket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1273,7 +1270,7 @@ void java_net_DatagramPacket::setPort(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/net/DatagramPacket";
 
-	LOGV("java_net_DatagramPacket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_DatagramPacket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1318,7 +1315,7 @@ void java_net_DatagramPacket::setData(std::vector<byte> const& arg0)
 	const char *methodSignature = "([B)V";
 	const char *className = "java/net/DatagramPacket";
 
-	LOGV("java_net_DatagramPacket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_DatagramPacket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1381,7 +1378,7 @@ void java_net_DatagramPacket::setData(std::vector<byte> const& arg0,int const& a
 	const char *methodSignature = "([BII)V";
 	const char *className = "java/net/DatagramPacket";
 
-	LOGV("java_net_DatagramPacket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_DatagramPacket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1486,7 +1483,7 @@ void java_net_DatagramPacket::setSocketAddress(AndroidCXX::java_net_SocketAddres
 	const char *methodSignature = "(Ljava/net/SocketAddress;)V";
 	const char *className = "java/net/DatagramPacket";
 
-	LOGV("java_net_DatagramPacket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_DatagramPacket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1531,7 +1528,7 @@ AndroidCXX::java_net_SocketAddress java_net_DatagramPacket::getSocketAddress()
 	const char *methodSignature = "()Ljava/net/SocketAddress;";
 	const char *className = "java/net/DatagramPacket";
 
-	LOGV("java_net_DatagramPacket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_DatagramPacket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

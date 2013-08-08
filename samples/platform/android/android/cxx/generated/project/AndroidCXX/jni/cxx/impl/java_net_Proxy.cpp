@@ -33,11 +33,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_net_Proxy"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -144,7 +141,7 @@ java_net_Proxy::java_net_Proxy(java_net_Proxy_Type::java_net_Proxy_Type const& a
 	const char *methodSignature = "(Ljava/net/Proxy$Type;Ljava/net/SocketAddress;)V";
 	const char *className = "java/net/Proxy";
 
-	LOGV("java_net_Proxy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Proxy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -237,7 +234,7 @@ java_net_Proxy_Type::java_net_Proxy_Type java_net_Proxy::type()
 	const char *methodSignature = "()Ljava/net/Proxy$Type;";
 	const char *className = "java/net/Proxy";
 
-	LOGV("java_net_Proxy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Proxy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -281,7 +278,7 @@ bool java_net_Proxy::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/net/Proxy";
 
-	LOGV("java_net_Proxy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Proxy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -346,7 +343,7 @@ AndroidCXX::java_lang_String java_net_Proxy::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/net/Proxy";
 
-	LOGV("java_net_Proxy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Proxy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -390,7 +387,7 @@ int java_net_Proxy::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "java/net/Proxy";
 
-	LOGV("java_net_Proxy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Proxy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -434,7 +431,7 @@ AndroidCXX::java_net_SocketAddress java_net_Proxy::address()
 	const char *methodSignature = "()Ljava/net/SocketAddress;";
 	const char *className = "java/net/Proxy";
 
-	LOGV("java_net_Proxy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Proxy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

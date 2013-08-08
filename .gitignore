@@ -15,10 +15,6 @@
 # Mac
 .DS_Store
 
-# Android
-libs
-*.o.d
-
 # iOS
 iOS/generator/out.xml
 
@@ -32,9 +28,9 @@ samples/platform/ios/facebook/TestFacebookCXX/build/
 # Python
 *.pyc
 
-# Generated
-libs
+# Android generated
 local.properties
+cxx/generated
 
 # Java
 *.class

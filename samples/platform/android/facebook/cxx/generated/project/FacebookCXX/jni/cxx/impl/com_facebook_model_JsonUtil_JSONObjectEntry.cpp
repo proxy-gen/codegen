@@ -143,7 +143,7 @@ AndroidCXX::java_lang_Object com_facebook_model_JsonUtil_JSONObjectEntry::getVal
 	const char *methodSignature = "()Ljava/lang/Object;";
 	const char *className = "com/facebook/model/JsonUtil$JSONObjectEntry";
 
-	LOGV("com_facebook_model_JsonUtil_JSONObjectEntry className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_JsonUtil_JSONObjectEntry className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -187,7 +187,7 @@ AndroidCXX::java_lang_String com_facebook_model_JsonUtil_JSONObjectEntry::getKey
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/model/JsonUtil$JSONObjectEntry";
 
-	LOGV("com_facebook_model_JsonUtil_JSONObjectEntry className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_JsonUtil_JSONObjectEntry className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -231,7 +231,7 @@ AndroidCXX::java_lang_Object com_facebook_model_JsonUtil_JSONObjectEntry::setVal
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/Object;";
 	const char *className = "com/facebook/model/JsonUtil$JSONObjectEntry";
 
-	LOGV("com_facebook_model_JsonUtil_JSONObjectEntry className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_JsonUtil_JSONObjectEntry className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

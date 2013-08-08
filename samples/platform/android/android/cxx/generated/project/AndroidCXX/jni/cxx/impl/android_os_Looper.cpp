@@ -34,17 +34,15 @@
 
 
 
+
 // Generated Code 
 
 #include <android_os_Looper.hpp>
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_os_Looper"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -167,7 +165,7 @@ AndroidCXX::java_lang_String android_os_Looper::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/os/Looper";
 
-	LOGV("android_os_Looper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Looper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -211,7 +209,7 @@ void android_os_Looper::loop()
 	const char *methodSignature = "()V";
 	const char *className = "android/os/Looper";
 
-	LOGV("android_os_Looper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Looper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -235,7 +233,7 @@ void android_os_Looper::dump(AndroidCXX::android_util_Printer const& arg0,Androi
 	const char *methodSignature = "(Landroid/util/Printer;Ljava/lang/String;)V";
 	const char *className = "android/os/Looper";
 
-	LOGV("android_os_Looper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Looper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -301,7 +299,7 @@ AndroidCXX::android_os_Looper android_os_Looper::myLooper()
 	const char *methodSignature = "()Landroid/os/Looper;";
 	const char *className = "android/os/Looper";
 
-	LOGV("android_os_Looper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Looper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -345,7 +343,7 @@ AndroidCXX::android_os_Looper android_os_Looper::getMainLooper()
 	const char *methodSignature = "()Landroid/os/Looper;";
 	const char *className = "android/os/Looper";
 
-	LOGV("android_os_Looper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Looper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -389,7 +387,7 @@ void android_os_Looper::prepare()
 	const char *methodSignature = "()V";
 	const char *className = "android/os/Looper";
 
-	LOGV("android_os_Looper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Looper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -413,7 +411,7 @@ void android_os_Looper::prepareMainLooper()
 	const char *methodSignature = "()V";
 	const char *className = "android/os/Looper";
 
-	LOGV("android_os_Looper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Looper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -437,7 +435,7 @@ void android_os_Looper::setMessageLogging(AndroidCXX::android_util_Printer const
 	const char *methodSignature = "(Landroid/util/Printer;)V";
 	const char *className = "android/os/Looper";
 
-	LOGV("android_os_Looper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Looper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -482,7 +480,7 @@ AndroidCXX::android_os_MessageQueue android_os_Looper::myQueue()
 	const char *methodSignature = "()Landroid/os/MessageQueue;";
 	const char *className = "android/os/Looper";
 
-	LOGV("android_os_Looper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Looper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -526,7 +524,7 @@ void android_os_Looper::quit()
 	const char *methodSignature = "()V";
 	const char *className = "android/os/Looper";
 
-	LOGV("android_os_Looper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Looper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -542,6 +540,30 @@ void android_os_Looper::quit()
 	LOGV("void android_os_Looper::quit() exit");
 
 }
+void android_os_Looper::quitSafely()
+{
+	LOGV("void android_os_Looper::quitSafely() enter");
+
+	const char *methodName = "quitSafely";
+	const char *methodSignature = "()V";
+	const char *className = "android/os/Looper";
+
+	LOGV("android_os_Looper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_os_Looper cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_os_Looper jni address %d", javaObject);
+
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
+		
+	LOGV("void android_os_Looper::quitSafely() exit");
+
+}
 AndroidCXX::java_lang_Thread android_os_Looper::getThread()
 {
 	LOGV("AndroidCXX::java_lang_Thread android_os_Looper::getThread() enter");
@@ -550,7 +572,7 @@ AndroidCXX::java_lang_Thread android_os_Looper::getThread()
 	const char *methodSignature = "()Ljava/lang/Thread;";
 	const char *className = "android/os/Looper";
 
-	LOGV("android_os_Looper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Looper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

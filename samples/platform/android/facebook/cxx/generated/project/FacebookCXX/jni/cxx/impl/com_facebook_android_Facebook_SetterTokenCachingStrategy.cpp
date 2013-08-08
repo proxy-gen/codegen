@@ -135,7 +135,7 @@ void com_facebook_android_Facebook_SetterTokenCachingStrategy::clear()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/android/Facebook$SetterTokenCachingStrategy";
 
-	LOGV("com_facebook_android_Facebook_SetterTokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_Facebook_SetterTokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -159,7 +159,7 @@ AndroidCXX::android_os_Bundle com_facebook_android_Facebook_SetterTokenCachingSt
 	const char *methodSignature = "()Landroid/os/Bundle;";
 	const char *className = "com/facebook/android/Facebook$SetterTokenCachingStrategy";
 
-	LOGV("com_facebook_android_Facebook_SetterTokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_Facebook_SetterTokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -203,7 +203,7 @@ void com_facebook_android_Facebook_SetterTokenCachingStrategy::save(AndroidCXX::
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/android/Facebook$SetterTokenCachingStrategy";
 
-	LOGV("com_facebook_android_Facebook_SetterTokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_Facebook_SetterTokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

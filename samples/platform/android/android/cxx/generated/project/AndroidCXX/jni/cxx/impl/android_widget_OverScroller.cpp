@@ -52,11 +52,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_OverScroller"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -161,7 +158,7 @@ android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_con
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -218,7 +215,7 @@ android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_con
 	const char *methodSignature = "(Landroid/content/Context;Landroid/view/animation/Interpolator;)V";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -296,7 +293,7 @@ android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_con
 	const char *methodSignature = "(Landroid/content/Context;Landroid/view/animation/Interpolator;FF)V";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -416,7 +413,7 @@ android_widget_OverScroller::android_widget_OverScroller(AndroidCXX::android_con
 	const char *methodSignature = "(Landroid/content/Context;Landroid/view/animation/Interpolator;FFZ)V";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -572,7 +569,7 @@ void android_widget_OverScroller::setFriction(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -617,7 +614,7 @@ bool android_widget_OverScroller::isFinished()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -661,7 +658,7 @@ void android_widget_OverScroller::forceFinished(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -706,7 +703,7 @@ int android_widget_OverScroller::getCurrX()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -750,7 +747,7 @@ int android_widget_OverScroller::getCurrY()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -794,7 +791,7 @@ float android_widget_OverScroller::getCurrVelocity()
 	const char *methodSignature = "()F";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -838,7 +835,7 @@ int android_widget_OverScroller::getStartX()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -882,7 +879,7 @@ int android_widget_OverScroller::getStartY()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -926,7 +923,7 @@ int android_widget_OverScroller::getFinalX()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -970,7 +967,7 @@ int android_widget_OverScroller::getFinalY()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1014,7 +1011,7 @@ bool android_widget_OverScroller::computeScrollOffset()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1058,7 +1055,7 @@ void android_widget_OverScroller::startScroll(int const& arg0,int const& arg1,in
 	const char *methodSignature = "(IIII)V";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1166,7 +1163,7 @@ void android_widget_OverScroller::startScroll(int const& arg0,int const& arg1,in
 	const char *methodSignature = "(IIIII)V";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1295,7 +1292,7 @@ void android_widget_OverScroller::fling(int const& arg0,int const& arg1,int cons
 	const char *methodSignature = "(IIIIIIII)V";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1487,7 +1484,7 @@ void android_widget_OverScroller::fling(int const& arg0,int const& arg1,int cons
 	const char *methodSignature = "(IIIIIIIIII)V";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1721,7 +1718,7 @@ void android_widget_OverScroller::abortAnimation()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1745,7 +1742,7 @@ bool android_widget_OverScroller::springBack(int const& arg0,int const& arg1,int
 	const char *methodSignature = "(IIIIII)Z";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1915,7 +1912,7 @@ void android_widget_OverScroller::notifyHorizontalEdgeReached(int const& arg0,in
 	const char *methodSignature = "(III)V";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2002,7 +1999,7 @@ void android_widget_OverScroller::notifyVerticalEdgeReached(int const& arg0,int 
 	const char *methodSignature = "(III)V";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2089,7 +2086,7 @@ bool android_widget_OverScroller::isOverScrolled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/OverScroller";
 
-	LOGV("android_widget_OverScroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_OverScroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

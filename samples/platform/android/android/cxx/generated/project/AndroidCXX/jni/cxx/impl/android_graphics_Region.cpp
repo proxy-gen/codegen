@@ -84,11 +84,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_Region"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -241,7 +238,7 @@ android_graphics_Region::android_graphics_Region()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -277,7 +274,7 @@ android_graphics_Region::android_graphics_Region(AndroidCXX::android_graphics_Re
 	const char *methodSignature = "(Landroid/graphics/Region;)V";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -334,7 +331,7 @@ android_graphics_Region::android_graphics_Region(AndroidCXX::android_graphics_Re
 	const char *methodSignature = "(Landroid/graphics/Rect;)V";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -391,7 +388,7 @@ android_graphics_Region::android_graphics_Region(int const& arg0,int const& arg1
 	const char *methodSignature = "(IIII)V";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -526,7 +523,7 @@ bool android_graphics_Region::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -591,7 +588,7 @@ AndroidCXX::java_lang_String android_graphics_Region::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -635,7 +632,7 @@ bool android_graphics_Region::isEmpty()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -679,7 +676,7 @@ bool android_graphics_Region::contains(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)Z";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -765,7 +762,7 @@ bool android_graphics_Region::set(int const& arg0,int const& arg1,int const& arg
 	const char *methodSignature = "(IIII)Z";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -893,7 +890,7 @@ bool android_graphics_Region::set(AndroidCXX::android_graphics_Rect const& arg0)
 	const char *methodSignature = "(Landroid/graphics/Rect;)Z";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -958,7 +955,7 @@ bool android_graphics_Region::set(AndroidCXX::android_graphics_Region const& arg
 	const char *methodSignature = "(Landroid/graphics/Region;)Z";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1023,7 +1020,7 @@ bool android_graphics_Region::_union(AndroidCXX::android_graphics_Rect const& ar
 	const char *methodSignature = "(Landroid/graphics/Rect;)Z";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1088,7 +1085,7 @@ bool android_graphics_Region::getBounds(AndroidCXX::android_graphics_Rect const&
 	const char *methodSignature = "(Landroid/graphics/Rect;)Z";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1153,7 +1150,7 @@ AndroidCXX::android_graphics_Rect android_graphics_Region::getBounds()
 	const char *methodSignature = "()Landroid/graphics/Rect;";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1197,7 +1194,7 @@ int android_graphics_Region::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1241,7 +1238,7 @@ void android_graphics_Region::writeToParcel(AndroidCXX::android_os_Parcel const&
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1307,7 +1304,7 @@ void android_graphics_Region::setEmpty()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1331,7 +1328,7 @@ void android_graphics_Region::translate(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)V";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1397,7 +1394,7 @@ void android_graphics_Region::translate(int const& arg0,int const& arg1,AndroidC
 	const char *methodSignature = "(IILandroid/graphics/Region;)V";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1484,7 +1481,7 @@ bool android_graphics_Region::op(AndroidCXX::android_graphics_Rect const& arg0,A
 	const char *methodSignature = "(Landroid/graphics/Rect;Landroid/graphics/Region;Landroid/graphics/Region$Op;)Z";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1591,7 +1588,7 @@ bool android_graphics_Region::op(int const& arg0,int const& arg1,int const& arg2
 	const char *methodSignature = "(IIIILandroid/graphics/Region$Op;)Z";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1740,7 +1737,7 @@ bool android_graphics_Region::op(AndroidCXX::android_graphics_Rect const& arg0,a
 	const char *methodSignature = "(Landroid/graphics/Rect;Landroid/graphics/Region$Op;)Z";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1826,7 +1823,7 @@ bool android_graphics_Region::op(AndroidCXX::android_graphics_Region const& arg0
 	const char *methodSignature = "(Landroid/graphics/Region;Landroid/graphics/Region;Landroid/graphics/Region$Op;)Z";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1933,7 +1930,7 @@ bool android_graphics_Region::op(AndroidCXX::android_graphics_Region const& arg0
 	const char *methodSignature = "(Landroid/graphics/Region;Landroid/graphics/Region$Op;)Z";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2019,7 +2016,7 @@ bool android_graphics_Region::quickReject(AndroidCXX::android_graphics_Rect cons
 	const char *methodSignature = "(Landroid/graphics/Rect;)Z";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2084,7 +2081,7 @@ bool android_graphics_Region::quickReject(int const& arg0,int const& arg1,int co
 	const char *methodSignature = "(IIII)Z";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2212,7 +2209,7 @@ bool android_graphics_Region::quickReject(AndroidCXX::android_graphics_Region co
 	const char *methodSignature = "(Landroid/graphics/Region;)Z";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2277,7 +2274,7 @@ bool android_graphics_Region::setPath(AndroidCXX::android_graphics_Path const& a
 	const char *methodSignature = "(Landroid/graphics/Path;Landroid/graphics/Region;)Z";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2363,7 +2360,7 @@ bool android_graphics_Region::isRect()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2407,7 +2404,7 @@ bool android_graphics_Region::isComplex()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2451,7 +2448,7 @@ AndroidCXX::android_graphics_Path android_graphics_Region::getBoundaryPath()
 	const char *methodSignature = "()Landroid/graphics/Path;";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2495,7 +2492,7 @@ bool android_graphics_Region::getBoundaryPath(AndroidCXX::android_graphics_Path 
 	const char *methodSignature = "(Landroid/graphics/Path;)Z";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2560,7 +2557,7 @@ bool android_graphics_Region::quickContains(int const& arg0,int const& arg1,int 
 	const char *methodSignature = "(IIII)Z";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2688,7 +2685,7 @@ bool android_graphics_Region::quickContains(AndroidCXX::android_graphics_Rect co
 	const char *methodSignature = "(Landroid/graphics/Rect;)Z";
 	const char *className = "android/graphics/Region";
 
-	LOGV("android_graphics_Region className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Region className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

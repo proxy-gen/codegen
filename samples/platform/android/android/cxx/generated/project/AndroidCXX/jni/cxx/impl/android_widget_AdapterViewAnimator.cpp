@@ -73,11 +73,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_AdapterViewAnimator"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -224,7 +221,7 @@ android_widget_AdapterViewAnimator::android_widget_AdapterViewAnimator(AndroidCX
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -281,7 +278,7 @@ android_widget_AdapterViewAnimator::android_widget_AdapterViewAnimator(AndroidCX
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -359,7 +356,7 @@ android_widget_AdapterViewAnimator::android_widget_AdapterViewAnimator(AndroidCX
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -473,7 +470,7 @@ void android_widget_AdapterViewAnimator::advance()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -497,7 +494,7 @@ AndroidCXX::android_os_Parcelable android_widget_AdapterViewAnimator::onSaveInst
 	const char *methodSignature = "()Landroid/os/Parcelable;";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -541,7 +538,7 @@ void android_widget_AdapterViewAnimator::onRestoreInstanceState(AndroidCXX::andr
 	const char *methodSignature = "(Landroid/os/Parcelable;)V";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -586,7 +583,7 @@ bool android_widget_AdapterViewAnimator::onTouchEvent(AndroidCXX::android_view_M
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -651,7 +648,7 @@ void android_widget_AdapterViewAnimator::onInitializeAccessibilityEvent(AndroidC
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -696,7 +693,7 @@ void android_widget_AdapterViewAnimator::onInitializeAccessibilityNodeInfo(Andro
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -741,7 +738,7 @@ int android_widget_AdapterViewAnimator::getBaseline()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -785,7 +782,7 @@ void android_widget_AdapterViewAnimator::setSelection(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -830,7 +827,7 @@ void android_widget_AdapterViewAnimator::setAdapter(AndroidCXX::android_widget_A
 	const char *methodSignature = "(Landroid/widget/Adapter;)V";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -875,7 +872,7 @@ AndroidCXX::android_view_View android_widget_AdapterViewAnimator::getSelectedVie
 	const char *methodSignature = "()Landroid/view/View;";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -919,7 +916,7 @@ void android_widget_AdapterViewAnimator::setRemoteViewsAdapter(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/content/Intent;)V";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -964,7 +961,7 @@ void android_widget_AdapterViewAnimator::deferNotifyDataSetChanged()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -988,7 +985,7 @@ bool android_widget_AdapterViewAnimator::onRemoteAdapterConnected()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1032,7 +1029,7 @@ void android_widget_AdapterViewAnimator::onRemoteAdapterDisconnected()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1056,7 +1053,7 @@ AndroidCXX::android_widget_Adapter android_widget_AdapterViewAnimator::getAdapte
 	const char *methodSignature = "()Landroid/widget/Adapter;";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1100,7 +1097,7 @@ void android_widget_AdapterViewAnimator::fyiWillBeAdvancedByHostKThx()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1124,7 +1121,7 @@ void android_widget_AdapterViewAnimator::showNext()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1148,7 +1145,7 @@ void android_widget_AdapterViewAnimator::showPrevious()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1172,7 +1169,7 @@ void android_widget_AdapterViewAnimator::setDisplayedChild(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1217,7 +1214,7 @@ int android_widget_AdapterViewAnimator::getDisplayedChild()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1261,7 +1258,7 @@ AndroidCXX::android_view_View android_widget_AdapterViewAnimator::getCurrentView
 	const char *methodSignature = "()Landroid/view/View;";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1305,7 +1302,7 @@ AndroidCXX::android_animation_ObjectAnimator android_widget_AdapterViewAnimator:
 	const char *methodSignature = "()Landroid/animation/ObjectAnimator;";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1349,7 +1346,7 @@ void android_widget_AdapterViewAnimator::setInAnimation(AndroidCXX::android_anim
 	const char *methodSignature = "(Landroid/animation/ObjectAnimator;)V";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1394,7 +1391,7 @@ void android_widget_AdapterViewAnimator::setInAnimation(AndroidCXX::android_cont
 	const char *methodSignature = "(Landroid/content/Context;I)V";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1460,7 +1457,7 @@ AndroidCXX::android_animation_ObjectAnimator android_widget_AdapterViewAnimator:
 	const char *methodSignature = "()Landroid/animation/ObjectAnimator;";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1504,7 +1501,7 @@ void android_widget_AdapterViewAnimator::setOutAnimation(AndroidCXX::android_ani
 	const char *methodSignature = "(Landroid/animation/ObjectAnimator;)V";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1549,7 +1546,7 @@ void android_widget_AdapterViewAnimator::setOutAnimation(AndroidCXX::android_con
 	const char *methodSignature = "(Landroid/content/Context;I)V";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1615,7 +1612,7 @@ void android_widget_AdapterViewAnimator::setAnimateFirstView(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/AdapterViewAnimator";
 
-	LOGV("android_widget_AdapterViewAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

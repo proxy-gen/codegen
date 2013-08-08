@@ -172,7 +172,7 @@ void com_facebook_android_AsyncFacebookRunner_RequestListener::onComplete(Androi
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/Object;)V";
 	const char *className = "com/facebook/android/AsyncFacebookRunner$RequestListener";
 
-	LOGV("com_facebook_android_AsyncFacebookRunner_RequestListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_AsyncFacebookRunner_RequestListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -238,7 +238,7 @@ void com_facebook_android_AsyncFacebookRunner_RequestListener::onFacebookError(F
 	const char *methodSignature = "(Lcom/facebook/android/FacebookError;Ljava/lang/Object;)V";
 	const char *className = "com/facebook/android/AsyncFacebookRunner$RequestListener";
 
-	LOGV("com_facebook_android_AsyncFacebookRunner_RequestListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_AsyncFacebookRunner_RequestListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -304,7 +304,7 @@ void com_facebook_android_AsyncFacebookRunner_RequestListener::onFileNotFoundExc
 	const char *methodSignature = "(Ljava/io/FileNotFoundException;Ljava/lang/Object;)V";
 	const char *className = "com/facebook/android/AsyncFacebookRunner$RequestListener";
 
-	LOGV("com_facebook_android_AsyncFacebookRunner_RequestListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_AsyncFacebookRunner_RequestListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -370,7 +370,7 @@ void com_facebook_android_AsyncFacebookRunner_RequestListener::onMalformedURLExc
 	const char *methodSignature = "(Ljava/net/MalformedURLException;Ljava/lang/Object;)V";
 	const char *className = "com/facebook/android/AsyncFacebookRunner$RequestListener";
 
-	LOGV("com_facebook_android_AsyncFacebookRunner_RequestListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_AsyncFacebookRunner_RequestListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -436,7 +436,7 @@ void com_facebook_android_AsyncFacebookRunner_RequestListener::onIOException(And
 	const char *methodSignature = "(Ljava/io/IOException;Ljava/lang/Object;)V";
 	const char *className = "com/facebook/android/AsyncFacebookRunner$RequestListener";
 
-	LOGV("com_facebook_android_AsyncFacebookRunner_RequestListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_AsyncFacebookRunner_RequestListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

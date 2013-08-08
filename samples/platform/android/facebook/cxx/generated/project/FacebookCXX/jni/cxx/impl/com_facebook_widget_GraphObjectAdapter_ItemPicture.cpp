@@ -127,7 +127,7 @@ FacebookCXX::com_facebook_widget_GraphObjectAdapter_ItemPictureData com_facebook
 	const char *methodSignature = "()Lcom/facebook/widget/GraphObjectAdapter$ItemPictureData;";
 	const char *className = "com/facebook/widget/GraphObjectAdapter$ItemPicture";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter_ItemPicture className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter_ItemPicture className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

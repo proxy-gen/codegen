@@ -127,7 +127,7 @@ void com_facebook_AuthorizationClient_5::onBatchCompleted(FacebookCXX::com_faceb
 	const char *methodSignature = "(Lcom/facebook/RequestBatch;)V";
 	const char *className = "com/facebook/AuthorizationClient$5";
 
-	LOGV("com_facebook_AuthorizationClient_5 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_AuthorizationClient_5 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

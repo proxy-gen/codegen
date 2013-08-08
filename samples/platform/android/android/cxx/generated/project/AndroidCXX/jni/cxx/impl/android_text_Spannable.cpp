@@ -25,11 +25,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_text_Spannable"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -134,7 +131,7 @@ void android_text_Spannable::setSpan(AndroidCXX::java_lang_Object const& arg0,in
 	const char *methodSignature = "(Ljava/lang/Object;III)V";
 	const char *className = "android/text/Spannable";
 
-	LOGV("android_text_Spannable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Spannable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -242,7 +239,7 @@ void android_text_Spannable::removeSpan(AndroidCXX::java_lang_Object const& arg0
 	const char *methodSignature = "(Ljava/lang/Object;)V";
 	const char *className = "android/text/Spannable";
 
-	LOGV("android_text_Spannable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Spannable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

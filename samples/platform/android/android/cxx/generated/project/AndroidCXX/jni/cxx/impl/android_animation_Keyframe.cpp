@@ -50,11 +50,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_animation_Keyframe"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -177,7 +174,7 @@ android_animation_Keyframe::android_animation_Keyframe()
 	const char *methodSignature = "()V";
 	const char *className = "android/animation/Keyframe";
 
-	LOGV("android_animation_Keyframe className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_Keyframe className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -228,7 +225,7 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::clone()
 	const char *methodSignature = "()Landroid/animation/Keyframe;";
 	const char *className = "android/animation/Keyframe";
 
-	LOGV("android_animation_Keyframe className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_Keyframe className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -272,7 +269,7 @@ AndroidCXX::java_lang_Object android_animation_Keyframe::getValue()
 	const char *methodSignature = "()Ljava/lang/Object;";
 	const char *className = "android/animation/Keyframe";
 
-	LOGV("android_animation_Keyframe className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_Keyframe className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -316,7 +313,7 @@ AndroidCXX::java_lang_Class android_animation_Keyframe::getType()
 	const char *methodSignature = "()Ljava/lang/Class;";
 	const char *className = "android/animation/Keyframe";
 
-	LOGV("android_animation_Keyframe className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_Keyframe className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -360,7 +357,7 @@ void android_animation_Keyframe::setValue(AndroidCXX::java_lang_Object const& ar
 	const char *methodSignature = "(Ljava/lang/Object;)V";
 	const char *className = "android/animation/Keyframe";
 
-	LOGV("android_animation_Keyframe className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_Keyframe className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -405,7 +402,7 @@ void android_animation_Keyframe::setInterpolator(AndroidCXX::android_animation_T
 	const char *methodSignature = "(Landroid/animation/TimeInterpolator;)V";
 	const char *className = "android/animation/Keyframe";
 
-	LOGV("android_animation_Keyframe className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_Keyframe className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -450,7 +447,7 @@ float android_animation_Keyframe::getFraction()
 	const char *methodSignature = "()F";
 	const char *className = "android/animation/Keyframe";
 
-	LOGV("android_animation_Keyframe className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_Keyframe className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -494,7 +491,7 @@ AndroidCXX::android_animation_TimeInterpolator android_animation_Keyframe::getIn
 	const char *methodSignature = "()Landroid/animation/TimeInterpolator;";
 	const char *className = "android/animation/Keyframe";
 
-	LOGV("android_animation_Keyframe className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_Keyframe className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -538,7 +535,7 @@ bool android_animation_Keyframe::hasValue()
 	const char *methodSignature = "()Z";
 	const char *className = "android/animation/Keyframe";
 
-	LOGV("android_animation_Keyframe className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_Keyframe className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -582,7 +579,7 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofInt(float c
 	const char *methodSignature = "(F)Landroid/animation/Keyframe;";
 	const char *className = "android/animation/Keyframe";
 
-	LOGV("android_animation_Keyframe className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_Keyframe className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -647,7 +644,7 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofInt(float c
 	const char *methodSignature = "(FI)Landroid/animation/Keyframe;";
 	const char *className = "android/animation/Keyframe";
 
-	LOGV("android_animation_Keyframe className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_Keyframe className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -733,7 +730,7 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofFloat(float
 	const char *methodSignature = "(F)Landroid/animation/Keyframe;";
 	const char *className = "android/animation/Keyframe";
 
-	LOGV("android_animation_Keyframe className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_Keyframe className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -798,7 +795,7 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofFloat(float
 	const char *methodSignature = "(FF)Landroid/animation/Keyframe;";
 	const char *className = "android/animation/Keyframe";
 
-	LOGV("android_animation_Keyframe className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_Keyframe className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -884,7 +881,7 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofObject(floa
 	const char *methodSignature = "(F)Landroid/animation/Keyframe;";
 	const char *className = "android/animation/Keyframe";
 
-	LOGV("android_animation_Keyframe className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_Keyframe className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -949,7 +946,7 @@ AndroidCXX::android_animation_Keyframe android_animation_Keyframe::ofObject(floa
 	const char *methodSignature = "(FLjava/lang/Object;)Landroid/animation/Keyframe;";
 	const char *className = "android/animation/Keyframe";
 
-	LOGV("android_animation_Keyframe className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_Keyframe className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1035,7 +1032,7 @@ void android_animation_Keyframe::setFraction(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "android/animation/Keyframe";
 
-	LOGV("android_animation_Keyframe className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_Keyframe className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

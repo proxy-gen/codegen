@@ -40,11 +40,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_ResourceCursorTreeAdapter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -170,7 +167,7 @@ android_widget_ResourceCursorTreeAdapter::android_widget_ResourceCursorTreeAdapt
 	const char *methodSignature = "(Landroid/content/Context;Landroid/database/Cursor;IIII)V";
 	const char *className = "android/widget/ResourceCursorTreeAdapter";
 
-	LOGV("android_widget_ResourceCursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ResourceCursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -332,7 +329,7 @@ android_widget_ResourceCursorTreeAdapter::android_widget_ResourceCursorTreeAdapt
 	const char *methodSignature = "(Landroid/content/Context;Landroid/database/Cursor;III)V";
 	const char *className = "android/widget/ResourceCursorTreeAdapter";
 
-	LOGV("android_widget_ResourceCursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ResourceCursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -473,7 +470,7 @@ android_widget_ResourceCursorTreeAdapter::android_widget_ResourceCursorTreeAdapt
 	const char *methodSignature = "(Landroid/content/Context;Landroid/database/Cursor;II)V";
 	const char *className = "android/widget/ResourceCursorTreeAdapter";
 
-	LOGV("android_widget_ResourceCursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ResourceCursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -608,7 +605,7 @@ AndroidCXX::android_view_View android_widget_ResourceCursorTreeAdapter::newGroup
 	const char *methodSignature = "(Landroid/content/Context;Landroid/database/Cursor;ZLandroid/view/ViewGroup;)Landroid/view/View;";
 	const char *className = "android/widget/ResourceCursorTreeAdapter";
 
-	LOGV("android_widget_ResourceCursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ResourceCursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -736,7 +733,7 @@ AndroidCXX::android_view_View android_widget_ResourceCursorTreeAdapter::newChild
 	const char *methodSignature = "(Landroid/content/Context;Landroid/database/Cursor;ZLandroid/view/ViewGroup;)Landroid/view/View;";
 	const char *className = "android/widget/ResourceCursorTreeAdapter";
 
-	LOGV("android_widget_ResourceCursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ResourceCursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

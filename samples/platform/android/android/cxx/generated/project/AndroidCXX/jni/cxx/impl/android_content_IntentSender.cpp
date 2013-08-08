@@ -53,11 +53,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_content_IntentSender"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -213,7 +210,7 @@ bool android_content_IntentSender::equals(AndroidCXX::java_lang_Object const& ar
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "android/content/IntentSender";
 
-	LOGV("android_content_IntentSender className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentSender className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -278,7 +275,7 @@ AndroidCXX::java_lang_String android_content_IntentSender::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/content/IntentSender";
 
-	LOGV("android_content_IntentSender className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentSender className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -322,7 +319,7 @@ int android_content_IntentSender::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/IntentSender";
 
-	LOGV("android_content_IntentSender className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentSender className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -366,7 +363,7 @@ int android_content_IntentSender::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/IntentSender";
 
-	LOGV("android_content_IntentSender className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentSender className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -410,7 +407,7 @@ void android_content_IntentSender::writeToParcel(AndroidCXX::android_os_Parcel c
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/content/IntentSender";
 
-	LOGV("android_content_IntentSender className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentSender className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -476,7 +473,7 @@ void android_content_IntentSender::sendIntent(AndroidCXX::android_content_Contex
 	const char *methodSignature = "(Landroid/content/Context;ILandroid/content/Intent;Landroid/content/IntentSender$OnFinished;Landroid/os/Handler;)V";
 	const char *className = "android/content/IntentSender";
 
-	LOGV("android_content_IntentSender className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentSender className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -605,7 +602,7 @@ void android_content_IntentSender::sendIntent(AndroidCXX::android_content_Contex
 	const char *methodSignature = "(Landroid/content/Context;ILandroid/content/Intent;Landroid/content/IntentSender$OnFinished;Landroid/os/Handler;Ljava/lang/String;)V";
 	const char *className = "android/content/IntentSender";
 
-	LOGV("android_content_IntentSender className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentSender className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -755,7 +752,7 @@ AndroidCXX::java_lang_String android_content_IntentSender::getTargetPackage()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/content/IntentSender";
 
-	LOGV("android_content_IntentSender className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentSender className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -799,7 +796,7 @@ AndroidCXX::java_lang_String android_content_IntentSender::getCreatorPackage()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/content/IntentSender";
 
-	LOGV("android_content_IntentSender className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentSender className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -843,7 +840,7 @@ int android_content_IntentSender::getCreatorUid()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/IntentSender";
 
-	LOGV("android_content_IntentSender className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentSender className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -887,7 +884,7 @@ AndroidCXX::android_os_UserHandle android_content_IntentSender::getCreatorUserHa
 	const char *methodSignature = "()Landroid/os/UserHandle;";
 	const char *className = "android/content/IntentSender";
 
-	LOGV("android_content_IntentSender className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentSender className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -931,7 +928,7 @@ void android_content_IntentSender::writeIntentSenderOrNullToParcel(AndroidCXX::a
 	const char *methodSignature = "(Landroid/content/IntentSender;Landroid/os/Parcel;)V";
 	const char *className = "android/content/IntentSender";
 
-	LOGV("android_content_IntentSender className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentSender className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -997,7 +994,7 @@ AndroidCXX::android_content_IntentSender android_content_IntentSender::readInten
 	const char *methodSignature = "(Landroid/os/Parcel;)Landroid/content/IntentSender;";
 	const char *className = "android/content/IntentSender";
 
-	LOGV("android_content_IntentSender className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentSender className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

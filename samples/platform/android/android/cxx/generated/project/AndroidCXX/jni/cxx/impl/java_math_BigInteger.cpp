@@ -126,11 +126,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_math_BigInteger"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -373,7 +370,7 @@ java_math_BigInteger::java_math_BigInteger(int const& arg0,std::vector<byte> con
 	const char *methodSignature = "(I[B)V";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -469,7 +466,7 @@ java_math_BigInteger::java_math_BigInteger(AndroidCXX::java_lang_String const& a
 	const char *methodSignature = "(Ljava/lang/String;I)V";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -547,7 +544,7 @@ java_math_BigInteger::java_math_BigInteger(std::vector<byte> const& arg0)
 	const char *methodSignature = "([B)V";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -622,7 +619,7 @@ java_math_BigInteger::java_math_BigInteger(AndroidCXX::java_lang_String const& a
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -679,7 +676,7 @@ java_math_BigInteger::java_math_BigInteger(int const& arg0,AndroidCXX::java_util
 	const char *methodSignature = "(ILjava/util/Random;)V";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -757,7 +754,7 @@ java_math_BigInteger::java_math_BigInteger(int const& arg0,int const& arg1,Andro
 	const char *methodSignature = "(IILjava/util/Random;)V";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -871,7 +868,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::add(AndroidCXX::java_math
 	const char *methodSignature = "(Ljava/math/BigInteger;)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -936,7 +933,7 @@ int java_math_BigInteger::bitCount()
 	const char *methodSignature = "()I";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -980,7 +977,7 @@ bool java_math_BigInteger::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1045,7 +1042,7 @@ AndroidCXX::java_lang_String java_math_BigInteger::toString(int const& arg0)
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1110,7 +1107,7 @@ AndroidCXX::java_lang_String java_math_BigInteger::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1154,7 +1151,7 @@ int java_math_BigInteger::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1198,7 +1195,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::abs()
 	const char *methodSignature = "()Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1242,7 +1239,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::pow(int const& arg0)
 	const char *methodSignature = "(I)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1307,7 +1304,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::min(AndroidCXX::java_math
 	const char *methodSignature = "(Ljava/math/BigInteger;)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1372,7 +1369,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::max(AndroidCXX::java_math
 	const char *methodSignature = "(Ljava/math/BigInteger;)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1437,7 +1434,7 @@ int java_math_BigInteger::compareTo(AndroidCXX::java_math_BigInteger const& arg0
 	const char *methodSignature = "(Ljava/math/BigInteger;)I";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1502,7 +1499,7 @@ int java_math_BigInteger::intValue()
 	const char *methodSignature = "()I";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1546,7 +1543,7 @@ long java_math_BigInteger::longValue()
 	const char *methodSignature = "()J";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1590,7 +1587,7 @@ float java_math_BigInteger::floatValue()
 	const char *methodSignature = "()F";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1634,7 +1631,7 @@ double java_math_BigInteger::doubleValue()
 	const char *methodSignature = "()D";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1678,7 +1675,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::valueOf(long const& arg0)
 	const char *methodSignature = "(J)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1743,7 +1740,7 @@ int java_math_BigInteger::signum()
 	const char *methodSignature = "()I";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1787,7 +1784,7 @@ std::vector<byte> java_math_BigInteger::toByteArray()
 	const char *methodSignature = "()[B";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1849,7 +1846,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::_and(AndroidCXX::java_mat
 	const char *methodSignature = "(Ljava/math/BigInteger;)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1914,7 +1911,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::_or(AndroidCXX::java_math
 	const char *methodSignature = "(Ljava/math/BigInteger;)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1979,7 +1976,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::_xor(AndroidCXX::java_mat
 	const char *methodSignature = "(Ljava/math/BigInteger;)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2044,7 +2041,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::andNot(AndroidCXX::java_m
 	const char *methodSignature = "(Ljava/math/BigInteger;)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2109,7 +2106,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::subtract(AndroidCXX::java
 	const char *methodSignature = "(Ljava/math/BigInteger;)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2174,7 +2171,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::multiply(AndroidCXX::java
 	const char *methodSignature = "(Ljava/math/BigInteger;)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2239,7 +2236,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::divide(AndroidCXX::java_m
 	const char *methodSignature = "(Ljava/math/BigInteger;)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2304,7 +2301,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::remainder(AndroidCXX::jav
 	const char *methodSignature = "(Ljava/math/BigInteger;)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2369,7 +2366,7 @@ std::vector<AndroidCXX::java_math_BigInteger > java_math_BigInteger::divideAndRe
 	const char *methodSignature = "(Ljava/math/BigInteger;)[Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2452,7 +2449,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::negate()
 	const char *methodSignature = "()Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2496,7 +2493,7 @@ int java_math_BigInteger::bitLength()
 	const char *methodSignature = "()I";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2540,7 +2537,7 @@ bool java_math_BigInteger::testBit(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2605,7 +2602,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::probablePrime(int const& 
 	const char *methodSignature = "(ILjava/util/Random;)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2691,7 +2688,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::nextProbablePrime()
 	const char *methodSignature = "()Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2735,7 +2732,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::gcd(AndroidCXX::java_math
 	const char *methodSignature = "(Ljava/math/BigInteger;)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2800,7 +2797,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::mod(AndroidCXX::java_math
 	const char *methodSignature = "(Ljava/math/BigInteger;)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2865,7 +2862,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::modPow(AndroidCXX::java_m
 	const char *methodSignature = "(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2951,7 +2948,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::modInverse(AndroidCXX::ja
 	const char *methodSignature = "(Ljava/math/BigInteger;)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3016,7 +3013,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::shiftLeft(int const& arg0
 	const char *methodSignature = "(I)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3081,7 +3078,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::shiftRight(int const& arg
 	const char *methodSignature = "(I)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3146,7 +3143,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::_not()
 	const char *methodSignature = "()Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3190,7 +3187,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::setBit(int const& arg0)
 	const char *methodSignature = "(I)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3255,7 +3252,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::clearBit(int const& arg0)
 	const char *methodSignature = "(I)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3320,7 +3317,7 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::flipBit(int const& arg0)
 	const char *methodSignature = "(I)Ljava/math/BigInteger;";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3385,7 +3382,7 @@ int java_math_BigInteger::getLowestSetBit()
 	const char *methodSignature = "()I";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3429,7 +3426,7 @@ bool java_math_BigInteger::isProbablePrime(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigInteger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

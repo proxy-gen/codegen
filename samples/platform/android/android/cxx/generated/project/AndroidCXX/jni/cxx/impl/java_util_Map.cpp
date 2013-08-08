@@ -49,11 +49,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_util_Map"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -194,7 +191,7 @@ AndroidCXX::java_lang_Object java_util_Map::get(AndroidCXX::java_lang_Object con
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/Object;";
 	const char *className = "java/util/Map";
 
-	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Map className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -259,7 +256,7 @@ AndroidCXX::java_lang_Object java_util_Map::put(AndroidCXX::java_lang_Object con
 	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;";
 	const char *className = "java/util/Map";
 
-	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Map className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -345,7 +342,7 @@ bool java_util_Map::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/util/Map";
 
-	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Map className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -410,7 +407,7 @@ AndroidCXX::java_util_Collection java_util_Map::values()
 	const char *methodSignature = "()Ljava/util/Collection;";
 	const char *className = "java/util/Map";
 
-	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Map className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -472,7 +469,7 @@ int java_util_Map::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "java/util/Map";
 
-	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Map className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -516,7 +513,7 @@ void java_util_Map::clear()
 	const char *methodSignature = "()V";
 	const char *className = "java/util/Map";
 
-	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Map className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -540,7 +537,7 @@ bool java_util_Map::isEmpty()
 	const char *methodSignature = "()Z";
 	const char *className = "java/util/Map";
 
-	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Map className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -584,7 +581,7 @@ int java_util_Map::size()
 	const char *methodSignature = "()I";
 	const char *className = "java/util/Map";
 
-	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Map className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -628,7 +625,7 @@ AndroidCXX::java_util_Set java_util_Map::entrySet()
 	const char *methodSignature = "()Ljava/util/Set;";
 	const char *className = "java/util/Map";
 
-	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Map className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -723,7 +720,7 @@ void java_util_Map::putAll(AndroidCXX::java_util_Map const& arg0)
 	const char *methodSignature = "(Ljava/util/Map;)V";
 	const char *className = "java/util/Map";
 
-	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Map className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -801,7 +798,7 @@ AndroidCXX::java_lang_Object java_util_Map::remove(AndroidCXX::java_lang_Object 
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/Object;";
 	const char *className = "java/util/Map";
 
-	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Map className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -866,7 +863,7 @@ AndroidCXX::java_util_Set java_util_Map::keySet()
 	const char *methodSignature = "()Ljava/util/Set;";
 	const char *className = "java/util/Map";
 
-	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Map className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -928,7 +925,7 @@ bool java_util_Map::containsValue(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/util/Map";
 
-	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Map className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -993,7 +990,7 @@ bool java_util_Map::containsKey(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/util/Map";
 
-	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Map className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

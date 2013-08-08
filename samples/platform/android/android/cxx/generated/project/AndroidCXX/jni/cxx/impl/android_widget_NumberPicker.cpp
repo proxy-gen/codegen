@@ -64,11 +64,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_NumberPicker"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -197,7 +194,7 @@ android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_con
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -254,7 +251,7 @@ android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_con
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -332,7 +329,7 @@ android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_con
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -446,7 +443,7 @@ int android_widget_NumberPicker::getValue()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -490,7 +487,7 @@ void android_widget_NumberPicker::setValue(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -535,7 +532,7 @@ bool android_widget_NumberPicker::onTouchEvent(AndroidCXX::android_view_MotionEv
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -600,7 +597,7 @@ bool android_widget_NumberPicker::dispatchKeyEvent(AndroidCXX::android_view_KeyE
 	const char *methodSignature = "(Landroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -665,7 +662,7 @@ bool android_widget_NumberPicker::dispatchTouchEvent(AndroidCXX::android_view_Mo
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -730,7 +727,7 @@ bool android_widget_NumberPicker::dispatchTrackballEvent(AndroidCXX::android_vie
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -795,7 +792,7 @@ bool android_widget_NumberPicker::onInterceptTouchEvent(AndroidCXX::android_view
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -860,7 +857,7 @@ void android_widget_NumberPicker::onInitializeAccessibilityEvent(AndroidCXX::and
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -905,7 +902,7 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeProvider android_widget_
 	const char *methodSignature = "()Landroid/view/accessibility/AccessibilityNodeProvider;";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -949,7 +946,7 @@ void android_widget_NumberPicker::setEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -994,7 +991,7 @@ void android_widget_NumberPicker::scrollBy(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)V";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1060,7 +1057,7 @@ void android_widget_NumberPicker::computeScroll()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1084,7 +1081,7 @@ int android_widget_NumberPicker::getSolidColor()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1128,7 +1125,7 @@ void android_widget_NumberPicker::setOnScrollListener(AndroidCXX::android_widget
 	const char *methodSignature = "(Landroid/widget/NumberPicker$OnScrollListener;)V";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1173,7 +1170,7 @@ void android_widget_NumberPicker::setOnValueChangedListener(AndroidCXX::android_
 	const char *methodSignature = "(Landroid/widget/NumberPicker$OnValueChangeListener;)V";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1218,7 +1215,7 @@ void android_widget_NumberPicker::setFormatter(AndroidCXX::android_widget_Number
 	const char *methodSignature = "(Landroid/widget/NumberPicker$Formatter;)V";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1263,7 +1260,7 @@ bool android_widget_NumberPicker::getWrapSelectorWheel()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1307,7 +1304,7 @@ void android_widget_NumberPicker::setWrapSelectorWheel(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1352,7 +1349,7 @@ void android_widget_NumberPicker::setOnLongPressUpdateInterval(long const& arg0)
 	const char *methodSignature = "(J)V";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1397,7 +1394,7 @@ int android_widget_NumberPicker::getMinValue()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1441,7 +1438,7 @@ void android_widget_NumberPicker::setMinValue(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1486,7 +1483,7 @@ int android_widget_NumberPicker::getMaxValue()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1530,7 +1527,7 @@ void android_widget_NumberPicker::setMaxValue(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1575,7 +1572,7 @@ std::vector<AndroidCXX::java_lang_String > android_widget_NumberPicker::getDispl
 	const char *methodSignature = "()[Ljava/lang/String;";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1637,7 +1634,7 @@ void android_widget_NumberPicker::setDisplayedValues(std::vector<AndroidCXX::jav
 	const char *methodSignature = "([Ljava/lang/String;)V";
 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_NumberPicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -125,7 +125,7 @@ com_facebook_Session_AutoPublishAsyncTask::com_facebook_Session_AutoPublishAsync
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;Landroid/content/Context;)V";
 	const char *className = "com/facebook/Session$AutoPublishAsyncTask";
 
-	LOGV("com_facebook_Session_AutoPublishAsyncTask className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session_AutoPublishAsyncTask className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -129,7 +129,7 @@ bool com_facebook_widget_GraphObjectAdapter_Filter::includeItem(AndroidCXX::java
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "com/facebook/widget/GraphObjectAdapter$Filter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter_Filter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter_Filter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

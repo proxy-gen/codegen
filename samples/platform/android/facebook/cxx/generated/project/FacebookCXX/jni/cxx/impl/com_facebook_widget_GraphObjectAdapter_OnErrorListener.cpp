@@ -131,7 +131,7 @@ void com_facebook_widget_GraphObjectAdapter_OnErrorListener::onError(FacebookCXX
 	const char *methodSignature = "(Lcom/facebook/widget/GraphObjectAdapter;Lcom/facebook/FacebookException;)V";
 	const char *className = "com/facebook/widget/GraphObjectAdapter$OnErrorListener";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter_OnErrorListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter_OnErrorListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

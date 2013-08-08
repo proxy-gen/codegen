@@ -139,7 +139,7 @@ void com_facebook_Session_TokenRefreshRequest::bind()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/Session$TokenRefreshRequest";
 
-	LOGV("com_facebook_Session_TokenRefreshRequest className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session_TokenRefreshRequest className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -163,7 +163,7 @@ void com_facebook_Session_TokenRefreshRequest::onServiceConnected(AndroidCXX::an
 	const char *methodSignature = "(Landroid/content/ComponentName;Landroid/os/IBinder;)V";
 	const char *className = "com/facebook/Session$TokenRefreshRequest";
 
-	LOGV("com_facebook_Session_TokenRefreshRequest className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session_TokenRefreshRequest className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -229,7 +229,7 @@ void com_facebook_Session_TokenRefreshRequest::onServiceDisconnected(AndroidCXX:
 	const char *methodSignature = "(Landroid/content/ComponentName;)V";
 	const char *className = "com/facebook/Session$TokenRefreshRequest";
 
-	LOGV("com_facebook_Session_TokenRefreshRequest className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session_TokenRefreshRequest className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

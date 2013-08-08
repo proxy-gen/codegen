@@ -9,16 +9,16 @@
 
 
 	
-	
- 		 
-	
  		 
 	
 	
  		 
 	
+ 		 
+	
 	
  		 
+	
 	
  		 
  		 
@@ -63,11 +63,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_Menu"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -212,134 +209,6 @@ android_view_Menu::~android_view_Menu()
 	LOGV("android_view_Menu::~android_view_Menu() exit");
 }
 // Functions
-AndroidCXX::android_view_MenuItem android_view_Menu::add(int const& arg0,int const& arg1,int const& arg2,int const& arg3)
-{
-	LOGV("AndroidCXX::android_view_MenuItem android_view_Menu::add(int const& arg0,int const& arg1,int const& arg2,int const& arg3) enter");
-
-	const char *methodName = "add";
-	const char *methodSignature = "(IIII)Landroid/view/MenuItem;";
-	const char *className = "android/view/Menu";
-
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	long cxxAddress = (long) this;
-	LOGV("android_view_Menu cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_view_Menu jni address %d", javaObject);
-
-	jint jarg0;
-	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_int_to_jni(java_value);
-	}
-	jint jarg1;
-	{
-		long cxx_value = (long) & arg1;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg1 = convert_jni_int_to_jni(java_value);
-	}
-	jint jarg2;
-	{
-		long cxx_value = (long) & arg2;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg2 = convert_jni_int_to_jni(java_value);
-	}
-	jint jarg3;
-	{
-		long cxx_value = (long) & arg3;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg3 = convert_jni_int_to_jni(java_value);
-	}
-
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
-	long cxx_value = (long) 0;
-	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("android.view.MenuItem");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_android_view_MenuItem(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-
-	AndroidCXX::android_view_MenuItem result((AndroidCXX::android_view_MenuItem) *((AndroidCXX::android_view_MenuItem *) cxx_value));
-	delete ((AndroidCXX::android_view_MenuItem *) cxx_value);
-		
-	LOGV("AndroidCXX::android_view_MenuItem android_view_Menu::add(int const& arg0,int const& arg1,int const& arg2,int const& arg3) exit");
-
-	return result;
-}
 AndroidCXX::android_view_MenuItem android_view_Menu::add(int const& arg0)
 {
 	LOGV("AndroidCXX::android_view_MenuItem android_view_Menu::add(int const& arg0) enter");
@@ -348,7 +217,7 @@ AndroidCXX::android_view_MenuItem android_view_Menu::add(int const& arg0)
 	const char *methodSignature = "(I)Landroid/view/MenuItem;";
 	const char *className = "android/view/Menu";
 
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -413,7 +282,7 @@ AndroidCXX::android_view_MenuItem android_view_Menu::add(int const& arg0,int con
 	const char *methodSignature = "(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;";
 	const char *className = "android/view/Menu";
 
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -533,6 +402,134 @@ AndroidCXX::android_view_MenuItem android_view_Menu::add(int const& arg0,int con
 
 	return result;
 }
+AndroidCXX::android_view_MenuItem android_view_Menu::add(int const& arg0,int const& arg1,int const& arg2,int const& arg3)
+{
+	LOGV("AndroidCXX::android_view_MenuItem android_view_Menu::add(int const& arg0,int const& arg1,int const& arg2,int const& arg3) enter");
+
+	const char *methodName = "add";
+	const char *methodSignature = "(IIII)Landroid/view/MenuItem;";
+	const char *className = "android/view/Menu";
+
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_view_Menu cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_Menu jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+	jint jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_int_to_jni(java_value);
+	}
+	jint jarg2;
+	{
+		long cxx_value = (long) & arg2;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg2 = convert_jni_int_to_jni(java_value);
+	}
+	jint jarg3;
+	{
+		long cxx_value = (long) & arg3;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg3 = convert_jni_int_to_jni(java_value);
+	}
+
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.MenuItem");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_android_view_MenuItem(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+
+	AndroidCXX::android_view_MenuItem result((AndroidCXX::android_view_MenuItem) *((AndroidCXX::android_view_MenuItem *) cxx_value));
+	delete ((AndroidCXX::android_view_MenuItem *) cxx_value);
+		
+	LOGV("AndroidCXX::android_view_MenuItem android_view_Menu::add(int const& arg0,int const& arg1,int const& arg2,int const& arg3) exit");
+
+	return result;
+}
 AndroidCXX::android_view_MenuItem android_view_Menu::add(AndroidCXX::java_lang_CharSequence const& arg0)
 {
 	LOGV("AndroidCXX::android_view_MenuItem android_view_Menu::add(AndroidCXX::java_lang_CharSequence const& arg0) enter");
@@ -541,7 +538,7 @@ AndroidCXX::android_view_MenuItem android_view_Menu::add(AndroidCXX::java_lang_C
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Landroid/view/MenuItem;";
 	const char *className = "android/view/Menu";
 
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -606,7 +603,7 @@ void android_view_Menu::clear()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/Menu";
 
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -630,7 +627,7 @@ int android_view_Menu::size()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/Menu";
 
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -674,7 +671,7 @@ void android_view_Menu::close()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/Menu";
 
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -690,15 +687,15 @@ void android_view_Menu::close()
 	LOGV("void android_view_Menu::close() exit");
 
 }
-bool android_view_Menu::hasVisibleItems()
+AndroidCXX::android_view_SubMenu android_view_Menu::addSubMenu(AndroidCXX::java_lang_CharSequence const& arg0)
 {
-	LOGV("bool android_view_Menu::hasVisibleItems() enter");
+	LOGV("AndroidCXX::android_view_SubMenu android_view_Menu::addSubMenu(AndroidCXX::java_lang_CharSequence const& arg0) enter");
 
-	const char *methodName = "hasVisibleItems";
-	const char *methodSignature = "()Z";
+	const char *methodName = "addSubMenu";
+	const char *methodSignature = "(Ljava/lang/CharSequence;)Landroid/view/SubMenu;";
 	const char *className = "android/view/Menu";
 
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -708,10 +705,31 @@ bool android_view_Menu::hasVisibleItems()
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("android_view_Menu jni address %d", javaObject);
 
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
 
-	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.CharSequence");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
-	long java_value = convert_jni_boolean_to_java(jni_result);
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
 		CXXTypeHierarchy cxx_type_hierarchy;
 		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
@@ -720,17 +738,17 @@ bool android_view_Menu::hasVisibleItems()
 		{
 			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
 			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("boolean");
+			cxx_type_hierarchy.type_name = std::string("android.view.SubMenu");
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_android_view_SubMenu(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 
-	bool result = (bool) *((bool *) cxx_value);
-	// 
+	AndroidCXX::android_view_SubMenu result((AndroidCXX::android_view_SubMenu) *((AndroidCXX::android_view_SubMenu *) cxx_value));
+	delete ((AndroidCXX::android_view_SubMenu *) cxx_value);
 		
-	LOGV("bool android_view_Menu::hasVisibleItems() exit");
+	LOGV("AndroidCXX::android_view_SubMenu android_view_Menu::addSubMenu(AndroidCXX::java_lang_CharSequence const& arg0) exit");
 
 	return result;
 }
@@ -742,7 +760,7 @@ AndroidCXX::android_view_SubMenu android_view_Menu::addSubMenu(int const& arg0,i
 	const char *methodSignature = "(IIII)Landroid/view/SubMenu;";
 	const char *className = "android/view/Menu";
 
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -870,7 +888,7 @@ AndroidCXX::android_view_SubMenu android_view_Menu::addSubMenu(int const& arg0,i
 	const char *methodSignature = "(IIILjava/lang/CharSequence;)Landroid/view/SubMenu;";
 	const char *className = "android/view/Menu";
 
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -998,7 +1016,7 @@ AndroidCXX::android_view_SubMenu android_view_Menu::addSubMenu(int const& arg0)
 	const char *methodSignature = "(I)Landroid/view/SubMenu;";
 	const char *className = "android/view/Menu";
 
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1055,71 +1073,6 @@ AndroidCXX::android_view_SubMenu android_view_Menu::addSubMenu(int const& arg0)
 
 	return result;
 }
-AndroidCXX::android_view_SubMenu android_view_Menu::addSubMenu(AndroidCXX::java_lang_CharSequence const& arg0)
-{
-	LOGV("AndroidCXX::android_view_SubMenu android_view_Menu::addSubMenu(AndroidCXX::java_lang_CharSequence const& arg0) enter");
-
-	const char *methodName = "addSubMenu";
-	const char *methodSignature = "(Ljava/lang/CharSequence;)Landroid/view/SubMenu;";
-	const char *className = "android/view/Menu";
-
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	long cxxAddress = (long) this;
-	LOGV("android_view_Menu cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_view_Menu jni address %d", javaObject);
-
-	jobject jarg0;
-	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.CharSequence");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
-	}
-
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
-	long cxx_value = (long) 0;
-	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("android.view.SubMenu");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_android_view_SubMenu(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-
-	AndroidCXX::android_view_SubMenu result((AndroidCXX::android_view_SubMenu) *((AndroidCXX::android_view_SubMenu *) cxx_value));
-	delete ((AndroidCXX::android_view_SubMenu *) cxx_value);
-		
-	LOGV("AndroidCXX::android_view_SubMenu android_view_Menu::addSubMenu(AndroidCXX::java_lang_CharSequence const& arg0) exit");
-
-	return result;
-}
 int android_view_Menu::addIntentOptions(int const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_content_ComponentName const& arg3,std::vector<AndroidCXX::android_content_Intent > const& arg4,AndroidCXX::android_content_Intent const& arg5,int const& arg6,std::vector<AndroidCXX::android_view_MenuItem > const& arg7)
 {
 	LOGV("int android_view_Menu::addIntentOptions(int const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_content_ComponentName const& arg3,std::vector<AndroidCXX::android_content_Intent > const& arg4,AndroidCXX::android_content_Intent const& arg5,int const& arg6,std::vector<AndroidCXX::android_view_MenuItem > const& arg7) enter");
@@ -1128,7 +1081,7 @@ int android_view_Menu::addIntentOptions(int const& arg0,int const& arg1,int cons
 	const char *methodSignature = "(IIILandroid/content/ComponentName;[Landroid/content/Intent;Landroid/content/Intent;I[Landroid/view/MenuItem;)I";
 	const char *className = "android/view/Menu";
 
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1376,7 +1329,7 @@ void android_view_Menu::removeItem(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/view/Menu";
 
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1421,7 +1374,7 @@ void android_view_Menu::removeGroup(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/view/Menu";
 
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1466,7 +1419,7 @@ void android_view_Menu::setGroupCheckable(int const& arg0,bool const& arg1,bool 
 	const char *methodSignature = "(IZZ)V";
 	const char *className = "android/view/Menu";
 
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1553,7 +1506,7 @@ void android_view_Menu::setGroupVisible(int const& arg0,bool const& arg1)
 	const char *methodSignature = "(IZ)V";
 	const char *className = "android/view/Menu";
 
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1619,7 +1572,7 @@ void android_view_Menu::setGroupEnabled(int const& arg0,bool const& arg1)
 	const char *methodSignature = "(IZ)V";
 	const char *className = "android/view/Menu";
 
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1677,6 +1630,50 @@ void android_view_Menu::setGroupEnabled(int const& arg0,bool const& arg1)
 	LOGV("void android_view_Menu::setGroupEnabled(int const& arg0,bool const& arg1) exit");
 
 }
+bool android_view_Menu::hasVisibleItems()
+{
+	LOGV("bool android_view_Menu::hasVisibleItems() enter");
+
+	const char *methodName = "hasVisibleItems";
+	const char *methodSignature = "()Z";
+	const char *className = "android/view/Menu";
+
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_view_Menu cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_Menu jni address %d", javaObject);
+
+
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_view_Menu::hasVisibleItems() exit");
+
+	return result;
+}
 AndroidCXX::android_view_MenuItem android_view_Menu::findItem(int const& arg0)
 {
 	LOGV("AndroidCXX::android_view_MenuItem android_view_Menu::findItem(int const& arg0) enter");
@@ -1685,7 +1682,7 @@ AndroidCXX::android_view_MenuItem android_view_Menu::findItem(int const& arg0)
 	const char *methodSignature = "(I)Landroid/view/MenuItem;";
 	const char *className = "android/view/Menu";
 
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1750,7 +1747,7 @@ AndroidCXX::android_view_MenuItem android_view_Menu::getItem(int const& arg0)
 	const char *methodSignature = "(I)Landroid/view/MenuItem;";
 	const char *className = "android/view/Menu";
 
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1815,7 +1812,7 @@ bool android_view_Menu::performShortcut(int const& arg0,AndroidCXX::android_view
 	const char *methodSignature = "(ILandroid/view/KeyEvent;I)Z";
 	const char *className = "android/view/Menu";
 
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1922,7 +1919,7 @@ bool android_view_Menu::isShortcutKey(int const& arg0,AndroidCXX::android_view_K
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/view/Menu";
 
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2008,7 +2005,7 @@ bool android_view_Menu::performIdentifierAction(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)Z";
 	const char *className = "android/view/Menu";
 
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2094,7 +2091,7 @@ void android_view_Menu::setQwertyMode(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/view/Menu";
 
-	LOGV("android_view_Menu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Menu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -59,11 +59,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_LinearLayout"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -180,7 +177,7 @@ android_widget_LinearLayout::android_widget_LinearLayout(AndroidCXX::android_con
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -258,7 +255,7 @@ android_widget_LinearLayout::android_widget_LinearLayout(AndroidCXX::android_con
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -357,7 +354,7 @@ android_widget_LinearLayout::android_widget_LinearLayout(AndroidCXX::android_con
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -429,7 +426,7 @@ AndroidCXX::android_widget_LinearLayout_LayoutParams android_widget_LinearLayout
 	const char *methodSignature = "(Landroid/util/AttributeSet;)Landroid/widget/LinearLayout$LayoutParams;";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -494,7 +491,7 @@ bool android_widget_LinearLayout::shouldDelayChildPressedState()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -538,7 +535,7 @@ void android_widget_LinearLayout::onInitializeAccessibilityEvent(AndroidCXX::and
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -583,7 +580,7 @@ void android_widget_LinearLayout::onInitializeAccessibilityNodeInfo(AndroidCXX::
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -628,7 +625,7 @@ int android_widget_LinearLayout::getBaseline()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -672,7 +669,7 @@ int android_widget_LinearLayout::getOrientation()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -716,7 +713,7 @@ void android_widget_LinearLayout::setGravity(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -761,7 +758,7 @@ void android_widget_LinearLayout::setShowDividers(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -806,7 +803,7 @@ int android_widget_LinearLayout::getShowDividers()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -850,7 +847,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_LinearLayout::getD
 	const char *methodSignature = "()Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -894,7 +891,7 @@ void android_widget_LinearLayout::setDividerDrawable(AndroidCXX::android_graphic
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -939,7 +936,7 @@ void android_widget_LinearLayout::setDividerPadding(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -984,7 +981,7 @@ int android_widget_LinearLayout::getDividerPadding()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1028,7 +1025,7 @@ bool android_widget_LinearLayout::isBaselineAligned()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1072,7 +1069,7 @@ void android_widget_LinearLayout::setBaselineAligned(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1117,7 +1114,7 @@ bool android_widget_LinearLayout::isMeasureWithLargestChildEnabled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1161,7 +1158,7 @@ void android_widget_LinearLayout::setMeasureWithLargestChildEnabled(bool const& 
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1206,7 +1203,7 @@ int android_widget_LinearLayout::getBaselineAlignedChildIndex()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1250,7 +1247,7 @@ void android_widget_LinearLayout::setBaselineAlignedChildIndex(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1295,7 +1292,7 @@ float android_widget_LinearLayout::getWeightSum()
 	const char *methodSignature = "()F";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1339,7 +1336,7 @@ void android_widget_LinearLayout::setWeightSum(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1384,7 +1381,7 @@ void android_widget_LinearLayout::setOrientation(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1429,7 +1426,7 @@ void android_widget_LinearLayout::setHorizontalGravity(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1474,7 +1471,7 @@ void android_widget_LinearLayout::setVerticalGravity(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/LinearLayout";
 
-	LOGV("android_widget_LinearLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_LinearLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

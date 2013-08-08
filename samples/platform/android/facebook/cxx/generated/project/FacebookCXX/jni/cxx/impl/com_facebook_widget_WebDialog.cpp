@@ -160,7 +160,7 @@ com_facebook_widget_WebDialog::com_facebook_widget_WebDialog(AndroidCXX::android
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;I)V";
 	const char *className = "com/facebook/widget/WebDialog";
 
-	LOGV("com_facebook_widget_WebDialog className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -259,7 +259,7 @@ com_facebook_widget_WebDialog::com_facebook_widget_WebDialog(AndroidCXX::android
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;ILcom/facebook/widget/WebDialog$OnCompleteListener;)V";
 	const char *className = "com/facebook/widget/WebDialog";
 
-	LOGV("com_facebook_widget_WebDialog className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -400,7 +400,7 @@ com_facebook_widget_WebDialog::com_facebook_widget_WebDialog(AndroidCXX::android
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;)V";
 	const char *className = "com/facebook/widget/WebDialog";
 
-	LOGV("com_facebook_widget_WebDialog className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -493,7 +493,7 @@ void com_facebook_widget_WebDialog::onAttachedToWindow()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/widget/WebDialog";
 
-	LOGV("com_facebook_widget_WebDialog className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -517,7 +517,7 @@ void com_facebook_widget_WebDialog::onDetachedFromWindow()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/widget/WebDialog";
 
-	LOGV("com_facebook_widget_WebDialog className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -541,7 +541,7 @@ void com_facebook_widget_WebDialog::setOnCompleteListener(FacebookCXX::com_faceb
 	const char *methodSignature = "(Lcom/facebook/widget/WebDialog$OnCompleteListener;)V";
 	const char *className = "com/facebook/widget/WebDialog";
 
-	LOGV("com_facebook_widget_WebDialog className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -586,7 +586,7 @@ FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener com_facebook_widge
 	const char *methodSignature = "()Lcom/facebook/widget/WebDialog$OnCompleteListener;";
 	const char *className = "com/facebook/widget/WebDialog";
 
-	LOGV("com_facebook_widget_WebDialog className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -630,7 +630,7 @@ void com_facebook_widget_WebDialog::dismiss()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/widget/WebDialog";
 
-	LOGV("com_facebook_widget_WebDialog className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

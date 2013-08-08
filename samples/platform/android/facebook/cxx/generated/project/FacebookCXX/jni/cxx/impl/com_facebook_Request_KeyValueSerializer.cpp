@@ -133,7 +133,7 @@ void com_facebook_Request_KeyValueSerializer::writeString(AndroidCXX::java_lang_
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "com/facebook/Request$KeyValueSerializer";
 
-	LOGV("com_facebook_Request_KeyValueSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request_KeyValueSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

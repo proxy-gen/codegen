@@ -43,11 +43,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_lang_Boolean"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -161,7 +158,7 @@ java_lang_Boolean::java_lang_Boolean(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "java/lang/Boolean";
 
-	LOGV("java_lang_Boolean className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Boolean className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -218,7 +215,7 @@ java_lang_Boolean::java_lang_Boolean(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/lang/Boolean";
 
-	LOGV("java_lang_Boolean className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Boolean className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -290,7 +287,7 @@ bool java_lang_Boolean::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/lang/Boolean";
 
-	LOGV("java_lang_Boolean className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Boolean className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -355,7 +352,7 @@ AndroidCXX::java_lang_String java_lang_Boolean::toString(bool const& arg0)
 	const char *methodSignature = "(Z)Ljava/lang/String;";
 	const char *className = "java/lang/Boolean";
 
-	LOGV("java_lang_Boolean className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Boolean className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -420,7 +417,7 @@ AndroidCXX::java_lang_String java_lang_Boolean::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/Boolean";
 
-	LOGV("java_lang_Boolean className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Boolean className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -464,7 +461,7 @@ int java_lang_Boolean::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "java/lang/Boolean";
 
-	LOGV("java_lang_Boolean className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Boolean className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -508,7 +505,7 @@ int java_lang_Boolean::compareTo(AndroidCXX::java_lang_Boolean const& arg0)
 	const char *methodSignature = "(Ljava/lang/Boolean;)I";
 	const char *className = "java/lang/Boolean";
 
-	LOGV("java_lang_Boolean className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Boolean className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -573,7 +570,7 @@ bool java_lang_Boolean::getBoolean(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "java/lang/Boolean";
 
-	LOGV("java_lang_Boolean className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Boolean className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -638,7 +635,7 @@ bool java_lang_Boolean::booleanValue()
 	const char *methodSignature = "()Z";
 	const char *className = "java/lang/Boolean";
 
-	LOGV("java_lang_Boolean className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Boolean className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -682,7 +679,7 @@ AndroidCXX::java_lang_Boolean java_lang_Boolean::valueOf(AndroidCXX::java_lang_S
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Boolean;";
 	const char *className = "java/lang/Boolean";
 
-	LOGV("java_lang_Boolean className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Boolean className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -747,7 +744,7 @@ AndroidCXX::java_lang_Boolean java_lang_Boolean::valueOf(bool const& arg0)
 	const char *methodSignature = "(Z)Ljava/lang/Boolean;";
 	const char *className = "java/lang/Boolean";
 
-	LOGV("java_lang_Boolean className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Boolean className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -812,7 +809,7 @@ bool java_lang_Boolean::parseBoolean(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "java/lang/Boolean";
 
-	LOGV("java_lang_Boolean className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Boolean className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

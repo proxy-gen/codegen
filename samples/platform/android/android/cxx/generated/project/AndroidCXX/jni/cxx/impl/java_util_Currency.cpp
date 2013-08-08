@@ -37,11 +37,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_util_Currency"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -167,7 +164,7 @@ AndroidCXX::java_lang_String java_util_Currency::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/util/Currency";
 
-	LOGV("java_util_Currency className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Currency className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -211,7 +208,7 @@ AndroidCXX::java_util_Currency java_util_Currency::getInstance(AndroidCXX::java_
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/util/Currency;";
 	const char *className = "java/util/Currency";
 
-	LOGV("java_util_Currency className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Currency className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -276,7 +273,7 @@ AndroidCXX::java_util_Currency java_util_Currency::getInstance(AndroidCXX::java_
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/util/Currency;";
 	const char *className = "java/util/Currency";
 
-	LOGV("java_util_Currency className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Currency className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -341,7 +338,7 @@ AndroidCXX::java_lang_String java_util_Currency::getCurrencyCode()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/util/Currency";
 
-	LOGV("java_util_Currency className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Currency className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -385,7 +382,7 @@ AndroidCXX::java_lang_String java_util_Currency::getSymbol(AndroidCXX::java_util
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
 	const char *className = "java/util/Currency";
 
-	LOGV("java_util_Currency className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Currency className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -450,7 +447,7 @@ AndroidCXX::java_lang_String java_util_Currency::getSymbol()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/util/Currency";
 
-	LOGV("java_util_Currency className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Currency className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -494,7 +491,7 @@ int java_util_Currency::getDefaultFractionDigits()
 	const char *methodSignature = "()I";
 	const char *className = "java/util/Currency";
 
-	LOGV("java_util_Currency className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Currency className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

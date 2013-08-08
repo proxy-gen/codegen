@@ -196,11 +196,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_math_BigDecimal"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -574,7 +571,7 @@ java_math_BigDecimal::java_math_BigDecimal(std::vector<char> const& arg0,int con
 	const char *methodSignature = "([CII)V";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -691,7 +688,7 @@ java_math_BigDecimal::java_math_BigDecimal(std::vector<char> const& arg0,int con
 	const char *methodSignature = "([CIILjava/math/MathContext;)V";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -829,7 +826,7 @@ java_math_BigDecimal::java_math_BigDecimal(std::vector<char> const& arg0)
 	const char *methodSignature = "([C)V";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -904,7 +901,7 @@ java_math_BigDecimal::java_math_BigDecimal(std::vector<char> const& arg0,Android
 	const char *methodSignature = "([CLjava/math/MathContext;)V";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1000,7 +997,7 @@ java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_lang_String const& a
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1057,7 +1054,7 @@ java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_lang_String const& a
 	const char *methodSignature = "(Ljava/lang/String;Ljava/math/MathContext;)V";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1135,7 +1132,7 @@ java_math_BigDecimal::java_math_BigDecimal(double const& arg0)
 	const char *methodSignature = "(D)V";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1192,7 +1189,7 @@ java_math_BigDecimal::java_math_BigDecimal(double const& arg0,AndroidCXX::java_m
 	const char *methodSignature = "(DLjava/math/MathContext;)V";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1270,7 +1267,7 @@ java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger cons
 	const char *methodSignature = "(Ljava/math/BigInteger;)V";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1327,7 +1324,7 @@ java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger cons
 	const char *methodSignature = "(Ljava/math/BigInteger;Ljava/math/MathContext;)V";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1405,7 +1402,7 @@ java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger cons
 	const char *methodSignature = "(Ljava/math/BigInteger;I)V";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1483,7 +1480,7 @@ java_math_BigDecimal::java_math_BigDecimal(AndroidCXX::java_math_BigInteger cons
 	const char *methodSignature = "(Ljava/math/BigInteger;ILjava/math/MathContext;)V";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1582,7 +1579,7 @@ java_math_BigDecimal::java_math_BigDecimal(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1639,7 +1636,7 @@ java_math_BigDecimal::java_math_BigDecimal(int const& arg0,AndroidCXX::java_math
 	const char *methodSignature = "(ILjava/math/MathContext;)V";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1717,7 +1714,7 @@ java_math_BigDecimal::java_math_BigDecimal(long const& arg0)
 	const char *methodSignature = "(J)V";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1774,7 +1771,7 @@ java_math_BigDecimal::java_math_BigDecimal(long const& arg0,AndroidCXX::java_mat
 	const char *methodSignature = "(JLjava/math/MathContext;)V";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1867,7 +1864,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::add(AndroidCXX::java_math
 	const char *methodSignature = "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1953,7 +1950,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::add(AndroidCXX::java_math
 	const char *methodSignature = "(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2018,7 +2015,7 @@ bool java_math_BigDecimal::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2083,7 +2080,7 @@ AndroidCXX::java_lang_String java_math_BigDecimal::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2127,7 +2124,7 @@ int java_math_BigDecimal::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2171,7 +2168,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::abs()
 	const char *methodSignature = "()Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2215,7 +2212,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::abs(AndroidCXX::java_math
 	const char *methodSignature = "(Ljava/math/MathContext;)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2280,7 +2277,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::pow(int const& arg0)
 	const char *methodSignature = "(I)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2345,7 +2342,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::pow(int const& arg0,Andro
 	const char *methodSignature = "(ILjava/math/MathContext;)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2431,7 +2428,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::min(AndroidCXX::java_math
 	const char *methodSignature = "(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2496,7 +2493,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::max(AndroidCXX::java_math
 	const char *methodSignature = "(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2561,7 +2558,7 @@ int java_math_BigDecimal::compareTo(AndroidCXX::java_math_BigDecimal const& arg0
 	const char *methodSignature = "(Ljava/math/BigDecimal;)I";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2626,7 +2623,7 @@ int java_math_BigDecimal::intValue()
 	const char *methodSignature = "()I";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2670,7 +2667,7 @@ long java_math_BigDecimal::longValue()
 	const char *methodSignature = "()J";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2714,7 +2711,7 @@ float java_math_BigDecimal::floatValue()
 	const char *methodSignature = "()F";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2758,7 +2755,7 @@ double java_math_BigDecimal::doubleValue()
 	const char *methodSignature = "()D";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2802,7 +2799,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(double const& arg
 	const char *methodSignature = "(D)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2867,7 +2864,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(long const& arg0)
 	const char *methodSignature = "(J)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2932,7 +2929,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::valueOf(long const& arg0,
 	const char *methodSignature = "(JI)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3018,7 +3015,7 @@ int java_math_BigDecimal::signum()
 	const char *methodSignature = "()I";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3062,7 +3059,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::round(AndroidCXX::java_ma
 	const char *methodSignature = "(Ljava/math/MathContext;)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3127,7 +3124,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::ulp()
 	const char *methodSignature = "()Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3171,7 +3168,7 @@ int java_math_BigDecimal::scale()
 	const char *methodSignature = "()I";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3215,7 +3212,7 @@ int java_math_BigDecimal::precision()
 	const char *methodSignature = "()I";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3259,7 +3256,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::subtract(AndroidCXX::java
 	const char *methodSignature = "(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3324,7 +3321,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::subtract(AndroidCXX::java
 	const char *methodSignature = "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3410,7 +3407,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::multiply(AndroidCXX::java
 	const char *methodSignature = "(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3475,7 +3472,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::multiply(AndroidCXX::java
 	const char *methodSignature = "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3561,7 +3558,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_m
 	const char *methodSignature = "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3647,7 +3644,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_m
 	const char *methodSignature = "(Ljava/math/BigDecimal;ILjava/math/RoundingMode;)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3754,7 +3751,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_m
 	const char *methodSignature = "(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3840,7 +3837,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_m
 	const char *methodSignature = "(Ljava/math/BigDecimal;Ljava/math/RoundingMode;)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3926,7 +3923,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_m
 	const char *methodSignature = "(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3991,7 +3988,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divide(AndroidCXX::java_m
 	const char *methodSignature = "(Ljava/math/BigDecimal;II)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4098,7 +4095,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divideToIntegralValue(And
 	const char *methodSignature = "(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4163,7 +4160,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::divideToIntegralValue(And
 	const char *methodSignature = "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4249,7 +4246,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::remainder(AndroidCXX::jav
 	const char *methodSignature = "(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4314,7 +4311,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::remainder(AndroidCXX::jav
 	const char *methodSignature = "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4400,7 +4397,7 @@ std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRe
 	const char *methodSignature = "(Ljava/math/BigDecimal;Ljava/math/MathContext;)[Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4504,7 +4501,7 @@ std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRe
 	const char *methodSignature = "(Ljava/math/BigDecimal;)[Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4587,7 +4584,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::negate()
 	const char *methodSignature = "()Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4631,7 +4628,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::negate(AndroidCXX::java_m
 	const char *methodSignature = "(Ljava/math/MathContext;)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4696,7 +4693,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::plus(AndroidCXX::java_mat
 	const char *methodSignature = "(Ljava/math/MathContext;)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4761,7 +4758,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::plus()
 	const char *methodSignature = "()Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4805,7 +4802,7 @@ AndroidCXX::java_math_BigInteger java_math_BigDecimal::unscaledValue()
 	const char *methodSignature = "()Ljava/math/BigInteger;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4849,7 +4846,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int const& arg0,
 	const char *methodSignature = "(ILjava/math/RoundingMode;)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4935,7 +4932,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int const& arg0,
 	const char *methodSignature = "(II)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5021,7 +5018,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::setScale(int const& arg0)
 	const char *methodSignature = "(I)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5086,7 +5083,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::movePointLeft(int const& 
 	const char *methodSignature = "(I)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5151,7 +5148,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::movePointRight(int const&
 	const char *methodSignature = "(I)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5216,7 +5213,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::scaleByPowerOfTen(int con
 	const char *methodSignature = "(I)Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5281,7 +5278,7 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::stripTrailingZeros()
 	const char *methodSignature = "()Ljava/math/BigDecimal;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5325,7 +5322,7 @@ AndroidCXX::java_lang_String java_math_BigDecimal::toEngineeringString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5369,7 +5366,7 @@ AndroidCXX::java_lang_String java_math_BigDecimal::toPlainString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5413,7 +5410,7 @@ AndroidCXX::java_math_BigInteger java_math_BigDecimal::toBigInteger()
 	const char *methodSignature = "()Ljava/math/BigInteger;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5457,7 +5454,7 @@ AndroidCXX::java_math_BigInteger java_math_BigDecimal::toBigIntegerExact()
 	const char *methodSignature = "()Ljava/math/BigInteger;";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5501,7 +5498,7 @@ long java_math_BigDecimal::longValueExact()
 	const char *methodSignature = "()J";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5545,7 +5542,7 @@ int java_math_BigDecimal::intValueExact()
 	const char *methodSignature = "()I";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5589,7 +5586,7 @@ short java_math_BigDecimal::shortValueExact()
 	const char *methodSignature = "()S";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5633,7 +5630,7 @@ byte java_math_BigDecimal::byteValueExact()
 	const char *methodSignature = "()B";
 	const char *className = "java/math/BigDecimal";
 
-	LOGV("java_math_BigDecimal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_math_BigDecimal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

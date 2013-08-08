@@ -25,11 +25,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_animation_TypeEvaluator"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -137,7 +134,7 @@ AndroidCXX::java_lang_Object android_animation_TypeEvaluator::evaluate(float con
 	const char *methodSignature = "(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;";
 	const char *className = "android/animation/TypeEvaluator";
 
-	LOGV("android_animation_TypeEvaluator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_TypeEvaluator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

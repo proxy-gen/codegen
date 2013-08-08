@@ -13,6 +13,10 @@
  		 
  		 
  		 
+ 		 
+ 		 
+
+
 
 
 
@@ -36,17 +40,20 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_app_Application"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
 // 
 // 
 // 
@@ -139,7 +146,7 @@ android_app_Application::android_app_Application()
 	const char *methodSignature = "()V";
 	const char *className = "android/app/Application";
 
-	LOGV("android_app_Application className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_Application className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -190,7 +197,7 @@ void android_app_Application::onCreate()
 	const char *methodSignature = "()V";
 	const char *className = "android/app/Application";
 
-	LOGV("android_app_Application className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_Application className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -214,7 +221,7 @@ void android_app_Application::onConfigurationChanged(AndroidCXX::android_content
 	const char *methodSignature = "(Landroid/content/res/Configuration;)V";
 	const char *className = "android/app/Application";
 
-	LOGV("android_app_Application className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_Application className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -259,7 +266,7 @@ void android_app_Application::onLowMemory()
 	const char *methodSignature = "()V";
 	const char *className = "android/app/Application";
 
-	LOGV("android_app_Application className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_Application className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -283,7 +290,7 @@ void android_app_Application::registerComponentCallbacks(AndroidCXX::android_con
 	const char *methodSignature = "(Landroid/content/ComponentCallbacks;)V";
 	const char *className = "android/app/Application";
 
-	LOGV("android_app_Application className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_Application className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -328,7 +335,7 @@ void android_app_Application::unregisterComponentCallbacks(AndroidCXX::android_c
 	const char *methodSignature = "(Landroid/content/ComponentCallbacks;)V";
 	const char *className = "android/app/Application";
 
-	LOGV("android_app_Application className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_Application className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -373,7 +380,7 @@ void android_app_Application::onTrimMemory(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/app/Application";
 
-	LOGV("android_app_Application className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_Application className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -418,7 +425,7 @@ void android_app_Application::onTerminate()
 	const char *methodSignature = "()V";
 	const char *className = "android/app/Application";
 
-	LOGV("android_app_Application className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_Application className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -442,7 +449,7 @@ void android_app_Application::registerActivityLifecycleCallbacks(AndroidCXX::and
 	const char *methodSignature = "(Landroid/app/Application$ActivityLifecycleCallbacks;)V";
 	const char *className = "android/app/Application";
 
-	LOGV("android_app_Application className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_Application className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -487,7 +494,7 @@ void android_app_Application::unregisterActivityLifecycleCallbacks(AndroidCXX::a
 	const char *methodSignature = "(Landroid/app/Application$ActivityLifecycleCallbacks;)V";
 	const char *className = "android/app/Application";
 
-	LOGV("android_app_Application className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_Application className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -522,5 +529,95 @@ void android_app_Application::unregisterActivityLifecycleCallbacks(AndroidCXX::a
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
 		
 	LOGV("void android_app_Application::unregisterActivityLifecycleCallbacks(AndroidCXX::android_app_Application_ActivityLifecycleCallbacks const& arg0) exit");
+
+}
+void android_app_Application::registerOnProvideAssistDataListener(AndroidCXX::android_app_Application_OnProvideAssistDataListener const& arg0)
+{
+	LOGV("void android_app_Application::registerOnProvideAssistDataListener(AndroidCXX::android_app_Application_OnProvideAssistDataListener const& arg0) enter");
+
+	const char *methodName = "registerOnProvideAssistDataListener";
+	const char *methodSignature = "(Landroid/app/Application$OnProvideAssistDataListener;)V";
+	const char *className = "android/app/Application";
+
+	LOGV("android_app_Application className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Application cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Application jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.app.Application$OnProvideAssistDataListener");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_android_app_Application_OnProvideAssistDataListener(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	LOGV("void android_app_Application::registerOnProvideAssistDataListener(AndroidCXX::android_app_Application_OnProvideAssistDataListener const& arg0) exit");
+
+}
+void android_app_Application::unregisterOnProvideAssistDataListener(AndroidCXX::android_app_Application_OnProvideAssistDataListener const& arg0)
+{
+	LOGV("void android_app_Application::unregisterOnProvideAssistDataListener(AndroidCXX::android_app_Application_OnProvideAssistDataListener const& arg0) enter");
+
+	const char *methodName = "unregisterOnProvideAssistDataListener";
+	const char *methodSignature = "(Landroid/app/Application$OnProvideAssistDataListener;)V";
+	const char *className = "android/app/Application";
+
+	LOGV("android_app_Application className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Application cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Application jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.app.Application$OnProvideAssistDataListener");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_android_app_Application_OnProvideAssistDataListener(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	LOGV("void android_app_Application::unregisterOnProvideAssistDataListener(AndroidCXX::android_app_Application_OnProvideAssistDataListener const& arg0) exit");
 
 }

@@ -59,11 +59,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_SimpleAdapter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -210,7 +207,7 @@ android_widget_SimpleAdapter::android_widget_SimpleAdapter(AndroidCXX::android_c
 	const char *methodSignature = "(Landroid/content/Context;Ljava/util/List;I[Ljava/lang/String;[I)V";
 	const char *className = "android/widget/SimpleAdapter";
 
-	LOGV("android_widget_SimpleAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -453,7 +450,7 @@ AndroidCXX::android_view_View android_widget_SimpleAdapter::getView(int const& a
 	const char *methodSignature = "(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;";
 	const char *className = "android/widget/SimpleAdapter";
 
-	LOGV("android_widget_SimpleAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -560,7 +557,7 @@ AndroidCXX::android_widget_Filter android_widget_SimpleAdapter::getFilter()
 	const char *methodSignature = "()Landroid/widget/Filter;";
 	const char *className = "android/widget/SimpleAdapter";
 
-	LOGV("android_widget_SimpleAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -604,7 +601,7 @@ AndroidCXX::java_lang_Object android_widget_SimpleAdapter::getItem(int const& ar
 	const char *methodSignature = "(I)Ljava/lang/Object;";
 	const char *className = "android/widget/SimpleAdapter";
 
-	LOGV("android_widget_SimpleAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -669,7 +666,7 @@ long android_widget_SimpleAdapter::getItemId(int const& arg0)
 	const char *methodSignature = "(I)J";
 	const char *className = "android/widget/SimpleAdapter";
 
-	LOGV("android_widget_SimpleAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -734,7 +731,7 @@ int android_widget_SimpleAdapter::getCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/SimpleAdapter";
 
-	LOGV("android_widget_SimpleAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -778,7 +775,7 @@ AndroidCXX::android_view_View android_widget_SimpleAdapter::getDropDownView(int 
 	const char *methodSignature = "(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;";
 	const char *className = "android/widget/SimpleAdapter";
 
-	LOGV("android_widget_SimpleAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -885,7 +882,7 @@ void android_widget_SimpleAdapter::setDropDownViewResource(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/SimpleAdapter";
 
-	LOGV("android_widget_SimpleAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -930,7 +927,7 @@ AndroidCXX::android_widget_SimpleAdapter_ViewBinder android_widget_SimpleAdapter
 	const char *methodSignature = "()Landroid/widget/SimpleAdapter$ViewBinder;";
 	const char *className = "android/widget/SimpleAdapter";
 
-	LOGV("android_widget_SimpleAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -974,7 +971,7 @@ void android_widget_SimpleAdapter::setViewBinder(AndroidCXX::android_widget_Simp
 	const char *methodSignature = "(Landroid/widget/SimpleAdapter$ViewBinder;)V";
 	const char *className = "android/widget/SimpleAdapter";
 
-	LOGV("android_widget_SimpleAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1019,7 +1016,7 @@ void android_widget_SimpleAdapter::setViewImage(AndroidCXX::android_widget_Image
 	const char *methodSignature = "(Landroid/widget/ImageView;I)V";
 	const char *className = "android/widget/SimpleAdapter";
 
-	LOGV("android_widget_SimpleAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1085,7 +1082,7 @@ void android_widget_SimpleAdapter::setViewImage(AndroidCXX::android_widget_Image
 	const char *methodSignature = "(Landroid/widget/ImageView;Ljava/lang/String;)V";
 	const char *className = "android/widget/SimpleAdapter";
 
-	LOGV("android_widget_SimpleAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1151,7 +1148,7 @@ void android_widget_SimpleAdapter::setViewText(AndroidCXX::android_widget_TextVi
 	const char *methodSignature = "(Landroid/widget/TextView;Ljava/lang/String;)V";
 	const char *className = "android/widget/SimpleAdapter";
 
-	LOGV("android_widget_SimpleAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

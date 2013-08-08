@@ -54,11 +54,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_nio_charset_CharsetEncoder"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -208,7 +205,7 @@ AndroidCXX::java_nio_charset_Charset java_nio_charset_CharsetEncoder::charset()
 	const char *methodSignature = "()Ljava/nio/charset/Charset;";
 	const char *className = "java/nio/charset/CharsetEncoder";
 
-	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CharsetEncoder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -252,7 +249,7 @@ AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetEncoder::encode
 	const char *methodSignature = "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;Z)Ljava/nio/charset/CoderResult;";
 	const char *className = "java/nio/charset/CharsetEncoder";
 
-	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CharsetEncoder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -359,7 +356,7 @@ AndroidCXX::java_nio_ByteBuffer java_nio_charset_CharsetEncoder::encode(AndroidC
 	const char *methodSignature = "(Ljava/nio/CharBuffer;)Ljava/nio/ByteBuffer;";
 	const char *className = "java/nio/charset/CharsetEncoder";
 
-	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CharsetEncoder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -424,7 +421,7 @@ AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetEncoder::flush(
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;";
 	const char *className = "java/nio/charset/CharsetEncoder";
 
-	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CharsetEncoder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -489,7 +486,7 @@ AndroidCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::res
 	const char *methodSignature = "()Ljava/nio/charset/CharsetEncoder;";
 	const char *className = "java/nio/charset/CharsetEncoder";
 
-	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CharsetEncoder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -533,7 +530,7 @@ bool java_nio_charset_CharsetEncoder::canEncode(char const& arg0)
 	const char *methodSignature = "(C)Z";
 	const char *className = "java/nio/charset/CharsetEncoder";
 
-	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CharsetEncoder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -598,7 +595,7 @@ bool java_nio_charset_CharsetEncoder::canEncode(AndroidCXX::java_lang_CharSequen
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Z";
 	const char *className = "java/nio/charset/CharsetEncoder";
 
-	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CharsetEncoder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -663,7 +660,7 @@ AndroidCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::onM
 	const char *methodSignature = "(Ljava/nio/charset/CodingErrorAction;)Ljava/nio/charset/CharsetEncoder;";
 	const char *className = "java/nio/charset/CharsetEncoder";
 
-	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CharsetEncoder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -728,7 +725,7 @@ AndroidCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::onU
 	const char *methodSignature = "(Ljava/nio/charset/CodingErrorAction;)Ljava/nio/charset/CharsetEncoder;";
 	const char *className = "java/nio/charset/CharsetEncoder";
 
-	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CharsetEncoder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -793,7 +790,7 @@ float java_nio_charset_CharsetEncoder::maxBytesPerChar()
 	const char *methodSignature = "()F";
 	const char *className = "java/nio/charset/CharsetEncoder";
 
-	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CharsetEncoder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -837,7 +834,7 @@ bool java_nio_charset_CharsetEncoder::isLegalReplacement(std::vector<byte> const
 	const char *methodSignature = "([B)Z";
 	const char *className = "java/nio/charset/CharsetEncoder";
 
-	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CharsetEncoder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -920,7 +917,7 @@ float java_nio_charset_CharsetEncoder::averageBytesPerChar()
 	const char *methodSignature = "()F";
 	const char *className = "java/nio/charset/CharsetEncoder";
 
-	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CharsetEncoder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -964,7 +961,7 @@ std::vector<byte> java_nio_charset_CharsetEncoder::replacement()
 	const char *methodSignature = "()[B";
 	const char *className = "java/nio/charset/CharsetEncoder";
 
-	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CharsetEncoder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1026,7 +1023,7 @@ AndroidCXX::java_nio_charset_CodingErrorAction java_nio_charset_CharsetEncoder::
 	const char *methodSignature = "()Ljava/nio/charset/CodingErrorAction;";
 	const char *className = "java/nio/charset/CharsetEncoder";
 
-	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CharsetEncoder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1070,7 +1067,7 @@ AndroidCXX::java_nio_charset_CodingErrorAction java_nio_charset_CharsetEncoder::
 	const char *methodSignature = "()Ljava/nio/charset/CodingErrorAction;";
 	const char *className = "java/nio/charset/CharsetEncoder";
 
-	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CharsetEncoder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1114,7 +1111,7 @@ AndroidCXX::java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::rep
 	const char *methodSignature = "([B)Ljava/nio/charset/CharsetEncoder;";
 	const char *className = "java/nio/charset/CharsetEncoder";
 
-	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CharsetEncoder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

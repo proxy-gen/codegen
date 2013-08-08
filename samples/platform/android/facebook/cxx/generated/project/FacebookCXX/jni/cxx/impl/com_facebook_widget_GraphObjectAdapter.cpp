@@ -211,7 +211,7 @@ com_facebook_widget_GraphObjectAdapter::com_facebook_widget_GraphObjectAdapter(A
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -283,7 +283,7 @@ bool com_facebook_widget_GraphObjectAdapter::isEmpty()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -327,7 +327,7 @@ AndroidCXX::android_view_View com_facebook_widget_GraphObjectAdapter::getView(in
 	const char *methodSignature = "(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -434,7 +434,7 @@ bool com_facebook_widget_GraphObjectAdapter::isEnabled(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -499,7 +499,7 @@ AndroidCXX::java_util_List com_facebook_widget_GraphObjectAdapter::getSortFields
 	const char *methodSignature = "()Ljava/util/List;";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -561,7 +561,7 @@ void com_facebook_widget_GraphObjectAdapter::setSortFields(AndroidCXX::java_util
 	const char *methodSignature = "(Ljava/util/List;)V";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -624,7 +624,7 @@ AndroidCXX::java_lang_String com_facebook_widget_GraphObjectAdapter::getGroupByF
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -668,7 +668,7 @@ void com_facebook_widget_GraphObjectAdapter::setGroupByField(AndroidCXX::java_la
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -713,7 +713,7 @@ bool com_facebook_widget_GraphObjectAdapter::getShowPicture()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -757,7 +757,7 @@ void com_facebook_widget_GraphObjectAdapter::setShowPicture(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -802,7 +802,7 @@ bool com_facebook_widget_GraphObjectAdapter::getShowCheckbox()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -846,7 +846,7 @@ void com_facebook_widget_GraphObjectAdapter::setShowCheckbox(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -891,7 +891,7 @@ FacebookCXX::com_facebook_widget_GraphObjectAdapter_DataNeededListener com_faceb
 	const char *methodSignature = "()Lcom/facebook/widget/GraphObjectAdapter$DataNeededListener;";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -935,7 +935,7 @@ void com_facebook_widget_GraphObjectAdapter::setDataNeededListener(FacebookCXX::
 	const char *methodSignature = "(Lcom/facebook/widget/GraphObjectAdapter$DataNeededListener;)V";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -980,7 +980,7 @@ FacebookCXX::com_facebook_widget_GraphObjectAdapter_OnErrorListener com_facebook
 	const char *methodSignature = "()Lcom/facebook/widget/GraphObjectAdapter$OnErrorListener;";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1024,7 +1024,7 @@ void com_facebook_widget_GraphObjectAdapter::setOnErrorListener(FacebookCXX::com
 	const char *methodSignature = "(Lcom/facebook/widget/GraphObjectAdapter$OnErrorListener;)V";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1069,7 +1069,7 @@ FacebookCXX::com_facebook_widget_GraphObjectCursor com_facebook_widget_GraphObje
 	const char *methodSignature = "()Lcom/facebook/widget/GraphObjectCursor;";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1131,7 +1131,7 @@ bool com_facebook_widget_GraphObjectAdapter::changeCursor(FacebookCXX::com_faceb
 	const char *methodSignature = "(Lcom/facebook/widget/GraphObjectCursor;)Z";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1214,7 +1214,7 @@ void com_facebook_widget_GraphObjectAdapter::rebuildAndNotify()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1238,7 +1238,7 @@ void com_facebook_widget_GraphObjectAdapter::prioritizeViewRange(int const& arg0
 	const char *methodSignature = "(III)V";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1325,7 +1325,7 @@ int com_facebook_widget_GraphObjectAdapter::getCount()
 	const char *methodSignature = "()I";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1369,7 +1369,7 @@ bool com_facebook_widget_GraphObjectAdapter::areAllItemsEnabled()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1413,7 +1413,7 @@ bool com_facebook_widget_GraphObjectAdapter::hasStableIds()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1457,7 +1457,7 @@ AndroidCXX::java_lang_Object com_facebook_widget_GraphObjectAdapter::getItem(int
 	const char *methodSignature = "(I)Ljava/lang/Object;";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1522,7 +1522,7 @@ long com_facebook_widget_GraphObjectAdapter::getItemId(int const& arg0)
 	const char *methodSignature = "(I)J";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1587,7 +1587,7 @@ int com_facebook_widget_GraphObjectAdapter::getViewTypeCount()
 	const char *methodSignature = "()I";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1631,7 +1631,7 @@ int com_facebook_widget_GraphObjectAdapter::getItemViewType(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1696,7 +1696,7 @@ std::vector<AndroidCXX::java_lang_Object > com_facebook_widget_GraphObjectAdapte
 	const char *methodSignature = "()[Ljava/lang/Object;";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1758,7 +1758,7 @@ int com_facebook_widget_GraphObjectAdapter::getPositionForSection(int const& arg
 	const char *methodSignature = "(I)I";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1823,7 +1823,7 @@ int com_facebook_widget_GraphObjectAdapter::getSectionForPosition(int const& arg
 	const char *methodSignature = "(I)I";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1888,7 +1888,7 @@ AndroidCXX::java_util_List com_facebook_widget_GraphObjectAdapter::getGraphObjec
 	const char *methodSignature = "(Ljava/util/Collection;)Ljava/util/List;";
 	const char *className = "com/facebook/widget/GraphObjectAdapter";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

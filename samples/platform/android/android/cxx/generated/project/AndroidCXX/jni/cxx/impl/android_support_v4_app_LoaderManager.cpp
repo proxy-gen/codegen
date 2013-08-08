@@ -39,11 +39,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_support_v4_app_LoaderManager"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -157,7 +154,7 @@ android_support_v4_app_LoaderManager::android_support_v4_app_LoaderManager()
 	const char *methodSignature = "()V";
 	const char *className = "android/support/v4/app/LoaderManager";
 
-	LOGV("android_support_v4_app_LoaderManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_LoaderManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -208,7 +205,7 @@ AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManag
 	const char *methodSignature = "(I)Landroid/support/v4/content/Loader;";
 	const char *className = "android/support/v4/app/LoaderManager";
 
-	LOGV("android_support_v4_app_LoaderManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_LoaderManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -291,7 +288,7 @@ void android_support_v4_app_LoaderManager::dump(AndroidCXX::java_lang_String con
 	const char *methodSignature = "(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V";
 	const char *className = "android/support/v4/app/LoaderManager";
 
-	LOGV("android_support_v4_app_LoaderManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_LoaderManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -417,7 +414,7 @@ AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManag
 	const char *methodSignature = "(ILandroid/os/Bundle;Landroid/support/v4/app/LoaderManager$LoaderCallbacks;)Landroid/support/v4/content/Loader;";
 	const char *className = "android/support/v4/app/LoaderManager";
 
-	LOGV("android_support_v4_app_LoaderManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_LoaderManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -560,7 +557,7 @@ AndroidCXX::android_support_v4_content_Loader android_support_v4_app_LoaderManag
 	const char *methodSignature = "(ILandroid/os/Bundle;Landroid/support/v4/app/LoaderManager$LoaderCallbacks;)Landroid/support/v4/content/Loader;";
 	const char *className = "android/support/v4/app/LoaderManager";
 
-	LOGV("android_support_v4_app_LoaderManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_LoaderManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -703,7 +700,7 @@ void android_support_v4_app_LoaderManager::destroyLoader(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/support/v4/app/LoaderManager";
 
-	LOGV("android_support_v4_app_LoaderManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_LoaderManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -748,7 +745,7 @@ void android_support_v4_app_LoaderManager::enableDebugLogging(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/support/v4/app/LoaderManager";
 
-	LOGV("android_support_v4_app_LoaderManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_LoaderManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -793,7 +790,7 @@ bool android_support_v4_app_LoaderManager::hasRunningLoaders()
 	const char *methodSignature = "()Z";
 	const char *className = "android/support/v4/app/LoaderManager";
 
-	LOGV("android_support_v4_app_LoaderManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_LoaderManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

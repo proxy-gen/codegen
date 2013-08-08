@@ -39,11 +39,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_Movie"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -166,7 +163,7 @@ bool android_graphics_Movie::isOpaque()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Movie";
 
-	LOGV("android_graphics_Movie className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Movie className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -210,7 +207,7 @@ bool android_graphics_Movie::setTime(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/graphics/Movie";
 
-	LOGV("android_graphics_Movie className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Movie className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -275,7 +272,7 @@ int android_graphics_Movie::width()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Movie";
 
-	LOGV("android_graphics_Movie className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Movie className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -319,7 +316,7 @@ int android_graphics_Movie::height()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Movie";
 
-	LOGV("android_graphics_Movie className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Movie className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -363,7 +360,7 @@ void android_graphics_Movie::draw(AndroidCXX::android_graphics_Canvas const& arg
 	const char *methodSignature = "(Landroid/graphics/Canvas;FFLandroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Movie";
 
-	LOGV("android_graphics_Movie className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Movie className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -471,7 +468,7 @@ void android_graphics_Movie::draw(AndroidCXX::android_graphics_Canvas const& arg
 	const char *methodSignature = "(Landroid/graphics/Canvas;FF)V";
 	const char *className = "android/graphics/Movie";
 
-	LOGV("android_graphics_Movie className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Movie className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -558,7 +555,7 @@ int android_graphics_Movie::duration()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Movie";
 
-	LOGV("android_graphics_Movie className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Movie className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -602,7 +599,7 @@ AndroidCXX::android_graphics_Movie android_graphics_Movie::decodeStream(AndroidC
 	const char *methodSignature = "(Ljava/io/InputStream;)Landroid/graphics/Movie;";
 	const char *className = "android/graphics/Movie";
 
-	LOGV("android_graphics_Movie className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Movie className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -667,7 +664,7 @@ AndroidCXX::android_graphics_Movie android_graphics_Movie::decodeByteArray(std::
 	const char *methodSignature = "([BII)Landroid/graphics/Movie;";
 	const char *className = "android/graphics/Movie";
 
-	LOGV("android_graphics_Movie className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Movie className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -792,7 +789,7 @@ AndroidCXX::android_graphics_Movie android_graphics_Movie::decodeFile(AndroidCXX
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/graphics/Movie;";
 	const char *className = "android/graphics/Movie";
 
-	LOGV("android_graphics_Movie className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Movie className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -90,11 +90,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "org_xmlpull_v1_XmlPullParser"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -289,7 +286,7 @@ void org_xmlpull_v1_XmlPullParser::setProperty(AndroidCXX::java_lang_String cons
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/Object;)V";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -355,7 +352,7 @@ AndroidCXX::java_lang_Object org_xmlpull_v1_XmlPullParser::getProperty(AndroidCX
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Object;";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -420,7 +417,7 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getName()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -464,7 +461,7 @@ int org_xmlpull_v1_XmlPullParser::next()
 	const char *methodSignature = "()I";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -508,7 +505,7 @@ int org_xmlpull_v1_XmlPullParser::getLineNumber()
 	const char *methodSignature = "()I";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -552,7 +549,7 @@ bool org_xmlpull_v1_XmlPullParser::isWhitespace()
 	const char *methodSignature = "()Z";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -596,7 +593,7 @@ int org_xmlpull_v1_XmlPullParser::nextToken()
 	const char *methodSignature = "()I";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -640,7 +637,7 @@ void org_xmlpull_v1_XmlPullParser::setInput(AndroidCXX::java_io_InputStream cons
 	const char *methodSignature = "(Ljava/io/InputStream;Ljava/lang/String;)V";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -706,7 +703,7 @@ void org_xmlpull_v1_XmlPullParser::setInput(AndroidCXX::java_io_Reader const& ar
 	const char *methodSignature = "(Ljava/io/Reader;)V";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -751,7 +748,7 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getPrefix()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -795,7 +792,7 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeValue(And
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -881,7 +878,7 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeValue(int
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -946,7 +943,7 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getText()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -990,7 +987,7 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getPositionDescriptio
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1034,7 +1031,7 @@ int org_xmlpull_v1_XmlPullParser::getAttributeCount()
 	const char *methodSignature = "()I";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1078,7 +1075,7 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeName(int 
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1143,7 +1140,7 @@ void org_xmlpull_v1_XmlPullParser::setFeature(AndroidCXX::java_lang_String const
 	const char *methodSignature = "(Ljava/lang/String;Z)V";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1209,7 +1206,7 @@ bool org_xmlpull_v1_XmlPullParser::getFeature(AndroidCXX::java_lang_String const
 	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1274,7 +1271,7 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getInputEncoding()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1318,7 +1315,7 @@ void org_xmlpull_v1_XmlPullParser::defineEntityReplacementText(AndroidCXX::java_
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1384,7 +1381,7 @@ int org_xmlpull_v1_XmlPullParser::getNamespaceCount(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1449,7 +1446,7 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespacePrefix(in
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1514,7 +1511,7 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespaceUri(int c
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1579,7 +1576,7 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespace(AndroidC
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1644,7 +1641,7 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getNamespace()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1688,7 +1685,7 @@ int org_xmlpull_v1_XmlPullParser::getDepth()
 	const char *methodSignature = "()I";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1732,7 +1729,7 @@ int org_xmlpull_v1_XmlPullParser::getColumnNumber()
 	const char *methodSignature = "()I";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1776,7 +1773,7 @@ std::vector<char> org_xmlpull_v1_XmlPullParser::getTextCharacters(std::vector<in
 	const char *methodSignature = "([I)[C";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1877,7 +1874,7 @@ bool org_xmlpull_v1_XmlPullParser::isEmptyElementTag()
 	const char *methodSignature = "()Z";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1921,7 +1918,7 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeNamespace
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1986,7 +1983,7 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributePrefix(in
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2051,7 +2048,7 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeType(int 
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2116,7 +2113,7 @@ bool org_xmlpull_v1_XmlPullParser::isAttributeDefault(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2181,7 +2178,7 @@ int org_xmlpull_v1_XmlPullParser::getEventType()
 	const char *methodSignature = "()I";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2225,7 +2222,7 @@ void org_xmlpull_v1_XmlPullParser::require(int const& arg0,AndroidCXX::java_lang
 	const char *methodSignature = "(ILjava/lang/String;Ljava/lang/String;)V";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2312,7 +2309,7 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlPullParser::nextText()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2356,7 +2353,7 @@ int org_xmlpull_v1_XmlPullParser::nextTag()
 	const char *methodSignature = "()I";
 	const char *className = "org/xmlpull/v1/XmlPullParser";
 
-	LOGV("org_xmlpull_v1_XmlPullParser className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlPullParser className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

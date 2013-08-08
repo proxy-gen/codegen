@@ -30,11 +30,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_Filter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -133,7 +130,7 @@ android_widget_Filter::android_widget_Filter()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/Filter";
 
-	LOGV("android_widget_Filter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Filter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -184,7 +181,7 @@ void android_widget_Filter::filter(AndroidCXX::java_lang_CharSequence const& arg
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
 	const char *className = "android/widget/Filter";
 
-	LOGV("android_widget_Filter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Filter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -229,7 +226,7 @@ void android_widget_Filter::filter(AndroidCXX::java_lang_CharSequence const& arg
 	const char *methodSignature = "(Ljava/lang/CharSequence;Landroid/widget/Filter$FilterListener;)V";
 	const char *className = "android/widget/Filter";
 
-	LOGV("android_widget_Filter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Filter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -295,7 +292,7 @@ AndroidCXX::java_lang_CharSequence android_widget_Filter::convertResultToString(
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/CharSequence;";
 	const char *className = "android/widget/Filter";
 
-	LOGV("android_widget_Filter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Filter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

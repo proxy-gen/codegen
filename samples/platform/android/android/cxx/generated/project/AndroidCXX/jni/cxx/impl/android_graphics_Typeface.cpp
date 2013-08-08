@@ -45,11 +45,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_Typeface"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -187,7 +184,7 @@ bool android_graphics_Typeface::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "android/graphics/Typeface";
 
-	LOGV("android_graphics_Typeface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Typeface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -252,7 +249,7 @@ int android_graphics_Typeface::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Typeface";
 
-	LOGV("android_graphics_Typeface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Typeface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -296,7 +293,7 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::create(AndroidC
 	const char *methodSignature = "(Ljava/lang/String;I)Landroid/graphics/Typeface;";
 	const char *className = "android/graphics/Typeface";
 
-	LOGV("android_graphics_Typeface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Typeface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -382,7 +379,7 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::create(AndroidC
 	const char *methodSignature = "(Landroid/graphics/Typeface;I)Landroid/graphics/Typeface;";
 	const char *className = "android/graphics/Typeface";
 
-	LOGV("android_graphics_Typeface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Typeface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -468,7 +465,7 @@ int android_graphics_Typeface::getStyle()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Typeface";
 
-	LOGV("android_graphics_Typeface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Typeface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -512,7 +509,7 @@ bool android_graphics_Typeface::isBold()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Typeface";
 
-	LOGV("android_graphics_Typeface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Typeface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -556,7 +553,7 @@ bool android_graphics_Typeface::isItalic()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Typeface";
 
-	LOGV("android_graphics_Typeface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Typeface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -600,7 +597,7 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::defaultFromStyl
 	const char *methodSignature = "(I)Landroid/graphics/Typeface;";
 	const char *className = "android/graphics/Typeface";
 
-	LOGV("android_graphics_Typeface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Typeface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -665,7 +662,7 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromAsset
 	const char *methodSignature = "(Landroid/content/res/AssetManager;Ljava/lang/String;)Landroid/graphics/Typeface;";
 	const char *className = "android/graphics/Typeface";
 
-	LOGV("android_graphics_Typeface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Typeface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -751,7 +748,7 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromFile(
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/graphics/Typeface;";
 	const char *className = "android/graphics/Typeface";
 
-	LOGV("android_graphics_Typeface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Typeface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -816,7 +813,7 @@ AndroidCXX::android_graphics_Typeface android_graphics_Typeface::createFromFile(
 	const char *methodSignature = "(Ljava/io/File;)Landroid/graphics/Typeface;";
 	const char *className = "android/graphics/Typeface";
 
-	LOGV("android_graphics_Typeface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Typeface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

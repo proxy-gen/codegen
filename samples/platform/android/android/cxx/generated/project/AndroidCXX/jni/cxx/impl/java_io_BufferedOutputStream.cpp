@@ -28,11 +28,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_io_BufferedOutputStream"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -122,7 +119,7 @@ java_io_BufferedOutputStream::java_io_BufferedOutputStream(AndroidCXX::java_io_O
 	const char *methodSignature = "(Ljava/io/OutputStream;)V";
 	const char *className = "java/io/BufferedOutputStream";
 
-	LOGV("java_io_BufferedOutputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_BufferedOutputStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -179,7 +176,7 @@ java_io_BufferedOutputStream::java_io_BufferedOutputStream(AndroidCXX::java_io_O
 	const char *methodSignature = "(Ljava/io/OutputStream;I)V";
 	const char *className = "java/io/BufferedOutputStream";
 
-	LOGV("java_io_BufferedOutputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_BufferedOutputStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -272,7 +269,7 @@ void java_io_BufferedOutputStream::write(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/io/BufferedOutputStream";
 
-	LOGV("java_io_BufferedOutputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_BufferedOutputStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -317,7 +314,7 @@ void java_io_BufferedOutputStream::write(std::vector<byte> const& arg0,int const
 	const char *methodSignature = "([BII)V";
 	const char *className = "java/io/BufferedOutputStream";
 
-	LOGV("java_io_BufferedOutputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_BufferedOutputStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -422,7 +419,7 @@ void java_io_BufferedOutputStream::flush()
 	const char *methodSignature = "()V";
 	const char *className = "java/io/BufferedOutputStream";
 
-	LOGV("java_io_BufferedOutputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_BufferedOutputStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

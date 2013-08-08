@@ -167,7 +167,7 @@ AndroidCXX::java_lang_String com_facebook_model_GraphPlace::getName()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/model/GraphPlace";
 
-	LOGV("com_facebook_model_GraphPlace className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_GraphPlace className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -211,7 +211,7 @@ FacebookCXX::com_facebook_model_GraphLocation com_facebook_model_GraphPlace::get
 	const char *methodSignature = "()Lcom/facebook/model/GraphLocation;";
 	const char *className = "com/facebook/model/GraphPlace";
 
-	LOGV("com_facebook_model_GraphPlace className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_GraphPlace className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -255,7 +255,7 @@ void com_facebook_model_GraphPlace::setName(AndroidCXX::java_lang_String const& 
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "com/facebook/model/GraphPlace";
 
-	LOGV("com_facebook_model_GraphPlace className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_GraphPlace className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -300,7 +300,7 @@ AndroidCXX::java_lang_String com_facebook_model_GraphPlace::getId()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/model/GraphPlace";
 
-	LOGV("com_facebook_model_GraphPlace className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_GraphPlace className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -344,7 +344,7 @@ AndroidCXX::java_lang_String com_facebook_model_GraphPlace::getCategory()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/model/GraphPlace";
 
-	LOGV("com_facebook_model_GraphPlace className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_GraphPlace className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -388,7 +388,7 @@ void com_facebook_model_GraphPlace::setId(AndroidCXX::java_lang_String const& ar
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "com/facebook/model/GraphPlace";
 
-	LOGV("com_facebook_model_GraphPlace className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_GraphPlace className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -433,7 +433,7 @@ void com_facebook_model_GraphPlace::setLocation(FacebookCXX::com_facebook_model_
 	const char *methodSignature = "(Lcom/facebook/model/GraphLocation;)V";
 	const char *className = "com/facebook/model/GraphPlace";
 
-	LOGV("com_facebook_model_GraphPlace className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_GraphPlace className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -478,7 +478,7 @@ void com_facebook_model_GraphPlace::setCategory(AndroidCXX::java_lang_String con
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "com/facebook/model/GraphPlace";
 
-	LOGV("com_facebook_model_GraphPlace className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_GraphPlace className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

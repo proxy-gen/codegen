@@ -32,11 +32,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_util_Random"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -117,7 +114,7 @@ java_util_Random::java_util_Random()
 	const char *methodSignature = "()V";
 	const char *className = "java/util/Random";
 
-	LOGV("java_util_Random className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Random className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -153,7 +150,7 @@ java_util_Random::java_util_Random(long const& arg0)
 	const char *methodSignature = "(J)V";
 	const char *className = "java/util/Random";
 
-	LOGV("java_util_Random className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Random className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -225,7 +222,7 @@ int java_util_Random::nextInt()
 	const char *methodSignature = "()I";
 	const char *className = "java/util/Random";
 
-	LOGV("java_util_Random className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Random className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -269,7 +266,7 @@ int java_util_Random::nextInt(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "java/util/Random";
 
-	LOGV("java_util_Random className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Random className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -334,7 +331,7 @@ double java_util_Random::nextDouble()
 	const char *methodSignature = "()D";
 	const char *className = "java/util/Random";
 
-	LOGV("java_util_Random className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Random className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -378,7 +375,7 @@ long java_util_Random::nextLong()
 	const char *methodSignature = "()J";
 	const char *className = "java/util/Random";
 
-	LOGV("java_util_Random className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Random className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -422,7 +419,7 @@ void java_util_Random::nextBytes(std::vector<byte> const& arg0)
 	const char *methodSignature = "([B)V";
 	const char *className = "java/util/Random";
 
-	LOGV("java_util_Random className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Random className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -485,7 +482,7 @@ void java_util_Random::setSeed(long const& arg0)
 	const char *methodSignature = "(J)V";
 	const char *className = "java/util/Random";
 
-	LOGV("java_util_Random className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Random className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -530,7 +527,7 @@ bool java_util_Random::nextBoolean()
 	const char *methodSignature = "()Z";
 	const char *className = "java/util/Random";
 
-	LOGV("java_util_Random className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Random className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -574,7 +571,7 @@ float java_util_Random::nextFloat()
 	const char *methodSignature = "()F";
 	const char *className = "java/util/Random";
 
-	LOGV("java_util_Random className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Random className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -618,7 +615,7 @@ double java_util_Random::nextGaussian()
 	const char *methodSignature = "()D";
 	const char *className = "java/util/Random";
 
-	LOGV("java_util_Random className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Random className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

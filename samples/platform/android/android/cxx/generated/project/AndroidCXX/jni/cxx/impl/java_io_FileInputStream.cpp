@@ -37,11 +37,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_io_FileInputStream"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -140,7 +137,7 @@ java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_lang_String co
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/io/FileInputStream";
 
-	LOGV("java_io_FileInputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_FileInputStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -197,7 +194,7 @@ java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_io_File const&
 	const char *methodSignature = "(Ljava/io/File;)V";
 	const char *className = "java/io/FileInputStream";
 
-	LOGV("java_io_FileInputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_FileInputStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -254,7 +251,7 @@ java_io_FileInputStream::java_io_FileInputStream(AndroidCXX::java_io_FileDescrip
 	const char *methodSignature = "(Ljava/io/FileDescriptor;)V";
 	const char *className = "java/io/FileInputStream";
 
-	LOGV("java_io_FileInputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_FileInputStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -326,7 +323,7 @@ void java_io_FileInputStream::close()
 	const char *methodSignature = "()V";
 	const char *className = "java/io/FileInputStream";
 
-	LOGV("java_io_FileInputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_FileInputStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -350,7 +347,7 @@ int java_io_FileInputStream::read(std::vector<byte> const& arg0)
 	const char *methodSignature = "([B)I";
 	const char *className = "java/io/FileInputStream";
 
-	LOGV("java_io_FileInputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_FileInputStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -433,7 +430,7 @@ int java_io_FileInputStream::read(std::vector<byte> const& arg0,int const& arg1,
 	const char *methodSignature = "([BII)I";
 	const char *className = "java/io/FileInputStream";
 
-	LOGV("java_io_FileInputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_FileInputStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -558,7 +555,7 @@ int java_io_FileInputStream::read()
 	const char *methodSignature = "()I";
 	const char *className = "java/io/FileInputStream";
 
-	LOGV("java_io_FileInputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_FileInputStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -602,7 +599,7 @@ long java_io_FileInputStream::skip(long const& arg0)
 	const char *methodSignature = "(J)J";
 	const char *className = "java/io/FileInputStream";
 
-	LOGV("java_io_FileInputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_FileInputStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -667,7 +664,7 @@ int java_io_FileInputStream::available()
 	const char *methodSignature = "()I";
 	const char *className = "java/io/FileInputStream";
 
-	LOGV("java_io_FileInputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_FileInputStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -711,7 +708,7 @@ AndroidCXX::java_io_FileDescriptor java_io_FileInputStream::getFD()
 	const char *methodSignature = "()Ljava/io/FileDescriptor;";
 	const char *className = "java/io/FileInputStream";
 
-	LOGV("java_io_FileInputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_FileInputStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -755,7 +752,7 @@ AndroidCXX::java_nio_channels_FileChannel java_io_FileInputStream::getChannel()
 	const char *methodSignature = "()Ljava/nio/channels/FileChannel;";
 	const char *className = "java/io/FileInputStream";
 
-	LOGV("java_io_FileInputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_FileInputStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

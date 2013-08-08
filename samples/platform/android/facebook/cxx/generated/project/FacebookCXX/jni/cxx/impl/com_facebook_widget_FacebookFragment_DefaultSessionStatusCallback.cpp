@@ -145,7 +145,7 @@ void com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::call(Fac
 	const char *methodSignature = "(Lcom/facebook/Session;Lcom/facebook/SessionState;Ljava/lang/Exception;)V";
 	const char *className = "com/facebook/widget/FacebookFragment$DefaultSessionStatusCallback";
 
-	LOGV("com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

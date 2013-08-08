@@ -59,11 +59,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_util_ArrayList"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -192,7 +189,7 @@ java_util_ArrayList::java_util_ArrayList(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/util/ArrayList";
 
-	LOGV("java_util_ArrayList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_ArrayList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -249,7 +246,7 @@ java_util_ArrayList::java_util_ArrayList()
 	const char *methodSignature = "()V";
 	const char *className = "java/util/ArrayList";
 
-	LOGV("java_util_ArrayList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_ArrayList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -285,7 +282,7 @@ java_util_ArrayList::java_util_ArrayList(AndroidCXX::java_util_Collection const&
 	const char *methodSignature = "(Ljava/util/Collection;)V";
 	const char *className = "java/util/ArrayList";
 
-	LOGV("java_util_ArrayList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_ArrayList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -375,7 +372,7 @@ void java_util_ArrayList::add(int const& arg0,AndroidCXX::java_lang_Object const
 	const char *methodSignature = "(ILjava/lang/Object;)V";
 	const char *className = "java/util/ArrayList";
 
-	LOGV("java_util_ArrayList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_ArrayList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -441,7 +438,7 @@ bool java_util_ArrayList::add(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/util/ArrayList";
 
-	LOGV("java_util_ArrayList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_ArrayList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -506,7 +503,7 @@ AndroidCXX::java_lang_Object java_util_ArrayList::get(int const& arg0)
 	const char *methodSignature = "(I)Ljava/lang/Object;";
 	const char *className = "java/util/ArrayList";
 
-	LOGV("java_util_ArrayList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_ArrayList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -571,7 +568,7 @@ AndroidCXX::java_lang_Object java_util_ArrayList::clone()
 	const char *methodSignature = "()Ljava/lang/Object;";
 	const char *className = "java/util/ArrayList";
 
-	LOGV("java_util_ArrayList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_ArrayList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -615,7 +612,7 @@ int java_util_ArrayList::indexOf(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)I";
 	const char *className = "java/util/ArrayList";
 
-	LOGV("java_util_ArrayList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_ArrayList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -680,7 +677,7 @@ void java_util_ArrayList::clear()
 	const char *methodSignature = "()V";
 	const char *className = "java/util/ArrayList";
 
-	LOGV("java_util_ArrayList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_ArrayList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -704,7 +701,7 @@ bool java_util_ArrayList::isEmpty()
 	const char *methodSignature = "()Z";
 	const char *className = "java/util/ArrayList";
 
-	LOGV("java_util_ArrayList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_ArrayList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -748,7 +745,7 @@ int java_util_ArrayList::lastIndexOf(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)I";
 	const char *className = "java/util/ArrayList";
 
-	LOGV("java_util_ArrayList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_ArrayList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -813,7 +810,7 @@ bool java_util_ArrayList::contains(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/util/ArrayList";
 
-	LOGV("java_util_ArrayList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_ArrayList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -878,7 +875,7 @@ bool java_util_ArrayList::addAll(AndroidCXX::java_util_Collection const& arg0)
 	const char *methodSignature = "(Ljava/util/Collection;)Z";
 	const char *className = "java/util/ArrayList";
 
-	LOGV("java_util_ArrayList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_ArrayList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -961,7 +958,7 @@ bool java_util_ArrayList::addAll(int const& arg0,AndroidCXX::java_util_Collectio
 	const char *methodSignature = "(ILjava/util/Collection;)Z";
 	const char *className = "java/util/ArrayList";
 
-	LOGV("java_util_ArrayList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_ArrayList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1065,7 +1062,7 @@ int java_util_ArrayList::size()
 	const char *methodSignature = "()I";
 	const char *className = "java/util/ArrayList";
 
-	LOGV("java_util_ArrayList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_ArrayList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1109,7 +1106,7 @@ std::vector<AndroidCXX::java_lang_Object > java_util_ArrayList::toArray(std::vec
 	const char *methodSignature = "([Ljava/lang/Object;)[Ljava/lang/Object;";
 	const char *className = "java/util/ArrayList";
 
-	LOGV("java_util_ArrayList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_ArrayList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1210,7 +1207,7 @@ std::vector<AndroidCXX::java_lang_Object > java_util_ArrayList::toArray()
 	const char *methodSignature = "()[Ljava/lang/Object;";
 	const char *className = "java/util/ArrayList";
 
-	LOGV("java_util_ArrayList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_ArrayList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1272,7 +1269,7 @@ AndroidCXX::java_lang_Object java_util_ArrayList::remove(int const& arg0)
 	const char *methodSignature = "(I)Ljava/lang/Object;";
 	const char *className = "java/util/ArrayList";
 
-	LOGV("java_util_ArrayList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_ArrayList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1337,7 +1334,7 @@ bool java_util_ArrayList::remove(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/util/ArrayList";
 
-	LOGV("java_util_ArrayList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_ArrayList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1402,7 +1399,7 @@ AndroidCXX::java_lang_Object java_util_ArrayList::set(int const& arg0,AndroidCXX
 	const char *methodSignature = "(ILjava/lang/Object;)Ljava/lang/Object;";
 	const char *className = "java/util/ArrayList";
 
-	LOGV("java_util_ArrayList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_ArrayList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1488,7 +1485,7 @@ void java_util_ArrayList::ensureCapacity(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/util/ArrayList";
 
-	LOGV("java_util_ArrayList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_ArrayList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1533,7 +1530,7 @@ void java_util_ArrayList::trimToSize()
 	const char *methodSignature = "()V";
 	const char *className = "java/util/ArrayList";
 
-	LOGV("java_util_ArrayList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_ArrayList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

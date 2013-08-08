@@ -53,11 +53,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_net_http_SslCertificate"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -201,7 +198,7 @@ android_net_http_SslCertificate::android_net_http_SslCertificate(AndroidCXX::jav
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "android/net/http/SslCertificate";
 
-	LOGV("android_net_http_SslCertificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_net_http_SslCertificate className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -321,7 +318,7 @@ android_net_http_SslCertificate::android_net_http_SslCertificate(AndroidCXX::jav
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Date;Ljava/util/Date;)V";
 	const char *className = "android/net/http/SslCertificate";
 
-	LOGV("android_net_http_SslCertificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_net_http_SslCertificate className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -441,7 +438,7 @@ android_net_http_SslCertificate::android_net_http_SslCertificate(AndroidCXX::jav
 	const char *methodSignature = "(Ljava/security/cert/X509Certificate;)V";
 	const char *className = "android/net/http/SslCertificate";
 
-	LOGV("android_net_http_SslCertificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_net_http_SslCertificate className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -513,7 +510,7 @@ AndroidCXX::java_lang_String android_net_http_SslCertificate::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/net/http/SslCertificate";
 
-	LOGV("android_net_http_SslCertificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_net_http_SslCertificate className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -557,7 +554,7 @@ AndroidCXX::android_os_Bundle android_net_http_SslCertificate::saveState(Android
 	const char *methodSignature = "(Landroid/net/http/SslCertificate;)Landroid/os/Bundle;";
 	const char *className = "android/net/http/SslCertificate";
 
-	LOGV("android_net_http_SslCertificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_net_http_SslCertificate className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -622,7 +619,7 @@ AndroidCXX::android_net_http_SslCertificate android_net_http_SslCertificate::res
 	const char *methodSignature = "(Landroid/os/Bundle;)Landroid/net/http/SslCertificate;";
 	const char *className = "android/net/http/SslCertificate";
 
-	LOGV("android_net_http_SslCertificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_net_http_SslCertificate className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -687,7 +684,7 @@ AndroidCXX::java_util_Date android_net_http_SslCertificate::getValidNotBeforeDat
 	const char *methodSignature = "()Ljava/util/Date;";
 	const char *className = "android/net/http/SslCertificate";
 
-	LOGV("android_net_http_SslCertificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_net_http_SslCertificate className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -731,7 +728,7 @@ AndroidCXX::java_lang_String android_net_http_SslCertificate::getValidNotBefore(
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/net/http/SslCertificate";
 
-	LOGV("android_net_http_SslCertificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_net_http_SslCertificate className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -775,7 +772,7 @@ AndroidCXX::java_util_Date android_net_http_SslCertificate::getValidNotAfterDate
 	const char *methodSignature = "()Ljava/util/Date;";
 	const char *className = "android/net/http/SslCertificate";
 
-	LOGV("android_net_http_SslCertificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_net_http_SslCertificate className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -819,7 +816,7 @@ AndroidCXX::java_lang_String android_net_http_SslCertificate::getValidNotAfter()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/net/http/SslCertificate";
 
-	LOGV("android_net_http_SslCertificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_net_http_SslCertificate className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -863,7 +860,7 @@ AndroidCXX::android_net_http_SslCertificate_DName android_net_http_SslCertificat
 	const char *methodSignature = "()Landroid/net/http/SslCertificate$DName;";
 	const char *className = "android/net/http/SslCertificate";
 
-	LOGV("android_net_http_SslCertificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_net_http_SslCertificate className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -907,7 +904,7 @@ AndroidCXX::android_net_http_SslCertificate_DName android_net_http_SslCertificat
 	const char *methodSignature = "()Landroid/net/http/SslCertificate$DName;";
 	const char *className = "android/net/http/SslCertificate";
 
-	LOGV("android_net_http_SslCertificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_net_http_SslCertificate className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

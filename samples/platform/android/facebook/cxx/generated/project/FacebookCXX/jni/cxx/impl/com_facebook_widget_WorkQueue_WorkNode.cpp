@@ -122,7 +122,7 @@ bool com_facebook_widget_WorkQueue_WorkNode::cancel()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/WorkQueue$WorkNode";
 
-	LOGV("com_facebook_widget_WorkQueue_WorkNode className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WorkQueue_WorkNode className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -166,7 +166,7 @@ bool com_facebook_widget_WorkQueue_WorkNode::isRunning()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/WorkQueue$WorkNode";
 
-	LOGV("com_facebook_widget_WorkQueue_WorkNode className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WorkQueue_WorkNode className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -210,7 +210,7 @@ void com_facebook_widget_WorkQueue_WorkNode::moveToFront()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/widget/WorkQueue$WorkNode";
 
-	LOGV("com_facebook_widget_WorkQueue_WorkNode className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WorkQueue_WorkNode className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -93,11 +93,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_ListPopupWindow"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -250,7 +247,7 @@ android_widget_ListPopupWindow::android_widget_ListPopupWindow(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -307,7 +304,7 @@ android_widget_ListPopupWindow::android_widget_ListPopupWindow(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;II)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -427,7 +424,7 @@ android_widget_ListPopupWindow::android_widget_ListPopupWindow(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -505,7 +502,7 @@ android_widget_ListPopupWindow::android_widget_ListPopupWindow(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -619,7 +616,7 @@ void android_widget_ListPopupWindow::show()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -643,7 +640,7 @@ bool android_widget_ListPopupWindow::onKeyDown(int const& arg0,AndroidCXX::andro
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -729,7 +726,7 @@ bool android_widget_ListPopupWindow::onKeyUp(int const& arg0,AndroidCXX::android
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -815,7 +812,7 @@ bool android_widget_ListPopupWindow::onKeyPreIme(int const& arg0,AndroidCXX::and
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -901,7 +898,7 @@ int android_widget_ListPopupWindow::getWidth()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -945,7 +942,7 @@ int android_widget_ListPopupWindow::getHeight()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -989,7 +986,7 @@ void android_widget_ListPopupWindow::setBackgroundDrawable(AndroidCXX::android_g
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1034,7 +1031,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_ListPopupWindow::g
 	const char *methodSignature = "()Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1078,7 +1075,7 @@ void android_widget_ListPopupWindow::setSelection(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1123,7 +1120,7 @@ void android_widget_ListPopupWindow::setSoftInputMode(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1168,7 +1165,7 @@ bool android_widget_ListPopupWindow::isShowing()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1212,7 +1209,7 @@ void android_widget_ListPopupWindow::dismiss()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1236,7 +1233,7 @@ void android_widget_ListPopupWindow::setOnDismissListener(AndroidCXX::android_wi
 	const char *methodSignature = "(Landroid/widget/PopupWindow$OnDismissListener;)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1281,7 +1278,7 @@ void android_widget_ListPopupWindow::setAdapter(AndroidCXX::android_widget_ListA
 	const char *methodSignature = "(Landroid/widget/ListAdapter;)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1326,7 +1323,7 @@ bool android_widget_ListPopupWindow::performItemClick(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1391,7 +1388,7 @@ AndroidCXX::android_view_View android_widget_ListPopupWindow::getSelectedView()
 	const char *methodSignature = "()Landroid/view/View;";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1435,7 +1432,7 @@ void android_widget_ListPopupWindow::setOnItemClickListener(AndroidCXX::android_
 	const char *methodSignature = "(Landroid/widget/AdapterView$OnItemClickListener;)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1480,7 +1477,7 @@ void android_widget_ListPopupWindow::setOnItemSelectedListener(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/widget/AdapterView$OnItemSelectedListener;)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1525,7 +1522,7 @@ int android_widget_ListPopupWindow::getSelectedItemPosition()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1569,7 +1566,7 @@ long android_widget_ListPopupWindow::getSelectedItemId()
 	const char *methodSignature = "()J";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1613,7 +1610,7 @@ AndroidCXX::java_lang_Object android_widget_ListPopupWindow::getSelectedItem()
 	const char *methodSignature = "()Ljava/lang/Object;";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1657,7 +1654,7 @@ void android_widget_ListPopupWindow::setHeight(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1702,7 +1699,7 @@ void android_widget_ListPopupWindow::setWidth(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1747,7 +1744,7 @@ void android_widget_ListPopupWindow::clearListSelection()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1771,7 +1768,7 @@ void android_widget_ListPopupWindow::setPromptPosition(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1816,7 +1813,7 @@ int android_widget_ListPopupWindow::getPromptPosition()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1860,7 +1857,7 @@ void android_widget_ListPopupWindow::setModal(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1905,7 +1902,7 @@ bool android_widget_ListPopupWindow::isModal()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1949,7 +1946,7 @@ int android_widget_ListPopupWindow::getSoftInputMode()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1993,7 +1990,7 @@ void android_widget_ListPopupWindow::setListSelector(AndroidCXX::android_graphic
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2038,7 +2035,7 @@ void android_widget_ListPopupWindow::setAnimationStyle(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2083,7 +2080,7 @@ int android_widget_ListPopupWindow::getAnimationStyle()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2127,7 +2124,7 @@ AndroidCXX::android_view_View android_widget_ListPopupWindow::getAnchorView()
 	const char *methodSignature = "()Landroid/view/View;";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2171,7 +2168,7 @@ void android_widget_ListPopupWindow::setAnchorView(AndroidCXX::android_view_View
 	const char *methodSignature = "(Landroid/view/View;)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2216,7 +2213,7 @@ int android_widget_ListPopupWindow::getHorizontalOffset()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2260,7 +2257,7 @@ void android_widget_ListPopupWindow::setHorizontalOffset(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2305,7 +2302,7 @@ int android_widget_ListPopupWindow::getVerticalOffset()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2349,7 +2346,7 @@ void android_widget_ListPopupWindow::setVerticalOffset(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2394,7 +2391,7 @@ void android_widget_ListPopupWindow::setContentWidth(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2439,7 +2436,7 @@ void android_widget_ListPopupWindow::setPromptView(AndroidCXX::android_view_View
 	const char *methodSignature = "(Landroid/view/View;)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2484,7 +2481,7 @@ void android_widget_ListPopupWindow::postShow()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2508,7 +2505,7 @@ void android_widget_ListPopupWindow::setInputMethodMode(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2553,7 +2550,7 @@ int android_widget_ListPopupWindow::getInputMethodMode()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2597,7 +2594,7 @@ bool android_widget_ListPopupWindow::isInputMethodNotNeeded()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2641,7 +2638,7 @@ AndroidCXX::android_widget_ListView android_widget_ListPopupWindow::getListView(
 	const char *methodSignature = "()Landroid/widget/ListView;";
 	const char *className = "android/widget/ListPopupWindow";
 
-	LOGV("android_widget_ListPopupWindow className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListPopupWindow className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

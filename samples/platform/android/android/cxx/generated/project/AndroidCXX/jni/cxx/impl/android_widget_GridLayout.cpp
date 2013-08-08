@@ -61,11 +61,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_GridLayout"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -194,7 +191,7 @@ android_widget_GridLayout::android_widget_GridLayout(AndroidCXX::android_content
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -293,7 +290,7 @@ android_widget_GridLayout::android_widget_GridLayout(AndroidCXX::android_content
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -371,7 +368,7 @@ android_widget_GridLayout::android_widget_GridLayout(AndroidCXX::android_content
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -443,7 +440,7 @@ AndroidCXX::android_widget_GridLayout_LayoutParams android_widget_GridLayout::ge
 	const char *methodSignature = "(Landroid/util/AttributeSet;)Landroid/widget/GridLayout$LayoutParams;";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -508,7 +505,7 @@ AndroidCXX::android_widget_GridLayout_Spec android_widget_GridLayout::spec(int c
 	const char *methodSignature = "(I)Landroid/widget/GridLayout$Spec;";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -573,7 +570,7 @@ AndroidCXX::android_widget_GridLayout_Spec android_widget_GridLayout::spec(int c
 	const char *methodSignature = "(ILandroid/widget/GridLayout$Alignment;)Landroid/widget/GridLayout$Spec;";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -659,7 +656,7 @@ AndroidCXX::android_widget_GridLayout_Spec android_widget_GridLayout::spec(int c
 	const char *methodSignature = "(IILandroid/widget/GridLayout$Alignment;)Landroid/widget/GridLayout$Spec;";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -766,7 +763,7 @@ AndroidCXX::android_widget_GridLayout_Spec android_widget_GridLayout::spec(int c
 	const char *methodSignature = "(II)Landroid/widget/GridLayout$Spec;";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -852,7 +849,7 @@ void android_widget_GridLayout::requestLayout()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -876,7 +873,7 @@ void android_widget_GridLayout::onInitializeAccessibilityEvent(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -921,7 +918,7 @@ void android_widget_GridLayout::onInitializeAccessibilityNodeInfo(AndroidCXX::an
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -966,7 +963,7 @@ int android_widget_GridLayout::getOrientation()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1010,7 +1007,7 @@ int android_widget_GridLayout::getColumnCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1054,7 +1051,7 @@ void android_widget_GridLayout::setOrientation(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1099,7 +1096,7 @@ int android_widget_GridLayout::getRowCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1143,7 +1140,7 @@ void android_widget_GridLayout::setRowCount(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1188,7 +1185,7 @@ void android_widget_GridLayout::setColumnCount(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1233,7 +1230,7 @@ bool android_widget_GridLayout::getUseDefaultMargins()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1277,7 +1274,7 @@ void android_widget_GridLayout::setUseDefaultMargins(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1322,7 +1319,7 @@ int android_widget_GridLayout::getAlignmentMode()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1366,7 +1363,7 @@ void android_widget_GridLayout::setAlignmentMode(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1411,7 +1408,7 @@ bool android_widget_GridLayout::isRowOrderPreserved()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1455,7 +1452,7 @@ void android_widget_GridLayout::setRowOrderPreserved(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1500,7 +1497,7 @@ bool android_widget_GridLayout::isColumnOrderPreserved()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1544,7 +1541,7 @@ void android_widget_GridLayout::setColumnOrderPreserved(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

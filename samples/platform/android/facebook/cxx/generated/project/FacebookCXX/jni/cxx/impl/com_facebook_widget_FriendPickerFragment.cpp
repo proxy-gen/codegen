@@ -150,7 +150,7 @@ com_facebook_widget_FriendPickerFragment::com_facebook_widget_FriendPickerFragme
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/widget/FriendPickerFragment";
 
-	LOGV("com_facebook_widget_FriendPickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_FriendPickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -207,7 +207,7 @@ com_facebook_widget_FriendPickerFragment::com_facebook_widget_FriendPickerFragme
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/widget/FriendPickerFragment";
 
-	LOGV("com_facebook_widget_FriendPickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_FriendPickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -258,7 +258,7 @@ void com_facebook_widget_FriendPickerFragment::onInflate(AndroidCXX::android_app
 	const char *methodSignature = "(Landroid/app/Activity;Landroid/util/AttributeSet;Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/widget/FriendPickerFragment";
 
-	LOGV("com_facebook_widget_FriendPickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_FriendPickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -345,7 +345,7 @@ AndroidCXX::java_lang_String com_facebook_widget_FriendPickerFragment::getUserId
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/widget/FriendPickerFragment";
 
-	LOGV("com_facebook_widget_FriendPickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_FriendPickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -389,7 +389,7 @@ void com_facebook_widget_FriendPickerFragment::setUserId(AndroidCXX::java_lang_S
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "com/facebook/widget/FriendPickerFragment";
 
-	LOGV("com_facebook_widget_FriendPickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_FriendPickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -434,7 +434,7 @@ bool com_facebook_widget_FriendPickerFragment::getMultiSelect()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/FriendPickerFragment";
 
-	LOGV("com_facebook_widget_FriendPickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_FriendPickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -478,7 +478,7 @@ void com_facebook_widget_FriendPickerFragment::setMultiSelect(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "com/facebook/widget/FriendPickerFragment";
 
-	LOGV("com_facebook_widget_FriendPickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_FriendPickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -523,7 +523,7 @@ AndroidCXX::java_util_List com_facebook_widget_FriendPickerFragment::getSelectio
 	const char *methodSignature = "()Ljava/util/List;";
 	const char *className = "com/facebook/widget/FriendPickerFragment";
 
-	LOGV("com_facebook_widget_FriendPickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_FriendPickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -585,7 +585,7 @@ void com_facebook_widget_FriendPickerFragment::setSettingsFromBundle(AndroidCXX:
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/widget/FriendPickerFragment";
 
-	LOGV("com_facebook_widget_FriendPickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_FriendPickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -92,11 +92,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_net_Socket"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -243,7 +240,7 @@ java_net_Socket::java_net_Socket()
 	const char *methodSignature = "()V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -279,7 +276,7 @@ java_net_Socket::java_net_Socket(AndroidCXX::java_net_Proxy const& arg0)
 	const char *methodSignature = "(Ljava/net/Proxy;)V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -336,7 +333,7 @@ java_net_Socket::java_net_Socket(AndroidCXX::java_lang_String const& arg0,int co
 	const char *methodSignature = "(Ljava/lang/String;I)V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -414,7 +411,7 @@ java_net_Socket::java_net_Socket(AndroidCXX::java_net_InetAddress const& arg0,in
 	const char *methodSignature = "(Ljava/net/InetAddress;I)V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -492,7 +489,7 @@ java_net_Socket::java_net_Socket(AndroidCXX::java_lang_String const& arg0,int co
 	const char *methodSignature = "(Ljava/lang/String;ILjava/net/InetAddress;I)V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -612,7 +609,7 @@ java_net_Socket::java_net_Socket(AndroidCXX::java_net_InetAddress const& arg0,in
 	const char *methodSignature = "(Ljava/net/InetAddress;ILjava/net/InetAddress;I)V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -732,7 +729,7 @@ java_net_Socket::java_net_Socket(AndroidCXX::java_lang_String const& arg0,int co
 	const char *methodSignature = "(Ljava/lang/String;IZ)V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -831,7 +828,7 @@ java_net_Socket::java_net_Socket(AndroidCXX::java_net_InetAddress const& arg0,in
 	const char *methodSignature = "(Ljava/net/InetAddress;IZ)V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -945,7 +942,7 @@ AndroidCXX::java_lang_String java_net_Socket::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -989,7 +986,7 @@ void java_net_Socket::close()
 	const char *methodSignature = "()V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1013,7 +1010,7 @@ int java_net_Socket::getPort()
 	const char *methodSignature = "()I";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1057,7 +1054,7 @@ AndroidCXX::java_io_InputStream java_net_Socket::getInputStream()
 	const char *methodSignature = "()Ljava/io/InputStream;";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1101,7 +1098,7 @@ AndroidCXX::java_nio_channels_SocketChannel java_net_Socket::getChannel()
 	const char *methodSignature = "()Ljava/nio/channels/SocketChannel;";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1145,7 +1142,7 @@ void java_net_Socket::connect(AndroidCXX::java_net_SocketAddress const& arg0)
 	const char *methodSignature = "(Ljava/net/SocketAddress;)V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1190,7 +1187,7 @@ void java_net_Socket::connect(AndroidCXX::java_net_SocketAddress const& arg0,int
 	const char *methodSignature = "(Ljava/net/SocketAddress;I)V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1256,7 +1253,7 @@ bool java_net_Socket::isClosed()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1300,7 +1297,7 @@ AndroidCXX::java_io_OutputStream java_net_Socket::getOutputStream()
 	const char *methodSignature = "()Ljava/io/OutputStream;";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1344,7 +1341,7 @@ void java_net_Socket::bind(AndroidCXX::java_net_SocketAddress const& arg0)
 	const char *methodSignature = "(Ljava/net/SocketAddress;)V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1389,7 +1386,7 @@ AndroidCXX::java_net_InetAddress java_net_Socket::getInetAddress()
 	const char *methodSignature = "()Ljava/net/InetAddress;";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1433,7 +1430,7 @@ AndroidCXX::java_net_InetAddress java_net_Socket::getLocalAddress()
 	const char *methodSignature = "()Ljava/net/InetAddress;";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1477,7 +1474,7 @@ int java_net_Socket::getLocalPort()
 	const char *methodSignature = "()I";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1521,7 +1518,7 @@ AndroidCXX::java_net_SocketAddress java_net_Socket::getRemoteSocketAddress()
 	const char *methodSignature = "()Ljava/net/SocketAddress;";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1565,7 +1562,7 @@ AndroidCXX::java_net_SocketAddress java_net_Socket::getLocalSocketAddress()
 	const char *methodSignature = "()Ljava/net/SocketAddress;";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1609,7 +1606,7 @@ void java_net_Socket::setTcpNoDelay(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1654,7 +1651,7 @@ bool java_net_Socket::getTcpNoDelay()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1698,7 +1695,7 @@ void java_net_Socket::setSoLinger(bool const& arg0,int const& arg1)
 	const char *methodSignature = "(ZI)V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1764,7 +1761,7 @@ int java_net_Socket::getSoLinger()
 	const char *methodSignature = "()I";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1808,7 +1805,7 @@ void java_net_Socket::sendUrgentData(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1853,7 +1850,7 @@ void java_net_Socket::setOOBInline(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1898,7 +1895,7 @@ bool java_net_Socket::getOOBInline()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1942,7 +1939,7 @@ void java_net_Socket::setSoTimeout(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1987,7 +1984,7 @@ int java_net_Socket::getSoTimeout()
 	const char *methodSignature = "()I";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2031,7 +2028,7 @@ void java_net_Socket::setSendBufferSize(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2076,7 +2073,7 @@ int java_net_Socket::getSendBufferSize()
 	const char *methodSignature = "()I";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2120,7 +2117,7 @@ void java_net_Socket::setReceiveBufferSize(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2165,7 +2162,7 @@ int java_net_Socket::getReceiveBufferSize()
 	const char *methodSignature = "()I";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2209,7 +2206,7 @@ void java_net_Socket::setKeepAlive(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2254,7 +2251,7 @@ bool java_net_Socket::getKeepAlive()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2298,7 +2295,7 @@ void java_net_Socket::setTrafficClass(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2343,7 +2340,7 @@ int java_net_Socket::getTrafficClass()
 	const char *methodSignature = "()I";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2387,7 +2384,7 @@ void java_net_Socket::setReuseAddress(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2432,7 +2429,7 @@ bool java_net_Socket::getReuseAddress()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2476,7 +2473,7 @@ void java_net_Socket::shutdownInput()
 	const char *methodSignature = "()V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2500,7 +2497,7 @@ void java_net_Socket::shutdownOutput()
 	const char *methodSignature = "()V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2524,7 +2521,7 @@ bool java_net_Socket::isConnected()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2568,7 +2565,7 @@ bool java_net_Socket::isBound()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2612,7 +2609,7 @@ bool java_net_Socket::isInputShutdown()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2656,7 +2653,7 @@ bool java_net_Socket::isOutputShutdown()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2700,7 +2697,7 @@ void java_net_Socket::setSocketImplFactory(AndroidCXX::java_net_SocketImplFactor
 	const char *methodSignature = "(Ljava/net/SocketImplFactory;)V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2745,7 +2742,7 @@ void java_net_Socket::setPerformancePreferences(int const& arg0,int const& arg1,
 	const char *methodSignature = "(III)V";
 	const char *className = "java/net/Socket";
 
-	LOGV("java_net_Socket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_Socket className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

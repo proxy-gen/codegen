@@ -141,7 +141,7 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_model_GraphObjectLi
 	const char *methodSignature = "(Ljava/lang/Class;)Lcom/facebook/model/GraphObjectList;";
 	const char *className = "com/facebook/model/GraphObjectList";
 
-	LOGV("com_facebook_model_GraphObjectList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_GraphObjectList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -242,7 +242,7 @@ AndroidCXX::org_json_JSONArray com_facebook_model_GraphObjectList::getInnerJSONA
 	const char *methodSignature = "()Lorg/json/JSONArray;";
 	const char *className = "com/facebook/model/GraphObjectList";
 
-	LOGV("com_facebook_model_GraphObjectList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_GraphObjectList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

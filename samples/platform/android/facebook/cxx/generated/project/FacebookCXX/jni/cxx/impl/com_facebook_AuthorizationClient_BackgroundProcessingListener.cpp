@@ -121,7 +121,7 @@ void com_facebook_AuthorizationClient_BackgroundProcessingListener::onBackground
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/AuthorizationClient$BackgroundProcessingListener";
 
-	LOGV("com_facebook_AuthorizationClient_BackgroundProcessingListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_AuthorizationClient_BackgroundProcessingListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -145,7 +145,7 @@ void com_facebook_AuthorizationClient_BackgroundProcessingListener::onBackground
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/AuthorizationClient$BackgroundProcessingListener";
 
-	LOGV("com_facebook_AuthorizationClient_BackgroundProcessingListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_AuthorizationClient_BackgroundProcessingListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

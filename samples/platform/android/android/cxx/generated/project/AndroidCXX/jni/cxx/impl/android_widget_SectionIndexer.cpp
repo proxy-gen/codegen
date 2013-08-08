@@ -24,11 +24,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_SectionIndexer"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -124,7 +121,7 @@ std::vector<AndroidCXX::java_lang_Object > android_widget_SectionIndexer::getSec
 	const char *methodSignature = "()[Ljava/lang/Object;";
 	const char *className = "android/widget/SectionIndexer";
 
-	LOGV("android_widget_SectionIndexer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SectionIndexer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -186,7 +183,7 @@ int android_widget_SectionIndexer::getPositionForSection(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/widget/SectionIndexer";
 
-	LOGV("android_widget_SectionIndexer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SectionIndexer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -251,7 +248,7 @@ int android_widget_SectionIndexer::getSectionForPosition(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/widget/SectionIndexer";
 
-	LOGV("android_widget_SectionIndexer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SectionIndexer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

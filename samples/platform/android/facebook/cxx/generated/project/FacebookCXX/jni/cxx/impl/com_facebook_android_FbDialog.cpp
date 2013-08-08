@@ -172,7 +172,7 @@ com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;Lcom/facebook/android/Facebook$DialogListener;)V";
 	const char *className = "com/facebook/android/FbDialog";
 
-	LOGV("com_facebook_android_FbDialog className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_FbDialog className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -271,7 +271,7 @@ com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;Lcom/facebook/android/Facebook$DialogListener;I)V";
 	const char *className = "com/facebook/android/FbDialog";
 
-	LOGV("com_facebook_android_FbDialog className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_FbDialog className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -391,7 +391,7 @@ com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/android/Facebook$DialogListener;)V";
 	const char *className = "com/facebook/android/FbDialog";
 
-	LOGV("com_facebook_android_FbDialog className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_FbDialog className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -511,7 +511,7 @@ com_facebook_android_FbDialog::com_facebook_android_FbDialog(AndroidCXX::android
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/android/Facebook$DialogListener;I)V";
 	const char *className = "com/facebook/android/FbDialog";
 
-	LOGV("com_facebook_android_FbDialog className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_FbDialog className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

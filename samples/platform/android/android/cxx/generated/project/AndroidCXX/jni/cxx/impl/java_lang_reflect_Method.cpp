@@ -55,11 +55,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_lang_reflect_Method"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -194,7 +191,7 @@ AndroidCXX::java_lang_Object java_lang_reflect_Method::invoke(AndroidCXX::java_l
 	const char *methodSignature = "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;";
 	const char *className = "java/lang/reflect/Method";
 
-	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_Method className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -298,7 +295,7 @@ bool java_lang_reflect_Method::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/lang/reflect/Method";
 
-	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_Method className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -363,7 +360,7 @@ AndroidCXX::java_lang_String java_lang_reflect_Method::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/reflect/Method";
 
-	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_Method className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -407,7 +404,7 @@ int java_lang_reflect_Method::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "java/lang/reflect/Method";
 
-	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_Method className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -451,7 +448,7 @@ int java_lang_reflect_Method::getModifiers()
 	const char *methodSignature = "()I";
 	const char *className = "java/lang/reflect/Method";
 
-	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_Method className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -495,7 +492,7 @@ AndroidCXX::java_lang_String java_lang_reflect_Method::getName()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/reflect/Method";
 
-	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_Method className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -539,7 +536,7 @@ bool java_lang_reflect_Method::isSynthetic()
 	const char *methodSignature = "()Z";
 	const char *className = "java/lang/reflect/Method";
 
-	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_Method className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -583,7 +580,7 @@ std::vector<AndroidCXX::java_lang_reflect_TypeVariable > java_lang_reflect_Metho
 	const char *methodSignature = "()[Ljava/lang/reflect/TypeVariable;";
 	const char *className = "java/lang/reflect/Method";
 
-	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_Method className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -663,7 +660,7 @@ AndroidCXX::java_lang_Class java_lang_reflect_Method::getDeclaringClass()
 	const char *methodSignature = "()Ljava/lang/Class;";
 	const char *className = "java/lang/reflect/Method";
 
-	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_Method className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -725,7 +722,7 @@ AndroidCXX::java_lang_annotation_Annotation java_lang_reflect_Method::getAnnotat
 	const char *methodSignature = "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;";
 	const char *className = "java/lang/reflect/Method";
 
-	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_Method className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -808,7 +805,7 @@ std::vector<AndroidCXX::java_lang_annotation_Annotation > java_lang_reflect_Meth
 	const char *methodSignature = "()[Ljava/lang/annotation/Annotation;";
 	const char *className = "java/lang/reflect/Method";
 
-	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_Method className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -870,7 +867,7 @@ AndroidCXX::java_lang_Class java_lang_reflect_Method::getReturnType()
 	const char *methodSignature = "()Ljava/lang/Class;";
 	const char *className = "java/lang/reflect/Method";
 
-	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_Method className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -932,7 +929,7 @@ std::vector<AndroidCXX::java_lang_Class > java_lang_reflect_Method::getParameter
 	const char *methodSignature = "()[Ljava/lang/Class;";
 	const char *className = "java/lang/reflect/Method";
 
-	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_Method className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1012,7 +1009,7 @@ AndroidCXX::java_lang_String java_lang_reflect_Method::toGenericString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/reflect/Method";
 
-	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_Method className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1056,7 +1053,7 @@ AndroidCXX::java_lang_reflect_Type java_lang_reflect_Method::getGenericReturnTyp
 	const char *methodSignature = "()Ljava/lang/reflect/Type;";
 	const char *className = "java/lang/reflect/Method";
 
-	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_Method className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1100,7 +1097,7 @@ std::vector<AndroidCXX::java_lang_reflect_Type > java_lang_reflect_Method::getGe
 	const char *methodSignature = "()[Ljava/lang/reflect/Type;";
 	const char *className = "java/lang/reflect/Method";
 
-	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_Method className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1162,7 +1159,7 @@ std::vector<AndroidCXX::java_lang_Class > java_lang_reflect_Method::getException
 	const char *methodSignature = "()[Ljava/lang/Class;";
 	const char *className = "java/lang/reflect/Method";
 
-	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_Method className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1242,7 +1239,7 @@ std::vector<AndroidCXX::java_lang_reflect_Type > java_lang_reflect_Method::getGe
 	const char *methodSignature = "()[Ljava/lang/reflect/Type;";
 	const char *className = "java/lang/reflect/Method";
 
-	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_Method className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1304,7 +1301,7 @@ bool java_lang_reflect_Method::isBridge()
 	const char *methodSignature = "()Z";
 	const char *className = "java/lang/reflect/Method";
 
-	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_Method className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1348,7 +1345,7 @@ bool java_lang_reflect_Method::isVarArgs()
 	const char *methodSignature = "()Z";
 	const char *className = "java/lang/reflect/Method";
 
-	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_Method className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1392,7 +1389,7 @@ AndroidCXX::java_lang_Object java_lang_reflect_Method::getDefaultValue()
 	const char *methodSignature = "()Ljava/lang/Object;";
 	const char *className = "java/lang/reflect/Method";
 
-	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_Method className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1436,7 +1433,7 @@ std::vector<std::vector<AndroidCXX::java_lang_annotation_Annotation > > java_lan
 	const char *methodSignature = "()[[Ljava/lang/annotation/Annotation;";
 	const char *className = "java/lang/reflect/Method";
 
-	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_Method className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

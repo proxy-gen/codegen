@@ -29,11 +29,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_text_method_TransformationMethod"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -150,7 +147,7 @@ AndroidCXX::java_lang_CharSequence android_text_method_TransformationMethod::get
 	const char *methodSignature = "(Ljava/lang/CharSequence;Landroid/view/View;)Ljava/lang/CharSequence;";
 	const char *className = "android/text/method/TransformationMethod";
 
-	LOGV("android_text_method_TransformationMethod className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_method_TransformationMethod className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -236,7 +233,7 @@ void android_text_method_TransformationMethod::onFocusChanged(AndroidCXX::androi
 	const char *methodSignature = "(Landroid/view/View;Ljava/lang/CharSequence;ZILandroid/graphics/Rect;)V";
 	const char *className = "android/text/method/TransformationMethod";
 
-	LOGV("android_text_method_TransformationMethod className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_method_TransformationMethod className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

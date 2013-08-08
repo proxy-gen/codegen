@@ -53,11 +53,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_net_NetworkInterface"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -195,7 +192,7 @@ bool java_net_NetworkInterface::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/net/NetworkInterface";
 
-	LOGV("java_net_NetworkInterface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_NetworkInterface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -260,7 +257,7 @@ AndroidCXX::java_lang_String java_net_NetworkInterface::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/net/NetworkInterface";
 
-	LOGV("java_net_NetworkInterface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_NetworkInterface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -304,7 +301,7 @@ int java_net_NetworkInterface::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "java/net/NetworkInterface";
 
-	LOGV("java_net_NetworkInterface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_NetworkInterface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -348,7 +345,7 @@ AndroidCXX::java_lang_String java_net_NetworkInterface::getName()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/net/NetworkInterface";
 
-	LOGV("java_net_NetworkInterface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_NetworkInterface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -392,7 +389,7 @@ AndroidCXX::java_net_NetworkInterface java_net_NetworkInterface::getParent()
 	const char *methodSignature = "()Ljava/net/NetworkInterface;";
 	const char *className = "java/net/NetworkInterface";
 
-	LOGV("java_net_NetworkInterface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_NetworkInterface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -436,7 +433,7 @@ AndroidCXX::java_lang_String java_net_NetworkInterface::getDisplayName()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/net/NetworkInterface";
 
-	LOGV("java_net_NetworkInterface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_NetworkInterface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -480,7 +477,7 @@ AndroidCXX::java_net_NetworkInterface java_net_NetworkInterface::getByName(Andro
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/NetworkInterface;";
 	const char *className = "java/net/NetworkInterface";
 
-	LOGV("java_net_NetworkInterface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_NetworkInterface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -545,7 +542,7 @@ AndroidCXX::java_util_Enumeration java_net_NetworkInterface::getInetAddresses()
 	const char *methodSignature = "()Ljava/util/Enumeration;";
 	const char *className = "java/net/NetworkInterface";
 
-	LOGV("java_net_NetworkInterface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_NetworkInterface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -607,7 +604,7 @@ AndroidCXX::java_util_List java_net_NetworkInterface::getInterfaceAddresses()
 	const char *methodSignature = "()Ljava/util/List;";
 	const char *className = "java/net/NetworkInterface";
 
-	LOGV("java_net_NetworkInterface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_NetworkInterface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -669,7 +666,7 @@ AndroidCXX::java_util_Enumeration java_net_NetworkInterface::getSubInterfaces()
 	const char *methodSignature = "()Ljava/util/Enumeration;";
 	const char *className = "java/net/NetworkInterface";
 
-	LOGV("java_net_NetworkInterface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_NetworkInterface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -731,7 +728,7 @@ AndroidCXX::java_net_NetworkInterface java_net_NetworkInterface::getByInetAddres
 	const char *methodSignature = "(Ljava/net/InetAddress;)Ljava/net/NetworkInterface;";
 	const char *className = "java/net/NetworkInterface";
 
-	LOGV("java_net_NetworkInterface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_NetworkInterface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -796,7 +793,7 @@ AndroidCXX::java_util_Enumeration java_net_NetworkInterface::getNetworkInterface
 	const char *methodSignature = "()Ljava/util/Enumeration;";
 	const char *className = "java/net/NetworkInterface";
 
-	LOGV("java_net_NetworkInterface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_NetworkInterface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -858,7 +855,7 @@ bool java_net_NetworkInterface::isUp()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/NetworkInterface";
 
-	LOGV("java_net_NetworkInterface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_NetworkInterface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -902,7 +899,7 @@ bool java_net_NetworkInterface::isLoopback()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/NetworkInterface";
 
-	LOGV("java_net_NetworkInterface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_NetworkInterface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -946,7 +943,7 @@ bool java_net_NetworkInterface::isPointToPoint()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/NetworkInterface";
 
-	LOGV("java_net_NetworkInterface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_NetworkInterface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -990,7 +987,7 @@ bool java_net_NetworkInterface::supportsMulticast()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/NetworkInterface";
 
-	LOGV("java_net_NetworkInterface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_NetworkInterface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1034,7 +1031,7 @@ std::vector<byte> java_net_NetworkInterface::getHardwareAddress()
 	const char *methodSignature = "()[B";
 	const char *className = "java/net/NetworkInterface";
 
-	LOGV("java_net_NetworkInterface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_NetworkInterface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1096,7 +1093,7 @@ int java_net_NetworkInterface::getMTU()
 	const char *methodSignature = "()I";
 	const char *className = "java/net/NetworkInterface";
 
-	LOGV("java_net_NetworkInterface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_NetworkInterface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1140,7 +1137,7 @@ bool java_net_NetworkInterface::isVirtual()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/NetworkInterface";
 
-	LOGV("java_net_NetworkInterface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_NetworkInterface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

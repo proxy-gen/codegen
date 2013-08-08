@@ -139,7 +139,7 @@ com_facebook_android_Facebook_TokenRefreshServiceConnection::com_facebook_androi
 	const char *methodSignature = "(Lcom/facebook/android/Facebook;Landroid/content/Context;Lcom/facebook/android/Facebook$ServiceListener;)V";
 	const char *className = "com/facebook/android/Facebook$TokenRefreshServiceConnection";
 
-	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -253,7 +253,7 @@ void com_facebook_android_Facebook_TokenRefreshServiceConnection::onServiceConne
 	const char *methodSignature = "(Landroid/content/ComponentName;Landroid/os/IBinder;)V";
 	const char *className = "com/facebook/android/Facebook$TokenRefreshServiceConnection";
 
-	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -319,7 +319,7 @@ void com_facebook_android_Facebook_TokenRefreshServiceConnection::onServiceDisco
 	const char *methodSignature = "(Landroid/content/ComponentName;)V";
 	const char *className = "com/facebook/android/Facebook$TokenRefreshServiceConnection";
 
-	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

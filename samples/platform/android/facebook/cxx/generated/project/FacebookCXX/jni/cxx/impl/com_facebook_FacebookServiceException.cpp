@@ -131,7 +131,7 @@ com_facebook_FacebookServiceException::com_facebook_FacebookServiceException(Fac
 	const char *methodSignature = "(Lcom/facebook/FacebookRequestError;Ljava/lang/String;)V";
 	const char *className = "com/facebook/FacebookServiceException";
 
-	LOGV("com_facebook_FacebookServiceException className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_FacebookServiceException className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -224,7 +224,7 @@ AndroidCXX::java_lang_String com_facebook_FacebookServiceException::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/FacebookServiceException";
 
-	LOGV("com_facebook_FacebookServiceException className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_FacebookServiceException className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -268,7 +268,7 @@ FacebookCXX::com_facebook_FacebookRequestError com_facebook_FacebookServiceExcep
 	const char *methodSignature = "()Lcom/facebook/FacebookRequestError;";
 	const char *className = "com/facebook/FacebookServiceException";
 
-	LOGV("com_facebook_FacebookServiceException className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_FacebookServiceException className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

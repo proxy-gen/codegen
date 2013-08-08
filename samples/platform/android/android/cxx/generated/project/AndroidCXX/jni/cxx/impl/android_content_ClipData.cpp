@@ -65,11 +65,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_content_ClipData"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -214,7 +211,7 @@ android_content_ClipData::android_content_ClipData(AndroidCXX::java_lang_CharSeq
 	const char *methodSignature = "(Ljava/lang/CharSequence;[Ljava/lang/String;Landroid/content/ClipData$Item;)V";
 	const char *className = "android/content/ClipData";
 
-	LOGV("android_content_ClipData className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipData className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -331,7 +328,7 @@ android_content_ClipData::android_content_ClipData(AndroidCXX::android_content_C
 	const char *methodSignature = "(Landroid/content/ClipDescription;Landroid/content/ClipData$Item;)V";
 	const char *className = "android/content/ClipData";
 
-	LOGV("android_content_ClipData className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipData className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -409,7 +406,7 @@ android_content_ClipData::android_content_ClipData(AndroidCXX::android_content_C
 	const char *methodSignature = "(Landroid/content/ClipData;)V";
 	const char *className = "android/content/ClipData";
 
-	LOGV("android_content_ClipData className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipData className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -481,7 +478,7 @@ AndroidCXX::java_lang_String android_content_ClipData::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/content/ClipData";
 
-	LOGV("android_content_ClipData className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipData className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -525,7 +522,7 @@ int android_content_ClipData::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/ClipData";
 
-	LOGV("android_content_ClipData className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipData className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -569,7 +566,7 @@ void android_content_ClipData::writeToParcel(AndroidCXX::android_os_Parcel const
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/content/ClipData";
 
-	LOGV("android_content_ClipData className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipData className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -635,7 +632,7 @@ AndroidCXX::android_content_ClipData android_content_ClipData::newIntent(Android
 	const char *methodSignature = "(Ljava/lang/CharSequence;Landroid/content/Intent;)Landroid/content/ClipData;";
 	const char *className = "android/content/ClipData";
 
-	LOGV("android_content_ClipData className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipData className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -721,7 +718,7 @@ AndroidCXX::android_content_ClipData android_content_ClipData::newPlainText(Andr
 	const char *methodSignature = "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/content/ClipData;";
 	const char *className = "android/content/ClipData";
 
-	LOGV("android_content_ClipData className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipData className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -807,7 +804,7 @@ AndroidCXX::android_content_ClipData android_content_ClipData::newHtmlText(Andro
 	const char *methodSignature = "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/String;)Landroid/content/ClipData;";
 	const char *className = "android/content/ClipData";
 
-	LOGV("android_content_ClipData className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipData className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -914,7 +911,7 @@ AndroidCXX::android_content_ClipData android_content_ClipData::newUri(AndroidCXX
 	const char *methodSignature = "(Landroid/content/ContentResolver;Ljava/lang/CharSequence;Landroid/net/Uri;)Landroid/content/ClipData;";
 	const char *className = "android/content/ClipData";
 
-	LOGV("android_content_ClipData className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipData className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1021,7 +1018,7 @@ AndroidCXX::android_content_ClipData android_content_ClipData::newRawUri(Android
 	const char *methodSignature = "(Ljava/lang/CharSequence;Landroid/net/Uri;)Landroid/content/ClipData;";
 	const char *className = "android/content/ClipData";
 
-	LOGV("android_content_ClipData className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipData className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1107,7 +1104,7 @@ AndroidCXX::android_content_ClipDescription android_content_ClipData::getDescrip
 	const char *methodSignature = "()Landroid/content/ClipDescription;";
 	const char *className = "android/content/ClipData";
 
-	LOGV("android_content_ClipData className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipData className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1151,7 +1148,7 @@ void android_content_ClipData::addItem(AndroidCXX::android_content_ClipData_Item
 	const char *methodSignature = "(Landroid/content/ClipData$Item;)V";
 	const char *className = "android/content/ClipData";
 
-	LOGV("android_content_ClipData className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipData className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1196,7 +1193,7 @@ int android_content_ClipData::getItemCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/ClipData";
 
-	LOGV("android_content_ClipData className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipData className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1240,7 +1237,7 @@ AndroidCXX::android_content_ClipData_Item android_content_ClipData::getItemAt(in
 	const char *methodSignature = "(I)Landroid/content/ClipData$Item;";
 	const char *className = "android/content/ClipData";
 
-	LOGV("android_content_ClipData className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipData className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -11,8 +11,22 @@ import commands
 import inspect
 
 def copy_dependent_libs():
+	make_libs()
 	copy_runtime_lib()
 	copy_facebook_cxx_lib()
+
+def make_libs():
+	from string import Template
+	my_dir = os.path.dirname(inspect.getfile(inspect.currentframe()))
+	my_libs_dir = os.path.join(my_dir, "libs")
+	command_template = Template("mkdir -p ${my_libs_dir}")
+	command = command_template.substitute(my_libs_dir=my_libs_dir)
+	command_output = commands.getstatusoutput(command)
+	if command_output[0] != 0:
+			print "unable to run " + command
+			return False
+	return True
+
 
 def copy_runtime_lib():
 	from string import Template

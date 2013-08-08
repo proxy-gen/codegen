@@ -33,11 +33,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_security_CodeSigner"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -139,7 +136,7 @@ java_security_CodeSigner::java_security_CodeSigner(AndroidCXX::java_security_cer
 	const char *methodSignature = "(Ljava/security/cert/CertPath;Ljava/security/Timestamp;)V";
 	const char *className = "java/security/CodeSigner";
 
-	LOGV("java_security_CodeSigner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_CodeSigner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -232,7 +229,7 @@ bool java_security_CodeSigner::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/security/CodeSigner";
 
-	LOGV("java_security_CodeSigner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_CodeSigner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -297,7 +294,7 @@ AndroidCXX::java_lang_String java_security_CodeSigner::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/security/CodeSigner";
 
-	LOGV("java_security_CodeSigner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_CodeSigner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -341,7 +338,7 @@ int java_security_CodeSigner::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "java/security/CodeSigner";
 
-	LOGV("java_security_CodeSigner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_CodeSigner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -385,7 +382,7 @@ AndroidCXX::java_security_cert_CertPath java_security_CodeSigner::getSignerCertP
 	const char *methodSignature = "()Ljava/security/cert/CertPath;";
 	const char *className = "java/security/CodeSigner";
 
-	LOGV("java_security_CodeSigner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_CodeSigner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -429,7 +426,7 @@ AndroidCXX::java_security_Timestamp java_security_CodeSigner::getTimestamp()
 	const char *methodSignature = "()Ljava/security/Timestamp;";
 	const char *className = "java/security/CodeSigner";
 
-	LOGV("java_security_CodeSigner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_CodeSigner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -51,11 +51,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_app_TaskStackBuilder"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -205,7 +202,7 @@ AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::create(An
 	const char *methodSignature = "(Landroid/content/Context;)Landroid/app/TaskStackBuilder;";
 	const char *className = "android/app/TaskStackBuilder";
 
-	LOGV("android_app_TaskStackBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_TaskStackBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -270,7 +267,7 @@ void android_app_TaskStackBuilder::startActivities()
 	const char *methodSignature = "()V";
 	const char *className = "android/app/TaskStackBuilder";
 
-	LOGV("android_app_TaskStackBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_TaskStackBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -294,7 +291,7 @@ void android_app_TaskStackBuilder::startActivities(AndroidCXX::android_os_Bundle
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "android/app/TaskStackBuilder";
 
-	LOGV("android_app_TaskStackBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_TaskStackBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -339,7 +336,7 @@ AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addNextIn
 	const char *methodSignature = "(Landroid/content/Intent;)Landroid/app/TaskStackBuilder;";
 	const char *className = "android/app/TaskStackBuilder";
 
-	LOGV("android_app_TaskStackBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_TaskStackBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -404,7 +401,7 @@ AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addNextIn
 	const char *methodSignature = "(Landroid/content/Intent;)Landroid/app/TaskStackBuilder;";
 	const char *className = "android/app/TaskStackBuilder";
 
-	LOGV("android_app_TaskStackBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_TaskStackBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -469,7 +466,7 @@ AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParent
 	const char *methodSignature = "(Landroid/app/Activity;)Landroid/app/TaskStackBuilder;";
 	const char *className = "android/app/TaskStackBuilder";
 
-	LOGV("android_app_TaskStackBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_TaskStackBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -534,7 +531,7 @@ AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParent
 	const char *methodSignature = "(Ljava/lang/Class;)Landroid/app/TaskStackBuilder;";
 	const char *className = "android/app/TaskStackBuilder";
 
-	LOGV("android_app_TaskStackBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_TaskStackBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -617,7 +614,7 @@ AndroidCXX::android_app_TaskStackBuilder android_app_TaskStackBuilder::addParent
 	const char *methodSignature = "(Landroid/content/ComponentName;)Landroid/app/TaskStackBuilder;";
 	const char *className = "android/app/TaskStackBuilder";
 
-	LOGV("android_app_TaskStackBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_TaskStackBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -682,7 +679,7 @@ int android_app_TaskStackBuilder::getIntentCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/app/TaskStackBuilder";
 
-	LOGV("android_app_TaskStackBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_TaskStackBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -726,7 +723,7 @@ AndroidCXX::android_content_Intent android_app_TaskStackBuilder::editIntentAt(in
 	const char *methodSignature = "(I)Landroid/content/Intent;";
 	const char *className = "android/app/TaskStackBuilder";
 
-	LOGV("android_app_TaskStackBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_TaskStackBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -791,7 +788,7 @@ AndroidCXX::android_app_PendingIntent android_app_TaskStackBuilder::getPendingIn
 	const char *methodSignature = "(II)Landroid/app/PendingIntent;";
 	const char *className = "android/app/TaskStackBuilder";
 
-	LOGV("android_app_TaskStackBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_TaskStackBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -877,7 +874,7 @@ AndroidCXX::android_app_PendingIntent android_app_TaskStackBuilder::getPendingIn
 	const char *methodSignature = "(IILandroid/os/Bundle;)Landroid/app/PendingIntent;";
 	const char *className = "android/app/TaskStackBuilder";
 
-	LOGV("android_app_TaskStackBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_TaskStackBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -984,7 +981,7 @@ std::vector<AndroidCXX::android_content_Intent > android_app_TaskStackBuilder::g
 	const char *methodSignature = "()[Landroid/content/Intent;";
 	const char *className = "android/app/TaskStackBuilder";
 
-	LOGV("android_app_TaskStackBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_TaskStackBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

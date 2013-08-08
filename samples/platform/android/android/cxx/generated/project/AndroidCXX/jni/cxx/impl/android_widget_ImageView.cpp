@@ -84,11 +84,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_ImageView"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -242,7 +239,7 @@ android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_C
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -320,7 +317,7 @@ android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_C
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -419,7 +416,7 @@ android_widget_ImageView::android_widget_ImageView(AndroidCXX::android_content_C
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -491,7 +488,7 @@ void android_widget_ImageView::setVisibility(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -536,7 +533,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_ImageView::getDraw
 	const char *methodSignature = "()Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -580,7 +577,7 @@ void android_widget_ImageView::jumpDrawablesToCurrentState()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -604,7 +601,7 @@ std::vector<int> android_widget_ImageView::onCreateDrawableState(int const& arg0
 	const char *methodSignature = "(I)[I";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -687,7 +684,7 @@ void android_widget_ImageView::onPopulateAccessibilityEvent(AndroidCXX::android_
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -732,7 +729,7 @@ void android_widget_ImageView::onInitializeAccessibilityEvent(AndroidCXX::androi
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -777,7 +774,7 @@ void android_widget_ImageView::onInitializeAccessibilityNodeInfo(AndroidCXX::and
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -822,7 +819,7 @@ bool android_widget_ImageView::hasOverlappingRendering()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -866,7 +863,7 @@ void android_widget_ImageView::setAlpha(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -911,7 +908,7 @@ void android_widget_ImageView::invalidateDrawable(AndroidCXX::android_graphics_d
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -956,7 +953,7 @@ void android_widget_ImageView::setSelected(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1001,7 +998,7 @@ int android_widget_ImageView::getBaseline()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1045,7 +1042,7 @@ void android_widget_ImageView::setColorFilter(int const& arg0,android_graphics_P
 	const char *methodSignature = "(ILandroid/graphics/PorterDuff$Mode;)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1111,7 +1108,7 @@ void android_widget_ImageView::setColorFilter(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1156,7 +1153,7 @@ void android_widget_ImageView::setColorFilter(AndroidCXX::android_graphics_Color
 	const char *methodSignature = "(Landroid/graphics/ColorFilter;)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1201,7 +1198,7 @@ void android_widget_ImageView::clearColorFilter()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1225,7 +1222,7 @@ AndroidCXX::android_graphics_ColorFilter android_widget_ImageView::getColorFilte
 	const char *methodSignature = "()Landroid/graphics/ColorFilter;";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1269,7 +1266,7 @@ void android_widget_ImageView::setMaxHeight(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1314,7 +1311,7 @@ int android_widget_ImageView::getMaxHeight()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1358,7 +1355,7 @@ void android_widget_ImageView::setMaxWidth(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1403,7 +1400,7 @@ int android_widget_ImageView::getMaxWidth()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1447,7 +1444,7 @@ bool android_widget_ImageView::getAdjustViewBounds()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1491,7 +1488,7 @@ void android_widget_ImageView::setAdjustViewBounds(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1536,7 +1533,7 @@ void android_widget_ImageView::setImageResource(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1581,7 +1578,7 @@ void android_widget_ImageView::setImageURI(AndroidCXX::android_net_Uri const& ar
 	const char *methodSignature = "(Landroid/net/Uri;)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1626,7 +1623,7 @@ void android_widget_ImageView::setImageDrawable(AndroidCXX::android_graphics_dra
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1671,7 +1668,7 @@ void android_widget_ImageView::setImageBitmap(AndroidCXX::android_graphics_Bitma
 	const char *methodSignature = "(Landroid/graphics/Bitmap;)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1716,7 +1713,7 @@ void android_widget_ImageView::setImageState(std::vector<int> const& arg0,bool c
 	const char *methodSignature = "([IZ)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1800,7 +1797,7 @@ void android_widget_ImageView::setImageLevel(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1845,7 +1842,7 @@ void android_widget_ImageView::setScaleType(android_widget_ImageView_ScaleType::
 	const char *methodSignature = "(Landroid/widget/ImageView$ScaleType;)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1890,7 +1887,7 @@ android_widget_ImageView_ScaleType::android_widget_ImageView_ScaleType android_w
 	const char *methodSignature = "()Landroid/widget/ImageView$ScaleType;";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1934,7 +1931,7 @@ AndroidCXX::android_graphics_Matrix android_widget_ImageView::getImageMatrix()
 	const char *methodSignature = "()Landroid/graphics/Matrix;";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1978,7 +1975,7 @@ void android_widget_ImageView::setImageMatrix(AndroidCXX::android_graphics_Matri
 	const char *methodSignature = "(Landroid/graphics/Matrix;)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2023,7 +2020,7 @@ bool android_widget_ImageView::getCropToPadding()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2067,7 +2064,7 @@ void android_widget_ImageView::setCropToPadding(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2112,7 +2109,7 @@ void android_widget_ImageView::setBaseline(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2157,7 +2154,7 @@ void android_widget_ImageView::setBaselineAlignBottom(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2202,7 +2199,7 @@ bool android_widget_ImageView::getBaselineAlignBottom()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2246,7 +2243,7 @@ int android_widget_ImageView::getImageAlpha()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2290,7 +2287,7 @@ void android_widget_ImageView::setImageAlpha(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ImageView";
 
-	LOGV("android_widget_ImageView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

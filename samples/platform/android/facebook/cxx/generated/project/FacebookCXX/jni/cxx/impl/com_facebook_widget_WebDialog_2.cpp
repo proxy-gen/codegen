@@ -129,7 +129,7 @@ void com_facebook_widget_WebDialog_2::onCancel(AndroidCXX::android_content_Dialo
 	const char *methodSignature = "(Landroid/content/DialogInterface;)V";
 	const char *className = "com/facebook/widget/WebDialog$2";
 
-	LOGV("com_facebook_widget_WebDialog_2 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_2 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

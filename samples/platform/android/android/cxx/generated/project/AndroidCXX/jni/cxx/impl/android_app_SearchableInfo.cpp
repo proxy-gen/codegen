@@ -55,11 +55,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_app_SearchableInfo"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -182,7 +179,7 @@ int android_app_SearchableInfo::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -226,7 +223,7 @@ void android_app_SearchableInfo::writeToParcel(AndroidCXX::android_os_Parcel con
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -292,7 +289,7 @@ int android_app_SearchableInfo::getInputType()
 	const char *methodSignature = "()I";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -336,7 +333,7 @@ int android_app_SearchableInfo::getImeOptions()
 	const char *methodSignature = "()I";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -380,7 +377,7 @@ AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestAuthority()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -424,7 +421,7 @@ AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestPackage()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -468,7 +465,7 @@ AndroidCXX::android_content_ComponentName android_app_SearchableInfo::getSearchA
 	const char *methodSignature = "()Landroid/content/ComponentName;";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -512,7 +509,7 @@ bool android_app_SearchableInfo::shouldRewriteQueryFromData()
 	const char *methodSignature = "()Z";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -556,7 +553,7 @@ bool android_app_SearchableInfo::shouldRewriteQueryFromText()
 	const char *methodSignature = "()Z";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -600,7 +597,7 @@ int android_app_SearchableInfo::getSettingsDescriptionId()
 	const char *methodSignature = "()I";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -644,7 +641,7 @@ AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestPath()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -688,7 +685,7 @@ AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestSelection()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -732,7 +729,7 @@ AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestIntentAction(
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -776,7 +773,7 @@ AndroidCXX::java_lang_String android_app_SearchableInfo::getSuggestIntentData()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -820,7 +817,7 @@ int android_app_SearchableInfo::getSuggestThreshold()
 	const char *methodSignature = "()I";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -864,7 +861,7 @@ int android_app_SearchableInfo::getHintId()
 	const char *methodSignature = "()I";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -908,7 +905,7 @@ bool android_app_SearchableInfo::getVoiceSearchEnabled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -952,7 +949,7 @@ bool android_app_SearchableInfo::getVoiceSearchLaunchWebSearch()
 	const char *methodSignature = "()Z";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -996,7 +993,7 @@ bool android_app_SearchableInfo::getVoiceSearchLaunchRecognizer()
 	const char *methodSignature = "()Z";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1040,7 +1037,7 @@ int android_app_SearchableInfo::getVoiceLanguageModeId()
 	const char *methodSignature = "()I";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1084,7 +1081,7 @@ int android_app_SearchableInfo::getVoicePromptTextId()
 	const char *methodSignature = "()I";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1128,7 +1125,7 @@ int android_app_SearchableInfo::getVoiceLanguageId()
 	const char *methodSignature = "()I";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1172,7 +1169,7 @@ int android_app_SearchableInfo::getVoiceMaxResults()
 	const char *methodSignature = "()I";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1216,7 +1213,7 @@ bool android_app_SearchableInfo::shouldIncludeInGlobalSearch()
 	const char *methodSignature = "()Z";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1260,7 +1257,7 @@ bool android_app_SearchableInfo::queryAfterZeroResults()
 	const char *methodSignature = "()Z";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1304,7 +1301,7 @@ bool android_app_SearchableInfo::autoUrlDetect()
 	const char *methodSignature = "()Z";
 	const char *className = "android/app/SearchableInfo";
 
-	LOGV("android_app_SearchableInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_SearchableInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -121,7 +121,7 @@ void com_facebook_LoginActivity_2::onBackgroundProcessingStarted()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/LoginActivity$2";
 
-	LOGV("com_facebook_LoginActivity_2 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_LoginActivity_2 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -145,7 +145,7 @@ void com_facebook_LoginActivity_2::onBackgroundProcessingStopped()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/LoginActivity$2";
 
-	LOGV("com_facebook_LoginActivity_2 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_LoginActivity_2 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

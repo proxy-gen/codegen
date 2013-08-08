@@ -48,11 +48,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "javax_security_auth_x500_X500Principal"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -178,7 +175,7 @@ javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(A
 	const char *methodSignature = "(Ljava/io/InputStream;)V";
 	const char *className = "javax/security/auth/x500/X500Principal";
 
-	LOGV("javax_security_auth_x500_X500Principal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("javax_security_auth_x500_X500Principal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -235,7 +232,7 @@ javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(A
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "javax/security/auth/x500/X500Principal";
 
-	LOGV("javax_security_auth_x500_X500Principal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("javax_security_auth_x500_X500Principal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -292,7 +289,7 @@ javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(A
 	const char *methodSignature = "(Ljava/lang/String;Ljava/util/Map;)V";
 	const char *className = "javax/security/auth/x500/X500Principal";
 
-	LOGV("javax_security_auth_x500_X500Principal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("javax_security_auth_x500_X500Principal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -403,7 +400,7 @@ javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(s
 	const char *methodSignature = "([B)V";
 	const char *className = "javax/security/auth/x500/X500Principal";
 
-	LOGV("javax_security_auth_x500_X500Principal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("javax_security_auth_x500_X500Principal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -493,7 +490,7 @@ bool javax_security_auth_x500_X500Principal::equals(AndroidCXX::java_lang_Object
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "javax/security/auth/x500/X500Principal";
 
-	LOGV("javax_security_auth_x500_X500Principal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("javax_security_auth_x500_X500Principal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -558,7 +555,7 @@ AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "javax/security/auth/x500/X500Principal";
 
-	LOGV("javax_security_auth_x500_X500Principal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("javax_security_auth_x500_X500Principal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -602,7 +599,7 @@ int javax_security_auth_x500_X500Principal::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "javax/security/auth/x500/X500Principal";
 
-	LOGV("javax_security_auth_x500_X500Principal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("javax_security_auth_x500_X500Principal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -646,7 +643,7 @@ AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName(And
 	const char *methodSignature = "(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;";
 	const char *className = "javax/security/auth/x500/X500Principal";
 
-	LOGV("javax_security_auth_x500_X500Principal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("javax_security_auth_x500_X500Principal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -765,7 +762,7 @@ AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "javax/security/auth/x500/X500Principal";
 
-	LOGV("javax_security_auth_x500_X500Principal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("javax_security_auth_x500_X500Principal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -809,7 +806,7 @@ AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName(And
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
 	const char *className = "javax/security/auth/x500/X500Principal";
 
-	LOGV("javax_security_auth_x500_X500Principal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("javax_security_auth_x500_X500Principal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -874,7 +871,7 @@ std::vector<byte> javax_security_auth_x500_X500Principal::getEncoded()
 	const char *methodSignature = "()[B";
 	const char *className = "javax/security/auth/x500/X500Principal";
 
-	LOGV("javax_security_auth_x500_X500Principal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("javax_security_auth_x500_X500Principal className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

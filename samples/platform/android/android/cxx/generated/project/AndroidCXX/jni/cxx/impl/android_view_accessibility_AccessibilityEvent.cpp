@@ -55,11 +55,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_accessibility_AccessibilityEvent"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -194,7 +191,7 @@ AndroidCXX::java_lang_String android_view_accessibility_AccessibilityEvent::toSt
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/view/accessibility/AccessibilityEvent";
 
-	LOGV("android_view_accessibility_AccessibilityEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -238,7 +235,7 @@ AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityEvent
 	const char *methodSignature = "()Ljava/lang/CharSequence;";
 	const char *className = "android/view/accessibility/AccessibilityEvent";
 
-	LOGV("android_view_accessibility_AccessibilityEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -282,7 +279,7 @@ int android_view_accessibility_AccessibilityEvent::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/accessibility/AccessibilityEvent";
 
-	LOGV("android_view_accessibility_AccessibilityEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -326,7 +323,7 @@ void android_view_accessibility_AccessibilityEvent::writeToParcel(AndroidCXX::an
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/view/accessibility/AccessibilityEvent";
 
-	LOGV("android_view_accessibility_AccessibilityEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -392,7 +389,7 @@ AndroidCXX::android_view_accessibility_AccessibilityEvent android_view_accessibi
 	const char *methodSignature = "(I)Landroid/view/accessibility/AccessibilityEvent;";
 	const char *className = "android/view/accessibility/AccessibilityEvent";
 
-	LOGV("android_view_accessibility_AccessibilityEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -457,7 +454,7 @@ AndroidCXX::android_view_accessibility_AccessibilityEvent android_view_accessibi
 	const char *methodSignature = "()Landroid/view/accessibility/AccessibilityEvent;";
 	const char *className = "android/view/accessibility/AccessibilityEvent";
 
-	LOGV("android_view_accessibility_AccessibilityEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -501,7 +498,7 @@ AndroidCXX::android_view_accessibility_AccessibilityEvent android_view_accessibi
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)Landroid/view/accessibility/AccessibilityEvent;";
 	const char *className = "android/view/accessibility/AccessibilityEvent";
 
-	LOGV("android_view_accessibility_AccessibilityEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -566,7 +563,7 @@ void android_view_accessibility_AccessibilityEvent::recycle()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/accessibility/AccessibilityEvent";
 
-	LOGV("android_view_accessibility_AccessibilityEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -590,7 +587,7 @@ int android_view_accessibility_AccessibilityEvent::getAction()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/accessibility/AccessibilityEvent";
 
-	LOGV("android_view_accessibility_AccessibilityEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -634,7 +631,7 @@ void android_view_accessibility_AccessibilityEvent::setAction(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/view/accessibility/AccessibilityEvent";
 
-	LOGV("android_view_accessibility_AccessibilityEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -679,7 +676,7 @@ int android_view_accessibility_AccessibilityEvent::getEventType()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/accessibility/AccessibilityEvent";
 
-	LOGV("android_view_accessibility_AccessibilityEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -723,7 +720,7 @@ long android_view_accessibility_AccessibilityEvent::getEventTime()
 	const char *methodSignature = "()J";
 	const char *className = "android/view/accessibility/AccessibilityEvent";
 
-	LOGV("android_view_accessibility_AccessibilityEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -767,7 +764,7 @@ int android_view_accessibility_AccessibilityEvent::getRecordCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/accessibility/AccessibilityEvent";
 
-	LOGV("android_view_accessibility_AccessibilityEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -811,7 +808,7 @@ void android_view_accessibility_AccessibilityEvent::appendRecord(AndroidCXX::and
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityRecord;)V";
 	const char *className = "android/view/accessibility/AccessibilityEvent";
 
-	LOGV("android_view_accessibility_AccessibilityEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -856,7 +853,7 @@ AndroidCXX::android_view_accessibility_AccessibilityRecord android_view_accessib
 	const char *methodSignature = "(I)Landroid/view/accessibility/AccessibilityRecord;";
 	const char *className = "android/view/accessibility/AccessibilityEvent";
 
-	LOGV("android_view_accessibility_AccessibilityEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -921,7 +918,7 @@ void android_view_accessibility_AccessibilityEvent::setEventType(int const& arg0
 	const char *methodSignature = "(I)V";
 	const char *className = "android/view/accessibility/AccessibilityEvent";
 
-	LOGV("android_view_accessibility_AccessibilityEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -966,7 +963,7 @@ void android_view_accessibility_AccessibilityEvent::setEventTime(long const& arg
 	const char *methodSignature = "(J)V";
 	const char *className = "android/view/accessibility/AccessibilityEvent";
 
-	LOGV("android_view_accessibility_AccessibilityEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1011,7 +1008,7 @@ void android_view_accessibility_AccessibilityEvent::setPackageName(AndroidCXX::j
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
 	const char *className = "android/view/accessibility/AccessibilityEvent";
 
-	LOGV("android_view_accessibility_AccessibilityEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1056,7 +1053,7 @@ void android_view_accessibility_AccessibilityEvent::setMovementGranularity(int c
 	const char *methodSignature = "(I)V";
 	const char *className = "android/view/accessibility/AccessibilityEvent";
 
-	LOGV("android_view_accessibility_AccessibilityEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1101,7 +1098,7 @@ int android_view_accessibility_AccessibilityEvent::getMovementGranularity()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/accessibility/AccessibilityEvent";
 
-	LOGV("android_view_accessibility_AccessibilityEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1145,7 +1142,7 @@ void android_view_accessibility_AccessibilityEvent::initFromParcel(AndroidCXX::a
 	const char *methodSignature = "(Landroid/os/Parcel;)V";
 	const char *className = "android/view/accessibility/AccessibilityEvent";
 
-	LOGV("android_view_accessibility_AccessibilityEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1190,7 +1187,7 @@ AndroidCXX::java_lang_String android_view_accessibility_AccessibilityEvent::even
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "android/view/accessibility/AccessibilityEvent";
 
-	LOGV("android_view_accessibility_AccessibilityEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

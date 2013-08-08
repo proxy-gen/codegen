@@ -146,7 +146,7 @@ com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(And
 	const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/Session;Ljava/lang/String;Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/widget/WebDialog$Builder";
 
-	LOGV("com_facebook_widget_WebDialog_Builder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_Builder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -266,7 +266,7 @@ com_facebook_widget_WebDialog_Builder::com_facebook_widget_WebDialog_Builder(And
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/widget/WebDialog$Builder";
 
-	LOGV("com_facebook_widget_WebDialog_Builder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_Builder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

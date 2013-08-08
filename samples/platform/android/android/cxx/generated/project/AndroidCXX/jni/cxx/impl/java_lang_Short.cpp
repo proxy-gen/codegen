@@ -55,11 +55,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_lang_Short"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -185,7 +182,7 @@ java_lang_Short::java_lang_Short(short const& arg0)
 	const char *methodSignature = "(S)V";
 	const char *className = "java/lang/Short";
 
-	LOGV("java_lang_Short className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Short className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -242,7 +239,7 @@ java_lang_Short::java_lang_Short(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/lang/Short";
 
-	LOGV("java_lang_Short className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Short className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -314,7 +311,7 @@ bool java_lang_Short::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/lang/Short";
 
-	LOGV("java_lang_Short className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Short className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -379,7 +376,7 @@ AndroidCXX::java_lang_String java_lang_Short::toString(short const& arg0)
 	const char *methodSignature = "(S)Ljava/lang/String;";
 	const char *className = "java/lang/Short";
 
-	LOGV("java_lang_Short className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Short className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -444,7 +441,7 @@ AndroidCXX::java_lang_String java_lang_Short::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/Short";
 
-	LOGV("java_lang_Short className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Short className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -488,7 +485,7 @@ int java_lang_Short::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "java/lang/Short";
 
-	LOGV("java_lang_Short className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Short className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -532,7 +529,7 @@ short java_lang_Short::reverseBytes(short const& arg0)
 	const char *methodSignature = "(S)S";
 	const char *className = "java/lang/Short";
 
-	LOGV("java_lang_Short className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Short className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -597,7 +594,7 @@ int java_lang_Short::compareTo(AndroidCXX::java_lang_Short const& arg0)
 	const char *methodSignature = "(Ljava/lang/Short;)I";
 	const char *className = "java/lang/Short";
 
-	LOGV("java_lang_Short className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Short className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -662,7 +659,7 @@ byte java_lang_Short::byteValue()
 	const char *methodSignature = "()B";
 	const char *className = "java/lang/Short";
 
-	LOGV("java_lang_Short className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Short className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -706,7 +703,7 @@ short java_lang_Short::shortValue()
 	const char *methodSignature = "()S";
 	const char *className = "java/lang/Short";
 
-	LOGV("java_lang_Short className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Short className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -750,7 +747,7 @@ int java_lang_Short::intValue()
 	const char *methodSignature = "()I";
 	const char *className = "java/lang/Short";
 
-	LOGV("java_lang_Short className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Short className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -794,7 +791,7 @@ long java_lang_Short::longValue()
 	const char *methodSignature = "()J";
 	const char *className = "java/lang/Short";
 
-	LOGV("java_lang_Short className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Short className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -838,7 +835,7 @@ float java_lang_Short::floatValue()
 	const char *methodSignature = "()F";
 	const char *className = "java/lang/Short";
 
-	LOGV("java_lang_Short className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Short className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -882,7 +879,7 @@ double java_lang_Short::doubleValue()
 	const char *methodSignature = "()D";
 	const char *className = "java/lang/Short";
 
-	LOGV("java_lang_Short className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Short className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -926,7 +923,7 @@ AndroidCXX::java_lang_Short java_lang_Short::valueOf(short const& arg0)
 	const char *methodSignature = "(S)Ljava/lang/Short;";
 	const char *className = "java/lang/Short";
 
-	LOGV("java_lang_Short className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Short className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -991,7 +988,7 @@ AndroidCXX::java_lang_Short java_lang_Short::valueOf(AndroidCXX::java_lang_Strin
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Short;";
 	const char *className = "java/lang/Short";
 
-	LOGV("java_lang_Short className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Short className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1056,7 +1053,7 @@ AndroidCXX::java_lang_Short java_lang_Short::valueOf(AndroidCXX::java_lang_Strin
 	const char *methodSignature = "(Ljava/lang/String;I)Ljava/lang/Short;";
 	const char *className = "java/lang/Short";
 
-	LOGV("java_lang_Short className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Short className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1142,7 +1139,7 @@ AndroidCXX::java_lang_Short java_lang_Short::decode(AndroidCXX::java_lang_String
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Short;";
 	const char *className = "java/lang/Short";
 
-	LOGV("java_lang_Short className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Short className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1207,7 +1204,7 @@ short java_lang_Short::parseShort(AndroidCXX::java_lang_String const& arg0,int c
 	const char *methodSignature = "(Ljava/lang/String;I)S";
 	const char *className = "java/lang/Short";
 
-	LOGV("java_lang_Short className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Short className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1293,7 +1290,7 @@ short java_lang_Short::parseShort(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)S";
 	const char *className = "java/lang/Short";
 
-	LOGV("java_lang_Short className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Short className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

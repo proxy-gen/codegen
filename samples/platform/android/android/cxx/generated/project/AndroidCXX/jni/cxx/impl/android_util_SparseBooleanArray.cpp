@@ -36,11 +36,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_util_SparseBooleanArray"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -127,7 +124,7 @@ android_util_SparseBooleanArray::android_util_SparseBooleanArray(int const& arg0
 	const char *methodSignature = "(I)V";
 	const char *className = "android/util/SparseBooleanArray";
 
-	LOGV("android_util_SparseBooleanArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseBooleanArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -184,7 +181,7 @@ android_util_SparseBooleanArray::android_util_SparseBooleanArray()
 	const char *methodSignature = "()V";
 	const char *className = "android/util/SparseBooleanArray";
 
-	LOGV("android_util_SparseBooleanArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseBooleanArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -235,7 +232,7 @@ bool android_util_SparseBooleanArray::get(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/util/SparseBooleanArray";
 
-	LOGV("android_util_SparseBooleanArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseBooleanArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -300,7 +297,7 @@ bool android_util_SparseBooleanArray::get(int const& arg0,bool const& arg1)
 	const char *methodSignature = "(IZ)Z";
 	const char *className = "android/util/SparseBooleanArray";
 
-	LOGV("android_util_SparseBooleanArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseBooleanArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -386,7 +383,7 @@ void android_util_SparseBooleanArray::put(int const& arg0,bool const& arg1)
 	const char *methodSignature = "(IZ)V";
 	const char *className = "android/util/SparseBooleanArray";
 
-	LOGV("android_util_SparseBooleanArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseBooleanArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -452,7 +449,7 @@ void android_util_SparseBooleanArray::append(int const& arg0,bool const& arg1)
 	const char *methodSignature = "(IZ)V";
 	const char *className = "android/util/SparseBooleanArray";
 
-	LOGV("android_util_SparseBooleanArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseBooleanArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -518,7 +515,7 @@ AndroidCXX::android_util_SparseBooleanArray android_util_SparseBooleanArray::clo
 	const char *methodSignature = "()Landroid/util/SparseBooleanArray;";
 	const char *className = "android/util/SparseBooleanArray";
 
-	LOGV("android_util_SparseBooleanArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseBooleanArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -562,7 +559,7 @@ void android_util_SparseBooleanArray::clear()
 	const char *methodSignature = "()V";
 	const char *className = "android/util/SparseBooleanArray";
 
-	LOGV("android_util_SparseBooleanArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseBooleanArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -586,7 +583,7 @@ int android_util_SparseBooleanArray::size()
 	const char *methodSignature = "()I";
 	const char *className = "android/util/SparseBooleanArray";
 
-	LOGV("android_util_SparseBooleanArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseBooleanArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -630,7 +627,7 @@ void android_util_SparseBooleanArray::_delete(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/util/SparseBooleanArray";
 
-	LOGV("android_util_SparseBooleanArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseBooleanArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -675,7 +672,7 @@ int android_util_SparseBooleanArray::keyAt(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/util/SparseBooleanArray";
 
-	LOGV("android_util_SparseBooleanArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseBooleanArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -740,7 +737,7 @@ bool android_util_SparseBooleanArray::valueAt(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/util/SparseBooleanArray";
 
-	LOGV("android_util_SparseBooleanArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseBooleanArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -805,7 +802,7 @@ int android_util_SparseBooleanArray::indexOfKey(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/util/SparseBooleanArray";
 
-	LOGV("android_util_SparseBooleanArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseBooleanArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -870,7 +867,7 @@ int android_util_SparseBooleanArray::indexOfValue(bool const& arg0)
 	const char *methodSignature = "(Z)I";
 	const char *className = "android/util/SparseBooleanArray";
 
-	LOGV("android_util_SparseBooleanArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseBooleanArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

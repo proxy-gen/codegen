@@ -143,7 +143,7 @@ void com_facebook_android_Facebook_DialogListener::onComplete(AndroidCXX::androi
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/android/Facebook$DialogListener";
 
-	LOGV("com_facebook_android_Facebook_DialogListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_Facebook_DialogListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -188,7 +188,7 @@ void com_facebook_android_Facebook_DialogListener::onCancel()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/android/Facebook$DialogListener";
 
-	LOGV("com_facebook_android_Facebook_DialogListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_Facebook_DialogListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -212,7 +212,7 @@ void com_facebook_android_Facebook_DialogListener::onFacebookError(FacebookCXX::
 	const char *methodSignature = "(Lcom/facebook/android/FacebookError;)V";
 	const char *className = "com/facebook/android/Facebook$DialogListener";
 
-	LOGV("com_facebook_android_Facebook_DialogListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_Facebook_DialogListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -257,7 +257,7 @@ void com_facebook_android_Facebook_DialogListener::onError(FacebookCXX::com_face
 	const char *methodSignature = "(Lcom/facebook/android/DialogError;)V";
 	const char *className = "com/facebook/android/Facebook$DialogListener";
 
-	LOGV("com_facebook_android_Facebook_DialogListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_Facebook_DialogListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

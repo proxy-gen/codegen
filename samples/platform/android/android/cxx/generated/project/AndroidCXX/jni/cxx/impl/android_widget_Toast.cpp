@@ -48,11 +48,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_Toast"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -163,7 +160,7 @@ android_widget_Toast::android_widget_Toast(AndroidCXX::android_content_Context c
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/Toast";
 
-	LOGV("android_widget_Toast className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Toast className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -235,7 +232,7 @@ void android_widget_Toast::setText(AndroidCXX::java_lang_CharSequence const& arg
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
 	const char *className = "android/widget/Toast";
 
-	LOGV("android_widget_Toast className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Toast className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -280,7 +277,7 @@ void android_widget_Toast::setText(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/Toast";
 
-	LOGV("android_widget_Toast className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Toast className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -325,7 +322,7 @@ void android_widget_Toast::cancel()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/Toast";
 
-	LOGV("android_widget_Toast className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Toast className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -349,7 +346,7 @@ AndroidCXX::android_view_View android_widget_Toast::getView()
 	const char *methodSignature = "()Landroid/view/View;";
 	const char *className = "android/widget/Toast";
 
-	LOGV("android_widget_Toast className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Toast className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -393,7 +390,7 @@ void android_widget_Toast::show()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/Toast";
 
-	LOGV("android_widget_Toast className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Toast className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -417,7 +414,7 @@ void android_widget_Toast::setDuration(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/Toast";
 
-	LOGV("android_widget_Toast className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Toast className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -462,7 +459,7 @@ int android_widget_Toast::getDuration()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/Toast";
 
-	LOGV("android_widget_Toast className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Toast className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -506,7 +503,7 @@ void android_widget_Toast::setGravity(int const& arg0,int const& arg1,int const&
 	const char *methodSignature = "(III)V";
 	const char *className = "android/widget/Toast";
 
-	LOGV("android_widget_Toast className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Toast className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -593,7 +590,7 @@ int android_widget_Toast::getGravity()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/Toast";
 
-	LOGV("android_widget_Toast className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Toast className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -637,7 +634,7 @@ void android_widget_Toast::setView(AndroidCXX::android_view_View const& arg0)
 	const char *methodSignature = "(Landroid/view/View;)V";
 	const char *className = "android/widget/Toast";
 
-	LOGV("android_widget_Toast className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Toast className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -682,7 +679,7 @@ void android_widget_Toast::setMargin(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)V";
 	const char *className = "android/widget/Toast";
 
-	LOGV("android_widget_Toast className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Toast className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -748,7 +745,7 @@ float android_widget_Toast::getHorizontalMargin()
 	const char *methodSignature = "()F";
 	const char *className = "android/widget/Toast";
 
-	LOGV("android_widget_Toast className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Toast className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -792,7 +789,7 @@ float android_widget_Toast::getVerticalMargin()
 	const char *methodSignature = "()F";
 	const char *className = "android/widget/Toast";
 
-	LOGV("android_widget_Toast className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Toast className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -836,7 +833,7 @@ int android_widget_Toast::getXOffset()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/Toast";
 
-	LOGV("android_widget_Toast className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Toast className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -880,7 +877,7 @@ int android_widget_Toast::getYOffset()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/Toast";
 
-	LOGV("android_widget_Toast className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Toast className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -924,7 +921,7 @@ AndroidCXX::android_widget_Toast android_widget_Toast::makeText(AndroidCXX::andr
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;";
 	const char *className = "android/widget/Toast";
 
-	LOGV("android_widget_Toast className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Toast className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1031,7 +1028,7 @@ AndroidCXX::android_widget_Toast android_widget_Toast::makeText(AndroidCXX::andr
 	const char *methodSignature = "(Landroid/content/Context;II)Landroid/widget/Toast;";
 	const char *className = "android/widget/Toast";
 
-	LOGV("android_widget_Toast className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Toast className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -100,11 +100,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_os_Handler"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -308,7 +305,7 @@ android_os_Handler::android_os_Handler(AndroidCXX::android_os_Looper const& arg0
 	const char *methodSignature = "(Landroid/os/Looper;Landroid/os/Handler$Callback;Z)V";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -407,7 +404,7 @@ android_os_Handler::android_os_Handler(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -464,7 +461,7 @@ android_os_Handler::android_os_Handler(AndroidCXX::android_os_Handler_Callback c
 	const char *methodSignature = "(Landroid/os/Handler$Callback;Z)V";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -542,7 +539,7 @@ android_os_Handler::android_os_Handler()
 	const char *methodSignature = "()V";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -578,7 +575,7 @@ android_os_Handler::android_os_Handler(AndroidCXX::android_os_Handler_Callback c
 	const char *methodSignature = "(Landroid/os/Handler$Callback;)V";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -635,7 +632,7 @@ android_os_Handler::android_os_Handler(AndroidCXX::android_os_Looper const& arg0
 	const char *methodSignature = "(Landroid/os/Looper;)V";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -692,7 +689,7 @@ android_os_Handler::android_os_Handler(AndroidCXX::android_os_Looper const& arg0
 	const char *methodSignature = "(Landroid/os/Looper;Landroid/os/Handler$Callback;)V";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -785,7 +782,7 @@ AndroidCXX::java_lang_String android_os_Handler::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -829,7 +826,7 @@ void android_os_Handler::dump(AndroidCXX::android_util_Printer const& arg0,Andro
 	const char *methodSignature = "(Landroid/util/Printer;Ljava/lang/String;)V";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -895,7 +892,7 @@ void android_os_Handler::removeCallbacks(AndroidCXX::java_lang_Runnable const& a
 	const char *methodSignature = "(Ljava/lang/Runnable;)V";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -940,7 +937,7 @@ void android_os_Handler::removeCallbacks(AndroidCXX::java_lang_Runnable const& a
 	const char *methodSignature = "(Ljava/lang/Runnable;Ljava/lang/Object;)V";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1006,7 +1003,7 @@ bool android_os_Handler::post(AndroidCXX::java_lang_Runnable const& arg0)
 	const char *methodSignature = "(Ljava/lang/Runnable;)Z";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1071,7 +1068,7 @@ AndroidCXX::android_os_Looper android_os_Handler::getLooper()
 	const char *methodSignature = "()Landroid/os/Looper;";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1115,7 +1112,7 @@ bool android_os_Handler::hasMessages(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1180,7 +1177,7 @@ bool android_os_Handler::hasMessages(int const& arg0,AndroidCXX::java_lang_Objec
 	const char *methodSignature = "(ILjava/lang/Object;)Z";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1266,7 +1263,7 @@ void android_os_Handler::removeMessages(int const& arg0,AndroidCXX::java_lang_Ob
 	const char *methodSignature = "(ILjava/lang/Object;)V";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1332,7 +1329,7 @@ void android_os_Handler::removeMessages(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1377,7 +1374,7 @@ bool android_os_Handler::sendEmptyMessage(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1442,7 +1439,7 @@ bool android_os_Handler::postDelayed(AndroidCXX::java_lang_Runnable const& arg0,
 	const char *methodSignature = "(Ljava/lang/Runnable;J)Z";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1528,7 +1525,7 @@ void android_os_Handler::handleMessage(AndroidCXX::android_os_Message const& arg
 	const char *methodSignature = "(Landroid/os/Message;)V";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1573,7 +1570,7 @@ void android_os_Handler::dispatchMessage(AndroidCXX::android_os_Message const& a
 	const char *methodSignature = "(Landroid/os/Message;)V";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1618,7 +1615,7 @@ AndroidCXX::java_lang_String android_os_Handler::getMessageName(AndroidCXX::andr
 	const char *methodSignature = "(Landroid/os/Message;)Ljava/lang/String;";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1683,7 +1680,7 @@ AndroidCXX::android_os_Message android_os_Handler::obtainMessage(int const& arg0
 	const char *methodSignature = "(III)Landroid/os/Message;";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1790,7 +1787,7 @@ AndroidCXX::android_os_Message android_os_Handler::obtainMessage(int const& arg0
 	const char *methodSignature = "(I)Landroid/os/Message;";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1855,7 +1852,7 @@ AndroidCXX::android_os_Message android_os_Handler::obtainMessage(int const& arg0
 	const char *methodSignature = "(ILjava/lang/Object;)Landroid/os/Message;";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1941,7 +1938,7 @@ AndroidCXX::android_os_Message android_os_Handler::obtainMessage(int const& arg0
 	const char *methodSignature = "(IIILjava/lang/Object;)Landroid/os/Message;";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2069,7 +2066,7 @@ AndroidCXX::android_os_Message android_os_Handler::obtainMessage()
 	const char *methodSignature = "()Landroid/os/Message;";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2113,7 +2110,7 @@ bool android_os_Handler::postAtTime(AndroidCXX::java_lang_Runnable const& arg0,A
 	const char *methodSignature = "(Ljava/lang/Runnable;Ljava/lang/Object;J)Z";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2220,7 +2217,7 @@ bool android_os_Handler::postAtTime(AndroidCXX::java_lang_Runnable const& arg0,l
 	const char *methodSignature = "(Ljava/lang/Runnable;J)Z";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2306,7 +2303,7 @@ bool android_os_Handler::postAtFrontOfQueue(AndroidCXX::java_lang_Runnable const
 	const char *methodSignature = "(Ljava/lang/Runnable;)Z";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2371,7 +2368,7 @@ bool android_os_Handler::runWithScissors(AndroidCXX::java_lang_Runnable const& a
 	const char *methodSignature = "(Ljava/lang/Runnable;J)Z";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2457,7 +2454,7 @@ bool android_os_Handler::sendMessage(AndroidCXX::android_os_Message const& arg0)
 	const char *methodSignature = "(Landroid/os/Message;)Z";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2522,7 +2519,7 @@ bool android_os_Handler::sendEmptyMessageDelayed(int const& arg0,long const& arg
 	const char *methodSignature = "(IJ)Z";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2608,7 +2605,7 @@ bool android_os_Handler::sendEmptyMessageAtTime(int const& arg0,long const& arg1
 	const char *methodSignature = "(IJ)Z";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2694,7 +2691,7 @@ bool android_os_Handler::sendMessageDelayed(AndroidCXX::android_os_Message const
 	const char *methodSignature = "(Landroid/os/Message;J)Z";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2780,7 +2777,7 @@ bool android_os_Handler::sendMessageAtTime(AndroidCXX::android_os_Message const&
 	const char *methodSignature = "(Landroid/os/Message;J)Z";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2866,7 +2863,7 @@ bool android_os_Handler::sendMessageAtFrontOfQueue(AndroidCXX::android_os_Messag
 	const char *methodSignature = "(Landroid/os/Message;)Z";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2931,7 +2928,7 @@ void android_os_Handler::removeCallbacksAndMessages(AndroidCXX::java_lang_Object
 	const char *methodSignature = "(Ljava/lang/Object;)V";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2976,7 +2973,7 @@ bool android_os_Handler::hasCallbacks(AndroidCXX::java_lang_Runnable const& arg0
 	const char *methodSignature = "(Ljava/lang/Runnable;)Z";
 	const char *className = "android/os/Handler";
 
-	LOGV("android_os_Handler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Handler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

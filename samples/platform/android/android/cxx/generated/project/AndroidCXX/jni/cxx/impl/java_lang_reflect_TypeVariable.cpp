@@ -26,11 +26,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_lang_reflect_TypeVariable"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -135,7 +132,7 @@ AndroidCXX::java_lang_String java_lang_reflect_TypeVariable::getName()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/reflect/TypeVariable";
 
-	LOGV("java_lang_reflect_TypeVariable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_TypeVariable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -179,7 +176,7 @@ std::vector<AndroidCXX::java_lang_reflect_Type > java_lang_reflect_TypeVariable:
 	const char *methodSignature = "()[Ljava/lang/reflect/Type;";
 	const char *className = "java/lang/reflect/TypeVariable";
 
-	LOGV("java_lang_reflect_TypeVariable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_TypeVariable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -241,7 +238,7 @@ AndroidCXX::java_lang_reflect_GenericDeclaration java_lang_reflect_TypeVariable:
 	const char *methodSignature = "()Ljava/lang/reflect/GenericDeclaration;";
 	const char *className = "java/lang/reflect/TypeVariable";
 
-	LOGV("java_lang_reflect_TypeVariable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_reflect_TypeVariable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

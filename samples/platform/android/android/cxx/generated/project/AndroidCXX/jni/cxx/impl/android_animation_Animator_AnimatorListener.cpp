@@ -29,11 +29,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_animation_Animator_AnimatorListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -144,7 +141,7 @@ void android_animation_Animator_AnimatorListener::onAnimationStart(AndroidCXX::a
 	const char *methodSignature = "(Landroid/animation/Animator;)V";
 	const char *className = "android/animation/Animator$AnimatorListener";
 
-	LOGV("android_animation_Animator_AnimatorListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_Animator_AnimatorListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -189,7 +186,7 @@ void android_animation_Animator_AnimatorListener::onAnimationEnd(AndroidCXX::and
 	const char *methodSignature = "(Landroid/animation/Animator;)V";
 	const char *className = "android/animation/Animator$AnimatorListener";
 
-	LOGV("android_animation_Animator_AnimatorListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_Animator_AnimatorListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -234,7 +231,7 @@ void android_animation_Animator_AnimatorListener::onAnimationRepeat(AndroidCXX::
 	const char *methodSignature = "(Landroid/animation/Animator;)V";
 	const char *className = "android/animation/Animator$AnimatorListener";
 
-	LOGV("android_animation_Animator_AnimatorListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_Animator_AnimatorListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -279,7 +276,7 @@ void android_animation_Animator_AnimatorListener::onAnimationCancel(AndroidCXX::
 	const char *methodSignature = "(Landroid/animation/Animator;)V";
 	const char *className = "android/animation/Animator$AnimatorListener";
 
-	LOGV("android_animation_Animator_AnimatorListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_Animator_AnimatorListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -196,7 +196,7 @@ AndroidCXX::java_lang_String com_facebook_AccessToken::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/AccessToken";
 
-	LOGV("com_facebook_AccessToken className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_AccessToken className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -240,7 +240,7 @@ AndroidCXX::java_util_List com_facebook_AccessToken::getPermissions()
 	const char *methodSignature = "()Ljava/util/List;";
 	const char *className = "com/facebook/AccessToken";
 
-	LOGV("com_facebook_AccessToken className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_AccessToken className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -302,7 +302,7 @@ AndroidCXX::java_lang_String com_facebook_AccessToken::getToken()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/AccessToken";
 
-	LOGV("com_facebook_AccessToken className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_AccessToken className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -346,7 +346,7 @@ AndroidCXX::java_util_Date com_facebook_AccessToken::getExpires()
 	const char *methodSignature = "()Ljava/util/Date;";
 	const char *className = "com/facebook/AccessToken";
 
-	LOGV("com_facebook_AccessToken className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_AccessToken className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -390,7 +390,7 @@ com_facebook_AccessTokenSource::com_facebook_AccessTokenSource com_facebook_Acce
 	const char *methodSignature = "()Lcom/facebook/AccessTokenSource;";
 	const char *className = "com/facebook/AccessToken";
 
-	LOGV("com_facebook_AccessToken className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_AccessToken className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -434,7 +434,7 @@ AndroidCXX::java_util_Date com_facebook_AccessToken::getLastRefresh()
 	const char *methodSignature = "()Ljava/util/Date;";
 	const char *className = "com/facebook/AccessToken";
 
-	LOGV("com_facebook_AccessToken className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_AccessToken className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -478,7 +478,7 @@ FacebookCXX::com_facebook_AccessToken com_facebook_AccessToken::createFromExisti
 	const char *methodSignature = "(Ljava/lang/String;Ljava/util/Date;Ljava/util/Date;Lcom/facebook/AccessTokenSource;Ljava/util/List;)Lcom/facebook/AccessToken;";
 	const char *className = "com/facebook/AccessToken";
 
-	LOGV("com_facebook_AccessToken className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_AccessToken className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -645,7 +645,7 @@ FacebookCXX::com_facebook_AccessToken com_facebook_AccessToken::createFromNative
 	const char *methodSignature = "(Landroid/content/Intent;)Lcom/facebook/AccessToken;";
 	const char *className = "com/facebook/AccessToken";
 
-	LOGV("com_facebook_AccessToken className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_AccessToken className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

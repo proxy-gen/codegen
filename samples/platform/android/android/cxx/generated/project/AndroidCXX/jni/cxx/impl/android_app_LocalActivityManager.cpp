@@ -46,11 +46,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_app_LocalActivityManager"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -170,7 +167,7 @@ android_app_LocalActivityManager::android_app_LocalActivityManager(AndroidCXX::a
 	const char *methodSignature = "(Landroid/app/Activity;Z)V";
 	const char *className = "android/app/LocalActivityManager";
 
-	LOGV("android_app_LocalActivityManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_LocalActivityManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -263,7 +260,7 @@ AndroidCXX::android_app_Activity android_app_LocalActivityManager::getActivity(A
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/app/Activity;";
 	const char *className = "android/app/LocalActivityManager";
 
-	LOGV("android_app_LocalActivityManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_LocalActivityManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -328,7 +325,7 @@ AndroidCXX::android_view_Window android_app_LocalActivityManager::startActivity(
 	const char *methodSignature = "(Ljava/lang/String;Landroid/content/Intent;)Landroid/view/Window;";
 	const char *className = "android/app/LocalActivityManager";
 
-	LOGV("android_app_LocalActivityManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_LocalActivityManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -414,7 +411,7 @@ void android_app_LocalActivityManager::dispatchResume()
 	const char *methodSignature = "()V";
 	const char *className = "android/app/LocalActivityManager";
 
-	LOGV("android_app_LocalActivityManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_LocalActivityManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -438,7 +435,7 @@ void android_app_LocalActivityManager::dispatchCreate(AndroidCXX::android_os_Bun
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "android/app/LocalActivityManager";
 
-	LOGV("android_app_LocalActivityManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_LocalActivityManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -483,7 +480,7 @@ void android_app_LocalActivityManager::dispatchPause(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/app/LocalActivityManager";
 
-	LOGV("android_app_LocalActivityManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_LocalActivityManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -528,7 +525,7 @@ void android_app_LocalActivityManager::dispatchStop()
 	const char *methodSignature = "()V";
 	const char *className = "android/app/LocalActivityManager";
 
-	LOGV("android_app_LocalActivityManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_LocalActivityManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -552,7 +549,7 @@ void android_app_LocalActivityManager::dispatchDestroy(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/app/LocalActivityManager";
 
-	LOGV("android_app_LocalActivityManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_LocalActivityManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -597,7 +594,7 @@ AndroidCXX::android_view_Window android_app_LocalActivityManager::destroyActivit
 	const char *methodSignature = "(Ljava/lang/String;Z)Landroid/view/Window;";
 	const char *className = "android/app/LocalActivityManager";
 
-	LOGV("android_app_LocalActivityManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_LocalActivityManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -683,7 +680,7 @@ AndroidCXX::android_app_Activity android_app_LocalActivityManager::getCurrentAct
 	const char *methodSignature = "()Landroid/app/Activity;";
 	const char *className = "android/app/LocalActivityManager";
 
-	LOGV("android_app_LocalActivityManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_LocalActivityManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -727,7 +724,7 @@ AndroidCXX::java_lang_String android_app_LocalActivityManager::getCurrentId()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/app/LocalActivityManager";
 
-	LOGV("android_app_LocalActivityManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_LocalActivityManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -771,7 +768,7 @@ AndroidCXX::android_os_Bundle android_app_LocalActivityManager::saveInstanceStat
 	const char *methodSignature = "()Landroid/os/Bundle;";
 	const char *className = "android/app/LocalActivityManager";
 
-	LOGV("android_app_LocalActivityManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_LocalActivityManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -815,7 +812,7 @@ void android_app_LocalActivityManager::removeAllActivities()
 	const char *methodSignature = "()V";
 	const char *className = "android/app/LocalActivityManager";
 
-	LOGV("android_app_LocalActivityManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_LocalActivityManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

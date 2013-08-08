@@ -127,7 +127,7 @@ void com_facebook_AuthorizationClient_OnCompletedListener::onCompleted(FacebookC
 	const char *methodSignature = "(Lcom/facebook/AuthorizationClient$Result;)V";
 	const char *className = "com/facebook/AuthorizationClient$OnCompletedListener";
 
-	LOGV("com_facebook_AuthorizationClient_OnCompletedListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_AuthorizationClient_OnCompletedListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

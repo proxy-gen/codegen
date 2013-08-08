@@ -747,7 +747,7 @@ com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session con
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/HttpMethod;Lcom/facebook/Request$Callback;)V";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -888,7 +888,7 @@ com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session con
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;)V";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -966,7 +966,7 @@ com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session con
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/HttpMethod;)V";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1086,7 +1086,7 @@ com_facebook_Request::com_facebook_Request()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1137,7 +1137,7 @@ AndroidCXX::java_lang_String com_facebook_Request::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1181,7 +1181,7 @@ AndroidCXX::android_os_Bundle com_facebook_Request::getParameters()
 	const char *methodSignature = "()Landroid/os/Bundle;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1225,7 +1225,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeAsync()
 	const char *methodSignature = "()Lcom/facebook/RequestAsyncTask;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1269,7 +1269,7 @@ void com_facebook_Request::setCallback(FacebookCXX::com_facebook_Request_Callbac
 	const char *methodSignature = "(Lcom/facebook/Request$Callback;)V";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1314,7 +1314,7 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_Request::getGraphObject
 	const char *methodSignature = "()Lcom/facebook/model/GraphObject;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1358,7 +1358,7 @@ FacebookCXX::com_facebook_Session com_facebook_Request::getSession()
 	const char *methodSignature = "()Lcom/facebook/Session;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1402,7 +1402,7 @@ void com_facebook_Request::setHttpMethod(com_facebook_HttpMethod::com_facebook_H
 	const char *methodSignature = "(Lcom/facebook/HttpMethod;)V";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1447,7 +1447,7 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newPostRequest(FacebookC
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;Lcom/facebook/model/GraphObject;Lcom/facebook/Request$Callback;)Lcom/facebook/Request;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1575,7 +1575,7 @@ void com_facebook_Request::setGraphObject(FacebookCXX::com_facebook_model_GraphO
 	const char *methodSignature = "(Lcom/facebook/model/GraphObject;)V";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1620,7 +1620,7 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newRestRequest(FacebookC
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/HttpMethod;)Lcom/facebook/Request;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1748,7 +1748,7 @@ void com_facebook_Request::setRestMethod(AndroidCXX::java_lang_String const& arg
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1793,7 +1793,7 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newMeRequest(FacebookCXX
 	const char *methodSignature = "(Lcom/facebook/Session;Lcom/facebook/Request$GraphUserCallback;)Lcom/facebook/Request;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1879,7 +1879,7 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newMyFriendsRequest(Face
 	const char *methodSignature = "(Lcom/facebook/Session;Lcom/facebook/Request$GraphUserListCallback;)Lcom/facebook/Request;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1965,7 +1965,7 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(Fa
 	const char *methodSignature = "(Lcom/facebook/Session;Landroid/graphics/Bitmap;Lcom/facebook/Request$Callback;)Lcom/facebook/Request;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2072,7 +2072,7 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(Fa
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/io/File;Lcom/facebook/Request$Callback;)Lcom/facebook/Request;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2179,7 +2179,7 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newUploadVideoRequest(Fa
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/io/File;Lcom/facebook/Request$Callback;)Lcom/facebook/Request;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2286,7 +2286,7 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newGraphPathRequest(Face
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;Lcom/facebook/Request$Callback;)Lcom/facebook/Request;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2393,7 +2393,7 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newPlacesSearchRequest(F
 	const char *methodSignature = "(Lcom/facebook/Session;Landroid/location/Location;IILjava/lang/String;Lcom/facebook/Request$GraphPlaceListCallback;)Lcom/facebook/Request;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2563,7 +2563,7 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newStatusUpdateRequest(F
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;Lcom/facebook/Request$Callback;)Lcom/facebook/Request;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2670,7 +2670,7 @@ AndroidCXX::java_lang_String com_facebook_Request::getGraphPath()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2714,7 +2714,7 @@ void com_facebook_Request::setGraphPath(AndroidCXX::java_lang_String const& arg0
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2759,7 +2759,7 @@ com_facebook_HttpMethod::com_facebook_HttpMethod com_facebook_Request::getHttpMe
 	const char *methodSignature = "()Lcom/facebook/HttpMethod;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2803,7 +2803,7 @@ void com_facebook_Request::setParameters(AndroidCXX::android_os_Bundle const& ar
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2848,7 +2848,7 @@ AndroidCXX::java_lang_String com_facebook_Request::getRestMethod()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2892,7 +2892,7 @@ void com_facebook_Request::setSession(FacebookCXX::com_facebook_Session const& a
 	const char *methodSignature = "(Lcom/facebook/Session;)V";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2937,7 +2937,7 @@ AndroidCXX::java_lang_String com_facebook_Request::getBatchEntryName()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2981,7 +2981,7 @@ void com_facebook_Request::setBatchEntryName(AndroidCXX::java_lang_String const&
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3026,7 +3026,7 @@ AndroidCXX::java_lang_String com_facebook_Request::getBatchEntryDependsOn()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3070,7 +3070,7 @@ void com_facebook_Request::setBatchEntryDependsOn(AndroidCXX::java_lang_String c
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3115,7 +3115,7 @@ bool com_facebook_Request::getBatchEntryOmitResultOnSuccess()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3159,7 +3159,7 @@ void com_facebook_Request::setBatchEntryOmitResultOnSuccess(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3204,7 +3204,7 @@ AndroidCXX::java_lang_String com_facebook_Request::getDefaultBatchApplicationId(
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3248,7 +3248,7 @@ void com_facebook_Request::setDefaultBatchApplicationId(AndroidCXX::java_lang_St
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3293,7 +3293,7 @@ FacebookCXX::com_facebook_Request_Callback com_facebook_Request::getCallback()
 	const char *methodSignature = "()Lcom/facebook/Request$Callback;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3337,7 +3337,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePostRequ
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;Lcom/facebook/model/GraphObject;Lcom/facebook/Request$Callback;)Lcom/facebook/RequestAsyncTask;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3465,7 +3465,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeRestRequ
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/HttpMethod;)Lcom/facebook/RequestAsyncTask;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3593,7 +3593,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMeReques
 	const char *methodSignature = "(Lcom/facebook/Session;Lcom/facebook/Request$GraphUserCallback;)Lcom/facebook/RequestAsyncTask;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3679,7 +3679,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMyFriend
 	const char *methodSignature = "(Lcom/facebook/Session;Lcom/facebook/Request$GraphUserListCallback;)Lcom/facebook/RequestAsyncTask;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3765,7 +3765,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPh
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/io/File;Lcom/facebook/Request$Callback;)Lcom/facebook/RequestAsyncTask;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3872,7 +3872,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPh
 	const char *methodSignature = "(Lcom/facebook/Session;Landroid/graphics/Bitmap;Lcom/facebook/Request$Callback;)Lcom/facebook/RequestAsyncTask;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3979,7 +3979,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeGraphPat
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;Lcom/facebook/Request$Callback;)Lcom/facebook/RequestAsyncTask;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4086,7 +4086,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePlacesSe
 	const char *methodSignature = "(Lcom/facebook/Session;Landroid/location/Location;IILjava/lang/String;Lcom/facebook/Request$GraphPlaceListCallback;)Lcom/facebook/RequestAsyncTask;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4256,7 +4256,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeStatusUp
 	const char *methodSignature = "(Lcom/facebook/Session;Ljava/lang/String;Lcom/facebook/Request$Callback;)Lcom/facebook/RequestAsyncTask;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4363,7 +4363,7 @@ FacebookCXX::com_facebook_Response com_facebook_Request::executeAndWait(Facebook
 	const char *methodSignature = "(Lcom/facebook/Request;)Lcom/facebook/Response;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4428,7 +4428,7 @@ FacebookCXX::com_facebook_Response com_facebook_Request::executeAndWait()
 	const char *methodSignature = "()Lcom/facebook/Response;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4472,7 +4472,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsy
 	const char *methodSignature = "(Lcom/facebook/RequestBatch;)Lcom/facebook/RequestAsyncTask;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4537,7 +4537,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsy
 	const char *methodSignature = "([Lcom/facebook/Request;)Lcom/facebook/RequestAsyncTask;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4620,7 +4620,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsy
 	const char *methodSignature = "(Ljava/util/Collection;)Lcom/facebook/RequestAsyncTask;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4703,7 +4703,7 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(Fa
 	const char *methodSignature = "(Lcom/facebook/RequestBatch;)Ljava/net/HttpURLConnection;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4768,7 +4768,7 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(An
 	const char *methodSignature = "(Ljava/util/Collection;)Ljava/net/HttpURLConnection;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4851,7 +4851,7 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(st
 	const char *methodSignature = "([Lcom/facebook/Request;)Ljava/net/HttpURLConnection;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4934,7 +4934,7 @@ AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(std::vector
 	const char *methodSignature = "([Lcom/facebook/Request;)Ljava/util/List;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5035,7 +5035,7 @@ AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(FacebookCXX
 	const char *methodSignature = "(Lcom/facebook/RequestBatch;)Ljava/util/List;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5118,7 +5118,7 @@ AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(AndroidCXX:
 	const char *methodSignature = "(Ljava/util/Collection;)Ljava/util/List;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5219,7 +5219,7 @@ AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(Androi
 	const char *methodSignature = "(Ljava/net/HttpURLConnection;Lcom/facebook/RequestBatch;)Ljava/util/List;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5323,7 +5323,7 @@ AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(Androi
 	const char *methodSignature = "(Ljava/net/HttpURLConnection;Ljava/util/Collection;)Ljava/util/List;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5445,7 +5445,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnecti
 	const char *methodSignature = "(Ljava/net/HttpURLConnection;Lcom/facebook/RequestBatch;)Lcom/facebook/RequestAsyncTask;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5531,7 +5531,7 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnecti
 	const char *methodSignature = "(Landroid/os/Handler;Ljava/net/HttpURLConnection;Lcom/facebook/RequestBatch;)Lcom/facebook/RequestAsyncTask;";
 	const char *className = "com/facebook/Request";
 
-	LOGV("com_facebook_Request className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

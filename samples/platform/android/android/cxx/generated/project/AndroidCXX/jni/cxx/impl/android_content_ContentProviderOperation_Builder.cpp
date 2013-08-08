@@ -45,11 +45,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_content_ContentProviderOperation_Builder"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -193,7 +190,7 @@ AndroidCXX::android_content_ContentProviderOperation android_content_ContentProv
 	const char *methodSignature = "()Landroid/content/ContentProviderOperation;";
 	const char *className = "android/content/ContentProviderOperation$Builder";
 
-	LOGV("android_content_ContentProviderOperation_Builder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ContentProviderOperation_Builder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -237,7 +234,7 @@ AndroidCXX::android_content_ContentProviderOperation_Builder android_content_Con
 	const char *methodSignature = "(Landroid/content/ContentValues;)Landroid/content/ContentProviderOperation$Builder;";
 	const char *className = "android/content/ContentProviderOperation$Builder";
 
-	LOGV("android_content_ContentProviderOperation_Builder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ContentProviderOperation_Builder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -302,7 +299,7 @@ AndroidCXX::android_content_ContentProviderOperation_Builder android_content_Con
 	const char *methodSignature = "(Ljava/lang/String;I)Landroid/content/ContentProviderOperation$Builder;";
 	const char *className = "android/content/ContentProviderOperation$Builder";
 
-	LOGV("android_content_ContentProviderOperation_Builder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ContentProviderOperation_Builder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -388,7 +385,7 @@ AndroidCXX::android_content_ContentProviderOperation_Builder android_content_Con
 	const char *methodSignature = "(II)Landroid/content/ContentProviderOperation$Builder;";
 	const char *className = "android/content/ContentProviderOperation$Builder";
 
-	LOGV("android_content_ContentProviderOperation_Builder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ContentProviderOperation_Builder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -474,7 +471,7 @@ AndroidCXX::android_content_ContentProviderOperation_Builder android_content_Con
 	const char *methodSignature = "(Landroid/content/ContentValues;)Landroid/content/ContentProviderOperation$Builder;";
 	const char *className = "android/content/ContentProviderOperation$Builder";
 
-	LOGV("android_content_ContentProviderOperation_Builder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ContentProviderOperation_Builder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -539,7 +536,7 @@ AndroidCXX::android_content_ContentProviderOperation_Builder android_content_Con
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;";
 	const char *className = "android/content/ContentProviderOperation$Builder";
 
-	LOGV("android_content_ContentProviderOperation_Builder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ContentProviderOperation_Builder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -625,7 +622,7 @@ AndroidCXX::android_content_ContentProviderOperation_Builder android_content_Con
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/ContentProviderOperation$Builder;";
 	const char *className = "android/content/ContentProviderOperation$Builder";
 
-	LOGV("android_content_ContentProviderOperation_Builder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ContentProviderOperation_Builder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -729,7 +726,7 @@ AndroidCXX::android_content_ContentProviderOperation_Builder android_content_Con
 	const char *methodSignature = "(I)Landroid/content/ContentProviderOperation$Builder;";
 	const char *className = "android/content/ContentProviderOperation$Builder";
 
-	LOGV("android_content_ContentProviderOperation_Builder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ContentProviderOperation_Builder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -794,7 +791,7 @@ AndroidCXX::android_content_ContentProviderOperation_Builder android_content_Con
 	const char *methodSignature = "(Z)Landroid/content/ContentProviderOperation$Builder;";
 	const char *className = "android/content/ContentProviderOperation$Builder";
 
-	LOGV("android_content_ContentProviderOperation_Builder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ContentProviderOperation_Builder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

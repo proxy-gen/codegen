@@ -190,7 +190,7 @@ AndroidCXX::java_lang_String com_facebook_Response::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/Response";
 
-	LOGV("com_facebook_Response className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Response className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -234,7 +234,7 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_Response::getGraphObjec
 	const char *methodSignature = "(Ljava/lang/Class;)Lcom/facebook/model/GraphObject;";
 	const char *className = "com/facebook/Response";
 
-	LOGV("com_facebook_Response className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Response className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -317,7 +317,7 @@ FacebookCXX::com_facebook_FacebookRequestError com_facebook_Response::getError()
 	const char *methodSignature = "()Lcom/facebook/FacebookRequestError;";
 	const char *className = "com/facebook/Response";
 
-	LOGV("com_facebook_Response className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Response className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -361,7 +361,7 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_Response::getGraphObjec
 	const char *methodSignature = "()Lcom/facebook/model/GraphObject;";
 	const char *className = "com/facebook/Response";
 
-	LOGV("com_facebook_Response className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Response className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -405,7 +405,7 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response::getGraphO
 	const char *methodSignature = "()Lcom/facebook/model/GraphObjectList;";
 	const char *className = "com/facebook/Response";
 
-	LOGV("com_facebook_Response className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Response className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -467,7 +467,7 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response::getGraphO
 	const char *methodSignature = "(Ljava/lang/Class;)Lcom/facebook/model/GraphObjectList;";
 	const char *className = "com/facebook/Response";
 
-	LOGV("com_facebook_Response className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Response className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -568,7 +568,7 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_Response::getConnection()
 	const char *methodSignature = "()Ljava/net/HttpURLConnection;";
 	const char *className = "com/facebook/Response";
 
-	LOGV("com_facebook_Response className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Response className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -612,7 +612,7 @@ FacebookCXX::com_facebook_Request com_facebook_Response::getRequest()
 	const char *methodSignature = "()Lcom/facebook/Request;";
 	const char *className = "com/facebook/Response";
 
-	LOGV("com_facebook_Response className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Response className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -656,7 +656,7 @@ FacebookCXX::com_facebook_Request com_facebook_Response::getRequestForPagedResul
 	const char *methodSignature = "(Lcom/facebook/Response$PagingDirection;)Lcom/facebook/Request;";
 	const char *className = "com/facebook/Response";
 
-	LOGV("com_facebook_Response className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Response className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -721,7 +721,7 @@ bool com_facebook_Response::getIsFromCache()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/Response";
 
-	LOGV("com_facebook_Response className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Response className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

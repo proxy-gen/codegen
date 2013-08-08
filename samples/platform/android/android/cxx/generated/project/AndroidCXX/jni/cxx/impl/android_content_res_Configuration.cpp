@@ -52,11 +52,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_content_res_Configuration"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -153,7 +150,7 @@ android_content_res_Configuration::android_content_res_Configuration()
 	const char *methodSignature = "()V";
 	const char *className = "android/content/res/Configuration";
 
-	LOGV("android_content_res_Configuration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Configuration className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -189,7 +186,7 @@ android_content_res_Configuration::android_content_res_Configuration(AndroidCXX:
 	const char *methodSignature = "(Landroid/content/res/Configuration;)V";
 	const char *className = "android/content/res/Configuration";
 
-	LOGV("android_content_res_Configuration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Configuration className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -261,7 +258,7 @@ bool android_content_res_Configuration::equals(AndroidCXX::android_content_res_C
 	const char *methodSignature = "(Landroid/content/res/Configuration;)Z";
 	const char *className = "android/content/res/Configuration";
 
-	LOGV("android_content_res_Configuration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Configuration className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -326,7 +323,7 @@ bool android_content_res_Configuration::equals(AndroidCXX::java_lang_Object cons
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "android/content/res/Configuration";
 
-	LOGV("android_content_res_Configuration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Configuration className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -391,7 +388,7 @@ AndroidCXX::java_lang_String android_content_res_Configuration::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/content/res/Configuration";
 
-	LOGV("android_content_res_Configuration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Configuration className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -435,7 +432,7 @@ int android_content_res_Configuration::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/res/Configuration";
 
-	LOGV("android_content_res_Configuration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Configuration className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -479,7 +476,7 @@ int android_content_res_Configuration::compareTo(AndroidCXX::android_content_res
 	const char *methodSignature = "(Landroid/content/res/Configuration;)I";
 	const char *className = "android/content/res/Configuration";
 
-	LOGV("android_content_res_Configuration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Configuration className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -544,7 +541,7 @@ void android_content_res_Configuration::setLocale(AndroidCXX::java_util_Locale c
 	const char *methodSignature = "(Ljava/util/Locale;)V";
 	const char *className = "android/content/res/Configuration";
 
-	LOGV("android_content_res_Configuration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Configuration className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -589,7 +586,7 @@ int android_content_res_Configuration::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/res/Configuration";
 
-	LOGV("android_content_res_Configuration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Configuration className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -633,7 +630,7 @@ void android_content_res_Configuration::writeToParcel(AndroidCXX::android_os_Par
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/content/res/Configuration";
 
-	LOGV("android_content_res_Configuration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Configuration className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -699,7 +696,7 @@ void android_content_res_Configuration::readFromParcel(AndroidCXX::android_os_Pa
 	const char *methodSignature = "(Landroid/os/Parcel;)V";
 	const char *className = "android/content/res/Configuration";
 
-	LOGV("android_content_res_Configuration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Configuration className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -744,7 +741,7 @@ void android_content_res_Configuration::setLayoutDirection(AndroidCXX::java_util
 	const char *methodSignature = "(Ljava/util/Locale;)V";
 	const char *className = "android/content/res/Configuration";
 
-	LOGV("android_content_res_Configuration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Configuration className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -789,7 +786,7 @@ int android_content_res_Configuration::getLayoutDirection()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/res/Configuration";
 
-	LOGV("android_content_res_Configuration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Configuration className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -833,7 +830,7 @@ bool android_content_res_Configuration::isLayoutSizeAtLeast(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/content/res/Configuration";
 
-	LOGV("android_content_res_Configuration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Configuration className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -898,7 +895,7 @@ void android_content_res_Configuration::setTo(AndroidCXX::android_content_res_Co
 	const char *methodSignature = "(Landroid/content/res/Configuration;)V";
 	const char *className = "android/content/res/Configuration";
 
-	LOGV("android_content_res_Configuration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Configuration className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -943,7 +940,7 @@ void android_content_res_Configuration::setToDefaults()
 	const char *methodSignature = "()V";
 	const char *className = "android/content/res/Configuration";
 
-	LOGV("android_content_res_Configuration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Configuration className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -967,7 +964,7 @@ int android_content_res_Configuration::updateFrom(AndroidCXX::android_content_re
 	const char *methodSignature = "(Landroid/content/res/Configuration;)I";
 	const char *className = "android/content/res/Configuration";
 
-	LOGV("android_content_res_Configuration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Configuration className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1032,7 +1029,7 @@ int android_content_res_Configuration::diff(AndroidCXX::android_content_res_Conf
 	const char *methodSignature = "(Landroid/content/res/Configuration;)I";
 	const char *className = "android/content/res/Configuration";
 
-	LOGV("android_content_res_Configuration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Configuration className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1097,7 +1094,7 @@ bool android_content_res_Configuration::needNewResources(int const& arg0,int con
 	const char *methodSignature = "(II)Z";
 	const char *className = "android/content/res/Configuration";
 
-	LOGV("android_content_res_Configuration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Configuration className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

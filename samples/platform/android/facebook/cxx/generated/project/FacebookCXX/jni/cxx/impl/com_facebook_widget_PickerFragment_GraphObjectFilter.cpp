@@ -129,7 +129,7 @@ bool com_facebook_widget_PickerFragment_GraphObjectFilter::includeItem(AndroidCX
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "com/facebook/widget/PickerFragment$GraphObjectFilter";
 
-	LOGV("com_facebook_widget_PickerFragment_GraphObjectFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment_GraphObjectFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

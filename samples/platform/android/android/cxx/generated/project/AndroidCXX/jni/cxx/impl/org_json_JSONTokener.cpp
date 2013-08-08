@@ -48,11 +48,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "org_json_JSONTokener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -169,7 +166,7 @@ org_json_JSONTokener::org_json_JSONTokener(AndroidCXX::java_lang_String const& a
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "org/json/JSONTokener";
 
-	LOGV("org_json_JSONTokener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONTokener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -241,7 +238,7 @@ AndroidCXX::java_lang_String org_json_JSONTokener::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "org/json/JSONTokener";
 
-	LOGV("org_json_JSONTokener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONTokener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -285,7 +282,7 @@ char org_json_JSONTokener::next(char const& arg0)
 	const char *methodSignature = "(C)C";
 	const char *className = "org/json/JSONTokener";
 
-	LOGV("org_json_JSONTokener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONTokener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -350,7 +347,7 @@ char org_json_JSONTokener::next()
 	const char *methodSignature = "()C";
 	const char *className = "org/json/JSONTokener";
 
-	LOGV("org_json_JSONTokener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONTokener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -394,7 +391,7 @@ AndroidCXX::java_lang_String org_json_JSONTokener::next(int const& arg0)
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "org/json/JSONTokener";
 
-	LOGV("org_json_JSONTokener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONTokener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -459,7 +456,7 @@ AndroidCXX::java_lang_Object org_json_JSONTokener::nextValue()
 	const char *methodSignature = "()Ljava/lang/Object;";
 	const char *className = "org/json/JSONTokener";
 
-	LOGV("org_json_JSONTokener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONTokener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -503,7 +500,7 @@ AndroidCXX::java_lang_String org_json_JSONTokener::nextString(char const& arg0)
 	const char *methodSignature = "(C)Ljava/lang/String;";
 	const char *className = "org/json/JSONTokener";
 
-	LOGV("org_json_JSONTokener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONTokener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -568,7 +565,7 @@ AndroidCXX::org_json_JSONException org_json_JSONTokener::syntaxError(AndroidCXX:
 	const char *methodSignature = "(Ljava/lang/String;)Lorg/json/JSONException;";
 	const char *className = "org/json/JSONTokener";
 
-	LOGV("org_json_JSONTokener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONTokener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -633,7 +630,7 @@ bool org_json_JSONTokener::more()
 	const char *methodSignature = "()Z";
 	const char *className = "org/json/JSONTokener";
 
-	LOGV("org_json_JSONTokener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONTokener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -677,7 +674,7 @@ char org_json_JSONTokener::nextClean()
 	const char *methodSignature = "()C";
 	const char *className = "org/json/JSONTokener";
 
-	LOGV("org_json_JSONTokener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONTokener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -721,7 +718,7 @@ AndroidCXX::java_lang_String org_json_JSONTokener::nextTo(AndroidCXX::java_lang_
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
 	const char *className = "org/json/JSONTokener";
 
-	LOGV("org_json_JSONTokener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONTokener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -786,7 +783,7 @@ AndroidCXX::java_lang_String org_json_JSONTokener::nextTo(char const& arg0)
 	const char *methodSignature = "(C)Ljava/lang/String;";
 	const char *className = "org/json/JSONTokener";
 
-	LOGV("org_json_JSONTokener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONTokener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -851,7 +848,7 @@ void org_json_JSONTokener::skipPast(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "org/json/JSONTokener";
 
-	LOGV("org_json_JSONTokener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONTokener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -896,7 +893,7 @@ char org_json_JSONTokener::skipTo(char const& arg0)
 	const char *methodSignature = "(C)C";
 	const char *className = "org/json/JSONTokener";
 
-	LOGV("org_json_JSONTokener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONTokener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -961,7 +958,7 @@ void org_json_JSONTokener::back()
 	const char *methodSignature = "()V";
 	const char *className = "org/json/JSONTokener";
 
-	LOGV("org_json_JSONTokener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONTokener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -985,7 +982,7 @@ int org_json_JSONTokener::dehexchar(char const& arg0)
 	const char *methodSignature = "(C)I";
 	const char *className = "org/json/JSONTokener";
 
-	LOGV("org_json_JSONTokener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONTokener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

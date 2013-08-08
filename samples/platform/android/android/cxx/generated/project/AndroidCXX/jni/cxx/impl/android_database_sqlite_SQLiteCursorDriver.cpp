@@ -29,11 +29,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_database_sqlite_SQLiteCursorDriver"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -141,7 +138,7 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteCursorDriver::
 	const char *methodSignature = "(Landroid/database/sqlite/SQLiteDatabase$CursorFactory;[Ljava/lang/String;)Landroid/database/Cursor;";
 	const char *className = "android/database/sqlite/SQLiteCursorDriver";
 
-	LOGV("android_database_sqlite_SQLiteCursorDriver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteCursorDriver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -245,7 +242,7 @@ void android_database_sqlite_SQLiteCursorDriver::cursorDeactivated()
 	const char *methodSignature = "()V";
 	const char *className = "android/database/sqlite/SQLiteCursorDriver";
 
-	LOGV("android_database_sqlite_SQLiteCursorDriver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteCursorDriver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -269,7 +266,7 @@ void android_database_sqlite_SQLiteCursorDriver::cursorRequeried(AndroidCXX::and
 	const char *methodSignature = "(Landroid/database/Cursor;)V";
 	const char *className = "android/database/sqlite/SQLiteCursorDriver";
 
-	LOGV("android_database_sqlite_SQLiteCursorDriver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteCursorDriver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -314,7 +311,7 @@ void android_database_sqlite_SQLiteCursorDriver::cursorClosed()
 	const char *methodSignature = "()V";
 	const char *className = "android/database/sqlite/SQLiteCursorDriver";
 
-	LOGV("android_database_sqlite_SQLiteCursorDriver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteCursorDriver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -338,7 +335,7 @@ void android_database_sqlite_SQLiteCursorDriver::setBindArguments(std::vector<An
 	const char *methodSignature = "([Ljava/lang/String;)V";
 	const char *className = "android/database/sqlite/SQLiteCursorDriver";
 
-	LOGV("android_database_sqlite_SQLiteCursorDriver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteCursorDriver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

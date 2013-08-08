@@ -85,11 +85,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_text_Layout"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -244,7 +241,7 @@ AndroidCXX::java_lang_CharSequence android_text_Layout::getText()
 	const char *methodSignature = "()Ljava/lang/CharSequence;";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -288,7 +285,7 @@ int android_text_Layout::getWidth()
 	const char *methodSignature = "()I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -332,7 +329,7 @@ int android_text_Layout::getHeight()
 	const char *methodSignature = "()I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -376,7 +373,7 @@ void android_text_Layout::draw(AndroidCXX::android_graphics_Canvas const& arg0,A
 	const char *methodSignature = "(Landroid/graphics/Canvas;Landroid/graphics/Path;Landroid/graphics/Paint;I)V";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -484,7 +481,7 @@ void android_text_Layout::draw(AndroidCXX::android_graphics_Canvas const& arg0)
 	const char *methodSignature = "(Landroid/graphics/Canvas;)V";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -529,7 +526,7 @@ AndroidCXX::android_text_TextPaint android_text_Layout::getPaint()
 	const char *methodSignature = "()Landroid/text/TextPaint;";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -573,7 +570,7 @@ int android_text_Layout::getLineCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -617,7 +614,7 @@ int android_text_Layout::getLineBounds(int const& arg0,AndroidCXX::android_graph
 	const char *methodSignature = "(ILandroid/graphics/Rect;)I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -703,7 +700,7 @@ float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence co
 	const char *methodSignature = "(Ljava/lang/CharSequence;IILandroid/text/TextPaint;)F";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -831,7 +828,7 @@ float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence co
 	const char *methodSignature = "(Ljava/lang/CharSequence;Landroid/text/TextPaint;)F";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -917,7 +914,7 @@ int android_text_Layout::getEllipsizedWidth()
 	const char *methodSignature = "()I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -961,7 +958,7 @@ void android_text_Layout::increaseWidthTo(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1006,7 +1003,7 @@ android_text_Layout_Alignment::android_text_Layout_Alignment android_text_Layout
 	const char *methodSignature = "()Landroid/text/Layout$Alignment;";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1050,7 +1047,7 @@ float android_text_Layout::getSpacingMultiplier()
 	const char *methodSignature = "()F";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1094,7 +1091,7 @@ float android_text_Layout::getSpacingAdd()
 	const char *methodSignature = "()F";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1138,7 +1135,7 @@ int android_text_Layout::getLineTop(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1203,7 +1200,7 @@ int android_text_Layout::getLineDescent(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1268,7 +1265,7 @@ int android_text_Layout::getLineStart(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1333,7 +1330,7 @@ int android_text_Layout::getParagraphDirection(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1398,7 +1395,7 @@ bool android_text_Layout::getLineContainsTab(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1463,7 +1460,7 @@ AndroidCXX::android_text_Layout_Directions android_text_Layout::getLineDirection
 	const char *methodSignature = "(I)Landroid/text/Layout$Directions;";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1528,7 +1525,7 @@ int android_text_Layout::getTopPadding()
 	const char *methodSignature = "()I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1572,7 +1569,7 @@ int android_text_Layout::getBottomPadding()
 	const char *methodSignature = "()I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1616,7 +1613,7 @@ bool android_text_Layout::isRtlCharAt(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1681,7 +1678,7 @@ float android_text_Layout::getPrimaryHorizontal(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1746,7 +1743,7 @@ float android_text_Layout::getSecondaryHorizontal(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1811,7 +1808,7 @@ float android_text_Layout::getLineLeft(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1876,7 +1873,7 @@ float android_text_Layout::getLineRight(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1941,7 +1938,7 @@ float android_text_Layout::getLineMax(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2006,7 +2003,7 @@ float android_text_Layout::getLineWidth(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2071,7 +2068,7 @@ int android_text_Layout::getLineForVertical(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2136,7 +2133,7 @@ int android_text_Layout::getLineForOffset(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2201,7 +2198,7 @@ int android_text_Layout::getOffsetForHorizontal(int const& arg0,float const& arg
 	const char *methodSignature = "(IF)I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2287,7 +2284,7 @@ int android_text_Layout::getLineEnd(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2352,7 +2349,7 @@ int android_text_Layout::getLineVisibleEnd(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2417,7 +2414,7 @@ int android_text_Layout::getLineBottom(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2482,7 +2479,7 @@ int android_text_Layout::getLineBaseline(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2547,7 +2544,7 @@ int android_text_Layout::getLineAscent(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2612,7 +2609,7 @@ int android_text_Layout::getOffsetToLeftOf(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2677,7 +2674,7 @@ int android_text_Layout::getOffsetToRightOf(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2742,7 +2739,7 @@ void android_text_Layout::getCursorPath(int const& arg0,AndroidCXX::android_grap
 	const char *methodSignature = "(ILandroid/graphics/Path;Ljava/lang/CharSequence;)V";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2829,7 +2826,7 @@ void android_text_Layout::getSelectionPath(int const& arg0,int const& arg1,Andro
 	const char *methodSignature = "(IILandroid/graphics/Path;)V";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2916,7 +2913,7 @@ android_text_Layout_Alignment::android_text_Layout_Alignment android_text_Layout
 	const char *methodSignature = "(I)Landroid/text/Layout$Alignment;";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2981,7 +2978,7 @@ int android_text_Layout::getParagraphLeft(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3046,7 +3043,7 @@ int android_text_Layout::getParagraphRight(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3111,7 +3108,7 @@ int android_text_Layout::getEllipsisStart(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3176,7 +3173,7 @@ int android_text_Layout::getEllipsisCount(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Layout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

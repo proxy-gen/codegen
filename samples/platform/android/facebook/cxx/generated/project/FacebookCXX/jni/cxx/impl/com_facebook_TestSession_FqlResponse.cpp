@@ -127,7 +127,7 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_TestSession_FqlResp
 	const char *methodSignature = "()Lcom/facebook/model/GraphObjectList;";
 	const char *className = "com/facebook/TestSession$FqlResponse";
 
-	LOGV("com_facebook_TestSession_FqlResponse className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TestSession_FqlResponse className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

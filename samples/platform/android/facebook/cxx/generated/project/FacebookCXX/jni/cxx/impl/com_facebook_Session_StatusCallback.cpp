@@ -204,7 +204,7 @@ com_facebook_Session_StatusCallback::com_facebook_Session_StatusCallback()
 	const char *methodSignature = "()V";
 	const char *className = "FacebookCXX/com_facebook_Session_StatusCallback";
 
-	LOGV("com_facebook_Session_StatusCallback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session_StatusCallback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -270,7 +270,7 @@ void com_facebook_Session_StatusCallback::call(FacebookCXX::com_facebook_Session
 	const char *methodSignature = "(Lcom/facebook/Session;Lcom/facebook/SessionState;Ljava/lang/Exception;)V";
 	const char *className = "FacebookCXX/com_facebook_Session_StatusCallback";
 
-	LOGV("com_facebook_Session_StatusCallback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session_StatusCallback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

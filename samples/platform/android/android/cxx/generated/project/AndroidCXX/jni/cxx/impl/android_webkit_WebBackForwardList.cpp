@@ -27,11 +27,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_webkit_WebBackForwardList"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -136,7 +133,7 @@ int android_webkit_WebBackForwardList::getSize()
 	const char *methodSignature = "()I";
 	const char *className = "android/webkit/WebBackForwardList";
 
-	LOGV("android_webkit_WebBackForwardList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebBackForwardList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -180,7 +177,7 @@ AndroidCXX::android_webkit_WebHistoryItem android_webkit_WebBackForwardList::get
 	const char *methodSignature = "()Landroid/webkit/WebHistoryItem;";
 	const char *className = "android/webkit/WebBackForwardList";
 
-	LOGV("android_webkit_WebBackForwardList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebBackForwardList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -224,7 +221,7 @@ int android_webkit_WebBackForwardList::getCurrentIndex()
 	const char *methodSignature = "()I";
 	const char *className = "android/webkit/WebBackForwardList";
 
-	LOGV("android_webkit_WebBackForwardList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebBackForwardList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -268,7 +265,7 @@ AndroidCXX::android_webkit_WebHistoryItem android_webkit_WebBackForwardList::get
 	const char *methodSignature = "(I)Landroid/webkit/WebHistoryItem;";
 	const char *className = "android/webkit/WebBackForwardList";
 
-	LOGV("android_webkit_WebBackForwardList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebBackForwardList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

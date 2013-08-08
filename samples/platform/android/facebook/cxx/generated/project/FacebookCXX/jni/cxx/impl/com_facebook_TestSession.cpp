@@ -200,7 +200,7 @@ AndroidCXX::java_lang_String com_facebook_TestSession::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/TestSession";
 
-	LOGV("com_facebook_TestSession className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TestSession className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -244,7 +244,7 @@ FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWit
 	const char *methodSignature = "(Landroid/app/Activity;Ljava/util/List;)Lcom/facebook/TestSession;";
 	const char *className = "com/facebook/TestSession";
 
-	LOGV("com_facebook_TestSession className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TestSession className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -348,7 +348,7 @@ FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWit
 	const char *methodSignature = "(Landroid/app/Activity;Ljava/util/List;)Lcom/facebook/TestSession;";
 	const char *className = "com/facebook/TestSession";
 
-	LOGV("com_facebook_TestSession className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TestSession className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -452,7 +452,7 @@ FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWit
 	const char *methodSignature = "(Landroid/app/Activity;Ljava/util/List;Ljava/lang/String;)Lcom/facebook/TestSession;";
 	const char *className = "com/facebook/TestSession";
 
-	LOGV("com_facebook_TestSession className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TestSession className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -577,7 +577,7 @@ AndroidCXX::java_lang_String com_facebook_TestSession::getTestApplicationId()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/TestSession";
 
-	LOGV("com_facebook_TestSession className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TestSession className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -621,7 +621,7 @@ void com_facebook_TestSession::setTestApplicationId(AndroidCXX::java_lang_String
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "com/facebook/TestSession";
 
-	LOGV("com_facebook_TestSession className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TestSession className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -666,7 +666,7 @@ AndroidCXX::java_lang_String com_facebook_TestSession::getTestApplicationSecret(
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/TestSession";
 
-	LOGV("com_facebook_TestSession className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TestSession className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -710,7 +710,7 @@ void com_facebook_TestSession::setTestApplicationSecret(AndroidCXX::java_lang_St
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "com/facebook/TestSession";
 
-	LOGV("com_facebook_TestSession className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TestSession className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -755,7 +755,7 @@ AndroidCXX::java_lang_String com_facebook_TestSession::getTestUserId()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/TestSession";
 
-	LOGV("com_facebook_TestSession className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TestSession className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

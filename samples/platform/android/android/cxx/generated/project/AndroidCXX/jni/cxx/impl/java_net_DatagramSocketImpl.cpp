@@ -22,11 +22,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_net_DatagramSocketImpl"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -107,7 +104,7 @@ java_net_DatagramSocketImpl::java_net_DatagramSocketImpl()
 	const char *methodSignature = "()V";
 	const char *className = "java/net/DatagramSocketImpl";
 
-	LOGV("java_net_DatagramSocketImpl className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_DatagramSocketImpl className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

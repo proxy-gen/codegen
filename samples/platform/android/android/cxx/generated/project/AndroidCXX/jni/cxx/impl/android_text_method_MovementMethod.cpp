@@ -52,11 +52,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_text_method_MovementMethod"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -221,7 +218,7 @@ void android_text_method_MovementMethod::initialize(AndroidCXX::android_widget_T
 	const char *methodSignature = "(Landroid/widget/TextView;Landroid/text/Spannable;)V";
 	const char *className = "android/text/method/MovementMethod";
 
-	LOGV("android_text_method_MovementMethod className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_method_MovementMethod className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -287,7 +284,7 @@ bool android_text_method_MovementMethod::onKeyDown(AndroidCXX::android_widget_Te
 	const char *methodSignature = "(Landroid/widget/TextView;Landroid/text/Spannable;ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/text/method/MovementMethod";
 
-	LOGV("android_text_method_MovementMethod className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_method_MovementMethod className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -415,7 +412,7 @@ bool android_text_method_MovementMethod::onKeyUp(AndroidCXX::android_widget_Text
 	const char *methodSignature = "(Landroid/widget/TextView;Landroid/text/Spannable;ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/text/method/MovementMethod";
 
-	LOGV("android_text_method_MovementMethod className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_method_MovementMethod className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -543,7 +540,7 @@ bool android_text_method_MovementMethod::onTouchEvent(AndroidCXX::android_widget
 	const char *methodSignature = "(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/MotionEvent;)Z";
 	const char *className = "android/text/method/MovementMethod";
 
-	LOGV("android_text_method_MovementMethod className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_method_MovementMethod className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -650,7 +647,7 @@ bool android_text_method_MovementMethod::onTrackballEvent(AndroidCXX::android_wi
 	const char *methodSignature = "(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/MotionEvent;)Z";
 	const char *className = "android/text/method/MovementMethod";
 
-	LOGV("android_text_method_MovementMethod className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_method_MovementMethod className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -757,7 +754,7 @@ bool android_text_method_MovementMethod::onGenericMotionEvent(AndroidCXX::androi
 	const char *methodSignature = "(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/MotionEvent;)Z";
 	const char *className = "android/text/method/MovementMethod";
 
-	LOGV("android_text_method_MovementMethod className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_method_MovementMethod className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -864,7 +861,7 @@ bool android_text_method_MovementMethod::onKeyOther(AndroidCXX::android_widget_T
 	const char *methodSignature = "(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/KeyEvent;)Z";
 	const char *className = "android/text/method/MovementMethod";
 
-	LOGV("android_text_method_MovementMethod className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_method_MovementMethod className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -971,7 +968,7 @@ void android_text_method_MovementMethod::onTakeFocus(AndroidCXX::android_widget_
 	const char *methodSignature = "(Landroid/widget/TextView;Landroid/text/Spannable;I)V";
 	const char *className = "android/text/method/MovementMethod";
 
-	LOGV("android_text_method_MovementMethod className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_method_MovementMethod className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1058,7 +1055,7 @@ bool android_text_method_MovementMethod::canSelectArbitrarily()
 	const char *methodSignature = "()Z";
 	const char *className = "android/text/method/MovementMethod";
 
-	LOGV("android_text_method_MovementMethod className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_method_MovementMethod className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

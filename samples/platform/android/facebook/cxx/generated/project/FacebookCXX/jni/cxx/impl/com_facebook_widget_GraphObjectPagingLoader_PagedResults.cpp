@@ -127,7 +127,7 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_widget_GraphObjectP
 	const char *methodSignature = "()Lcom/facebook/model/GraphObjectList;";
 	const char *className = "com/facebook/widget/GraphObjectPagingLoader$PagedResults";
 
-	LOGV("com_facebook_widget_GraphObjectPagingLoader_PagedResults className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectPagingLoader_PagedResults className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

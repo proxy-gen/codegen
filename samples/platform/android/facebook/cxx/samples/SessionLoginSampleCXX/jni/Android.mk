@@ -17,5 +17,5 @@ LOCAL_WHOLE_STATIC_LIBRARIES += AndroidCXX
 include $(BUILD_SHARED_LIBRARY)
 
 $(call import-module,generator/platform/android/runtime/ZyngaCXX/jni)
-$(call import-module,samples/platform/android/facebook/cxx/generated/project/exported/cxx/FacebookCXX)
-$(call import-module,samples/platform/android/android/cxx/generated/project/exported/cxx/AndroidCXX)
+$(call import-module,samples/platform/android/facebook/cxx/package/FacebookCXX/Debug)
+$(call import-module,samples/platform/android/android/cxx/package/AndroidCXX/Debug/)

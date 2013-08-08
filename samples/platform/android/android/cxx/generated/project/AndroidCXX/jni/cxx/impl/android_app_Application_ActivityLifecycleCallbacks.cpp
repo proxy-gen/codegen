@@ -37,11 +37,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_app_Application_ActivityLifecycleCallbacks"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -167,7 +164,7 @@ void android_app_Application_ActivityLifecycleCallbacks::onActivityCreated(Andro
 	const char *methodSignature = "(Landroid/app/Activity;Landroid/os/Bundle;)V";
 	const char *className = "android/app/Application$ActivityLifecycleCallbacks";
 
-	LOGV("android_app_Application_ActivityLifecycleCallbacks className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_Application_ActivityLifecycleCallbacks className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -233,7 +230,7 @@ void android_app_Application_ActivityLifecycleCallbacks::onActivityStarted(Andro
 	const char *methodSignature = "(Landroid/app/Activity;)V";
 	const char *className = "android/app/Application$ActivityLifecycleCallbacks";
 
-	LOGV("android_app_Application_ActivityLifecycleCallbacks className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_Application_ActivityLifecycleCallbacks className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -278,7 +275,7 @@ void android_app_Application_ActivityLifecycleCallbacks::onActivityResumed(Andro
 	const char *methodSignature = "(Landroid/app/Activity;)V";
 	const char *className = "android/app/Application$ActivityLifecycleCallbacks";
 
-	LOGV("android_app_Application_ActivityLifecycleCallbacks className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_Application_ActivityLifecycleCallbacks className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -323,7 +320,7 @@ void android_app_Application_ActivityLifecycleCallbacks::onActivityPaused(Androi
 	const char *methodSignature = "(Landroid/app/Activity;)V";
 	const char *className = "android/app/Application$ActivityLifecycleCallbacks";
 
-	LOGV("android_app_Application_ActivityLifecycleCallbacks className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_Application_ActivityLifecycleCallbacks className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -368,7 +365,7 @@ void android_app_Application_ActivityLifecycleCallbacks::onActivityStopped(Andro
 	const char *methodSignature = "(Landroid/app/Activity;)V";
 	const char *className = "android/app/Application$ActivityLifecycleCallbacks";
 
-	LOGV("android_app_Application_ActivityLifecycleCallbacks className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_Application_ActivityLifecycleCallbacks className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -413,7 +410,7 @@ void android_app_Application_ActivityLifecycleCallbacks::onActivitySaveInstanceS
 	const char *methodSignature = "(Landroid/app/Activity;Landroid/os/Bundle;)V";
 	const char *className = "android/app/Application$ActivityLifecycleCallbacks";
 
-	LOGV("android_app_Application_ActivityLifecycleCallbacks className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_Application_ActivityLifecycleCallbacks className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -479,7 +476,7 @@ void android_app_Application_ActivityLifecycleCallbacks::onActivityDestroyed(And
 	const char *methodSignature = "(Landroid/app/Activity;)V";
 	const char *className = "android/app/Application$ActivityLifecycleCallbacks";
 
-	LOGV("android_app_Application_ActivityLifecycleCallbacks className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_Application_ActivityLifecycleCallbacks className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

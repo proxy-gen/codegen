@@ -129,7 +129,7 @@ void com_facebook_android_Facebook_TokenRefreshConnectionHandler::handleMessage(
 	const char *methodSignature = "(Landroid/os/Message;)V";
 	const char *className = "com/facebook/android/Facebook$TokenRefreshConnectionHandler";
 
-	LOGV("com_facebook_android_Facebook_TokenRefreshConnectionHandler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_Facebook_TokenRefreshConnectionHandler className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

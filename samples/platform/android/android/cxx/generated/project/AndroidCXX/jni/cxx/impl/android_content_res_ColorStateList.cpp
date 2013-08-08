@@ -41,11 +41,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_content_res_ColorStateList"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -150,7 +147,7 @@ android_content_res_ColorStateList::android_content_res_ColorStateList(std::vect
 	const char *methodSignature = "([[I[I)V";
 	const char *className = "android/content/res/ColorStateList";
 
-	LOGV("android_content_res_ColorStateList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_ColorStateList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -297,7 +294,7 @@ AndroidCXX::java_lang_String android_content_res_ColorStateList::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/content/res/ColorStateList";
 
-	LOGV("android_content_res_ColorStateList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_ColorStateList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -341,7 +338,7 @@ AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateLis
 	const char *methodSignature = "(I)Landroid/content/res/ColorStateList;";
 	const char *className = "android/content/res/ColorStateList";
 
-	LOGV("android_content_res_ColorStateList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_ColorStateList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -406,7 +403,7 @@ int android_content_res_ColorStateList::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/res/ColorStateList";
 
-	LOGV("android_content_res_ColorStateList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_ColorStateList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -450,7 +447,7 @@ void android_content_res_ColorStateList::writeToParcel(AndroidCXX::android_os_Pa
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/content/res/ColorStateList";
 
-	LOGV("android_content_res_ColorStateList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_ColorStateList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -516,7 +513,7 @@ bool android_content_res_ColorStateList::isStateful()
 	const char *methodSignature = "()Z";
 	const char *className = "android/content/res/ColorStateList";
 
-	LOGV("android_content_res_ColorStateList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_ColorStateList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -560,7 +557,7 @@ AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateLis
 	const char *methodSignature = "(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;)Landroid/content/res/ColorStateList;";
 	const char *className = "android/content/res/ColorStateList";
 
-	LOGV("android_content_res_ColorStateList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_ColorStateList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -646,7 +643,7 @@ AndroidCXX::android_content_res_ColorStateList android_content_res_ColorStateLis
 	const char *methodSignature = "(I)Landroid/content/res/ColorStateList;";
 	const char *className = "android/content/res/ColorStateList";
 
-	LOGV("android_content_res_ColorStateList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_ColorStateList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -711,7 +708,7 @@ int android_content_res_ColorStateList::getColorForState(std::vector<int> const&
 	const char *methodSignature = "([II)I";
 	const char *className = "android/content/res/ColorStateList";
 
-	LOGV("android_content_res_ColorStateList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_ColorStateList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -815,7 +812,7 @@ int android_content_res_ColorStateList::getDefaultColor()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/res/ColorStateList";
 
-	LOGV("android_content_res_ColorStateList className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_ColorStateList className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -24,11 +24,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_webkit_WebView_HitTestResult"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -130,7 +127,7 @@ int android_webkit_WebView_HitTestResult::getType()
 	const char *methodSignature = "()I";
 	const char *className = "android/webkit/WebView$HitTestResult";
 
-	LOGV("android_webkit_WebView_HitTestResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebView_HitTestResult className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -174,7 +171,7 @@ AndroidCXX::java_lang_String android_webkit_WebView_HitTestResult::getExtra()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/webkit/WebView$HitTestResult";
 
-	LOGV("android_webkit_WebView_HitTestResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebView_HitTestResult className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

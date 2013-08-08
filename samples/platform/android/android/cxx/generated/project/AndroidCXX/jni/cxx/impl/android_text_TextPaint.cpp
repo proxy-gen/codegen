@@ -27,11 +27,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_text_TextPaint"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -121,7 +118,7 @@ android_text_TextPaint::android_text_TextPaint()
 	const char *methodSignature = "()V";
 	const char *className = "android/text/TextPaint";
 
-	LOGV("android_text_TextPaint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_TextPaint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -157,7 +154,7 @@ android_text_TextPaint::android_text_TextPaint(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/text/TextPaint";
 
-	LOGV("android_text_TextPaint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_TextPaint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -214,7 +211,7 @@ android_text_TextPaint::android_text_TextPaint(AndroidCXX::android_graphics_Pain
 	const char *methodSignature = "(Landroid/graphics/Paint;)V";
 	const char *className = "android/text/TextPaint";
 
-	LOGV("android_text_TextPaint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_TextPaint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -286,7 +283,7 @@ void android_text_TextPaint::set(AndroidCXX::android_text_TextPaint const& arg0)
 	const char *methodSignature = "(Landroid/text/TextPaint;)V";
 	const char *className = "android/text/TextPaint";
 
-	LOGV("android_text_TextPaint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_TextPaint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

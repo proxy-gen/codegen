@@ -36,11 +36,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_DragEvent"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -154,7 +151,7 @@ AndroidCXX::java_lang_String android_view_DragEvent::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/view/DragEvent";
 
-	LOGV("android_view_DragEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_DragEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -198,7 +195,7 @@ float android_view_DragEvent::getY()
 	const char *methodSignature = "()F";
 	const char *className = "android/view/DragEvent";
 
-	LOGV("android_view_DragEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_DragEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -242,7 +239,7 @@ float android_view_DragEvent::getX()
 	const char *methodSignature = "()F";
 	const char *className = "android/view/DragEvent";
 
-	LOGV("android_view_DragEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_DragEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -286,7 +283,7 @@ bool android_view_DragEvent::getResult()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/DragEvent";
 
-	LOGV("android_view_DragEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_DragEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -330,7 +327,7 @@ int android_view_DragEvent::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/DragEvent";
 
-	LOGV("android_view_DragEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_DragEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -374,7 +371,7 @@ void android_view_DragEvent::writeToParcel(AndroidCXX::android_os_Parcel const& 
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/view/DragEvent";
 
-	LOGV("android_view_DragEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_DragEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -440,7 +437,7 @@ int android_view_DragEvent::getAction()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/DragEvent";
 
-	LOGV("android_view_DragEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_DragEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -484,7 +481,7 @@ AndroidCXX::android_content_ClipData android_view_DragEvent::getClipData()
 	const char *methodSignature = "()Landroid/content/ClipData;";
 	const char *className = "android/view/DragEvent";
 
-	LOGV("android_view_DragEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_DragEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -528,7 +525,7 @@ AndroidCXX::android_content_ClipDescription android_view_DragEvent::getClipDescr
 	const char *methodSignature = "()Landroid/content/ClipDescription;";
 	const char *className = "android/view/DragEvent";
 
-	LOGV("android_view_DragEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_DragEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -572,7 +569,7 @@ AndroidCXX::java_lang_Object android_view_DragEvent::getLocalState()
 	const char *methodSignature = "()Ljava/lang/Object;";
 	const char *className = "android/view/DragEvent";
 
-	LOGV("android_view_DragEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_DragEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

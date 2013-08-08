@@ -277,7 +277,7 @@ AndroidCXX::java_lang_String com_facebook_model_OpenGraphAction::getMessage()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -321,7 +321,7 @@ AndroidCXX::java_lang_String com_facebook_model_OpenGraphAction::getId()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -365,7 +365,7 @@ AndroidCXX::java_lang_String com_facebook_model_OpenGraphAction::getRef()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -409,7 +409,7 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_model_OpenGraphAction::
 	const char *methodSignature = "()Lcom/facebook/model/GraphObject;";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -453,7 +453,7 @@ void com_facebook_model_OpenGraphAction::setId(AndroidCXX::java_lang_String cons
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -498,7 +498,7 @@ void com_facebook_model_OpenGraphAction::setMessage(AndroidCXX::java_lang_String
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -543,7 +543,7 @@ AndroidCXX::java_util_Date com_facebook_model_OpenGraphAction::getStartTime()
 	const char *methodSignature = "()Ljava/util/Date;";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -587,7 +587,7 @@ void com_facebook_model_OpenGraphAction::setStartTime(AndroidCXX::java_util_Date
 	const char *methodSignature = "(Ljava/util/Date;)V";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -632,7 +632,7 @@ AndroidCXX::java_util_Date com_facebook_model_OpenGraphAction::getEndTime()
 	const char *methodSignature = "()Ljava/util/Date;";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -676,7 +676,7 @@ void com_facebook_model_OpenGraphAction::setEndTime(AndroidCXX::java_util_Date c
 	const char *methodSignature = "(Ljava/util/Date;)V";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -721,7 +721,7 @@ AndroidCXX::java_util_Date com_facebook_model_OpenGraphAction::getPublishTime()
 	const char *methodSignature = "()Ljava/util/Date;";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -765,7 +765,7 @@ void com_facebook_model_OpenGraphAction::setPublishTime(AndroidCXX::java_util_Da
 	const char *methodSignature = "(Ljava/util/Date;)V";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -810,7 +810,7 @@ AndroidCXX::java_util_Date com_facebook_model_OpenGraphAction::getCreatedTime()
 	const char *methodSignature = "()Ljava/util/Date;";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -854,7 +854,7 @@ void com_facebook_model_OpenGraphAction::setCreatedTime(AndroidCXX::java_util_Da
 	const char *methodSignature = "(Ljava/util/Date;)V";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -899,7 +899,7 @@ AndroidCXX::java_util_Date com_facebook_model_OpenGraphAction::getExpiresTime()
 	const char *methodSignature = "()Ljava/util/Date;";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -943,7 +943,7 @@ void com_facebook_model_OpenGraphAction::setExpiresTime(AndroidCXX::java_util_Da
 	const char *methodSignature = "(Ljava/util/Date;)V";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -988,7 +988,7 @@ void com_facebook_model_OpenGraphAction::setRef(AndroidCXX::java_lang_String con
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1033,7 +1033,7 @@ FacebookCXX::com_facebook_model_GraphPlace com_facebook_model_OpenGraphAction::g
 	const char *methodSignature = "()Lcom/facebook/model/GraphPlace;";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1077,7 +1077,7 @@ void com_facebook_model_OpenGraphAction::setPlace(FacebookCXX::com_facebook_mode
 	const char *methodSignature = "(Lcom/facebook/model/GraphPlace;)V";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1122,7 +1122,7 @@ AndroidCXX::java_util_List com_facebook_model_OpenGraphAction::getTags()
 	const char *methodSignature = "()Ljava/util/List;";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1184,7 +1184,7 @@ void com_facebook_model_OpenGraphAction::setTags(AndroidCXX::java_util_List cons
 	const char *methodSignature = "(Ljava/util/List;)V";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1247,7 +1247,7 @@ AndroidCXX::java_util_List com_facebook_model_OpenGraphAction::getImage()
 	const char *methodSignature = "()Ljava/util/List;";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1309,7 +1309,7 @@ void com_facebook_model_OpenGraphAction::setImage(AndroidCXX::java_util_List con
 	const char *methodSignature = "(Ljava/util/List;)V";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1372,7 +1372,7 @@ FacebookCXX::com_facebook_model_GraphUser com_facebook_model_OpenGraphAction::ge
 	const char *methodSignature = "()Lcom/facebook/model/GraphUser;";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1416,7 +1416,7 @@ void com_facebook_model_OpenGraphAction::setFrom(FacebookCXX::com_facebook_model
 	const char *methodSignature = "(Lcom/facebook/model/GraphUser;)V";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1461,7 +1461,7 @@ AndroidCXX::org_json_JSONObject com_facebook_model_OpenGraphAction::getLikes()
 	const char *methodSignature = "()Lorg/json/JSONObject;";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1505,7 +1505,7 @@ void com_facebook_model_OpenGraphAction::setLikes(AndroidCXX::org_json_JSONObjec
 	const char *methodSignature = "(Lorg/json/JSONObject;)V";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1550,7 +1550,7 @@ void com_facebook_model_OpenGraphAction::setApplication(FacebookCXX::com_faceboo
 	const char *methodSignature = "(Lcom/facebook/model/GraphObject;)V";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1595,7 +1595,7 @@ AndroidCXX::org_json_JSONObject com_facebook_model_OpenGraphAction::getComments(
 	const char *methodSignature = "()Lorg/json/JSONObject;";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1639,7 +1639,7 @@ void com_facebook_model_OpenGraphAction::setComments(AndroidCXX::org_json_JSONOb
 	const char *methodSignature = "(Lorg/json/JSONObject;)V";
 	const char *className = "com/facebook/model/OpenGraphAction";
 
-	LOGV("com_facebook_model_OpenGraphAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_OpenGraphAction className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

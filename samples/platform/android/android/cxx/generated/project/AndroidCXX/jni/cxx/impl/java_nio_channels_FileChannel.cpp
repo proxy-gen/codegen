@@ -55,11 +55,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_nio_channels_FileChannel"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -200,7 +197,7 @@ AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::lock()
 	const char *methodSignature = "()Ljava/nio/channels/FileLock;";
 	const char *className = "java/nio/channels/FileChannel";
 
-	LOGV("java_nio_channels_FileChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -244,7 +241,7 @@ AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::lock(long 
 	const char *methodSignature = "(JJZ)Ljava/nio/channels/FileLock;";
 	const char *className = "java/nio/channels/FileChannel";
 
-	LOGV("java_nio_channels_FileChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -351,7 +348,7 @@ long java_nio_channels_FileChannel::size()
 	const char *methodSignature = "()J";
 	const char *className = "java/nio/channels/FileChannel";
 
-	LOGV("java_nio_channels_FileChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -395,7 +392,7 @@ long java_nio_channels_FileChannel::position()
 	const char *methodSignature = "()J";
 	const char *className = "java/nio/channels/FileChannel";
 
-	LOGV("java_nio_channels_FileChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -439,7 +436,7 @@ AndroidCXX::java_nio_channels_FileChannel java_nio_channels_FileChannel::positio
 	const char *methodSignature = "(J)Ljava/nio/channels/FileChannel;";
 	const char *className = "java/nio/channels/FileChannel";
 
-	LOGV("java_nio_channels_FileChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -504,7 +501,7 @@ int java_nio_channels_FileChannel::write(AndroidCXX::java_nio_ByteBuffer const& 
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;)I";
 	const char *className = "java/nio/channels/FileChannel";
 
-	LOGV("java_nio_channels_FileChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -569,7 +566,7 @@ long java_nio_channels_FileChannel::write(std::vector<AndroidCXX::java_nio_ByteB
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;II)J";
 	const char *className = "java/nio/channels/FileChannel";
 
-	LOGV("java_nio_channels_FileChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -694,7 +691,7 @@ long java_nio_channels_FileChannel::write(std::vector<AndroidCXX::java_nio_ByteB
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;)J";
 	const char *className = "java/nio/channels/FileChannel";
 
-	LOGV("java_nio_channels_FileChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -777,7 +774,7 @@ int java_nio_channels_FileChannel::write(AndroidCXX::java_nio_ByteBuffer const& 
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;J)I";
 	const char *className = "java/nio/channels/FileChannel";
 
-	LOGV("java_nio_channels_FileChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -863,7 +860,7 @@ AndroidCXX::java_nio_channels_FileChannel java_nio_channels_FileChannel::truncat
 	const char *methodSignature = "(J)Ljava/nio/channels/FileChannel;";
 	const char *className = "java/nio/channels/FileChannel";
 
-	LOGV("java_nio_channels_FileChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -928,7 +925,7 @@ AndroidCXX::java_nio_MappedByteBuffer java_nio_channels_FileChannel::map(Android
 	const char *methodSignature = "(Ljava/nio/channels/FileChannel$MapMode;JJ)Ljava/nio/MappedByteBuffer;";
 	const char *className = "java/nio/channels/FileChannel";
 
-	LOGV("java_nio_channels_FileChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1035,7 +1032,7 @@ int java_nio_channels_FileChannel::read(AndroidCXX::java_nio_ByteBuffer const& a
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;)I";
 	const char *className = "java/nio/channels/FileChannel";
 
-	LOGV("java_nio_channels_FileChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1100,7 +1097,7 @@ long java_nio_channels_FileChannel::read(std::vector<AndroidCXX::java_nio_ByteBu
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;II)J";
 	const char *className = "java/nio/channels/FileChannel";
 
-	LOGV("java_nio_channels_FileChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1225,7 +1222,7 @@ int java_nio_channels_FileChannel::read(AndroidCXX::java_nio_ByteBuffer const& a
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;J)I";
 	const char *className = "java/nio/channels/FileChannel";
 
-	LOGV("java_nio_channels_FileChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1311,7 +1308,7 @@ long java_nio_channels_FileChannel::read(std::vector<AndroidCXX::java_nio_ByteBu
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;)J";
 	const char *className = "java/nio/channels/FileChannel";
 
-	LOGV("java_nio_channels_FileChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1394,7 +1391,7 @@ AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::tryLock()
 	const char *methodSignature = "()Ljava/nio/channels/FileLock;";
 	const char *className = "java/nio/channels/FileChannel";
 
-	LOGV("java_nio_channels_FileChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1438,7 +1435,7 @@ AndroidCXX::java_nio_channels_FileLock java_nio_channels_FileChannel::tryLock(lo
 	const char *methodSignature = "(JJZ)Ljava/nio/channels/FileLock;";
 	const char *className = "java/nio/channels/FileChannel";
 
-	LOGV("java_nio_channels_FileChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1545,7 +1542,7 @@ void java_nio_channels_FileChannel::force(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "java/nio/channels/FileChannel";
 
-	LOGV("java_nio_channels_FileChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1590,7 +1587,7 @@ long java_nio_channels_FileChannel::transferTo(long const& arg0,long const& arg1
 	const char *methodSignature = "(JJLjava/nio/channels/WritableByteChannel;)J";
 	const char *className = "java/nio/channels/FileChannel";
 
-	LOGV("java_nio_channels_FileChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1697,7 +1694,7 @@ long java_nio_channels_FileChannel::transferFrom(AndroidCXX::java_nio_channels_R
 	const char *methodSignature = "(Ljava/nio/channels/ReadableByteChannel;JJ)J";
 	const char *className = "java/nio/channels/FileChannel";
 
-	LOGV("java_nio_channels_FileChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

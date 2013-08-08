@@ -120,7 +120,7 @@ void com_facebook_widget_PlacePickerFragment_2::run()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/widget/PlacePickerFragment$2";
 
-	LOGV("com_facebook_widget_PlacePickerFragment_2 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PlacePickerFragment_2 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -69,11 +69,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_CalendarView"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -187,7 +184,7 @@ android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_con
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -265,7 +262,7 @@ android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_con
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -364,7 +361,7 @@ android_widget_CalendarView::android_widget_CalendarView(AndroidCXX::android_con
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -436,7 +433,7 @@ long android_widget_CalendarView::getDate()
 	const char *methodSignature = "()J";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -480,7 +477,7 @@ void android_widget_CalendarView::setDate(long const& arg0,bool const& arg1,bool
 	const char *methodSignature = "(JZZ)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -567,7 +564,7 @@ void android_widget_CalendarView::setDate(long const& arg0)
 	const char *methodSignature = "(J)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -612,7 +609,7 @@ bool android_widget_CalendarView::isEnabled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -656,7 +653,7 @@ void android_widget_CalendarView::onInitializeAccessibilityEvent(AndroidCXX::and
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -701,7 +698,7 @@ void android_widget_CalendarView::onInitializeAccessibilityNodeInfo(AndroidCXX::
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -746,7 +743,7 @@ void android_widget_CalendarView::setEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -791,7 +788,7 @@ void android_widget_CalendarView::setShownWeekCount(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -836,7 +833,7 @@ int android_widget_CalendarView::getShownWeekCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -880,7 +877,7 @@ void android_widget_CalendarView::setSelectedWeekBackgroundColor(int const& arg0
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -925,7 +922,7 @@ int android_widget_CalendarView::getSelectedWeekBackgroundColor()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -969,7 +966,7 @@ void android_widget_CalendarView::setFocusedMonthDateColor(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1014,7 +1011,7 @@ int android_widget_CalendarView::getFocusedMonthDateColor()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1058,7 +1055,7 @@ void android_widget_CalendarView::setUnfocusedMonthDateColor(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1103,7 +1100,7 @@ int android_widget_CalendarView::getUnfocusedMonthDateColor()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1147,7 +1144,7 @@ void android_widget_CalendarView::setWeekNumberColor(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1192,7 +1189,7 @@ int android_widget_CalendarView::getWeekNumberColor()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1236,7 +1233,7 @@ void android_widget_CalendarView::setWeekSeparatorLineColor(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1281,7 +1278,7 @@ int android_widget_CalendarView::getWeekSeparatorLineColor()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1325,7 +1322,7 @@ void android_widget_CalendarView::setSelectedDateVerticalBar(AndroidCXX::android
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1370,7 +1367,7 @@ void android_widget_CalendarView::setSelectedDateVerticalBar(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1415,7 +1412,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_CalendarView::getS
 	const char *methodSignature = "()Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1459,7 +1456,7 @@ void android_widget_CalendarView::setWeekDayTextAppearance(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1504,7 +1501,7 @@ int android_widget_CalendarView::getWeekDayTextAppearance()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1548,7 +1545,7 @@ void android_widget_CalendarView::setDateTextAppearance(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1593,7 +1590,7 @@ int android_widget_CalendarView::getDateTextAppearance()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1637,7 +1634,7 @@ long android_widget_CalendarView::getMinDate()
 	const char *methodSignature = "()J";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1681,7 +1678,7 @@ void android_widget_CalendarView::setMinDate(long const& arg0)
 	const char *methodSignature = "(J)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1726,7 +1723,7 @@ long android_widget_CalendarView::getMaxDate()
 	const char *methodSignature = "()J";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1770,7 +1767,7 @@ void android_widget_CalendarView::setMaxDate(long const& arg0)
 	const char *methodSignature = "(J)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1815,7 +1812,7 @@ void android_widget_CalendarView::setShowWeekNumber(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1860,7 +1857,7 @@ bool android_widget_CalendarView::getShowWeekNumber()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1904,7 +1901,7 @@ int android_widget_CalendarView::getFirstDayOfWeek()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1948,7 +1945,7 @@ void android_widget_CalendarView::setFirstDayOfWeek(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1993,7 +1990,7 @@ void android_widget_CalendarView::setOnDateChangeListener(AndroidCXX::android_wi
 	const char *methodSignature = "(Landroid/widget/CalendarView$OnDateChangeListener;)V";
 	const char *className = "android/widget/CalendarView";
 
-	LOGV("android_widget_CalendarView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CalendarView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -55,11 +55,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_SlidingDrawer"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -182,7 +179,7 @@ android_widget_SlidingDrawer::android_widget_SlidingDrawer(AndroidCXX::android_c
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/SlidingDrawer";
 
-	LOGV("android_widget_SlidingDrawer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SlidingDrawer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -281,7 +278,7 @@ android_widget_SlidingDrawer::android_widget_SlidingDrawer(AndroidCXX::android_c
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/SlidingDrawer";
 
-	LOGV("android_widget_SlidingDrawer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SlidingDrawer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -374,7 +371,7 @@ void android_widget_SlidingDrawer::lock()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/SlidingDrawer";
 
-	LOGV("android_widget_SlidingDrawer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SlidingDrawer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -398,7 +395,7 @@ void android_widget_SlidingDrawer::close()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/SlidingDrawer";
 
-	LOGV("android_widget_SlidingDrawer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SlidingDrawer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -422,7 +419,7 @@ AndroidCXX::android_view_View android_widget_SlidingDrawer::getContent()
 	const char *methodSignature = "()Landroid/view/View;";
 	const char *className = "android/widget/SlidingDrawer";
 
-	LOGV("android_widget_SlidingDrawer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SlidingDrawer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -466,7 +463,7 @@ void android_widget_SlidingDrawer::open()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/SlidingDrawer";
 
-	LOGV("android_widget_SlidingDrawer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SlidingDrawer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -490,7 +487,7 @@ AndroidCXX::android_view_View android_widget_SlidingDrawer::getHandle()
 	const char *methodSignature = "()Landroid/view/View;";
 	const char *className = "android/widget/SlidingDrawer";
 
-	LOGV("android_widget_SlidingDrawer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SlidingDrawer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -534,7 +531,7 @@ void android_widget_SlidingDrawer::unlock()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/SlidingDrawer";
 
-	LOGV("android_widget_SlidingDrawer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SlidingDrawer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -558,7 +555,7 @@ bool android_widget_SlidingDrawer::onTouchEvent(AndroidCXX::android_view_MotionE
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/SlidingDrawer";
 
-	LOGV("android_widget_SlidingDrawer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SlidingDrawer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -623,7 +620,7 @@ bool android_widget_SlidingDrawer::onInterceptTouchEvent(AndroidCXX::android_vie
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/SlidingDrawer";
 
-	LOGV("android_widget_SlidingDrawer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SlidingDrawer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -688,7 +685,7 @@ void android_widget_SlidingDrawer::onInitializeAccessibilityEvent(AndroidCXX::an
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/SlidingDrawer";
 
-	LOGV("android_widget_SlidingDrawer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SlidingDrawer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -733,7 +730,7 @@ void android_widget_SlidingDrawer::onInitializeAccessibilityNodeInfo(AndroidCXX:
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/SlidingDrawer";
 
-	LOGV("android_widget_SlidingDrawer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SlidingDrawer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -778,7 +775,7 @@ void android_widget_SlidingDrawer::toggle()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/SlidingDrawer";
 
-	LOGV("android_widget_SlidingDrawer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SlidingDrawer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -802,7 +799,7 @@ void android_widget_SlidingDrawer::animateToggle()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/SlidingDrawer";
 
-	LOGV("android_widget_SlidingDrawer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SlidingDrawer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -826,7 +823,7 @@ void android_widget_SlidingDrawer::animateClose()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/SlidingDrawer";
 
-	LOGV("android_widget_SlidingDrawer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SlidingDrawer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -850,7 +847,7 @@ void android_widget_SlidingDrawer::animateOpen()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/SlidingDrawer";
 
-	LOGV("android_widget_SlidingDrawer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SlidingDrawer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -874,7 +871,7 @@ void android_widget_SlidingDrawer::setOnDrawerOpenListener(AndroidCXX::android_w
 	const char *methodSignature = "(Landroid/widget/SlidingDrawer$OnDrawerOpenListener;)V";
 	const char *className = "android/widget/SlidingDrawer";
 
-	LOGV("android_widget_SlidingDrawer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SlidingDrawer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -919,7 +916,7 @@ void android_widget_SlidingDrawer::setOnDrawerCloseListener(AndroidCXX::android_
 	const char *methodSignature = "(Landroid/widget/SlidingDrawer$OnDrawerCloseListener;)V";
 	const char *className = "android/widget/SlidingDrawer";
 
-	LOGV("android_widget_SlidingDrawer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SlidingDrawer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -964,7 +961,7 @@ void android_widget_SlidingDrawer::setOnDrawerScrollListener(AndroidCXX::android
 	const char *methodSignature = "(Landroid/widget/SlidingDrawer$OnDrawerScrollListener;)V";
 	const char *className = "android/widget/SlidingDrawer";
 
-	LOGV("android_widget_SlidingDrawer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SlidingDrawer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1009,7 +1006,7 @@ bool android_widget_SlidingDrawer::isOpened()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/SlidingDrawer";
 
-	LOGV("android_widget_SlidingDrawer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SlidingDrawer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1053,7 +1050,7 @@ bool android_widget_SlidingDrawer::isMoving()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/SlidingDrawer";
 
-	LOGV("android_widget_SlidingDrawer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SlidingDrawer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

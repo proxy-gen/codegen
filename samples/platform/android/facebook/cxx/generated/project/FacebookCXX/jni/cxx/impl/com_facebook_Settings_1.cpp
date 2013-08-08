@@ -133,7 +133,7 @@ AndroidCXX::java_lang_Thread com_facebook_Settings_1::newThread(AndroidCXX::java
 	const char *methodSignature = "(Ljava/lang/Runnable;)Ljava/lang/Thread;";
 	const char *className = "com/facebook/Settings$1";
 
-	LOGV("com_facebook_Settings_1 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Settings_1 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

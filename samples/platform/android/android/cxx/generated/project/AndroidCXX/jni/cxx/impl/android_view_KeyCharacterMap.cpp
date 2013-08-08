@@ -40,11 +40,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_KeyCharacterMap"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -152,7 +149,7 @@ int android_view_KeyCharacterMap::get(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)I";
 	const char *className = "android/view/KeyCharacterMap";
 
-	LOGV("android_view_KeyCharacterMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyCharacterMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -238,7 +235,7 @@ AndroidCXX::android_view_KeyCharacterMap android_view_KeyCharacterMap::load(int 
 	const char *methodSignature = "(I)Landroid/view/KeyCharacterMap;";
 	const char *className = "android/view/KeyCharacterMap";
 
-	LOGV("android_view_KeyCharacterMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyCharacterMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -303,7 +300,7 @@ char android_view_KeyCharacterMap::getNumber(int const& arg0)
 	const char *methodSignature = "(I)C";
 	const char *className = "android/view/KeyCharacterMap";
 
-	LOGV("android_view_KeyCharacterMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyCharacterMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -368,7 +365,7 @@ int android_view_KeyCharacterMap::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/KeyCharacterMap";
 
-	LOGV("android_view_KeyCharacterMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyCharacterMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -412,7 +409,7 @@ void android_view_KeyCharacterMap::writeToParcel(AndroidCXX::android_os_Parcel c
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/view/KeyCharacterMap";
 
-	LOGV("android_view_KeyCharacterMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyCharacterMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -478,7 +475,7 @@ int android_view_KeyCharacterMap::getDeadChar(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)I";
 	const char *className = "android/view/KeyCharacterMap";
 
-	LOGV("android_view_KeyCharacterMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyCharacterMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -564,7 +561,7 @@ char android_view_KeyCharacterMap::getDisplayLabel(int const& arg0)
 	const char *methodSignature = "(I)C";
 	const char *className = "android/view/KeyCharacterMap";
 
-	LOGV("android_view_KeyCharacterMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyCharacterMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -629,7 +626,7 @@ bool android_view_KeyCharacterMap::getKeyData(int const& arg0,AndroidCXX::androi
 	const char *methodSignature = "(ILandroid/view/KeyCharacterMap$KeyData;)Z";
 	const char *className = "android/view/KeyCharacterMap";
 
-	LOGV("android_view_KeyCharacterMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyCharacterMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -715,7 +712,7 @@ char android_view_KeyCharacterMap::getMatch(int const& arg0,std::vector<char> co
 	const char *methodSignature = "(I[C)C";
 	const char *className = "android/view/KeyCharacterMap";
 
-	LOGV("android_view_KeyCharacterMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyCharacterMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -819,7 +816,7 @@ char android_view_KeyCharacterMap::getMatch(int const& arg0,std::vector<char> co
 	const char *methodSignature = "(I[CI)C";
 	const char *className = "android/view/KeyCharacterMap";
 
-	LOGV("android_view_KeyCharacterMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyCharacterMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -944,7 +941,7 @@ bool android_view_KeyCharacterMap::isPrintingKey(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/view/KeyCharacterMap";
 
-	LOGV("android_view_KeyCharacterMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyCharacterMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1009,7 +1006,7 @@ std::vector<AndroidCXX::android_view_KeyEvent > android_view_KeyCharacterMap::ge
 	const char *methodSignature = "([C)[Landroid/view/KeyEvent;";
 	const char *className = "android/view/KeyCharacterMap";
 
-	LOGV("android_view_KeyCharacterMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyCharacterMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1110,7 +1107,7 @@ int android_view_KeyCharacterMap::getKeyboardType()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/KeyCharacterMap";
 
-	LOGV("android_view_KeyCharacterMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyCharacterMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1154,7 +1151,7 @@ int android_view_KeyCharacterMap::getModifierBehavior()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/KeyCharacterMap";
 
-	LOGV("android_view_KeyCharacterMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyCharacterMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1198,7 +1195,7 @@ bool android_view_KeyCharacterMap::deviceHasKey(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/view/KeyCharacterMap";
 
-	LOGV("android_view_KeyCharacterMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyCharacterMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1263,7 +1260,7 @@ std::vector<bool> android_view_KeyCharacterMap::deviceHasKeys(std::vector<int> c
 	const char *methodSignature = "([I)[Z";
 	const char *className = "android/view/KeyCharacterMap";
 
-	LOGV("android_view_KeyCharacterMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyCharacterMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

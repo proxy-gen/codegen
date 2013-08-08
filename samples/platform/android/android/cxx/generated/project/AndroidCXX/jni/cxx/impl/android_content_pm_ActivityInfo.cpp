@@ -33,11 +33,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_content_pm_ActivityInfo"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -113,7 +110,7 @@ android_content_pm_ActivityInfo::android_content_pm_ActivityInfo()
 	const char *methodSignature = "()V";
 	const char *className = "android/content/pm/ActivityInfo";
 
-	LOGV("android_content_pm_ActivityInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_ActivityInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -149,7 +146,7 @@ android_content_pm_ActivityInfo::android_content_pm_ActivityInfo(AndroidCXX::and
 	const char *methodSignature = "(Landroid/content/pm/ActivityInfo;)V";
 	const char *className = "android/content/pm/ActivityInfo";
 
-	LOGV("android_content_pm_ActivityInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_ActivityInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -221,7 +218,7 @@ AndroidCXX::java_lang_String android_content_pm_ActivityInfo::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/content/pm/ActivityInfo";
 
-	LOGV("android_content_pm_ActivityInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_ActivityInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -265,7 +262,7 @@ void android_content_pm_ActivityInfo::dump(AndroidCXX::android_util_Printer cons
 	const char *methodSignature = "(Landroid/util/Printer;Ljava/lang/String;)V";
 	const char *className = "android/content/pm/ActivityInfo";
 
-	LOGV("android_content_pm_ActivityInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_ActivityInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -331,7 +328,7 @@ int android_content_pm_ActivityInfo::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/pm/ActivityInfo";
 
-	LOGV("android_content_pm_ActivityInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_ActivityInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -375,7 +372,7 @@ void android_content_pm_ActivityInfo::writeToParcel(AndroidCXX::android_os_Parce
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/content/pm/ActivityInfo";
 
-	LOGV("android_content_pm_ActivityInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_ActivityInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -441,7 +438,7 @@ int android_content_pm_ActivityInfo::getThemeResource()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/pm/ActivityInfo";
 
-	LOGV("android_content_pm_ActivityInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_ActivityInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

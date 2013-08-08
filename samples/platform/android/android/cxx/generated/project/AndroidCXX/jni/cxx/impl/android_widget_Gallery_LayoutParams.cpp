@@ -27,11 +27,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_Gallery_LayoutParams"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -124,7 +121,7 @@ android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(Android
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/Gallery$LayoutParams";
 
-	LOGV("android_widget_Gallery_LayoutParams className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery_LayoutParams className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -202,7 +199,7 @@ android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(int con
 	const char *methodSignature = "(II)V";
 	const char *className = "android/widget/Gallery$LayoutParams";
 
-	LOGV("android_widget_Gallery_LayoutParams className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery_LayoutParams className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -280,7 +277,7 @@ android_widget_Gallery_LayoutParams::android_widget_Gallery_LayoutParams(Android
 	const char *methodSignature = "(Landroid/view/ViewGroup$LayoutParams;)V";
 	const char *className = "android/widget/Gallery$LayoutParams";
 
-	LOGV("android_widget_Gallery_LayoutParams className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery_LayoutParams className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

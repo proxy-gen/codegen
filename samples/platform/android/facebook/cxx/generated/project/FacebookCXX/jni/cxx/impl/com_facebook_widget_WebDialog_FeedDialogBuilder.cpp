@@ -206,7 +206,7 @@ com_facebook_widget_WebDialog_FeedDialogBuilder::com_facebook_widget_WebDialog_F
 	const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/Session;Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/widget/WebDialog$FeedDialogBuilder";
 
-	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -305,7 +305,7 @@ com_facebook_widget_WebDialog_FeedDialogBuilder::com_facebook_widget_WebDialog_F
 	const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/Session;)V";
 	const char *className = "com/facebook/widget/WebDialog$FeedDialogBuilder";
 
-	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -398,7 +398,7 @@ FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$FeedDialogBuilder;";
 	const char *className = "com/facebook/widget/WebDialog$FeedDialogBuilder";
 
-	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -463,7 +463,7 @@ FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$FeedDialogBuilder;";
 	const char *className = "com/facebook/widget/WebDialog$FeedDialogBuilder";
 
-	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -528,7 +528,7 @@ FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$FeedDialogBuilder;";
 	const char *className = "com/facebook/widget/WebDialog$FeedDialogBuilder";
 
-	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -593,7 +593,7 @@ FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$FeedDialogBuilder;";
 	const char *className = "com/facebook/widget/WebDialog$FeedDialogBuilder";
 
-	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -658,7 +658,7 @@ FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$FeedDialogBuilder;";
 	const char *className = "com/facebook/widget/WebDialog$FeedDialogBuilder";
 
-	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -723,7 +723,7 @@ FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$FeedDialogBuilder;";
 	const char *className = "com/facebook/widget/WebDialog$FeedDialogBuilder";
 
-	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -788,7 +788,7 @@ FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$FeedDialogBuilder;";
 	const char *className = "com/facebook/widget/WebDialog$FeedDialogBuilder";
 
-	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -853,7 +853,7 @@ FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$FeedDialogBuilder;";
 	const char *className = "com/facebook/widget/WebDialog$FeedDialogBuilder";
 
-	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

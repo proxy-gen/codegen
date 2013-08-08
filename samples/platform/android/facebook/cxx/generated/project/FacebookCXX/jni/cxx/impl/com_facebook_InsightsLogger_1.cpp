@@ -120,7 +120,7 @@ void com_facebook_InsightsLogger_1::run()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/InsightsLogger$1";
 
-	LOGV("com_facebook_InsightsLogger_1 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_InsightsLogger_1 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

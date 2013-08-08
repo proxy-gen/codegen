@@ -120,7 +120,7 @@ void com_facebook_widget_GraphObjectAdapter_DataNeededListener::onDataNeeded()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/widget/GraphObjectAdapter$DataNeededListener";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter_DataNeededListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter_DataNeededListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

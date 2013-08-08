@@ -46,11 +46,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_RatingBar"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -161,7 +158,7 @@ android_widget_RatingBar::android_widget_RatingBar(AndroidCXX::android_content_C
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/RatingBar";
 
-	LOGV("android_widget_RatingBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RatingBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -239,7 +236,7 @@ android_widget_RatingBar::android_widget_RatingBar(AndroidCXX::android_content_C
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/RatingBar";
 
-	LOGV("android_widget_RatingBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RatingBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -296,7 +293,7 @@ android_widget_RatingBar::android_widget_RatingBar(AndroidCXX::android_content_C
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/RatingBar";
 
-	LOGV("android_widget_RatingBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RatingBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -410,7 +407,7 @@ void android_widget_RatingBar::onInitializeAccessibilityEvent(AndroidCXX::androi
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/RatingBar";
 
-	LOGV("android_widget_RatingBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RatingBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -455,7 +452,7 @@ void android_widget_RatingBar::onInitializeAccessibilityNodeInfo(AndroidCXX::and
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/RatingBar";
 
-	LOGV("android_widget_RatingBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RatingBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -500,7 +497,7 @@ void android_widget_RatingBar::setOnRatingBarChangeListener(AndroidCXX::android_
 	const char *methodSignature = "(Landroid/widget/RatingBar$OnRatingBarChangeListener;)V";
 	const char *className = "android/widget/RatingBar";
 
-	LOGV("android_widget_RatingBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RatingBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -545,7 +542,7 @@ AndroidCXX::android_widget_RatingBar_OnRatingBarChangeListener android_widget_Ra
 	const char *methodSignature = "()Landroid/widget/RatingBar$OnRatingBarChangeListener;";
 	const char *className = "android/widget/RatingBar";
 
-	LOGV("android_widget_RatingBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RatingBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -589,7 +586,7 @@ void android_widget_RatingBar::setIsIndicator(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/RatingBar";
 
-	LOGV("android_widget_RatingBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RatingBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -634,7 +631,7 @@ bool android_widget_RatingBar::isIndicator()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/RatingBar";
 
-	LOGV("android_widget_RatingBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RatingBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -678,7 +675,7 @@ void android_widget_RatingBar::setNumStars(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/RatingBar";
 
-	LOGV("android_widget_RatingBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RatingBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -723,7 +720,7 @@ int android_widget_RatingBar::getNumStars()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/RatingBar";
 
-	LOGV("android_widget_RatingBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RatingBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -767,7 +764,7 @@ void android_widget_RatingBar::setRating(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "android/widget/RatingBar";
 
-	LOGV("android_widget_RatingBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RatingBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -812,7 +809,7 @@ float android_widget_RatingBar::getRating()
 	const char *methodSignature = "()F";
 	const char *className = "android/widget/RatingBar";
 
-	LOGV("android_widget_RatingBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RatingBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -856,7 +853,7 @@ void android_widget_RatingBar::setStepSize(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "android/widget/RatingBar";
 
-	LOGV("android_widget_RatingBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RatingBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -901,7 +898,7 @@ float android_widget_RatingBar::getStepSize()
 	const char *methodSignature = "()F";
 	const char *className = "android/widget/RatingBar";
 
-	LOGV("android_widget_RatingBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RatingBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -945,7 +942,7 @@ void android_widget_RatingBar::setMax(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/RatingBar";
 
-	LOGV("android_widget_RatingBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RatingBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

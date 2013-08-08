@@ -131,7 +131,7 @@ int com_facebook_widget_GraphObjectAdapter_1::compare(FacebookCXX::com_facebook_
 	const char *methodSignature = "(Lcom/facebook/model/GraphObject;Lcom/facebook/model/GraphObject;)I";
 	const char *className = "com/facebook/widget/GraphObjectAdapter$1";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter_1 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter_1 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

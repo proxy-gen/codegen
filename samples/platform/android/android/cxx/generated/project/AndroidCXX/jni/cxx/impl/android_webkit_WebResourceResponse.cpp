@@ -37,11 +37,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_webkit_WebResourceResponse"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -152,7 +149,7 @@ android_webkit_WebResourceResponse::android_webkit_WebResourceResponse(AndroidCX
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/io/InputStream;)V";
 	const char *className = "android/webkit/WebResourceResponse";
 
-	LOGV("android_webkit_WebResourceResponse className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebResourceResponse className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -266,7 +263,7 @@ AndroidCXX::java_lang_String android_webkit_WebResourceResponse::getEncoding()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/webkit/WebResourceResponse";
 
-	LOGV("android_webkit_WebResourceResponse className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebResourceResponse className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -310,7 +307,7 @@ AndroidCXX::java_io_InputStream android_webkit_WebResourceResponse::getData()
 	const char *methodSignature = "()Ljava/io/InputStream;";
 	const char *className = "android/webkit/WebResourceResponse";
 
-	LOGV("android_webkit_WebResourceResponse className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebResourceResponse className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -354,7 +351,7 @@ void android_webkit_WebResourceResponse::setData(AndroidCXX::java_io_InputStream
 	const char *methodSignature = "(Ljava/io/InputStream;)V";
 	const char *className = "android/webkit/WebResourceResponse";
 
-	LOGV("android_webkit_WebResourceResponse className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebResourceResponse className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -399,7 +396,7 @@ AndroidCXX::java_lang_String android_webkit_WebResourceResponse::getMimeType()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/webkit/WebResourceResponse";
 
-	LOGV("android_webkit_WebResourceResponse className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebResourceResponse className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -443,7 +440,7 @@ void android_webkit_WebResourceResponse::setMimeType(AndroidCXX::java_lang_Strin
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/webkit/WebResourceResponse";
 
-	LOGV("android_webkit_WebResourceResponse className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebResourceResponse className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -488,7 +485,7 @@ void android_webkit_WebResourceResponse::setEncoding(AndroidCXX::java_lang_Strin
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/webkit/WebResourceResponse";
 
-	LOGV("android_webkit_WebResourceResponse className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebResourceResponse className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

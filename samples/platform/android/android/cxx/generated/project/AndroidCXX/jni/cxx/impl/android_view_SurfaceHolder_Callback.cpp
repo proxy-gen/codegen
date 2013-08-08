@@ -27,11 +27,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_SurfaceHolder_Callback"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -139,7 +136,7 @@ void android_view_SurfaceHolder_Callback::surfaceCreated(AndroidCXX::android_vie
 	const char *methodSignature = "(Landroid/view/SurfaceHolder;)V";
 	const char *className = "android/view/SurfaceHolder$Callback";
 
-	LOGV("android_view_SurfaceHolder_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_SurfaceHolder_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -184,7 +181,7 @@ void android_view_SurfaceHolder_Callback::surfaceChanged(AndroidCXX::android_vie
 	const char *methodSignature = "(Landroid/view/SurfaceHolder;III)V";
 	const char *className = "android/view/SurfaceHolder$Callback";
 
-	LOGV("android_view_SurfaceHolder_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_SurfaceHolder_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -292,7 +289,7 @@ void android_view_SurfaceHolder_Callback::surfaceDestroyed(AndroidCXX::android_v
 	const char *methodSignature = "(Landroid/view/SurfaceHolder;)V";
 	const char *className = "android/view/SurfaceHolder$Callback";
 
-	LOGV("android_view_SurfaceHolder_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_SurfaceHolder_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
